@@ -311,14 +311,14 @@ export function DSEDashboard({ user, userData, onLogout, onBackToMainMenu }: DSE
 
   // ── Home Tab ──────────────────────────────────────────────────────────────
   const HomeTab = () => (
-    <div className="p-4 space-y-4 pb-6">
+    <div className="p-3 sm:p-4 space-y-4 pb-4 max-w-md mx-auto w-full">
       {/* Hero card */}
       <div
-        className="p-5 text-white relative overflow-hidden"
+        className="p-5 text-white relative overflow-hidden shadow-xl"
         style={{
           borderRadius: 24,
-          background: 'linear-gradient(135deg, #CC0000 0%, #FF1A1A 60%, #FF4D4D 100%)',
-          boxShadow: '0 8px 32px rgba(204,0,0,0.35)',
+          background: 'linear-gradient(135deg, #E60000 0%, #CC0000 100%)',
+          boxShadow: '0 8px 32px rgba(204,0,0,0.22)',
         }}
       >
         {/* decorative circles */}
@@ -326,11 +326,11 @@ export function DSEDashboard({ user, userData, onLogout, onBackToMainMenu }: DSE
         <div className="absolute -bottom-6 -right-2 w-20 h-20 rounded-full bg-white/10" />
 
         <div className="relative z-10">
-          <p className="text-white/70 text-sm font-medium">{getGreeting()},</p>
-          <h1 className="text-2xl font-bold mt-0.5">{dseName.split(' ')[0]}</h1>
-          <p className="text-white/60 text-xs mt-1">DSE · HBB Lead Portal</p>
+          <p className="text-white/80 text-base font-medium tracking-tight mb-0.5">{getGreeting()},</p>
+          <h1 className="text-3xl font-black leading-tight mb-0.5 drop-shadow-sm">{dseName.split(' ')[0]}</h1>
+          <p className="text-white/70 text-xs mb-2">DSE · HBB Lead Portal</p>
 
-          <div className="grid grid-cols-3 gap-2 mt-4">
+          <div className="grid grid-cols-3 gap-2 mt-3">
             {[
               { label: 'Total', value: stats.total },
               { label: 'Active', value: stats.assigned },
@@ -338,11 +338,11 @@ export function DSEDashboard({ user, userData, onLogout, onBackToMainMenu }: DSE
             ].map(({ label, value }) => (
               <div
                 key={label}
-                className="text-center py-2.5 px-1"
-                style={{ background: 'rgba(255,255,255,0.15)', borderRadius: 14, border: '1px solid rgba(255,255,255,0.25)' }}
+                className="text-center py-2 px-1"
+                style={{ background: 'rgba(255,255,255,0.13)', borderRadius: 14, border: '1px solid rgba(255,255,255,0.18)' }}
               >
-                <p className="text-2xl font-bold">{value}</p>
-                <p className="text-[11px] text-white/70 mt-0.5">{label}</p>
+                <p className="text-xl font-bold tracking-tight">{value}</p>
+                <p className="text-[11px] text-white/80 mt-0.5 font-medium">{label}</p>
               </div>
             ))}
           </div>
@@ -350,17 +350,17 @@ export function DSEDashboard({ user, userData, onLogout, onBackToMainMenu }: DSE
       </div>
 
       {/* Quick actions */}
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-2 gap-3 mt-2">
         <button
           data-testid="new-lead-btn"
           onClick={() => setActiveTab('new-lead')}
-          className="flex items-center gap-3 p-4 bg-white border border-gray-100 shadow-sm rounded-3xl active:scale-[0.97] transition-transform"
+          className="flex items-center gap-3 p-4 bg-white border border-gray-100 shadow-lg rounded-2xl active:scale-95 transition-transform"
         >
-          <div className="w-11 h-11 rounded-2xl flex items-center justify-center" style={{ background: 'rgba(230,0,0,0.08)' }}>
-            <Plus className="w-5 h-5 text-red-600" />
+          <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-red-50">
+            <Plus className="w-6 h-6 text-red-600" />
           </div>
           <div className="text-left">
-            <p className="text-sm font-bold text-gray-900">New Lead</p>
+            <p className="text-base font-bold text-gray-900">New Lead</p>
             <p className="text-xs text-gray-400">Submit an order</p>
           </div>
         </button>
@@ -368,13 +368,13 @@ export function DSEDashboard({ user, userData, onLogout, onBackToMainMenu }: DSE
         <button
           data-testid="my-leads-tab"
           onClick={() => setActiveTab('my-leads')}
-          className="flex items-center gap-3 p-4 bg-white border border-gray-100 shadow-sm rounded-3xl active:scale-[0.97] transition-transform"
+          className="flex items-center gap-3 p-4 bg-white border border-gray-100 shadow-lg rounded-2xl active:scale-95 transition-transform"
         >
-          <div className="w-11 h-11 rounded-2xl flex items-center justify-center bg-blue-50">
-            <List className="w-5 h-5 text-blue-600" />
+          <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-blue-50">
+            <List className="w-6 h-6 text-blue-600" />
           </div>
           <div className="text-left">
-            <p className="text-sm font-bold text-gray-900">My Leads</p>
+            <p className="text-base font-bold text-gray-900">My Leads</p>
             <p className="text-xs text-gray-400">{stats.total} total</p>
           </div>
         </button>
@@ -560,7 +560,7 @@ export function DSEDashboard({ user, userData, onLogout, onBackToMainMenu }: DSE
   ];
 
   return (
-    <div data-testid="hbb-dashboard" className="flex-1 flex flex-col bg-gray-50 h-full overflow-hidden">
+    <div data-testid="hbb-dashboard" className="flex flex-col h-screen min-h-0 bg-gray-50 overflow-hidden font-sans">
       {/* ── Header ─────────────────────────────────────────────────────────── */}
       <div
         className="flex-shrink-0 px-4 py-3 flex items-center justify-between"
@@ -614,12 +614,12 @@ export function DSEDashboard({ user, userData, onLogout, onBackToMainMenu }: DSE
       </div>
 
       {/* ── Content area ───────────────────────────────────────────────────── */}
-      <div className="flex-1 overflow-y-auto min-h-0">
+      <main className="flex-1 min-h-0 flex flex-col overflow-y-auto">
         {activeTab === 'home'     && <HomeTab />}
         {activeTab === 'my-leads' && <MyLeadsTab />}
         {activeTab === 'profile'  && <ProfileTab />}
         {activeTab === 'new-lead' && (
-          <div className="h-full overflow-y-auto">
+          <div className="flex-1 overflow-y-auto">
             <HBBNewLeadForm
               agentName={dseName}
               agentPhone={user?.phone_number}
@@ -631,11 +631,11 @@ export function DSEDashboard({ user, userData, onLogout, onBackToMainMenu }: DSE
             />
           </div>
         )}
-      </div>
+      </main>
 
       {/* ── Bottom navigation ──────────────────────────────────────────────── */}
-      <div
-        className="flex-shrink-0 bg-white border-t border-gray-100 flex items-center justify-around px-2 py-1"
+      <nav
+        className="flex-shrink-0 bg-white border-t border-gray-100 flex items-center justify-around px-2 py-1 shadow-lg"
         style={{ boxShadow: '0 -4px 20px rgba(0,0,0,0.06)' }}
       >
         {NAV_ITEMS.map(({ id, icon: Icon, label }) => {
@@ -645,12 +645,13 @@ export function DSEDashboard({ user, userData, onLogout, onBackToMainMenu }: DSE
             <button
               key={id}
               onClick={() => setActiveTab(id)}
-              className="flex flex-col items-center gap-0.5 py-2 px-4 transition-all active:scale-90"
+              className={`flex flex-col items-center gap-0.5 py-2 px-4 transition-all active:scale-95 ${active ? 'font-bold' : ''}`}
+              style={{ minWidth: 64 }}
             >
               {isNew ? (
                 <div
-                  className="w-12 h-12 rounded-2xl flex items-center justify-center -mt-5 shadow-lg"
-                  style={{ background: 'linear-gradient(135deg, #CC0000, #E60000)', boxShadow: '0 4px 16px rgba(230,0,0,0.4)' }}
+                  className="w-12 h-12 rounded-2xl flex items-center justify-center -mt-5 shadow-xl border-4 border-white"
+                  style={{ background: 'linear-gradient(135deg, #E60000, #CC0000)', boxShadow: '0 6px 24px rgba(230,0,0,0.18)' }}
                 >
                   <Icon className="w-6 h-6 text-white" />
                 </div>
@@ -658,8 +659,8 @@ export function DSEDashboard({ user, userData, onLogout, onBackToMainMenu }: DSE
                 <div
                   className="w-10 h-10 rounded-2xl flex items-center justify-center transition-all"
                   style={{
-                    background: active ? 'rgba(230,0,0,0.08)' : 'transparent',
-                    transform: active ? 'scale(1.08)' : 'scale(1)',
+                    background: active ? 'rgba(230,0,0,0.10)' : 'transparent',
+                    transform: active ? 'scale(1.10)' : 'scale(1)',
                   }}
                 >
                   <Icon
@@ -669,15 +670,15 @@ export function DSEDashboard({ user, userData, onLogout, onBackToMainMenu }: DSE
                 </div>
               )}
               <span
-                className="text-[10px] font-semibold transition-colors"
-                style={{ color: active ? '#E60000' : '#9ca3af' }}
+                className="text-[11px] font-semibold transition-colors"
+                style={{ color: active ? '#E60000' : '#9ca3af', letterSpacing: 0.5 }}
               >
                 {label}
               </span>
             </button>
           );
         })}
-      </div>
+      </nav>
 
       {/* ── Lead detail modal ───────────────────────────────────────────────── */}
       {selectedLead && (
