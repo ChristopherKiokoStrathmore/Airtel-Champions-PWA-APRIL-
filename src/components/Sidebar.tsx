@@ -1,5 +1,5 @@
 // Import Airtel Champions logo
-import airtelChampionsLogo from 'figma:asset/278c018c02387a7b630c9971b1a9e2245143943d.png';
+import airtelChampionsLogo from '../assets/LOGO.png';
 
 interface SidebarProps {
   currentScreen: string;
