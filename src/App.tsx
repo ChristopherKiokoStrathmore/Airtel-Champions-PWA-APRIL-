@@ -60,6 +60,8 @@ import { GuidedTour, shouldShowAppTour } from './components/guided-tour';
 import { SignupScreen } from './components/signup-screen';
 import { ClientOrderTracker } from './components/hbb/ClientOrderTracker';
 import { LoginPage } from './components/LoginPage';
+import { PromoterTeamLeadDashboard } from './components/promoter-team-lead/PromoterTeamLeadDashboard';
+import { getTLSession, clearTLSession } from './components/promoter-team-lead/promoter-tl-api';
 import { LogOut, Package, Plus, Phone, ChevronRight } from 'lucide-react';
 
 // Safe fields to select from app_users (never select * to avoid leaking sensitive data)
@@ -123,6 +125,7 @@ function MobileContainer({ children }: { children: React.ReactNode }) {
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isTLAuthenticated, setIsTLAuthenticated] = useState<boolean>(() => getTLSession() !== null);
   const [user, setUser] = useState<any>(null);
   const [userData, setUserData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
@@ -520,6 +523,20 @@ function App() {
           <img src={airtelChampionsLogo} alt="Airtel Champions" className="w-64 h-64 mx-auto relative object-contain" style={{ clipPath: 'inset(4px)' }} />
         </div>
       </div>
+    );
+  }
+
+  // ── Promoter Team Lead session ──────────────────────────────────────────────
+  if (isTLAuthenticated) {
+    return (
+      <MobileContainer>
+        <PromoterTeamLeadDashboard
+          onLogout={() => {
+            clearTLSession();
+            setIsTLAuthenticated(false);
+          }}
+        />
+      </MobileContainer>
     );
   }
 
