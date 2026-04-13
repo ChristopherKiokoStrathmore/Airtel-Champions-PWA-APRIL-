@@ -47,6 +47,7 @@
 import React, { useState, useEffect, Suspense } from 'react';
 
 import { RubiksCube, AppMode } from './RubiksCube';
+import { PromoterTeamLeadEntryPage } from './promoter-team-lead/PromoterTeamLeadEntryPage';
 
 import { supabase } from '../utils/supabase/client';
 import { hbbLogin } from './hbb/hbb-api';
@@ -143,6 +144,7 @@ export function LoginPage({
   const [showDiagTool,    setShowDiagTool]    = useState(false);
   const [showSchemaCheck, setShowSchemaCheck] = useState(false);
   const [showHelp,        setShowHelp]        = useState(false);
+  const [showTLEntry,     setShowTLEntry]     = useState(false);
 
   const isDev = (() => {
     try {
@@ -453,6 +455,16 @@ export function LoginPage({
     }
   };
 
+  // Show Team Lead entry page when button is tapped
+  if (showTLEntry) {
+    return (
+      <PromoterTeamLeadEntryPage
+        onSuccess={() => window.location.reload()}
+        onBack={() => setShowTLEntry(false)}
+      />
+    );
+  }
+
   const isHBB = mode === 'hbb';
 
   // ─── Render ────────────────────────────────────────────────────────────────
@@ -573,6 +585,31 @@ export function LoginPage({
               className="w-full py-3.5 text-sm border-2 border-red-600 text-red-600 rounded-xl hover:bg-red-50 active:scale-[0.98] transition-all font-semibold tracking-wide"
             >
               SIGN UP
+            </button>
+          </div>
+        )}
+
+        {/* ⑤b Sales-only: Promoter Team Lead section ─────────────────────── */}
+        {!isHBB && (
+          <div className="mt-3">
+            <div className="relative my-3">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-gray-200" />
+              </div>
+              <div className="relative flex justify-center text-[10px]">
+                <span className="px-3 text-gray-400 uppercase tracking-widest font-medium"
+                  style={{ background: 'var(--theme-bg-card, #ffffff)' }}>
+                  Are you a Promoter Team Lead?
+                </span>
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={() => setShowTLEntry(true)}
+              className="w-full py-3.5 text-sm border-2 rounded-xl hover:bg-red-50 active:scale-[0.98] transition-all font-semibold tracking-wide"
+              style={{ borderColor: '#E60000', color: '#E60000' }}
+            >
+              PROMOTER TEAM LEAD
             </button>
           </div>
         )}
