@@ -15,8 +15,8 @@ import { getEstatesForTown } from './hbb/hbb-data';
 import { TrackingScreen } from './TrackingScreen';
 import { Geolocation } from '@capacitor/geolocation';
 import { toast } from 'sonner';
-import airtelChampionsLogo from 'figma:asset/278c018c02387a7b630c9971b1a9e2245143943d.png';
-import airtelSmartConnectImg from 'figma:asset/5cefe3bd8a968e47f850ff725f15f7c1e5cc74bb.png';
+import airtelChampionsLogo from '../assets/LOGO.png';
+import airtelSmartConnectImg from '../assets/LOGO.png';
 
 const ACCENT = '#E60000';
 const ACCENT_DARK = '#B30000';

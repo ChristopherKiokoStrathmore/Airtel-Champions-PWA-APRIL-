@@ -1,6 +1,6 @@
 // Airtel Champions v4.0.0 - Theme System + Premium UI [Build: 2026-03-09-003]
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import airtelChampionsIcon from 'figma:asset/f48ed4fba0af1189dfea6f65346a9e0aaa613e09.png';
+import airtelChampionsIcon from './assets/LOGO.png';
 import { supabase } from './utils/supabase/client';
 import { Toaster } from 'sonner@2.0.3';
 import { trackUserLogin, trackUserLogout, updateUserActivity, initSessionTracker } from './lib/session-tracker';
@@ -80,11 +80,11 @@ import { UserDirectory } from './components/calling/user-directory';
 import { CallHistory } from './components/calling/call-history';
 import { PermissionRequestModal } from './components/calling/permission-request-modal';
 
-// Import TAI Eagle logo (original with Airtel branding)
-import taiLogo from 'figma:asset/f9662d6ca89ec73e82f32c4c1cfcc7df0f4e8aaa.png';
+// Import TAI Eagle logo (now using universal LOGO.png)
+import taiLogo from './assets/LOGO.png';
 
-// Import Airtel Champions logo (new branding)
-import airtelChampionsLogo from 'figma:asset/278c018c02387a7b630c9971b1a9e2245143943d.png';
+// Import Airtel Champions logo (now using universal LOGO.png)
+import airtelChampionsLogo from './assets/LOGO.png';
 
 // User roles
 type UserRole = 'sales_executive' | 'zonal_sales_manager' | 'zonal_business_manager' | 'hq_command_center' | 'director' | 'hbb_agent' | 'hbb_installer' | 'hbb_dse' | 'hbb_hq' | 'hbb_hq_admin';
@@ -515,9 +515,9 @@ function App() {
   // Splash Screen - Full screen on mobile
   if (showSplash) {
     return (
-      <div className="fixed inset-0 w-screen h-screen bg-[#E60000] flex items-center justify-center relative overflow-hidden">
+      <div className="fixed inset-0 w-screen h-screen flex items-center justify-center relative overflow-hidden" style={{ backgroundColor: '#ED1C24' }}>
         <div className="text-center animate-fade-in relative px-4">
-          <img src={airtelChampionsLogo} alt="Airtel Champions" className="w-64 h-64 mx-auto relative object-contain" />
+          <img src={airtelChampionsLogo} alt="Airtel Champions" className="w-64 h-64 mx-auto relative object-contain" style={{ clipPath: 'inset(4px)' }} />
         </div>
       </div>
     );

@@ -55,10 +55,10 @@ async function geocodeEstateAddress(
   return null;
 }
 import { toast } from 'sonner@2.0.3';
-import airtelSmartConnectImg from 'figma:asset/5cefe3bd8a968e47f850ff725f15f7c1e5cc74bb.png';
+import airtelSmartConnectImg from '../../assets/LOGO.png';
 
 const ACCENT = '#E60000';
-const ACCENT_DARK = '#CC0000';
+const ACCENT_DARK = '#E60000';
 const CONNECTION_FEE = 1000;
 
 const SMART_CONNECT_PLANS = [
@@ -69,7 +69,7 @@ const SMART_CONNECT_PLANS = [
   },
   {
     id: 'sc-30', speed: '30 Mbps', price: 2999, label: 'KES 2,999',
-    tag: 'Most Popular', tagColor: '#E60000', border: '#E60000', bg: '#FFF1F1', highlight: '#B30000',
+    tag: 'Most Popular', tagColor: '#E60000', border: '#E60000', bg: '#FFF1F1', highlight: '#E60000',
     description: 'Ideal for streaming, gaming & working from home.',
   },
 ];
@@ -631,7 +631,7 @@ export function HBBNewLeadForm({
         {/* ── Feature card ─────────────────────────────────────────────────── */}
         <div className="px-4">
           <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
-            <div className="px-4 py-2.5" style={{ background: 'linear-gradient(135deg, #E60000, #B30000)' }}>
+            <div className="px-4 py-2.5" style={{ background: 'linear-gradient(135deg, #E60000, #E60000)' }}>
               <p className="text-xs font-bold text-white">5G Smart Connect – Outdoor Unit Features</p>
             </div>
             <div className="px-4 py-3 space-y-2">
@@ -981,7 +981,7 @@ export function HBBNewLeadForm({
               onClick={handleOtherSubmit}
               disabled={!otherIsValid || loading || autoAllocating}
               className="flex-1 py-4 rounded-2xl text-white font-bold text-sm flex items-center justify-center gap-2 disabled:opacity-40 active:scale-[0.97] transition-all shadow-md"
-              style={{ background: otherIsValid && !loading ? 'linear-gradient(135deg, #E60000, #CC0000)' : '#D1D5DB' }}
+              style={{ background: otherIsValid && !loading ? 'linear-gradient(135deg, #E60000, #E60000)' : '#D1D5DB' }}
             >
               {loading || autoAllocating ? (
                 <>
@@ -1094,7 +1094,7 @@ export function HBBNewLeadForm({
                   onClick={checkoutCart}
                   disabled={loading || cart.length === 0}
                   className="flex-1 py-3.5 rounded-2xl text-white font-bold text-sm transition-all active:scale-[0.97] shadow-lg flex items-center justify-center gap-1.5 disabled:opacity-40"
-                  style={{ background: !loading && cart.length > 0 ? 'linear-gradient(135deg, #E60000, #CC0000)' : '#D1D5DB' }}
+                  style={{ background: !loading && cart.length > 0 ? 'linear-gradient(135deg, #E60000, #E60000)' : '#D1D5DB' }}
                 >
                   {loading ? (
                     <>

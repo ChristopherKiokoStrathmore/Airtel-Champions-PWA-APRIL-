@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-// Import Airtel Champions logo
-import airtelChampionsLogo from 'figma:asset/278c018c02387a7b630c9971b1a9e2245143943d.png';
+// Import Airtel Champions logo (now using universal LOGO.png)
+import airtelChampionsLogo from '../assets/LOGO.png';
 
 interface AdminLoginProps {
   onLogin: (phone: string, method: 'pin' | 'otp', credential: string) => Promise<void>;

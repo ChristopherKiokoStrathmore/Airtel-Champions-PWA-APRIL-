@@ -57,7 +57,7 @@ import { initActivityTracking, logPWAAction, ACTION_TYPES } from '../lib/activit
 import { DatabaseSchemaChecker } from './database-schema-checker';
 import { PhoneDiagnosticTool } from './phone-diagnostic-tool';
 
-import airtelChampionsLogo from 'figma:asset/278c018c02387a7b630c9971b1a9e2245143943d.png';
+import airtelChampionsLogo from '../assets/LOGO.png';
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
