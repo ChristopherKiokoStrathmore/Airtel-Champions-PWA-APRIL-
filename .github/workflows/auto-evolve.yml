@@ -1,0 +1,24 @@
+name: Auto‑Evolve HBB (6h)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  evolve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci --legacy-peer-deps
+      - name: Install Playwright browsers
+        run: npx playwright install chromium
+      - name: Run autonomous evolution loop
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          APP_URL: https://airtel-champions-app-web-git-main-christopherkiokos-projects.vercel.app/
+        run: node scripts/auto-evolve.js

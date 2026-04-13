@@ -1,0 +1,266 @@
+Running frontend commit 5084b8a5ef0aad015649692cc3cfc7638b196e89
+vendor-core-ade2edecaf4781c7.min.js.br:54 Statsig is not ready to log exposures, will retry in 1 seconds
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+A.logExposureCallback @ 856-e6e311b392928463.min.js.br:1096
+u @ vendor-core-ade2edecaf4781c7.min.js.br:54
+setTimeout
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+logExposureForFeatureGateCheck @ 856-e6e311b392928463.min.js.br:1096
+getFeatureGateFromInitialOptions @ 856-e6e311b392928463.min.js.br:1096
+getFeatureGate @ 856-e6e311b392928463.min.js.br:1096
+getFeatureGate @ 856-e6e311b392928463.min.js.br:1431
+932235 @ figma_app-8c346c91cb60aa3c.min.js.br:420
+i @ runtime~figma_app-3ba95925b0ac1b85.min.js.br:3
+801936 @ figma_app-8c346c91cb60aa3c.min.js.br:41
+i @ runtime~figma_app-3ba95925b0ac1b85.min.js.br:3
+781295 @ figma_app-8c346c91cb60aa3c.min.js.br:418
+i @ runtime~figma_app-3ba95925b0ac1b85.min.js.br:3
+593464 @ figma_app-8c346c91cb60aa3c.min.js.br:4
+i @ runtime~figma_app-3ba95925b0ac1b85.min.js.br:3
+816199 @ 856-e6e311b392928463.min.js.br:80
+i @ runtime~figma_app-3ba95925b0ac1b85.min.js.br:3
+881625 @ figma_app-8c346c91cb60aa3c.min.js.br:531
+i @ runtime~figma_app-3ba95925b0ac1b85.min.js.br:3
+28285 @ 1772-a3a7a83f77829e99.min.js.br:3
+i @ runtime~figma_app-3ba95925b0ac1b85.min.js.br:3
+344653 @ figma_app-8c346c91cb60aa3c.min.js.br:420
+i @ runtime~figma_app-3ba95925b0ac1b85.min.js.br:3
+912563 @ figma_app-8c346c91cb60aa3c.min.js.br:420
+i @ runtime~figma_app-3ba95925b0ac1b85.min.js.br:3
+941181 @ figma_app-8c346c91cb60aa3c.min.js.br:4
+i @ runtime~figma_app-3ba95925b0ac1b85.min.js.br:3
+577246 @ 5340-ca907fbcb950ef0b.min.js.br:3
+i @ runtime~figma_app-3ba95925b0ac1b85.min.js.br:3
+483051 @ 8222-714b50f6fa462b79.min.js.br:3
+i @ runtime~figma_app-3ba95925b0ac1b85.min.js.br:3
+171068 @ figma_app-8c346c91cb60aa3c.min.js.br:4
+i @ runtime~figma_app-3ba95925b0ac1b85.min.js.br:3
+(anonymous) @ figma_app-8c346c91cb60aa3c.min.js.br:709
+i.O @ runtime~figma_app-3ba95925b0ac1b85.min.js.br:3
+(anonymous) @ figma_app-8c346c91cb60aa3c.min.js.br:709
+r @ runtime~figma_app-3ba95925b0ac1b85.min.js.br:3
+(anonymous) @ figma_app-8c346c91cb60aa3c.min.js.br:3Understand this warning
+vendor-core-ade2edecaf4781c7.min.js.br:54 Loaded 31 scripts (5937419b), 0 from cache (0b)
+vendor-core-ade2edecaf4781c7.min.js.br:54 [import] git: e1bb60c7a9d46aa6582b687e2b4db9ed4c3ef967, stamp: 84583C7BDAE7F45D
+1379-7435cf66a2de8919.min.js.br:8 The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127
+initialize @ 1379-7435cf66a2de8919.min.js.br:8
+g @ 1379-7435cf66a2de8919.min.js.br:8
+(anonymous) @ 856-e6e311b392928463.min.js.br:191
+await in (anonymous)
+n @ 856-e6e311b392928463.min.js.br:1437
+gs @ 856-e6e311b392928463.min.js.br:191
+(anonymous) @ 856-e6e311b392928463.min.js.br:191
+await in (anonymous)
+(anonymous) @ 856-e6e311b392928463.min.js.br:1731
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 856-e6e311b392928463.min.js.br:191
+dispatch @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 856-e6e311b392928463.min.js.br:191
+(anonymous) @ 856-e6e311b392928463.min.js.br:1731
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 856-e6e311b392928463.min.js.br:191
+dispatch @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 856-e6e311b392928463.min.js.br:191
+(anonymous) @ 856-e6e311b392928463.min.js.br:1731
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 856-e6e311b392928463.min.js.br:191
+dispatch @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 856-e6e311b392928463.min.js.br:191
+(anonymous) @ 856-e6e311b392928463.min.js.br:191
+(anonymous) @ 856-e6e311b392928463.min.js.br:191
+(anonymous) @ 856-e6e311b392928463.min.js.br:191
+(anonymous) @ 856-e6e311b392928463.min.js.br:191
+(anonymous) @ 856-e6e311b392928463.min.js.br:170
+(anonymous) @ 856-e6e311b392928463.min.js.br:191
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 856-e6e311b392928463.min.js.br:191
+dispatch @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ figma_app-8c346c91cb60aa3c.min.js.br:232
+(anonymous) @ 856-e6e311b392928463.min.js.br:191
+(anonymous) @ 856-e6e311b392928463.min.js.br:191
+(anonymous) @ 856-e6e311b392928463.min.js.br:191
+(anonymous) @ 856-e6e311b392928463.min.js.br:191
+(anonymous) @ 856-e6e311b392928463.min.js.br:191
+(anonymous) @ 856-e6e311b392928463.min.js.br:191
+(anonymous) @ 856-e6e311b392928463.min.js.br:191
+(anonymous) @ 856-e6e311b392928463.min.js.br:191
+(anonymous) @ 856-e6e311b392928463.min.js.br:191
+(anonymous) @ 856-e6e311b392928463.min.js.br:191
+(anonymous) @ 856-e6e311b392928463.min.js.br:191
+(anonymous) @ 856-e6e311b392928463.min.js.br:191
+(anonymous) @ 856-e6e311b392928463.min.js.br:170
+(anonymous) @ 856-e6e311b392928463.min.js.br:191
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 856-e6e311b392928463.min.js.br:191
+(anonymous) @ 856-e6e311b392928463.min.js.br:191
+d @ 856-e6e311b392928463.min.js.br:1098
+K @ 856-e6e311b392928463.min.js.br:191
+(anonymous) @ 856-e6e311b392928463.min.js.br:191
+time @ 856-e6e311b392928463.min.js.br:393
+(anonymous) @ 856-e6e311b392928463.min.js.br:191
+await in (anonymous)
+tM @ 856-e6e311b392928463.min.js.br:170
+SK @ 856-e6e311b392928463.min.js.br:191
+(anonymous) @ figma_app-8c346c91cb60aa3c.min.js.br:6
+i @ 856-e6e311b392928463.min.js.br:1065
+171068 @ figma_app-8c346c91cb60aa3c.min.js.br:6
+i @ runtime~figma_app-3ba95925b0ac1b85.min.js.br:3
+(anonymous) @ figma_app-8c346c91cb60aa3c.min.js.br:709
+i.O @ runtime~figma_app-3ba95925b0ac1b85.min.js.br:3
+(anonymous) @ figma_app-8c346c91cb60aa3c.min.js.br:709
+r @ runtime~figma_app-3ba95925b0ac1b85.min.js.br:3
+(anonymous) @ figma_app-8c346c91cb60aa3c.min.js.br:3Understand this warning
+vendor-core-ade2edecaf4781c7.min.js.br:54 Statsig is not ready to log exposures, will retry in 1 seconds
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+A.logExposureCallback @ 856-e6e311b392928463.min.js.br:1096
+u @ vendor-core-ade2edecaf4781c7.min.js.br:54
+setTimeout
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+A.logExposureCallback @ 856-e6e311b392928463.min.js.br:1096
+u @ vendor-core-ade2edecaf4781c7.min.js.br:54
+setTimeout
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+logExposureForFeatureGateCheck @ 856-e6e311b392928463.min.js.br:1096
+getFeatureGateFromInitialOptions @ 856-e6e311b392928463.min.js.br:1096
+getFeatureGate @ 856-e6e311b392928463.min.js.br:1096
+getFeatureGate @ 856-e6e311b392928463.min.js.br:1431
+932235 @ figma_app-8c346c91cb60aa3c.min.js.br:420
+i @ runtime~figma_app-3ba95925b0ac1b85.min.js.br:3
+801936 @ figma_app-8c346c91cb60aa3c.min.js.br:41
+i @ runtime~figma_app-3ba95925b0ac1b85.min.js.br:3
+781295 @ figma_app-8c346c91cb60aa3c.min.js.br:418
+i @ runtime~figma_app-3ba95925b0ac1b85.min.js.br:3
+593464 @ figma_app-8c346c91cb60aa3c.min.js.br:4
+i @ runtime~figma_app-3ba95925b0ac1b85.min.js.br:3
+816199 @ 856-e6e311b392928463.min.js.br:80
+i @ runtime~figma_app-3ba95925b0ac1b85.min.js.br:3
+881625 @ figma_app-8c346c91cb60aa3c.min.js.br:531
+i @ runtime~figma_app-3ba95925b0ac1b85.min.js.br:3
+28285 @ 1772-a3a7a83f77829e99.min.js.br:3
+i @ runtime~figma_app-3ba95925b0ac1b85.min.js.br:3
+344653 @ figma_app-8c346c91cb60aa3c.min.js.br:420
+i @ runtime~figma_app-3ba95925b0ac1b85.min.js.br:3
+912563 @ figma_app-8c346c91cb60aa3c.min.js.br:420
+i @ runtime~figma_app-3ba95925b0ac1b85.min.js.br:3
+941181 @ figma_app-8c346c91cb60aa3c.min.js.br:4
+i @ runtime~figma_app-3ba95925b0ac1b85.min.js.br:3
+577246 @ 5340-ca907fbcb950ef0b.min.js.br:3
+i @ runtime~figma_app-3ba95925b0ac1b85.min.js.br:3
+483051 @ 8222-714b50f6fa462b79.min.js.br:3
+i @ runtime~figma_app-3ba95925b0ac1b85.min.js.br:3
+171068 @ figma_app-8c346c91cb60aa3c.min.js.br:4
+i @ runtime~figma_app-3ba95925b0ac1b85.min.js.br:3
+(anonymous) @ figma_app-8c346c91cb60aa3c.min.js.br:709
+i.O @ runtime~figma_app-3ba95925b0ac1b85.min.js.br:3
+(anonymous) @ figma_app-8c346c91cb60aa3c.min.js.br:709
+r @ runtime~figma_app-3ba95925b0ac1b85.min.js.br:3
+(anonymous) @ figma_app-8c346c91cb60aa3c.min.js.br:3Understand this warning
+vendor-core-ade2edecaf4781c7.min.js.br:54 Autosave Changes not available or already claimed by another tab undefined
+chrome-extension://invalid/:1  GET chrome-extension://invalid/ net::ERR_FAILED
+Image
+(anonymous) @ figma_app-8c346c91cb60aa3c.min.js.br:6
+aB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oD @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oL @ vendor-core-ade2edecaf4781c7.min.js.br:11
+f5 @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oE @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+S @ vendor-core-ade2edecaf4781c7.min.js.br:54
+O @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Fullscreen] Booting... (emscripten version 4.0.21)
+vendor-core-ade2edecaf4781c7.min.js.br:54 [GPU] graphicsAPI:"WebGPU", vendor:"Google Inc. (Intel)" renderer:"ANGLE (Intel, Intel(R) UHD Graphics 620 (0x00003EA0) Direct3D11 vs_5_0 ps_5_0, D3D11)" deviceArchitecture:"gen-9" deviceDescription:"" webGPUDevice:"" webGPUVendor:"intel" bindings:"emdawnwebgpu"
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Fullscreen] Ready in 2561.6ms
+vendor-core-ade2edecaf4781c7.min.js.br:54 [FullscreenApp] calling setEditorTheme and setting preference dark
+vendor-core-ade2edecaf4781c7.min.js.br:54 [MultiplayerSession] connecting to wss://www.figma.com/api/multiplayer/YgMsCvIqt7DMpx0rIB8UXV?role=editor&tracking_session_id=Q8P7NqZOf5RPEI3i&version=151&recentReload=0&file-load-streaming-compression&user-id=1575501824906211853&client_release=5084b8a5ef0aad015649692cc3cfc7638b196e89
+vendor-core-ade2edecaf4781c7.min.js.br:54 [FullscreenApp] calling setEditorTheme and setting preference dark
+vendor-core-ade2edecaf4781c7.min.js.br:54 [MultiplayerSession] Joining file version 106 (initial load)
+vendor-core-ade2edecaf4781c7.min.js.br:54 Migration succeeded: context: fullscreen_migrate_SceneGraphManager, version: 106, duration: 0ms.
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Shadow read] [variant: OLD] 'TeamTemplates.useFileInOrgOrTeamDrafts.v2' took 0ms to be ready ⏱ (was idle? false)
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Shadow read] [variant: NEW] 'TeamTemplates.useFileInOrgOrTeamDrafts.v2' took 0ms to be ready ⏱ (was idle? false)
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Fullscreen] loadtime=22.91s maxmem=317652436
+vendor-core-ade2edecaf4781c7.min.js.br:63  POST https://www.figma.com/api/make/fetch_ds_code_gen_status 400 (Bad Request)
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+h @ vendor-e02619323541de64.min.js.br:3
+(anonymous) @ 856-e6e311b392928463.min.js.br:1135
+T @ 856-e6e311b392928463.min.js.br:1135
+C @ 856-e6e311b392928463.min.js.br:1135
+r @ 856-e6e311b392928463.min.js.br:1135
+o @ figma_app-8c346c91cb60aa3c.min.js.br:413
+(anonymous) @ figma_app-8c346c91cb60aa3c.min.js.br:418
+(anonymous) @ figma_app-8c346c91cb60aa3c.min.js.br:418
+aB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oD @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oL @ vendor-core-ade2edecaf4781c7.min.js.br:11
+f5 @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oE @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+S @ vendor-core-ade2edecaf4781c7.min.js.br:54
+O @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this error
+2vendor-core-ade2edecaf4781c7.min.js.br:54 [devtools] Initialized LS
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Shadow read] 'TeamTemplates.useFileInOrgOrTeamDrafts.v2' has no discrepancies ✅
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'mobile'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 📱 Normalized phone: 706874314
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ RPC Login successful: {id: '82a1e892-9517-4d62-86c5-9a6dcdf09919', zbm: null, zsm: null, rank: 1, role: 'hq_staff', …}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28  POST https://xspogpfohjmkykfjadhk.supabase.co/rest/v1/user_sessions?select=* 400 (Bad Request)
+(anonymous) @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28
+(anonymous) @ index.js?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=b98fbGN71qRm4oUZGMubtSWFseYBbaStaW6LD9Q4yZn10bDBSivVDAsSuMvnlft27WL9uTJ~5JzeWmqZhwvK2Ss08S5Bs0r2RrXqjzqxpWf2WF29l-1k1c3pLgHtiolvLKadJee34v0HUwhRwlbznrdCBonWagxRxcxGC9u0hbQ~R6Ut6EOmILiNf7U6StA-7RkOcjs8vSnBWv9-MkpS4YK7uezbcHy7gmM47eDqsIY8xTj5kW-t7iL-avEEfsdQTsXmw-Wpl2zqeUJSMJF51PBH46RWPpSHDW48u-obVDW52xbB9DQL5u7I6WWxLlVzpA7NAcBeyMBze5YFIAheWA__:10537
+(anonymous) @ index.js?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=b98fbGN71qRm4oUZGMubtSWFseYBbaStaW6LD9Q4yZn10bDBSivVDAsSuMvnlft27WL9uTJ~5JzeWmqZhwvK2Ss08S5Bs0r2RrXqjzqxpWf2WF29l-1k1c3pLgHtiolvLKadJee34v0HUwhRwlbznrdCBonWagxRxcxGC9u0hbQ~R6Ut6EOmILiNf7U6StA-7RkOcjs8vSnBWv9-MkpS4YK7uezbcHy7gmM47eDqsIY8xTj5kW-t7iL-avEEfsdQTsXmw-Wpl2zqeUJSMJF51PBH46RWPpSHDW48u-obVDW52xbB9DQL5u7I6WWxLlVzpA7NAcBeyMBze5YFIAheWA__:10543
+await in (anonymous)
+then @ index.js?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=b98fbGN71qRm4oUZGMubtSWFseYBbaStaW6LD9Q4yZn10bDBSivVDAsSuMvnlft27WL9uTJ~5JzeWmqZhwvK2Ss08S5Bs0r2RrXqjzqxpWf2WF29l-1k1c3pLgHtiolvLKadJee34v0HUwhRwlbznrdCBonWagxRxcxGC9u0hbQ~R6Ut6EOmILiNf7U6StA-7RkOcjs8vSnBWv9-MkpS4YK7uezbcHy7gmM47eDqsIY8xTj5kW-t7iL-avEEfsdQTsXmw-Wpl2zqeUJSMJF51PBH46RWPpSHDW48u-obVDW52xbB9DQL5u7I6WWxLlVzpA7NAcBeyMBze5YFIAheWA__:257Understand this error
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SessionTracker] ℹ️ Database tracking unavailable (table not configured)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SessionTracker] ✅ Tracked login for Christopher Kioko (hq_staff)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28  POST https://xspogpfohjmkykfjadhk.supabase.co/rest/v1/user_sessions 401 (Unauthorized)
+(anonymous) @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28
+(anonymous) @ index.js?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=b98fbGN71qRm4oUZGMubtSWFseYBbaStaW6LD9Q4yZn10bDBSivVDAsSuMvnlft27WL9uTJ~5JzeWmqZhwvK2Ss08S5Bs0r2RrXqjzqxpWf2WF29l-1k1c3pLgHtiolvLKadJee34v0HUwhRwlbznrdCBonWagxRxcxGC9u0hbQ~R6Ut6EOmILiNf7U6StA-7RkOcjs8vSnBWv9-MkpS4YK7uezbcHy7gmM47eDqsIY8xTj5kW-t7iL-avEEfsdQTsXmw-Wpl2zqeUJSMJF51PBH46RWPpSHDW48u-obVDW52xbB9DQL5u7I6WWxLlVzpA7NAcBeyMBze5YFIAheWA__:10537
+(anonymous) @ index.js?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=b98fbGN71qRm4oUZGMubtSWFseYBbaStaW6LD9Q4yZn10bDBSivVDAsSuMvnlft27WL9uTJ~5JzeWmqZhwvK2Ss08S5Bs0r2RrXqjzqxpWf2WF29l-1k1c3pLgHtiolvLKadJee34v0HUwhRwlbznrdCBonWagxRxcxGC9u0hbQ~R6Ut6EOmILiNf7U6StA-7RkOcjs8vSnBWv9-MkpS4YK7uezbcHy7gmM47eDqsIY8xTj5kW-t7iL-avEEfsdQTsXmw-Wpl2zqeUJSMJF51PBH46RWPpSHDW48u-obVDW52xbB9DQL5u7I6WWxLlVzpA7NAcBeyMBze5YFIAheWA__:10543
+await in (anonymous)
+then @ index.js?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=b98fbGN71qRm4oUZGMubtSWFseYBbaStaW6LD9Q4yZn10bDBSivVDAsSuMvnlft27WL9uTJ~5JzeWmqZhwvK2Ss08S5Bs0r2RrXqjzqxpWf2WF29l-1k1c3pLgHtiolvLKadJee34v0HUwhRwlbznrdCBonWagxRxcxGC9u0hbQ~R6Ut6EOmILiNf7U6StA-7RkOcjs8vSnBWv9-MkpS4YK7uezbcHy7gmM47eDqsIY8xTj5kW-t7iL-avEEfsdQTsXmw-Wpl2zqeUJSMJF51PBH46RWPpSHDW48u-obVDW52xbB9DQL5u7I6WWxLlVzpA7NAcBeyMBze5YFIAheWA__:257Understand this error
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Analytics] ℹ️ Session tracking unavailable (table not configured)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] Initialized for Christopher Kioko (hq_staff)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Van Calendar Widget] 🔍 Loading stats for HQ...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [PageTracking] 📄 Viewing: Dashboard
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Role Dashboard] ✅ Loading announcements from localStorage for role: hq_staff
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [GuidedTour] Version 0 -> 5
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] Tour check: isAuthenticated= true shouldShow= true
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Van Calendar Widget] ✅ Stats loaded: {totalSubmissions: 4, thisWeekSubmissions: 0, zonesSubmitted: 1, vansWithPlans: 4}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Role Dashboard] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Role Dashboard] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 🎯 Program clicked: SSO CLASSIFICATION 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs] Loading programs for user: hq_staff
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Dashboard] 🔍 Loading folders from localStorage...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Dashboard] 📦 Raw localStorage data: null
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Dashboard] ℹ️ No folders found in localStorage
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Dashboard] ✅ Van Calendar enabled: true
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs] ✅ Loaded all programs for admin: 9
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsAPI] Fetching session checkin flags
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsAPI] ✅ Checkin flags: {67b91b34-81f9-416a-9462-843a51bc920d: true, c6e6213c-0e9b-46f9-9183-5b7c64551247: false}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs] ✅ Merged checkin flags into programs
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmissions] Loading submissions for program: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmissions] ✅ Loaded program fields: 3
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmissions] Loading 2 submissions (offset: 0)...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmissions] ✅ Loaded 2 submissions
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmissions] Loading submissions for program: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmissions] Loading 2 submissions (offset: 2)...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmissions] ✅ Loaded 2 submissions
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmissions] Loading submissions for program: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmissions] Loading 2 submissions (offset: 4)...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmissions] ✅ Loaded 2 submissions

@@ -1,0 +1,517 @@
+Running frontend commit 95e947558cd27c271970bc10b9e66d17b7a8e9ee
+vendor-core-ade2edecaf4781c7.min.js.br:54 Statsig is not ready to log exposures, will retry in 1 seconds
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+A.logExposureCallback @ 8462-68ac81de5a2b868a.min.js.br:1101
+u @ vendor-core-ade2edecaf4781c7.min.js.br:54
+setTimeout
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+logExposureForFeatureGateCheck @ 8462-68ac81de5a2b868a.min.js.br:1101
+getFeatureGateFromInitialOptions @ 8462-68ac81de5a2b868a.min.js.br:1101
+getFeatureGate @ 8462-68ac81de5a2b868a.min.js.br:1101
+getFeatureGate @ 8462-68ac81de5a2b868a.min.js.br:1431
+932235 @ figma_app-8d4a317a99ba2512.min.js.br:418
+i @ runtime~figma_app-bce6971a9d8d17ed.min.js.br:3
+801936 @ figma_app-8d4a317a99ba2512.min.js.br:39
+i @ runtime~figma_app-bce6971a9d8d17ed.min.js.br:3
+781295 @ figma_app-8d4a317a99ba2512.min.js.br:416
+i @ runtime~figma_app-bce6971a9d8d17ed.min.js.br:3
+593464 @ figma_app-8d4a317a99ba2512.min.js.br:4
+i @ runtime~figma_app-bce6971a9d8d17ed.min.js.br:3
+816199 @ 8462-68ac81de5a2b868a.min.js.br:85
+i @ runtime~figma_app-bce6971a9d8d17ed.min.js.br:3
+881625 @ figma_app-8d4a317a99ba2512.min.js.br:529
+i @ runtime~figma_app-bce6971a9d8d17ed.min.js.br:3
+28285 @ 6066-5e79d6c6e9a4f6c9.min.js.br:3
+i @ runtime~figma_app-bce6971a9d8d17ed.min.js.br:3
+344653 @ figma_app-8d4a317a99ba2512.min.js.br:418
+i @ runtime~figma_app-bce6971a9d8d17ed.min.js.br:3
+912563 @ figma_app-8d4a317a99ba2512.min.js.br:418
+i @ runtime~figma_app-bce6971a9d8d17ed.min.js.br:3
+941181 @ figma_app-8d4a317a99ba2512.min.js.br:4
+i @ runtime~figma_app-bce6971a9d8d17ed.min.js.br:3
+577246 @ 5340-37939770a92d139c.min.js.br:3
+i @ runtime~figma_app-bce6971a9d8d17ed.min.js.br:3
+483051 @ 8222-0204520dc0536e7f.min.js.br:3
+i @ runtime~figma_app-bce6971a9d8d17ed.min.js.br:3
+856279 @ figma_app-8d4a317a99ba2512.min.js.br:4
+i @ runtime~figma_app-bce6971a9d8d17ed.min.js.br:3
+(anonymous) @ figma_app-8d4a317a99ba2512.min.js.br:698
+i.O @ runtime~figma_app-bce6971a9d8d17ed.min.js.br:3
+(anonymous) @ figma_app-8d4a317a99ba2512.min.js.br:698
+r @ runtime~figma_app-bce6971a9d8d17ed.min.js.br:3
+(anonymous) @ figma_app-8d4a317a99ba2512.min.js.br:3Understand this warning
+8462-68ac81de5a2b868a.min.js.br:196 [Intervention] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://static.figma.com/webfont/1/SourceCodePro-Medium.woff2
+8462-68ac81de5a2b868a.min.js.br:358 The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127
+initialize @ 8462-68ac81de5a2b868a.min.js.br:358
+f @ 8462-68ac81de5a2b868a.min.js.br:358
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+await in (anonymous)
+i @ 8462-68ac81de5a2b868a.min.js.br:1433
+gs @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+await in (anonymous)
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:1727
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+dispatch @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:1727
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+dispatch @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:1727
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+dispatch @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:175
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+dispatch @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ figma_app-8d4a317a99ba2512.min.js.br:230
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:175
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+d @ 8462-68ac81de5a2b868a.min.js.br:1103
+H @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+time @ 8462-68ac81de5a2b868a.min.js.br:398
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+await in (anonymous)
+tD @ 8462-68ac81de5a2b868a.min.js.br:175
+wB @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ figma_app-8d4a317a99ba2512.min.js.br:4
+n @ 8462-68ac81de5a2b868a.min.js.br:1070
+856279 @ figma_app-8d4a317a99ba2512.min.js.br:4
+i @ runtime~figma_app-bce6971a9d8d17ed.min.js.br:3
+(anonymous) @ figma_app-8d4a317a99ba2512.min.js.br:698
+i.O @ runtime~figma_app-bce6971a9d8d17ed.min.js.br:3
+(anonymous) @ figma_app-8d4a317a99ba2512.min.js.br:698
+r @ runtime~figma_app-bce6971a9d8d17ed.min.js.br:3
+(anonymous) @ figma_app-8d4a317a99ba2512.min.js.br:3Understand this warning
+vendor-core-ade2edecaf4781c7.min.js.br:54 Statsig is not ready to log exposures, will retry in 1 seconds
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+A.logExposureCallback @ 8462-68ac81de5a2b868a.min.js.br:1101
+u @ vendor-core-ade2edecaf4781c7.min.js.br:54
+setTimeout
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+A.logExposureCallback @ 8462-68ac81de5a2b868a.min.js.br:1101
+u @ vendor-core-ade2edecaf4781c7.min.js.br:54
+setTimeout
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+logExposureForFeatureGateCheck @ 8462-68ac81de5a2b868a.min.js.br:1101
+getFeatureGateFromInitialOptions @ 8462-68ac81de5a2b868a.min.js.br:1101
+getFeatureGate @ 8462-68ac81de5a2b868a.min.js.br:1101
+getFeatureGate @ 8462-68ac81de5a2b868a.min.js.br:1431
+932235 @ figma_app-8d4a317a99ba2512.min.js.br:418
+i @ runtime~figma_app-bce6971a9d8d17ed.min.js.br:3
+801936 @ figma_app-8d4a317a99ba2512.min.js.br:39
+i @ runtime~figma_app-bce6971a9d8d17ed.min.js.br:3
+781295 @ figma_app-8d4a317a99ba2512.min.js.br:416
+i @ runtime~figma_app-bce6971a9d8d17ed.min.js.br:3
+593464 @ figma_app-8d4a317a99ba2512.min.js.br:4
+i @ runtime~figma_app-bce6971a9d8d17ed.min.js.br:3
+816199 @ 8462-68ac81de5a2b868a.min.js.br:85
+i @ runtime~figma_app-bce6971a9d8d17ed.min.js.br:3
+881625 @ figma_app-8d4a317a99ba2512.min.js.br:529
+i @ runtime~figma_app-bce6971a9d8d17ed.min.js.br:3
+28285 @ 6066-5e79d6c6e9a4f6c9.min.js.br:3
+i @ runtime~figma_app-bce6971a9d8d17ed.min.js.br:3
+344653 @ figma_app-8d4a317a99ba2512.min.js.br:418
+i @ runtime~figma_app-bce6971a9d8d17ed.min.js.br:3
+912563 @ figma_app-8d4a317a99ba2512.min.js.br:418
+i @ runtime~figma_app-bce6971a9d8d17ed.min.js.br:3
+941181 @ figma_app-8d4a317a99ba2512.min.js.br:4
+i @ runtime~figma_app-bce6971a9d8d17ed.min.js.br:3
+577246 @ 5340-37939770a92d139c.min.js.br:3
+i @ runtime~figma_app-bce6971a9d8d17ed.min.js.br:3
+483051 @ 8222-0204520dc0536e7f.min.js.br:3
+i @ runtime~figma_app-bce6971a9d8d17ed.min.js.br:3
+856279 @ figma_app-8d4a317a99ba2512.min.js.br:4
+i @ runtime~figma_app-bce6971a9d8d17ed.min.js.br:3
+(anonymous) @ figma_app-8d4a317a99ba2512.min.js.br:698
+i.O @ runtime~figma_app-bce6971a9d8d17ed.min.js.br:3
+(anonymous) @ figma_app-8d4a317a99ba2512.min.js.br:698
+r @ runtime~figma_app-bce6971a9d8d17ed.min.js.br:3
+(anonymous) @ figma_app-8d4a317a99ba2512.min.js.br:3Understand this warning
+vendor-core-ade2edecaf4781c7.min.js.br:54 [import] git: a2a350dc3ff78fa927f312c35bcde329e6807ef9, stamp: 30EEFE145ED4B2DC
+vendor-core-ade2edecaf4781c7.min.js.br:54 Autosave Changes not available or already claimed by another tab undefined
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Fullscreen] Booting... (emscripten version 4.0.21)
+compiled_wasm.js.br:2 [Intervention] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2
+vendor-core-ade2edecaf4781c7.min.js.br:54 [GPU] graphicsAPI:"WebGPU", vendor:"Google Inc. (Intel)" renderer:"ANGLE (Intel, Intel(R) UHD Graphics 620 (0x00003EA0) Direct3D11 vs_5_0 ps_5_0, D3D11)" deviceArchitecture:"gen-9" deviceDescription:"" webGPUDevice:"" webGPUVendor:"intel" bindings:"emdawnwebgpu"
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Fullscreen] Ready in 2341.0ms
+vendor-core-ade2edecaf4781c7.min.js.br:54 [FullscreenApp] calling setEditorTheme and setting preference dark
+vendor-core-ade2edecaf4781c7.min.js.br:54 [MultiplayerSession] connecting to wss://www.figma.com/api/multiplayer/YgMsCvIqt7DMpx0rIB8UXV?role=editor&tracking_session_id=XHnqlL4Tmvm14cvH&version=151&recentReload=0&file-load-streaming-compression&user-id=1575501824906211853&client_release=95e947558cd27c271970bc10b9e66d17b7a8e9ee
+vendor-core-ade2edecaf4781c7.min.js.br:54 [FullscreenApp] calling setEditorTheme and setting preference dark
+vendor-core-ade2edecaf4781c7.min.js.br:54 Loaded 0 scripts (0b), 0 from cache (0b)
+vendor-core-ade2edecaf4781c7.min.js.br:54 [MultiplayerSession] Joining file version 106 (initial load)
+vendor-core-ade2edecaf4781c7.min.js.br:54 Migration succeeded: context: fullscreen_migrate_SceneGraphManager, version: 106, duration: 0ms.
+5484-d9c1f604883736a0.min.js.br:26 [Intervention] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://static.figma.com/webfont/1/Roboto-Bold.woff2
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Fullscreen] loadtime=24.25s maxmem=268663464
+vendor-core-ade2edecaf4781c7.min.js.br:63  POST https://www.figma.com/api/make/fetch_ds_code_gen_status 400 (Bad Request)
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+h @ vendor-dbdbf1041f2f9da9.min.js.br:3
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:1140
+T @ 8462-68ac81de5a2b868a.min.js.br:1140
+C @ 8462-68ac81de5a2b868a.min.js.br:1140
+r @ 8462-68ac81de5a2b868a.min.js.br:1140
+o @ figma_app-8d4a317a99ba2512.min.js.br:411
+(anonymous) @ figma_app-8d4a317a99ba2512.min.js.br:416
+(anonymous) @ figma_app-8d4a317a99ba2512.min.js.br:416
+aB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oD @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oL @ vendor-core-ade2edecaf4781c7.min.js.br:11
+f5 @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:11
+requestAnimationFrame
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+gJ @ 8462-68ac81de5a2b868a.min.js.br:196
+a @ 8462-68ac81de5a2b868a.min.js.br:398
+requestAnimationFrame @ 8462-68ac81de5a2b868a.min.js.br:199
+_Async_requestAnimationFrame @ compiled_wasm.js.br:2
+$wasm-function[3206] @ compiled_wasm.wasm.br:0x1124d9
+$wasm-function[38062] @ compiled_wasm.wasm.br:0x1f8d9c1
+(anonymous) @ compiled_wasm.js.br:2
+(anonymous) @ compiled_wasm.js.br:2
+_wrapCppCall @ compiled_wasm.js.br:2
+(anonymous) @ compiled_wasm.js.br:2
+vV @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:46
+d @ vendor-dbdbf1041f2f9da9.min.js.br:123
+(anonymous) @ vendor-dbdbf1041f2f9da9.min.js.br:123
+g @ vendor-core-ade2edecaf4781c7.min.js.br:46
+dispatch @ 8462-68ac81de5a2b868a.min.js.br:1100
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:807
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ figma_app-8d4a317a99ba2512.min.js.br:230
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:175
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+dispatch @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:175
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:1727
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 8462-68ac81de5a2b868a.min.js.br:196
+dispatch @ 8462-68ac81de5a2b868a.min.js.br:196
+_documentIsLoaded @ 8462-68ac81de5a2b868a.min.js.br:196
+await in _documentIsLoaded
+documentIsLoaded @ 8462-68ac81de5a2b868a.min.js.br:196
+_FigmaApp_documentIsLoaded @ compiled_wasm.js.br:2
+$wasm-function[27789] @ compiled_wasm.wasm.br:0x1a1ddb3
+$wasm-function[26331] @ compiled_wasm.wasm.br:0x190a825
+$wasm-function[23407] @ compiled_wasm.wasm.br:0x160612f
+$wasm-function[40281] @ compiled_wasm.wasm.br:0x21d44ff
+$wasm-function[17087] @ compiled_wasm.wasm.br:0xf3407a
+$wasm-function[38044] @ compiled_wasm.wasm.br:0x1f89ad1
+(anonymous) @ compiled_wasm.js.br:2
+(anonymous) @ compiled_wasm.js.br:2
+_wrapCppCall @ compiled_wasm.js.br:2
+(anonymous) @ compiled_wasm.js.br:2
+S @ 1644-5fe59191a2125370.min.js.br:3
+p.onmessage @ 1644-5fe59191a2125370.min.js.br:3Understand this error
+2vendor-core-ade2edecaf4781c7.min.js.br:54 [devtools] Initialized LS
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'mobile'}
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 📱 Normalized phone: 733584848
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 🔍 Searching for phone in formats: (4) ['733584848', '0733584848', '+254733584848', '254733584848']
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 ✅ Direct login successful: SALMA RAJAB
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 📝 User name: SALMA RAJAB
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 🔍 User Authentication Check: {userRole: 'sales_executive', fullName: 'SALMA RAJAB', employeeId: 'SE3558', isDeveloper: false, isChristopher: false}
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Top Performers] 🔥 Loading top performers for TODAY...
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Top Performers] 📅 Today starts at: 2026-03-04T21:00:00.000Z
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [AndroidBackButton] 🧹 Cleaning up back button listener
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [HomeScreen] ✅ Loading announcements from localStorage for role: sales_executive
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Top Performers] 👥 Found 685 Sales Executives
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 ✅ Updated user rank: 587 points: 0
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [HomeScreen] ✅ Loading announcements from localStorage for role: sales_executive
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Top Performers] ✅ Loaded 989 SE submissions from today (filtered from 1000 total)
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Top Performers] 📊 ALL users sorted by points: (10) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Top Performers] 🏆 Top 3 user IDs: (3) [{…}, {…}, {…}]
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Top Performers] ✅ Final top performers: (3) [{…}, {…}, {…}]
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [HomeScreen] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [HomeScreen] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [HomeScreen] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [WebRTC] Requesting microphone permissions...
+index.js?Expires=1773619200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=Wd1c8TpaAn~Ro6bcGcL28Wj2dj-sCwHq3fts0mcyAYhy79q7xJa~FnRX2am-odIFOSK-358woCcR0z0RzKbg7zF4VnFN-SYrhbnDl3aNExaTlHLCqbM7HDWsklCA4f6JIy8LDbEBDchPl9lOCZxyPv2vEIAK7Ku7uR-T1njFBeWvwzV0DJUbttpIZ32V8xpEPF3IhJ~J0w5B1Y4230yZVRfnqoiXViV1hwzTsL5UMOy73jgFVMzymIiY0TpDjN-4YVDdJdfM9f7KCfYZ6IaefkS~trBL~CMzfsJp~MQkhox3EbZc~a~rhmFjPzaBNQoLvFlhVi2Q06TVqNK~O~0TQw__:84384 [Violation] Permissions policy violation: microphone is not allowed in this document.
+H @ index.js?Expires=1773619200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=Wd1c8TpaAn~Ro6bcGcL28Wj2dj-sCwHq3fts0mcyAYhy79q7xJa~FnRX2am-odIFOSK-358woCcR0z0RzKbg7zF4VnFN-SYrhbnDl3aNExaTlHLCqbM7HDWsklCA4f6JIy8LDbEBDchPl9lOCZxyPv2vEIAK7Ku7uR-T1njFBeWvwzV0DJUbttpIZ32V8xpEPF3IhJ~J0w5B1Y4230yZVRfnqoiXViV1hwzTsL5UMOy73jgFVMzymIiY0TpDjN-4YVDdJdfM9f7KCfYZ6IaefkS~trBL~CMzfsJp~MQkhox3EbZc~a~rhmFjPzaBNQoLvFlhVi2Q06TVqNK~O~0TQw__:84384
+onGrant @ index.js?Expires=1773619200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=Wd1c8TpaAn~Ro6bcGcL28Wj2dj-sCwHq3fts0mcyAYhy79q7xJa~FnRX2am-odIFOSK-358woCcR0z0RzKbg7zF4VnFN-SYrhbnDl3aNExaTlHLCqbM7HDWsklCA4f6JIy8LDbEBDchPl9lOCZxyPv2vEIAK7Ku7uR-T1njFBeWvwzV0DJUbttpIZ32V8xpEPF3IhJ~J0w5B1Y4230yZVRfnqoiXViV1hwzTsL5UMOy73jgFVMzymIiY0TpDjN-4YVDdJdfM9f7KCfYZ6IaefkS~trBL~CMzfsJp~MQkhox3EbZc~a~rhmFjPzaBNQoLvFlhVi2Q06TVqNK~O~0TQw__:86399
+y @ code_components_preview_iframe-a2dfb1811c456f43.min.js.br:77
+i @ code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28
+iG @ code_components_preview_iframe-a2dfb1811c456f43.min.js.br:77
+ij @ code_components_preview_iframe-a2dfb1811c456f43.min.js.br:77
+iz @ code_components_preview_iframe-a2dfb1811c456f43.min.js.br:77
+dP @ code_components_preview_iframe-a2dfb1811c456f43.min.js.br:89
+dM @ code_components_preview_iframe-a2dfb1811c456f43.min.js.br:89
+dk @ code_components_preview_iframe-a2dfb1811c456f43.min.js.br:89
+dG @ code_components_preview_iframe-a2dfb1811c456f43.min.js.br:89
+(anonymous) @ code_components_preview_iframe-a2dfb1811c456f43.min.js.br:89
+SR @ code_components_preview_iframe-a2dfb1811c456f43.min.js.br:89
+iR @ code_components_preview_iframe-a2dfb1811c456f43.min.js.br:77
+d$ @ code_components_preview_iframe-a2dfb1811c456f43.min.js.br:89
+lO @ code_components_preview_iframe-a2dfb1811c456f43.min.js.br:77
+lN @ code_components_preview_iframe-a2dfb1811c456f43.min.js.br:77
+lv @ code_components_preview_iframe-a2dfb1811c456f43.min.js.br:77
+i @ code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28Understand this error
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [WebRTC] User declined microphone permission
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [WebRTC] ❌ Permissions denied
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [AndroidBackButton] 🧹 Cleaning up back button listener
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [WebRTC] Setting user status to offline: 8aa38c0c-0723-49c2-ad45-3bbc6e421879
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [WebRTC] User set to offline
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [WebRTC] User is now offline
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [HomeScreen] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [HomeScreen] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [HomeScreen] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Programs Widget Home] 🎯 Program clicked: SSO CLASSIFICATION 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [App] 🎯 Opening program from home widget: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [App] 📋 Setting programToOpen state to: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [App] 🔄 Switching to programs tab
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [App] 🎬 Rendering Programs tab with initialProgramId: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [AndroidBackButton] 🧹 Cleaning up back button listener
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [PageTracking] 📄 Viewing: Programs
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramsList] 🎬 Component mounted with initialProgramId: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramsList] ✅ User loaded: {id: '8aa38c0c-0723-49c2-ad45-3bbc6e421879', role: 'sales_executive', name: 'SALMA RAJAB', canSubmit: true}
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramsList] 🔍 Checking auto-open: {initialProgramId: '9ae93739-a58e-4c60-8d18-3ef7e15e6f87', programsLoaded: 0, currentSelection: undefined}
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramsList] ✅ Van Calendar enabled: true
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramsAPI] Fetching programs for role: sales_executive
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramsAPI] Found 7 programs for role sales_executive
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Folder Mapping] Program: "NEW SITE CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramsList] 🔍 Checking auto-open: {initialProgramId: '9ae93739-a58e-4c60-8d18-3ef7e15e6f87', programsLoaded: 7, currentSelection: undefined}
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramsList] 🎯 Found program to open: SSO CLASSIFICATION
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramsList] ✅ Opening program from prop: SSO CLASSIFICATION
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Folder Mapping] Program: "NEW SITE CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramsList] 🔍 Checking initial program: {initialProgramId: '9ae93739-a58e-4c60-8d18-3ef7e15e6f87', programsCount: 7}
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramsList] 🎯 Found initial program: SSO CLASSIFICATION
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramsList] ✅ Auto-opening program in loadData: SSO CLASSIFICATION
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Folder Mapping] Program: "NEW SITE CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 0 fields
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramSubmitModal] ✅ Modal opened for user: {userId: '8aa38c0c-0723-49c2-ad45-3bbc6e421879', role: 'sales_executive', name: 'SALMA RAJAB', zone: 'NAIROBI METROPOLITAN', program: 'SSO CLASSIFICATION', …}
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Shops] 🔄 Fetching ALL shops from database (paginated)...
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Shops] 📦 Fetching batch 1 (rows 0-999)...
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramSubmitModal] Loading fields for program: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: false
+index.js?Expires=1773619200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=Wd1c8TpaAn~Ro6bcGcL28Wj2dj-sCwHq3fts0mcyAYhy79q7xJa~FnRX2am-odIFOSK-358woCcR0z0RzKbg7zF4VnFN-SYrhbnDl3aNExaTlHLCqbM7HDWsklCA4f6JIy8LDbEBDchPl9lOCZxyPv2vEIAK7Ku7uR-T1njFBeWvwzV0DJUbttpIZ32V8xpEPF3IhJ~J0w5B1Y4230yZVRfnqoiXViV1hwzTsL5UMOy73jgFVMzymIiY0TpDjN-4YVDdJdfM9f7KCfYZ6IaefkS~trBL~CMzfsJp~MQkhox3EbZc~a~rhmFjPzaBNQoLvFlhVi2Q06TVqNK~O~0TQw__:43305 [Violation] Permissions policy violation: Geolocation access has been blocked because of a permissions policy applied to the current document. See https://crbug.com/414348233 for more details.
+(anonymous) @ index.js?Expires=1773619200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=Wd1c8TpaAn~Ro6bcGcL28Wj2dj-sCwHq3fts0mcyAYhy79q7xJa~FnRX2am-odIFOSK-358woCcR0z0RzKbg7zF4VnFN-SYrhbnDl3aNExaTlHLCqbM7HDWsklCA4f6JIy8LDbEBDchPl9lOCZxyPv2vEIAK7Ku7uR-T1njFBeWvwzV0DJUbttpIZ32V8xpEPF3IhJ~J0w5B1Y4230yZVRfnqoiXViV1hwzTsL5UMOy73jgFVMzymIiY0TpDjN-4YVDdJdfM9f7KCfYZ6IaefkS~trBL~CMzfsJp~MQkhox3EbZc~a~rhmFjPzaBNQoLvFlhVi2Q06TVqNK~O~0TQw__:43305
+(anonymous) @ index.js?Expires=1773619200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=Wd1c8TpaAn~Ro6bcGcL28Wj2dj-sCwHq3fts0mcyAYhy79q7xJa~FnRX2am-odIFOSK-358woCcR0z0RzKbg7zF4VnFN-SYrhbnDl3aNExaTlHLCqbM7HDWsklCA4f6JIy8LDbEBDchPl9lOCZxyPv2vEIAK7Ku7uR-T1njFBeWvwzV0DJUbttpIZ32V8xpEPF3IhJ~J0w5B1Y4230yZVRfnqoiXViV1hwzTsL5UMOy73jgFVMzymIiY0TpDjN-4YVDdJdfM9f7KCfYZ6IaefkS~trBL~CMzfsJp~MQkhox3EbZc~a~rhmFjPzaBNQoLvFlhVi2Q06TVqNK~O~0TQw__:43317
+TN @ code_components_preview_iframe-a2dfb1811c456f43.min.js.br:89
+T7 @ code_components_preview_iframe-a2dfb1811c456f43.min.js.br:89
+T8 @ code_components_preview_iframe-a2dfb1811c456f43.min.js.br:89
+T6 @ code_components_preview_iframe-a2dfb1811c456f43.min.js.br:89
+T4 @ code_components_preview_iframe-a2dfb1811c456f43.min.js.br:89
+S1 @ code_components_preview_iframe-a2dfb1811c456f43.min.js.br:89
+SQ @ code_components_preview_iframe-a2dfb1811c456f43.min.js.br:89
+(anonymous) @ code_components_preview_iframe-a2dfb1811c456f43.min.js.br:89
+(anonymous) @ code_components_preview_iframe-a2dfb1811c456f43.min.js.br:3
+V @ code_components_preview_iframe-a2dfb1811c456f43.min.js.br:113
+B @ code_components_preview_iframe-a2dfb1811c456f43.min.js.br:113
+eo @ code_components_preview_iframe-a2dfb1811c456f43.min.js.br:113Understand this error
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 0 fields
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [GPS] Browser geolocation error: Geolocation has been disabled in this document by permissions policy.
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: true
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 0 fields
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramSubmitModal] 📍 User zone from DB: NAIROBI METROPOLITAN
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 0 fields
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramSubmitModal] ✅ Loaded 2 fields
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramSubmitModal] 🔍 Fields data: [
+  {
+    "id": "f59b8996-3226-49b4-8c37-4e94fa4391ca",
+    "program_id": "9ae93739-a58e-4c60-8d18-3ef7e15e6f87",
+    "field_name": "retailer_msisdn",
+    "field_label": "RETAILER MSISDN",
+    "field_type": "dropdown",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "database_source": {
+        "table": "Retailer_dump_3rd_march",
+        "multi_select": false,
+        "display_field": "RETAILER_FIRST_NAME",
+        "metadata_fields": [
+          "CP_TYPE",
+          "RETAILER_MSISDN",
+          "ZSM",
+          "ZBM",
+          "ZONE",
+          "SITE_NAME",
+          "SITE_ID"
+        ],
+        "repeatable_dropdown": false
+      },
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 0,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-05T09:31:28.536125+00:00"
+  },
+  {
+    "id": "61def45c-295e-4e47-a55a-ab72a03b439e",
+    "program_id": "9ae93739-a58e-4c60-8d18-3ef7e15e6f87",
+    "field_name": "msisdn_category_",
+    "field_label": "MSISDN CATEGORY ",
+    "field_type": "radio",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "options": [
+        "Mobile Promoter",
+        "Fixed/Resident Promoter (Parasol Promoter)",
+        "Brick & Mortar Outlet"
+      ],
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 1,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-05T09:31:28.536125+00:00"
+  }
+]
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [DatabaseDropdown] Generated 0 options for RETAILER MSISDN (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [DatabaseDropdown] 🔍 Checking fields: (2) [{…}, {…}]
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [DatabaseDropdown] 🔄 Loading data for 1 database dropdown/multi-select field(s)
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [DatabaseDropdown] 🔒 Zone filtering: DISABLED | User zone: NAIROBI METROPOLITAN
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [DatabaseDropdown] Loading from table: Retailer_dump_3rd_march
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [DatabaseDropdown] 🚀 "Retailer_dump_3rd_march" is large (>500 rows) → server-side search ENABLED, skipping bulk download
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [DatabaseDropdown] Generated 0 options for RETAILER MSISDN (serverSearch: true, hasTyped: false)
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Shops] ✅ Batch 1: 1000 shops (Total so far: 1000)
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Shops] 📦 Fetching batch 2 (rows 1000-1999)...
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Shops] ✅ Batch 2: 1000 shops (Total so far: 2000)
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Shops] 📦 Fetching batch 3 (rows 2000-2999)...
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Shops] ✅ Batch 3: 674 shops (Total so far: 2674)
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Shops] ✅ Total loaded from database: 2674 shops
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Shops] ✅ Lookup map created with 2651 entries
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Shops] ✅ shopsLoaded flag set to true - component should re-render
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [DatabaseDropdown] Generated 0 options for RETAILER MSISDN (serverSearch: true, hasTyped: false)
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 2674 shops | shopsLoaded: true | loadingShops: false
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramSubmitModal] ✅ Component should now show search dropdown instead of radio buttons
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Dropdown] 🔍 Search input focused - opening dropdown
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [DatabaseDropdown] Generated 0 options for RETAILER MSISDN (serverSearch: true, hasTyped: false)
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Dropdown] 🖱️ Click detected on search input
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [DatabaseDropdown] Generated 0 options for RETAILER MSISDN (serverSearch: true, hasTyped: false)
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Dropdown] ⌨️ Input changed: 2
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [DatabaseDropdown] Generated 0 options for RETAILER MSISDN (serverSearch: true, hasTyped: false)
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [DatabaseDropdown] Generated 0 options for RETAILER MSISDN (serverSearch: true, hasTyped: false)
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Dropdown] ⌨️ Input changed: 23
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [DatabaseDropdown] Generated 0 options for RETAILER MSISDN (serverSearch: true, hasTyped: true)
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ServerSearch] 🔍 Raw: "23" → Normalized: "23" (isNumeric: true)
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ServerSearch] 🔎 Searching 8 fields: RETAILER_FIRST_NAME, CP_TYPE, RETAILER_MSISDN, ZSM, ZBM, ZONE, SITE_NAME, SITE_ID
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [DatabaseDropdown] Generated 0 options for RETAILER MSISDN (serverSearch: true, hasTyped: true)
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ServerSearch] ✅ "23" → 60 results from Retailer_dump_3rd_march
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [DatabaseDropdown] Generated 60 options for RETAILER MSISDN (serverSearch: true, hasTyped: true)
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Dropdown] ⌨️ Input changed: 2
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [DatabaseDropdown] Generated 0 options for RETAILER MSISDN (serverSearch: true, hasTyped: false)
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [DatabaseDropdown] Generated 0 options for RETAILER MSISDN (serverSearch: true, hasTyped: false)
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [Dropdown] ⌨️ Input changed: 
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [FieldChange] Setting field f59b8996-3226-49b4-8c37-4e94fa4391ca to:  (single)
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [FieldChange] FormData after update: {f59b8996-3226-49b4-8c37-4e94fa4391ca: ''}
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [DatabaseDropdown] Generated 0 options for RETAILER MSISDN (serverSearch: true, hasTyped: false)
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+code_components_preview_iframe-a2dfb1811c456f43.min.js.br:28 [DatabaseDropdown] Generated 0 options for RETAILER MSISDN (serverSearch: true, hasTyped: false)

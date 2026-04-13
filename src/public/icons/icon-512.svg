@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Pure black background -->
+  <rect width="512" height="512" fill="#0A0A0A"/>
+
+  <!-- Subtle red radial glow behind the bolt -->
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="42%" r="42%">
+      <stop offset="0%" stop-color="#E60000" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#0A0A0A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="512" height="512" fill="url(#glow)"/>
+
+  <!-- Red lightning bolt — bold champion energy mark -->
+  <!-- Outer fill -->
+  <polygon
+    points="294,68 186,262 254,262 215,432 334,226 264,226 306,68"
+    fill="#E60000"
+  />
+  <!-- Inner bright highlight for 3-D depth -->
+  <polygon
+    points="282,90 208,248 252,248 226,378 302,242 262,242 293,90"
+    fill="#FF3333"
+    opacity="0.35"
+  />
+
+  <!-- Thin top accent line (Airtel brand bar) -->
+  <rect x="152" y="50" width="208" height="6" rx="3" fill="#E60000" opacity="0.5"/>
+
+  <!-- "AIRTEL" lettering -->
+  <text
+    x="256" y="400"
+    font-family="'Helvetica Neue', 'Arial Black', Arial, sans-serif"
+    font-size="38"
+    font-weight="800"
+    fill="#E60000"
+    text-anchor="middle"
+    letter-spacing="9"
+  >AIRTEL</text>
+
+  <!-- "CHAMPIONS" lettering -->
+  <text
+    x="256" y="452"
+    font-family="'Helvetica Neue', 'Arial Black', Arial, sans-serif"
+    font-size="46"
+    font-weight="900"
+    fill="#FFFFFF"
+    text-anchor="middle"
+    letter-spacing="1.5"
+  >CHAMPIONS</text>
+</svg>

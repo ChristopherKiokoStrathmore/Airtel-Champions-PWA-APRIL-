@@ -1,0 +1,51 @@
+[Dropdown] 🔍 Search input focused - opening dropdown
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [DatabaseDropdown] Generated 40 options for NUMBER PLATE 
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [Dropdown] ⌨️ Input changed: KCA 530
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [DatabaseDropdown] Generated 40 options for NUMBER PLATE 
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [Dropdown] ⌨️ Input changed: KCA 53
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [DatabaseDropdown] Generated 40 options for NUMBER PLATE 
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [Dropdown] ⌨️ Input changed: KCA 5
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [DatabaseDropdown] Generated 40 options for NUMBER PLATE 
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [Dropdown] ⌨️ Input changed: KCA 
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [DatabaseDropdown] Generated 40 options for NUMBER PLATE 
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [Dropdown] ⌨️ Input changed: KCA
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [DatabaseDropdown] Generated 40 options for NUMBER PLATE 
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [Dropdown] ⌨️ Input changed: KC
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [DatabaseDropdown] Generated 40 options for NUMBER PLATE 
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [Dropdown] ⌨️ Input changed: K
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [DatabaseDropdown] Generated 40 options for NUMBER PLATE 
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [Dropdown] ⌨️ Input changed: 
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [FieldChange] Setting field d33e70b9-eea4-4c73-8f76-6891698b5fc3 to:  (single)
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: ''}
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [DatabaseDropdown] Generated 40 options for NUMBER PLATE 
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [Dropdown] ⌨️ Input changed: KCA 530C
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [DatabaseDropdown] Generated 40 options for NUMBER PLATE 
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [Shop Dropdown] 🎯 Option clicked: KCA 530C
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [FieldChange] Setting field d33e70b9-eea4-4c73-8f76-6891698b5fc3 to: KCA 530C (single)
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [FieldChange] Auto-populating from: KCA 530C 
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [AutoPopulate] ��� Database dropdown selection: {field: 'NUMBER PLATE ', value: 'KCA 530C', table: 'van_db', displayField: 'number_plate', metadataFields: Array(1)}
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [AutoPopulate] ✅ Found selected row: {id: 14, created_at: '2026-02-07T10:19:44.147589+00:00', number_plate: 'KCA 530C', capacity: null, vendor: null, …}
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [AutoPopulate] 📦 Stored metadata for display: {zone: 'ABERDARE'}
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [AutoPopulate] ℹ️ No matching fields found to auto-populate
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [VanEnforcement] 🔍 Checking van checkout status for: "KCA 530C" | program.van_checkout_enforcement_enabled=true
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCA 530C'}
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [DatabaseDropdown] Generated 40 options for NUMBER PLATE 
+2code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+4code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+4code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+2code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+2code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [VanEnforcement] Response for "KCA 530C": {"success":true,"allowed":true,"enforcement_enabled":true,"message":"Van was checked out — you can proceed with check-in","debug":{"van":"KCA 530C","steps":["Error querying programs: Could not find the table 'public.programs' in the schema cache"]}}
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [DatabaseDropdown] Generated 40 options for NUMBER PLATE 

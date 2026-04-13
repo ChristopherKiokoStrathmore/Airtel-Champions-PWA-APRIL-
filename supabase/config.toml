@@ -1,0 +1,32 @@
+[functions.towns]
+verify_jwt = false
+
+[functions.service-requests]
+verify_jwt = false
+
+[functions.activity-log]
+verify_jwt = false
+
+[functions.activity-batch]
+verify_jwt = false
+
+[functions.hbb-auto-allocate]
+verify_jwt = false
+
+[functions.hbb-handle-rejection]
+verify_jwt = false
+
+[functions.hbb-installer-by-phone]
+verify_jwt = false
+
+[functions.hbb-notifications]
+verify_jwt = false
+
+[functions.health]
+verify_jwt = false
+
+[functions.auto-allocate]
+verify_jwt = false
+
+[api]
+enabled = true

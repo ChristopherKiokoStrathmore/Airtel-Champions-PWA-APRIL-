@@ -1,0 +1,1004 @@
+' failed: 
+ping @ client:1035
+waitForSuccessfulPing @ client:1060Understand this error
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramCreator] Updating program: 67b91b34-81f9-416a-9462-843a51bc920d NEW-SITE-CHECK-IN 
+client:1035 WebSocket connection to 'wss://app-xtdh6zensz2lru3anzpkkyagmz62bkduo43udf5qc776bztror2a.makeproxy-c.figma.site/' failed: 
+ping @ client:1035
+waitForSuccessfulPing @ client:1060Understand this error
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramCreator] ✅ Program updated: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsAPI] Setting checkin flag for program: 67b91b34-81f9-416a-9462-843a51bc920d → true
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsAPI] ✅ Checkin flag saved: {success: true, program_id: '67b91b34-81f9-416a-9462-843a51bc920d', session_checkin_enabled: true}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramCreator] ✅ Session checkin flag saved to KV
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramCreator] 💾 Saving fields to database: (3) [{…}, {…}, {…}]
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramCreator] ✅ Created 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramCreator] ✅ Program updated successfully: NEW-SITE-CHECK-IN 
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Programs] Loading programs for user: hq_staff
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Programs] ✅ Loaded all programs for admin: 9
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsAPI] Fetching session checkin flags
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsAPI] ✅ Checkin flags: {67b91b34-81f9-416a-9462-843a51bc920d: true}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Programs] ✅ Merged checkin flags into programs
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Van Calendar Widget] 🔍 Loading stats for HQ...
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Van Calendar Widget] ✅ Stats loaded: {totalSubmissions: 4, thisWeekSubmissions: 0, zonesSubmitted: 1, vansWithPlans: 4}
+client:1035 WebSocket connection to 'wss://app-xtdh6zensz2lru3anzpkkyagmz62bkduo43udf5qc776bztror2a.makeproxy-c.figma.site/' failed: 
+ping @ client:1035
+waitForSuccessfulPing @ client:1060Understand this error
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [SessionTracker] ✅ Updated logout time for user 82a1e892-9517-4d62-86c5-9a6dcdf09919
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Analytics] ✅ Logout tracked
+client:1035 WebSocket connection to 'wss://app-xtdh6zensz2lru3anzpkkyagmz62bkduo43udf5qc776bztror2a.makeproxy-c.figma.site/' failed: 
+ping @ client:1035
+waitForSuccessfulPing @ client:1060Understand this error
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 📱 Normalized phone: 733584848
+client:1035 WebSocket connection to 'wss://app-xtdh6zensz2lru3anzpkkyagmz62bkduo43udf5qc776bztror2a.makeproxy-c.figma.site/' failed: 
+ping @ client:1035
+waitForSuccessfulPing @ client:1060Understand this error
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 🔍 Searching for phone in formats: (4) ['733584848', '0733584848', '+254733584848', '254733584848']
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 ✅ Direct login successful: SALMA RAJAB
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 📝 User name: SALMA RAJAB
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Top Performers] 🔥 Loading top performers for TODAY...
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Top Performers] 📅 Today starts at: 2026-03-08T21:00:00.000Z
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [AndroidBackButton] 🧹 Cleaning up back button listener
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [HomeScreen] ✅ Loading announcements from localStorage for role: sales_executive
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [HomeScreen] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [HomeScreen] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [HomeScreen] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Top Performers] 👥 Found 727 Sales Executives
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 ✅ Updated user rank: 534 points: 10
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Top Performers] ✅ Loaded 982 SE submissions from today (filtered from 1000 total)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Top Performers] 📊 ALL users sorted by points: (10) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Top Performers] 🏆 Top 3 user IDs: (3) [{…}, {…}, {…}]
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Top Performers] ✅ Final top performers: (3) [{…}, {…}, {…}]
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [WebRTC] User denied permission request
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [AndroidBackButton] 🧹 Cleaning up back button listener
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+client:1035 WebSocket connection to 'wss://app-xtdh6zensz2lru3anzpkkyagmz62bkduo43udf5qc776bztror2a.makeproxy-c.figma.site/' failed: 
+ping @ client:1035
+waitForSuccessfulPing @ client:1060Understand this error
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Programs Widget Home] 🎯 Program clicked: NEW-SITE-CHECK-IN  67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [App] 🎯 Opening program from home widget: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [App] 📋 Setting programToOpen state to: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [App] 🔄 Switching to programs tab
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [App] 🎬 Rendering Programs tab with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [AndroidBackButton] 🧹 Cleaning up back button listener
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [PageTracking] 📄 Viewing: Programs
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] 🎬 Component mounted with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] ✅ User loaded: {id: '8aa38c0c-0723-49c2-ad45-3bbc6e421879', role: 'sales_executive', name: 'SALMA RAJAB', canSubmit: true}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] 🔍 Checking auto-open: {initialProgramId: '67b91b34-81f9-416a-9462-843a51bc920d', programsLoaded: 0, currentSelection: undefined}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsAPI] Fetching programs for role: sales_executive
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsAPI] Found 7 programs for role sales_executive
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] 🔍 Checking auto-open: {initialProgramId: '67b91b34-81f9-416a-9462-843a51bc920d', programsLoaded: 7, currentSelection: undefined}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] 🎯 Found program to open: NEW-SITE-CHECK-IN 
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] ✅ Opening program from prop: NEW-SITE-CHECK-IN 
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] ✅ Van Calendar enabled: true
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] 🔍 Checking initial program: {initialProgramId: '67b91b34-81f9-416a-9462-843a51bc920d', programsCount: 7}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] 🎯 Found initial program: NEW-SITE-CHECK-IN 
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] ✅ Auto-opening program in loadData: NEW-SITE-CHECK-IN 
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 0 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] ✅ Modal opened for user: {userId: '8aa38c0c-0723-49c2-ad45-3bbc6e421879', role: 'sales_executive', name: 'SALMA RAJAB', zone: 'NAIROBI METROPOLITAN', program: 'NEW-SITE-CHECK-IN ', …}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] 🔄 Fetching ALL shops from database (paginated)...
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] 📦 Fetching batch 1 (rows 0-999)...
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Loading fields for program: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: false
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [GPS] Browser geolocation error: Geolocation has been disabled in this document by permissions policy.
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 0 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: true
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] 📍 User zone from DB: NAIROBI METROPOLITAN
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 0 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] ✅ Loaded 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] 🔍 Fields data: [
+  {
+    "id": "749a5872-6c92-410e-879b-7e32813bebab",
+    "program_id": "67b91b34-81f9-416a-9462-843a51bc920d",
+    "field_name": "site",
+    "field_label": "SITE",
+    "field_type": "dropdown",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "database_source": {
+        "table": "sitewise_lat_long",
+        "multi_select": false,
+        "display_field": "SITE",
+        "metadata_fields": [
+          "SITE ID",
+          "WARDS",
+          "TOWN",
+          "SUB-COUNTY",
+          "COUNTY",
+          "CLUSTER (691)",
+          "TSE/SE",
+          "ZSM",
+          "ZBM",
+          "ZONE"
+        ],
+        "repeatable_dropdown": false
+      },
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 0,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-09T12:39:31.467331+00:00"
+  },
+  {
+    "id": "3017b3e8-c927-48dd-83ab-2e3a1e1a652d",
+    "program_id": "67b91b34-81f9-416a-9462-843a51bc920d",
+    "field_name": "ga_target_ftd",
+    "field_label": "GA TARGET FTD",
+    "field_type": "text",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": null,
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 1,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-09T12:39:31.467331+00:00"
+  },
+  {
+    "id": "f6e57135-975c-4c72-88af-3d30db4c0434",
+    "program_id": "67b91b34-81f9-416a-9462-843a51bc920d",
+    "field_name": "promoter_",
+    "field_label": "PROMOTER ",
+    "field_type": "repeatable_number",
+    "is_required": false,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "entry_label": "Promoter number ",
+      "min_entries": 1,
+      "check_database": false,
+      "prevent_duplicates": true,
+      "remove_leading_zero": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 2,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-09T12:39:31.467331+00:00"
+  }
+]
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Loading already-submitted values for 1 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] 🔍 Checking fields: (3) [{…}, {…}, {…}]
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] 🔄 Loading data for 1 database dropdown/multi-select field(s)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] 🔒 Zone filtering: DISABLED | User zone: NAIROBI METROPOLITAN
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Loading from table: sitewise_lat_long
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] 🚀 "sitewise_lat_long" is large (>500 rows) → server-side search ENABLED, skipping bulk download
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] ✅ Batch 1: 1000 shops (Total so far: 1000)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] 📦 Fetching batch 2 (rows 1000-1999)...
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Field "PROMOTER " has 0 already-submitted values
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 0 options for SITE (serverSearch: true, hasTyped: false)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] ✅ Batch 2: 1000 shops (Total so far: 2000)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] 📦 Fetching batch 3 (rows 2000-2999)...
+client:1035 WebSocket connection to 'wss://app-xtdh6zensz2lru3anzpkkyagmz62bkduo43udf5qc776bztror2a.makeproxy-c.figma.site/' failed: 
+ping @ client:1035
+waitForSuccessfulPing @ client:1060Understand this error
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] ✅ Batch 3: 674 shops (Total so far: 2674)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] ✅ Total loaded from database: 2674 shops
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] ✅ Lookup map created with 2651 entries
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] ✅ shopsLoaded flag set to true - component should re-render
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 0 options for SITE (serverSearch: true, hasTyped: false)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 2674 shops | shopsLoaded: true | loadingShops: false
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] ✅ Component should now show search dropdown instead of radio buttons
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Dropdown] 🔍 Search input focused - opening dropdown
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 0 options for SITE (serverSearch: true, hasTyped: false)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Dropdown] 🖱️ Click detected on search input
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 0 options for SITE (serverSearch: true, hasTyped: false)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Dropdown] ⌨️ Input changed: f
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 0 options for SITE (serverSearch: true, hasTyped: false)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 0 options for SITE (serverSearch: true, hasTyped: false)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Dropdown] ⌨️ Input changed: fr
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 0 options for SITE (serverSearch: true, hasTyped: true)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ServerSearch] 🔍 Raw: "fr" → Normalized: "fr" (isNumeric: false)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ServerSearch] 🔎 Searching 11 fields: SITE, SITE ID, WARDS, TOWN, SUB-COUNTY, COUNTY, CLUSTER (691), TSE/SE, ZSM, ZBM, ZONE
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 0 options for SITE (serverSearch: true, hasTyped: true)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ServerSearch] ✅ "fr" → 60 results from sitewise_lat_long
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 60 options for SITE (serverSearch: true, hasTyped: true)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shop Dropdown] 🎯 Option clicked: NAKURU_FREEHOLD
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] Setting field 749a5872-6c92-410e-879b-7e32813bebab to: NAKURU_FREEHOLD (single)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] Auto-populating from: NAKURU_FREEHOLD 
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [AutoPopulate] ��� Database dropdown selection: {field: 'SITE', value: 'NAKURU_FREEHOLD', table: 'sitewise_lat_long', displayField: 'SITE', metadataFields: Array(10)}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [AutoPopulate] ✅ Found selected row: {SITE ID: 'NRU0007', SITE: 'NAKURU_FREEHOLD', WARDS: 'Biashara', TOWN: 'NAKURU', SUB-COUNTY: 'Nakuru Town East', …}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [AutoPopulate] 📦 Stored metadata for display: {SITE ID: 'NRU0007', WARDS: 'Biashara', TOWN: 'NAKURU', SUB-COUNTY: 'Nakuru Town East', COUNTY: 'NAKURU', …}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [AutoPopulate] ℹ️ No matching fields found to auto-populate
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] FormData after update: {749a5872-6c92-410e-879b-7e32813bebab: 'NAKURU_FREEHOLD'}
+client:1035 WebSocket connection to 'wss://app-xtdh6zensz2lru3anzpkkyagmz62bkduo43udf5qc776bztror2a.makeproxy-c.figma.site/' failed: 
+ping @ client:1035
+waitForSuccessfulPing @ client:1060Understand this error
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 60 options for SITE (serverSearch: true, hasTyped: true)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] Setting field 3017b3e8-c927-48dd-83ab-2e3a1e1a652d to: T (single)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] FormData after update: {749a5872-6c92-410e-879b-7e32813bebab: 'NAKURU_FREEHOLD', 3017b3e8-c927-48dd-83ab-2e3a1e1a652d: 'T'}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 60 options for SITE (serverSearch: true, hasTyped: true)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] Setting field 3017b3e8-c927-48dd-83ab-2e3a1e1a652d to: TE (single)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] FormData after update: {749a5872-6c92-410e-879b-7e32813bebab: 'NAKURU_FREEHOLD', 3017b3e8-c927-48dd-83ab-2e3a1e1a652d: 'TE'}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 60 options for SITE (serverSearch: true, hasTyped: true)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] Setting field 3017b3e8-c927-48dd-83ab-2e3a1e1a652d to: TES (single)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] FormData after update: {749a5872-6c92-410e-879b-7e32813bebab: 'NAKURU_FREEHOLD', 3017b3e8-c927-48dd-83ab-2e3a1e1a652d: 'TES'}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 60 options for SITE (serverSearch: true, hasTyped: true)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] Setting field 3017b3e8-c927-48dd-83ab-2e3a1e1a652d to: TEST (single)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] FormData after update: {749a5872-6c92-410e-879b-7e32813bebab: 'NAKURU_FREEHOLD', 3017b3e8-c927-48dd-83ab-2e3a1e1a652d: 'TEST'}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 60 options for SITE (serverSearch: true, hasTyped: true)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] 🔢 Input received: {value: '7', digitLength: undefined, beforeLength: 1}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] ✅ Final value: 7
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] Setting field f6e57135-975c-4c72-88af-3d30db4c0434 to: [7] (array)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] FormData after update: {749a5872-6c92-410e-879b-7e32813bebab: 'NAKURU_FREEHOLD', 3017b3e8-c927-48dd-83ab-2e3a1e1a652d: 'TEST', f6e57135-975c-4c72-88af-3d30db4c0434: Array(1)}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 60 options for SITE (serverSearch: true, hasTyped: true)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] 🔢 Input received: {value: '73', digitLength: undefined, beforeLength: 2}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] ✅ Final value: 73
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] Setting field f6e57135-975c-4c72-88af-3d30db4c0434 to: [73] (array)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] FormData after update: {749a5872-6c92-410e-879b-7e32813bebab: 'NAKURU_FREEHOLD', 3017b3e8-c927-48dd-83ab-2e3a1e1a652d: 'TEST', f6e57135-975c-4c72-88af-3d30db4c0434: Array(1)}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 60 options for SITE (serverSearch: true, hasTyped: true)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] 🔢 Input received: {value: '733', digitLength: undefined, beforeLength: 3}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] ✅ Final value: 733
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] Setting field f6e57135-975c-4c72-88af-3d30db4c0434 to: [733] (array)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] FormData after update: {749a5872-6c92-410e-879b-7e32813bebab: 'NAKURU_FREEHOLD', 3017b3e8-c927-48dd-83ab-2e3a1e1a652d: 'TEST', f6e57135-975c-4c72-88af-3d30db4c0434: Array(1)}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 60 options for SITE (serverSearch: true, hasTyped: true)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] 🔢 Input received: {value: '7331', digitLength: undefined, beforeLength: 4}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] ✅ Final value: 7331
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] Setting field f6e57135-975c-4c72-88af-3d30db4c0434 to: [7331] (array)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] FormData after update: {749a5872-6c92-410e-879b-7e32813bebab: 'NAKURU_FREEHOLD', 3017b3e8-c927-48dd-83ab-2e3a1e1a652d: 'TEST', f6e57135-975c-4c72-88af-3d30db4c0434: Array(1)}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 60 options for SITE (serverSearch: true, hasTyped: true)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] 🔢 Input received: {value: '73312', digitLength: undefined, beforeLength: 5}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] ✅ Final value: 73312
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] Setting field f6e57135-975c-4c72-88af-3d30db4c0434 to: [73312] (array)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] FormData after update: {749a5872-6c92-410e-879b-7e32813bebab: 'NAKURU_FREEHOLD', 3017b3e8-c927-48dd-83ab-2e3a1e1a652d: 'TEST', f6e57135-975c-4c72-88af-3d30db4c0434: Array(1)}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 60 options for SITE (serverSearch: true, hasTyped: true)
+client:1035 WebSocket connection to 'wss://app-xtdh6zensz2lru3anzpkkyagmz62bkduo43udf5qc776bztror2a.makeproxy-c.figma.site/' failed: 
+ping @ client:1035
+waitForSuccessfulPing @ client:1060Understand this error
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] 🔢 Input received: {value: '733123', digitLength: undefined, beforeLength: 6}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] ✅ Final value: 733123
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] Setting field f6e57135-975c-4c72-88af-3d30db4c0434 to: [733123] (array)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] FormData after update: {749a5872-6c92-410e-879b-7e32813bebab: 'NAKURU_FREEHOLD', 3017b3e8-c927-48dd-83ab-2e3a1e1a652d: 'TEST', f6e57135-975c-4c72-88af-3d30db4c0434: Array(1)}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 60 options for SITE (serverSearch: true, hasTyped: true)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] 🔢 Input received: {value: '7331234', digitLength: undefined, beforeLength: 7}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] ✅ Final value: 7331234
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] Setting field f6e57135-975c-4c72-88af-3d30db4c0434 to: [7331234] (array)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] FormData after update: {749a5872-6c92-410e-879b-7e32813bebab: 'NAKURU_FREEHOLD', 3017b3e8-c927-48dd-83ab-2e3a1e1a652d: 'TEST', f6e57135-975c-4c72-88af-3d30db4c0434: Array(1)}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 60 options for SITE (serverSearch: true, hasTyped: true)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] 🔢 Input received: {value: '73312343', digitLength: undefined, beforeLength: 8}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] ✅ Final value: 73312343
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] Setting field f6e57135-975c-4c72-88af-3d30db4c0434 to: [73312343] (array)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] FormData after update: {749a5872-6c92-410e-879b-7e32813bebab: 'NAKURU_FREEHOLD', 3017b3e8-c927-48dd-83ab-2e3a1e1a652d: 'TEST', f6e57135-975c-4c72-88af-3d30db4c0434: Array(1)}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 60 options for SITE (serverSearch: true, hasTyped: true)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] 🔢 Input received: {value: '733123432', digitLength: undefined, beforeLength: 9}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] ✅ Final value: 733123432
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] Setting field f6e57135-975c-4c72-88af-3d30db4c0434 to: [733123432] (array)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] FormData after update: {749a5872-6c92-410e-879b-7e32813bebab: 'NAKURU_FREEHOLD', 3017b3e8-c927-48dd-83ab-2e3a1e1a652d: 'TEST', f6e57135-975c-4c72-88af-3d30db4c0434: Array(1)}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 60 options for SITE (serverSearch: true, hasTyped: true)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] 🔢 Input received: {value: '7331234321', digitLength: undefined, beforeLength: 10}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] ✅ Final value: 7331234321
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] Setting field f6e57135-975c-4c72-88af-3d30db4c0434 to: [7331234321] (array)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] FormData after update: {749a5872-6c92-410e-879b-7e32813bebab: 'NAKURU_FREEHOLD', 3017b3e8-c927-48dd-83ab-2e3a1e1a652d: 'TEST', f6e57135-975c-4c72-88af-3d30db4c0434: Array(1)}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 60 options for SITE (serverSearch: true, hasTyped: true)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] 🔢 Input received: {value: '73312343211', digitLength: undefined, beforeLength: 11}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] ✅ Final value: 73312343211
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] Setting field f6e57135-975c-4c72-88af-3d30db4c0434 to: [73312343211] (array)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] FormData after update: {749a5872-6c92-410e-879b-7e32813bebab: 'NAKURU_FREEHOLD', 3017b3e8-c927-48dd-83ab-2e3a1e1a652d: 'TEST', f6e57135-975c-4c72-88af-3d30db4c0434: Array(1)}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 60 options for SITE (serverSearch: true, hasTyped: true)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] Setting field f6e57135-975c-4c72-88af-3d30db4c0434 to: (2) [73312343211, ''] (array)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] FormData after update: {749a5872-6c92-410e-879b-7e32813bebab: 'NAKURU_FREEHOLD', 3017b3e8-c927-48dd-83ab-2e3a1e1a652d: 'TEST', f6e57135-975c-4c72-88af-3d30db4c0434: Array(2)}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 60 options for SITE (serverSearch: true, hasTyped: true)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] 🔢 Input received: {value: '7', digitLength: undefined, beforeLength: 1}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] ✅ Final value: 7
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] Setting field f6e57135-975c-4c72-88af-3d30db4c0434 to: (2) [73312343211, 7] (array)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] FormData after update: {749a5872-6c92-410e-879b-7e32813bebab: 'NAKURU_FREEHOLD', 3017b3e8-c927-48dd-83ab-2e3a1e1a652d: 'TEST', f6e57135-975c-4c72-88af-3d30db4c0434: Array(2)}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 60 options for SITE (serverSearch: true, hasTyped: true)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] 🔢 Input received: {value: '78', digitLength: undefined, beforeLength: 2}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] ✅ Final value: 78
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] Setting field f6e57135-975c-4c72-88af-3d30db4c0434 to: (2) [73312343211, 78] (array)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] FormData after update: {749a5872-6c92-410e-879b-7e32813bebab: 'NAKURU_FREEHOLD', 3017b3e8-c927-48dd-83ab-2e3a1e1a652d: 'TEST', f6e57135-975c-4c72-88af-3d30db4c0434: Array(2)}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 60 options for SITE (serverSearch: true, hasTyped: true)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] 🔢 Input received: {value: '785', digitLength: undefined, beforeLength: 3}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] ✅ Final value: 785
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] Setting field f6e57135-975c-4c72-88af-3d30db4c0434 to: (2) [73312343211, 785] (array)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] FormData after update: {749a5872-6c92-410e-879b-7e32813bebab: 'NAKURU_FREEHOLD', 3017b3e8-c927-48dd-83ab-2e3a1e1a652d: 'TEST', f6e57135-975c-4c72-88af-3d30db4c0434: Array(2)}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 60 options for SITE (serverSearch: true, hasTyped: true)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] 🔢 Input received: {value: '7856', digitLength: undefined, beforeLength: 4}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] ✅ Final value: 7856
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] Setting field f6e57135-975c-4c72-88af-3d30db4c0434 to: (2) [73312343211, 7856] (array)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] FormData after update: {749a5872-6c92-410e-879b-7e32813bebab: 'NAKURU_FREEHOLD', 3017b3e8-c927-48dd-83ab-2e3a1e1a652d: 'TEST', f6e57135-975c-4c72-88af-3d30db4c0434: Array(2)}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 60 options for SITE (serverSearch: true, hasTyped: true)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] 🔢 Input received: {value: '78562', digitLength: undefined, beforeLength: 5}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] ✅ Final value: 78562
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] Setting field f6e57135-975c-4c72-88af-3d30db4c0434 to: (2) [73312343211, 78562] (array)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] FormData after update: {749a5872-6c92-410e-879b-7e32813bebab: 'NAKURU_FREEHOLD', 3017b3e8-c927-48dd-83ab-2e3a1e1a652d: 'TEST', f6e57135-975c-4c72-88af-3d30db4c0434: Array(2)}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 60 options for SITE (serverSearch: true, hasTyped: true)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] 🔢 Input received: {value: '785622', digitLength: undefined, beforeLength: 6}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] ✅ Final value: 785622
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] Setting field f6e57135-975c-4c72-88af-3d30db4c0434 to: (2) [73312343211, 785622] (array)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] FormData after update: {749a5872-6c92-410e-879b-7e32813bebab: 'NAKURU_FREEHOLD', 3017b3e8-c927-48dd-83ab-2e3a1e1a652d: 'TEST', f6e57135-975c-4c72-88af-3d30db4c0434: Array(2)}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 60 options for SITE (serverSearch: true, hasTyped: true)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] 🔢 Input received: {value: '7856224', digitLength: undefined, beforeLength: 7}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] ✅ Final value: 7856224
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] Setting field f6e57135-975c-4c72-88af-3d30db4c0434 to: (2) [73312343211, 7856224] (array)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] FormData after update: {749a5872-6c92-410e-879b-7e32813bebab: 'NAKURU_FREEHOLD', 3017b3e8-c927-48dd-83ab-2e3a1e1a652d: 'TEST', f6e57135-975c-4c72-88af-3d30db4c0434: Array(2)}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 60 options for SITE (serverSearch: true, hasTyped: true)
+client:1035 WebSocket connection to 'wss://app-xtdh6zensz2lru3anzpkkyagmz62bkduo43udf5qc776bztror2a.makeproxy-c.figma.site/' failed: 
+ping @ client:1035
+waitForSuccessfulPing @ client:1060Understand this error
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] 🔢 Input received: {value: '78562241', digitLength: undefined, beforeLength: 8}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] ✅ Final value: 78562241
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] Setting field f6e57135-975c-4c72-88af-3d30db4c0434 to: (2) [73312343211, 78562241] (array)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] FormData after update: {749a5872-6c92-410e-879b-7e32813bebab: 'NAKURU_FREEHOLD', 3017b3e8-c927-48dd-83ab-2e3a1e1a652d: 'TEST', f6e57135-975c-4c72-88af-3d30db4c0434: Array(2)}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 60 options for SITE (serverSearch: true, hasTyped: true)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] 🔢 Input received: {value: '785622412', digitLength: undefined, beforeLength: 9}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [RepeatableNumber] ✅ Final value: 785622412
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] Setting field f6e57135-975c-4c72-88af-3d30db4c0434 to: (2) [73312343211, 785622412] (array)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [FieldChange] FormData after update: {749a5872-6c92-410e-879b-7e32813bebab: 'NAKURU_FREEHOLD', 3017b3e8-c927-48dd-83ab-2e3a1e1a652d: 'TEST', f6e57135-975c-4c72-88af-3d30db4c0434: Array(2)}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 60 options for SITE (serverSearch: true, hasTyped: true)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Submit] Starting validation... {totalFields: 3, formData: {…}, photos: Array(0)}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Submit] ✅ Field valid: "undefined" = "NAKURU_FREEHOLD"
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Submit] ✅ Field valid: "undefined" = "TEST"
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Submit] 🔍 Checking for database duplicate protection...
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Submit] ✅ All validations passed!
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Submit] Starting submission... {programId: '67b91b34-81f9-416a-9462-843a51bc920d', userId: '8aa38c0c-0723-49c2-ad45-3bbc6e421879', formData: {…}, totalPhotos: 0, photosByField: {…}, …}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Submit] Photos converted to base64: 0
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Submit] Writing directly to database (bypassing Edge Function)...
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Submit] Points to award: 10 (points_enabled: true )
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 60 options for SITE (serverSearch: true, hasTyped: true)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Submit] ✅ Submission saved and 10 points awarded! {id: '62118bee-9e05-49ea-a368-0a065e3569a1', program_id: '67b91b34-81f9-416a-9462-843a51bc920d', user_id: '8aa38c0c-0723-49c2-ad45-3bbc6e421879', responses: {…}, status: 'submitted', …}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Submit] ✅ User points updated (+ 10 points). New total: 20
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Analytics] Action tracking disabled (RLS policy issue): submit_program
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] ✅ User loaded: {id: '8aa38c0c-0723-49c2-ad45-3bbc6e421879', role: 'sales_executive', name: 'SALMA RAJAB', canSubmit: true}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Top Performers] 🔥 Loading top performers for TODAY...
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Top Performers] 📅 Today starts at: 2026-03-08T21:00:00.000Z
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+client:1035 WebSocket connection to 'wss://app-xtdh6zensz2lru3anzpkkyagmz62bkduo43udf5qc776bztror2a.makeproxy-c.figma.site/' failed: 
+ping @ client:1035
+waitForSuccessfulPing @ client:1060Understand this error
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsAPI] Fetching programs for role: sales_executive
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsAPI] Found 7 programs for role sales_executive
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] 🔍 Checking auto-open: {initialProgramId: '67b91b34-81f9-416a-9462-843a51bc920d', programsLoaded: 7, currentSelection: undefined}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] 🎯 Found program to open: NEW-SITE-CHECK-IN 
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] ✅ Opening program from prop: NEW-SITE-CHECK-IN 
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 0 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] ✅ Modal opened for user: {userId: '8aa38c0c-0723-49c2-ad45-3bbc6e421879', role: 'sales_executive', name: 'SALMA RAJAB', zone: 'NAIROBI METROPOLITAN', program: 'NEW-SITE-CHECK-IN ', …}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] 🔄 Fetching ALL shops from database (paginated)...
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] 📦 Fetching batch 1 (rows 0-999)...
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Loading fields for program: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: false
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [GPS] Browser geolocation error: Geolocation has been disabled in this document by permissions policy.
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 0 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: true
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Top Performers] 👥 Found 727 Sales Executives
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] 🔍 Checking initial program: {initialProgramId: '67b91b34-81f9-416a-9462-843a51bc920d', programsCount: 7}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] 🎯 Found initial program: NEW-SITE-CHECK-IN 
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] ✅ Auto-opening program in loadData: NEW-SITE-CHECK-IN 
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 0 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] 📍 User zone from DB: NAIROBI METROPOLITAN
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] ✅ Loaded 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] 🔍 Fields data: [
+  {
+    "id": "749a5872-6c92-410e-879b-7e32813bebab",
+    "program_id": "67b91b34-81f9-416a-9462-843a51bc920d",
+    "field_name": "site",
+    "field_label": "SITE",
+    "field_type": "dropdown",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "database_source": {
+        "table": "sitewise_lat_long",
+        "multi_select": false,
+        "display_field": "SITE",
+        "metadata_fields": [
+          "SITE ID",
+          "WARDS",
+          "TOWN",
+          "SUB-COUNTY",
+          "COUNTY",
+          "CLUSTER (691)",
+          "TSE/SE",
+          "ZSM",
+          "ZBM",
+          "ZONE"
+        ],
+        "repeatable_dropdown": false
+      },
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 0,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-09T12:39:31.467331+00:00"
+  },
+  {
+    "id": "3017b3e8-c927-48dd-83ab-2e3a1e1a652d",
+    "program_id": "67b91b34-81f9-416a-9462-843a51bc920d",
+    "field_name": "ga_target_ftd",
+    "field_label": "GA TARGET FTD",
+    "field_type": "text",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": null,
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 1,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-09T12:39:31.467331+00:00"
+  },
+  {
+    "id": "f6e57135-975c-4c72-88af-3d30db4c0434",
+    "program_id": "67b91b34-81f9-416a-9462-843a51bc920d",
+    "field_name": "promoter_",
+    "field_label": "PROMOTER ",
+    "field_type": "repeatable_number",
+    "is_required": false,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "entry_label": "Promoter number ",
+      "min_entries": 1,
+      "check_database": false,
+      "prevent_duplicates": true,
+      "remove_leading_zero": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 2,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-09T12:39:31.467331+00:00"
+  }
+]
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Loading already-submitted values for 1 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] 🔍 Checking fields: (3) [{…}, {…}, {…}]
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] 🔄 Loading data for 1 database dropdown/multi-select field(s)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] 🔒 Zone filtering: DISABLED | User zone: NAIROBI METROPOLITAN
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Loading from table: sitewise_lat_long
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] 🚀 "sitewise_lat_long" is large (>500 rows) → server-side search ENABLED, skipping bulk download
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Top Performers] ✅ Loaded 982 SE submissions from today (filtered from 1000 total)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Top Performers] 📊 ALL users sorted by points: (10) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Top Performers] 🏆 Top 3 user IDs: (3) [{…}, {…}, {…}]
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 ✅ Updated user rank: 483 points: 20
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [App] 🎬 Rendering Programs tab with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] ✅ Batch 1: 1000 shops (Total so far: 1000)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] 📦 Fetching batch 2 (rows 1000-1999)...
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Field "PROMOTER " has 0 already-submitted values
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 0 options for SITE (serverSearch: true, hasTyped: false)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Top Performers] ✅ Final top performers: (3) [{…}, {…}, {…}]
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [App] 🎬 Rendering Programs tab with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 0 options for SITE (serverSearch: true, hasTyped: false)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] ✅ Batch 2: 1000 shops (Total so far: 2000)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] 📦 Fetching batch 3 (rows 2000-2999)...
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] ✅ Batch 3: 674 shops (Total so far: 2674)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] ✅ Total loaded from database: 2674 shops
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] ✅ Lookup map created with 2651 entries
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] ✅ shopsLoaded flag set to true - component should re-render
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 0 options for SITE (serverSearch: true, hasTyped: false)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 2674 shops | shopsLoaded: true | loadingShops: false
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] ✅ Component should now show search dropdown instead of radio buttons
+client:1035 WebSocket connection to 'wss://app-xtdh6zensz2lru3anzpkkyagmz62bkduo43udf5qc776bztror2a.makeproxy-c.figma.site/' failed: 
+ping @ client:1035
+waitForSuccessfulPing @ client:1060Understand this error
+client:1035 WebSocket connection to 'wss://app-xtdh6zensz2lru3anzpkkyagmz62bkduo43udf5qc776bztror2a.makeproxy-c.figma.site/' failed: 
+ping @ client:1035
+waitForSuccessfulPing @ client:1060Understand this error
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 0 options for SITE (serverSearch: true, hasTyped: false)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+client:1035 WebSocket connection to 'wss://app-xtdh6zensz2lru3anzpkkyagmz62bkduo43udf5qc776bztror2a.makeproxy-c.figma.site/' failed: 
+ping @ client:1035
+waitForSuccessfulPing @ client:1060Understand this error
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] 🎯 Program clicked: {program: 'MINI ROAD SHOW -CHECK IN ', viewMode: 'submit', willOpen: 'Submit Modal'}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 0 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] ✅ Modal opened for user: {userId: '8aa38c0c-0723-49c2-ad45-3bbc6e421879', role: 'sales_executive', name: 'SALMA RAJAB', zone: 'NAIROBI METROPOLITAN', program: 'MINI ROAD SHOW -CHECK IN ', …}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] 🔄 Fetching ALL shops from database (paginated)...
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] 📦 Fetching batch 1 (rows 0-999)...
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Loading fields for program: 9f0d8fab-336b-40dc-b38e-746b81397fc2
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: false
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 0 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: true
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [GPS] Browser geolocation error: Geolocation has been disabled in this document by permissions policy.
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 0 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] 📍 User zone from DB: NAIROBI METROPOLITAN
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 0 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] ✅ Loaded 5 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] 🔍 Fields data: [
+  {
+    "id": "d33e70b9-eea4-4c73-8f76-6891698b5fc3",
+    "program_id": "9f0d8fab-336b-40dc-b38e-746b81397fc2",
+    "field_name": "number_plate_",
+    "field_label": "NUMBER PLATE ",
+    "field_type": "dropdown",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "database_source": {
+        "table": "van_db",
+        "multi_select": true,
+        "display_field": "number_plate",
+        "metadata_fields": [
+          "zone"
+        ]
+      },
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 0,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-03T20:14:36.641358+00:00"
+  },
+  {
+    "id": "3dfb3851-953b-4313-a7e5-4e9d83c41ec2",
+    "program_id": "9f0d8fab-336b-40dc-b38e-746b81397fc2",
+    "field_name": "photo_of_odometer",
+    "field_label": "PHOTO OF ODOMETER",
+    "field_type": "photo",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": null,
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 1,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-03T20:14:36.641358+00:00"
+  },
+  {
+    "id": "637a392d-c183-4441-8a09-e7f3e54dcf92",
+    "program_id": "9f0d8fab-336b-40dc-b38e-746b81397fc2",
+    "field_name": "odometer",
+    "field_label": "ODOMETER",
+    "field_type": "number",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": null,
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 2,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-03T20:14:36.641358+00:00"
+  },
+  {
+    "id": "39e7c166-5b9e-4146-ab04-94909631d21f",
+    "program_id": "9f0d8fab-336b-40dc-b38e-746b81397fc2",
+    "field_name": "site(s)_for_the_day_",
+    "field_label": "SITE(S) WORKING TODAY",
+    "field_type": "dropdown",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "database_source": {
+        "table": "sitewise",
+        "multi_select": false,
+        "display_field": "SITE",
+        "metadata_fields": [
+          "SITE ID",
+          "TOWN CATEGORY",
+          "CLUSTER (691)",
+          "TSE",
+          "ZSM",
+          "ZBM",
+          "ZONE"
+        ]
+      },
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 3,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-03T20:14:36.641358+00:00"
+  },
+  {
+    "id": "4f26cbcb-6e88-48e1-bf73-7e50d087f642",
+    "program_id": "9f0d8fab-336b-40dc-b38e-746b81397fc2",
+    "field_name": "number_of_promoters_in_the_van_today_",
+    "field_label": "NUMBER OF PROMOTERS IN THE VAN TODAY ",
+    "field_type": "repeatable_number",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "entry_label": "Promoter ",
+      "max_entries": 30,
+      "min_entries": 6,
+      "digit_length": 9,
+      "check_database": true,
+      "prevent_duplicates": true,
+      "remove_leading_zero": true
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 4,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-03T20:14:36.641358+00:00"
+  }
+]
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Loading already-submitted values for 1 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] 🔍 Checking fields: (5) [{…}, {…}, {…}, {…}, {…}]
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] 🔄 Loading data for 2 database dropdown/multi-select field(s)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] 🔒 Zone filtering: DISABLED | User zone: NAIROBI METROPOLITAN
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Loading from table: van_db
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] ✅ Batch 1: 1000 shops (Total so far: 1000)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] 📦 Fetching batch 2 (rows 1000-1999)...
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] 📦 "van_db" is small (≤500 rows) → loading all rows
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] 📦 Fetching batch 1 from van_db (rows 0-999)...
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] ✅ Batch 2: 1000 shops (Total so far: 2000)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] 📦 Fetching batch 3 (rows 2000-2999)...
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Field "NUMBER OF PROMOTERS IN THE VAN TODAY " has 1 already-submitted values
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] ✅ Batch 1: 40 rows (Total so far: 40)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] ✅ Loaded all 40 rows from "van_db" (client-side search)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Loading from table: sitewise
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 40 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] ✅ Batch 3: 674 shops (Total so far: 2674)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] ✅ Total loaded from database: 2674 shops
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] ✅ Lookup map created with 2651 entries
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] ✅ shopsLoaded flag set to true - component should re-render
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 40 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 2674 shops | shopsLoaded: true | loadingShops: false
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] ✅ Component should now show search dropdown instead of radio buttons
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] 🚀 "sitewise" is large (>500 rows) → server-side search ENABLED, skipping bulk download
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 40 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: false)
+client:1035 WebSocket connection to 'wss://app-xtdh6zensz2lru3anzpkkyagmz62bkduo43udf5qc776bztror2a.makeproxy-c.figma.site/' failed: 
+ping @ client:1035
+waitForSuccessfulPing @ client:1060Understand this error
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] 🎯 Program clicked: {program: 'NEW-SITE-CHECK-IN ', viewMode: 'submit', willOpen: 'Submit Modal'}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 0 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] ✅ Modal opened for user: {userId: '8aa38c0c-0723-49c2-ad45-3bbc6e421879', role: 'sales_executive', name: 'SALMA RAJAB', zone: 'NAIROBI METROPOLITAN', program: 'NEW-SITE-CHECK-IN ', …}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] 🔄 Fetching ALL shops from database (paginated)...
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] 📦 Fetching batch 1 (rows 0-999)...
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Loading fields for program: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: false
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 0 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: true
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [GPS] Browser geolocation error: Geolocation has been disabled in this document by permissions policy.
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 0 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] ✅ Loaded 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] 🔍 Fields data: [
+  {
+    "id": "749a5872-6c92-410e-879b-7e32813bebab",
+    "program_id": "67b91b34-81f9-416a-9462-843a51bc920d",
+    "field_name": "site",
+    "field_label": "SITE",
+    "field_type": "dropdown",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "database_source": {
+        "table": "sitewise_lat_long",
+        "multi_select": false,
+        "display_field": "SITE",
+        "metadata_fields": [
+          "SITE ID",
+          "WARDS",
+          "TOWN",
+          "SUB-COUNTY",
+          "COUNTY",
+          "CLUSTER (691)",
+          "TSE/SE",
+          "ZSM",
+          "ZBM",
+          "ZONE"
+        ],
+        "repeatable_dropdown": false
+      },
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 0,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-09T12:39:31.467331+00:00"
+  },
+  {
+    "id": "3017b3e8-c927-48dd-83ab-2e3a1e1a652d",
+    "program_id": "67b91b34-81f9-416a-9462-843a51bc920d",
+    "field_name": "ga_target_ftd",
+    "field_label": "GA TARGET FTD",
+    "field_type": "text",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": null,
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 1,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-09T12:39:31.467331+00:00"
+  },
+  {
+    "id": "f6e57135-975c-4c72-88af-3d30db4c0434",
+    "program_id": "67b91b34-81f9-416a-9462-843a51bc920d",
+    "field_name": "promoter_",
+    "field_label": "PROMOTER ",
+    "field_type": "repeatable_number",
+    "is_required": false,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "entry_label": "Promoter number ",
+      "min_entries": 1,
+      "check_database": false,
+      "prevent_duplicates": true,
+      "remove_leading_zero": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 2,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-09T12:39:31.467331+00:00"
+  }
+]
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Loading already-submitted values for 1 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] 🔍 Checking fields: (3) [{…}, {…}, {…}]
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] 🔄 Loading data for 1 database dropdown/multi-select field(s)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] 🔒 Zone filtering: DISABLED | User zone: NAIROBI METROPOLITAN
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Loading from table: sitewise_lat_long
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] 🚀 "sitewise_lat_long" is large (>500 rows) → server-side search ENABLED, skipping bulk download
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] 📍 User zone from DB: NAIROBI METROPOLITAN
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] ✅ Batch 1: 1000 shops (Total so far: 1000)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] 📦 Fetching batch 2 (rows 1000-1999)...
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Field "PROMOTER " has 0 already-submitted values
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 0 options for SITE (serverSearch: true, hasTyped: false)
+client:1035 WebSocket connection to 'wss://app-xtdh6zensz2lru3anzpkkyagmz62bkduo43udf5qc776bztror2a.makeproxy-c.figma.site/' failed: 
+ping @ client:1035
+waitForSuccessfulPing @ client:1060Understand this error
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] ✅ Batch 2: 1000 shops (Total so far: 2000)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] 📦 Fetching batch 3 (rows 2000-2999)...
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] ✅ Batch 3: 674 shops (Total so far: 2674)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] ✅ Total loaded from database: 2674 shops
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] ✅ Lookup map created with 2651 entries
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Shops] ✅ shopsLoaded flag set to true - component should re-render
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] Program: NEW-SITE-CHECK-IN  with 3 fields
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [DatabaseDropdown] Generated 0 options for SITE (serverSearch: true, hasTyped: false)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 2674 shops | shopsLoaded: true | loadingShops: false
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [ProgramSubmitModal] ✅ Component should now show search dropdown instead of radio buttons
+client:1035 WebSocket connection to 'wss://app-xtdh6zensz2lru3anzpkkyagmz62bkduo43udf5qc776bztror2a.makeproxy-c.figma.site/' failed: 
+ping @ client:1035
+waitForSuccessfulPing @ client:1060Understand this error
+client:1035 WebSocket connection to 'wss://app-xtdh6zensz2lru3anzpkkyagmz62bkduo43udf5qc776bztror2a.makeproxy-c.figma.site/' failed: 
+ping @ client:1035
+waitForSuccessfulPing @ client:1060Understand this error
+client:1035 WebSocket connection to 'wss://app-xtdh6zensz2lru3anzpkkyagmz62bkduo43udf5qc776bztror2a.makeproxy-c.figma.site/' failed: 
+ping @ client:1035
+waitForSuccessfulPing @ client:1060Understand this error
+client:1035 WebSocket connection to 'wss://app-xtdh6zensz2lru3anzpkkyagmz62bkduo43udf5qc776bztror2a.makeproxy-c.figma.site/' failed: 
+ping @ client:1035
+waitForSuccessfulPing @ client:1060Understand this error
+client:1035 WebSocket connection to 'wss://app-xtdh6zensz2lru3anzpkkyagmz62bkduo43udf5qc776bztror2a.makeproxy-c.figma.site/' failed: 
+ping @ client:1035
+waitForSuccessfulPing @ client:1060Understand this error
+client:1035 WebSocket connection to 'wss://app-xtdh6zensz2lru3anzpkkyagmz62bkduo43udf5qc776bztror2a.makeproxy-c.figma.site/' failed: 
+ping @ client:1035
+waitForSuccessfulPing @ client:1060Understand this error
+client:1035 WebSocket connection to 'wss://app-xtdh6zensz2lru3anzpkkyagmz62bkduo43udf5qc776bztror2a.makeproxy-c.figma.site/' failed: 
+ping @ client:1035
+waitForSuccessfulPing @ client:1060Understand this error

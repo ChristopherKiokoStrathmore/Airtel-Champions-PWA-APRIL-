@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+/* Mobile-first responsive fixes */
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  -webkit-overflow-scrolling: touch;
+  background: var(--theme-bg-page, #f3f4f6);
+  color: var(--theme-text-primary, #111827);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Theme CSS Custom Properties — defaults (Airtel Classic) */
+:root {
+  --theme-primary: #E60000;
+  --theme-primary-hover: #CC0000;
+  --theme-primary-light: #FEF2F2;
+  --theme-bg-page: #F9FAFB;
+  --theme-bg-card: #FFFFFF;
+  --theme-text-primary: #111827;
+  --theme-text-secondary: #4B5563;
+  --theme-border: #E5E7EB;
+  --theme-shadow: rgba(0,0,0,0.08);
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Prevent zoom on input focus (iOS Safari) */
+/* Force dark text on all inputs — Android WebView/Chrome can default to white text */
+input, textarea, select {
+  font-size: 16px !important;
+  color: var(--theme-text-primary, #111827) !important;
+}
+
+/* Safe area for notched devices - Apply to #root instead of body */
+@supports (padding: max(0px)) {
+  #root {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+/* Capacitor Android specific fixes */
+.capacitor-android body {
+  position: relative;
+}
+
+.capacitor-android #root {
+  position: relative;
+  background: #f3f4f6;
+}
+
+/* Van Calendar Setup Modal - Critical Warning Animations */
+@keyframes pulse-border {
+  0%, 100% {
+    border-color: rgb(220, 38, 38); /* red-600 */
+  }
+  50% {
+    border-color: rgb(239, 68, 68); /* red-500 */
+  }
+}
+
+.animate-pulse-border {
+  animation: pulse-border 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

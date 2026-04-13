@@ -1,0 +1,979 @@
+[App] ⬅️ Going back, clearing programToOpen
+ [AndroidBackButton] 🧹 Cleaning up back button listener
+ [Programs Widget Home] 🔍 Loading folders...
+ [Programs Widget Home] 📦 localStorage data: null
+ [Programs Widget Home] ⚠️ No data in localStorage
+ [Programs Widget Home] ℹ️ No folders in any storage
+ [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+ [AndroidBackButton] ✅ Listener setup complete
+ [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+ [App] 🎬 Rendering Programs tab with initialProgramId: undefined
+ [ProgramsList] 🚀 Component render with initialProgramId: undefined
+ [AndroidBackButton] 🧹 Cleaning up back button listener
+ [PageTracking] 📄 Viewing: Programs
+ [ProgramsList] 🎬 Component mounted with initialProgramId: undefined
+ [ProgramsList] ✅ User loaded: {id: '77eab68e-fc91-494b-b6f5-22434aa31ea3', role: 'sales_executive', name: 'JOHN KINYUA NJIRU', canSubmit: true}
+ [ProgramsList] 🔍 Checking auto-open: {initialProgramId: undefined, programsLoaded: 0, currentSelection: undefined}
+ [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+ [AndroidBackButton] ✅ Listener setup complete
+ [ProgramsList] 🚀 Component render with initialProgramId: undefined
+ [ProgramsAPI] Fetching programs for role: sales_executive
+ [ProgramsList] ✅ Van Calendar enabled: true
+ [ProgramsList] 🚀 Component render with initialProgramId: undefined
+ [ProgramsAPI] ✅ Merged checkin flags into SE programs
+ [ProgramsAPI] Found 7 programs for role sales_executive
+ [ProgramsAPI] Fetching all program form configs
+ [ProgramsAPI] ✅ All form configs: 2
+ [ProgramsList] 🔗 Linked checkout program: MINI ROAD SHOW -CHECK OUT  → 9f0d8fab-336b-40dc-b38e-746b81397fc2
+ [ProgramsList] ✅ Merged linked checkin configs into programs
+ [ProgramsList] 🚀 Component render with initialProgramId: undefined
+ [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+ [ProgramsList] 🔍 Checking auto-open: {initialProgramId: undefined, programsLoaded: 7, currentSelection: undefined}
+ [ProgramsList] 🔍 Checking initial program: {initialProgramId: undefined, programsCount: 7}
+ [ProgramsList] 🚀 Component render with initialProgramId: undefined
+ [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+ [ProgramsList] 🎯 Program clicked: {program: 'MINI ROAD SHOW -CHECK IN ', viewMode: 'submit', isLinkedCheckout: false, linkedTo: null, willOpen: 'Submit Modal'}
+ [ProgramsList] 🎓 Will show program tour inside modal for: MINI ROAD SHOW -CHECK IN 
+ [ProgramsList] 🚀 Component render with initialProgramId: undefined
+ [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 0 fields
+ [Shops] 🔄 Fetching ALL shops from database (paginated)...
+ [Shops] 📦 Fetching batch 1 (rows 0-999)...
+ [ProgramSubmitModal] Loading fields for program: 9f0d8fab-336b-40dc-b38e-746b81397fc2
+ [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: false
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 0 fields
+ [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: true
+ [GPS] Browser geolocation error: Geolocation has been disabled in this document by permissions policy.
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 0 fields
+ [ProgramSubmitModal] 📍 User zone from DB: NAIROBI WEST
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 0 fields
+ [ProgramSubmitModal] ✅ Loaded 5 fields
+ [ProgramSubmitModal] 🔍 Fields data: [
+  {
+    "id": "d33e70b9-eea4-4c73-8f76-6891698b5fc3",
+    "program_id": "9f0d8fab-336b-40dc-b38e-746b81397fc2",
+    "field_name": "number_plate_",
+    "field_label": "NUMBER PLATE ",
+    "field_type": "dropdown",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "database_source": {
+        "table": "van_db",
+        "multi_select": true,
+        "display_field": "number_plate",
+        "metadata_fields": [
+          "zone"
+        ]
+      },
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 0,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-03T20:14:36.641358+00:00"
+  },
+  {
+    "id": "3dfb3851-953b-4313-a7e5-4e9d83c41ec2",
+    "program_id": "9f0d8fab-336b-40dc-b38e-746b81397fc2",
+    "field_name": "photo_of_odometer",
+    "field_label": "PHOTO OF ODOMETER",
+    "field_type": "photo",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": null,
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 1,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-03T20:14:36.641358+00:00"
+  },
+  {
+    "id": "637a392d-c183-4441-8a09-e7f3e54dcf92",
+    "program_id": "9f0d8fab-336b-40dc-b38e-746b81397fc2",
+    "field_name": "odometer",
+    "field_label": "ODOMETER",
+    "field_type": "number",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": null,
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 2,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-03T20:14:36.641358+00:00"
+  },
+  {
+    "id": "39e7c166-5b9e-4146-ab04-94909631d21f",
+    "program_id": "9f0d8fab-336b-40dc-b38e-746b81397fc2",
+    "field_name": "site(s)_for_the_day_",
+    "field_label": "SITE(S) WORKING TODAY",
+    "field_type": "dropdown",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "database_source": {
+        "table": "sitewise",
+        "multi_select": false,
+        "display_field": "SITE",
+        "metadata_fields": [
+          "SITE ID",
+          "TOWN CATEGORY",
+          "CLUSTER (691)",
+          "TSE",
+          "ZSM",
+          "ZBM",
+          "ZONE"
+        ]
+      },
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 3,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-03T20:14:36.641358+00:00"
+  },
+  {
+    "id": "4f26cbcb-6e88-48e1-bf73-7e50d087f642",
+    "program_id": "9f0d8fab-336b-40dc-b38e-746b81397fc2",
+    "field_name": "number_of_promoters_in_the_van_today_",
+    "field_label": "NUMBER OF PROMOTERS IN THE VAN TODAY ",
+    "field_type": "repeatable_number",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "entry_label": "Promoter ",
+      "max_entries": 30,
+      "min_entries": 6,
+      "digit_length": 9,
+      "check_database": true,
+      "prevent_duplicates": true,
+      "remove_leading_zero": true
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 4,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-03T20:14:36.641358+00:00"
+  }
+]
+ [ProgramSubmitModal] Loading already-submitted values for 1 fields
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] 🔍 Checking fields: (5) [{…}, {…}, {…}, {…}, {…}]
+ [DatabaseDropdown] 🔄 Loading data for 2 database dropdown/multi-select field(s)
+ [DatabaseDropdown] 🔒 Zone filtering: DISABLED | User zone: NAIROBI WEST
+ [DatabaseDropdown] Loading from table: van_db
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [ProgramsList] 🚀 Component render with initialProgramId: undefined
+ [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [Shops] ✅ Batch 1: 1000 shops (Total so far: 1000)
+ [Shops] 📦 Fetching batch 2 (rows 1000-1999)...
+ [DatabaseDropdown] 📦 "van_db" is small (≤500 rows) → loading all rows
+ [DatabaseDropdown] 📦 Fetching batch 1 from van_db (rows 0-999)...
+ [DatabaseDropdown] ✅ Batch 1: 42 rows (Total so far: 42)
+ [DatabaseDropdown] ✅ Loaded all 42 rows from "van_db" (client-side search)
+ [DatabaseDropdown] Loading from table: sitewise
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [Shops] ✅ Batch 2: 1000 shops (Total so far: 2000)
+ [Shops] 📦 Fetching batch 3 (rows 2000-2999)...
+ [ProgramSubmitModal] Field "NUMBER OF PROMOTERS IN THE VAN TODAY " has 1 already-submitted values
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: false)
+ [DatabaseDropdown] 🚀 "sitewise" is large (>500 rows) → server-side search ENABLED, skipping bulk download
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: false)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: false)
+ [Shops] ✅ Batch 3: 674 shops (Total so far: 2674)
+ [Shops] ✅ Total loaded from database: 2674 shops
+ [Shops] ✅ Lookup map created with 2651 entries
+ [Shops] ✅ shopsLoaded flag set to true - component should re-render
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: false)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: false)
+ [ProgramSubmitModal] 🔄 Shops state updated: 2674 shops | shopsLoaded: true | loadingShops: false
+ [ProgramSubmitModal] ✅ Component should now show search dropdown instead of radio buttons
+ [ProgramsList] 🚀 Component render with initialProgramId: undefined
+ [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: false)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: false)
+ [Dropdown] 🔍 Search input focused - opening dropdown
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: false)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: false)
+ [Dropdown] ⌨️ Input changed: k
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: false)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: false)
+ [Dropdown] ⌨️ Input changed: kc
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: false)
+ [Dropdown] ⌨️ Input changed: kcv
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: false)
+ [Shop Dropdown] 🎯 Option clicked: KCV 831C
+ [FieldChange] Setting field d33e70b9-eea4-4c73-8f76-6891698b5fc3 to: KCV 831C (single)
+ [FieldChange] Auto-populating from: KCV 831C 
+ [AutoPopulate] ��� Database dropdown selection: {field: 'NUMBER PLATE ', value: 'KCV 831C', table: 'van_db', displayField: 'number_plate', metadataFields: Array(1)}
+ [AutoPopulate] ✅ Found selected row: {id: 32, created_at: '2026-02-09T11:40:26.409879+00:00', number_plate: 'KCV 831C', capacity: null, vendor: 'WE EVOLVE', …}
+ [AutoPopulate] 📦 Stored metadata for display: {zone: 'EASTERN'}
+ [AutoPopulate] ℹ️ No matching fields found to auto-populate
+ [VanEnforcement] 🔍 Checking van checkout status for: "KCV 831C" | program.van_checkout_enforcement_enabled=true
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C'}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: false)
+ [VanEnforcement] RPC response for "KCV 831C": {"debug":{"steps":["Checking van: \"KCV831C\"","Found 2 check-in programs, 1 check-out programs","Last check-in: 2026-03-07 07:37:01.80397+00 (id: 6a1e0653-ed1b-4a7a-8d84-64c3057b7b58)","BLOCKED: No checkout found for \"KCV831C\" after check-in at 2026-03-07 07:37:01.80397+00"],"last_checkin":{"id":"6a1e0653-ed1b-4a7a-8d84-64c3057b7b58","created_at":"2026-03-07T07:37:01.80397+00:00"}},"allowed":false,"message":"Kindly check out previous trip before you can check in again","enforcement_enabled":true} 
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: false)
+ [Photo] Added 1 photo(s) to field 3dfb3851-953b-4313-a7e5-4e9d83c41ec2
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: false)
+ [FieldChange] Setting field 637a392d-c183-4441-8a09-e7f3e54dcf92 to: 2 (single)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 2}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: false)
+ [FieldChange] Setting field 637a392d-c183-4441-8a09-e7f3e54dcf92 to: 22 (single)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: false)
+ [FieldChange] Setting field 637a392d-c183-4441-8a09-e7f3e54dcf92 to: 224 (single)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 224}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: false)
+ [FieldChange] Setting field 637a392d-c183-4441-8a09-e7f3e54dcf92 to: 2245 (single)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 2245}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: false)
+ [FieldChange] Setting field 637a392d-c183-4441-8a09-e7f3e54dcf92 to: 22456 (single)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22456}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: false)
+ [FieldChange] Setting field 637a392d-c183-4441-8a09-e7f3e54dcf92 to: 22455 (single)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22455}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: false)
+ [FieldChange] Setting field 637a392d-c183-4441-8a09-e7f3e54dcf92 to: 22454 (single)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22454}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: false)
+ [FieldChange] Setting field 637a392d-c183-4441-8a09-e7f3e54dcf92 to: 22453 (single)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22453}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: false)
+ [FieldChange] Setting field 637a392d-c183-4441-8a09-e7f3e54dcf92 to: 22452 (single)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22452}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: false)
+ [FieldChange] Setting field 637a392d-c183-4441-8a09-e7f3e54dcf92 to: 22451 (single)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22451}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: false)
+ [FieldChange] Setting field 637a392d-c183-4441-8a09-e7f3e54dcf92 to: 22450 (single)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22450}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: false)
+ [FieldChange] Setting field 637a392d-c183-4441-8a09-e7f3e54dcf92 to: 22449 (single)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22449}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: false)
+ [FieldChange] Setting field 637a392d-c183-4441-8a09-e7f3e54dcf92 to: 22448 (single)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22448}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: false)
+ [FieldChange] Setting field 637a392d-c183-4441-8a09-e7f3e54dcf92 to: 22447 (single)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22447}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: false)
+ [FieldChange] Setting field 637a392d-c183-4441-8a09-e7f3e54dcf92 to: 22446 (single)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22446}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: false)
+ [FieldChange] Setting field 637a392d-c183-4441-8a09-e7f3e54dcf92 to: 22445 (single)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22445}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: false)
+ [FieldChange] Setting field 637a392d-c183-4441-8a09-e7f3e54dcf92 to: 22444 (single)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22444}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: false)
+ [FieldChange] Setting field 637a392d-c183-4441-8a09-e7f3e54dcf92 to: 22443 (single)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22443}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: false)
+ [FieldChange] Setting field 637a392d-c183-4441-8a09-e7f3e54dcf92 to: 22442 (single)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22442}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: false)
+ [FieldChange] Setting field 637a392d-c183-4441-8a09-e7f3e54dcf92 to: 22441 (single)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22441}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: false)
+ [FieldChange] Setting field 637a392d-c183-4441-8a09-e7f3e54dcf92 to: 22440 (single)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: false)
+ [Dropdown] 🔍 Search input focused - opening dropdown
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: false)
+ [Dropdown] 🖱️ Click detected on search input
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: false)
+ [Dropdown] ⌨️ Input changed: j
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: false)
+ [Dropdown] ⌨️ Input changed: ju
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [ServerSearch] 🔍 Raw: "ju" → Normalized: "ju" (isNumeric: false)
+ [ServerSearch] 🔎 Searching 8 fields: SITE, SITE ID, TOWN CATEGORY, CLUSTER (691), TSE, ZSM, ZBM, ZONE
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 0 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [ServerSearch] ✅ "ju" → 60 results from sitewise
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [Shop Dropdown] 🎯 Option clicked: KAKANJU_KILIFI
+ [FieldChange] Setting field 39e7c166-5b9e-4146-ab04-94909631d21f to: KAKANJU_KILIFI (single)
+ [FieldChange] Auto-populating from: KAKANJU_KILIFI 
+ [AutoPopulate] ��� Database dropdown selection: {field: 'SITE(S) WORKING TODAY', value: 'KAKANJU_KILIFI', table: 'sitewise', displayField: 'SITE', metadataFields: Array(7)}
+ [AutoPopulate] ✅ Found selected row: {SITE ID: 'KFI0087', SITE: 'KAKANJU_KILIFI', TOWN CATEGORY: 'Rest of Urban', CLUSTER (691): 'TEZO', TSE: 'WINCATE NTINYARI MUTHURI', …}
+ [AutoPopulate] 📦 Stored metadata for display: {SITE ID: 'KFI0087', TOWN CATEGORY: 'Rest of Urban', CLUSTER (691): 'TEZO', TSE: 'WINCATE NTINYARI MUTHURI', ZSM: 'SCHOLA NGALA', …}
+ [AutoPopulate] ℹ️ No matching fields found to auto-populate
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI'}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '0', digitLength: 9, beforeLength: 1}
+ [RepeatableNumber] 🔄 Removing leading zero
+ [RepeatableNumber] ✅ Final value: 
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) ['', '', '', '', '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '7', digitLength: 9, beforeLength: 1}
+ [RepeatableNumber] ✅ Final value: 7
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [7, '', '', '', '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '72', digitLength: 9, beforeLength: 2}
+ [RepeatableNumber] ✅ Final value: 72
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [72, '', '', '', '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '721', digitLength: 9, beforeLength: 3}
+ [RepeatableNumber] ✅ Final value: 721
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721, '', '', '', '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '7217', digitLength: 9, beforeLength: 4}
+ [RepeatableNumber] ✅ Final value: 7217
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [7217, '', '', '', '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '72177', digitLength: 9, beforeLength: 5}
+ [RepeatableNumber] ✅ Final value: 72177
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [72177, '', '', '', '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '721777', digitLength: 9, beforeLength: 6}
+ [RepeatableNumber] ✅ Final value: 721777
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777, '', '', '', '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '7217777', digitLength: 9, beforeLength: 7}
+ [RepeatableNumber] ✅ Final value: 7217777
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [7217777, '', '', '', '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '72177777', digitLength: 9, beforeLength: 8}
+ [RepeatableNumber] ✅ Final value: 72177777
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [72177777, '', '', '', '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '721777777', digitLength: 9, beforeLength: 9}
+ [RepeatableNumber] ✅ Final value: 721777777
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, '', '', '', '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '7217777777', digitLength: 9, beforeLength: 10}
+ [RepeatableNumber] ✂️ Truncating from 10 to 9 digits
+ [RepeatableNumber] ✅ Final value: 721777777
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, '', '', '', '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '7', digitLength: 9, beforeLength: 1}
+ [RepeatableNumber] ✅ Final value: 7
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 7, '', '', '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '77', digitLength: 9, beforeLength: 2}
+ [RepeatableNumber] ✅ Final value: 77
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 77, '', '', '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '777', digitLength: 9, beforeLength: 3}
+ [RepeatableNumber] ✅ Final value: 777
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777, '', '', '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '7777', digitLength: 9, beforeLength: 4}
+ [RepeatableNumber] ✅ Final value: 7777
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 7777, '', '', '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '77777', digitLength: 9, beforeLength: 5}
+ [RepeatableNumber] ✅ Final value: 77777
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 77777, '', '', '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '777777', digitLength: 9, beforeLength: 6}
+ [RepeatableNumber] ✅ Final value: 777777
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777, '', '', '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '7777777', digitLength: 9, beforeLength: 7}
+ [RepeatableNumber] ✅ Final value: 7777777
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 7777777, '', '', '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '77777777', digitLength: 9, beforeLength: 8}
+ [RepeatableNumber] ✅ Final value: 77777777
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 77777777, '', '', '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '777777777', digitLength: 9, beforeLength: 9}
+ [RepeatableNumber] ✅ Final value: 777777777
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, '', '', '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '7777777777', digitLength: 9, beforeLength: 10}
+ [RepeatableNumber] ✂️ Truncating from 10 to 9 digits
+ [RepeatableNumber] ✅ Final value: 777777777
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, '', '', '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '7777777776', digitLength: 9, beforeLength: 10}
+ [RepeatableNumber] ✂️ Truncating from 10 to 9 digits
+ [RepeatableNumber] ✅ Final value: 777777777
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, '', '', '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '7777777776', digitLength: 9, beforeLength: 10}
+ [RepeatableNumber] ✂️ Truncating from 10 to 9 digits
+ [RepeatableNumber] ✅ Final value: 777777777
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, '', '', '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '7777777776', digitLength: 9, beforeLength: 10}
+ [RepeatableNumber] ✂️ Truncating from 10 to 9 digits
+ [RepeatableNumber] ✅ Final value: 777777777
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, '', '', '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '5', digitLength: 9, beforeLength: 1}
+ [RepeatableNumber] ✅ Final value: 5
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 5, '', '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '55', digitLength: 9, beforeLength: 2}
+ [RepeatableNumber] ✅ Final value: 55
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 55, '', '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '555', digitLength: 9, beforeLength: 3}
+ [RepeatableNumber] ✅ Final value: 555
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555, '', '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '5555', digitLength: 9, beforeLength: 4}
+ [RepeatableNumber] ✅ Final value: 5555
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 5555, '', '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '55555', digitLength: 9, beforeLength: 5}
+ [RepeatableNumber] ✅ Final value: 55555
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 55555, '', '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '555555', digitLength: 9, beforeLength: 6}
+ [RepeatableNumber] ✅ Final value: 555555
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555, '', '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '5555555', digitLength: 9, beforeLength: 7}
+ [RepeatableNumber] ✅ Final value: 5555555
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 5555555, '', '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '55555555', digitLength: 9, beforeLength: 8}
+ [RepeatableNumber] ✅ Final value: 55555555
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 55555555, '', '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '555555555', digitLength: 9, beforeLength: 9}
+ [RepeatableNumber] ✅ Final value: 555555555
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555555, '', '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '5555555555', digitLength: 9, beforeLength: 10}
+ [RepeatableNumber] ✂️ Truncating from 10 to 9 digits
+ [RepeatableNumber] ✅ Final value: 555555555
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555555, '', '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '4', digitLength: 9, beforeLength: 1}
+ [RepeatableNumber] ✅ Final value: 4
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555555, 4, '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '44', digitLength: 9, beforeLength: 2}
+ [RepeatableNumber] ✅ Final value: 44
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555555, 44, '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '444', digitLength: 9, beforeLength: 3}
+ [RepeatableNumber] ✅ Final value: 444
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555555, 444, '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '4444', digitLength: 9, beforeLength: 4}
+ [RepeatableNumber] ✅ Final value: 4444
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555555, 4444, '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '44444', digitLength: 9, beforeLength: 5}
+ [RepeatableNumber] ✅ Final value: 44444
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555555, 44444, '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '444444', digitLength: 9, beforeLength: 6}
+ [RepeatableNumber] ✅ Final value: 444444
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555555, 444444, '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '4444444', digitLength: 9, beforeLength: 7}
+ [RepeatableNumber] ✅ Final value: 4444444
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555555, 4444444, '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '44444444', digitLength: 9, beforeLength: 8}
+ [RepeatableNumber] ✅ Final value: 44444444
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555555, 44444444, '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '444444444', digitLength: 9, beforeLength: 9}
+ [RepeatableNumber] ✅ Final value: 444444444
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555555, 444444444, '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '4444444444', digitLength: 9, beforeLength: 10}
+ [RepeatableNumber] ✂️ Truncating from 10 to 9 digits
+ [RepeatableNumber] ✅ Final value: 444444444
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555555, 444444444, '', ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '3', digitLength: 9, beforeLength: 1}
+ [RepeatableNumber] ✅ Final value: 3
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555555, 444444444, 3, ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '33', digitLength: 9, beforeLength: 2}
+ [RepeatableNumber] ✅ Final value: 33
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555555, 444444444, 33, ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '333', digitLength: 9, beforeLength: 3}
+ [RepeatableNumber] ✅ Final value: 333
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555555, 444444444, 333, ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '3333', digitLength: 9, beforeLength: 4}
+ [RepeatableNumber] ✅ Final value: 3333
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555555, 444444444, 3333, ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '33333', digitLength: 9, beforeLength: 5}
+ [RepeatableNumber] ✅ Final value: 33333
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555555, 444444444, 33333, ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '333333', digitLength: 9, beforeLength: 6}
+ [RepeatableNumber] ✅ Final value: 333333
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555555, 444444444, 333333, ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '3333333', digitLength: 9, beforeLength: 7}
+ [RepeatableNumber] ✅ Final value: 3333333
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555555, 444444444, 3333333, ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '33333333', digitLength: 9, beforeLength: 8}
+ [RepeatableNumber] ✅ Final value: 33333333
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555555, 444444444, 33333333, ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '333333333', digitLength: 9, beforeLength: 9}
+ [RepeatableNumber] ✅ Final value: 333333333
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555555, 444444444, 333333333, ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '3333333333', digitLength: 9, beforeLength: 10}
+ [RepeatableNumber] ✂️ Truncating from 10 to 9 digits
+ [RepeatableNumber] ✅ Final value: 333333333
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555555, 444444444, 333333333, ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '0', digitLength: 9, beforeLength: 1}
+ [RepeatableNumber] 🔄 Removing leading zero
+ [RepeatableNumber] ✅ Final value: 
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555555, 444444444, 333333333, ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '0', digitLength: 9, beforeLength: 1}
+ [RepeatableNumber] 🔄 Removing leading zero
+ [RepeatableNumber] ✅ Final value: 
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555555, 444444444, 333333333, ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '0', digitLength: 9, beforeLength: 1}
+ [RepeatableNumber] 🔄 Removing leading zero
+ [RepeatableNumber] ✅ Final value: 
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555555, 444444444, 333333333, ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '0', digitLength: 9, beforeLength: 1}
+ [RepeatableNumber] 🔄 Removing leading zero
+ [RepeatableNumber] ✅ Final value: 
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555555, 444444444, 333333333, ''] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '9', digitLength: 9, beforeLength: 1}
+ [RepeatableNumber] ✅ Final value: 9
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555555, 444444444, 333333333, 9] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '99', digitLength: 9, beforeLength: 2}
+ [RepeatableNumber] ✅ Final value: 99
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555555, 444444444, 333333333, 99] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '999', digitLength: 9, beforeLength: 3}
+ [RepeatableNumber] ✅ Final value: 999
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555555, 444444444, 333333333, 999] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '9999', digitLength: 9, beforeLength: 4}
+ [RepeatableNumber] ✅ Final value: 9999
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555555, 444444444, 333333333, 9999] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '99999', digitLength: 9, beforeLength: 5}
+ [RepeatableNumber] ✅ Final value: 99999
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555555, 444444444, 333333333, 99999] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '999999', digitLength: 9, beforeLength: 6}
+ [RepeatableNumber] ✅ Final value: 999999
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555555, 444444444, 333333333, 999999] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '9999999', digitLength: 9, beforeLength: 7}
+ [RepeatableNumber] ✅ Final value: 9999999
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555555, 444444444, 333333333, 9999999] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '99999999', digitLength: 9, beforeLength: 8}
+ [RepeatableNumber] ✅ Final value: 99999999
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555555, 444444444, 333333333, 99999999] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [RepeatableNumber] 🔢 Input received: {value: '999999998', digitLength: 9, beforeLength: 9}
+ [RepeatableNumber] ✅ Final value: 999999998
+ [FieldChange] Setting field 4f26cbcb-6e88-48e1-bf73-7e50d087f642 to: (6) [721777777, 777777777, 555555555, 444444444, 333333333, 999999998] (array)
+ [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCV 831C', 637a392d-c183-4441-8a09-e7f3e54dcf92: 22440, 39e7c166-5b9e-4146-ab04-94909631d21f: 'KAKANJU_KILIFI', 4f26cbcb-6e88-48e1-bf73-7e50d087f642: Array(6)}
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE  (serverSearch: undefined, hasTyped: true)
+ [DatabaseDropdown] Generated 60 options for SITE(S) WORKING TODAY (serverSearch: true, hasTyped: true)
+ [Analytics] Action tracking disabled (RLS policy issue): submit_program
+ [ProgramsList] ✅ User loaded: {id: '77eab68e-fc91-494b-b6f5-22434aa31ea3', role: 'sales_executive', name: 'JOHN KINYUA NJIRU', canSubmit: true}
+ [Top Performers] 🔥 Loading top performers for TODAY...
+ [Top Performers] 📅 Today starts at: 2026-03-10T21:00:00.000Z
+ [ProgramsList] 🚀 Component render with initialProgramId: undefined
+ [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+ [ProgramsAPI] Fetching programs for role: sales_executive
+ [Top Performers] 👥 Found 729 Sales Executives
+ ✅ Updated user rank: 501 points: 40
+ [App] 🎬 Rendering Programs tab with initialProgramId: undefined
+ [ProgramsList] 🚀 Component render with initialProgramId: undefined
+ [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+ [Top Performers] ✅ Loaded 997 SE submissions from today (filtered from 1000 total)
+ [Top Performers] 📊 ALL users sorted by points: (10) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+ [Top Performers] 🏆 Top 3 user IDs: (3) [{…}, {…}, {…}]
+ [Top Performers] ✅ Final top performers: (3) [{…}, {…}, {…}]
+ [App] 🎬 Rendering Programs tab with initialProgramId: undefined
+ [ProgramsList] 🚀 Component render with initialProgramId: undefined
+ [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+ [ProgramsAPI] ✅ Merged checkin flags into SE programs
+ [ProgramsAPI] Found 7 programs for role sales_executive
+ [ProgramsAPI] Fetching all program form configs
+ [ProgramsAPI] ✅ All form configs: 2
+ [ProgramsList] 🔗 Linked checkout program: MINI ROAD SHOW -CHECK OUT  → 9f0d8fab-336b-40dc-b38e-746b81397fc2
+ [ProgramsList] ✅ Merged linked checkin configs into programs
+ [ProgramsList] 🚀 Component render with initialProgramId: undefined
+ [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+ [ProgramsList] 🔍 Checking auto-open: {initialProgramId: undefined, programsLoaded: 7, currentSelection: undefined}
+ [ProgramsList] 🔍 Checking initial program: {initialProgramId: undefined, programsCount: 7}
+ [ProgramsList] 🚀 Component render with initialProgramId: undefined
+ [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+ [ProgramsList] 🚀 Component render with initialProgramId: undefined
+ [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+ [ActivityTracker] ✅ Logged: heartbeat {type: 'active_ping'}

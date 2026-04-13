@@ -1,0 +1,275 @@
+2code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+2code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+vendor-core-ade2edecaf4781c7.min.js.br:54 Sentry event id: 900940eedd9b4fac8fbed2b3959a5782
+vendor-core-ade2edecaf4781c7.min.js.br:54 Sentry event id: af6a995e29ed4091b4448665ae48146c
+vendor-core-ade2edecaf4781c7.min.js.br:54 Sentry event id: 5222d0b8f43343db9317f98ec57146e2
+vendor-core-ade2edecaf4781c7.min.js.br:54 Sentry event id: ceddd24ad5f24f9bad1d6a6f6a038d4b
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'desktop'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: CHRISTOPHER KIOKO
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ User loaded from localStorage: CHRISTOPHER KIOKO developer
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: CHRISTOPHER KIOKO
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 9:54:50 AM [vite] (client) page reload src/supabase/functions/server/user-upload.tsx
+2 [OfflineManager] 🔄 Network type changed: 3g
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'desktop'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ User loaded from localStorage: CHRISTOPHER KIOKO developer
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] Tour check: isAuthenticated= true shouldShow= true
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28  GET https://mcbbtrrhqweypfnlzwht.supabase.co/functions/v1/make-server-28f2f653/upload-history 500 (Internal Server Error)
+(anonymous) @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28
+loadUploadHistory @ user-upload-manager.tsx:51
+(anonymous) @ user-upload-manager.tsx:46
+TN @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:89
+T7 @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:89
+T8 @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:89
+T6 @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:89
+T4 @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:89
+S1 @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:89
+SQ @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:89
+SJ @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:89
+SZ @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:89
+SO @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:89
+pC @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:89
+(anonymous) @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:89Understand this error
+upload-history:1  Failed to load resource: the server responded with a status of 500 ()Understand this error
+upload-history:1  Failed to load resource: the server responded with a status of 500 ()Understand this error
+upload-history:1  Failed to load resource: the server responded with a status of 500 ()Understand this error
+  GET https://mcbbtrrhqweypfnlzwht.supabase.co/functions/v1/make-server-28f2f653/upload-history 500 (Internal Server Error)
+(anonymous) @ code_components_prev…0d6c5a.min.js.br:28
+loadUploadHistory @ app-dw7tdcoad2ojf2aq…load-manager.tsx:37
+(anonymous) @ app-dw7tdcoad2ojf2aq…load-manager.tsx:33
+TN @ code_components_prev…0d6c5a.min.js.br:89
+T7 @ code_components_prev…0d6c5a.min.js.br:89
+T8 @ code_components_prev…0d6c5a.min.js.br:89
+T6 @ code_components_prev…0d6c5a.min.js.br:89
+T4 @ code_components_prev…0d6c5a.min.js.br:89
+S1 @ code_components_prev…0d6c5a.min.js.br:89
+SQ @ code_components_prev…0d6c5a.min.js.br:89
+SJ @ code_components_prev…0d6c5a.min.js.br:89
+SZ @ code_components_prev…0d6c5a.min.js.br:89
+SO @ code_components_prev…0d6c5a.min.js.br:89
+pC @ code_components_prev…0d6c5a.min.js.br:89
+(anonymous) @ code_components_prev…0d6c5a.min.js.br:89Understand this error
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28  POST https://mcbbtrrhqweypfnlzwht.supabase.co/functions/v1/make-server-28f2f653/upload-excel 500 (Internal Server Error)
+(anonymous) @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28
+handleFileUpload @ user-upload-manager.tsx:75
+y @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:77
+i @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28
+ik @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:77
+ij @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:77
+iz @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:77
+dP @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:89
+dM @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:89
+dG @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:89
+dk @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:89
+(anonymous) @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:89
+SR @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:89
+iR @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:77
+d$ @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:89
+lO @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:77
+lN @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:77
+lv @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:77
+i @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28Understand this error
+upload-excel:1  Failed to load resource: the server responded with a status of 500 ()Understand this error
+upload-excel:1  Failed to load resource: the server responded with a status of 500 ()Understand this error
+upload-excel:1  Failed to load resource: the server responded with a status of 500 ()Understand this error
+  POST https://mcbbtrrhqweypfnlzwht.supabase.co/functions/v1/make-server-28f2f653/upload-excel 500 (Internal Server Error)
+(anonymous) @ code_components_prev…0d6c5a.min.js.br:28
+handleFileUpload @ app-dw7tdcoad2ojf2aq…load-manager.tsx:58
+y @ code_components_prev…0d6c5a.min.js.br:77
+i @ code_components_prev…0d6c5a.min.js.br:28
+ik @ code_components_prev…0d6c5a.min.js.br:77
+ij @ code_components_prev…0d6c5a.min.js.br:77
+iz @ code_components_prev…0d6c5a.min.js.br:77
+dP @ code_components_prev…0d6c5a.min.js.br:89
+dM @ code_components_prev…0d6c5a.min.js.br:89
+dG @ code_components_prev…0d6c5a.min.js.br:89
+dk @ code_components_prev…0d6c5a.min.js.br:89
+(anonymous) @ code_components_prev…0d6c5a.min.js.br:89
+SR @ code_components_prev…0d6c5a.min.js.br:89
+iR @ code_components_prev…0d6c5a.min.js.br:77
+d$ @ code_components_prev…0d6c5a.min.js.br:89
+lO @ code_components_prev…0d6c5a.min.js.br:77
+lN @ code_components_prev…0d6c5a.min.js.br:77
+lv @ code_components_prev…0d6c5a.min.js.br:77
+i @ code_components_prev…0d6c5a.min.js.br:28Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54  POST https://www.figma.com/api/cortex/shared/figmake net::ERR_HTTP2_PING_FAILED 200 (OK)
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+h @ vendor-e02619323541de64.min.js.br:3
+s @ figma_app-8c346c91cb60aa3c.min.js.br:663
+l @ figma_app-8c346c91cb60aa3c.min.js.br:663
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:172
+v @ figma_app-8c346c91cb60aa3c.min.js.br:650
+await in v
+d @ figma_app-8c346c91cb60aa3c.min.js.br:548
+await in d
+eI @ 5531-e1594893d9624e3e.min.js.br:172
+await in eI
+sendMessage @ 2180-48e903cde59407a9.min.js.br:274
+ex @ 2180-48e903cde59407a9.min.js.br:274
+(anonymous) @ 2180-48e903cde59407a9.min.js.br:274
+sendMessage @ 5531-e1594893d9624e3e.min.js.br:34
+requestFixErrors @ 5531-e1594893d9624e3e.min.js.br:19
+R.eventName @ 856-e6e311b392928463.min.js.br:1193
+(anonymous) @ 856-e6e311b392928463.min.js.br:1193
+ez @ vendor-core-ade2edecaf4781c7.min.js.br:11
+eq @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:11
+fi @ vendor-core-ade2edecaf4781c7.min.js.br:11
+ff @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oP @ vendor-core-ade2edecaf4781c7.min.js.br:11
+eR @ vendor-core-ade2edecaf4781c7.min.js.br:11
+fl @ vendor-core-ade2edecaf4781c7.min.js.br:11
+nz @ vendor-core-ade2edecaf4781c7.min.js.br:11
+nI @ vendor-core-ade2edecaf4781c7.min.js.br:11
+u @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 [DeltaStreamController] Error in consume: TypeError: network error
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+o.JZ.<computed> @ vendor-e02619323541de64.min.js.br:3
+consume @ 5531-e1594893d9624e3e.min.js.br:51
+await in consume
+v @ figma_app-8c346c91cb60aa3c.min.js.br:650Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 [DeltaStreamController] Error in consume method: TypeError: network error
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+o.JZ.<computed> @ vendor-e02619323541de64.min.js.br:3
+consume @ 5531-e1594893d9624e3e.min.js.br:51
+await in consume
+v @ figma_app-8c346c91cb60aa3c.min.js.br:650Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 Sentry event id: a17e8f462d394e0fa7424da4e97a987c
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'desktop'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: CHRISTOPHER KIOKO
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ User loaded from localStorage: CHRISTOPHER KIOKO developer
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: CHRISTOPHER KIOKO
+2code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+2code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+vendor-core-ade2edecaf4781c7.min.js.br:63  GET https://www.figma.com/api/rev/YgMsCvIqt7DMpx0rIB8UXV/code_snapshot/0010dd7c34963899589688c5a4da4f2a800e9cb169afc0b3727d5f6abfaf7c98 404 (Not Found)
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+h @ vendor-e02619323541de64.min.js.br:3
+(anonymous) @ 856-e6e311b392928463.min.js.br:1135
+T @ 856-e6e311b392928463.min.js.br:1135
+await in T
+C @ 856-e6e311b392928463.min.js.br:1135
+k @ 856-e6e311b392928463.min.js.br:1135
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:3
+validate @ figma_app-8c346c91cb60aa3c.min.js.br:420
+getCodeSnapshot @ 5531-e1594893d9624e3e.min.js.br:3
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:34
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:3
+run @ 5531-e1594893d9624e3e.min.js.br:3
+k @ 5531-e1594893d9624e3e.min.js.br:34
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:34
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:34
+aB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oD @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oL @ vendor-core-ade2edecaf4781c7.min.js.br:11
+f5 @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oE @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+S @ vendor-core-ade2edecaf4781c7.min.js.br:54
+O @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 Failed to fetch snapshot files: E: XHR for "/api/rev/YgMsCvIqt7DMpx0rIB8UXV/code_snapshot/0010dd7c34963899589688c5a4da4f2a800e9cb169afc0b3727d5f6abfaf7c98" failed with status 404
+    at C (856-e6e311b392928463.min.js.br:1135:13967)
+    at async Object.k [as get] (856-e6e311b392928463.min.js.br:1135:14350)
+    at async 5531-e1594893d9624e3e.min.js.br:3:24015
+    at async 5531-e1594893d9624e3e.min.js.br:34:208758
+    at async 5531-e1594893d9624e3e.min.js.br:3:24445
+    at async k (5531-e1594893d9624e3e.min.js.br:34:208266)
+    at async 5531-e1594893d9624e3e.min.js.br:34:117873
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:34
+await in (anonymous)
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:34
+aB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oD @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oL @ vendor-core-ade2edecaf4781c7.min.js.br:11
+f5 @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oE @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+S @ vendor-core-ade2edecaf4781c7.min.js.br:54
+O @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this warning
+vendor-core-ade2edecaf4781c7.min.js.br:54 Sentry event id: be5b0edaf72b4a74b24421cd90e981ca
+vendor-core-ade2edecaf4781c7.min.js.br:54 Sentry event id: d092582ce0b14342a2bc0173abd77a3f
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'desktop'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: CHRISTOPHER KIOKO
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ User loaded from localStorage: CHRISTOPHER KIOKO developer
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: CHRISTOPHER KIOKO
+2code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+2code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'desktop'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: CHRISTOPHER KIOKO
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ User loaded from localStorage: CHRISTOPHER KIOKO developer
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: CHRISTOPHER KIOKO
+2 [OfflineManager] 🔄 Network type changed: 3g
+2 [OfflineManager] 🔄 Network type changed: 4g
+ 10:06:26 AM [vite] (client) page reload src/supabase/functions/server/user-upload.tsx
+ 10:06:26 AM [vite] (client) page reload src/supabase/functions/server/hq-directors.tsx
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'desktop'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ User loaded from localStorage: CHRISTOPHER KIOKO developer
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] Tour check: isAuthenticated= true shouldShow= true
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}

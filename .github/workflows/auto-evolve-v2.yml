@@ -1,0 +1,44 @@
+name: Auto‑Evolve HBB (6h) v2
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  evolve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Check files
+        run: |
+          echo "Checking files..."
+          ls -la scripts/
+          echo "Checking auto-evolve.js..."
+          head -10 scripts/auto-evolve.js
+      - run: npm install --legacy-peer-deps
+      - name: Install Playwright browsers
+        run: npx playwright install chromium
+      - name: Check GROQ API Key
+        run: |
+          if [ -z "$GROQ_API_KEY" ]; then
+            echo "❌ GROQ_API_KEY is not set"
+            exit 1
+          else
+            echo "✅ GROQ_API_KEY is set"
+          fi
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+      - name: Run autonomous evolution loop
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          APP_URL: https://airtel-champions-app-web-git-main-christopherkiokos-projects.vercel.app/
+        run: node scripts/auto-evolve.js

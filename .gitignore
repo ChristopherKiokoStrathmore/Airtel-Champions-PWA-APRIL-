@@ -1,0 +1,78 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+*.tsbuildinfo
+
+# Environment variables (NEVER commit secrets!)
+.env
+.env.local
+.env.*.local
+.env.production.local
+.env.development.local
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.code-workspace
+*.orig
+*.backup
+
+# Testing
+coverage/
+.nyc_output/
+test-results/
+playwright/.cache/
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+.claude/
+.Claude/
+.windsurf/
+tmp/
+temp/
+*.tmp
+supabase/.temp/
+supabase/.branches/
+
+# Vercel and local deployment
+.vercel/
+.turbo/
+
+# OS files
+Thumbs.db
+.AppleDouble
+.LSOverride
+
+# Deployment/Build artifacts
+vercel-deployment/
+out/
+
+# Supabase
+supabase/node_modules/
+supabase/.supabase/
+supabase/migrations/*/jwt_secret
+
+# Playwright and testing
+.playwright/
+
+# Build artifacts
+_avast_/ 

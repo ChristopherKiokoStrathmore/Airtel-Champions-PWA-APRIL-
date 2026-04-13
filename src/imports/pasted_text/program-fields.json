@@ -1,0 +1,682 @@
+[ProgramsList] 🎯 Program clicked: {program: 'MINI ROAD SHOW -CHECK OUT ', viewMode: 'submit', isLinkedCheckout: true, linkedTo: '9f0d8fab-336b-40dc-b38e-746b81397fc2', willOpen: 'Linked Checkout Modal'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 0 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] 🔄 Fetching ALL shops from database (paginated)...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] 📦 Fetching batch 1 (rows 0-999)...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Loading fields for program: c6e6213c-0e9b-46f9-9183-5b7c64551247
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: false
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 0 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: true
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [GPS] Browser geolocation error: Geolocation has been disabled in this document by permissions policy.
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 0 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] 📍 User zone from DB: NAIROBI WEST
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 0 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] ✅ Loaded 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] 🔍 Fields data: [
+  {
+    "id": "1a71d4be-dd4e-4873-b896-1c797df4bf2b",
+    "program_id": "c6e6213c-0e9b-46f9-9183-5b7c64551247",
+    "field_name": "number_plate_of_the_van_",
+    "field_label": "NUMBER PLATE OF THE VAN ",
+    "field_type": "dropdown",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "database_source": {
+        "table": "van_db",
+        "multi_select": true,
+        "display_field": "number_plate",
+        "metadata_fields": [
+          "zone"
+        ],
+        "repeatable_dropdown": false
+      },
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 0,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-11T16:21:30.508409+00:00"
+  },
+  {
+    "id": "60fd0ad6-9832-46d4-8250-24e46fd05fb4",
+    "program_id": "c6e6213c-0e9b-46f9-9183-5b7c64551247",
+    "field_name": "no_of_activations_done_",
+    "field_label": "ODOMETER READING ",
+    "field_type": "number",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": null,
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 1,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-11T16:21:30.508409+00:00"
+  },
+  {
+    "id": "16a11b6c-90b3-4bb4-8edf-f12299bb9c9c",
+    "program_id": "c6e6213c-0e9b-46f9-9183-5b7c64551247",
+    "field_name": "feedback_from_customers_on_airtel_products_",
+    "field_label": "ADDITIONAL PROMOTER NUMBERS ",
+    "field_type": "repeatable_number",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "entry_label": "Entry",
+      "min_entries": 1,
+      "digit_length": 9,
+      "check_database": true,
+      "prevent_duplicates": true,
+      "remove_leading_zero": true
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 2,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-11T16:21:30.508409+00:00"
+  },
+  {
+    "id": "6b63ad51-1816-4cab-956c-5d808cd75567",
+    "program_id": "c6e6213c-0e9b-46f9-9183-5b7c64551247",
+    "field_name": "feedback_on_quality_of_network_(1_is_worst_5_is_best)",
+    "field_label": "FEEDBACK ON QUALITY OF NETWORK (1 is worst 5 is best)",
+    "field_type": "rating",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": null,
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 3,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-11T16:21:30.508409+00:00"
+  }
+]
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Loading already-submitted values for 1 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] 🔍 Checking fields: (4) [{…}, {…}, {…}, {…}]
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] 🔄 Loading data for 1 database dropdown/multi-select field(s)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] 🔒 Zone filtering: DISABLED | User zone: NAIROBI WEST
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Loading from table: van_db
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ Batch 1: 1000 shops (Total so far: 1000)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] 📦 Fetching batch 2 (rows 1000-1999)...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] 📦 "van_db" is small (≤500 rows) → loading all rows
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] 📦 Fetching batch 1 from van_db (rows 0-999)...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Field "ADDITIONAL PROMOTER NUMBERS " has 0 already-submitted values
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] ✅ Batch 1: 42 rows (Total so far: 42)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] ✅ Loaded all 42 rows from "van_db" (client-side search)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ Batch 2: 1000 shops (Total so far: 2000)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] 📦 Fetching batch 3 (rows 2000-2999)...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ Batch 3: 674 shops (Total so far: 2674)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ Total loaded from database: 2674 shops
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ Lookup map created with 2651 entries
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ shopsLoaded flag set to true - component should re-render
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 2674 shops | shopsLoaded: true | loadingShops: false
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] ✅ Component should now show search dropdown instead of radio buttons
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Dropdown] 🔍 Search input focused - opening dropdown
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Dropdown] ⌨️ Input changed: k
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Dropdown] ⌨️ Input changed: kc
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Dropdown] ⌨️ Input changed: kcv
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shop Dropdown] 🎯 Option clicked: KCV 831C
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [FieldChange] Setting field 1a71d4be-dd4e-4873-b896-1c797df4bf2b to: KCV 831C (single)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [FieldChange] Auto-populating from: KCV 831C 
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AutoPopulate] ��� Database dropdown selection: {field: 'NUMBER PLATE OF THE VAN ', value: 'KCV 831C', table: 'van_db', displayField: 'number_plate', metadataFields: Array(1)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AutoPopulate] ✅ Found selected row: {id: 32, created_at: '2026-02-09T11:40:26.409879+00:00', number_plate: 'KCV 831C', capacity: null, vendor: 'WE EVOLVE', …}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AutoPopulate] 📦 Stored metadata for display: {zone: 'EASTERN'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AutoPopulate] ℹ️ No matching fields found to auto-populate
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [LinkedCheckout] 🔍 Checking van check-in for plate="KCV831C", linked_program=9f0d8fab-336b-40dc-b38e-746b81397fc2
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [FieldChange] FormData after update: {1a71d4be-dd4e-4873-b896-1c797df4bf2b: 'KCV 831C'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [LinkedCheckout] Van lookup response: {"success":true,"has_checkin":true,"van_checked_in":true,"number_plate":"KCV831C","checkin_user_id":"77eab68e-fc91-494b-b6f5-22434aa31ea3","sites":[{"id":"39e7c166-5b9e-4146-ab04-94909631d21f","name":"KAKANJU_KILIFI"}],"promoters":[{"id":"sub-4f26cbcb-6e88-48e1-bf73-7e50d087f642-0","msisdn":"721777777","site_name":"KAKANJU_KILIFI"},{"id":"sub-4f26cbcb-6e88-48e1-bf73-7e50d087f642-1","msisdn":"777777777","site_name":"KAKANJU_KILIFI"},{"id":"sub-4f26cbcb-6e88-48e1-bf73-7e50d087f642-2","msisdn":"555555555","site_name":"KAKANJU_KILIFI"},{"id":"sub-4f26cbcb-6e88-48e1-bf73-7e50d087f642-3","msisdn":"444444444","site_name":"KAKANJU_KILIFI"},{"id":"sub-4f26cbcb-6e88-48e1-bf73-7e50d087f642-4","msisdn":"333333333","site_name":"KAKANJU_KILIFI"},{"id":"sub-4f26cbcb-6e88-48e1-bf73-7e50d087f642-5","msisdn":"999999998","site_name":"KAKANJU_KILIFI"}],"total_promoters":6,"morning_odometer":22440,"message":"Van checked in. 6 MSISDNs loaded from check-in submissions."}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [LinkedCheckout] Morning odometer: 22440
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [LinkedCheckout] Auto-populated 6 MSISDNs from check-in
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] 🎬 Rendering Programs tab with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+vendor-core-ade2edecaf4781c7.min.js.br:63  GET https://www.figma.com/api/rev/YgMsCvIqt7DMpx0rIB8UXV/code_snapshot/38c10802cc6d1a08f689a2ab7a9f2531ee9dcda46ad15ca1a9eec0b88332b301 404 (Not Found)
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+h @ vendor-e02619323541de64.min.js.br:3
+(anonymous) @ 856-e6e311b392928463.min.js.br:1135
+T @ 856-e6e311b392928463.min.js.br:1135
+await in T
+C @ 856-e6e311b392928463.min.js.br:1135
+k @ 856-e6e311b392928463.min.js.br:1135
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:3
+validate @ figma_app-8c346c91cb60aa3c.min.js.br:420
+getCodeSnapshot @ 5531-e1594893d9624e3e.min.js.br:3
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:34
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:3
+run @ 5531-e1594893d9624e3e.min.js.br:3
+k @ 5531-e1594893d9624e3e.min.js.br:34
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:34
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:34
+aB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oD @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oL @ vendor-core-ade2edecaf4781c7.min.js.br:11
+f5 @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oE @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+S @ vendor-core-ade2edecaf4781c7.min.js.br:54
+O @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 Failed to fetch snapshot files: E: XHR for "/api/rev/YgMsCvIqt7DMpx0rIB8UXV/code_snapshot/38c10802cc6d1a08f689a2ab7a9f2531ee9dcda46ad15ca1a9eec0b88332b301" failed with status 404
+    at C (856-e6e311b392928463.min.js.br:1135:13967)
+    at async Object.k [as get] (856-e6e311b392928463.min.js.br:1135:14350)
+    at async 5531-e1594893d9624e3e.min.js.br:3:24015
+    at async 5531-e1594893d9624e3e.min.js.br:34:208758
+    at async 5531-e1594893d9624e3e.min.js.br:3:24445
+    at async k (5531-e1594893d9624e3e.min.js.br:34:208266)
+    at async 5531-e1594893d9624e3e.min.js.br:34:117873
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:34
+await in (anonymous)
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:34
+aB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oD @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oL @ vendor-core-ade2edecaf4781c7.min.js.br:11
+f5 @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oE @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+S @ vendor-core-ade2edecaf4781c7.min.js.br:54
+O @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this warning
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'desktop'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ User loaded from localStorage: JOHN KINYUA NJIRU sales_executive
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] Initialized for JOHN KINYUA NJIRU (sales_executive)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] 🎬 Rendering Programs tab with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] 🎬 Rendering Programs tab with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] ✅ Logged: session_start 
+2code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+2code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] 🔄 Fetching ALL shops from database (paginated)...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] 📦 Fetching batch 1 (rows 0-999)...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Loading fields for program: c6e6213c-0e9b-46f9-9183-5b7c64551247
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] 🔍 Checking fields: (4) [{…}, {…}, {…}, {…}]
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] 🔄 Loading data for 1 database dropdown/multi-select field(s)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] 🔒 Zone filtering: DISABLED | User zone: NAIROBI WEST
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Loading from table: van_db
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 2674 shops | shopsLoaded: true | loadingShops: false
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] ✅ Component should now show search dropdown instead of radio buttons
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 2674 shops | shopsLoaded: true | loadingShops: true
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] ✅ Component should now show search dropdown instead of radio buttons
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [GPS] Capacitor failed, trying browser API: Not implemented on web.
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [GPS] Browser geolocation error: Geolocation has been disabled in this document by permissions policy.
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] ✅ Loaded 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] 🔍 Fields data: [
+  {
+    "id": "b2bf5957-6942-43dc-85c5-f720086d0044",
+    "program_id": "c6e6213c-0e9b-46f9-9183-5b7c64551247",
+    "field_name": "number_plate_of_the_van_",
+    "field_label": "NUMBER PLATE OF THE VAN ",
+    "field_type": "dropdown",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "database_source": {
+        "table": "van_db",
+        "multi_select": true,
+        "display_field": "number_plate",
+        "metadata_fields": [
+          "zone"
+        ],
+        "repeatable_dropdown": false
+      },
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 0,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-11T17:31:23.396521+00:00"
+  },
+  {
+    "id": "31d04c61-d40a-41db-a560-09b4e0d1d3cb",
+    "program_id": "c6e6213c-0e9b-46f9-9183-5b7c64551247",
+    "field_name": "feedback_on_quality_of_network_(1_is_worst_5_is_best)",
+    "field_label": "FEEDBACK ON QUALITY OF NETWORK (1 is worst 5 is best)",
+    "field_type": "rating",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": null,
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 1,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-11T17:31:23.396521+00:00"
+  }
+]
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 0 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] 🔍 Checking fields: (2) [{…}, {…}]
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] 🔄 Loading data for 1 database dropdown/multi-select field(s)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] 🔒 Zone filtering: DISABLED | User zone: NAIROBI WEST
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Loading from table: van_db
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] 📍 User zone from DB: NAIROBI WEST
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] 📦 "van_db" is small (≤500 rows) → loading all rows
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] 📦 Fetching batch 1 from van_db (rows 0-999)...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] 📦 "van_db" is small (≤500 rows) → loading all rows
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] 📦 Fetching batch 1 from van_db (rows 0-999)...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] ✅ Batch 1: 42 rows (Total so far: 42)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] ✅ Loaded all 42 rows from "van_db" (client-side search)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ Batch 1: 1000 shops (Total so far: 1000)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] 📦 Fetching batch 2 (rows 1000-1999)...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] ✅ Batch 1: 42 rows (Total so far: 42)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] ✅ Loaded all 42 rows from "van_db" (client-side search)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 5:33:05 PM [vite] (client) hmr update /src/components/programs/program-submit-modal.tsx, /index.css
+5:33:05 PM [vite] (client) hmr update /src/components/programs/linked-checkout-section.tsx, /index.css
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ Batch 2: 1000 shops (Total so far: 2000)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] 📦 Fetching batch 3 (rows 2000-2999)...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ Batch 3: 674 shops (Total so far: 2674)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ Total loaded from database: 2674 shops
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ Lookup map created with 2651 entries
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ shopsLoaded flag set to true - component should re-render
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 2674 shops | shopsLoaded: true | loadingShops: false
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] ✅ Component should now show search dropdown instead of radio buttons
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] ✅ Logged: heartbeat {type: 'active_ping'}
+vendor-core-ade2edecaf4781c7.min.js.br:63  GET https://www.figma.com/api/rev/YgMsCvIqt7DMpx0rIB8UXV/code_snapshot/ab11c67d54728bd16d86cd64fccdd93bdb3e473c3355c17c6efdfca71e68ddd0 404 (Not Found)
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+h @ vendor-e02619323541de64.min.js.br:3
+(anonymous) @ 856-e6e311b392928463.min.js.br:1135
+T @ 856-e6e311b392928463.min.js.br:1135
+await in T
+C @ 856-e6e311b392928463.min.js.br:1135
+k @ 856-e6e311b392928463.min.js.br:1135
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:3
+validate @ figma_app-8c346c91cb60aa3c.min.js.br:420
+getCodeSnapshot @ 5531-e1594893d9624e3e.min.js.br:3
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:34
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:3
+run @ 5531-e1594893d9624e3e.min.js.br:3
+k @ 5531-e1594893d9624e3e.min.js.br:34
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:34
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:34
+aB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oD @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oL @ vendor-core-ade2edecaf4781c7.min.js.br:11
+f5 @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oE @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+S @ vendor-core-ade2edecaf4781c7.min.js.br:54
+O @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 Failed to fetch snapshot files: E: XHR for "/api/rev/YgMsCvIqt7DMpx0rIB8UXV/code_snapshot/ab11c67d54728bd16d86cd64fccdd93bdb3e473c3355c17c6efdfca71e68ddd0" failed with status 404
+    at C (856-e6e311b392928463.min.js.br:1135:13967)
+    at async Object.k [as get] (856-e6e311b392928463.min.js.br:1135:14350)
+    at async 5531-e1594893d9624e3e.min.js.br:3:24015
+    at async 5531-e1594893d9624e3e.min.js.br:34:208758
+    at async 5531-e1594893d9624e3e.min.js.br:3:24445
+    at async k (5531-e1594893d9624e3e.min.js.br:34:208266)
+    at async 5531-e1594893d9624e3e.min.js.br:34:117873
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:34
+await in (anonymous)
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:34
+aB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oD @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oL @ vendor-core-ade2edecaf4781c7.min.js.br:11
+f5 @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oE @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+S @ vendor-core-ade2edecaf4781c7.min.js.br:54
+O @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this warning
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [WebRTC] Tab visibility changed: HIDDEN
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'desktop'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ User loaded from localStorage: JOHN KINYUA NJIRU sales_executive
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] Initialized for JOHN KINYUA NJIRU (sales_executive)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] ✅ Logged: session_start 
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'mobile'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ User loaded from localStorage: JOHN KINYUA NJIRU sales_executive
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] Initialized for JOHN KINYUA NJIRU (sales_executive)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'desktop'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ User loaded from localStorage: JOHN KINYUA NJIRU sales_executive
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] Initialized for JOHN KINYUA NJIRU (sales_executive)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] ✅ Logged: session_start 
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] ✅ Logged: session_start 
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] 🔥 Loading top performers for TODAY...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] 📅 Today starts at: 2026-03-10T21:00:00.000Z
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] Tour check: isAuthenticated= true shouldShow= false
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+2code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+2code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [HomeScreen] ✅ Loading announcements from localStorage for role: sales_executive
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] 👥 Found 729 Sales Executives
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] ✅ Loaded 997 SE submissions from today (filtered from 1000 total)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] 📊 ALL users sorted by points: (10) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] 🏆 Top 3 user IDs: (3) [{…}, {…}, {…}]
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ Updated user rank: 493 points: 40
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] ✅ Final top performers: (3) [{…}, {…}, {…}]
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [HomeScreen] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [HomeScreen] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [HomeScreen] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] 🎬 Rendering Programs tab with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AndroidBackButton] 🧹 Cleaning up back button listener
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [PageTracking] 📄 Viewing: Programs
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🎬 Component mounted with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] ✅ User loaded: {id: '77eab68e-fc91-494b-b6f5-22434aa31ea3', role: 'sales_executive', name: 'JOHN KINYUA NJIRU', canSubmit: true}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🔍 Checking auto-open: {initialProgramId: undefined, programsLoaded: 0, currentSelection: undefined}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] ✅ Van Calendar enabled: true
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsAPI] Fetching programs for role: sales_executive
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsAPI] ✅ Merged checkin flags into SE programs
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsAPI] Found 7 programs for role sales_executive
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsAPI] Fetching all program form configs
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsAPI] ✅ All form configs: 2
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🔗 Linked checkout program: MINI ROAD SHOW -CHECK OUT  → 9f0d8fab-336b-40dc-b38e-746b81397fc2
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] ✅ Merged linked checkin configs into programs
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🔍 Checking auto-open: {initialProgramId: undefined, programsLoaded: 7, currentSelection: undefined}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🔍 Checking initial program: {initialProgramId: undefined, programsCount: 7}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🎯 Program clicked: {program: 'MINI ROAD SHOW -CHECK OUT ', viewMode: 'submit', isLinkedCheckout: true, linkedTo: '9f0d8fab-336b-40dc-b38e-746b81397fc2', willOpen: 'Linked Checkout Modal'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 0 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] 🔄 Fetching ALL shops from database (paginated)...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] 📦 Fetching batch 1 (rows 0-999)...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Loading fields for program: c6e6213c-0e9b-46f9-9183-5b7c64551247
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: false
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 0 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: true
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [GPS] Browser geolocation error: Geolocation has been disabled in this document by permissions policy.
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 0 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] ✅ Loaded 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] 🔍 Fields data: [
+  {
+    "id": "b2bf5957-6942-43dc-85c5-f720086d0044",
+    "program_id": "c6e6213c-0e9b-46f9-9183-5b7c64551247",
+    "field_name": "number_plate_of_the_van_",
+    "field_label": "NUMBER PLATE OF THE VAN ",
+    "field_type": "dropdown",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "database_source": {
+        "table": "van_db",
+        "multi_select": true,
+        "display_field": "number_plate",
+        "metadata_fields": [
+          "zone"
+        ],
+        "repeatable_dropdown": false
+      },
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 0,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-11T17:31:23.396521+00:00"
+  },
+  {
+    "id": "31d04c61-d40a-41db-a560-09b4e0d1d3cb",
+    "program_id": "c6e6213c-0e9b-46f9-9183-5b7c64551247",
+    "field_name": "feedback_on_quality_of_network_(1_is_worst_5_is_best)",
+    "field_label": "FEEDBACK ON QUALITY OF NETWORK (1 is worst 5 is best)",
+    "field_type": "rating",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": null,
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 1,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-11T17:31:23.396521+00:00"
+  }
+]
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 0 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] 🔍 Checking fields: (2) [{…}, {…}]
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] 🔄 Loading data for 1 database dropdown/multi-select field(s)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] 🔒 Zone filtering: DISABLED | User zone: NAIROBI WEST
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Loading from table: van_db
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] 📍 User zone from DB: NAIROBI WEST
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ Batch 1: 1000 shops (Total so far: 1000)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] 📦 Fetching batch 2 (rows 1000-1999)...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] 📦 "van_db" is small (≤500 rows) → loading all rows
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] 📦 Fetching batch 1 from van_db (rows 0-999)...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] ✅ Batch 1: 42 rows (Total so far: 42)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] ✅ Loaded all 42 rows from "van_db" (client-side search)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ Batch 2: 1000 shops (Total so far: 2000)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] 📦 Fetching batch 3 (rows 2000-2999)...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ Batch 3: 674 shops (Total so far: 2674)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ Total loaded from database: 2674 shops
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ Lookup map created with 2651 entries
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ shopsLoaded flag set to true - component should re-render
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 2674 shops | shopsLoaded: true | loadingShops: false
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] ✅ Component should now show search dropdown instead of radio buttons
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Dropdown] 🔍 Search input focused - opening dropdown
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Dropdown] ⌨️ Input changed: k
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Dropdown] ⌨️ Input changed: kc
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Dropdown] ⌨️ Input changed: kcv
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shop Dropdown] 🎯 Option clicked: KCV 831C
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [FieldChange] Setting field b2bf5957-6942-43dc-85c5-f720086d0044 to: KCV 831C (single)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [FieldChange] Auto-populating from: KCV 831C 
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AutoPopulate] ��� Database dropdown selection: {field: 'NUMBER PLATE OF THE VAN ', value: 'KCV 831C', table: 'van_db', displayField: 'number_plate', metadataFields: Array(1)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AutoPopulate] ✅ Found selected row: {id: 32, created_at: '2026-02-09T11:40:26.409879+00:00', number_plate: 'KCV 831C', capacity: null, vendor: 'WE EVOLVE', …}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AutoPopulate] 📦 Stored metadata for display: {zone: 'EASTERN'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AutoPopulate] ℹ️ No matching fields found to auto-populate
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [LinkedCheckout] 🔍 Checking van check-in for plate="KCV831C", linked_program=9f0d8fab-336b-40dc-b38e-746b81397fc2
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [FieldChange] FormData after update: {b2bf5957-6942-43dc-85c5-f720086d0044: 'KCV 831C'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [LinkedCheckout] Van lookup response: {"success":true,"has_checkin":true,"van_checked_in":true,"number_plate":"KCV831C","checkin_user_id":"77eab68e-fc91-494b-b6f5-22434aa31ea3","sites":[{"id":"39e7c166-5b9e-4146-ab04-94909631d21f","name":"KAKANJU_KILIFI"}],"promoters":[{"id":"sub-4f26cbcb-6e88-48e1-bf73-7e50d087f642-0","msisdn":"721777777","site_name":"KAKANJU_KILIFI"},{"id":"sub-4f26cbcb-6e88-48e1-bf73-7e50d087f642-1","msisdn":"777777777","site_name":"KAKANJU_KILIFI"},{"id":"sub-4f26cbcb-6e88-48e1-bf73-7e50d087f642-2","msisdn":"555555555","site_name":"KAKANJU_KILIFI"},{"id":"sub-4f26cbcb-6e88-48e1-bf73-7e50d087f642-3","msisdn":"444444444","site_name":"KAKANJU_KILIFI"},{"id":"sub-4f26cbcb-6e88-48e1-bf73-7e50d087f642-4","msisdn":"333333333","site_name":"KAKANJU_KILIFI"},{"id":"sub-4f26cbcb-6e88-48e1-bf73-7e50d087f642-5","msisdn":"999999998","site_name":"KAKANJU_KILIFI"}],"total_promoters":6,"morning_odometer":22440,"message":"Van checked in. 6 MSISDNs loaded from check-in submissions."}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [LinkedCheckout] Morning odometer: 22440
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [LinkedCheckout] Auto-populated 6 MSISDNs from check-in
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] 🎬 Rendering Programs tab with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [FieldChange] Setting field 31d04c61-d40a-41db-a560-09b4e0d1d3cb to: 4 (single)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [FieldChange] FormData after update: {b2bf5957-6942-43dc-85c5-f720086d0044: 'KCV 831C', 31d04c61-d40a-41db-a560-09b4e0d1d3cb: 4}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 2 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)

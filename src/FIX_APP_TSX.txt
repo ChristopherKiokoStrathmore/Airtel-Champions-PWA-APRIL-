@@ -1,0 +1,21 @@
+-- INSTRUCTIONS: Replace lines 283-303 in App.tsx with this:
+
+      
+      console.log('✅ Direct login successful:', user.full_name);
+      console.log('📝 User name:', user.full_name);
+      
+      // Update app state immediately
+      setUser(user);
+      setIsAuthenticated(true);
+      setIsLoading(false);
+
+-- The corrupted section was:
+--       console.log('✅ Direct login successful:', u
+--         // More specific error messages
+--         if (authError.message.includes('Invalid login credentials')) {
+--           sepssword is incorrec. Pleas coc your ZSM to reset your password.');
+--         } else f (authErrr.message.icludes('Emailnot conirmed')) {
+--           setError('Your em is not confirmr);
+--       ...etc (all broken syntax)
+
+-- This should be replaced with the clean version above.

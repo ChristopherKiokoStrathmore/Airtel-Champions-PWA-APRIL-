@@ -1,0 +1,437 @@
+Running frontend commit 1a279600f2ee56ba1bd4f8a230d1c84e52af87d6
+vendor-core-ade2edecaf4781c7.min.js.br:54 Statsig is not ready to log exposures, will retry in 1 seconds
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+A.logExposureCallback @ 3435-1e6f92413321c0ba.min.js.br:1096
+u @ vendor-core-ade2edecaf4781c7.min.js.br:54
+setTimeout
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+logExposureForFeatureGateCheck @ 3435-1e6f92413321c0ba.min.js.br:1096
+getFeatureGateFromInitialOptions @ 3435-1e6f92413321c0ba.min.js.br:1096
+getFeatureGate @ 3435-1e6f92413321c0ba.min.js.br:1096
+getFeatureGate @ 3435-1e6f92413321c0ba.min.js.br:1431
+932235 @ figma_app-20aa55bacd9a5197.min.js.br:420
+i @ runtime~figma_app-05b67dac89a51d06.min.js.br:3
+801936 @ figma_app-20aa55bacd9a5197.min.js.br:41
+i @ runtime~figma_app-05b67dac89a51d06.min.js.br:3
+781295 @ figma_app-20aa55bacd9a5197.min.js.br:418
+i @ runtime~figma_app-05b67dac89a51d06.min.js.br:3
+593464 @ figma_app-20aa55bacd9a5197.min.js.br:4
+i @ runtime~figma_app-05b67dac89a51d06.min.js.br:3
+816199 @ 3435-1e6f92413321c0ba.min.js.br:80
+i @ runtime~figma_app-05b67dac89a51d06.min.js.br:3
+881625 @ figma_app-20aa55bacd9a5197.min.js.br:531
+i @ runtime~figma_app-05b67dac89a51d06.min.js.br:3
+28285 @ 1772-75b46c7a96d0a01e.min.js.br:3
+i @ runtime~figma_app-05b67dac89a51d06.min.js.br:3
+344653 @ figma_app-20aa55bacd9a5197.min.js.br:420
+i @ runtime~figma_app-05b67dac89a51d06.min.js.br:3
+912563 @ figma_app-20aa55bacd9a5197.min.js.br:420
+i @ runtime~figma_app-05b67dac89a51d06.min.js.br:3
+941181 @ figma_app-20aa55bacd9a5197.min.js.br:4
+i @ runtime~figma_app-05b67dac89a51d06.min.js.br:3
+577246 @ 5340-37939770a92d139c.min.js.br:3
+i @ runtime~figma_app-05b67dac89a51d06.min.js.br:3
+483051 @ 8222-714b50f6fa462b79.min.js.br:3
+i @ runtime~figma_app-05b67dac89a51d06.min.js.br:3
+171068 @ figma_app-20aa55bacd9a5197.min.js.br:4
+i @ runtime~figma_app-05b67dac89a51d06.min.js.br:3
+(anonymous) @ figma_app-20aa55bacd9a5197.min.js.br:709
+i.O @ runtime~figma_app-05b67dac89a51d06.min.js.br:3
+(anonymous) @ figma_app-20aa55bacd9a5197.min.js.br:709
+r @ runtime~figma_app-05b67dac89a51d06.min.js.br:3
+(anonymous) @ figma_app-20aa55bacd9a5197.min.js.br:3Understand this warning
+vendor-core-ade2edecaf4781c7.min.js.br:54 Loaded 31 scripts (5926604b), 0 from cache (0b)
+3435-1e6f92413321c0ba.min.js.br:191 [Intervention] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://static.figma.com/webfont/1/SourceCodePro-Medium.woff2
+1709-a9e5b3918781030c.min.js.br:8 The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127
+initialize @ 1709-a9e5b3918781030c.min.js.br:8
+g @ 1709-a9e5b3918781030c.min.js.br:8
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+await in (anonymous)
+n @ 3435-1e6f92413321c0ba.min.js.br:1433
+gg @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+await in (anonymous)
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:1727
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+dispatch @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:1727
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+dispatch @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:1727
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+dispatch @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:170
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+dispatch @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ figma_app-20aa55bacd9a5197.min.js.br:232
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:170
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+d @ 3435-1e6f92413321c0ba.min.js.br:1098
+K @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+time @ 3435-1e6f92413321c0ba.min.js.br:393
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+await in (anonymous)
+tW @ 3435-1e6f92413321c0ba.min.js.br:170
+SQ @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ figma_app-20aa55bacd9a5197.min.js.br:6
+i @ 3435-1e6f92413321c0ba.min.js.br:1065
+171068 @ figma_app-20aa55bacd9a5197.min.js.br:6
+i @ runtime~figma_app-05b67dac89a51d06.min.js.br:3
+(anonymous) @ figma_app-20aa55bacd9a5197.min.js.br:709
+i.O @ runtime~figma_app-05b67dac89a51d06.min.js.br:3
+(anonymous) @ figma_app-20aa55bacd9a5197.min.js.br:709
+r @ runtime~figma_app-05b67dac89a51d06.min.js.br:3
+(anonymous) @ figma_app-20aa55bacd9a5197.min.js.br:3Understand this warning
+vendor-core-ade2edecaf4781c7.min.js.br:54 Statsig is not ready to log exposures, will retry in 1 seconds
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+A.logExposureCallback @ 3435-1e6f92413321c0ba.min.js.br:1096
+u @ vendor-core-ade2edecaf4781c7.min.js.br:54
+setTimeout
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+A.logExposureCallback @ 3435-1e6f92413321c0ba.min.js.br:1096
+u @ vendor-core-ade2edecaf4781c7.min.js.br:54
+setTimeout
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+logExposureForFeatureGateCheck @ 3435-1e6f92413321c0ba.min.js.br:1096
+getFeatureGateFromInitialOptions @ 3435-1e6f92413321c0ba.min.js.br:1096
+getFeatureGate @ 3435-1e6f92413321c0ba.min.js.br:1096
+getFeatureGate @ 3435-1e6f92413321c0ba.min.js.br:1431
+932235 @ figma_app-20aa55bacd9a5197.min.js.br:420
+i @ runtime~figma_app-05b67dac89a51d06.min.js.br:3
+801936 @ figma_app-20aa55bacd9a5197.min.js.br:41
+i @ runtime~figma_app-05b67dac89a51d06.min.js.br:3
+781295 @ figma_app-20aa55bacd9a5197.min.js.br:418
+i @ runtime~figma_app-05b67dac89a51d06.min.js.br:3
+593464 @ figma_app-20aa55bacd9a5197.min.js.br:4
+i @ runtime~figma_app-05b67dac89a51d06.min.js.br:3
+816199 @ 3435-1e6f92413321c0ba.min.js.br:80
+i @ runtime~figma_app-05b67dac89a51d06.min.js.br:3
+881625 @ figma_app-20aa55bacd9a5197.min.js.br:531
+i @ runtime~figma_app-05b67dac89a51d06.min.js.br:3
+28285 @ 1772-75b46c7a96d0a01e.min.js.br:3
+i @ runtime~figma_app-05b67dac89a51d06.min.js.br:3
+344653 @ figma_app-20aa55bacd9a5197.min.js.br:420
+i @ runtime~figma_app-05b67dac89a51d06.min.js.br:3
+912563 @ figma_app-20aa55bacd9a5197.min.js.br:420
+i @ runtime~figma_app-05b67dac89a51d06.min.js.br:3
+941181 @ figma_app-20aa55bacd9a5197.min.js.br:4
+i @ runtime~figma_app-05b67dac89a51d06.min.js.br:3
+577246 @ 5340-37939770a92d139c.min.js.br:3
+i @ runtime~figma_app-05b67dac89a51d06.min.js.br:3
+483051 @ 8222-714b50f6fa462b79.min.js.br:3
+i @ runtime~figma_app-05b67dac89a51d06.min.js.br:3
+171068 @ figma_app-20aa55bacd9a5197.min.js.br:4
+i @ runtime~figma_app-05b67dac89a51d06.min.js.br:3
+(anonymous) @ figma_app-20aa55bacd9a5197.min.js.br:709
+i.O @ runtime~figma_app-05b67dac89a51d06.min.js.br:3
+(anonymous) @ figma_app-20aa55bacd9a5197.min.js.br:709
+r @ runtime~figma_app-05b67dac89a51d06.min.js.br:3
+(anonymous) @ figma_app-20aa55bacd9a5197.min.js.br:3Understand this warning
+vendor-core-ade2edecaf4781c7.min.js.br:54 [import] git: 32316aad430e1702f36b927d849d2e88aab330ca, stamp: 9356B1DF1C1877B4
+vendor-core-ade2edecaf4781c7.min.js.br:54 Autosave Changes not available or already claimed by another tab undefined
+chrome-extension://invalid/:1  GET chrome-extension://invalid/ net::ERR_FAILED
+Image
+(anonymous) @ figma_app-20aa55bacd9a5197.min.js.br:6
+aB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oD @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oL @ vendor-core-ade2edecaf4781c7.min.js.br:11
+f5 @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oE @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+S @ vendor-core-ade2edecaf4781c7.min.js.br:54
+O @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Fullscreen] Booting... (emscripten version 4.0.21)
+vendor-core-ade2edecaf4781c7.min.js.br:54 [GPU] graphicsAPI:"WebGPU", vendor:"Google Inc. (Intel)" renderer:"ANGLE (Intel, Intel(R) UHD Graphics 620 (0x00003EA0) Direct3D11 vs_5_0 ps_5_0, D3D11)" deviceArchitecture:"gen-9" deviceDescription:"" webGPUDevice:"" webGPUVendor:"intel" bindings:"emdawnwebgpu"
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Fullscreen] Ready in 2195.8ms
+vendor-core-ade2edecaf4781c7.min.js.br:54 [FullscreenApp] calling setEditorTheme and setting preference dark
+vendor-core-ade2edecaf4781c7.min.js.br:54 [MultiplayerSession] connecting to wss://www.figma.com/api/multiplayer/YgMsCvIqt7DMpx0rIB8UXV?role=editor&tracking_session_id=JPWaSAHKfLghFQMN&version=151&recentReload=0&file-load-streaming-compression&user-id=1575501824906211853&client_release=1a279600f2ee56ba1bd4f8a230d1c84e52af87d6
+vendor-core-ade2edecaf4781c7.min.js.br:54 [FullscreenApp] calling setEditorTheme and setting preference dark
+vendor-core-ade2edecaf4781c7.min.js.br:54 [MultiplayerSession] Joining file version 106 (initial load)
+vendor-core-ade2edecaf4781c7.min.js.br:54 Migration succeeded: context: fullscreen_migrate_SceneGraphManager, version: 106, duration: 0ms.
+vendor-core-ade2edecaf4781c7.min.js.br:63  POST https://www.figma.com/api/make/fetch_ds_code_gen_status 400 (Bad Request)
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+h @ vendor-e02619323541de64.min.js.br:3
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:1135
+T @ 3435-1e6f92413321c0ba.min.js.br:1135
+C @ 3435-1e6f92413321c0ba.min.js.br:1135
+r @ 3435-1e6f92413321c0ba.min.js.br:1135
+o @ figma_app-20aa55bacd9a5197.min.js.br:413
+(anonymous) @ figma_app-20aa55bacd9a5197.min.js.br:418
+(anonymous) @ figma_app-20aa55bacd9a5197.min.js.br:418
+aB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oD @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oL @ vendor-core-ade2edecaf4781c7.min.js.br:11
+f5 @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:11
+requestAnimationFrame
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+g8 @ 3435-1e6f92413321c0ba.min.js.br:191
+s @ 3435-1e6f92413321c0ba.min.js.br:393
+requestAnimationFrame @ 3435-1e6f92413321c0ba.min.js.br:194
+_Async_requestAnimationFrame @ compiled_wasm.js.br:2
+$wasm-function[3212] @ compiled_wasm.wasm.br:0x1101f7
+$wasm-function[38265] @ compiled_wasm.wasm.br:0x1fb531a
+(anonymous) @ compiled_wasm.js.br:2
+(anonymous) @ compiled_wasm.js.br:2
+_wrapCppCall @ compiled_wasm.js.br:2
+(anonymous) @ compiled_wasm.js.br:2
+v1 @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:46
+d @ vendor-e02619323541de64.min.js.br:123
+(anonymous) @ vendor-e02619323541de64.min.js.br:123
+g @ vendor-core-ade2edecaf4781c7.min.js.br:46
+dispatch @ 3435-1e6f92413321c0ba.min.js.br:1095
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:802
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ figma_app-20aa55bacd9a5197.min.js.br:232
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:170
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+dispatch @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:170
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:1727
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 3435-1e6f92413321c0ba.min.js.br:191
+dispatch @ 3435-1e6f92413321c0ba.min.js.br:191
+_documentIsLoaded @ 3435-1e6f92413321c0ba.min.js.br:191
+await in _documentIsLoaded
+documentIsLoaded @ 3435-1e6f92413321c0ba.min.js.br:191
+_FigmaApp_documentIsLoaded @ compiled_wasm.js.br:2
+$wasm-function[27924] @ compiled_wasm.wasm.br:0x1a3d108
+$wasm-function[26459] @ compiled_wasm.wasm.br:0x1929676
+$wasm-function[23637] @ compiled_wasm.wasm.br:0x162b533
+$wasm-function[40494] @ compiled_wasm.wasm.br:0x21ff3b0
+$wasm-function[17171] @ compiled_wasm.wasm.br:0xf4be13
+$wasm-function[38247] @ compiled_wasm.wasm.br:0x1fb142a
+(anonymous) @ compiled_wasm.js.br:2
+(anonymous) @ compiled_wasm.js.br:2
+_wrapCppCall @ compiled_wasm.js.br:2
+(anonymous) @ compiled_wasm.js.br:2
+x @ 1709-a9e5b3918781030c.min.js.br:3
+_.onmessage @ 1709-a9e5b3918781030c.min.js.br:3Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 [devtools] Initialized LS
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Fullscreen] loadtime=23.32s maxmem=301107940
+vendor-core-ade2edecaf4781c7.min.js.br:54 [devtools] Initialized LS
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'mobile'}
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'mobile'}
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 📱 Normalized phone: 739633513
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 🔍 Searching for phone in formats: (4) ['739633513', '0739633513', '+254739633513', '254739633513']
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 ✅ Direct login successful: CAROLYN KIHARA NYAMBURA
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 📝 User name: CAROLYN KIHARA NYAMBURA
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 ✅ [App] UserData refreshed from localStorage: CAROLYN KIHARA NYAMBURA
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Top Performers] 🔥 Loading top performers for TODAY...
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Top Performers] 📅 Today starts at: 2026-03-09T21:00:00.000Z
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [AndroidBackButton] 🧹 Cleaning up back button listener
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [HomeScreen] ✅ Loading announcements from localStorage for role: sales_executive
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Top Performers] 👥 Found 727 Sales Executives
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 ✅ Updated user rank: 259 points: 190
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Top Performers] ✅ Loaded 497 SE submissions from today (filtered from 497 total)
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Top Performers] 📊 ALL users sorted by points: (10) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Top Performers] 🏆 Top 3 user IDs: (3) [{…}, {…}, {…}]
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Top Performers] ✅ Final top performers: (3) [{…}, {…}, {…}]
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [WebRTC] User denied permission request
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [AndroidBackButton] 🧹 Cleaning up back button listener
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [HomeScreen] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [HomeScreen] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [HomeScreen] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+2code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 ✅ [App] UserData refreshed from localStorage: CAROLYN KIHARA NYAMBURA
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Programs Widget Home] 🎯 Program clicked: NEW-SITE-CHECK-IN  67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [App] 🎯 Opening program from home widget: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [App] 📋 Setting programToOpen state to: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [App] 🔄 Switching to programs tab
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [App] 🎬 Rendering Programs tab with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [AndroidBackButton] 🧹 Cleaning up back button listener
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [PageTracking] 📄 Viewing: Programs
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [ProgramsList] 🎬 Component mounted with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [ProgramsList] ✅ User loaded: {id: 'a70162d0-622c-4c0e-8c5c-9dd4b2786323', role: 'sales_executive', name: 'CAROLYN KIHARA NYAMBURA', canSubmit: true}
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [ProgramsList] 🔍 Checking auto-open: {initialProgramId: '67b91b34-81f9-416a-9462-843a51bc920d', programsLoaded: 0, currentSelection: undefined}
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [ProgramsAPI] Fetching programs for role: sales_executive
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [ProgramsList] ✅ Van Calendar enabled: true
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 ✅ [App] UserData refreshed from localStorage: CAROLYN KIHARA NYAMBURA
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [ProgramsAPI] ✅ Merged checkin flags into SE programs
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [ProgramsAPI] Found 7 programs for role sales_executive
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [ProgramsList] 🔍 Checking auto-open: {initialProgramId: '67b91b34-81f9-416a-9462-843a51bc920d', programsLoaded: 7, currentSelection: undefined}
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [ProgramsList] 🎯 Found program to open: NEW-SITE-CHECK-IN 
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [ProgramsList] ✅ Opening program from prop: NEW-SITE-CHECK-IN 
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [ProgramsList] 🔍 Checking initial program: {initialProgramId: '67b91b34-81f9-416a-9462-843a51bc920d', programsCount: 7}
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [ProgramsList] 🎯 Found initial program: NEW-SITE-CHECK-IN 
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [ProgramsList] ✅ Auto-opening program in loadData: NEW-SITE-CHECK-IN 
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [SessionCheckin] Loading session for program: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [SessionCheckin] Session loaded: {id: '019783a9-8635-465e-9daa-4265a767918b', is_new: true, is_after_6pm: false, already_closed: undefined, opened_at: '2026-03-10T05:57:14.071Z', …}
+vendor-core-ade2edecaf4781c7.min.js.br:54 Too many elapsed hits of react since last report
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+t @ figma_app-20aa55bacd9a5197.min.js.br:41
+eF @ figma_app-20aa55bacd9a5197.min.js.br:41
+g9 @ 3435-1e6f92413321c0ba.min.js.br:191
+u @ vendor-core-ade2edecaf4781c7.min.js.br:54
+requestAnimationFrame
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+g8 @ 3435-1e6f92413321c0ba.min.js.br:191
+s @ 3435-1e6f92413321c0ba.min.js.br:393
+requestAnimationFrame @ 3435-1e6f92413321c0ba.min.js.br:194
+_Async_requestAnimationFrame @ compiled_wasm.js.br:2
+$wasm-function[3212] @ compiled_wasm.wasm.br:0x1101f7
+$wasm-function[1959] @ compiled_wasm.wasm.br:0x4474e
+$wasm-function[40494] @ compiled_wasm.wasm.br:0x2205976
+$wasm-function[17171] @ compiled_wasm.wasm.br:0xf4be13
+$wasm-function[38247] @ compiled_wasm.wasm.br:0x1fb142a
+(anonymous) @ compiled_wasm.js.br:2
+(anonymous) @ compiled_wasm.js.br:2
+_wrapCppCall @ compiled_wasm.js.br:2
+(anonymous) @ compiled_wasm.js.br:2
+x @ 1709-a9e5b3918781030c.min.js.br:3
+_.onmessage @ 1709-a9e5b3918781030c.min.js.br:3Understand this warning
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [App] 🎬 Rendering Programs tab with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+index.js?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=hVK9XE6MVHLpqkk0ZjswP1kHF3Wfvr7K-VlWlDxpfw-ZmWNKa8~5fuqkAA2A6D1mr9gYFZwe3b6VA7-nlLTw0MRo2M5tyUqgSCU4UHL6mMI-6VmKZeCh0M6FnXov9d2M6ES4KgvcAhqX363OKrDJ6Jh34Y8ftpFEZdMhtCsCFgGoiPFszplcNVvtG2JpEhoGbJkmNGNV4otl9CNm40p8Lhs7QqIq0KbLUFa8-4P7w7omAab33aaqG-dQ2Oomr~6f3c7agfDkyIBsVIr5nvwe5u9dcPYaFO1X4GnchbjYOdDn8uco8KshWB4D4VJUy~un0PkCK6iAcxj8LJD9kBs0lA__:44022 [Violation] Permissions policy violation: Geolocation access has been blocked because of a permissions policy applied to the current document. See https://crbug.com/414348233 for more details.
+(anonymous) @ index.js?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=hVK9XE6MVHLpqkk0ZjswP1kHF3Wfvr7K-VlWlDxpfw-ZmWNKa8~5fuqkAA2A6D1mr9gYFZwe3b6VA7-nlLTw0MRo2M5tyUqgSCU4UHL6mMI-6VmKZeCh0M6FnXov9d2M6ES4KgvcAhqX363OKrDJ6Jh34Y8ftpFEZdMhtCsCFgGoiPFszplcNVvtG2JpEhoGbJkmNGNV4otl9CNm40p8Lhs7QqIq0KbLUFa8-4P7w7omAab33aaqG-dQ2Oomr~6f3c7agfDkyIBsVIr5nvwe5u9dcPYaFO1X4GnchbjYOdDn8uco8KshWB4D4VJUy~un0PkCK6iAcxj8LJD9kBs0lA__:44022
+onClick @ index.js?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=hVK9XE6MVHLpqkk0ZjswP1kHF3Wfvr7K-VlWlDxpfw-ZmWNKa8~5fuqkAA2A6D1mr9gYFZwe3b6VA7-nlLTw0MRo2M5tyUqgSCU4UHL6mMI-6VmKZeCh0M6FnXov9d2M6ES4KgvcAhqX363OKrDJ6Jh34Y8ftpFEZdMhtCsCFgGoiPFszplcNVvtG2JpEhoGbJkmNGNV4otl9CNm40p8Lhs7QqIq0KbLUFa8-4P7w7omAab33aaqG-dQ2Oomr~6f3c7agfDkyIBsVIr5nvwe5u9dcPYaFO1X4GnchbjYOdDn8uco8KshWB4D4VJUy~un0PkCK6iAcxj8LJD9kBs0lA__:44285
+y @ code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:77
+i @ code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28
+ik @ code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:77
+ij @ code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:77
+iz @ code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:77
+dP @ code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:89
+dM @ code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:89
+dG @ code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:89
+dk @ code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:89
+(anonymous) @ code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:89
+SR @ code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:89
+iR @ code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:77
+d$ @ code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:89
+lO @ code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:77
+lN @ code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:77
+lv @ code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:77
+i @ code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28Understand this error
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [SessionCheckin] Auto-saving...
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [SessionCheckin] Auto-saved successfully
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [SessionCheckin] Auto-saving...
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [SessionCheckin] Auto-saved successfully
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [SessionCheckin] Auto-saving...
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [SessionCheckin] Auto-saved successfully
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [SessionCheckin] Saving and closing for later...
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [SessionCheckin] Saved successfully — closing modal
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-c7239de3eebdcfa0.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered

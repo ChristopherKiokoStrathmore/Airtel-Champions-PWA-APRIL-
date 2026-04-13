@@ -1,0 +1,1353 @@
+Running frontend commit 5084b8a5ef0aad015649692cc3cfc7638b196e89
+vendor-core-ade2edecaf4781c7.min.js.br:54 Statsig is not ready to log exposures, will retry in 1 seconds
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this warning
+856-e6e311b392928463.min.js.br:191 [Intervention] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://static.figma.com/webfont/1/SourceCodePro-Medium.woff2
+1379-7435cf66a2de8919.min.js.br:8 The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127
+initialize @ 1379-7435cf66a2de8919.min.js.br:8Understand this warning
+vendor-core-ade2edecaf4781c7.min.js.br:54 Statsig is not ready to log exposures, will retry in 1 seconds
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this warning
+vendor-core-ade2edecaf4781c7.min.js.br:54 Autosave Changes not available or already claimed by another tab undefined
+(index):1  Failed to load resource: net::ERR_FAILEDUnderstand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Fullscreen] Booting... (emscripten version 4.0.21)
+vendor-core-ade2edecaf4781c7.min.js.br:54 [GPU] graphicsAPI:"WebGPU", vendor:"Google Inc. (Intel)" renderer:"ANGLE (Intel, Intel(R) UHD Graphics 620 (0x00003EA0) Direct3D11 vs_5_0 ps_5_0, D3D11)" deviceArchitecture:"gen-9" deviceDescription:"" webGPUDevice:"" webGPUVendor:"intel" bindings:"emdawnwebgpu"
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Fullscreen] Ready in 2789.2ms
+vendor-core-ade2edecaf4781c7.min.js.br:54 [FullscreenApp] calling setEditorTheme and setting preference dark
+vendor-core-ade2edecaf4781c7.min.js.br:54 [MultiplayerSession] connecting to wss://www.figma.com/api/multiplayer/YgMsCvIqt7DMpx0rIB8UXV?role=editor&tracking_session_id=U9NtSMNUOeVAJ3iq&version=151&recentReload=0&file-load-streaming-compression&user-id=1575501824906211853&client_release=5084b8a5ef0aad015649692cc3cfc7638b196e89
+vendor-core-ade2edecaf4781c7.min.js.br:54 [FullscreenApp] calling setEditorTheme and setting preference dark
+vendor-core-ade2edecaf4781c7.min.js.br:54 [import] git: e1bb60c7a9d46aa6582b687e2b4db9ed4c3ef967, stamp: 84583C7BDAE7F45D
+vendor-core-ade2edecaf4781c7.min.js.br:54 Loaded 0 scripts (0b), 0 from cache (0b)
+vendor-core-ade2edecaf4781c7.min.js.br:54 [MultiplayerSession] Joining file version 106 (initial load)
+vendor-core-ade2edecaf4781c7.min.js.br:54 Migration succeeded: context: fullscreen_migrate_SceneGraphManager, version: 106, duration: 0ms.
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Fullscreen] loadtime=27.87s maxmem=331922128
+/api/make/fetch_ds_code_gen_status:1  Failed to load resource: the server responded with a status of 400 ()Understand this error
+2vendor-core-ade2edecaf4781c7.min.js.br:54 [devtools] Initialized LS
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Platform] Detected: Object
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Supabase Direct] Using shared client: Object
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 📱 Normalized phone: 762558864
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 🔍 Searching for phone in formats: Array(4)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ Direct login successful: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 📝 User name: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] 🔥 Loading top performers for TODAY...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] 📅 Today starts at: 2026-03-10T21:00:00.000Z
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [GuidedTour] Version 0 -> 5
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] Tour check: isAuthenticated= true shouldShow= true
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [HomeScreen] ✅ Loading announcements from localStorage for role: sales_executive
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] 👥 Found 729 Sales Executives
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ Updated user rank: 500 points: 30
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] ✅ Loaded 997 SE submissions from today (filtered from 1000 total)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] 📊 ALL users sorted by points: Array(10)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] 🏆 Top 3 user IDs: Array(3)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] ✅ Final top performers: Array(3)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [HomeScreen] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [HomeScreen] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [HomeScreen] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] 🎬 Rendering Programs tab with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AndroidBackButton] 🧹 Cleaning up back button listener
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [PageTracking] 📄 Viewing: Programs
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🎬 Component mounted with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] ✅ User loaded: Object
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🔍 Checking auto-open: Object
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsAPI] Fetching programs for role: sales_executive
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] ✅ Van Calendar enabled: true
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsAPI] ✅ Merged checkin flags into SE programs
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsAPI] Found 7 programs for role sales_executive
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🔍 Checking auto-open: Object
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🔍 Checking initial program: Object
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🎯 Program clicked: Object
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🎓 Will show program tour inside modal for: MINI ROAD SHOW -CHECK OUT 
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 0 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] ✅ Modal opened for user: Object
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] 🔄 Fetching ALL shops from database (paginated)...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] 📦 Fetching batch 1 (rows 0-999)...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Loading fields for program: c6e6213c-0e9b-46f9-9183-5b7c64551247
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: false
+29[Violation] Permissions policy violation: Geolocation access has been blocked because of a permissions policy applied to the current document. See <URL> for more details.Understand this error
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 0 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: true
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [GPS] Browser geolocation error: Geolocation has been disabled in this document by permissions policy.
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 0 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] 📍 User zone from DB: NAIROBI WEST
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 0 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] ✅ Loaded 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] 🔍 Fields data: [
+  {
+    "id": "fa4bb7de-bd32-4897-96f1-92a8d4c0e03a",
+    "program_id": "c6e6213c-0e9b-46f9-9183-5b7c64551247",
+    "field_name": "number_plate_of_the_van_",
+    "field_label": "NUMBER PLATE OF THE VAN ",
+    "field_type": "dropdown",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "database_source": {
+        "table": "van_db",
+        "multi_select": true,
+        "display_field": "number_plate",
+        "metadata_fields": [
+          "zone"
+        ],
+        "repeatable_dropdown": false
+      },
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 0,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-11T06:27:29.60322+00:00"
+  },
+  {
+    "id": "c766f58b-da8f-4ca7-ba60-80e79f5f0ed7",
+    "program_id": "c6e6213c-0e9b-46f9-9183-5b7c64551247",
+    "field_name": "no_of_activations_done_",
+    "field_label": "ODOMETER READING ",
+    "field_type": "number",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": null,
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 1,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-11T06:27:29.60322+00:00"
+  },
+  {
+    "id": "4c3377d7-9591-457a-8c8f-0827e5ef703e",
+    "program_id": "c6e6213c-0e9b-46f9-9183-5b7c64551247",
+    "field_name": "feedback_from_customers_on_airtel_products_",
+    "field_label": "ADDITIONAL PROMOTER NUMBERS ",
+    "field_type": "repeatable_number",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "entry_label": "Entry",
+      "min_entries": 1,
+      "digit_length": 9,
+      "check_database": true,
+      "prevent_duplicates": true,
+      "remove_leading_zero": true
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 2,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-11T06:27:29.60322+00:00"
+  },
+  {
+    "id": "1a3f20ba-7f44-45a8-8937-233eca28527b",
+    "program_id": "c6e6213c-0e9b-46f9-9183-5b7c64551247",
+    "field_name": "feedback_on_quality_of_network_(1_is_worst_5_is_best)",
+    "field_label": "FEEDBACK ON QUALITY OF NETWORK (1 is worst 5 is best)",
+    "field_type": "rating",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": null,
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 3,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-11T06:27:29.60322+00:00"
+  }
+]
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Loading already-submitted values for 1 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] 🔍 Checking fields: Array(4)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] 🔄 Loading data for 1 database dropdown/multi-select field(s)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] 🔒 Zone filtering: DISABLED | User zone: NAIROBI WEST
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Loading from table: van_db
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ Batch 1: 1000 shops (Total so far: 1000)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] 📦 Fetching batch 2 (rows 1000-1999)...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] 📦 "van_db" is small (≤500 rows) → loading all rows
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] 📦 Fetching batch 1 from van_db (rows 0-999)...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Field "ADDITIONAL PROMOTER NUMBERS " has 0 already-submitted values
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] ✅ Batch 1: 42 rows (Total so far: 42)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] ✅ Loaded all 42 rows from "van_db" (client-side search)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ Batch 2: 1000 shops (Total so far: 2000)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] 📦 Fetching batch 3 (rows 2000-2999)...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ Batch 3: 674 shops (Total so far: 2674)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ Total loaded from database: 2674 shops
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ Lookup map created with 2651 entries
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ shopsLoaded flag set to true - component should re-render
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 2674 shops | shopsLoaded: true | loadingShops: false
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] ✅ Component should now show search dropdown instead of radio buttons
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Platform] Detected: Object
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Supabase Direct] Using shared client: Object
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ User loaded from localStorage: JOHN KINYUA NJIRU sales_executive
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] Initialized for JOHN KINYUA NJIRU (sales_executive)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] 🎬 Rendering Programs tab with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+2code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] 🎬 Rendering Programs tab with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] ✅ Logged: session_start 
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] 🔥 Loading top performers for TODAY...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] 📅 Today starts at: 2026-03-10T21:00:00.000Z
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] Tour check: isAuthenticated= true shouldShow= true
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [HomeScreen] ✅ Loading announcements from localStorage for role: sales_executive
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [HomeScreen] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [HomeScreen] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [HomeScreen] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] 👥 Found 729 Sales Executives
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] ✅ Loaded 997 SE submissions from today (filtered from 1000 total)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] 📊 ALL users sorted by points: Array(10)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] 🏆 Top 3 user IDs: Array(3)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ Updated user rank: 500 points: 30
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] ✅ Final top performers: Array(3)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+2code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] 🎬 Rendering Programs tab with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+vendor-core-ade2edecaf4781c7.min.js.br:54 Too many elapsed hits of react since last report
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+t @ figma_app-8c346c91cb60aa3c.min.js.br:41
+eB @ figma_app-8c346c91cb60aa3c.min.js.br:41
+g0 @ 856-e6e311b392928463.min.js.br:191
+u @ vendor-core-ade2edecaf4781c7.min.js.br:54
+requestAnimationFrame
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+gQ @ 856-e6e311b392928463.min.js.br:191
+s @ 856-e6e311b392928463.min.js.br:393
+requestAnimationFrame @ 856-e6e311b392928463.min.js.br:194
+_Async_requestAnimationFrame @ compiled_wasm.js.br:2
+$wasm-function[3227] @ compiled_wasm.wasm.br:0x111104
+$wasm-function[1961] @ compiled_wasm.wasm.br:0x4539f
+$wasm-function[40513] @ compiled_wasm.wasm.br:0x2106f9d
+$wasm-function[16875] @ compiled_wasm.wasm.br:0xe45187
+$wasm-function[38265] @ compiled_wasm.wasm.br:0x1eb3383
+(anonymous) @ compiled_wasm.js.br:2
+(anonymous) @ compiled_wasm.js.br:2
+_wrapCppCall @ compiled_wasm.js.br:2
+(anonymous) @ compiled_wasm.js.br:2
+x @ 1379-7435cf66a2de8919.min.js.br:3
+_.onmessage @ 1379-7435cf66a2de8919.min.js.br:3Understand this warning
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [WebRTC] Tab visibility changed: HIDDEN
+2code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+vendor-core-ade2edecaf4781c7.min.js.br:54 [devtools] Initialized LS
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+2code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'desktop'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ User loaded from localStorage: JOHN KINYUA NJIRU sales_executive
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] Initialized for JOHN KINYUA NJIRU (sales_executive)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] ✅ Logged: session_start 
+2code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+2code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] ✅ Logged: heartbeat {type: 'active_ping'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'desktop'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ User loaded from localStorage: JOHN KINYUA NJIRU sales_executive
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] Initialized for JOHN KINYUA NJIRU (sales_executive)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] ✅ Logged: session_start 
+2code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+2code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] ✅ Logged: heartbeat {type: 'active_ping'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [WebRTC] Tab visibility changed: HIDDEN
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [WebRTC] Tab visibility changed: VISIBLE
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] ✅ Logged: session_resume {reason: 'visibility_visible'}
+vendor-core-ade2edecaf4781c7.min.js.br:54  POST https://www.figma.com/api/cortex/shared/figmake net::ERR_QUIC_PROTOCOL_ERROR.QUIC_TOO_MANY_RTOS 200 (OK)
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+h @ vendor-e02619323541de64.min.js.br:3
+s @ figma_app-8c346c91cb60aa3c.min.js.br:663
+l @ figma_app-8c346c91cb60aa3c.min.js.br:663
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:172
+v @ figma_app-8c346c91cb60aa3c.min.js.br:650
+await in v
+d @ figma_app-8c346c91cb60aa3c.min.js.br:548
+await in d
+eI @ 5531-e1594893d9624e3e.min.js.br:172
+await in eI
+sendMessage @ 2180-48e903cde59407a9.min.js.br:274
+ex @ 2180-48e903cde59407a9.min.js.br:274
+(anonymous) @ 2180-48e903cde59407a9.min.js.br:274
+sendMessage @ 5531-e1594893d9624e3e.min.js.br:34
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:19
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:19
+ez @ vendor-core-ade2edecaf4781c7.min.js.br:11
+eq @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:11
+fi @ vendor-core-ade2edecaf4781c7.min.js.br:11
+ff @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oP @ vendor-core-ade2edecaf4781c7.min.js.br:11
+eR @ vendor-core-ade2edecaf4781c7.min.js.br:11
+fl @ vendor-core-ade2edecaf4781c7.min.js.br:11
+nz @ vendor-core-ade2edecaf4781c7.min.js.br:11
+nI @ vendor-core-ade2edecaf4781c7.min.js.br:11
+u @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 [DeltaStreamController] Error in consume: TypeError: network error
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+o.JZ.<computed> @ vendor-e02619323541de64.min.js.br:3
+consume @ 5531-e1594893d9624e3e.min.js.br:51
+await in consume
+v @ figma_app-8c346c91cb60aa3c.min.js.br:650Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 [DeltaStreamController] Error in consume method: TypeError: network error
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+o.JZ.<computed> @ vendor-e02619323541de64.min.js.br:3
+consume @ 5531-e1594893d9624e3e.min.js.br:51
+await in consume
+v @ figma_app-8c346c91cb60aa3c.min.js.br:650Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 Sentry event id: 697fbecbbe404f7bb1f5b1a2e9b01863
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'desktop'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ User loaded from localStorage: JOHN KINYUA NJIRU sales_executive
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] Initialized for JOHN KINYUA NJIRU (sales_executive)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] 📦 Queued offline: session_start
+2code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+2code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] ✅ Logged: heartbeat {type: 'active_ping'}
+vendor-core-ade2edecaf4781c7.min.js.br:63  GET https://www.figma.com/api/rev/YgMsCvIqt7DMpx0rIB8UXV/code_snapshot/ae506eb4553e5dbc98dd7b84894390f36ffcfac3173fa9ad21a06c1b2e102e75 404 (Not Found)
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+h @ vendor-e02619323541de64.min.js.br:3
+(anonymous) @ 856-e6e311b392928463.min.js.br:1135
+T @ 856-e6e311b392928463.min.js.br:1135
+await in T
+C @ 856-e6e311b392928463.min.js.br:1135
+k @ 856-e6e311b392928463.min.js.br:1135
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:3
+validate @ figma_app-8c346c91cb60aa3c.min.js.br:420
+getCodeSnapshot @ 5531-e1594893d9624e3e.min.js.br:3
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:34
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:3
+run @ 5531-e1594893d9624e3e.min.js.br:3
+k @ 5531-e1594893d9624e3e.min.js.br:34
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:34
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:34
+aB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oD @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oL @ vendor-core-ade2edecaf4781c7.min.js.br:11
+f5 @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oE @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+S @ vendor-core-ade2edecaf4781c7.min.js.br:54
+O @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 Failed to fetch snapshot files: E: XHR for "/api/rev/YgMsCvIqt7DMpx0rIB8UXV/code_snapshot/ae506eb4553e5dbc98dd7b84894390f36ffcfac3173fa9ad21a06c1b2e102e75" failed with status 404
+    at C (856-e6e311b392928463.min.js.br:1135:13967)
+    at async Object.k [as get] (856-e6e311b392928463.min.js.br:1135:14350)
+    at async 5531-e1594893d9624e3e.min.js.br:3:24015
+    at async 5531-e1594893d9624e3e.min.js.br:34:208758
+    at async 5531-e1594893d9624e3e.min.js.br:3:24445
+    at async k (5531-e1594893d9624e3e.min.js.br:34:208266)
+    at async 5531-e1594893d9624e3e.min.js.br:34:117873
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:34
+await in (anonymous)
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:34
+aB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oD @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oL @ vendor-core-ade2edecaf4781c7.min.js.br:11
+f5 @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oE @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+S @ vendor-core-ade2edecaf4781c7.min.js.br:54
+O @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this warning
+vendor-core-ade2edecaf4781c7.min.js.br:54 Sentry event id: 034ac4a105a541c0afe58569b3d89789
+vendor-core-ade2edecaf4781c7.min.js.br:54 Sentry event id: 7a6d435a526048f7ae671562e8afea4d
+vendor-core-ade2edecaf4781c7.min.js.br:54 Sentry event id: 32fc430240094719a3c8ccdc8b0b5f03
+vendor-core-ade2edecaf4781c7.min.js.br:54 Sentry event id: 40b8db0d7d094e00a924a4907c75940b
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'desktop'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ User loaded from localStorage: JOHN KINYUA NJIRU sales_executive
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] Initialized for JOHN KINYUA NJIRU (sales_executive)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] 📦 Queued offline: session_start
+2code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+2code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'desktop'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ User loaded from localStorage: JOHN KINYUA NJIRU sales_executive
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] Initialized for JOHN KINYUA NJIRU (sales_executive)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] Flushed 2 queued actions
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] ✅ Logged: session_start 
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+2code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+2code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 3:06:41 PM [vite] (client) hmr update /src/components/programs/program-submit-modal.tsx, /index.css
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 3:06:41 PM [vite] (client) hmr update /src/components/programs/programs-dashboard.tsx, /index.css
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 3:06:41 PM [vite] (client) hmr update /src/components/programs/session-checkin-modal.tsx, /index.css
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 3:06:41 PM [vite] (client) hmr update /src/components/program-form-config.tsx, /index.css
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 3:06:41 PM [vite] (client) page reload src/supabase/functions/server/checkin.tsx
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'mobile'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ User loaded from localStorage: JOHN KINYUA NJIRU sales_executive
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] Initialized for JOHN KINYUA NJIRU (sales_executive)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] 🔥 Loading top performers for TODAY...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] 📅 Today starts at: 2026-03-10T21:00:00.000Z
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] Tour check: isAuthenticated= true shouldShow= true
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [HomeScreen] ✅ Loading announcements from localStorage for role: sales_executive
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] 👥 Found 729 Sales Executives
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] ✅ Logged: session_start 
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ Updated user rank: 512 points: 30
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] Flushed 1 queued actions
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] ✅ Loaded 996 SE submissions from today (filtered from 1000 total)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] 📊 ALL users sorted by points: (10) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] 🏆 Top 3 user IDs: (3) [{…}, {…}, {…}]
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] ✅ Final top performers: (3) [{…}, {…}, {…}]
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [HomeScreen] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [HomeScreen] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [HomeScreen] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+4code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+vendor-core-ade2edecaf4781c7.min.js.br:63  GET https://www.figma.com/api/rev/YgMsCvIqt7DMpx0rIB8UXV/code_snapshot/cafb8ed7b9a62cbc2db1124e130f065db95df2fc9fa7c49f186c1ec24ce0237b 404 (Not Found)
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+h @ vendor-e02619323541de64.min.js.br:3
+(anonymous) @ 856-e6e311b392928463.min.js.br:1135
+T @ 856-e6e311b392928463.min.js.br:1135
+await in T
+C @ 856-e6e311b392928463.min.js.br:1135
+k @ 856-e6e311b392928463.min.js.br:1135
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:3
+validate @ figma_app-8c346c91cb60aa3c.min.js.br:420
+getCodeSnapshot @ 5531-e1594893d9624e3e.min.js.br:3
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:34
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:3
+run @ 5531-e1594893d9624e3e.min.js.br:3
+k @ 5531-e1594893d9624e3e.min.js.br:34
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:34
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:34
+aB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oD @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oL @ vendor-core-ade2edecaf4781c7.min.js.br:11
+f5 @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oE @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+S @ vendor-core-ade2edecaf4781c7.min.js.br:54
+O @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 Failed to fetch snapshot files: E: XHR for "/api/rev/YgMsCvIqt7DMpx0rIB8UXV/code_snapshot/cafb8ed7b9a62cbc2db1124e130f065db95df2fc9fa7c49f186c1ec24ce0237b" failed with status 404
+    at C (856-e6e311b392928463.min.js.br:1135:13967)
+    at async Object.k [as get] (856-e6e311b392928463.min.js.br:1135:14350)
+    at async 5531-e1594893d9624e3e.min.js.br:3:24015
+    at async 5531-e1594893d9624e3e.min.js.br:34:208758
+    at async 5531-e1594893d9624e3e.min.js.br:3:24445
+    at async k (5531-e1594893d9624e3e.min.js.br:34:208266)
+    at async 5531-e1594893d9624e3e.min.js.br:34:117873
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:34
+await in (anonymous)
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:34
+aB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oD @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oL @ vendor-core-ade2edecaf4781c7.min.js.br:11
+f5 @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oE @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+S @ vendor-core-ade2edecaf4781c7.min.js.br:54
+O @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this warning
+vendor-core-ade2edecaf4781c7.min.js.br:54 Sentry event id: 95639a2bd98e4d3dbdb7e29af3b8d73b
+vendor-core-ade2edecaf4781c7.min.js.br:54 Sentry event id: 7830360ff03a456ba3ed7f0ffca649ea
+4code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'desktop'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ User loaded from localStorage: JOHN KINYUA NJIRU sales_executive
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] Initialized for JOHN KINYUA NJIRU (sales_executive)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] 📦 Queued offline: session_start
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+2code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] 🎬 Rendering Programs tab with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AndroidBackButton] 🧹 Cleaning up back button listener
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [PageTracking] 📄 Viewing: Programs
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🎬 Component mounted with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] ✅ User loaded: {id: '77eab68e-fc91-494b-b6f5-22434aa31ea3', role: 'sales_executive', name: 'JOHN KINYUA NJIRU', canSubmit: true}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🔍 Checking auto-open: {initialProgramId: undefined, programsLoaded: 0, currentSelection: undefined}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 3:11:46 PM [vite] (client) hmr update /src/components/programs/session-checkin-modal.tsx, /index.css
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsAPI] Fetching programs for role: sales_executive
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] ✅ Van Calendar enabled: true
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsAPI] ✅ Merged checkin flags into SE programs
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsAPI] Found 7 programs for role sales_executive
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🔍 Checking auto-open: {initialProgramId: undefined, programsLoaded: 7, currentSelection: undefined}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🔍 Checking initial program: {initialProgramId: undefined, programsCount: 7}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🎯 Program clicked: {program: 'MINI ROAD SHOW -CHECK OUT ', viewMode: 'submit', willOpen: 'Submit Modal'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 0 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] ✅ Modal opened for user: {userId: '77eab68e-fc91-494b-b6f5-22434aa31ea3', role: 'sales_executive', name: 'JOHN KINYUA NJIRU', zone: 'NAIROBI WEST', program: 'MINI ROAD SHOW -CHECK OUT ', …}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] 🔄 Fetching ALL shops from database (paginated)...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] 📦 Fetching batch 1 (rows 0-999)...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Loading fields for program: c6e6213c-0e9b-46f9-9183-5b7c64551247
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: false
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 0 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: true
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [GPS] Browser geolocation error: Geolocation has been disabled in this document by permissions policy.
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 0 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] ✅ Loaded 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] 🔍 Fields data: [
+  {
+    "id": "fa4bb7de-bd32-4897-96f1-92a8d4c0e03a",
+    "program_id": "c6e6213c-0e9b-46f9-9183-5b7c64551247",
+    "field_name": "number_plate_of_the_van_",
+    "field_label": "NUMBER PLATE OF THE VAN ",
+    "field_type": "dropdown",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "database_source": {
+        "table": "van_db",
+        "multi_select": true,
+        "display_field": "number_plate",
+        "metadata_fields": [
+          "zone"
+        ],
+        "repeatable_dropdown": false
+      },
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 0,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-11T06:27:29.60322+00:00"
+  },
+  {
+    "id": "c766f58b-da8f-4ca7-ba60-80e79f5f0ed7",
+    "program_id": "c6e6213c-0e9b-46f9-9183-5b7c64551247",
+    "field_name": "no_of_activations_done_",
+    "field_label": "ODOMETER READING ",
+    "field_type": "number",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": null,
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 1,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-11T06:27:29.60322+00:00"
+  },
+  {
+    "id": "4c3377d7-9591-457a-8c8f-0827e5ef703e",
+    "program_id": "c6e6213c-0e9b-46f9-9183-5b7c64551247",
+    "field_name": "feedback_from_customers_on_airtel_products_",
+    "field_label": "ADDITIONAL PROMOTER NUMBERS ",
+    "field_type": "repeatable_number",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "entry_label": "Entry",
+      "min_entries": 1,
+      "digit_length": 9,
+      "check_database": true,
+      "prevent_duplicates": true,
+      "remove_leading_zero": true
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 2,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-11T06:27:29.60322+00:00"
+  },
+  {
+    "id": "1a3f20ba-7f44-45a8-8937-233eca28527b",
+    "program_id": "c6e6213c-0e9b-46f9-9183-5b7c64551247",
+    "field_name": "feedback_on_quality_of_network_(1_is_worst_5_is_best)",
+    "field_label": "FEEDBACK ON QUALITY OF NETWORK (1 is worst 5 is best)",
+    "field_type": "rating",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": null,
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 3,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-11T06:27:29.60322+00:00"
+  }
+]
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Loading already-submitted values for 1 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] 🔍 Checking fields: (4) [{…}, {…}, {…}, {…}]
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] 🔄 Loading data for 1 database dropdown/multi-select field(s)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] 🔒 Zone filtering: DISABLED | User zone: NAIROBI WEST
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Loading from table: van_db
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] 📍 User zone from DB: NAIROBI WEST
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] 📦 "van_db" is small (≤500 rows) → loading all rows
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] 📦 Fetching batch 1 from van_db (rows 0-999)...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ Batch 1: 1000 shops (Total so far: 1000)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] 📦 Fetching batch 2 (rows 1000-1999)...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Field "ADDITIONAL PROMOTER NUMBERS " has 0 already-submitted values
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] ✅ Batch 1: 42 rows (Total so far: 42)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] ✅ Loaded all 42 rows from "van_db" (client-side search)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ Batch 2: 1000 shops (Total so far: 2000)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] 📦 Fetching batch 3 (rows 2000-2999)...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ Batch 3: 674 shops (Total so far: 2674)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ Total loaded from database: 2674 shops
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ Lookup map created with 2651 entries
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ shopsLoaded flag set to true - component should re-render
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 2674 shops | shopsLoaded: true | loadingShops: false
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] ✅ Component should now show search dropdown instead of radio buttons
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] ✅ Logged: heartbeat {type: 'active_ping'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [WebRTC] Tab visibility changed: HIDDEN
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'mobile'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ User loaded from localStorage: JOHN KINYUA NJIRU sales_executive
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] Initialized for JOHN KINYUA NJIRU (sales_executive)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'desktop'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ User loaded from localStorage: JOHN KINYUA NJIRU sales_executive
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] Initialized for JOHN KINYUA NJIRU (sales_executive)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] ✅ Logged: session_start 
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] Flushed 1 queued actions
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] ✅ Logged: session_start 
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] Flushed 1 queued actions
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] 🔥 Loading top performers for TODAY...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] 📅 Today starts at: 2026-03-10T21:00:00.000Z
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] Tour check: isAuthenticated= true shouldShow= false
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [HomeScreen] ✅ Loading announcements from localStorage for role: sales_executive
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] 👥 Found 729 Sales Executives
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ Updated user rank: 517 points: 30
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] ✅ Loaded 997 SE submissions from today (filtered from 1000 total)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] 📊 ALL users sorted by points: (10) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] 🏆 Top 3 user IDs: (3) [{…}, {…}, {…}]
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [HomeScreen] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [HomeScreen] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [HomeScreen] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] ✅ Final top performers: (3) [{…}, {…}, {…}]
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] ✅ Logged: heartbeat {type: 'active_ping'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] ✅ Logged: heartbeat {type: 'active_ping'}
+vendor-core-ade2edecaf4781c7.min.js.br:63  GET https://www.figma.com/api/rev/YgMsCvIqt7DMpx0rIB8UXV/code_snapshot/9e10f8ac9c0c258a7fc8439d8e88ef45b31352e4defa408242a032f4cec60d36 404 (Not Found)
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+h @ vendor-e02619323541de64.min.js.br:3
+(anonymous) @ 856-e6e311b392928463.min.js.br:1135
+T @ 856-e6e311b392928463.min.js.br:1135
+await in T
+C @ 856-e6e311b392928463.min.js.br:1135
+k @ 856-e6e311b392928463.min.js.br:1135
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:3
+validate @ figma_app-8c346c91cb60aa3c.min.js.br:420
+getCodeSnapshot @ 5531-e1594893d9624e3e.min.js.br:3
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:34
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:3
+run @ 5531-e1594893d9624e3e.min.js.br:3
+k @ 5531-e1594893d9624e3e.min.js.br:34
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:34
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:34
+aB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oD @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oL @ vendor-core-ade2edecaf4781c7.min.js.br:11
+f5 @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oE @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+S @ vendor-core-ade2edecaf4781c7.min.js.br:54
+O @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 Failed to fetch snapshot files: E: XHR for "/api/rev/YgMsCvIqt7DMpx0rIB8UXV/code_snapshot/9e10f8ac9c0c258a7fc8439d8e88ef45b31352e4defa408242a032f4cec60d36" failed with status 404
+    at C (856-e6e311b392928463.min.js.br:1135:13967)
+    at async Object.k [as get] (856-e6e311b392928463.min.js.br:1135:14350)
+    at async 5531-e1594893d9624e3e.min.js.br:3:24015
+    at async 5531-e1594893d9624e3e.min.js.br:34:208758
+    at async 5531-e1594893d9624e3e.min.js.br:3:24445
+    at async k (5531-e1594893d9624e3e.min.js.br:34:208266)
+    at async 5531-e1594893d9624e3e.min.js.br:34:117873
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:34
+await in (anonymous)
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:34
+aB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oD @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oL @ vendor-core-ade2edecaf4781c7.min.js.br:11
+f5 @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oE @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+S @ vendor-core-ade2edecaf4781c7.min.js.br:54
+O @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this warning
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'desktop'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ User loaded from localStorage: JOHN KINYUA NJIRU sales_executive
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] Initialized for JOHN KINYUA NJIRU (sales_executive)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] ✅ Logged: session_start 
+2code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+2code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [WebRTC] Tab visibility changed: HIDDEN
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'desktop'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ User loaded from localStorage: JOHN KINYUA NJIRU sales_executive
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] Initialized for JOHN KINYUA NJIRU (sales_executive)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] ✅ Logged: session_start 
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'mobile'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ User loaded from localStorage: JOHN KINYUA NJIRU sales_executive
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] Initialized for JOHN KINYUA NJIRU (sales_executive)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'desktop'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ User loaded from localStorage: JOHN KINYUA NJIRU sales_executive
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] Initialized for JOHN KINYUA NJIRU (sales_executive)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] ✅ Logged: session_start 
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] 📦 Queued offline: session_start
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] 🔥 Loading top performers for TODAY...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] 📅 Today starts at: 2026-03-10T21:00:00.000Z
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] Tour check: isAuthenticated= true shouldShow= false
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [HomeScreen] ✅ Loading announcements from localStorage for role: sales_executive
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] 👥 Found 729 Sales Executives
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] ✅ Loaded 997 SE submissions from today (filtered from 1000 total)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] 📊 ALL users sorted by points: (10) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] 🏆 Top 3 user IDs: (3) [{…}, {…}, {…}]
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ Updated user rank: 508 points: 30
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Top Performers] ✅ Final top performers: (3) [{…}, {…}, {…}]
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [HomeScreen] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [HomeScreen] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [HomeScreen] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] 🎬 Rendering Programs tab with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AndroidBackButton] 🧹 Cleaning up back button listener
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [PageTracking] 📄 Viewing: Programs
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🎬 Component mounted with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] ✅ User loaded: {id: '77eab68e-fc91-494b-b6f5-22434aa31ea3', role: 'sales_executive', name: 'JOHN KINYUA NJIRU', canSubmit: true}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🔍 Checking auto-open: {initialProgramId: undefined, programsLoaded: 0, currentSelection: undefined}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] ✅ Van Calendar enabled: true
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsAPI] Fetching programs for role: sales_executive
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsAPI] ✅ Merged checkin flags into SE programs
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsAPI] Found 7 programs for role sales_executive
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🔍 Checking auto-open: {initialProgramId: undefined, programsLoaded: 7, currentSelection: undefined}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🔍 Checking initial program: {initialProgramId: undefined, programsCount: 7}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'desktop'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ User loaded from localStorage: JOHN KINYUA NJIRU sales_executive
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] Initialized for JOHN KINYUA NJIRU (sales_executive)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] 🎬 Rendering Programs tab with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] 🎬 Rendering Programs tab with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] ✅ Logged: session_start 
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] Flushed 1 queued actions
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ [App] UserData refreshed from localStorage: JOHN KINYUA NJIRU
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] 🎬 Rendering Programs tab with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+2code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+2code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🎯 Program clicked: {program: 'MINI ROAD SHOW -CHECK OUT ', viewMode: 'submit', willOpen: 'Submit Modal'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 0 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] ✅ Modal opened for user: {userId: '77eab68e-fc91-494b-b6f5-22434aa31ea3', role: 'sales_executive', name: 'JOHN KINYUA NJIRU', zone: 'NAIROBI WEST', program: 'MINI ROAD SHOW -CHECK OUT ', …}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] 🔄 Fetching ALL shops from database (paginated)...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] 📦 Fetching batch 1 (rows 0-999)...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Loading fields for program: c6e6213c-0e9b-46f9-9183-5b7c64551247
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: false
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 0 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: true
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [GPS] Browser geolocation error: Geolocation has been disabled in this document by permissions policy.
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 0 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] ✅ Loaded 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] 🔍 Fields data: [
+  {
+    "id": "fa4bb7de-bd32-4897-96f1-92a8d4c0e03a",
+    "program_id": "c6e6213c-0e9b-46f9-9183-5b7c64551247",
+    "field_name": "number_plate_of_the_van_",
+    "field_label": "NUMBER PLATE OF THE VAN ",
+    "field_type": "dropdown",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "database_source": {
+        "table": "van_db",
+        "multi_select": true,
+        "display_field": "number_plate",
+        "metadata_fields": [
+          "zone"
+        ],
+        "repeatable_dropdown": false
+      },
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 0,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-11T06:27:29.60322+00:00"
+  },
+  {
+    "id": "c766f58b-da8f-4ca7-ba60-80e79f5f0ed7",
+    "program_id": "c6e6213c-0e9b-46f9-9183-5b7c64551247",
+    "field_name": "no_of_activations_done_",
+    "field_label": "ODOMETER READING ",
+    "field_type": "number",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": null,
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 1,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-11T06:27:29.60322+00:00"
+  },
+  {
+    "id": "4c3377d7-9591-457a-8c8f-0827e5ef703e",
+    "program_id": "c6e6213c-0e9b-46f9-9183-5b7c64551247",
+    "field_name": "feedback_from_customers_on_airtel_products_",
+    "field_label": "ADDITIONAL PROMOTER NUMBERS ",
+    "field_type": "repeatable_number",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "entry_label": "Entry",
+      "min_entries": 1,
+      "digit_length": 9,
+      "check_database": true,
+      "prevent_duplicates": true,
+      "remove_leading_zero": true
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 2,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-11T06:27:29.60322+00:00"
+  },
+  {
+    "id": "1a3f20ba-7f44-45a8-8937-233eca28527b",
+    "program_id": "c6e6213c-0e9b-46f9-9183-5b7c64551247",
+    "field_name": "feedback_on_quality_of_network_(1_is_worst_5_is_best)",
+    "field_label": "FEEDBACK ON QUALITY OF NETWORK (1 is worst 5 is best)",
+    "field_type": "rating",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": null,
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 3,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-11T06:27:29.60322+00:00"
+  }
+]
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Loading already-submitted values for 1 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] 🔍 Checking fields: (4) [{…}, {…}, {…}, {…}]
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] 🔄 Loading data for 1 database dropdown/multi-select field(s)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] 🔒 Zone filtering: DISABLED | User zone: NAIROBI WEST
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Loading from table: van_db
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] 📍 User zone from DB: NAIROBI WEST
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] 📦 "van_db" is small (≤500 rows) → loading all rows
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] 📦 Fetching batch 1 from van_db (rows 0-999)...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ Batch 1: 1000 shops (Total so far: 1000)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] 📦 Fetching batch 2 (rows 1000-1999)...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Field "ADDITIONAL PROMOTER NUMBERS " has 0 already-submitted values
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] ✅ Batch 1: 42 rows (Total so far: 42)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] ✅ Loaded all 42 rows from "van_db" (client-side search)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ Batch 2: 1000 shops (Total so far: 2000)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] 📦 Fetching batch 3 (rows 2000-2999)...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ Batch 3: 674 shops (Total so far: 2674)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ Total loaded from database: 2674 shops
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ Lookup map created with 2651 entries
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Shops] ✅ shopsLoaded flag set to true - component should re-render
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 2674 shops | shopsLoaded: true | loadingShops: false
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramSubmitModal] ✅ Component should now show search dropdown instead of radio buttons
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] ⬅️ Going back, clearing programToOpen
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AndroidBackButton] 🧹 Cleaning up back button listener
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AndroidBackButton] 🧹 Cleaning up back button listener
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [AndroidBackButton] 🧹 Cleaning up back button listener
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] ✅ Logged: logout 
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 📱 Normalized phone: 706874314
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 ✅ RPC Login successful: {id: '82a1e892-9517-4d62-86c5-9a6dcdf09919', zbm: null, zsm: null, rank: 1, role: 'hq_staff', …}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28  POST https://xspogpfohjmkykfjadhk.supabase.co/rest/v1/user_sessions 401 (Unauthorized)
+(anonymous) @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28
+(anonymous) @ @supabase_supabase-js.js?v=df8378df:12816
+(anonymous) @ @supabase_supabase-js.js?v=df8378df:12830
+await in (anonymous)
+then @ @supabase_supabase-js.js?v=df8378df:310Understand this error
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Analytics] ℹ️ Session tracking unavailable (table not configured)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28  POST https://xspogpfohjmkykfjadhk.supabase.co/rest/v1/user_sessions?select=* 400 (Bad Request)
+(anonymous) @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28
+(anonymous) @ @supabase_supabase-js.js?v=df8378df:12816
+(anonymous) @ @supabase_supabase-js.js?v=df8378df:12830
+await in (anonymous)
+then @ @supabase_supabase-js.js?v=df8378df:310Understand this error
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SessionTracker] ℹ️ Database tracking unavailable (table not configured)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [SessionTracker] ✅ Tracked login for Christopher Kioko (hq_staff)
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Van Calendar Widget] 🔍 Loading stats for HQ...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [PageTracking] 📄 Viewing: Dashboard
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Role Dashboard] ✅ Loading announcements from localStorage for role: hq_staff
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [App] Tour check: isAuthenticated= true shouldShow= false
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Role Dashboard] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Role Dashboard] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] ✅ Logged: login {method: 'phone_pin'}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Van Calendar Widget] ✅ Stats loaded: {totalSubmissions: 4, thisWeekSubmissions: 0, zonesSubmitted: 1, vansWithPlans: 4}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28  GET https://xspogpfohjmkykfjadhk.supabase.co/rest/v1/app_users?select=id%2Cemployee_id%2Cfull_name%2Crank%2Czone%2Cregion%2Czsm%2Czbm%2Ctotal_points%2Cphone_number&role=eq.sales_executive&order=total_points.desc&limit=3 net::ERR_CONNECTION_CLOSED
+(anonymous) @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28
+(anonymous) @ @supabase_supabase-js.js?v=df8378df:12816
+(anonymous) @ @supabase_supabase-js.js?v=df8378df:12830
+await in (anonymous)
+then @ @supabase_supabase-js.js?v=df8378df:310
+setInterval
+(anonymous) @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28
+(anonymous) @ leaderboard-enhanced-unified.tsx:385
+TN @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:89
+T7 @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:89
+T8 @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:89
+T6 @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:89
+T4 @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:89
+S1 @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:89
+SQ @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:89
+(anonymous) @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:89
+(anonymous) @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:3
+V @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:113
+B @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:113
+eo @ code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:113Understand this error
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs] Loading programs for user: hq_staff
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Dashboard] 🔍 Loading folders from localStorage...
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Dashboard] 📦 Raw localStorage data: null
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Dashboard] ℹ️ No folders found in localStorage
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs Dashboard] ✅ Van Calendar enabled: true
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs] ✅ Loaded all programs for admin: 9
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsAPI] Fetching session checkin flags
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsAPI] ✅ Checkin flags: {67b91b34-81f9-416a-9462-843a51bc920d: true, c6e6213c-0e9b-46f9-9183-5b7c64551247: false}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsAPI] Fetching all program form configs
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsAPI] ✅ All form configs: 2
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [Programs] ✅ Merged checkin flags + configs into programs
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsAPI] Fetching session checkin flags
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramCreator] Loading fields for editing: (4) [{…}, {…}, {…}, {…}]
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramsAPI] ✅ Checkin flags: {67b91b34-81f9-416a-9462-843a51bc920d: true, c6e6213c-0e9b-46f9-9183-5b7c64551247: false}
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ProgramCreator] Loaded session checkin flag from KV: false
+code_components_preview_iframe-1e875785bc0d6c5a.min.js.br:28 [ActivityTracker] ✅ Logged: heartbeat {type: 'active_ping'}

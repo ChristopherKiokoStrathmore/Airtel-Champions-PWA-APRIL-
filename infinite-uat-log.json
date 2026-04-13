@@ -1,0 +1,16 @@
+{
+  "startTime": 1775221427986,
+  "totalCycles": 4,
+  "currentStreak": 0,
+  "bestStreak": 0,
+  "cascadeRequests": 2,
+  "improvementsApplied": 2,
+  "learningData": {
+    "successfulSelectors": {
+      "input[placeholder*=\"phone number\" i]": 2,
+      "input[placeholder*=\"PIN\" i]": 2
+    },
+    "failedSelectors": {},
+    "patterns": {}
+  }
+}

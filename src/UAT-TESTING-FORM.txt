@@ -1,0 +1,622 @@
+================================================================================
+                    ZSM PROFILE UAT TESTING FORM
+                    Sales Intelligence Network (TAI)
+================================================================================
+
+Tester Name: _______________________
+Date: _______________________
+Test Environment: Production / Staging / Local
+Browser/Device: _______________________
+
+INSTRUCTIONS:
+- Test each item systematically
+- Mark [PASS], [FAIL], or [WARN] for each test
+- Add notes for any failures or warnings
+- Priority: HIGH = Must fix before launch, MEDIUM = Should fix, LOW = Nice to fix
+
+================================================================================
+CATEGORY 1: PROFILE VIEWING & NAVIGATION
+================================================================================
+
+TEST 001 - View Own Profile
+Priority: HIGH
+Steps: Click profile picture → Select "View Profile"
+Expected: Should open profile modal with own name, role, stats
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 002 - View Other User's Profile
+Priority: HIGH
+Steps: Click on another user's name/avatar in feed
+Expected: Opens their profile modal with their information
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 003 - Profile Modal Design
+Priority: MEDIUM
+Steps: Open any profile
+Expected: Professional design, readable text, proper spacing
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 004 - Close Profile Modal
+Priority: HIGH
+Steps: Click X button or outside modal
+Expected: Modal closes smoothly, returns to previous screen
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 005 - Navigate Between Profiles
+Priority: MEDIUM
+Steps: Open profile → Close → Open different profile
+Expected: Each profile shows correct user's data
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+================================================================================
+CATEGORY 2: PROFILE TABS (POSTS, ACTIVITY, STATS)
+================================================================================
+
+TEST 006 - Posts Tab Default
+Priority: HIGH
+Steps: Open profile
+Expected: Posts tab is selected by default, shows user's posts
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 007 - Switch to Activity Tab
+Priority: HIGH
+Steps: Click "Activity" tab
+Expected: Shows user's recent activities (likes, comments, follows)
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 008 - Switch to Stats Tab
+Priority: HIGH
+Steps: Click "Stats" tab
+Expected: Shows performance metrics, charts, statistics
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 009 - Tab Switching Performance
+Priority: MEDIUM
+Steps: Rapidly switch between all 3 tabs
+Expected: Smooth transitions, no lag or errors
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 010 - Empty Posts State
+Priority: MEDIUM
+Steps: View profile of user with no posts
+Expected: Shows empty state message (e.g., "No posts yet")
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+================================================================================
+CATEGORY 3: FOLLOW/UNFOLLOW FUNCTIONALITY
+================================================================================
+
+TEST 011 - Follow User
+Priority: HIGH
+Steps: Open profile → Click "Follow" button
+Expected: Button changes to "Following", follower count increases
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 012 - Unfollow User
+Priority: HIGH
+Steps: Open followed user's profile → Click "Following" button
+Expected: Button changes to "Follow", follower count decreases
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 013 - Follow Count Updates
+Priority: HIGH
+Steps: Follow user → Check their follower count
+Expected: Count increases immediately by 1
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 014 - Follow Persistence
+Priority: HIGH
+Steps: Follow user → Close modal → Reopen profile
+Expected: Still shows "Following" button
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 015 - Multiple Follow/Unfollow
+Priority: MEDIUM
+Steps: Follow → Unfollow → Follow → Unfollow same user
+Expected: Works smoothly each time, counts accurate
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 016 - Cannot Follow Self
+Priority: HIGH
+Steps: Open own profile
+Expected: No "Follow" button visible on own profile
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+================================================================================
+CATEGORY 4: PROFILE BANNER & PHOTO
+================================================================================
+
+TEST 017 - Default Banner Display
+Priority: MEDIUM
+Steps: View profile with no custom banner
+Expected: Shows default gradient or placeholder banner
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 018 - Custom Banner Display
+Priority: MEDIUM
+Steps: View profile with uploaded custom banner
+Expected: Custom banner displays correctly, no distortion
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 019 - Upload Banner (Own Profile)
+Priority: MEDIUM
+Steps: Open own profile → Click camera icon → Upload image
+Expected: Banner updates immediately, image looks good
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 020 - Banner Upload Error Handling
+Priority: MEDIUM
+Steps: Try uploading invalid file or very large file
+Expected: Shows error message, doesn't crash
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 021 - Profile Picture Display
+Priority: HIGH
+Steps: View any profile
+Expected: Profile picture shows clearly, proper size/shape
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+================================================================================
+CATEGORY 5: BIO & DESCRIPTION
+================================================================================
+
+TEST 022 - View Bio
+Priority: MEDIUM
+Steps: Open profile with bio text
+Expected: Bio displays clearly under name/role
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 023 - Edit Bio (Own Profile)
+Priority: MEDIUM
+Steps: Open own profile → Click edit icon → Change bio → Save
+Expected: Bio updates immediately
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 024 - Empty Bio State
+Priority: LOW
+Steps: View profile with no bio
+Expected: Shows placeholder or empty gracefully
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 025 - Long Bio Handling
+Priority: MEDIUM
+Steps: View/enter bio with 200+ characters
+Expected: Text wraps properly, no overflow
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 026 - Bio with Special Characters
+Priority: LOW
+Steps: Enter bio with emojis, quotes, special chars
+Expected: Displays correctly without breaking
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+================================================================================
+CATEGORY 6: STATS DISPLAY
+================================================================================
+
+TEST 027 - Followers Count
+Priority: HIGH
+Steps: Check follower count on profile
+Expected: Shows accurate number
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 028 - Following Count
+Priority: HIGH
+Steps: Check following count on profile
+Expected: Shows accurate number
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 029 - Posts Count
+Priority: HIGH
+Steps: Check posts count on profile
+Expected: Matches actual number of posts
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 030 - Points Display
+Priority: HIGH
+Steps: Check total points on profile
+Expected: Shows current points accurately
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 031 - Stats Tab Charts
+Priority: MEDIUM
+Steps: Open Stats tab
+Expected: Charts render properly, show data
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 032 - Zero Stats Handling
+Priority: MEDIUM
+Steps: View new user with 0 followers, 0 posts
+Expected: Shows "0" cleanly, no errors
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+================================================================================
+CATEGORY 7: POSTS DISPLAY
+================================================================================
+
+TEST 033 - Recent Posts Display
+Priority: HIGH
+Steps: Open Posts tab
+Expected: Shows user's posts in reverse chronological order
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 034 - Post Images Load
+Priority: HIGH
+Steps: View posts with images
+Expected: All images load properly
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 035 - Post Interactions Visible
+Priority: MEDIUM
+Steps: Check posts for like/comment counts
+Expected: Shows accurate counts on each post
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 036 - Post Timestamps
+Priority: MEDIUM
+Steps: Check post dates
+Expected: Shows relative time (e.g., "2h ago") or actual date
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 037 - Scrolling Through Posts
+Priority: MEDIUM
+Steps: Scroll through long list of posts
+Expected: Smooth scrolling, posts load properly
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+================================================================================
+CATEGORY 8: ACTIVITY FEED
+================================================================================
+
+TEST 038 - Recent Activity Display
+Priority: MEDIUM
+Steps: Open Activity tab
+Expected: Shows recent actions (likes, comments, follows)
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 039 - Activity Timestamps
+Priority: LOW
+Steps: Check timestamps on activities
+Expected: Shows when each activity occurred
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 040 - Empty Activity State
+Priority: LOW
+Steps: View user with no recent activity
+Expected: Shows empty state message
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 041 - Activity Icons
+Priority: LOW
+Steps: Check activity list
+Expected: Each activity has appropriate icon (heart, comment, etc.)
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+================================================================================
+CATEGORY 9: PERMISSIONS & PRIVACY
+================================================================================
+
+TEST 042 - Edit Own Profile
+Priority: HIGH
+Steps: Try editing own profile (banner, bio)
+Expected: Can edit successfully
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 043 - Cannot Edit Others' Profiles
+Priority: HIGH
+Steps: Try to edit another user's profile
+Expected: No edit buttons visible on others' profiles
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 044 - View Permissions
+Priority: MEDIUM
+Steps: Check what other users can see
+Expected: All users can view basic profile info
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 045 - Role Display
+Priority: MEDIUM
+Steps: Check role badge on profile
+Expected: Shows correct role (ZSM, ZBM, SE, etc.)
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+================================================================================
+CATEGORY 10: PERFORMANCE & RESPONSIVENESS
+================================================================================
+
+TEST 046 - Profile Load Speed
+Priority: HIGH
+Steps: Open profile, time how long it takes
+Expected: Loads in under 2 seconds
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 047 - Smooth Animations
+Priority: MEDIUM
+Steps: Watch modal open/close animations
+Expected: Smooth, no janky movements
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 048 - Mobile Responsiveness
+Priority: HIGH
+Steps: View on mobile device or narrow browser
+Expected: Layout adapts, everything readable
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 049 - Image Loading Performance
+Priority: MEDIUM
+Steps: Open profile with many images
+Expected: Images load progressively, no long wait
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 050 - Memory Usage
+Priority: LOW
+Steps: Open/close many profiles repeatedly
+Expected: No memory leaks, app stays responsive
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+================================================================================
+CATEGORY 11: ERROR HANDLING
+================================================================================
+
+TEST 051 - Network Error Handling
+Priority: HIGH
+Steps: Disconnect internet → Try opening profile
+Expected: Shows error message, doesn't crash
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 052 - Invalid User ID
+Priority: MEDIUM
+Steps: Try opening profile with invalid/deleted user ID
+Expected: Shows "User not found" message
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 053 - Failed Image Upload
+Priority: MEDIUM
+Steps: Try uploading banner when offline
+Expected: Shows error, allows retry
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 054 - API Error Messages
+Priority: MEDIUM
+Steps: Trigger any API error
+Expected: Shows user-friendly error message
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+================================================================================
+CATEGORY 12: INTEGRATION WITH OTHER FEATURES
+================================================================================
+
+TEST 055 - Profile from Explore Feed
+Priority: HIGH
+Steps: Click user in Explore feed → Opens profile
+Expected: Profile opens with correct user data
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 056 - Profile from Hall of Fame
+Priority: HIGH
+Steps: Click user in Hall of Fame → Opens profile
+Expected: Profile opens with correct user data
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 057 - Profile from Comments
+Priority: MEDIUM
+Steps: Click username in a comment → Opens profile
+Expected: Profile opens with correct user data
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 058 - Profile from Notifications
+Priority: MEDIUM
+Steps: Click user in notification → Opens profile
+Expected: Profile opens with correct user data
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 059 - Back Navigation
+Priority: HIGH
+Steps: Open profile from feed → Close → Verify feed position
+Expected: Returns to same position in feed
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 060 - Deep Linking
+Priority: LOW
+Steps: Share/open direct profile link
+Expected: Opens correct profile directly
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 061 - Profile in Different Contexts
+Priority: MEDIUM
+Steps: Open same user's profile from multiple places
+Expected: Shows same data consistently
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 062 - Logout While Profile Open
+Priority: MEDIUM
+Steps: Open profile → Logout
+Expected: Handles gracefully, no errors
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 063 - Real-time Updates
+Priority: LOW
+Steps: Have someone follow you → Check your follower count
+Expected: Count updates in real-time or on refresh
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 064 - Cross-Role Profiles
+Priority: MEDIUM
+Steps: View profiles of different roles (SE, ZSM, ZBM, HQ)
+Expected: All roles display correctly
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+TEST 065 - Complete Profile Flow
+Priority: HIGH
+Steps: View profile → Follow → View posts → Check stats → Unfollow
+Expected: All features work together seamlessly
+Result: [ ] PASS  [ ] FAIL  [ ] WARN
+Notes: ___________________________________________________________________
+_________________________________________________________________________
+
+================================================================================
+                            SUMMARY SECTION
+================================================================================
+
+Total Tests: 65
+Tests Passed: _______
+Tests Failed: _______
+Tests with Warnings: _______
+Tests Pending: _______
+
+Pass Rate: _______%
+
+CRITICAL ISSUES (Must fix before launch):
+1. ___________________________________________________________________
+2. ___________________________________________________________________
+3. ___________________________________________________________________
+
+IMPORTANT ISSUES (Should fix):
+1. ___________________________________________________________________
+2. ___________________________________________________________________
+3. ___________________________________________________________________
+
+MINOR ISSUES (Nice to fix):
+1. ___________________________________________________________________
+2. ___________________________________________________________________
+3. ___________________________________________________________________
+
+OVERALL ASSESSMENT:
+[ ] Ready for Production
+[ ] Needs Minor Fixes
+[ ] Needs Major Fixes
+[ ] Not Ready
+
+TESTER SIGNATURE: _______________________  DATE: _______________________
+
+================================================================================
+                              END OF UAT FORM
+================================================================================

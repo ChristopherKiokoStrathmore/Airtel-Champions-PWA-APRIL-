@@ -1,0 +1,5095 @@
+================================================================================
+                    TAI SALES INTELLIGENCE NETWORK
+                         UAT TEST PLAN - v2.0
+                     Analytics-First Intelligence System
+================================================================================
+
+App Version: v2.0
+Last Updated: January 14, 2026
+Total Tests: 180 (30 per profile x 6 profiles)
+Test Coordinator: _______________________
+Testing Period: _____________ to _____________
+
+================================================================================
+                            TEST ENVIRONMENT SETUP
+================================================================================
+
+PREREQUISITES CHECKLIST:
+[ ] Test devices with 2G/3G network simulation
+[ ] Test accounts for each role with valid credentials
+[ ] Access to Supabase admin panel
+[ ] Screen recording tool for bug documentation
+[ ] GPS testing capability
+
+TEST DATA REQUIREMENTS:
+[ ] At least 5 active programs in database
+[ ] At least 10 test submissions per SE
+[ ] At least 3 groups with different configurations
+[ ] Sample users across all zones for Kenya
+
+================================================================================
+                        SECTION 1: SALES EXECUTIVE (SE)
+                                30 TESTS TOTAL
+================================================================================
+
+--------------------------------------------------------------------------------
+TEST ID: SE-001
+TEST NAME: Login Functionality
+CATEGORY: Authentication & Profile
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Open app on fresh install
+2. Enter valid SE credentials (employee ID + password)
+3. Tap "Login"
+
+EXPECTED RESULT:
+[ ] Login successful
+[ ] Redirect to SE Dashboard
+[ ] Bottom navigation shows: Home, Explore, Groups, Profile
+[ ] User name and zone displayed in header
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: SE-002
+TEST NAME: Profile View
+CATEGORY: Authentication & Profile
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Navigate to Profile tab
+2. Review all displayed information
+
+EXPECTED RESULT:
+[ ] Full name displayed correctly
+[ ] Employee ID shown
+[ ] Zone displayed
+[ ] Role shown as "Sales Executive"
+[ ] Total points visible
+[ ] Profile image (if uploaded) or default avatar
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: SE-003
+TEST NAME: Logout Functionality
+CATEGORY: Authentication & Profile
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Go to Profile tab
+2. Tap "Logout" button
+3. Confirm logout
+
+EXPECTED RESULT:
+[ ] Confirmation dialog appears
+[ ] After confirmation, redirected to login screen
+[ ] Previous session cleared
+[ ] Cannot navigate back to dashboard
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: SE-004
+TEST NAME: Invalid Login Attempt
+CATEGORY: Authentication & Profile
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Enter incorrect employee ID or password
+2. Tap "Login"
+
+EXPECTED RESULT:
+[ ] Error message displayed: "Invalid credentials"
+[ ] No navigation occurs
+[ ] User remains on login screen
+[ ] Can retry login
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: SE-005
+TEST NAME: Session Persistence
+CATEGORY: Authentication & Profile
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Login successfully
+2. Close app completely
+3. Reopen app after 1 minute
+
+EXPECTED RESULT:
+[ ] User still logged in
+[ ] Dashboard loads without requiring re-login
+[ ] User data loads correctly
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: SE-006
+TEST NAME: Dashboard Overview
+CATEGORY: Dashboard & Navigation
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Login and view Home dashboard
+2. Verify all widgets load
+
+EXPECTED RESULT:
+[ ] Points balance card displays correctly
+[ ] Active programs card shows current programs
+[ ] Recent submissions visible
+[ ] Quick stats displayed (submissions this week/month)
+[ ] Hall of Fame teaser visible
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: SE-007
+TEST NAME: Bottom Navigation
+CATEGORY: Dashboard & Navigation
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Tap each navigation icon in sequence
+2. Verify navigation works
+
+EXPECTED RESULT:
+[ ] Home icon -> Dashboard screen
+[ ] Explore icon -> Explore Feed screen
+[ ] Groups icon -> Groups list screen
+[ ] Profile icon -> Profile screen
+[ ] Active tab highlighted in blue
+[ ] No "Programs" tab visible (removed)
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: SE-008
+TEST NAME: Pull-to-Refresh on Dashboard
+CATEGORY: Dashboard & Navigation
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. On Dashboard, pull down from top
+2. Release to trigger refresh
+
+EXPECTED RESULT:
+[ ] Refresh animation appears
+[ ] Dashboard data reloads
+[ ] Updated timestamp shown (if available)
+[ ] New submissions/programs appear
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: SE-009
+TEST NAME: Points Balance Display
+CATEGORY: Dashboard & Navigation
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View points card on Dashboard
+2. Check points calculation
+
+EXPECTED RESULT:
+[ ] Total lifetime points shown
+[ ] Points earned this week/month displayed
+[ ] Points match submission records
+[ ] Tap on card shows points history (if implemented)
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: SE-010
+TEST NAME: Quick Actions Access
+CATEGORY: Dashboard & Navigation
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Look for quick action buttons on Dashboard
+2. Tap "New Submission" or similar CTA
+
+EXPECTED RESULT:
+[ ] Opens program selection screen
+[ ] Shows available programs
+[ ] Easy access to submit intelligence
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: SE-011
+TEST NAME: View Available Programs
+CATEGORY: Program Submission
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Navigate to submission flow
+2. View list of active programs
+
+EXPECTED RESULT:
+[ ] All active programs displayed
+[ ] Each program shows: name, icon, points, description
+[ ] Programs sorted by relevance or date
+[ ] Can tap to view program details
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: SE-012
+TEST NAME: Program Details View
+CATEGORY: Program Submission
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Tap on a specific program
+2. View full program details
+
+EXPECTED RESULT:
+[ ] Program name and description shown
+[ ] Points value clearly displayed
+[ ] All required fields listed
+[ ] Optional fields indicated
+[ ] "Start Submission" button visible
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: SE-013
+TEST NAME: GPS Location Auto-Detection
+CATEGORY: Program Submission
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Start a new submission
+2. Observe GPS location capture
+
+EXPECTED RESULT:
+[ ] GPS automatically attempts to get location
+[ ] Loading indicator shows "Getting GPS location..."
+[ ] After 3-5 seconds, location captured
+[ ] Latitude/Longitude displayed
+[ ] Accuracy shown (e.g., "±15m")
+[ ] Location pin locked (not draggable)
+[ ] "Re-scan GPS" button visible
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: SE-014
+TEST NAME: GPS Re-scan Functionality
+CATEGORY: Program Submission
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. After initial GPS capture
+2. Tap "Re-scan GPS" button
+
+EXPECTED RESULT:
+[ ] Previous location cleared
+[ ] GPS scanning restarts
+[ ] New location captured
+[ ] Coordinates update
+[ ] Can re-scan multiple times
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: SE-015
+TEST NAME: Photo Upload (Single)
+CATEGORY: Program Submission
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. In submission form, tap "Add Photo"
+2. Select "Take Photo" or "Choose from Gallery"
+3. Select/capture one photo
+
+EXPECTED RESULT:
+[ ] Camera/gallery opens
+[ ] Photo appears as thumbnail
+[ ] Photo can be removed with X button
+[ ] Photo quality acceptable (not over-compressed)
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: SE-016
+TEST NAME: Photo Upload (Multiple)
+CATEGORY: Program Submission
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Add multiple photos (up to limit)
+2. Review photo gallery
+
+EXPECTED RESULT:
+[ ] Can add up to 5 photos (or program limit)
+[ ] All photos display as thumbnails
+[ ] Can remove individual photos
+[ ] Can rearrange photos (if implemented)
+[ ] Warning if exceeding limit
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: SE-017
+TEST NAME: Form Field Validation
+CATEGORY: Program Submission
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Fill out submission form
+2. Try submitting with missing required fields
+
+EXPECTED RESULT:
+[ ] Required fields marked with asterisk (*)
+[ ] Error message for empty required fields
+[ ] Form highlights missing fields in red
+[ ] Cannot submit until all required fields filled
+[ ] Optional fields can remain empty
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: SE-018
+TEST NAME: Successful Submission
+CATEGORY: Program Submission
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Fill all required fields correctly
+2. Add GPS location and photo
+3. Tap "Submit"
+
+EXPECTED RESULT:
+[ ] Loading indicator shows
+[ ] Success message: "Submission successful!"
+[ ] Points automatically awarded
+[ ] Redirect to Dashboard or submission list
+[ ] New submission appears in "Recent Submissions"
+[ ] Points balance updated
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: SE-019
+TEST NAME: View Explore Feed
+CATEGORY: Explore Feed
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Navigate to Explore tab
+2. Scroll through feed
+
+EXPECTED RESULT:
+[ ] Instagram-style post cards displayed
+[ ] Each card shows: photo, user name, zone, mission type, points
+[ ] Timestamp shown (e.g., "2h ago")
+[ ] Cards load smoothly with scroll
+[ ] Infinite scroll or pagination works
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: SE-020
+TEST NAME: Post Card Details
+CATEGORY: Explore Feed
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Tap on a post card
+2. View full post details
+
+EXPECTED RESULT:
+[ ] Full-size photo displayed
+[ ] All submission details shown
+[ ] Location/GPS data visible (if permitted)
+[ ] Notes/description readable
+[ ] Mission type and points clear
+[ ] Can close and return to feed
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: SE-021
+TEST NAME: Feed Filtering
+CATEGORY: Explore Feed
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Look for filter options (by zone, mission type, date)
+2. Apply a filter
+
+EXPECTED RESULT:
+[ ] Filter dropdown/buttons available
+[ ] Feed updates based on filter
+[ ] Only relevant posts shown
+[ ] Can clear filter to show all
+[ ] Filter persists during session
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: SE-022
+TEST NAME: Feed Refresh
+CATEGORY: Explore Feed
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Pull down to refresh feed
+2. Wait for new posts
+
+EXPECTED RESULT:
+[ ] Refresh animation plays
+[ ] New submissions load at top
+[ ] Feed updates in real-time (or near real-time)
+[ ] No duplicate posts
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: SE-023
+TEST NAME: Empty Feed State
+CATEGORY: Explore Feed
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View feed when no submissions exist (use fresh test account)
+
+EXPECTED RESULT:
+[ ] Friendly empty state message
+[ ] "No intelligence yet" or similar message
+[ ] CTA to "Submit your first intelligence"
+[ ] No error messages
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: SE-024
+TEST NAME: View Groups List
+CATEGORY: Groups & Messaging
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Navigate to Groups tab
+2. View all groups user is member of
+
+EXPECTED RESULT:
+[ ] All groups displayed (Personal + Official)
+[ ] Each group shows: icon, name, member count, latest message preview
+[ ] Unread count badge if unread messages
+[ ] Timestamp of latest message
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: SE-025
+TEST NAME: Open Group Chat
+CATEGORY: Groups & Messaging
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Tap on a group
+2. View group chat screen
+
+EXPECTED RESULT:
+[ ] Group name in header
+[ ] All messages displayed in chronological order
+[ ] Own messages aligned right (blue bubble)
+[ ] Others' messages aligned left (gray bubble)
+[ ] Sender name and timestamp visible
+[ ] Message input field at bottom
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: SE-026
+TEST NAME: Send Text Message
+CATEGORY: Groups & Messaging
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. In group chat, type a message
+2. Tap send button
+
+EXPECTED RESULT:
+[ ] Message appears immediately in chat
+[ ] Message syncs to database
+[ ] Other members can see message (verify with test account)
+[ ] Timestamp accurate
+[ ] Input field clears after send
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: SE-027
+TEST NAME: Send Photo in Group
+CATEGORY: Groups & Messaging
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Tap photo attachment icon
+2. Select/capture photo
+3. Send photo message
+
+EXPECTED RESULT:
+[ ] Photo uploads successfully
+[ ] Photo displays in chat as image bubble
+[ ] Can tap photo to view full-size
+[ ] Photo quality maintained
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: SE-028
+TEST NAME: View Group Info
+CATEGORY: Groups & Messaging
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. In group chat, tap group name or menu
+2. View "Group Info" screen
+
+EXPECTED RESULT:
+[ ] Group name, icon, description shown
+[ ] Full member list displayed
+[ ] Member roles indicated (Admin/Member)
+[ ] Member count accurate
+[ ] "Leave Group" button visible (if not admin)
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: SE-029
+TEST NAME: View Hall of Fame Leaderboard
+CATEGORY: Hall of Fame
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Navigate to Hall of Fame (from Dashboard or Profile)
+2. View leaderboard
+
+EXPECTED RESULT:
+[ ] Top performers listed by points
+[ ] Shows: rank, name, zone, total points
+[ ] Own rank highlighted
+[ ] Can scroll to see all rankings
+[ ] Filter by week/month/all-time available
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: SE-030
+TEST NAME: Points Accuracy in Leaderboard
+CATEGORY: Hall of Fame
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Check own points in leaderboard
+2. Compare to points in Profile/Dashboard
+
+EXPECTED RESULT:
+[ ] Points match across all screens
+[ ] Rank accurate based on points
+[ ] Updates in real-time after new submission
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+================================================================================
+                   SECTION 2: ZONAL SALES MANAGER (ZSM)
+                                30 TESTS TOTAL
+================================================================================
+
+--------------------------------------------------------------------------------
+TEST ID: ZSM-001
+TEST NAME: Login as ZSM
+CATEGORY: Authentication & Profile
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Open app
+2. Enter ZSM credentials
+3. Login
+
+EXPECTED RESULT:
+[ ] Login successful
+[ ] Redirect to ZSM Dashboard
+[ ] Bottom navigation shows: Home, Explore, Groups, Profile
+[ ] Zone management features visible
+[ ] Role shown as "Zonal Sales Manager"
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZSM-002
+TEST NAME: Profile with Zone Assignment
+CATEGORY: Authentication & Profile
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Navigate to Profile
+2. Check zone assignment
+
+EXPECTED RESULT:
+[ ] Assigned zone(s) displayed
+[ ] Number of SEs under management shown
+[ ] Zone statistics visible (optional)
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZSM-003
+TEST NAME: Logout Functionality
+CATEGORY: Authentication & Profile
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Logout from ZSM account
+2. Verify session cleared
+
+EXPECTED RESULT:
+[ ] Logout successful
+[ ] Redirected to login screen
+[ ] Cannot access ZSM dashboard without re-login
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZSM-004
+TEST NAME: Session Timeout
+CATEGORY: Authentication & Profile
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Login and leave app idle for extended period (30+ min)
+2. Try to navigate
+
+EXPECTED RESULT:
+[ ] Session remains active or gracefully prompts re-login
+[ ] No data loss on session expiry
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZSM-005
+TEST NAME: Multiple Device Login
+CATEGORY: Authentication & Profile
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Login on Device A
+2. Login with same credentials on Device B
+
+EXPECTED RESULT:
+[ ] Both sessions work simultaneously OR
+[ ] Second login invalidates first (based on security policy)
+[ ] No data corruption
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZSM-006
+TEST NAME: ZSM Dashboard Overview
+CATEGORY: Dashboard & Analytics
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View ZSM Dashboard
+2. Check all widgets/cards
+
+EXPECTED RESULT:
+[ ] Zone performance summary card
+[ ] Total submissions from zone SEs
+[ ] Total points from zone
+[ ] Top performers in zone
+[ ] Recent activity feed
+[ ] Quick stats (submissions this week/month)
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZSM-007
+TEST NAME: Zone Performance Analytics
+CATEGORY: Dashboard & Analytics
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Navigate to Analytics section (if separate)
+2. View zone-level metrics
+
+EXPECTED RESULT:
+[ ] Charts showing submission trends
+[ ] Points distribution across SEs
+[ ] Mission type breakdown
+[ ] Time-based analytics (daily/weekly/monthly)
+[ ] Can filter by date range
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZSM-008
+TEST NAME: View All SEs in Zone
+CATEGORY: Dashboard & Analytics
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Navigate to "My Team" or "Zone SEs" section
+2. View list of SEs
+
+EXPECTED RESULT:
+[ ] All SEs in zone listed
+[ ] Each SE shows: name, employee ID, total points
+[ ] Activity status (active/inactive)
+[ ] Can tap to view SE details
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZSM-009
+TEST NAME: View Individual SE Performance
+CATEGORY: Dashboard & Analytics
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Tap on a specific SE
+2. View their detailed performance
+
+EXPECTED RESULT:
+[ ] SE name and profile displayed
+[ ] Total points and rank
+[ ] Submission history
+[ ] Activity trends
+[ ] Can view their submissions
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZSM-010
+TEST NAME: Submission Review (Read-Only)
+CATEGORY: Dashboard & Analytics
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Navigate to "All Submissions" or similar
+2. View submissions from zone SEs
+
+EXPECTED RESULT:
+[ ] All submissions from zone SEs visible
+[ ] Can filter by SE, mission type, date
+[ ] Can view submission details
+[ ] No approval/rejection actions (auto-approved system)
+[ ] Can see points awarded
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZSM-011
+TEST NAME: Export/Download Reports
+CATEGORY: Dashboard & Analytics
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Look for "Export" or "Download Report" option
+2. Attempt to download zone performance report
+
+EXPECTED RESULT:
+[ ] Export option available (CSV, PDF, or Excel)
+[ ] Report generates successfully
+[ ] Contains accurate data (submissions, points, SEs)
+[ ] Downloaded file opens correctly
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZSM-012
+TEST NAME: Dashboard Refresh
+CATEGORY: Dashboard & Analytics
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Pull to refresh on dashboard
+2. Verify data updates
+
+EXPECTED RESULT:
+[ ] Refresh animation appears
+[ ] Latest data loads
+[ ] New submissions appear
+[ ] Stats update correctly
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZSM-013
+TEST NAME: View Zone-Filtered Feed
+CATEGORY: Explore Feed
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Navigate to Explore tab
+2. View intelligence feed
+
+EXPECTED RESULT:
+[ ] Can see all submissions (or zone-specific filter available)
+[ ] Posts from own zone highlighted or filterable
+[ ] Same Instagram-style cards as SE view
+[ ] Can interact with posts (view details)
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZSM-014
+TEST NAME: Feed Filtering by SE
+CATEGORY: Explore Feed
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Apply filter to show specific SE's posts
+2. Verify filter works
+
+EXPECTED RESULT:
+[ ] Filter dropdown shows all zone SEs
+[ ] Feed updates to show only selected SE
+[ ] Can clear filter
+[ ] Multiple filters work (SE + mission type)
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZSM-015
+TEST NAME: View Cross-Zone Intelligence
+CATEGORY: Explore Feed
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Look for option to view other zones' submissions
+2. Apply cross-zone filter (if available)
+
+EXPECTED RESULT:
+[ ] Can view submissions from other zones OR
+[ ] Permission restricted to own zone only (based on policy)
+[ ] Clear indication of which zone's data is shown
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZSM-016
+TEST NAME: Post Details with Metadata
+CATEGORY: Explore Feed
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Tap on a post card
+2. View full details
+
+EXPECTED RESULT:
+[ ] All submission details visible
+[ ] SE name and employee ID shown
+[ ] GPS location data visible
+[ ] Timestamp and mission type clear
+[ ] Points awarded displayed
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZSM-017
+TEST NAME: View All Groups
+CATEGORY: Groups & Communication
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Navigate to Groups tab
+2. View groups
+
+EXPECTED RESULT:
+[ ] Personal groups visible
+[ ] Official groups (e.g., "Zone A ZSM + SEs")
+[ ] Can see all groups ZSM is member of
+[ ] Group types distinguished (Personal/Official)
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZSM-018
+TEST NAME: Create New Group (Personal)
+CATEGORY: Groups & Communication
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Tap "Create Group" or "+" button
+2. Fill group details (name, icon, description)
+3. Select type as "Personal"
+4. Add members from zone SEs
+5. Create group
+
+EXPECTED RESULT:
+[ ] Group creation modal opens
+[ ] Can enter name and description
+[ ] Can select icon emoji
+[ ] Member selection shows all zone SEs
+[ ] Group created successfully
+[ ] ZSM is admin
+[ ] Group appears in Groups list
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZSM-019
+TEST NAME: Quick Add Zone Group
+CATEGORY: Groups & Communication
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Tap "Quick Add" option
+2. Select "Add All Zone SEs"
+3. Confirm creation
+
+EXPECTED RESULT:
+[ ] Quick Add dialog appears
+[ ] Pre-populates with all zone SEs
+[ ] Group name auto-generated (e.g., "Zone A Team")
+[ ] Can edit name before creating
+[ ] Group created with all zone SEs as members
+[ ] ZSM is admin
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZSM-020
+TEST NAME: Manage Group Members
+CATEGORY: Groups & Communication
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Open group info screen
+2. Add a new member
+3. Remove a member (if admin)
+
+EXPECTED RESULT:
+[ ] "Add Member" button visible (if admin)
+[ ] Can select from zone SEs
+[ ] New member added successfully
+[ ] Can remove members (tap X or Remove)
+[ ] Cannot remove self if only admin
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZSM-021
+TEST NAME: Send Broadcast Message
+CATEGORY: Groups & Communication
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. In official zone group, send a message
+2. Verify all SEs receive it
+
+EXPECTED RESULT:
+[ ] Message sent successfully
+[ ] All members can see message
+[ ] Timestamp accurate
+[ ] Can send with photo attachments
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZSM-022
+TEST NAME: Admin Controls
+CATEGORY: Groups & Communication
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. As group admin, access admin options
+2. Try to change group name/description
+
+EXPECTED RESULT:
+[ ] "Edit Group" option available
+[ ] Can update group name, description, icon
+[ ] Changes save and reflect immediately
+[ ] Non-admins cannot edit
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZSM-023
+TEST NAME: View Zone Leaderboard
+CATEGORY: Hall of Fame & Rankings
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Navigate to Hall of Fame
+2. Apply zone filter (if available)
+
+EXPECTED RESULT:
+[ ] Can filter leaderboard by own zone
+[ ] Shows only zone SEs ranked by points
+[ ] Top 3 highlighted with badges
+[ ] Can toggle between all-zones and own zone
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZSM-024
+TEST NAME: Zone Ranking Comparison
+CATEGORY: Hall of Fame & Rankings
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View leaderboard at zone level
+2. Compare zone performance vs other zones
+
+EXPECTED RESULT:
+[ ] Zone-level rankings available
+[ ] Shows total zone points
+[ ] Zone rank displayed (1st, 2nd, etc.)
+[ ] Can see top zones nationwide
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZSM-025
+TEST NAME: Time-Period Filtering
+CATEGORY: Hall of Fame & Rankings
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. In Hall of Fame, select "This Week", "This Month", "All Time"
+2. Verify rankings update
+
+EXPECTED RESULT:
+[ ] Filter options visible
+[ ] Leaderboard updates based on selected period
+[ ] Rankings accurate for each period
+[ ] Can compare performance trends
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZSM-026
+TEST NAME: Submit Own Intelligence
+CATEGORY: Programs & Submissions
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. ZSM submits own intelligence (if allowed)
+2. Follow standard submission flow
+
+EXPECTED RESULT:
+[ ] ZSM can submit intelligence OR
+[ ] Submission disabled for managers (based on business rules)
+[ ] Clear indication of permission level
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZSM-027
+TEST NAME: View Submission Trends
+CATEGORY: Programs & Submissions
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Navigate to Analytics
+2. View submission trends over time
+
+EXPECTED RESULT:
+[ ] Line/bar chart showing daily/weekly submissions
+[ ] Can filter by mission type
+[ ] Trends accurate based on data
+[ ] Can compare week-over-week or month-over-month
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZSM-028
+TEST NAME: Mission Type Distribution
+CATEGORY: Programs & Submissions
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View analytics showing mission type breakdown
+2. Check which mission types are most popular
+
+EXPECTED RESULT:
+[ ] Pie chart or bar chart showing distribution
+[ ] Shows: Network Experience, Competition Conversion, New Site, AMB
+[ ] Percentages or counts accurate
+[ ] Can drill down into specific mission type
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZSM-029
+TEST NAME: Inactive SE Identification
+CATEGORY: Programs & Submissions
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View SE list
+2. Identify SEs with no recent submissions
+
+EXPECTED RESULT:
+[ ] Can filter/sort by activity
+[ ] Inactive SEs highlighted or flagged
+[ ] Shows last submission date
+[ ] Can export inactive SE list
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZSM-030
+TEST NAME: GPS Location Verification
+CATEGORY: Programs & Submissions
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View submission details
+2. Check GPS location data
+
+EXPECTED RESULT:
+[ ] GPS coordinates displayed
+[ ] Location address shown (if reverse geocoded)
+[ ] Accuracy radius visible
+[ ] Can view on map (if map integration exists)
+[ ] Timestamp of GPS capture shown
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+================================================================================
+                  SECTION 3: ZONAL BUSINESS MANAGER (ZBM)
+                                30 TESTS TOTAL
+================================================================================
+
+--------------------------------------------------------------------------------
+TEST ID: ZBM-001
+TEST NAME: Login as ZBM
+CATEGORY: Authentication & Profile
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Open app
+2. Enter ZBM credentials
+3. Login
+
+EXPECTED RESULT:
+[ ] Login successful
+[ ] Redirect to ZBM Dashboard
+[ ] Role shown as "Zonal Business Manager"
+[ ] Zone assignment visible
+[ ] Bottom navigation appropriate for role
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZBM-002
+TEST NAME: Profile Information
+CATEGORY: Authentication & Profile
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Navigate to Profile
+2. Review displayed information
+
+EXPECTED RESULT:
+[ ] Full name and employee ID
+[ ] Role: Zonal Business Manager
+[ ] Zone(s) assigned
+[ ] Number of ZSMs and SEs under oversight shown (if applicable)
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZBM-003
+TEST NAME: Logout Functionality
+CATEGORY: Authentication & Profile
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Logout from account
+2. Verify session cleared
+
+EXPECTED RESULT:
+[ ] Logout successful
+[ ] Cannot access dashboard without re-login
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZBM-004
+TEST NAME: Session Persistence
+CATEGORY: Authentication & Profile
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Login, then close app
+2. Reopen after 5 minutes
+
+EXPECTED RESULT:
+[ ] Still logged in
+[ ] Dashboard loads correctly
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZBM-005
+TEST NAME: Multi-Zone Dashboard Overview
+CATEGORY: Dashboard & Multi-Zone Analytics
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View ZBM Dashboard
+2. Check if multiple zones displayed
+
+EXPECTED RESULT:
+[ ] All assigned zones shown
+[ ] Summary stats for each zone
+[ ] Total submissions across all zones
+[ ] Total points across zones
+[ ] Can toggle between zones or view combined
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZBM-006
+TEST NAME: Zone Comparison View
+CATEGORY: Dashboard & Multi-Zone Analytics
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Navigate to Zone Comparison analytics
+2. Compare performance across zones
+
+EXPECTED RESULT:
+[ ] Side-by-side zone comparison
+[ ] Shows submissions, points, active SEs per zone
+[ ] Visual charts (bar/line graphs)
+[ ] Can identify top-performing and underperforming zones
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZBM-007
+TEST NAME: View All ZSMs Under Management
+CATEGORY: Dashboard & Multi-Zone Analytics
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Navigate to "My ZSMs" or Team section
+2. View list of ZSMs
+
+EXPECTED RESULT:
+[ ] All ZSMs in assigned zones listed
+[ ] Each ZSM shows: name, zone, number of SEs, performance stats
+[ ] Can tap to view ZSM details
+[ ] Can filter by zone
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZBM-008
+TEST NAME: View All SEs Across Zones
+CATEGORY: Dashboard & Multi-Zone Analytics
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Navigate to "All SEs" view
+2. Browse SE list
+
+EXPECTED RESULT:
+[ ] All SEs from all assigned zones visible
+[ ] Can filter by zone
+[ ] Shows SE name, zone, ZSM, points, activity
+[ ] Can search by name or employee ID
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZBM-009
+TEST NAME: Performance Trends Over Time
+CATEGORY: Dashboard & Multi-Zone Analytics
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View analytics dashboard
+2. Check time-based trends
+
+EXPECTED RESULT:
+[ ] Charts showing weekly/monthly trends
+[ ] Can compare current vs previous period
+[ ] Growth or decline indicators
+[ ] Can drill down by zone or mission type
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZBM-010
+TEST NAME: Mission Type Analytics
+CATEGORY: Dashboard & Multi-Zone Analytics
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View mission type breakdown across zones
+2. Analyze distribution
+
+EXPECTED RESULT:
+[ ] Shows which mission types most popular
+[ ] Breakdown by zone available
+[ ] Visual representation (pie/bar chart)
+[ ] Can identify gaps (underutilized mission types)
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZBM-011
+TEST NAME: Export Multi-Zone Report
+CATEGORY: Dashboard & Multi-Zone Analytics
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Look for "Export Report" option
+2. Generate and download report
+
+EXPECTED RESULT:
+[ ] Export option available
+[ ] Report includes all zones
+[ ] Contains submissions, points, SEs, ZSMs
+[ ] Format: CSV, Excel, or PDF
+[ ] Report accurate and complete
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZBM-012
+TEST NAME: Real-Time Dashboard Updates
+CATEGORY: Dashboard & Multi-Zone Analytics
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Keep dashboard open
+2. Have test SE submit intelligence
+3. Refresh dashboard
+
+EXPECTED RESULT:
+[ ] New submission appears after refresh
+[ ] Stats update accordingly
+[ ] Points totals increase
+[ ] Charts update with new data
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZBM-013
+TEST NAME: View All-Zones Feed
+CATEGORY: Explore Feed
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Navigate to Explore tab
+2. View intelligence feed
+
+EXPECTED RESULT:
+[ ] Posts from all assigned zones visible
+[ ] Can filter by specific zone
+[ ] Zone name/tag shown on each post
+[ ] Infinite scroll works
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZBM-014
+TEST NAME: Feed Filtering Options
+CATEGORY: Explore Feed
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Apply filters (zone, mission type, date)
+2. Verify filter combinations work
+
+EXPECTED RESULT:
+[ ] Can filter by multiple criteria simultaneously
+[ ] Filter results accurate
+[ ] Can clear filters
+[ ] Filter state persists during session
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZBM-015
+TEST NAME: Search Functionality
+CATEGORY: Explore Feed
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Use search bar (if available)
+2. Search by SE name, location, or keyword
+
+EXPECTED RESULT:
+[ ] Search returns relevant results
+[ ] Can search across all zones
+[ ] Results highlight matching terms
+[ ] Empty state if no results
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZBM-016
+TEST NAME: Post Details and Insights
+CATEGORY: Explore Feed
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Tap on a high-value post
+2. View full details
+
+EXPECTED RESULT:
+[ ] All submission metadata visible
+[ ] Can see SE details (name, zone, ZSM)
+[ ] GPS location and photos clear
+[ ] Points awarded shown
+[ ] Can share or export post (if feature exists)
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZBM-017
+TEST NAME: View All Groups
+CATEGORY: Groups & Communication
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Navigate to Groups tab
+2. View groups
+
+EXPECTED RESULT:
+[ ] Personal groups visible
+[ ] Official groups (multi-zone groups)
+[ ] Can see member counts
+[ ] Groups organized by type or zone
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZBM-018
+TEST NAME: Create Cross-Zone Group
+CATEGORY: Groups & Communication
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Create new group
+2. Add members from multiple zones
+
+EXPECTED RESULT:
+[ ] Can select SEs and ZSMs from all assigned zones
+[ ] Group creation successful
+[ ] ZBM is admin
+[ ] All selected members added
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZBM-019
+TEST NAME: Quick Add Multiple Zones
+CATEGORY: Groups & Communication
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Use "Quick Add" feature
+2. Select "Add All Zones" option (if available)
+
+EXPECTED RESULT:
+[ ] Option to add all ZSMs OR all SEs from all zones
+[ ] Large group created successfully
+[ ] Member count accurate
+[ ] Performance acceptable even with many members
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZBM-020
+TEST NAME: Send Zone-Wide Announcement
+CATEGORY: Groups & Communication
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. In official group, compose important announcement
+2. Send message
+
+EXPECTED RESULT:
+[ ] Message sent to all members
+[ ] Can pin message (if feature exists)
+[ ] Message delivery confirmed
+[ ] Members receive notification
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZBM-021
+TEST NAME: Group Admin Controls
+CATEGORY: Groups & Communication
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Access group settings
+2. Perform admin actions (edit group, remove members)
+
+EXPECTED RESULT:
+[ ] Can edit group name/description/icon
+[ ] Can add/remove members
+[ ] Can promote members to admin (if feature exists)
+[ ] Can delete group (with confirmation)
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZBM-022
+TEST NAME: View Group Message History
+CATEGORY: Groups & Communication
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Open a group with long message history
+2. Scroll up to older messages
+
+EXPECTED RESULT:
+[ ] Can scroll to load older messages
+[ ] Pagination/infinite scroll works
+[ ] All messages load correctly
+[ ] Performance acceptable
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZBM-023
+TEST NAME: Multi-Zone Leaderboard
+CATEGORY: Hall of Fame & Rankings
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Navigate to Hall of Fame
+2. View leaderboard across all zones
+
+EXPECTED RESULT:
+[ ] Top SEs from all zones ranked
+[ ] Zone name shown for each SE
+[ ] Can filter by specific zone
+[ ] Can toggle between SE and Zone rankings
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZBM-024
+TEST NAME: Zone Leaderboard View
+CATEGORY: Hall of Fame & Rankings
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Switch to "Zone Rankings"
+2. View zones ranked by total points
+
+EXPECTED RESULT:
+[ ] All assigned zones ranked
+[ ] Shows total submissions and points per zone
+[ ] Average points per SE shown
+[ ] Top 3 zones highlighted
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZBM-025
+TEST NAME: Time-Period Comparison
+CATEGORY: Hall of Fame & Rankings
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View leaderboard for "This Month"
+2. Switch to "Last Month"
+3. Compare results
+
+EXPECTED RESULT:
+[ ] Can toggle between time periods
+[ ] Rankings update correctly
+[ ] Can identify movers (rising/falling performers)
+[ ] Historical data accurate
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZBM-026
+TEST NAME: Export Leaderboard Data
+CATEGORY: Hall of Fame & Rankings
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. On Hall of Fame screen, look for export option
+2. Export leaderboard
+
+EXPECTED RESULT:
+[ ] Export option available
+[ ] Exported file contains rankings, names, zones, points
+[ ] Format: CSV or Excel
+[ ] Data accurate
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZBM-027
+TEST NAME: Geographic Heat Map
+CATEGORY: Advanced Analytics & Reporting
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Navigate to analytics with map view (if available)
+2. View submission density by location
+
+EXPECTED RESULT:
+[ ] Map displays with submission markers OR
+[ ] Heat map shows high-activity areas
+[ ] Can zoom and pan map
+[ ] Can filter by zone or mission type
+[ ] Clicking marker shows submission details
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZBM-028
+TEST NAME: Activity Patterns Analysis
+CATEGORY: Advanced Analytics & Reporting
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View analytics showing submission times
+2. Identify peak activity hours/days
+
+EXPECTED RESULT:
+[ ] Chart shows submissions by hour of day
+[ ] Chart shows submissions by day of week
+[ ] Can identify patterns (e.g., most submissions on Mondays)
+[ ] Can filter by zone
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZBM-029
+TEST NAME: Quality Metrics
+CATEGORY: Advanced Analytics & Reporting
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View submission quality indicators
+2. Check GPS accuracy, photo quality flags
+
+EXPECTED RESULT:
+[ ] Can see average GPS accuracy per zone/SE
+[ ] Flagged submissions highlighted (if auto-flagging exists)
+[ ] Photo upload rate shown
+[ ] Can drill down into quality issues
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: ZBM-030
+TEST NAME: Custom Date Range Reporting
+CATEGORY: Advanced Analytics & Reporting
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Select "Custom Date Range"
+2. Choose specific start and end dates
+3. Generate report
+
+EXPECTED RESULT:
+[ ] Date picker appears
+[ ] Can select any date range
+[ ] Report generates for selected period
+[ ] Data accurate for custom range
+[ ] Can export custom report
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+================================================================================
+                       SECTION 4: HEADQUARTERS (HQ)
+                                30 TESTS TOTAL
+================================================================================
+
+--------------------------------------------------------------------------------
+TEST ID: HQ-001
+TEST NAME: Login as HQ User
+CATEGORY: Authentication & Profile
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Open app
+2. Enter HQ credentials
+3. Login
+
+EXPECTED RESULT:
+[ ] Login successful
+[ ] Redirect to HQ Dashboard
+[ ] Role shown as "HQ" or "Headquarters"
+[ ] Full nationwide access indicated
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: HQ-002
+TEST NAME: Profile Access Level
+CATEGORY: Authentication & Profile
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Navigate to Profile
+2. Check permissions and access level
+
+EXPECTED RESULT:
+[ ] Profile shows HQ role
+[ ] Access level: National/All Zones
+[ ] No zone restrictions
+[ ] Admin privileges visible (if applicable)
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: HQ-003
+TEST NAME: Logout Functionality
+CATEGORY: Authentication & Profile
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Logout from HQ account
+
+EXPECTED RESULT:
+[ ] Logout successful
+[ ] Session cleared
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: HQ-004
+TEST NAME: Session Security
+CATEGORY: Authentication & Profile
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Login and check security features
+
+EXPECTED RESULT:
+[ ] Session timeout appropriate for HQ role
+[ ] Secure authentication
+[ ] No unauthorized access possible
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: HQ-005
+TEST NAME: National Dashboard Overview
+CATEGORY: National Dashboard
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View HQ Dashboard
+2. Check nationwide metrics
+
+EXPECTED RESULT:
+[ ] Total submissions nationwide displayed
+[ ] Total points across all zones
+[ ] Total active SEs and managers
+[ ] National performance trends
+[ ] Top zones highlighted
+[ ] Recent activity feed
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: HQ-006
+TEST NAME: All Zones Overview
+CATEGORY: National Dashboard
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Navigate to Zones view
+2. See all Kenya zones listed
+
+EXPECTED RESULT:
+[ ] All zones displayed (e.g., Nairobi, Coast, Western, etc.)
+[ ] Each zone shows: name, ZBM, ZSMs, SEs, total points
+[ ] Can tap to drill down into zone details
+[ ] Zones sortable by performance
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: HQ-007
+TEST NAME: National Performance Trends
+CATEGORY: National Dashboard
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View analytics dashboard
+2. Check trends over time (weekly/monthly/quarterly)
+
+EXPECTED RESULT:
+[ ] Line charts showing submission trends
+[ ] Points accumulation over time
+[ ] Growth rate calculations
+[ ] Can compare periods (e.g., Q1 vs Q2)
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: HQ-008
+TEST NAME: Mission Type Distribution Nationwide
+CATEGORY: National Dashboard
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View mission type analytics
+2. See breakdown across all zones
+
+EXPECTED RESULT:
+[ ] Pie/bar chart showing mission type distribution
+[ ] Network Experience, Competition Conversion, New Site, AMB percentages
+[ ] Can drill down by zone
+[ ] Identify underutilized mission types
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: HQ-009
+TEST NAME: View All Users (SEs, ZSMs, ZBMs)
+CATEGORY: National Dashboard
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Navigate to "All Users" or Team Directory
+2. Browse user list
+
+EXPECTED RESULT:
+[ ] All 662+ users listed
+[ ] Can filter by role (SE, ZSM, ZBM)
+[ ] Can filter by zone
+[ ] Search by name or employee ID
+[ ] Shows: name, role, zone, points, activity status
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: HQ-010
+TEST NAME: Individual User Lookup
+CATEGORY: National Dashboard
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Search for specific SE or manager
+2. View their profile and performance
+
+EXPECTED RESULT:
+[ ] Search finds user quickly
+[ ] Can view full user profile
+[ ] Submission history visible
+[ ] Points breakdown shown
+[ ] Activity timeline displayed
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: HQ-011
+TEST NAME: Zone Comparison Analytics
+CATEGORY: National Dashboard
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View zone comparison dashboard
+2. Compare all zones side-by-side
+
+EXPECTED RESULT:
+[ ] All zones listed with key metrics
+[ ] Can sort by submissions, points, active SEs
+[ ] Visual indicators for top/bottom performers
+[ ] Export comparison report option
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: HQ-012
+TEST NAME: Real-Time Activity Monitor
+CATEGORY: National Dashboard
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View live activity feed or dashboard
+2. Watch for new submissions
+
+EXPECTED RESULT:
+[ ] Recent submissions appear in real-time or near real-time
+[ ] Shows: SE name, zone, mission type, points, time
+[ ] Auto-refreshes or has manual refresh
+[ ] Can filter feed by zone or mission type
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: HQ-013
+TEST NAME: Nationwide Explore Feed
+CATEGORY: Explore Feed
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Navigate to Explore tab
+2. View all intelligence nationwide
+
+EXPECTED RESULT:
+[ ] Posts from all zones visible
+[ ] Zone tags/labels on each post
+[ ] Infinite scroll works with large dataset
+[ ] Performance acceptable
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: HQ-014
+TEST NAME: Advanced Feed Filtering
+CATEGORY: Explore Feed
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Apply multiple filters (zone + mission type + date)
+2. Verify results
+
+EXPECTED RESULT:
+[ ] Can combine multiple filters
+[ ] Results update correctly
+[ ] Can save filter presets (if feature exists)
+[ ] Clear filters option works
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: HQ-015
+TEST NAME: Search Across All Submissions
+CATEGORY: Explore Feed
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Use search functionality
+2. Search by keyword, location, or SE name
+
+EXPECTED RESULT:
+[ ] Search works across all 662+ SEs' submissions
+[ ] Results relevant and accurate
+[ ] Search performance acceptable
+[ ] Can refine search with filters
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: HQ-016
+TEST NAME: High-Value Intelligence Flagging
+CATEGORY: Explore Feed
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Look for "Featured" or "High Value" submissions
+2. Review flagged posts
+
+EXPECTED RESULT:
+[ ] Important submissions highlighted OR
+[ ] Can manually flag/star submissions
+[ ] Flagged posts easily accessible
+[ ] Can share flagged intelligence with team
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: HQ-017
+TEST NAME: Export Intelligence Report
+CATEGORY: Explore Feed
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Select multiple submissions or date range
+2. Export to report
+
+EXPECTED RESULT:
+[ ] Can select multiple posts
+[ ] Export generates PDF or CSV
+[ ] Report includes photos, GPS, notes
+[ ] Formatted professionally for stakeholders
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: HQ-018
+TEST NAME: View All Groups Nationwide
+CATEGORY: Groups & Communication
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Navigate to Groups tab
+2. View all groups (if HQ has visibility)
+
+EXPECTED RESULT:
+[ ] Can see all groups OR only groups HQ is member of
+[ ] Groups organized by type/zone
+[ ] Can search for specific group
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: HQ-019
+TEST NAME: Create National Group
+CATEGORY: Groups & Communication
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Create new group
+2. Add members from multiple zones (ZBMs, ZSMs)
+
+EXPECTED RESULT:
+[ ] Can select users from all zones
+[ ] Large group creation successful
+[ ] HQ user is admin
+[ ] All members added correctly
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: HQ-020
+TEST NAME: Broadcast to All Zones
+CATEGORY: Groups & Communication
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Send message in national group
+2. Verify delivery
+
+EXPECTED RESULT:
+[ ] Message sent to all members
+[ ] Can attach photos/files
+[ ] Delivery confirmed
+[ ] Members receive notifications
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: HQ-021
+TEST NAME: Group Management
+CATEGORY: Groups & Communication
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Edit group settings
+2. Add/remove members
+
+EXPECTED RESULT:
+[ ] Can edit group details
+[ ] Can add members from any zone
+[ ] Can remove members
+[ ] Changes sync immediately
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: HQ-022
+TEST NAME: Group Analytics (if available)
+CATEGORY: Groups & Communication
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View group activity metrics
+2. Check engagement levels
+
+EXPECTED RESULT:
+[ ] Can see message counts per group
+[ ] Active members shown
+[ ] Message frequency trends
+[ ] Can identify inactive groups
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: HQ-023
+TEST NAME: National Leaderboard
+CATEGORY: Hall of Fame & National Rankings
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Navigate to Hall of Fame
+2. View nationwide SE rankings
+
+EXPECTED RESULT:
+[ ] Top 100 (or all) SEs ranked by points
+[ ] Shows: rank, name, zone, points
+[ ] Can filter by zone
+[ ] Can toggle time periods
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: HQ-024
+TEST NAME: Zone Rankings
+CATEGORY: Hall of Fame & National Rankings
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Switch to "Zone Rankings" view
+2. See zones ranked by performance
+
+EXPECTED RESULT:
+[ ] All zones ranked by total points
+[ ] Shows: zone name, ZBM, total points, total submissions
+[ ] Top 3 zones highlighted
+[ ] Can drill down into zone details
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: HQ-025
+TEST NAME: ZSM/ZBM Rankings
+CATEGORY: Hall of Fame & National Rankings
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View manager leaderboard
+2. See ZSMs and ZBMs ranked by team performance
+
+EXPECTED RESULT:
+[ ] Managers ranked by team's total points OR zone performance
+[ ] Shows: manager name, role, zone, team points
+[ ] Can filter by role (ZSM vs ZBM)
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: HQ-026
+TEST NAME: Historical Leaderboard
+CATEGORY: Hall of Fame & National Rankings
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View leaderboard for previous months/quarters
+2. Compare historical performance
+
+EXPECTED RESULT:
+[ ] Can select past time periods
+[ ] Historical rankings displayed
+[ ] Can compare month-over-month or quarter-over-quarter
+[ ] Data accurate for past periods
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: HQ-027
+TEST NAME: Export Leaderboard
+CATEGORY: Hall of Fame & National Rankings
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Export national leaderboard to file
+
+EXPECTED RESULT:
+[ ] Export option available
+[ ] File includes all rankings and metrics
+[ ] Format: CSV, Excel, or PDF
+[ ] Suitable for executive presentations
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: HQ-028
+TEST NAME: Custom Dashboard Builder
+CATEGORY: Advanced Reporting & Admin
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Access dashboard customization (if available)
+2. Add/remove widgets
+
+EXPECTED RESULT:
+[ ] Can customize dashboard layout
+[ ] Can add specific metrics/charts
+[ ] Changes save and persist
+[ ] Dashboard resets to default option available
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: HQ-029
+TEST NAME: Executive Summary Report
+CATEGORY: Advanced Reporting & Admin
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Generate executive summary (weekly/monthly)
+2. Review report content
+
+EXPECTED RESULT:
+[ ] Report includes key metrics (submissions, points, top performers)
+[ ] Visual charts and graphs
+[ ] Format suitable for leadership review
+[ ] Can schedule automated reports (if feature exists)
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: HQ-030
+TEST NAME: Data Export for Analysis
+CATEGORY: Advanced Reporting & Admin
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Export raw data (all submissions)
+2. Download for external analysis (e.g., Excel, BI tools)
+
+EXPECTED RESULT:
+[ ] Can export all submission data
+[ ] Includes: SE, zone, mission type, GPS, photos, points, timestamps
+[ ] Format: CSV or Excel
+[ ] File size manageable (or paginated for large datasets)
+[ ] Data complete and accurate
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+================================================================================
+                            SECTION 5: DIRECTOR
+                                30 TESTS TOTAL
+================================================================================
+
+--------------------------------------------------------------------------------
+TEST ID: DIR-001
+TEST NAME: Login as Director
+CATEGORY: Authentication & Profile
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Open app
+2. Enter Director credentials
+3. Login
+
+EXPECTED RESULT:
+[ ] Login successful
+[ ] Redirect to Director Dashboard
+[ ] Role shown as "Director"
+[ ] Full executive access indicated
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DIR-002
+TEST NAME: Profile and Permissions
+CATEGORY: Authentication & Profile
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Navigate to Profile
+2. Review access level
+
+EXPECTED RESULT:
+[ ] Profile shows Director role
+[ ] Access level: National/Executive
+[ ] All permissions enabled
+[ ] Can view all zones and users
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DIR-003
+TEST NAME: Logout Functionality
+CATEGORY: Authentication & Profile
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Logout from Director account
+
+EXPECTED RESULT:
+[ ] Logout successful
+[ ] Session cleared securely
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DIR-004
+TEST NAME: Multi-Device Access
+CATEGORY: Authentication & Profile
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Login on desktop browser (admin dashboard)
+2. Login on mobile device simultaneously
+
+EXPECTED RESULT:
+[ ] Both sessions work OR
+[ ] One session invalidates the other (based on security policy)
+[ ] No data inconsistencies
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DIR-005
+TEST NAME: Executive Dashboard Overview
+CATEGORY: Executive Dashboard
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View Director Dashboard
+2. Check high-level metrics
+
+EXPECTED RESULT:
+[ ] Total submissions nationwide
+[ ] Total points awarded
+[ ] Total active SEs (out of 662)
+[ ] National growth trends (week/month/quarter)
+[ ] Top performing zones
+[ ] Top performing SEs
+[ ] Mission type distribution
+[ ] Key insights or alerts highlighted
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DIR-006
+TEST NAME: Strategic KPIs
+CATEGORY: Executive Dashboard
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View key performance indicators
+2. Check against business goals
+
+EXPECTED RESULT:
+[ ] Submission rate (submissions per SE per week)
+[ ] Engagement rate (active SEs / total SEs)
+[ ] Quality metrics (GPS accuracy, photo upload rate)
+[ ] Intelligence categories breakdown
+[ ] Trends vs targets (if targets set)
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DIR-007
+TEST NAME: National Trends Analysis
+CATEGORY: Executive Dashboard
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View long-term trend charts (3-6 months)
+2. Analyze growth patterns
+
+EXPECTED RESULT:
+[ ] Charts show monthly/quarterly trends
+[ ] Submission volume over time
+[ ] Points distribution trends
+[ ] User engagement trends
+[ ] Can identify seasonal patterns
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DIR-008
+TEST NAME: Zone Performance Scorecard
+CATEGORY: Executive Dashboard
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View all zones ranked by performance
+2. Check scorecards
+
+EXPECTED RESULT:
+[ ] Each zone has performance score
+[ ] Shows: submissions, points, active SEs, engagement rate
+[ ] Color-coded (green/yellow/red) for performance levels
+[ ] Can drill down into underperforming zones
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DIR-009
+TEST NAME: Competitive Intelligence Summary
+CATEGORY: Executive Dashboard
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View intelligence categorized by competitor
+2. Check insights
+
+EXPECTED RESULT:
+[ ] Can filter submissions by competitor mentioned (Safaricom, etc.)
+[ ] Geographic distribution of competitive intel
+[ ] Trends in competitive activity
+[ ] Actionable insights highlighted
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DIR-010
+TEST NAME: Manager Performance Review
+CATEGORY: Executive Dashboard
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View all ZBMs and ZSMs
+2. Check their team performance
+
+EXPECTED RESULT:
+[ ] Managers listed with team performance metrics
+[ ] Shows: manager name, zone, team size, team points, engagement
+[ ] Can identify high-performing vs low-performing managers
+[ ] Can drill down into manager details
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DIR-011
+TEST NAME: Real-Time Activity Monitor
+CATEGORY: Executive Dashboard
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View live activity dashboard
+2. Watch for new submissions
+
+EXPECTED RESULT:
+[ ] Live feed of recent submissions
+[ ] Updates in real-time or near real-time
+[ ] Shows: SE, zone, mission type, time
+[ ] Can filter by zone or type
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DIR-012
+TEST NAME: Dashboard Customization
+CATEGORY: Executive Dashboard
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Customize dashboard widgets
+2. Arrange metrics by preference
+
+EXPECTED RESULT:
+[ ] Can add/remove widgets
+[ ] Can rearrange dashboard layout
+[ ] Custom view saves
+[ ] Can reset to default
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DIR-013
+TEST NAME: Strategic Intelligence Feed
+CATEGORY: Explore Feed & Intelligence
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Navigate to Explore tab
+2. View high-value intelligence
+
+EXPECTED RESULT:
+[ ] Can filter for high-value submissions
+[ ] Featured or starred intelligence visible
+[ ] Can view all submissions nationwide
+[ ] Performance acceptable with large dataset
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DIR-014
+TEST NAME: Intelligence Search
+CATEGORY: Explore Feed & Intelligence
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Search for specific keywords or locations
+2. Find relevant intelligence
+
+EXPECTED RESULT:
+[ ] Search works across all submissions
+[ ] Can search by competitor name, location, keyword
+[ ] Results accurate and comprehensive
+[ ] Can save search queries
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DIR-015
+TEST NAME: Geographic Intelligence Mapping
+CATEGORY: Explore Feed & Intelligence
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View submissions on map (if map view available)
+2. Identify hotspots
+
+EXPECTED RESULT:
+[ ] Map shows submission locations
+[ ] Heat map or clustering for dense areas
+[ ] Can filter by mission type or zone
+[ ] Can click markers for details
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DIR-016
+TEST NAME: Intelligence Categorization
+CATEGORY: Explore Feed & Intelligence
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View submissions grouped by category
+2. Check category accuracy
+
+EXPECTED RESULT:
+[ ] Submissions organized by mission type
+[ ] Can view by: Network, Conversion, New Site, AMB
+[ ] Category counts accurate
+[ ] Can drill down into category
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DIR-017
+TEST NAME: Export Strategic Report
+CATEGORY: Explore Feed & Intelligence
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Select key intelligence submissions
+2. Export to executive report
+
+EXPECTED RESULT:
+[ ] Can select multiple submissions
+[ ] Export generates professional report (PDF)
+[ ] Includes photos, locations, insights
+[ ] Formatted for executive stakeholders
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DIR-018
+TEST NAME: View All Groups
+CATEGORY: Groups & Communication
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Navigate to Groups tab
+2. View groups (if Director has access)
+
+EXPECTED RESULT:
+[ ] Can see relevant groups
+[ ] Likely member of executive/leadership groups
+[ ] Can create new groups
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DIR-019
+TEST NAME: Create Executive Group
+CATEGORY: Groups & Communication
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Create group for Directors/HQ/ZBMs
+2. Add members
+
+EXPECTED RESULT:
+[ ] Can select leadership members
+[ ] Group created successfully
+[ ] Director is admin
+[ ] Can send messages
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DIR-020
+TEST NAME: Broadcast to Leadership
+CATEGORY: Groups & Communication
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Send message in executive group
+2. Verify delivery
+
+EXPECTED RESULT:
+[ ] Message sent successfully
+[ ] All members receive notification
+[ ] Can attach documents/files
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DIR-021
+TEST NAME: National Leaderboard Review
+CATEGORY: Hall of Fame & Recognition
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Navigate to Hall of Fame
+2. Review top performers
+
+EXPECTED RESULT:
+[ ] Top SEs nationwide displayed
+[ ] Shows rank, name, zone, points
+[ ] Can view different time periods
+[ ] Can export leaderboard
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DIR-022
+TEST NAME: Zone Championship Standings
+CATEGORY: Hall of Fame & Recognition
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View zone rankings
+2. Check zone competition
+
+EXPECTED RESULT:
+[ ] Zones ranked by total points
+[ ] Shows zone name, ZBM, total points
+[ ] Top zones highlighted
+[ ] Can view trends over time
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DIR-023
+TEST NAME: Recognition and Awards
+CATEGORY: Hall of Fame & Recognition
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Review top performers for recognition
+2. Access award details (if feature exists)
+
+EXPECTED RESULT:
+[ ] Top performers clearly identified
+[ ] Can export list for awards/recognition
+[ ] Performance milestones shown (e.g., "1000 points club")
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DIR-024
+TEST NAME: Historical Performance Review
+CATEGORY: Hall of Fame & Recognition
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View leaderboard for past quarters
+2. Track performance over time
+
+EXPECTED RESULT:
+[ ] Can select past periods (Q1, Q2, etc.)
+[ ] Historical data accurate
+[ ] Can identify consistent top performers
+[ ] Can spot rising stars
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DIR-025
+TEST NAME: Manager Leaderboard
+CATEGORY: Hall of Fame & Recognition
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View ZSM and ZBM rankings
+2. Check manager effectiveness
+
+EXPECTED RESULT:
+[ ] Managers ranked by team performance
+[ ] Shows manager, zone, team points, team size
+[ ] Can identify top-performing managers
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DIR-026
+TEST NAME: Executive Summary Reports
+CATEGORY: Advanced Analytics & Reporting
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Generate monthly executive summary
+2. Review content and format
+
+EXPECTED RESULT:
+[ ] Comprehensive summary of key metrics
+[ ] Visual charts and graphs
+[ ] Highlights and insights
+[ ] Format suitable for board presentation
+[ ] Can download as PDF
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DIR-027
+TEST NAME: Custom Analytics Builder
+CATEGORY: Advanced Analytics & Reporting
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Create custom report with specific metrics
+2. Save and export
+
+EXPECTED RESULT:
+[ ] Can select specific metrics and dimensions
+[ ] Can choose date ranges
+[ ] Report generates correctly
+[ ] Can save report template
+[ ] Can schedule automated reports
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DIR-028
+TEST NAME: Predictive Analytics (if available)
+CATEGORY: Advanced Analytics & Reporting
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View projected trends
+2. Check forecasts
+
+EXPECTED RESULT:
+[ ] System shows projected submission rates
+[ ] Growth forecasts based on trends
+[ ] Can identify zones needing attention
+[ ] Actionable recommendations provided
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DIR-029
+TEST NAME: Benchmark Comparisons
+CATEGORY: Advanced Analytics & Reporting
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Compare actual performance vs targets/benchmarks
+2. Review variance analysis
+
+EXPECTED RESULT:
+[ ] Can set targets (if feature exists)
+[ ] Actual vs target comparisons shown
+[ ] Variance highlighted (above/below target)
+[ ] Can drill down into underperformers
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DIR-030
+TEST NAME: Data Export for BI Tools
+CATEGORY: Advanced Analytics & Reporting
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Export full dataset
+2. Import into external BI tool (e.g., Power BI, Tableau)
+
+EXPECTED RESULT:
+[ ] Can export comprehensive data
+[ ] Includes: SE, zone, time, mission type, GPS, etc.
+[ ] Format: CSV or database export
+[ ] Data structure suitable for BI analysis
+[ ] No sensitive data exposed inappropriately
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+================================================================================
+                           SECTION 6: DEVELOPER
+                                30 TESTS TOTAL
+================================================================================
+
+--------------------------------------------------------------------------------
+TEST ID: DEV-001
+TEST NAME: Admin Panel Login
+CATEGORY: Authentication & System Access
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Access admin/developer dashboard URL
+2. Login with developer credentials
+
+EXPECTED RESULT:
+[ ] Login successful
+[ ] Access to React admin dashboard
+[ ] Role shown as "Developer" or "Admin"
+[ ] Full system access available
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DEV-002
+TEST NAME: Supabase Admin Access
+CATEGORY: Authentication & System Access
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Login to Supabase dashboard
+2. Verify database access
+
+EXPECTED RESULT:
+[ ] Can access Supabase project
+[ ] Can view all tables
+[ ] Can run SQL queries
+[ ] Can view API logs
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DEV-003
+TEST NAME: Multi-Role Testing
+CATEGORY: Authentication & System Access
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Create test accounts for all roles
+2. Verify role-based access control
+
+EXPECTED RESULT:
+[ ] Can create SE, ZSM, ZBM, HQ, Director test accounts
+[ ] Each role has appropriate permissions
+[ ] No unauthorized cross-role access
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DEV-004
+TEST NAME: API Authentication
+CATEGORY: Authentication & System Access
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Test API endpoints with valid and invalid tokens
+2. Verify authentication
+
+EXPECTED RESULT:
+[ ] Valid tokens allow API access
+[ ] Invalid tokens rejected with 401 error
+[ ] Token expiration works correctly
+[ ] No security vulnerabilities
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DEV-005
+TEST NAME: Environment Configuration
+CATEGORY: Authentication & System Access
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Check environment variables
+2. Verify all secrets configured
+
+EXPECTED RESULT:
+[ ] SUPABASE_URL set correctly
+[ ] SUPABASE_ANON_KEY configured
+[ ] SUPABASE_SERVICE_ROLE_KEY secured
+[ ] No secrets exposed in client code
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DEV-006
+TEST NAME: Database Schema Validation
+CATEGORY: Database & Backend
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Review all database tables
+2. Verify schema matches design
+
+EXPECTED RESULT:
+[ ] Tables: users, submissions, programs, groups, group_members, etc.
+[ ] All columns present and correct data types
+[ ] Foreign keys and relationships correct
+[ ] Indexes created for performance
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DEV-007
+TEST NAME: Sample Data Verification
+CATEGORY: Database & Backend
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Query each table
+2. Verify seed data exists
+
+EXPECTED RESULT:
+[ ] At least 5 test SEs in users table
+[ ] Test programs in programs table
+[ ] Mission types seeded (Network, Conversion, New Site, AMB)
+[ ] Test submissions exist
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DEV-008
+TEST NAME: API Endpoints Testing
+CATEGORY: Database & Backend
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Test all 24+ backend API endpoints
+2. Verify responses
+
+EXPECTED RESULT:
+[ ] GET /submissions - returns submissions list
+[ ] POST /submissions - creates new submission
+[ ] GET /programs - returns programs
+[ ] GET /leaderboard - returns rankings
+[ ] GET /analytics - returns metrics
+[ ] All endpoints return correct status codes
+[ ] Error handling works (400, 404, 500)
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DEV-009
+TEST NAME: Database Performance
+CATEGORY: Database & Backend
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Query large datasets (all submissions)
+2. Check query execution times
+
+EXPECTED RESULT:
+[ ] Queries complete in < 2 seconds
+[ ] Indexes used efficiently
+[ ] No N+1 query issues
+[ ] Pagination works for large results
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DEV-010
+TEST NAME: Data Integrity Checks
+CATEGORY: Database & Backend
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Verify referential integrity
+2. Check constraints
+
+EXPECTED RESULT:
+[ ] Foreign keys enforce relationships
+[ ] Cannot delete referenced records
+[ ] Cascading deletes work where appropriate
+[ ] Unique constraints enforced
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DEV-011
+TEST NAME: GPS Data Storage
+CATEGORY: Database & Backend
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Check submissions table GPS columns
+2. Verify GPS data format
+
+EXPECTED RESULT:
+[ ] GPS location stored as JSONB (or lat/lng decimals)
+[ ] Coordinates accurate (Kenya bounds: -5 to 5N, 34 to 42E)
+[ ] Accuracy radius stored
+[ ] Timestamp of GPS capture stored
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DEV-012
+TEST NAME: Photo Storage (Supabase Storage)
+CATEGORY: Database & Backend
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Upload test photo via API
+2. Verify storage
+
+EXPECTED RESULT:
+[ ] Photo uploads to Supabase Storage bucket
+[ ] Signed URL generated
+[ ] Photo accessible via URL
+[ ] Storage quota not exceeded
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DEV-013
+TEST NAME: Points Calculation Logic
+CATEGORY: Database & Backend
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Submit intelligence
+2. Verify points auto-awarded
+
+EXPECTED RESULT:
+[ ] Correct points awarded based on mission type
+[ ] Points stored in submissions table
+[ ] User's total points updated
+[ ] Leaderboard reflects new points
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DEV-014
+TEST NAME: Group Messaging Real-Time Sync
+CATEGORY: Database & Backend
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Send message from SE account
+2. Check if message appears for other group members
+
+EXPECTED RESULT:
+[ ] Message inserted into group_messages table
+[ ] Message visible to all group members
+[ ] Timestamp accurate
+[ ] Real-time sync works (or polling interval acceptable)
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DEV-015
+TEST NAME: Database Backup & Recovery
+CATEGORY: Database & Backend
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Verify Supabase automated backups enabled
+2. Test point-in-time recovery (if available)
+
+EXPECTED RESULT:
+[ ] Daily backups configured
+[ ] Can restore from backup
+[ ] Backup retention policy set
+[ ] No data loss on recovery
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DEV-016
+TEST NAME: Admin Dashboard Load
+CATEGORY: Frontend (React Admin Dashboard)
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Open React admin dashboard in browser
+2. Check load time
+
+EXPECTED RESULT:
+[ ] Dashboard loads in < 3 seconds
+[ ] All components render correctly
+[ ] No console errors
+[ ] Responsive design works
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DEV-017
+TEST NAME: Data Tables Rendering
+CATEGORY: Frontend (React Admin Dashboard)
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View tables (users, submissions, programs)
+2. Check data display
+
+EXPECTED RESULT:
+[ ] Tables render with data
+[ ] Sorting works
+[ ] Filtering works
+[ ] Pagination works
+[ ] Performance acceptable with large datasets
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DEV-018
+TEST NAME: Charts and Visualizations
+CATEGORY: Frontend (React Admin Dashboard)
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. View analytics charts
+2. Verify data accuracy
+
+EXPECTED RESULT:
+[ ] Charts render (line, bar, pie)
+[ ] Data matches database queries
+[ ] Interactive tooltips work
+[ ] No rendering glitches
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DEV-019
+TEST NAME: Form Validation
+CATEGORY: Frontend (React Admin Dashboard)
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Test program creation form
+2. Submit with invalid data
+
+EXPECTED RESULT:
+[ ] Required fields validated
+[ ] Error messages displayed
+[ ] Cannot submit invalid data
+[ ] Validation messages clear
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DEV-020
+TEST NAME: CRUD Operations
+CATEGORY: Frontend (React Admin Dashboard)
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Create, Read, Update, Delete a program
+2. Verify in database
+
+EXPECTED RESULT:
+[ ] Create: new program inserted
+[ ] Read: program details displayed
+[ ] Update: changes saved
+[ ] Delete: program removed (or soft-deleted)
+[ ] Database reflects changes
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DEV-021
+TEST NAME: User Management
+CATEGORY: Frontend (React Admin Dashboard)
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Create new user via admin dashboard
+2. Edit user details
+3. Deactivate user
+
+EXPECTED RESULT:
+[ ] Can create SE, ZSM, ZBM users
+[ ] Required fields enforced (employee_id, name, zone, role)
+[ ] Can update user details
+[ ] Can deactivate/activate users
+[ ] Changes sync to database
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DEV-022
+TEST NAME: Export Functionality
+CATEGORY: Frontend (React Admin Dashboard)
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Export data from admin dashboard
+2. Verify export file
+
+EXPECTED RESULT:
+[ ] Can export users, submissions, analytics
+[ ] Format: CSV or Excel
+[ ] Data complete and accurate
+[ ] File downloads successfully
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DEV-023
+TEST NAME: App Build & Deployment
+CATEGORY: Mobile App (Flutter) Testing
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Build APK for Android
+2. Install on test device
+
+EXPECTED RESULT:
+[ ] Flutter build completes without errors
+[ ] APK installs successfully
+[ ] App launches without crashes
+[ ] No missing dependencies
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DEV-024
+TEST NAME: Offline-First Functionality
+CATEGORY: Mobile App (Flutter) Testing
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Enable airplane mode on device
+2. Use app features
+
+EXPECTED RESULT:
+[ ] App loads cached data
+[ ] Can view previously loaded submissions
+[ ] Can start new submission (queued)
+[ ] Data syncs when back online
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DEV-025
+TEST NAME: 2G/3G Network Performance
+CATEGORY: Mobile App (Flutter) Testing
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Simulate 2G network (Chrome DevTools or network sim tool)
+2. Test app functionality
+
+EXPECTED RESULT:
+[ ] App usable on slow network
+[ ] Images compressed/optimized
+[ ] API calls timeout gracefully
+[ ] Loading indicators shown
+[ ] No app crashes
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DEV-026
+TEST NAME: GPS Permissions & Accuracy
+CATEGORY: Mobile App (Flutter) Testing
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Install app on fresh device
+2. Trigger GPS location request
+
+EXPECTED RESULT:
+[ ] App requests location permission
+[ ] Permission dialog appears
+[ ] If granted, GPS location captured
+[ ] Accuracy within ±50m
+[ ] If denied, user-friendly error shown
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DEV-027
+TEST NAME: Photo Upload & Compression
+CATEGORY: Mobile App (Flutter) Testing
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Take photo with camera
+2. Upload in submission
+
+EXPECTED RESULT:
+[ ] Camera permission requested
+[ ] Photo captured
+[ ] Photo compressed before upload (< 2MB)
+[ ] Upload completes on 3G network
+[ ] Photo quality acceptable
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DEV-028
+TEST NAME: Authentication Security
+CATEGORY: Security & Compliance
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Test password requirements
+2. Test token security
+
+EXPECTED RESULT:
+[ ] Passwords hashed (not stored plain text)
+[ ] JWT tokens expire appropriately
+[ ] Session timeout works
+[ ] No XSS or CSRF vulnerabilities
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DEV-029
+TEST NAME: Role-Based Access Control
+CATEGORY: Security & Compliance
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Login as different roles
+2. Attempt unauthorized actions
+
+EXPECTED RESULT:
+[ ] SE cannot access ZSM dashboard
+[ ] ZSM cannot access HQ data
+[ ] Proper 403 Forbidden errors for unauthorized access
+[ ] No privilege escalation possible
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+--------------------------------------------------------------------------------
+TEST ID: DEV-030
+TEST NAME: Data Privacy & GDPR Compliance
+CATEGORY: Security & Compliance
+--------------------------------------------------------------------------------
+
+TEST STEPS:
+1. Review data collection practices
+2. Verify user consent
+
+EXPECTED RESULT:
+[ ] Only necessary data collected
+[ ] GPS/photos collected with user consent
+[ ] User data not shared inappropriately
+[ ] Can delete user data on request (if required)
+[ ] Privacy policy accessible in app
+
+ACTUAL RESULT:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+PASS/FAIL: ________    TESTED BY: ______________    DATE: __________
+
+NOTES/ISSUES:
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+================================================================================
+                          TESTING SUMMARY & SIGN-OFF
+================================================================================
+
+TEST EXECUTION SUMMARY
+----------------------
+
+Role: Sales Executive (SE)
+Total Tests: 30
+Passed: ______
+Failed: ______
+Blocked: ______
+Pass Rate: ______%
+
+Role: Zonal Sales Manager (ZSM)
+Total Tests: 30
+Passed: ______
+Failed: ______
+Blocked: ______
+Pass Rate: ______%
+
+Role: Zonal Business Manager (ZBM)
+Total Tests: 30
+Passed: ______
+Failed: ______
+Blocked: ______
+Pass Rate: ______%
+
+Role: Headquarters (HQ)
+Total Tests: 30
+Passed: ______
+Failed: ______
+Blocked: ______
+Pass Rate: ______%
+
+Role: Director
+Total Tests: 30
+Passed: ______
+Failed: ______
+Blocked: ______
+Pass Rate: ______%
+
+Role: Developer
+Total Tests: 30
+Passed: ______
+Failed: ______
+Blocked: ______
+Pass Rate: ______%
+
+OVERALL TOTALS
+Total Tests: 180
+Passed: ______
+Failed: ______
+Blocked: ______
+Overall Pass Rate: ______%
+
+
+CRITICAL ISSUES FOUND
+---------------------
+
+Issue #1
+Severity: [ ] Critical  [ ] High  [ ] Medium  [ ] Low
+Description: ___________________________________________________________
+Role Affected: _________________________________________________________
+Status: [ ] Open  [ ] In Progress  [ ] Resolved
+Assigned To: ___________________________________________________________
+
+Issue #2
+Severity: [ ] Critical  [ ] High  [ ] Medium  [ ] Low
+Description: ___________________________________________________________
+Role Affected: _________________________________________________________
+Status: [ ] Open  [ ] In Progress  [ ] Resolved
+Assigned To: ___________________________________________________________
+
+Issue #3
+Severity: [ ] Critical  [ ] High  [ ] Medium  [ ] Low
+Description: ___________________________________________________________
+Role Affected: _________________________________________________________
+Status: [ ] Open  [ ] In Progress  [ ] Resolved
+Assigned To: ___________________________________________________________
+
+
+TESTING SIGN-OFF
+----------------
+
+UAT Lead: _______________________________  Date: _______________
+
+QA Manager: _____________________________  Date: _______________
+
+Project Manager: ________________________  Date: _______________
+
+Technical Lead: __________________________  Date: _______________
+
+OVERALL STATUS:
+[ ] APPROVED - Ready for Production
+[ ] APPROVED WITH CONDITIONS - Minor fixes required
+[ ] REJECTED - Major issues must be resolved before go-live
+
+NOTES/COMMENTS:
+_____________________________________________________________________________
+_____________________________________________________________________________
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+
+NEXT STEPS
+----------
+[ ] Fix all critical and high-severity bugs
+[ ] Re-test failed scenarios
+[ ] Conduct regression testing
+[ ] Prepare production deployment checklist
+[ ] Schedule training sessions for 662 Sales Executives
+[ ] Set up production monitoring and alerting
+[ ] Create user documentation and help guides
+[ ] Plan phased rollout strategy
+[ ] Schedule go-live date: _______________
+
+
+================================================================================
+                              END OF UAT TEST PLAN
+              TAI Sales Intelligence Network - Analytics-First v2.0
+================================================================================

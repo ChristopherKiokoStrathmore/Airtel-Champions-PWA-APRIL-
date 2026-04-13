@@ -1,0 +1,1267 @@
+Running frontend commit bf7e92fde14bce17ce7839702f7b03b902ddee1b
+vendor-core-4ad04edb85d11631.min.js.br:54 Statsig is not ready to log exposures, will retry in 1 seconds
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:54
+logExposureCallback @ 1741-0091e26ad4c06e70.min.js.br:1104
+u @ vendor-core-4ad04edb85d11631.min.js.br:54
+setTimeout
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:63
+logExposureForFeatureGateCheck @ 1741-0091e26ad4c06e70.min.js.br:1104
+getFeatureGateFromInitialOptions @ 1741-0091e26ad4c06e70.min.js.br:1104
+getFeatureGate @ 1741-0091e26ad4c06e70.min.js.br:1104
+getFeatureGate @ 1741-0091e26ad4c06e70.min.js.br:1431
+932235 @ figma_app-7a3deb8c5f1e60c7.min.js.br:418
+i @ runtime~figma_app-94746346787bc880.min.js.br:3
+801936 @ figma_app-7a3deb8c5f1e60c7.min.js.br:39
+i @ runtime~figma_app-94746346787bc880.min.js.br:3
+781295 @ figma_app-7a3deb8c5f1e60c7.min.js.br:416
+i @ runtime~figma_app-94746346787bc880.min.js.br:3
+593464 @ figma_app-7a3deb8c5f1e60c7.min.js.br:4
+i @ runtime~figma_app-94746346787bc880.min.js.br:3
+816199 @ 1741-0091e26ad4c06e70.min.js.br:85
+i @ runtime~figma_app-94746346787bc880.min.js.br:3
+881625 @ figma_app-7a3deb8c5f1e60c7.min.js.br:542
+i @ runtime~figma_app-94746346787bc880.min.js.br:3
+28285 @ 6066-00e6cfe0d142f55d.min.js.br:3
+i @ runtime~figma_app-94746346787bc880.min.js.br:3
+344653 @ figma_app-7a3deb8c5f1e60c7.min.js.br:418
+i @ runtime~figma_app-94746346787bc880.min.js.br:3
+912563 @ figma_app-7a3deb8c5f1e60c7.min.js.br:418
+i @ runtime~figma_app-94746346787bc880.min.js.br:3
+941181 @ figma_app-7a3deb8c5f1e60c7.min.js.br:4
+i @ runtime~figma_app-94746346787bc880.min.js.br:3
+577246 @ 5340-6d13e661358730f9.min.js.br:3
+i @ runtime~figma_app-94746346787bc880.min.js.br:3
+483051 @ 8222-67306efb5f984200.min.js.br:3
+i @ runtime~figma_app-94746346787bc880.min.js.br:3
+948757 @ figma_app-7a3deb8c5f1e60c7.min.js.br:4
+i @ runtime~figma_app-94746346787bc880.min.js.br:3
+(anonymous) @ figma_app-7a3deb8c5f1e60c7.min.js.br:711
+i.O @ runtime~figma_app-94746346787bc880.min.js.br:3
+(anonymous) @ figma_app-7a3deb8c5f1e60c7.min.js.br:711
+b @ runtime~figma_app-94746346787bc880.min.js.br:3
+(anonymous) @ figma_app-7a3deb8c5f1e60c7.min.js.br:3Understand this warning
+vendor-core-4ad04edb85d11631.min.js.br:54 Statsig is not ready to log exposures, will retry in 1 seconds
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:54
+logExposureCallback @ 1741-0091e26ad4c06e70.min.js.br:1104
+u @ vendor-core-4ad04edb85d11631.min.js.br:54
+setTimeout
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:63
+logExposureCallback @ 1741-0091e26ad4c06e70.min.js.br:1104
+u @ vendor-core-4ad04edb85d11631.min.js.br:54
+setTimeout
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:63
+logExposureForFeatureGateCheck @ 1741-0091e26ad4c06e70.min.js.br:1104
+getFeatureGateFromInitialOptions @ 1741-0091e26ad4c06e70.min.js.br:1104
+getFeatureGate @ 1741-0091e26ad4c06e70.min.js.br:1104
+getFeatureGate @ 1741-0091e26ad4c06e70.min.js.br:1431
+932235 @ figma_app-7a3deb8c5f1e60c7.min.js.br:418
+i @ runtime~figma_app-94746346787bc880.min.js.br:3
+801936 @ figma_app-7a3deb8c5f1e60c7.min.js.br:39
+i @ runtime~figma_app-94746346787bc880.min.js.br:3
+781295 @ figma_app-7a3deb8c5f1e60c7.min.js.br:416
+i @ runtime~figma_app-94746346787bc880.min.js.br:3
+593464 @ figma_app-7a3deb8c5f1e60c7.min.js.br:4
+i @ runtime~figma_app-94746346787bc880.min.js.br:3
+816199 @ 1741-0091e26ad4c06e70.min.js.br:85
+i @ runtime~figma_app-94746346787bc880.min.js.br:3
+881625 @ figma_app-7a3deb8c5f1e60c7.min.js.br:542
+i @ runtime~figma_app-94746346787bc880.min.js.br:3
+28285 @ 6066-00e6cfe0d142f55d.min.js.br:3
+i @ runtime~figma_app-94746346787bc880.min.js.br:3
+344653 @ figma_app-7a3deb8c5f1e60c7.min.js.br:418
+i @ runtime~figma_app-94746346787bc880.min.js.br:3
+912563 @ figma_app-7a3deb8c5f1e60c7.min.js.br:418
+i @ runtime~figma_app-94746346787bc880.min.js.br:3
+941181 @ figma_app-7a3deb8c5f1e60c7.min.js.br:4
+i @ runtime~figma_app-94746346787bc880.min.js.br:3
+577246 @ 5340-6d13e661358730f9.min.js.br:3
+i @ runtime~figma_app-94746346787bc880.min.js.br:3
+483051 @ 8222-67306efb5f984200.min.js.br:3
+i @ runtime~figma_app-94746346787bc880.min.js.br:3
+948757 @ figma_app-7a3deb8c5f1e60c7.min.js.br:4
+i @ runtime~figma_app-94746346787bc880.min.js.br:3
+(anonymous) @ figma_app-7a3deb8c5f1e60c7.min.js.br:711
+i.O @ runtime~figma_app-94746346787bc880.min.js.br:3
+(anonymous) @ figma_app-7a3deb8c5f1e60c7.min.js.br:711
+b @ runtime~figma_app-94746346787bc880.min.js.br:3
+(anonymous) @ figma_app-7a3deb8c5f1e60c7.min.js.br:3Understand this warning
+figma_app-7a3deb8c5f1e60c7.min.js.br:4 [Intervention] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2
+vendor-core-4ad04edb85d11631.min.js.br:54 Autosave Changes not available or already claimed by another tab undefined
+vendor-core-4ad04edb85d11631.min.js.br:54 [import] git: 0e7d64904fd400e3b25164dad228ae255514d344, stamp: A19154625D587A0A
+1741-0091e26ad4c06e70.min.js.br:358 The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127
+initialize @ 1741-0091e26ad4c06e70.min.js.br:358
+f @ 1741-0091e26ad4c06e70.min.js.br:358
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+await in (anonymous)
+(anonymous) @ figma_app-7a3deb8c5f1e60c7.min.js.br:678
+gl @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+await in (anonymous)
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:1727
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:46
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+dispatch @ vendor-core-4ad04edb85d11631.min.js.br:46
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:1727
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:46
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+dispatch @ vendor-core-4ad04edb85d11631.min.js.br:46
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:1727
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:46
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+dispatch @ vendor-core-4ad04edb85d11631.min.js.br:46
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:175
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:46
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+dispatch @ vendor-core-4ad04edb85d11631.min.js.br:46
+(anonymous) @ figma_app-7a3deb8c5f1e60c7.min.js.br:230
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:175
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:46
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+d @ 1741-0091e26ad4c06e70.min.js.br:1106
+B @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+time @ 1741-0091e26ad4c06e70.min.js.br:398
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+await in (anonymous)
+tD @ 1741-0091e26ad4c06e70.min.js.br:175
+wG @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ figma_app-7a3deb8c5f1e60c7.min.js.br:4
+n @ 1741-0091e26ad4c06e70.min.js.br:1073
+948757 @ figma_app-7a3deb8c5f1e60c7.min.js.br:4
+i @ runtime~figma_app-94746346787bc880.min.js.br:3
+(anonymous) @ figma_app-7a3deb8c5f1e60c7.min.js.br:711
+i.O @ runtime~figma_app-94746346787bc880.min.js.br:3
+(anonymous) @ figma_app-7a3deb8c5f1e60c7.min.js.br:711
+b @ runtime~figma_app-94746346787bc880.min.js.br:3
+(anonymous) @ figma_app-7a3deb8c5f1e60c7.min.js.br:3Understand this warning
+vendor-core-4ad04edb85d11631.min.js.br:54 [Fullscreen] Booting... (emscripten version 4.0.21)
+vendor-core-4ad04edb85d11631.min.js.br:54 [GPU] graphicsAPI:"WebGPU", vendor:"Google Inc. (Intel)" renderer:"ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)" deviceArchitecture:"gen-12lp" deviceDescription:"" webGPUDevice:"" webGPUVendor:"intel" bindings:"emdawnwebgpu"
+vendor-core-4ad04edb85d11631.min.js.br:54 [Fullscreen] Ready in 1087.9ms
+vendor-core-4ad04edb85d11631.min.js.br:54 [FullscreenApp] calling setEditorTheme and setting preference dark
+vendor-core-4ad04edb85d11631.min.js.br:54 [MultiplayerSession] connecting to wss://www.figma.com/api/multiplayer/YgMsCvIqt7DMpx0rIB8UXV?role=editor&tracking_session_id=aS42GQcMUv3jEH1j&version=151&recentReload=0&file-load-streaming-compression&user-id=1575501824906211853&client_release=bf7e92fde14bce17ce7839702f7b03b902ddee1b
+vendor-core-4ad04edb85d11631.min.js.br:54 [FullscreenApp] calling setEditorTheme and setting preference dark
+vendor-core-4ad04edb85d11631.min.js.br:54 Loaded 0 scripts (0b), 0 from cache (0b)
+vendor-core-4ad04edb85d11631.min.js.br:54 [MultiplayerSession] Joining file version 106 (initial load)
+vendor-core-4ad04edb85d11631.min.js.br:54 Migration succeeded: context: fullscreen_migrate_SceneGraphManager, version: 106, duration: 0ms.
+7728-d38c8cc1d6454794.min.js.br:26 [Intervention] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://static.figma.com/webfont/1/Roboto-Bold.woff2
+devtools_worker-3faeae5b0a410ea8.min.js.br:1190 [esbuild-wasm] Initializing from URL: /webpack-artifacts/assets/2b68f2d3d5e8b3d6.wasm
+devtools_worker-3faeae5b0a410ea8.min.js.br:1190 [esbuild-wasm] Initialized
+2vendor-core-4ad04edb85d11631.min.js.br:54 [devtools] Initialized LS
+vendor-core-4ad04edb85d11631.min.js.br:63  POST https://www.figma.com/api/make/fetch_ds_code_gen_status 400 (Bad Request)
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:63
+h @ vendor-642ec174312e1812.min.js.br:3
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:1143
+T @ 1741-0091e26ad4c06e70.min.js.br:1143
+C @ 1741-0091e26ad4c06e70.min.js.br:1143
+r @ 1741-0091e26ad4c06e70.min.js.br:1143
+o @ figma_app-7a3deb8c5f1e60c7.min.js.br:411
+(anonymous) @ figma_app-7a3deb8c5f1e60c7.min.js.br:416
+(anonymous) @ figma_app-7a3deb8c5f1e60c7.min.js.br:416
+aB @ vendor-core-4ad04edb85d11631.min.js.br:11
+oD @ vendor-core-4ad04edb85d11631.min.js.br:11
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:11
+oB @ vendor-core-4ad04edb85d11631.min.js.br:11
+oL @ vendor-core-4ad04edb85d11631.min.js.br:11
+f5 @ vendor-core-4ad04edb85d11631.min.js.br:11
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:11
+requestAnimationFrame
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:63
+gZ @ 1741-0091e26ad4c06e70.min.js.br:196
+a @ 1741-0091e26ad4c06e70.min.js.br:398
+requestAnimationFrame @ 1741-0091e26ad4c06e70.min.js.br:199
+_Async_requestAnimationFrame @ compiled_wasm.js.br:2
+$wasm-function[3193] @ compiled_wasm.wasm.br:0x111078
+$wasm-function[37781] @ compiled_wasm.wasm.br:0x1f51132
+(anonymous) @ compiled_wasm.js.br:2
+(anonymous) @ compiled_wasm.js.br:2
+_wrapCppCall @ compiled_wasm.js.br:2
+(anonymous) @ compiled_wasm.js.br:2
+vz @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:46
+d @ vendor-642ec174312e1812.min.js.br:123
+(anonymous) @ vendor-642ec174312e1812.min.js.br:123
+g @ vendor-core-4ad04edb85d11631.min.js.br:46
+dispatch @ 1741-0091e26ad4c06e70.min.js.br:1103
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:807
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ figma_app-7a3deb8c5f1e60c7.min.js.br:230
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:175
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:46
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+dispatch @ vendor-core-4ad04edb85d11631.min.js.br:46
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:175
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:1727
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:46
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:196
+dispatch @ 1741-0091e26ad4c06e70.min.js.br:196
+_documentIsLoaded @ 1741-0091e26ad4c06e70.min.js.br:196
+await in _documentIsLoaded
+documentIsLoaded @ 1741-0091e26ad4c06e70.min.js.br:196
+_FigmaApp_documentIsLoaded @ compiled_wasm.js.br:2
+$wasm-function[27639] @ compiled_wasm.wasm.br:0x19f3f69
+$wasm-function[26186] @ compiled_wasm.wasm.br:0x18e3442
+$wasm-function[23278] @ compiled_wasm.wasm.br:0x15e3732
+$wasm-function[39983] @ compiled_wasm.wasm.br:0x2196e86
+$wasm-function[17001] @ compiled_wasm.wasm.br:0xf1b84c
+$wasm-function[37763] @ compiled_wasm.wasm.br:0x1f4d244
+(anonymous) @ compiled_wasm.js.br:2
+(anonymous) @ compiled_wasm.js.br:2
+_wrapCppCall @ compiled_wasm.js.br:2
+(anonymous) @ compiled_wasm.js.br:2
+T @ 9099-0a146875c2353669.min.js.br:3
+p.onmessage @ 9099-0a146875c2353669.min.js.br:3Understand this error
+vendor-core-4ad04edb85d11631.min.js.br:54 [Fullscreen] loadtime=45.40s maxmem=246736264
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [bundleCode] Found 1 CSS files in VFS
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [bundleCode] Total CSS size to be processed by lightningcss: 0.00MB
+devtools_worker-3faeae5b0a410ea8.min.js.br:1190 [lightningcss-wasm] Initialized
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [lightningCSS] Processing 0.13MB of CSS (environment: browser)
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [lightningCSS] Encoded size: 0.13MB
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [lightningCSS] Transform completed successfully
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'mobile'}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 📱 Normalized phone: 706874314
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ RPC Login successful: {id: '82a1e892-9517-4d62-86c5-9a6dcdf09919', zbm: null, zsm: null, rank: 1, role: 'hq_staff', …}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28  POST https://xspogpfohjmkykfjadhk.supabase.co/rest/v1/user_sessions?select=* 400 (Bad Request)
+(anonymous) @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28
+(anonymous) @ supabase-js.mjs:3
+(anonymous) @ supabase-js.mjs:3
+await in (anonymous)
+then @ postgrest-js.mjs:2Understand this error
+user_sessions?select=*:1  Failed to load resource: the server responded with a status of 400 ()Understand this error
+user_sessions?select=*:1  Failed to load resource: the server responded with a status of 400 ()Understand this error
+user_sessions?select=*:1  Failed to load resource: the server responded with a status of 400 ()Understand this error
+user_sessions?select=*:1  Failed to load resource: the server responded with a status of 400 ()Understand this error
+user_sessions?select=*:1  Failed to load resource: the server responded with a status of 400 ()Understand this error
+user_sessions?select=*:1  Failed to load resource: the server responded with a status of 400 ()Understand this error
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SessionTracker] ℹ️ Database tracking unavailable (table not configured)
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SessionTracker] ✅ Tracked login for Christopher Kioko (hq_staff)
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28  POST https://xspogpfohjmkykfjadhk.supabase.co/rest/v1/user_sessions 401 (Unauthorized)
+(anonymous) @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28
+(anonymous) @ supabase-js.mjs:3
+(anonymous) @ supabase-js.mjs:3
+await in (anonymous)
+then @ postgrest-js.mjs:2Understand this error
+user_sessions:1  Failed to load resource: the server responded with a status of 401 ()Understand this error
+user_sessions:1  Failed to load resource: the server responded with a status of 401 ()Understand this error
+user_sessions:1  Failed to load resource: the server responded with a status of 401 ()Understand this error
+user_sessions:1  Failed to load resource: the server responded with a status of 401 ()Understand this error
+user_sessions:1  Failed to load resource: the server responded with a status of 401 ()Understand this error
+user_sessions:1  Failed to load resource: the server responded with a status of 401 ()Understand this error
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Analytics] ℹ️ Session tracking unavailable (table not configured)
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 🔍 User Authentication Check: {userRole: 'hq_staff', fullName: 'Christopher Kioko', employeeId: 'HQ009', isDeveloper: false, isChristopher: true}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] 🔍 Loading stats for HQ...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [PageTracking] 📄 Viewing: Dashboard
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Loading announcements from localStorage for role: hq_staff
+3code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+6code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] ✅ Stats loaded: {totalSubmissions: 4, thisWeekSubmissions: 0, zonesSubmitted: 1, vansWithPlans: 4}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28  GET https://mcbbtrrhqweypfnlzwht.supabase.co/functions/v1/make-server-28f2f653/announcements? 500 (Internal Server Error)
+(anonymous) @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28
+getAnnouncements @ supabase.ts:431
+loadAnnouncementsForUser @ role-dashboards.tsx:55
+(anonymous) @ role-dashboards.tsx:2467
+TN @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+T7 @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+T8 @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+T6 @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+T5 @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+S1 @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+SQ @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+(anonymous) @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+(anonymous) @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:3
+V @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:113
+B @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:113
+eo @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:113Understand this error
+announcements:1  Failed to load resource: the server responded with a status of 500 ()Understand this error
+announcements:1  Failed to load resource: the server responded with a status of 500 ()Understand this error
+announcements:1  Failed to load resource: the server responded with a status of 500 ()Understand this error
+announcements:1  Failed to load resource: the server responded with a status of 500 ()Understand this error
+announcements:1  Failed to load resource: the server responded with a status of 500 ()Understand this error
+announcements:1  Failed to load resource: the server responded with a status of 500 ()Understand this error
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [getAnnouncements] Server responded 500
+(anonymous) @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28
+r @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:69
+warn @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28
+getAnnouncements @ supabase.ts:443
+await in getAnnouncements
+loadAnnouncementsForUser @ role-dashboards.tsx:55
+(anonymous) @ role-dashboards.tsx:2467
+TN @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+T7 @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+T8 @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+T6 @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+T5 @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+S1 @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+SQ @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+(anonymous) @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+(anonymous) @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:3
+V @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:113
+B @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:113
+eo @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:113Understand this warning
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs] Loading programs for user: hq_staff
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Dashboard] 🔍 Loading folders from localStorage...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Dashboard] 📦 Raw localStorage data: null
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Dashboard] ℹ️ No folders found in localStorage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs] ✅ Loaded all programs for admin: 7
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Dashboard] ✅ Van Calendar enabled: true
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] 🔍 Loading stats for HQ...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+3code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] ✅ Stats loaded: {totalSubmissions: 4, thisWeekSubmissions: 0, zonesSubmitted: 1, vansWithPlans: 4}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 📡 [getUserGroups] Fetching groups for user: 82a1e892-9517-4d62-86c5-9a6dcdf09919
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 📭 No groups found for user
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] 🔍 Loading stats for HQ...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] ✅ Stats loaded: {totalSubmissions: 4, thisWeekSubmissions: 0, zonesSubmitted: 1, vansWithPlans: 4}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [PageTracking] 📄 Viewing: 
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SubmissionsAnalytics] useEffect triggered - loading analytics
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SubmissionsAnalytics] 🔥 SIMPLIFIED ANALYTICS: Using aggregated queries...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SubmissionsAnalytics] Loading analytics for: {userRole: 'hq_staff', userZone: undefined, userZSM: undefined}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SubmissionsAnalytics] 🚨 EMERGENCY MODE: Trying progressive fallback...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SubmissionsAnalytics] 📊 Attempting to get total count...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28  HEAD https://xspogpfohjmkykfjadhk.supabase.co/rest/v1/submissions?select=*&created_at=gte.2026-01-31T12%3A11%3A41.295Z 500 (Internal Server Error)
+(anonymous) @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28
+(anonymous) @ supabase-js.mjs:3
+(anonymous) @ supabase-js.mjs:3
+await in (anonymous)
+then @ postgrest-js.mjs:2Understand this error
+submissions?select=*&created_at=gte.2026-01-31T12%3A11%3A41.295Z:1  Failed to load resource: the server responded with a status of 500 ()Understand this error
+submissions?select=*&created_at=gte.2026-01-31T12%3A11%3A41.295Z:1  Failed to load resource: the server responded with a status of 500 ()Understand this error
+submissions?select=*&created_at=gte.2026-01-31T12%3A11%3A41.295Z:1  Failed to load resource: the server responded with a status of 500 ()Understand this error
+submissions?select=*&created_at=gte.2026-01-31T12%3A11%3A41.295Z:1  Failed to load resource: the server responded with a status of 500 ()Understand this error
+submissions?select=*&created_at=gte.2026-01-31T12%3A11%3A41.295Z:1  Failed to load resource: the server responded with a status of 500 ()Understand this error
+submissions?select=*&created_at=gte.2026-01-31T12%3A11%3A41.295Z:1  Failed to load resource: the server responded with a status of 500 ()Understand this error
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SubmissionsAnalytics] ✅ Total submissions: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SubmissionsAnalytics] 🔄 Attempting to load 100 submissions...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SubmissionsAnalytics] ✅ Successfully loaded 100 submissions (limit: 100)
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SubmissionsAnalytics] 📊 Step 3: Fetching reference data (users & programs)...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SubmissionsAnalytics] ✅ Loaded users: 755
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SubmissionsAnalytics] ✅ Loaded programs: 7
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SubmissionsAnalytics] ✅ Filtered to 100 submissions
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SubmissionsAnalytics] ✅ Analytics ready! (based on 100 submissions)
+3code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+3code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ♻️ Reusing existing Supabase client (singleton)
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'mobile'}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ User loaded from localStorage: Christopher Kioko hq_staff
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 🔍 User Authentication Check: {userRole: 'hq_staff', fullName: 'Christopher Kioko', employeeId: 'HQ009', isDeveloper: false, isChristopher: true}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] 🔍 Loading stats for HQ...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [PageTracking] 📄 Viewing: Dashboard
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Loading announcements from localStorage for role: hq_staff
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28  GET https://mcbbtrrhqweypfnlzwht.supabase.co/functions/v1/make-server-28f2f653/announcements? 500 (Internal Server Error)
+(anonymous) @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28
+getAnnouncements @ supabase.ts:431
+loadAnnouncementsForUser @ role-dashboards.tsx:55
+(anonymous) @ role-dashboards.tsx:2467
+TN @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+T7 @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+T8 @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+T6 @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+T5 @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+S1 @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+SQ @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+(anonymous) @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+(anonymous) @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:3
+V @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:113
+B @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:113
+eo @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:113Understand this error
+announcements:1  Failed to load resource: the server responded with a status of 500 ()Understand this error
+announcements:1  Failed to load resource: the server responded with a status of 500 ()Understand this error
+announcements:1  Failed to load resource: the server responded with a status of 500 ()Understand this error
+announcements:1  Failed to load resource: the server responded with a status of 500 ()Understand this error
+announcements:1  Failed to load resource: the server responded with a status of 500 ()Understand this error
+announcements:1  Failed to load resource: the server responded with a status of 500 ()Understand this error
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [getAnnouncements] Server responded 500
+(anonymous) @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28
+r @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:69
+warn @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28
+getAnnouncements @ supabase.ts:443
+await in getAnnouncements
+loadAnnouncementsForUser @ role-dashboards.tsx:55
+(anonymous) @ role-dashboards.tsx:2467
+TN @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+T7 @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+T8 @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+T6 @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+T5 @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+S1 @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+SQ @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+(anonymous) @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+(anonymous) @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:3
+V @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:113
+B @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:113
+eo @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:113Understand this warning
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] ✅ Stats loaded: {totalSubmissions: 4, thisWeekSubmissions: 0, zonesSubmitted: 1, vansWithPlans: 4}
+vendor-core-4ad04edb85d11631.min.js.br:54 Sentry event id: 2f3e6cf8b94b4046a9476722785941f9
+vendor-core-4ad04edb85d11631.min.js.br:54 Sentry event id: 87f98be1f5704fe48100a534680b75e3
+vendor-core-4ad04edb85d11631.min.js.br:54 Sentry event id: bc4077adc3a14595a6ffc723de925641
+vendor-core-4ad04edb85d11631.min.js.br:54 Sentry event id: eff4b9ab647d466ea87a69d8b23a44da
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ♻️ Reusing existing Supabase client (singleton)
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'mobile'}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ User loaded from localStorage: Christopher Kioko hq_staff
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 🔍 User Authentication Check: {userRole: 'hq_staff', fullName: 'Christopher Kioko', employeeId: 'HQ009', isDeveloper: false, isChristopher: true}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] 🔍 Loading stats for HQ...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [PageTracking] 📄 Viewing: Dashboard
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Loading announcements from localStorage for role: hq_staff
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] ✅ Stats loaded: {totalSubmissions: 4, thisWeekSubmissions: 0, zonesSubmitted: 1, vansWithPlans: 4}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+3code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [bundleCode] Found 1 CSS files in VFS
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [bundleCode] Total CSS size to be processed by lightningcss: 0.00MB
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [lightningCSS] Processing 0.13MB of CSS (environment: browser)
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [lightningCSS] Encoded size: 0.13MB
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [lightningCSS] Transform completed successfully
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [bundleCode] Found 1 CSS files in VFS
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [bundleCode] Total CSS size to be processed by lightningcss: 0.00MB
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [lightningCSS] Processing 0.13MB of CSS (environment: browser)
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [lightningCSS] Encoded size: 0.13MB
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [lightningCSS] Transform completed successfully
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'desktop'}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ [App] UserData refreshed from localStorage: Christopher Kioko
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ User loaded from localStorage: Christopher Kioko hq_staff
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 🔍 User Authentication Check: {userRole: 'hq_staff', fullName: 'Christopher Kioko', employeeId: 'HQ009', isDeveloper: false, isChristopher: true}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ [App] UserData refreshed from localStorage: Christopher Kioko
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] 🔍 Loading stats for HQ...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [PageTracking] 📄 Viewing: Dashboard
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Loading announcements from localStorage for role: hq_staff
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 🔍 User Authentication Check: {userRole: 'hq_staff', fullName: 'Christopher Kioko', employeeId: 'HQ009', isDeveloper: false, isChristopher: true}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] 🔍 Loading stats for HQ...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [PageTracking] 📄 Viewing: Dashboard
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Loading announcements from localStorage for role: hq_staff
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ [App] UserData refreshed from localStorage: Christopher Kioko
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 🔍 User Authentication Check: {userRole: 'hq_staff', fullName: 'Christopher Kioko', employeeId: 'HQ009', isDeveloper: false, isChristopher: true}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] 🔍 Loading stats for HQ...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [PageTracking] 📄 Viewing: Dashboard
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Loading announcements from localStorage for role: hq_staff
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ♻️ Reusing existing Supabase client (singleton)
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'mobile'}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ [App] UserData refreshed from localStorage: Christopher Kioko
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ User loaded from localStorage: Christopher Kioko hq_staff
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 🔍 User Authentication Check: {userRole: 'hq_staff', fullName: 'Christopher Kioko', employeeId: 'HQ009', isDeveloper: false, isChristopher: true}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ [App] UserData refreshed from localStorage: Christopher Kioko
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] 🔍 Loading stats for HQ...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [PageTracking] 📄 Viewing: Dashboard
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Loading announcements from localStorage for role: hq_staff
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ [App] UserData refreshed from localStorage: Christopher Kioko
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 🔍 User Authentication Check: {userRole: 'hq_staff', fullName: 'Christopher Kioko', employeeId: 'HQ009', isDeveloper: false, isChristopher: true}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] 🔍 Loading stats for HQ...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [PageTracking] 📄 Viewing: Dashboard
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Loading announcements from localStorage for role: hq_staff
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 🔍 User Authentication Check: {userRole: 'hq_staff', fullName: 'Christopher Kioko', employeeId: 'HQ009', isDeveloper: false, isChristopher: true}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] 🔍 Loading stats for HQ...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [PageTracking] 📄 Viewing: Dashboard
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Loading announcements from localStorage for role: hq_staff
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] ✅ Stats loaded: {totalSubmissions: 4, thisWeekSubmissions: 0, zonesSubmitted: 1, vansWithPlans: 4}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] ✅ Stats loaded: {totalSubmissions: 4, thisWeekSubmissions: 0, zonesSubmitted: 1, vansWithPlans: 4}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] ✅ Stats loaded: {totalSubmissions: 4, thisWeekSubmissions: 0, zonesSubmitted: 1, vansWithPlans: 4}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] ✅ Stats loaded: {totalSubmissions: 4, thisWeekSubmissions: 0, zonesSubmitted: 1, vansWithPlans: 4}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] ✅ Stats loaded: {totalSubmissions: 4, thisWeekSubmissions: 0, zonesSubmitted: 1, vansWithPlans: 4}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] ✅ Stats loaded: {totalSubmissions: 4, thisWeekSubmissions: 0, zonesSubmitted: 1, vansWithPlans: 4}
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [bundleCode] Found 1 CSS files in VFS
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [bundleCode] Total CSS size to be processed by lightningcss: 0.00MB
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [lightningCSS] Processing 0.13MB of CSS (environment: browser)
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [lightningCSS] Encoded size: 0.13MB
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [lightningCSS] Transform completed successfully
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'desktop'}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ [App] UserData refreshed from localStorage: Christopher Kioko
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ User loaded from localStorage: Christopher Kioko hq_staff
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 🔍 User Authentication Check: {userRole: 'hq_staff', fullName: 'Christopher Kioko', employeeId: 'HQ009', isDeveloper: false, isChristopher: true}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ [App] UserData refreshed from localStorage: Christopher Kioko
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] 🔍 Loading stats for HQ...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [PageTracking] 📄 Viewing: Dashboard
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Loading announcements from localStorage for role: hq_staff
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ [App] UserData refreshed from localStorage: Christopher Kioko
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 🔍 User Authentication Check: {userRole: 'hq_staff', fullName: 'Christopher Kioko', employeeId: 'HQ009', isDeveloper: false, isChristopher: true}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] 🔍 Loading stats for HQ...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [PageTracking] 📄 Viewing: Dashboard
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Loading announcements from localStorage for role: hq_staff
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] ✅ Stats loaded: {totalSubmissions: 4, thisWeekSubmissions: 0, zonesSubmitted: 1, vansWithPlans: 4}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] ✅ Stats loaded: {totalSubmissions: 4, thisWeekSubmissions: 0, zonesSubmitted: 1, vansWithPlans: 4}
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [bundleCode] Found 1 CSS files in VFS
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [bundleCode] Total CSS size to be processed by lightningcss: 0.00MB
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [lightningCSS] Processing 0.13MB of CSS (environment: browser)
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [lightningCSS] Encoded size: 0.13MB
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [lightningCSS] Transform completed successfully
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ♻️ Reusing existing Supabase client (singleton)
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'mobile'}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ User loaded from localStorage: Christopher Kioko hq_staff
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 🔍 User Authentication Check: {userRole: 'hq_staff', fullName: 'Christopher Kioko', employeeId: 'HQ009', isDeveloper: false, isChristopher: true}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] 🔍 Loading stats for HQ...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [PageTracking] 📄 Viewing: Dashboard
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Loading announcements from localStorage for role: hq_staff
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] ✅ Stats loaded: {totalSubmissions: 4, thisWeekSubmissions: 0, zonesSubmitted: 1, vansWithPlans: 4}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+vendor-core-4ad04edb85d11631.min.js.br:54 Sentry event id: a2b237c362be4d38b4d8b64abd3465ea
+vendor-core-4ad04edb85d11631.min.js.br:54 Sentry event id: 3e5f2b45a40e41a3bb9b6ca2589dffe7
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [bundleCode] Found 1 CSS files in VFS
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [bundleCode] Total CSS size to be processed by lightningcss: 0.00MB
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [lightningCSS] Processing 0.13MB of CSS (environment: browser)
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [lightningCSS] Encoded size: 0.13MB
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [lightningCSS] Transform completed successfully
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'desktop'}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ [App] UserData refreshed from localStorage: Christopher Kioko
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ User loaded from localStorage: Christopher Kioko hq_staff
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 🔍 User Authentication Check: {userRole: 'hq_staff', fullName: 'Christopher Kioko', employeeId: 'HQ009', isDeveloper: false, isChristopher: true}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ [App] UserData refreshed from localStorage: Christopher Kioko
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] 🔍 Loading stats for HQ...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [PageTracking] 📄 Viewing: Dashboard
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Loading announcements from localStorage for role: hq_staff
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ [App] UserData refreshed from localStorage: Christopher Kioko
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 🔍 User Authentication Check: {userRole: 'hq_staff', fullName: 'Christopher Kioko', employeeId: 'HQ009', isDeveloper: false, isChristopher: true}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] 🔍 Loading stats for HQ...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [PageTracking] 📄 Viewing: Dashboard
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Loading announcements from localStorage for role: hq_staff
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] ✅ Stats loaded: {totalSubmissions: 4, thisWeekSubmissions: 0, zonesSubmitted: 1, vansWithPlans: 4}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] ✅ Stats loaded: {totalSubmissions: 4, thisWeekSubmissions: 0, zonesSubmitted: 1, vansWithPlans: 4}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [bundleCode] Found 1 CSS files in VFS
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [bundleCode] Total CSS size to be processed by lightningcss: 0.00MB
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [lightningCSS] Processing 0.13MB of CSS (environment: browser)
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [lightningCSS] Encoded size: 0.13MB
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [lightningCSS] Transform completed successfully
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ♻️ Reusing existing Supabase client (singleton)
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'mobile'}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ User loaded from localStorage: Christopher Kioko hq_staff
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 🔍 User Authentication Check: {userRole: 'hq_staff', fullName: 'Christopher Kioko', employeeId: 'HQ009', isDeveloper: false, isChristopher: true}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] 🔍 Loading stats for HQ...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [PageTracking] 📄 Viewing: Dashboard
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Loading announcements from localStorage for role: hq_staff
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] ✅ Stats loaded: {totalSubmissions: 4, thisWeekSubmissions: 0, zonesSubmitted: 1, vansWithPlans: 4}
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [bundleCode] Found 1 CSS files in VFS
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [bundleCode] Total CSS size to be processed by lightningcss: 0.00MB
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [lightningCSS] Processing 0.13MB of CSS (environment: browser)
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [lightningCSS] Encoded size: 0.13MB
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [lightningCSS] Transform completed successfully
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'desktop'}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ [App] UserData refreshed from localStorage: Christopher Kioko
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ User loaded from localStorage: Christopher Kioko hq_staff
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 🔍 User Authentication Check: {userRole: 'hq_staff', fullName: 'Christopher Kioko', employeeId: 'HQ009', isDeveloper: false, isChristopher: true}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ [App] UserData refreshed from localStorage: Christopher Kioko
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] 🔍 Loading stats for HQ...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [PageTracking] 📄 Viewing: Dashboard
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Loading announcements from localStorage for role: hq_staff
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ [App] UserData refreshed from localStorage: Christopher Kioko
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 🔍 User Authentication Check: {userRole: 'hq_staff', fullName: 'Christopher Kioko', employeeId: 'HQ009', isDeveloper: false, isChristopher: true}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] 🔍 Loading stats for HQ...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [PageTracking] 📄 Viewing: Dashboard
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Loading announcements from localStorage for role: hq_staff
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+3code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+5code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+3code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+2code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+5code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] ✅ Stats loaded: {totalSubmissions: 4, thisWeekSubmissions: 0, zonesSubmitted: 1, vansWithPlans: 4}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 🔍 User Authentication Check: {userRole: 'hq_staff', fullName: 'Christopher Kioko', employeeId: 'HQ009', isDeveloper: false, isChristopher: true}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] 🔍 Loading stats for HQ...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [PageTracking] 📄 Viewing: Dashboard
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Loading announcements from localStorage for role: hq_staff
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] ⚠️ Stats unavailable (backend not ready)
+(anonymous) @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28
+r @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:69
+loadVanCalendarStats @ blob:https://f63127bc-e87c-4c13-ac3f-21ffd7bb8fc5-v2-figmaiframepreview.figma.site/61ea18f3-6afe-4617-b8df-ff96720c41ea:34484
+await in loadVanCalendarStats
+(anonymous) @ blob:https://f63127bc-e87c-4c13-ac3f-21ffd7bb8fc5-v2-figmaiframepreview.figma.site/61ea18f3-6afe-4617-b8df-ff96720c41ea:34435
+TN @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+T7 @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+T8 @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+T6 @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+T5 @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+S1 @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+SQ @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+SO @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+pC @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+SL @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+bx.unmount.bL.unmount @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+L @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:55
+F @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:55
+await in F
+(anonymous) @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:55
+TN @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+T7 @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+T8 @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+T6 @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+T5 @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+S1 @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+SQ @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+(anonymous) @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+(anonymous) @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:3
+V @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:113
+B @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:113
+eo @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:113Understand this warning
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] ✅ Stats loaded: {totalSubmissions: 4, thisWeekSubmissions: 0, zonesSubmitted: 1, vansWithPlans: 4}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [bundleCode] Found 1 CSS files in VFS
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [bundleCode] Total CSS size to be processed by lightningcss: 0.00MB
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [lightningCSS] Processing 0.13MB of CSS (environment: browser)
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [lightningCSS] Encoded size: 0.13MB
+devtools_worker-3faeae5b0a410ea8.min.js.br:3079 [lightningCSS] Transform completed successfully
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ♻️ Reusing existing Supabase client (singleton)
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'mobile'}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 ✅ User loaded from localStorage: Christopher Kioko hq_staff
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 🔍 User Authentication Check: {userRole: 'hq_staff', fullName: 'Christopher Kioko', employeeId: 'HQ009', isDeveloper: false, isChristopher: true}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] 🔍 Loading stats for HQ...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [PageTracking] 📄 Viewing: Dashboard
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Loading announcements from localStorage for role: hq_staff
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Van Calendar Widget] ✅ Stats loaded: {totalSubmissions: 4, thisWeekSubmissions: 0, zonesSubmitted: 1, vansWithPlans: 4}
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+3code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 📴 Gone offline
+2code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 📴 Gone offline
+5code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 📴 Gone offline
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 📴 Gone offline
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 📴 Gone offline
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 📴 Gone offline
+2code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 📴 Gone offline
+3code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+2code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+5code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+2code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+3code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+5code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28  GET https://xspogpfohjmkykfjadhk.supabase.co/rest/v1/app_users?select=id%2Cemployee_id%2Cfull_name%2Crank%2Czone%2Cregion%2Czsm%2Czbm%2Ctotal_points%2Cphone_number&role=eq.sales_executive&order=total_points.desc&limit=3 net::ERR_INTERNET_DISCONNECTED
+(anonymous) @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28
+(anonymous) @ supabase-js.mjs:3
+(anonymous) @ supabase-js.mjs:3
+await in (anonymous)
+then @ postgrest-js.mjs:2
+setInterval
+(anonymous) @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28
+(anonymous) @ leaderboard-enhanced-unified.tsx:385
+TN @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+T7 @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+T8 @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+T6 @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+T5 @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+S1 @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+SQ @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+(anonymous) @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:89
+(anonymous) @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:3
+V @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:113
+B @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:113
+eo @ code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:113Understand this error
+vendor-core-4ad04edb85d11631.min.js.br:63  GET https://www.figma.com/api/integrations/supabase/YgMsCvIqt7DMpx0rIB8UXV/edge_functions/make-server/logs net::ERR_INTERNET_DISCONNECTED
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:63
+h @ vendor-642ec174312e1812.min.js.br:3
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:1143
+T @ 1741-0091e26ad4c06e70.min.js.br:1143
+await in T
+C @ 1741-0091e26ad4c06e70.min.js.br:1143
+P @ 1741-0091e26ad4c06e70.min.js.br:1143
+(anonymous) @ figma_app-7a3deb8c5f1e60c7.min.js.br:362
+validate @ figma_app-7a3deb8c5f1e60c7.min.js.br:418
+getFunctionLogs @ figma_app-7a3deb8c5f1e60c7.min.js.br:362
+fetch @ figma_app-7a3deb8c5f1e60c7.min.js.br:542
+h @ 1741-0091e26ad4c06e70.min.js.br:398
+await in h
+d @ vendor-642ec174312e1812.min.js.br:296
+x @ vendor-642ec174312e1812.min.js.br:296
+h @ vendor-642ec174312e1812.min.js.br:296
+fetch @ vendor-642ec174312e1812.min.js.br:296
+executeFetch @ vendor-642ec174312e1812.min.js.br:296
+(anonymous) @ vendor-642ec174312e1812.min.js.br:296
+u @ vendor-core-4ad04edb85d11631.min.js.br:54
+setInterval
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:63
+updateRefetchInterval @ vendor-642ec174312e1812.min.js.br:296
+updateTimers @ vendor-642ec174312e1812.min.js.br:296
+onQueryUpdate @ vendor-642ec174312e1812.min.js.br:296
+(anonymous) @ vendor-642ec174312e1812.min.js.br:296
+(anonymous) @ vendor-642ec174312e1812.min.js.br:296
+batch @ vendor-642ec174312e1812.min.js.br:296
+dispatch @ vendor-642ec174312e1812.min.js.br:296
+setData @ vendor-642ec174312e1812.min.js.br:296
+onSuccess @ vendor-642ec174312e1812.min.js.br:296
+b @ vendor-642ec174312e1812.min.js.br:296
+Promise.then
+x @ vendor-642ec174312e1812.min.js.br:296
+h @ vendor-642ec174312e1812.min.js.br:296
+fetch @ vendor-642ec174312e1812.min.js.br:296
+executeFetch @ vendor-642ec174312e1812.min.js.br:296
+(anonymous) @ vendor-642ec174312e1812.min.js.br:296
+u @ vendor-core-4ad04edb85d11631.min.js.br:54
+setInterval
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:63
+updateRefetchInterval @ vendor-642ec174312e1812.min.js.br:296
+updateTimers @ vendor-642ec174312e1812.min.js.br:296
+onQueryUpdate @ vendor-642ec174312e1812.min.js.br:296
+(anonymous) @ vendor-642ec174312e1812.min.js.br:296
+(anonymous) @ vendor-642ec174312e1812.min.js.br:296
+batch @ vendor-642ec174312e1812.min.js.br:296
+dispatch @ vendor-642ec174312e1812.min.js.br:296
+setData @ vendor-642ec174312e1812.min.js.br:296
+onSuccess @ vendor-642ec174312e1812.min.js.br:296
+b @ vendor-642ec174312e1812.min.js.br:296
+Promise.then
+x @ vendor-642ec174312e1812.min.js.br:296
+h @ vendor-642ec174312e1812.min.js.br:296
+fetch @ vendor-642ec174312e1812.min.js.br:296
+executeFetch @ vendor-642ec174312e1812.min.js.br:296
+(anonymous) @ vendor-642ec174312e1812.min.js.br:296
+u @ vendor-core-4ad04edb85d11631.min.js.br:54
+setInterval
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:63
+updateRefetchInterval @ vendor-642ec174312e1812.min.js.br:296
+updateTimers @ vendor-642ec174312e1812.min.js.br:296
+onQueryUpdate @ vendor-642ec174312e1812.min.js.br:296
+(anonymous) @ vendor-642ec174312e1812.min.js.br:296
+(anonymous) @ vendor-642ec174312e1812.min.js.br:296
+batch @ vendor-642ec174312e1812.min.js.br:296
+dispatch @ vendor-642ec174312e1812.min.js.br:296
+setData @ vendor-642ec174312e1812.min.js.br:296
+onSuccess @ vendor-642ec174312e1812.min.js.br:296
+b @ vendor-642ec174312e1812.min.js.br:296
+Promise.then
+x @ vendor-642ec174312e1812.min.js.br:296
+h @ vendor-642ec174312e1812.min.js.br:296
+fetch @ vendor-642ec174312e1812.min.js.br:296
+executeFetch @ vendor-642ec174312e1812.min.js.br:296
+(anonymous) @ vendor-642ec174312e1812.min.js.br:296
+u @ vendor-core-4ad04edb85d11631.min.js.br:54Understand this error
+vendor-core-4ad04edb85d11631.min.js.br:63  POST https://www.figma.com/api/web_logger/metrics_batched net::ERR_INTERNET_DISCONNECTED
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:63
+h @ vendor-642ec174312e1812.min.js.br:3
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:1143
+T @ 1741-0091e26ad4c06e70.min.js.br:1143
+C @ 1741-0091e26ad4c06e70.min.js.br:1143
+p @ 1741-0091e26ad4c06e70.min.js.br:1143
+e.crossOriginPostCompressed @ 1741-0091e26ad4c06e70.min.js.br:1143
+await in e.crossOriginPostCompressed
+_ @ 1741-0091e26ad4c06e70.min.js.br:1104
+sendBatchedEvents @ 1741-0091e26ad4c06e70.min.js.br:398Understand this error
+vendor-core-4ad04edb85d11631.min.js.br:63  POST https://www.figma.com/api/web_logger/metrics_batched net::ERR_INTERNET_DISCONNECTED
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:63
+h @ vendor-642ec174312e1812.min.js.br:3
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:1143
+T @ 1741-0091e26ad4c06e70.min.js.br:1143
+C @ 1741-0091e26ad4c06e70.min.js.br:1143
+p @ 1741-0091e26ad4c06e70.min.js.br:1143
+_ @ 1741-0091e26ad4c06e70.min.js.br:1104
+await in _
+sendBatchedEvents @ 1741-0091e26ad4c06e70.min.js.br:398Understand this error
+vendor-core-4ad04edb85d11631.min.js.br:63  GET https://www.figma.com/api/integrations/supabase/YgMsCvIqt7DMpx0rIB8UXV/edge_functions/make-server/logs net::ERR_INTERNET_DISCONNECTED
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:63
+h @ vendor-642ec174312e1812.min.js.br:3
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:1143
+T @ 1741-0091e26ad4c06e70.min.js.br:1143
+await in T
+C @ 1741-0091e26ad4c06e70.min.js.br:1143
+await in C
+P @ 1741-0091e26ad4c06e70.min.js.br:1143
+(anonymous) @ figma_app-7a3deb8c5f1e60c7.min.js.br:362
+validate @ figma_app-7a3deb8c5f1e60c7.min.js.br:418
+getFunctionLogs @ figma_app-7a3deb8c5f1e60c7.min.js.br:362
+fetch @ figma_app-7a3deb8c5f1e60c7.min.js.br:542
+h @ 1741-0091e26ad4c06e70.min.js.br:398
+await in h
+d @ vendor-642ec174312e1812.min.js.br:296
+x @ vendor-642ec174312e1812.min.js.br:296
+h @ vendor-642ec174312e1812.min.js.br:296
+fetch @ vendor-642ec174312e1812.min.js.br:296
+executeFetch @ vendor-642ec174312e1812.min.js.br:296
+(anonymous) @ vendor-642ec174312e1812.min.js.br:296
+u @ vendor-core-4ad04edb85d11631.min.js.br:54
+setInterval
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:63
+updateRefetchInterval @ vendor-642ec174312e1812.min.js.br:296
+updateTimers @ vendor-642ec174312e1812.min.js.br:296
+onQueryUpdate @ vendor-642ec174312e1812.min.js.br:296
+(anonymous) @ vendor-642ec174312e1812.min.js.br:296
+(anonymous) @ vendor-642ec174312e1812.min.js.br:296
+batch @ vendor-642ec174312e1812.min.js.br:296
+dispatch @ vendor-642ec174312e1812.min.js.br:296
+setData @ vendor-642ec174312e1812.min.js.br:296
+onSuccess @ vendor-642ec174312e1812.min.js.br:296
+b @ vendor-642ec174312e1812.min.js.br:296Understand this error
+vendor-core-4ad04edb85d11631.min.js.br:54 E: XHR for "https://www.figma.com/api/web_logger/metrics_batched" failed with status 0
+    at C (1741-0091e26ad4c06e70.min.js.br:1143:14273)
+    at async C.p [as crossOriginPost] (1741-0091e26ad4c06e70.min.js.br:1143:15291)
+    at async _ (1741-0091e26ad4c06e70.min.js.br:1104:80792)
+    at async Promise.all (/make/YgMsCvIqt7DMpx0rIB8UXV/index 0)
+    at async sendBatchedEvents (1741-0091e26ad4c06e70.min.js.br:398:191812)
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:54
+o.JZ.<computed> @ vendor-642ec174312e1812.min.js.br:3
+sendBatchedEvents @ 1741-0091e26ad4c06e70.min.js.br:398Understand this error
+vendor-core-4ad04edb85d11631.min.js.br:54  POST https://www.figma.com/api/figment-proxy/monitor net::ERR_INTERNET_DISCONNECTED
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:54
+h @ vendor-642ec174312e1812.min.js.br:3
+_makeRequest @ 1741-0091e26ad4c06e70.min.js.br:1073
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:1073
+r @ 1741-0091e26ad4c06e70.min.js.br:1073
+_makeRetryableRequest @ 1741-0091e26ad4c06e70.min.js.br:1073
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:1073
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:1433
+u @ vendor-core-4ad04edb85d11631.min.js.br:54Understand this error
+vendor-core-4ad04edb85d11631.min.js.br:54 [MultiplayerSession] connecting to wss://www.figma.com/api/multiplayer/YgMsCvIqt7DMpx0rIB8UXV?role=editor&tracking_session_id=aS42GQcMUv3jEH1j&version=151&recentReload=0&file-load-streaming-compression=&user-id=1575501824906211853&client_release=bf7e92fde14bce17ce7839702f7b03b902ddee1b&reconnect-key=a9a9481f639cf336088de2f8e4a7ac1ac22592b7&reconnect-sequence-number=7145&initialFileVersion=106&previousLoadMode=full&incremental-loading-validation=0
+9099-0a146875c2353669.min.js.br:3 WebSocket connection to 'wss://www.figma.com/api/multiplayer/YgMsCvIqt7DMpx0rIB8UXV?role=editor&tracking_session_id=aS42GQcMUv3jEH1j&version=151&recentReload=0&file-load-streaming-compression=&user-id=1575501824906211853&client_release=bf7e92fde14bce17ce7839702f7b03b902ddee1b&reconnect-key=a9a9481f639cf336088de2f8e4a7ac1ac22592b7&reconnect-sequence-number=7145&initialFileVersion=106&previousLoadMode=full&incremental-loading-validation=0' failed: 
+connect @ 9099-0a146875c2353669.min.js.br:3
+_FullscreenWebSocketTsCallbacks_connect @ compiled_wasm.js.br:2
+$wasm-function[7422] @ compiled_wasm.wasm.br:0x4de6bd
+$wasm-function[11699] @ compiled_wasm.wasm.br:0x8de983
+$wasm-function[36642] @ compiled_wasm.wasm.br:0x1e68709
+(anonymous) @ compiled_wasm.js.br:2
+(anonymous) @ compiled_wasm.js.br:2
+_wrapCppCall @ compiled_wasm.js.br:2
+(anonymous) @ compiled_wasm.js.br:2
+(anonymous) @ figma_app-7a3deb8c5f1e60c7.min.js.br:39
+u @ vendor-core-4ad04edb85d11631.min.js.br:54Understand this error
+vendor-core-4ad04edb85d11631.min.js.br:63  GET https://www.figma.com/api/integrations/supabase/YgMsCvIqt7DMpx0rIB8UXV/edge_functions/make-server/logs net::ERR_INTERNET_DISCONNECTED
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:63
+h @ vendor-642ec174312e1812.min.js.br:3
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:1143
+T @ 1741-0091e26ad4c06e70.min.js.br:1143
+await in T
+C @ 1741-0091e26ad4c06e70.min.js.br:1143
+await in C
+P @ 1741-0091e26ad4c06e70.min.js.br:1143
+(anonymous) @ figma_app-7a3deb8c5f1e60c7.min.js.br:362
+validate @ figma_app-7a3deb8c5f1e60c7.min.js.br:418
+getFunctionLogs @ figma_app-7a3deb8c5f1e60c7.min.js.br:362
+fetch @ figma_app-7a3deb8c5f1e60c7.min.js.br:542
+h @ 1741-0091e26ad4c06e70.min.js.br:398
+await in h
+d @ vendor-642ec174312e1812.min.js.br:296
+x @ vendor-642ec174312e1812.min.js.br:296
+h @ vendor-642ec174312e1812.min.js.br:296
+fetch @ vendor-642ec174312e1812.min.js.br:296
+executeFetch @ vendor-642ec174312e1812.min.js.br:296
+(anonymous) @ vendor-642ec174312e1812.min.js.br:296
+u @ vendor-core-4ad04edb85d11631.min.js.br:54
+setInterval
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:63
+updateRefetchInterval @ vendor-642ec174312e1812.min.js.br:296
+updateTimers @ vendor-642ec174312e1812.min.js.br:296
+onQueryUpdate @ vendor-642ec174312e1812.min.js.br:296
+(anonymous) @ vendor-642ec174312e1812.min.js.br:296
+(anonymous) @ vendor-642ec174312e1812.min.js.br:296
+batch @ vendor-642ec174312e1812.min.js.br:296
+dispatch @ vendor-642ec174312e1812.min.js.br:296
+setData @ vendor-642ec174312e1812.min.js.br:296
+onSuccess @ vendor-642ec174312e1812.min.js.br:296
+b @ vendor-642ec174312e1812.min.js.br:296Understand this error
+vendor-core-4ad04edb85d11631.min.js.br:54  POST https://www.figma.com/api/figment-proxy/monitor net::ERR_INTERNET_DISCONNECTED
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:54
+h @ vendor-642ec174312e1812.min.js.br:3
+_makeRequest @ 1741-0091e26ad4c06e70.min.js.br:1073
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:1073
+r @ 1741-0091e26ad4c06e70.min.js.br:1073
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:1073
+u @ vendor-core-4ad04edb85d11631.min.js.br:54
+setTimeout
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:63
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:1073
+Promise.catch
+r @ 1741-0091e26ad4c06e70.min.js.br:1073
+_makeRetryableRequest @ 1741-0091e26ad4c06e70.min.js.br:1073
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:1073
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:1433
+u @ vendor-core-4ad04edb85d11631.min.js.br:54Understand this error
+vendor-core-4ad04edb85d11631.min.js.br:54 [MultiplayerSession] connecting to wss://www.figma.com/api/multiplayer/YgMsCvIqt7DMpx0rIB8UXV?role=editor&tracking_session_id=aS42GQcMUv3jEH1j&version=151&recentReload=0&file-load-streaming-compression=&user-id=1575501824906211853&client_release=bf7e92fde14bce17ce7839702f7b03b902ddee1b&reconnect-key=a9a9481f639cf336088de2f8e4a7ac1ac22592b7&reconnect-sequence-number=7145&initialFileVersion=106&previousLoadMode=full&incremental-loading-validation=0
+9099-0a146875c2353669.min.js.br:3 WebSocket connection to 'wss://www.figma.com/api/multiplayer/YgMsCvIqt7DMpx0rIB8UXV?role=editor&tracking_session_id=aS42GQcMUv3jEH1j&version=151&recentReload=0&file-load-streaming-compression=&user-id=1575501824906211853&client_release=bf7e92fde14bce17ce7839702f7b03b902ddee1b&reconnect-key=a9a9481f639cf336088de2f8e4a7ac1ac22592b7&reconnect-sequence-number=7145&initialFileVersion=106&previousLoadMode=full&incremental-loading-validation=0' failed: 
+connect @ 9099-0a146875c2353669.min.js.br:3
+_FullscreenWebSocketTsCallbacks_connect @ compiled_wasm.js.br:2
+$wasm-function[7422] @ compiled_wasm.wasm.br:0x4de6bd
+$wasm-function[11699] @ compiled_wasm.wasm.br:0x8de983
+$wasm-function[36642] @ compiled_wasm.wasm.br:0x1e68709
+(anonymous) @ compiled_wasm.js.br:2
+(anonymous) @ compiled_wasm.js.br:2
+_wrapCppCall @ compiled_wasm.js.br:2
+(anonymous) @ compiled_wasm.js.br:2
+(anonymous) @ figma_app-7a3deb8c5f1e60c7.min.js.br:39
+u @ vendor-core-4ad04edb85d11631.min.js.br:54Understand this error
+vendor-core-4ad04edb85d11631.min.js.br:63  POST https://www.figma.com/api/web_logger/metrics_batched net::ERR_INTERNET_DISCONNECTED
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:63
+h @ vendor-642ec174312e1812.min.js.br:3
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:1143
+T @ 1741-0091e26ad4c06e70.min.js.br:1143
+C @ 1741-0091e26ad4c06e70.min.js.br:1143
+p @ 1741-0091e26ad4c06e70.min.js.br:1143
+e.crossOriginPostCompressed @ 1741-0091e26ad4c06e70.min.js.br:1143
+await in e.crossOriginPostCompressed
+_ @ 1741-0091e26ad4c06e70.min.js.br:1104
+sendBatchedEvents @ 1741-0091e26ad4c06e70.min.js.br:398Understand this error
+vendor-core-4ad04edb85d11631.min.js.br:63  POST https://www.figma.com/api/web_logger/metrics_batched net::ERR_INTERNET_DISCONNECTED
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:63
+h @ vendor-642ec174312e1812.min.js.br:3
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:1143
+T @ 1741-0091e26ad4c06e70.min.js.br:1143
+C @ 1741-0091e26ad4c06e70.min.js.br:1143
+p @ 1741-0091e26ad4c06e70.min.js.br:1143
+_ @ 1741-0091e26ad4c06e70.min.js.br:1104
+await in _
+sendBatchedEvents @ 1741-0091e26ad4c06e70.min.js.br:398Understand this error
+vendor-core-4ad04edb85d11631.min.js.br:54 E: XHR for "https://www.figma.com/api/web_logger/metrics_batched" failed with status 0
+    at C (1741-0091e26ad4c06e70.min.js.br:1143:14273)
+    at async C.p [as crossOriginPost] (1741-0091e26ad4c06e70.min.js.br:1143:15291)
+    at async _ (1741-0091e26ad4c06e70.min.js.br:1104:80792)
+    at async Promise.all (/make/YgMsCvIqt7DMpx0rIB8UXV/index 0)
+    at async sendBatchedEvents (1741-0091e26ad4c06e70.min.js.br:398:191812)
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:54
+o.JZ.<computed> @ vendor-642ec174312e1812.min.js.br:3
+sendBatchedEvents @ 1741-0091e26ad4c06e70.min.js.br:398Understand this error
+vendor-core-4ad04edb85d11631.min.js.br:63  GET https://www.figma.com/api/integrations/supabase/YgMsCvIqt7DMpx0rIB8UXV/edge_functions/make-server/logs net::ERR_INTERNET_DISCONNECTED
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:63
+h @ vendor-642ec174312e1812.min.js.br:3
+(anonymous) @ 1741-0091e26ad4c06e70.min.js.br:1143
+T @ 1741-0091e26ad4c06e70.min.js.br:1143
+await in T
+C @ 1741-0091e26ad4c06e70.min.js.br:1143
+await in C
+P @ 1741-0091e26ad4c06e70.min.js.br:1143
+(anonymous) @ figma_app-7a3deb8c5f1e60c7.min.js.br:362
+validate @ figma_app-7a3deb8c5f1e60c7.min.js.br:418
+getFunctionLogs @ figma_app-7a3deb8c5f1e60c7.min.js.br:362
+fetch @ figma_app-7a3deb8c5f1e60c7.min.js.br:542
+h @ 1741-0091e26ad4c06e70.min.js.br:398
+await in h
+d @ vendor-642ec174312e1812.min.js.br:296
+x @ vendor-642ec174312e1812.min.js.br:296
+h @ vendor-642ec174312e1812.min.js.br:296
+fetch @ vendor-642ec174312e1812.min.js.br:296
+executeFetch @ vendor-642ec174312e1812.min.js.br:296
+(anonymous) @ vendor-642ec174312e1812.min.js.br:296
+u @ vendor-core-4ad04edb85d11631.min.js.br:54
+setInterval
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:63
+updateRefetchInterval @ vendor-642ec174312e1812.min.js.br:296
+updateTimers @ vendor-642ec174312e1812.min.js.br:296
+onQueryUpdate @ vendor-642ec174312e1812.min.js.br:296
+(anonymous) @ vendor-642ec174312e1812.min.js.br:296
+(anonymous) @ vendor-642ec174312e1812.min.js.br:296
+batch @ vendor-642ec174312e1812.min.js.br:296
+dispatch @ vendor-642ec174312e1812.min.js.br:296
+setData @ vendor-642ec174312e1812.min.js.br:296
+onSuccess @ vendor-642ec174312e1812.min.js.br:296
+b @ vendor-642ec174312e1812.min.js.br:296Understand this error
+vendor-core-4ad04edb85d11631.min.js.br:54 [MultiplayerSession] connecting to wss://www.figma.com/api/multiplayer/YgMsCvIqt7DMpx0rIB8UXV?role=editor&tracking_session_id=aS42GQcMUv3jEH1j&version=151&recentReload=0&file-load-streaming-compression=&user-id=1575501824906211853&client_release=bf7e92fde14bce17ce7839702f7b03b902ddee1b&reconnect-key=a9a9481f639cf336088de2f8e4a7ac1ac22592b7&reconnect-sequence-number=7145&initialFileVersion=106&previousLoadMode=full&incremental-loading-validation=0
+3code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🌐 Back online!
+2code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🌐 Back online!
+5code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🌐 Back online!
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🌐 Back online!
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🌐 Back online!
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🌐 Back online!
+2code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🌐 Back online!
+3code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+5code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+3code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+2code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+5code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+2code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+3code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+2code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+5code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+2code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+3code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+5code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+vendor-core-4ad04edb85d11631.min.js.br:54 [MultiplayerSession] Joining file version 106 (skip_reload reconnect)
+3code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+5code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+3code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+2code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+5code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+4code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+2code_components_preview_iframe-45c712baf9cbf8c8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g

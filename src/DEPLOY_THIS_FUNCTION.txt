@@ -1,0 +1,30 @@
+====================================================================
+🚀 SUPABASE EDGE FUNCTION DEPLOYMENT INSTRUCTIONS
+====================================================================
+
+PROJECT: xspogpfohjmkykfjadhk
+FUNCTION NAME: make-server-28f2f653
+
+STEP 1: Go to Supabase Dashboard
+---------------------------------
+1. Open https://supabase.com/dashboard
+2. Select project: xspogpfohjmkykfjadhk
+3. Go to "Edge Functions" from the left sidebar
+4. Click "Create a new function"
+
+STEP 2: Create Function
+---------------------------------
+1. Function Name: make-server-28f2f653
+2. Copy the ENTIRE code from the file below into the editor
+3. Click "Deploy"
+
+STEP 3: Verify Deployment
+---------------------------------
+1. Test the health endpoint:
+   https://xspogpfohjmkykfjadhk.supabase.co/functions/v1/make-server-28f2f653/health
+
+2. You should see: {"status":"ok","timestamp":"...","service":"Sales Intelligence Network API"}
+
+====================================================================
+📋 COPY EVERYTHING BELOW THIS LINE INTO SUPABASE EDITOR
+====================================================================

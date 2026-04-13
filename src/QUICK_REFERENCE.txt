@@ -1,0 +1,160 @@
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                              ┃
+┃            📌 QUICK REFERENCE CARD 📌                       ┃
+┃        (Print or keep this handy!)                          ┃
+┃                                                              ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+┌──────────────────────────────────────────────────────────────┐
+│  🎯 PROJECT DETAILS                                          │
+└──────────────────────────────────────────────────────────────┘
+
+Project ID:    xspogpfohjmkykfjadhk
+Function Name: make-server-28f2f653
+
+Dashboard URL:
+https://supabase.com/dashboard/project/xspogpfohjmkykfjadhk
+
+
+┌──────────────────────────────────────────────────────────────┐
+│  🔗 IMPORTANT URLS                                           │
+└──────────────────────────────────────────────────────────────┘
+
+Health Check:
+https://xspogpfohjmkykfjadhk.supabase.co/functions/v1/make-server-28f2f653/health
+
+Function Base URL:
+https://xspogpfohjmkykfjadhk.supabase.co/functions/v1/make-server-28f2f653
+
+
+┌──────────────────────────────────────────────────────────────┐
+│  📂 FILES YOU NEED                                           │
+└──────────────────────────────────────────────────────────────┘
+
+Code to Deploy:
+📄 /EDGE_FUNCTION_CONSOLIDATED.ts
+
+Instructions:
+📄 /VISUAL_GUIDE.txt          (Start here!)
+📄 /DEPLOYMENT_CHECKLIST.txt  (Step-by-step)
+📄 /DEPLOYMENT_GUIDE.md        (Detailed)
+📄 /DEPLOYMENT_SUMMARY.md      (Overview)
+
+
+┌──────────────────────────────────────────────────────────────┐
+│  ⚡ QUICK DEPLOY STEPS                                       │
+└──────────────────────────────────────────────────────────────┘
+
+1. Go to Supabase Dashboard
+2. Click "Edge Functions" in sidebar
+3. Click "Create a new function"
+4. Name: make-server-28f2f653
+5. Paste code from /EDGE_FUNCTION_CONSOLIDATED.ts
+6. Click "Deploy"
+7. Wait 60 seconds
+8. Test health endpoint
+9. Refresh TAI dashboard
+10. Create a program - Done! ✅
+
+
+┌──────────────────────────────────────────────────────────────┐
+│  ✅ SUCCESS CHECKLIST                                        │
+└──────────────────────────────────────────────────────────────┘
+
+□ Function deployed in Supabase
+□ Health endpoint returns {"status":"ok"}
+□ No CORS errors in console
+□ Program creation works
+□ No "Failed to fetch" errors
+
+
+┌──────────────────────────────────────────────────────────────┐
+│  🐛 QUICK FIXES                                              │
+└──────────────────────────────────────────────────────────────┘
+
+404 Error:
+→ Check function name is exact: make-server-28f2f653
+
+CORS Error:
+→ Wait 60 seconds, then hard refresh (Ctrl+Shift+R)
+
+Failed to fetch:
+→ Clear cache, close browser, reopen
+
+Table not found:
+→ Create programs table in Supabase
+
+
+┌──────────────────────────────────────────────────────────────┐
+│  📊 ENDPOINTS                                                │
+└──────────────────────────────────────────────────────────────┘
+
+GET    /make-server-28f2f653/health
+GET    /make-server-28f2f653/programs
+POST   /make-server-28f2f653/programs
+DELETE /make-server-28f2f653/programs/:id
+POST   /make-server-28f2f653/submissions/approve
+GET    /make-server-28f2f653/leaderboard
+GET    /make-server-28f2f653/analytics/generate
+
+
+┌──────────────────────────────────────────────────────────────┐
+│  🔧 KEYBOARD SHORTCUTS                                       │
+└──────────────────────────────────────────────────────────────┘
+
+Select All:      Ctrl+A  (Windows)   Cmd+A  (Mac)
+Copy:            Ctrl+C  (Windows)   Cmd+C  (Mac)
+Paste:           Ctrl+V  (Windows)   Cmd+V  (Mac)
+Hard Refresh:    Ctrl+Shift+R        Cmd+Shift+R
+Clear Cache:     Ctrl+Shift+Delete   Cmd+Shift+Delete
+
+
+┌──────────────────────────────────────────────────────────────┐
+│  🎯 WHERE TO CLICK IN SUPABASE                               │
+└──────────────────────────────────────────────────────────────┘
+
+1. Left sidebar → "Edge Functions"
+2. Top-right → "Create a new function"
+3. Type function name: make-server-28f2f653
+4. Paste code in editor
+5. Bottom button → "Deploy Function"
+
+
+┌──────────────────────────────────────────────────────────────┐
+│  💡 PRO TIPS                                                 │
+└──────────────────────────────────────────────────────────────┘
+
+✓ Copy-paste function name to avoid typos
+✓ Use Ctrl+A to select ALL code
+✓ Wait full 60 seconds after deployment
+✓ Hard refresh browser before testing
+✓ Check browser console for errors
+✓ View function logs in Supabase
+
+
+┌──────────────────────────────────────────────────────────────┐
+│  📞 GETTING HELP                                             │
+└──────────────────────────────────────────────────────────────┘
+
+If stuck:
+1. Go to Supabase → Edge Functions → Logs
+2. Copy any error messages
+3. Share with me for debugging
+
+Common Issues:
+→ Wrong function name (must be exact)
+→ Wrong project (must be xspogpfohjmkykfjadhk)
+→ Didn't wait long enough (wait 60 seconds)
+→ Cached old version (clear cache)
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                              ┃
+┃   🎉 You've got this! Follow the steps and you'll be        ┃
+┃      up and running in under 5 minutes! 🚀                  ┃
+┃                                                              ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+Project: TAI Sales Intelligence Network
+Date: January 3, 2026
+Target: xspogpfohjmkykfjadhk

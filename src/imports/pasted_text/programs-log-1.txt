@@ -1,0 +1,170 @@
+[Programs] Loading programs for user: zonal_sales_manager
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] Fetching programs for role: zonal_sales_manager
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] Searching for programs with target_roles containing: (4) ['zonal_sales_manager', 'ZSM', 'zsm', 'Zonal Sales Manager']
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs Dashboard] 🔍 Loading folders from localStorage...
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs Dashboard] 📦 Raw localStorage data: null
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs Dashboard] ℹ️ No folders found in localStorage
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs Dashboard] ✅ Van Calendar enabled: true
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] 📊 Total active programs in database: 7
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] Program "NEW-SITE-CHECK-IN " has target_roles: (5) ['sales_executive', 'zonal_sales_manager', 'zonal_business_manager', 'hq_command_center', 'director']
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] ✅ "NEW-SITE-CHECK-IN " matches role zonal_sales_manager
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] Program "MARKET OUTREACH -PARTNER VANS " has target_roles: (5) ['sales_executive', 'zonal_sales_manager', 'zonal_business_manager', 'hq_command_center', 'director']
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] ✅ "MARKET OUTREACH -PARTNER VANS " matches role zonal_sales_manager
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] Program "SSO CLASSIFICATION" has target_roles: (3) ['sales_executive', 'zonal_sales_manager', 'zonal_business_manager']
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] ✅ "SSO CLASSIFICATION" matches role zonal_sales_manager
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] Program "🚐 Van Weekly Calendar" has target_roles: (5) ['zonal_sales_manager', 'hq_command_center', 'director', 'sales_executive', 'zonal_business_manager']
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] ✅ "🚐 Van Weekly Calendar" matches role zonal_sales_manager
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] Program "MINI ROAD SHOW -CHECK OUT " has target_roles: (5) ['sales_executive', 'zonal_sales_manager', 'zonal_business_manager', 'hq_command_center', 'director']
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] ✅ "MINI ROAD SHOW -CHECK OUT " matches role zonal_sales_manager
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] Program "MINI ROAD SHOW -CHECK IN " has target_roles: (5) ['sales_executive', 'zonal_sales_manager', 'zonal_business_manager', 'hq_command_center', 'director']
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] ✅ "MINI ROAD SHOW -CHECK IN " matches role zonal_sales_manager
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] Program "AMB REVALIDATION" has target_roles: (5) ['sales_executive', 'zonal_sales_manager', 'zonal_business_manager', 'hq_command_center', 'director']
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] ✅ "AMB REVALIDATION" matches role zonal_sales_manager
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] ✅ Loaded programs for zonal_sales_manager : 7
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramsAPI] Fetching session checkin flags
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramsAPI] ✅ Checkin flags: {67b91b34-81f9-416a-9462-843a51bc920d: true, 9f0d8fab-336b-40dc-b38e-746b81397fc2: false, c6e6213c-0e9b-46f9-9183-5b7c64551247: false}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramsAPI] Fetching all program form configs
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramsAPI] ✅ All form configs: 3
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] ✅ Merged checkin flags + configs into SE programs
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 0 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Shops] 🔄 Fetching ALL shops from database (paginated)...
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Shops] 📦 Fetching batch 1 (rows 0-999)...
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Loading fields for program: c6e6213c-0e9b-46f9-9183-5b7c64551247
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: false
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [GPS] Capacitor failed, trying browser API: Not implemented on web.
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 0 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: true
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [GPS] Browser geolocation error: Geolocation has been disabled in this document by permissions policy.
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 0 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Shops] ✅ Batch 1: 1000 shops (Total so far: 1000)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Shops] 📦 Fetching batch 2 (rows 1000-1999)...
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] 📍 User zone from DB: ABERDARE
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] ✅ Loaded 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] 🔍 Fields data: [
+  {
+    "id": "c502f011-8e69-4c4c-acea-4f54fb0a0c6b",
+    "program_id": "c6e6213c-0e9b-46f9-9183-5b7c64551247",
+    "field_name": "number_plate_of_the_van_",
+    "field_label": "NUMBER PLATE OF THE VAN ",
+    "field_type": "dropdown",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "database_source": {
+        "table": "van_db",
+        "multi_select": true,
+        "display_field": "number_plate",
+        "metadata_fields": [
+          "zone"
+        ],
+        "repeatable_dropdown": false
+      },
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 0,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-12T18:58:30.388267+00:00"
+  },
+  {
+    "id": "5ef40b76-e432-40dc-a3df-e3fa4e0b341e",
+    "program_id": "c6e6213c-0e9b-46f9-9183-5b7c64551247",
+    "field_name": "odometer_reading_",
+    "field_label": "ODOMETER READING ",
+    "field_type": "number",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": null,
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 1,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-12T18:58:30.388267+00:00"
+  },
+  {
+    "id": "f8078bca-a66d-4a5b-a8d2-a5c848fd8274",
+    "program_id": "c6e6213c-0e9b-46f9-9183-5b7c64551247",
+    "field_name": "feedback_on_quality_of_network_(1_is_worst_5_is_best)",
+    "field_label": "FEEDBACK ON QUALITY OF NETWORK (1 is worst 5 is best)",
+    "field_type": "rating",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": null,
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 2,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-12T18:58:30.388267+00:00"
+  }
+]
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 0 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] 🔍 Checking fields: (3) [{…}, {…}, {…}]
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] 🔄 Loading data for 1 database dropdown/multi-select field(s)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] 🔒 Zone filtering: DISABLED | User zone: ABERDARE
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Loading from table: van_db
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Shops] ✅ Batch 2: 1000 shops (Total so far: 2000)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Shops] 📦 Fetching batch 3 (rows 2000-2999)...
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] 📦 "van_db" is small (≤500 rows) → loading all rows
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] 📦 Fetching batch 1 from van_db (rows 0-999)...
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Shops] ✅ Batch 3: 674 shops (Total so far: 2674)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Shops] ✅ Total loaded from database: 2674 shops
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Shops] ✅ Lookup map created with 2651 entries
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Shops] ✅ shopsLoaded flag set to true - component should re-render
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 2674 shops | shopsLoaded: true | loadingShops: false
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] ✅ Component should now show search dropdown instead of radio buttons
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] ✅ Batch 1: 42 rows (Total so far: 42)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] ✅ Loaded all 42 rows from "van_db" (client-side search)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Dropdown] 🔍 Search input focused - opening dropdown
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Dropdown] ⌨️ Input changed: k
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Dropdown] ⌨️ Input changed: kc
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Dropdown] ⌨️ Input changed: kcy
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Dropdown] ⌨️ Input changed: kc
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Dropdown] ⌨️ Input changed: kcu
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Dropdown] ⌨️ Input changed: kc
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Dropdown] ⌨️ Input changed: kcb
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Shop Dropdown] 🎯 Option clicked: KCB 466U
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] Setting field c502f011-8e69-4c4c-acea-4f54fb0a0c6b to: KCB 466U (single)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] Auto-populating from: KCB 466U 
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [AutoPopulate] ��� Database dropdown selection: {field: 'NUMBER PLATE OF THE VAN ', value: 'KCB 466U', table: 'van_db', displayField: 'number_plate', metadataFields: Array(1)}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [AutoPopulate] ✅ Found selected row: {id: 15, created_at: '2026-02-07T10:19:44.147589+00:00', number_plate: 'KCB 466U', capacity: null, vendor: null, …}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [AutoPopulate] 📦 Stored metadata for display: {zone: 'ABERDARE'}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [AutoPopulate] ℹ️ No matching fields found to auto-populate
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [LinkedCheckout] 🔍 Checking van check-in for plate="KCB466U", linked_program=9f0d8fab-336b-40dc-b38e-746b81397fc2
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] FormData after update: {c502f011-8e69-4c4c-acea-4f54fb0a0c6b: 'KCB 466U'}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [LinkedCheckout] Van lookup response: {"success":true,"has_checkin":true,"van_checked_in":true,"number_plate":"KCB466U","checkin_user_id":"3fd012fd-9805-4525-bfde-1d2718310109","sites":[],"promoters":[],"total_promoters":0,"message":"Van was checked in but no active session data found."}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [LinkedCheckout] No MSISDNs found in check-in data
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)

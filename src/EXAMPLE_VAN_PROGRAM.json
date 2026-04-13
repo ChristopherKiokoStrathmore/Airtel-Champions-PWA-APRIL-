@@ -1,0 +1,84 @@
+{
+  "title": "MINI-ROAD SHOW CHECK-IN",
+  "description": "Check in when starting a road show event. Select the van you're using and capture event details.",
+  "category": "MINI-ROAD SHOW",
+  "points_value": 50,
+  "end_date": null,
+  "target_roles": ["se"],
+  "fields": [
+    {
+      "field_name": "Van Number Plate",
+      "field_type": "dropdown",
+      "is_required": true,
+      "order_index": 1,
+      "options": {
+        "database_source": "van_db"
+      }
+    },
+    {
+      "field_name": "Driver Name",
+      "field_type": "text",
+      "is_required": true,
+      "order_index": 2
+    },
+    {
+      "field_name": "Number of Team Members",
+      "field_type": "number",
+      "is_required": true,
+      "order_index": 3
+    },
+    {
+      "field_name": "Planned Stops",
+      "field_type": "number",
+      "is_required": true,
+      "order_index": 4
+    },
+    {
+      "field_name": "Event Start Time",
+      "field_type": "time",
+      "is_required": true,
+      "order_index": 5
+    },
+    {
+      "field_name": "Van Photo",
+      "field_type": "photo",
+      "is_required": true,
+      "order_index": 6
+    },
+    {
+      "field_name": "Team Photo",
+      "field_type": "photo",
+      "is_required": false,
+      "order_index": 7
+    },
+    {
+      "field_name": "Special Equipment Carried",
+      "field_type": "multi_select",
+      "is_required": false,
+      "order_index": 8,
+      "options": {
+        "options": [
+          "Banners",
+          "Tents/Gazebos",
+          "Sound System",
+          "Registration Table",
+          "Product Samples",
+          "Branded T-Shirts",
+          "Promotional Materials"
+        ]
+      }
+    },
+    {
+      "field_name": "GPS Verified Location",
+      "field_type": "location",
+      "is_required": true,
+      "order_index": 9
+    },
+    {
+      "field_name": "Additional Notes",
+      "field_type": "long_text",
+      "is_required": false,
+      "order_index": 10
+    }
+  ]
+}

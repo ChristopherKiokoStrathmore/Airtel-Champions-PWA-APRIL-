@@ -1,0 +1,1412 @@
+[Role Dashboard] ✅ Raw announcements loaded: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69599 [Role Dashboard] ✅ Filtered announcements for role: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69606 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12460 [Van Calendar Widget] ✅ Stats loaded: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12460 [Van Calendar Widget] ✅ Stats loaded: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12460 [Van Calendar Widget] ✅ Stats loaded: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69595 [Role Dashboard] ✅ Raw announcements loaded: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69599 [Role Dashboard] ✅ Filtered announcements for role: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69606 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47295 [Programs Widget Home] 📁 Organized Programs: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69595 [Role Dashboard] ✅ Raw announcements loaded: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69599 [Role Dashboard] ✅ Filtered announcements for role: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69606 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47295 [Programs Widget Home] 📁 Organized Programs: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88679 ✅ [App] UserData refreshed from localStorage: Christopher Kioko
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88726 🔍 User Authentication Check: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12436 [Van Calendar Widget] 🔍 Loading stats for HQ...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47241 [Programs Widget Home] 🔍 Loading folders...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47243 [Programs Widget Home] 📦 localStorage data: null
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47257 [Programs Widget Home] ⚠️ No data in localStorage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47264 [Programs Widget Home] ℹ️ No folders in any storage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:10245 [PageTracking] 📄 Viewing: Dashboard
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69589 [Role Dashboard] ✅ Loading announcements from localStorage for role: hq_staff
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47295 [Programs Widget Home] 📁 Organized Programs: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88679 ✅ [App] UserData refreshed from localStorage: Christopher Kioko
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88726 🔍 User Authentication Check: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12436 [Van Calendar Widget] 🔍 Loading stats for HQ...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47241 [Programs Widget Home] 🔍 Loading folders...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47243 [Programs Widget Home] 📦 localStorage data: null
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47257 [Programs Widget Home] ⚠️ No data in localStorage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47264 [Programs Widget Home] ℹ️ No folders in any storage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:10245 [PageTracking] 📄 Viewing: Dashboard
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69589 [Role Dashboard] ✅ Loading announcements from localStorage for role: hq_staff
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69595 [Role Dashboard] ✅ Raw announcements loaded: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69599 [Role Dashboard] ✅ Filtered announcements for role: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69606 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12460 [Van Calendar Widget] ✅ Stats loaded: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12460 [Van Calendar Widget] ✅ Stats loaded: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47295 [Programs Widget Home] 📁 Organized Programs: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69595 [Role Dashboard] ✅ Raw announcements loaded: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69599 [Role Dashboard] ✅ Filtered announcements for role: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69606 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47295 [Programs Widget Home] 📁 Organized Programs: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88679 ✅ [App] UserData refreshed from localStorage: SALMA RAJAB
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88726 🔍 User Authentication Check: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12436 [Van Calendar Widget] 🔍 Loading stats for HQ...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47241 [Programs Widget Home] 🔍 Loading folders...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47243 [Programs Widget Home] 📦 localStorage data: null
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47257 [Programs Widget Home] ⚠️ No data in localStorage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47264 [Programs Widget Home] ℹ️ No folders in any storage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:10245 [PageTracking] 📄 Viewing: Dashboard
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69589 [Role Dashboard] ✅ Loading announcements from localStorage for role: sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47295 [Programs Widget Home] 📁 Organized Programs: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12460 [Van Calendar Widget] ✅ Stats loaded: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69595 [Role Dashboard] ✅ Raw announcements loaded: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69599 [Role Dashboard] ✅ Filtered announcements for role: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69606 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47295 [Programs Widget Home] 📁 Organized Programs: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88679 ✅ [App] UserData refreshed from localStorage: SALMA RAJAB
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88726 🔍 User Authentication Check: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12436 [Van Calendar Widget] 🔍 Loading stats for HQ...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47241 [Programs Widget Home] 🔍 Loading folders...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47243 [Programs Widget Home] 📦 localStorage data: null
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47257 [Programs Widget Home] ⚠️ No data in localStorage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47264 [Programs Widget Home] ℹ️ No folders in any storage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:10245 [PageTracking] 📄 Viewing: Dashboard
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69589 [Role Dashboard] ✅ Loading announcements from localStorage for role: sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47295 [Programs Widget Home] 📁 Organized Programs: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88679 ✅ [App] UserData refreshed from localStorage: SALMA RAJAB
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88726 🔍 User Authentication Check: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12436 [Van Calendar Widget] 🔍 Loading stats for HQ...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47241 [Programs Widget Home] 🔍 Loading folders...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47243 [Programs Widget Home] 📦 localStorage data: null
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47257 [Programs Widget Home] ⚠️ No data in localStorage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47264 [Programs Widget Home] ℹ️ No folders in any storage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:10245 [PageTracking] 📄 Viewing: Dashboard
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69589 [Role Dashboard] ✅ Loading announcements from localStorage for role: sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12460 [Van Calendar Widget] ✅ Stats loaded: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12460 [Van Calendar Widget] ✅ Stats loaded: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88679 ✅ [App] UserData refreshed from localStorage: SALMA RAJAB
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88726 🔍 User Authentication Check: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12436 [Van Calendar Widget] 🔍 Loading stats for HQ...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47241 [Programs Widget Home] 🔍 Loading folders...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47243 [Programs Widget Home] 📦 localStorage data: null
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47257 [Programs Widget Home] ⚠️ No data in localStorage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47264 [Programs Widget Home] ℹ️ No folders in any storage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:10245 [PageTracking] 📄 Viewing: Dashboard
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69589 [Role Dashboard] ✅ Loading announcements from localStorage for role: sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12460 [Van Calendar Widget] ✅ Stats loaded: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88679 ✅ [App] UserData refreshed from localStorage: SALMA RAJAB
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88726 🔍 User Authentication Check: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12436 [Van Calendar Widget] 🔍 Loading stats for HQ...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47241 [Programs Widget Home] 🔍 Loading folders...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47243 [Programs Widget Home] 📦 localStorage data: null
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47257 [Programs Widget Home] ⚠️ No data in localStorage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47264 [Programs Widget Home] ℹ️ No folders in any storage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:10245 [PageTracking] 📄 Viewing: Dashboard
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69589 [Role Dashboard] ✅ Loading announcements from localStorage for role: sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69595 [Role Dashboard] ✅ Raw announcements loaded: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69599 [Role Dashboard] ✅ Filtered announcements for role: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69606 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12460 [Van Calendar Widget] ✅ Stats loaded: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88679 ✅ [App] UserData refreshed from localStorage: SALMA RAJAB
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88726 🔍 User Authentication Check: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12436 [Van Calendar Widget] 🔍 Loading stats for HQ...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47241 [Programs Widget Home] 🔍 Loading folders...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47243 [Programs Widget Home] 📦 localStorage data: null
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47257 [Programs Widget Home] ⚠️ No data in localStorage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47264 [Programs Widget Home] ℹ️ No folders in any storage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:10245 [PageTracking] 📄 Viewing: Dashboard
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69589 [Role Dashboard] ✅ Loading announcements from localStorage for role: sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12460 [Van Calendar Widget] ✅ Stats loaded: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88679 ✅ [App] UserData refreshed from localStorage: SALMA RAJAB
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88726 🔍 User Authentication Check: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12436 [Van Calendar Widget] 🔍 Loading stats for HQ...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47241 [Programs Widget Home] 🔍 Loading folders...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47243 [Programs Widget Home] 📦 localStorage data: null
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47257 [Programs Widget Home] ⚠️ No data in localStorage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47264 [Programs Widget Home] ℹ️ No folders in any storage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:10245 [PageTracking] 📄 Viewing: Dashboard
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69589 [Role Dashboard] ✅ Loading announcements from localStorage for role: sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69595 [Role Dashboard] ✅ Raw announcements loaded: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69599 [Role Dashboard] ✅ Filtered announcements for role: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69606 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12460 [Van Calendar Widget] ✅ Stats loaded: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88679 ✅ [App] UserData refreshed from localStorage: SALMA RAJAB
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88726 🔍 User Authentication Check: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12436 [Van Calendar Widget] 🔍 Loading stats for HQ...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47241 [Programs Widget Home] 🔍 Loading folders...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47243 [Programs Widget Home] 📦 localStorage data: null
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47257 [Programs Widget Home] ⚠️ No data in localStorage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47264 [Programs Widget Home] ℹ️ No folders in any storage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:10245 [PageTracking] 📄 Viewing: Dashboard
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69589 [Role Dashboard] ✅ Loading announcements from localStorage for role: sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12460 [Van Calendar Widget] ✅ Stats loaded: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88679 ✅ [App] UserData refreshed from localStorage: SALMA RAJAB
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88726 🔍 User Authentication Check: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12436 [Van Calendar Widget] 🔍 Loading stats for HQ...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47241 [Programs Widget Home] 🔍 Loading folders...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47243 [Programs Widget Home] 📦 localStorage data: null
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47257 [Programs Widget Home] ⚠️ No data in localStorage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47264 [Programs Widget Home] ℹ️ No folders in any storage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:10245 [PageTracking] 📄 Viewing: Dashboard
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69589 [Role Dashboard] ✅ Loading announcements from localStorage for role: sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12460 [Van Calendar Widget] ✅ Stats loaded: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88679 ✅ [App] UserData refreshed from localStorage: SALMA RAJAB
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88726 🔍 User Authentication Check: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12436 [Van Calendar Widget] 🔍 Loading stats for HQ...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47241 [Programs Widget Home] 🔍 Loading folders...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47243 [Programs Widget Home] 📦 localStorage data: null
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47257 [Programs Widget Home] ⚠️ No data in localStorage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47264 [Programs Widget Home] ℹ️ No folders in any storage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:10245 [PageTracking] 📄 Viewing: Dashboard
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69589 [Role Dashboard] ✅ Loading announcements from localStorage for role: sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69595 [Role Dashboard] ✅ Raw announcements loaded: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69599 [Role Dashboard] ✅ Filtered announcements for role: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69606 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12460 [Van Calendar Widget] ✅ Stats loaded: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88679 ✅ [App] UserData refreshed from localStorage: SALMA RAJAB
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88726 🔍 User Authentication Check: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12436 [Van Calendar Widget] 🔍 Loading stats for HQ...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47241 [Programs Widget Home] 🔍 Loading folders...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47243 [Programs Widget Home] 📦 localStorage data: null
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47257 [Programs Widget Home] ⚠️ No data in localStorage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47264 [Programs Widget Home] ℹ️ No folders in any storage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:10245 [PageTracking] 📄 Viewing: Dashboard
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69589 [Role Dashboard] ✅ Loading announcements from localStorage for role: sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12460 [Van Calendar Widget] ✅ Stats loaded: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88679 ✅ [App] UserData refreshed from localStorage: SALMA RAJAB
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88726 🔍 User Authentication Check: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12436 [Van Calendar Widget] 🔍 Loading stats for HQ...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47241 [Programs Widget Home] 🔍 Loading folders...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47243 [Programs Widget Home] 📦 localStorage data: null
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47257 [Programs Widget Home] ⚠️ No data in localStorage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47264 [Programs Widget Home] ℹ️ No folders in any storage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:10245 [PageTracking] 📄 Viewing: Dashboard
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69589 [Role Dashboard] ✅ Loading announcements from localStorage for role: sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12460 [Van Calendar Widget] ✅ Stats loaded: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88679 ✅ [App] UserData refreshed from localStorage: SALMA RAJAB
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88726 🔍 User Authentication Check: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12436 [Van Calendar Widget] 🔍 Loading stats for HQ...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47241 [Programs Widget Home] 🔍 Loading folders...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47243 [Programs Widget Home] 📦 localStorage data: null
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47257 [Programs Widget Home] ⚠️ No data in localStorage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47264 [Programs Widget Home] ℹ️ No folders in any storage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:10245 [PageTracking] 📄 Viewing: Dashboard
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69589 [Role Dashboard] ✅ Loading announcements from localStorage for role: sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69595 [Role Dashboard] ✅ Raw announcements loaded: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69599 [Role Dashboard] ✅ Filtered announcements for role: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69606 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12460 [Van Calendar Widget] ✅ Stats loaded: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88679 ✅ [App] UserData refreshed from localStorage: SALMA RAJAB
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88726 🔍 User Authentication Check: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12436 [Van Calendar Widget] 🔍 Loading stats for HQ...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47241 [Programs Widget Home] 🔍 Loading folders...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47243 [Programs Widget Home] 📦 localStorage data: null
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47257 [Programs Widget Home] ⚠️ No data in localStorage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47264 [Programs Widget Home] ℹ️ No folders in any storage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:10245 [PageTracking] 📄 Viewing: Dashboard
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69589 [Role Dashboard] ✅ Loading announcements from localStorage for role: sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12460 [Van Calendar Widget] ✅ Stats loaded: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88679 ✅ [App] UserData refreshed from localStorage: SALMA RAJAB
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88726 🔍 User Authentication Check: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12436 [Van Calendar Widget] 🔍 Loading stats for HQ...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47241 [Programs Widget Home] 🔍 Loading folders...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47243 [Programs Widget Home] 📦 localStorage data: null
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47257 [Programs Widget Home] ⚠️ No data in localStorage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47264 [Programs Widget Home] ℹ️ No folders in any storage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:10245 [PageTracking] 📄 Viewing: Dashboard
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69589 [Role Dashboard] ✅ Loading announcements from localStorage for role: sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69595 [Role Dashboard] ✅ Raw announcements loaded: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69599 [Role Dashboard] ✅ Filtered announcements for role: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69606 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12460 [Van Calendar Widget] ✅ Stats loaded: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88679 ✅ [App] UserData refreshed from localStorage: SALMA RAJAB
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88726 🔍 User Authentication Check: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12436 [Van Calendar Widget] 🔍 Loading stats for HQ...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47241 [Programs Widget Home] 🔍 Loading folders...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47243 [Programs Widget Home] 📦 localStorage data: null
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47257 [Programs Widget Home] ⚠️ No data in localStorage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47264 [Programs Widget Home] ℹ️ No folders in any storage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:10245 [PageTracking] 📄 Viewing: Dashboard
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69589 [Role Dashboard] ✅ Loading announcements from localStorage for role: sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12460 [Van Calendar Widget] ✅ Stats loaded: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88679 ✅ [App] UserData refreshed from localStorage: SALMA RAJAB
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88726 🔍 User Authentication Check: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12436 [Van Calendar Widget] 🔍 Loading stats for HQ...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47241 [Programs Widget Home] 🔍 Loading folders...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47243 [Programs Widget Home] 📦 localStorage data: null
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47257 [Programs Widget Home] ⚠️ No data in localStorage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47264 [Programs Widget Home] ℹ️ No folders in any storage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:10245 [PageTracking] 📄 Viewing: Dashboard
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69589 [Role Dashboard] ✅ Loading announcements from localStorage for role: sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12460 [Van Calendar Widget] ✅ Stats loaded: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69595 [Role Dashboard] ✅ Raw announcements loaded: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69599 [Role Dashboard] ✅ Filtered announcements for role: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69606 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88679 ✅ [App] UserData refreshed from localStorage: SALMA RAJAB
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88726 🔍 User Authentication Check: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12436 [Van Calendar Widget] 🔍 Loading stats for HQ...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47241 [Programs Widget Home] 🔍 Loading folders...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47243 [Programs Widget Home] 📦 localStorage data: null
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47257 [Programs Widget Home] ⚠️ No data in localStorage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47264 [Programs Widget Home] ℹ️ No folders in any storage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:10245 [PageTracking] 📄 Viewing: Dashboard
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69589 [Role Dashboard] ✅ Loading announcements from localStorage for role: sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12460 [Van Calendar Widget] ✅ Stats loaded: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88679 ✅ [App] UserData refreshed from localStorage: SALMA RAJAB
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88726 🔍 User Authentication Check: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12436 [Van Calendar Widget] 🔍 Loading stats for HQ...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47241 [Programs Widget Home] 🔍 Loading folders...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47243 [Programs Widget Home] 📦 localStorage data: null
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47257 [Programs Widget Home] ⚠️ No data in localStorage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47264 [Programs Widget Home] ℹ️ No folders in any storage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:10245 [PageTracking] 📄 Viewing: Dashboard
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69589 [Role Dashboard] ✅ Loading announcements from localStorage for role: sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69595 [Role Dashboard] ✅ Raw announcements loaded: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69599 [Role Dashboard] ✅ Filtered announcements for role: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69606 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12460 [Van Calendar Widget] ✅ Stats loaded: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88679 ✅ [App] UserData refreshed from localStorage: SALMA RAJAB
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88726 🔍 User Authentication Check: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12436 [Van Calendar Widget] 🔍 Loading stats for HQ...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47241 [Programs Widget Home] 🔍 Loading folders...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47243 [Programs Widget Home] 📦 localStorage data: null
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47257 [Programs Widget Home] ⚠️ No data in localStorage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47264 [Programs Widget Home] ℹ️ No folders in any storage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:10245 [PageTracking] 📄 Viewing: Dashboard
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69589 [Role Dashboard] ✅ Loading announcements from localStorage for role: sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12460 [Van Calendar Widget] ✅ Stats loaded: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88679 ✅ [App] UserData refreshed from localStorage: SALMA RAJAB
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88726 🔍 User Authentication Check: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12436 [Van Calendar Widget] 🔍 Loading stats for HQ...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47241 [Programs Widget Home] 🔍 Loading folders...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47243 [Programs Widget Home] 📦 localStorage data: null
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47257 [Programs Widget Home] ⚠️ No data in localStorage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47264 [Programs Widget Home] ℹ️ No folders in any storage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:10245 [PageTracking] 📄 Viewing: Dashboard
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69589 [Role Dashboard] ✅ Loading announcements from localStorage for role: sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12460 [Van Calendar Widget] ✅ Stats loaded: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88679 ✅ [App] UserData refreshed from localStorage: SALMA RAJAB
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88726 🔍 User Authentication Check: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12436 [Van Calendar Widget] 🔍 Loading stats for HQ...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47241 [Programs Widget Home] 🔍 Loading folders...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47243 [Programs Widget Home] 📦 localStorage data: null
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47257 [Programs Widget Home] ⚠️ No data in localStorage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47264 [Programs Widget Home] ℹ️ No folders in any storage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:10245 [PageTracking] 📄 Viewing: Dashboard
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69589 [Role Dashboard] ✅ Loading announcements from localStorage for role: sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12460 [Van Calendar Widget] ✅ Stats loaded: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69595 [Role Dashboard] ✅ Raw announcements loaded: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69599 [Role Dashboard] ✅ Filtered announcements for role: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69606 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88679 ✅ [App] UserData refreshed from localStorage: SALMA RAJAB
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88726 🔍 User Authentication Check: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12436 [Van Calendar Widget] 🔍 Loading stats for HQ...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47241 [Programs Widget Home] 🔍 Loading folders...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47243 [Programs Widget Home] 📦 localStorage data: null
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47257 [Programs Widget Home] ⚠️ No data in localStorage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47264 [Programs Widget Home] ℹ️ No folders in any storage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:10245 [PageTracking] 📄 Viewing: Dashboard
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69589 [Role Dashboard] ✅ Loading announcements from localStorage for role: sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12460 [Van Calendar Widget] ✅ Stats loaded: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88679 ✅ [App] UserData refreshed from localStorage: SALMA RAJAB
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88726 🔍 User Authentication Check: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12436 [Van Calendar Widget] 🔍 Loading stats for HQ...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47241 [Programs Widget Home] 🔍 Loading folders...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47243 [Programs Widget Home] 📦 localStorage data: null
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47257 [Programs Widget Home] ⚠️ No data in localStorage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47264 [Programs Widget Home] ℹ️ No folders in any storage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:10245 [PageTracking] 📄 Viewing: Dashboard
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69589 [Role Dashboard] ✅ Loading announcements from localStorage for role: sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12460 [Van Calendar Widget] ✅ Stats loaded: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88679 ✅ [App] UserData refreshed from localStorage: SALMA RAJAB
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88726 🔍 User Authentication Check: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12436 [Van Calendar Widget] 🔍 Loading stats for HQ...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47241 [Programs Widget Home] 🔍 Loading folders...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47243 [Programs Widget Home] 📦 localStorage data: null
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47257 [Programs Widget Home] ⚠️ No data in localStorage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47264 [Programs Widget Home] ℹ️ No folders in any storage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:10245 [PageTracking] 📄 Viewing: Dashboard
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69589 [Role Dashboard] ✅ Loading announcements from localStorage for role: sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69595 [Role Dashboard] ✅ Raw announcements loaded: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69599 [Role Dashboard] ✅ Filtered announcements for role: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69606 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12460 [Van Calendar Widget] ✅ Stats loaded: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88679 ✅ [App] UserData refreshed from localStorage: SALMA RAJAB
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:88726 🔍 User Authentication Check: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12436 [Van Calendar Widget] 🔍 Loading stats for HQ...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47241 [Programs Widget Home] 🔍 Loading folders...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47243 [Programs Widget Home] 📦 localStorage data: null
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47257 [Programs Widget Home] ⚠️ No data in localStorage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47264 [Programs Widget Home] ℹ️ No folders in any storage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:10245 [PageTracking] 📄 Viewing: Dashboard
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69589 [Role Dashboard] ✅ Loading announcements from localStorage for role: sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12460 [Van Calendar Widget] ✅ Stats loaded: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69595 [Role Dashboard] ✅ Raw announcements loaded: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69599 [Role Dashboard] ✅ Filtered announcements for role: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69606 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47295 [Programs Widget Home] 📁 Organized Programs: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69595 [Role Dashboard] ✅ Raw announcements loaded: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69599 [Role Dashboard] ✅ Filtered announcements for role: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69606 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69595 [Role Dashboard] ✅ Raw announcements loaded: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69599 [Role Dashboard] ✅ Filtered announcements for role: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69606 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69595 [Role Dashboard] ✅ Raw announcements loaded: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69599 [Role Dashboard] ✅ Filtered announcements for role: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69606 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69595 [Role Dashboard] ✅ Raw announcements loaded: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69599 [Role Dashboard] ✅ Filtered announcements for role: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69606 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69595 [Role Dashboard] ✅ Raw announcements loaded: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69599 [Role Dashboard] ✅ Filtered announcements for role: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69606 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69595 [Role Dashboard] ✅ Raw announcements loaded: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69599 [Role Dashboard] ✅ Filtered announcements for role: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69606 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69595 [Role Dashboard] ✅ Raw announcements loaded: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69599 [Role Dashboard] ✅ Filtered announcements for role: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69606 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69595 [Role Dashboard] ✅ Raw announcements loaded: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69599 [Role Dashboard] ✅ Filtered announcements for role: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69606 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69595 [Role Dashboard] ✅ Raw announcements loaded: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69599 [Role Dashboard] ✅ Filtered announcements for role: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69606 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69595 [Role Dashboard] ✅ Raw announcements loaded: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69599 [Role Dashboard] ✅ Filtered announcements for role: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69606 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69595 [Role Dashboard] ✅ Raw announcements loaded: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69599 [Role Dashboard] ✅ Filtered announcements for role: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69606 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69595 [Role Dashboard] ✅ Raw announcements loaded: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69599 [Role Dashboard] ✅ Filtered announcements for role: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69606 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69595 [Role Dashboard] ✅ Raw announcements loaded: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69599 [Role Dashboard] ✅ Filtered announcements for role: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69606 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69595 [Role Dashboard] ✅ Raw announcements loaded: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69599 [Role Dashboard] ✅ Filtered announcements for role: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69606 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69595 [Role Dashboard] ✅ Raw announcements loaded: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69599 [Role Dashboard] ✅ Filtered announcements for role: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:69606 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47295 [Programs Widget Home] 📁 Organized Programs: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47307 [Programs Widget Home] 🎯 Program clicked: MARKET OUTREACH -PARTNER VANS  c6d45122-af9c-4a0e-ab2a-91deec13dae8
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46407 [Programs] Loading programs for user: sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46427 [Programs] Fetching programs for role: sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46429 [Programs] Searching for programs with target_roles containing: Array(5)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46353 [Programs Dashboard] 🔍 Loading folders from localStorage...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46355 [Programs Dashboard] 📦 Raw localStorage data: null
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46369 [Programs Dashboard] ℹ️ No folders found in localStorage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46345 [Programs Dashboard] ✅ Van Calendar enabled: true
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46437 [Programs] 📊 Total active programs in database: 7
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46440 [Programs] Program "MARKET OUTREACH -PARTNER VANS " has target_roles: Array(5)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46446 [Programs] ✅ "MARKET OUTREACH -PARTNER VANS " matches role sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46440 [Programs] Program "NEW SITE CHECK IN " has target_roles: Array(5)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46446 [Programs] ✅ "NEW SITE CHECK IN " matches role sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46440 [Programs] Program "SSO CLASSIFICATION" has target_roles: Array(3)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46446 [Programs] ✅ "SSO CLASSIFICATION" matches role sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46440 [Programs] Program "🚐 Van Weekly Calendar" has target_roles: Array(5)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46446 [Programs] ✅ "🚐 Van Weekly Calendar" matches role sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46440 [Programs] Program "MINI ROAD SHOW -CHECK OUT " has target_roles: Array(5)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46446 [Programs] ✅ "MINI ROAD SHOW -CHECK OUT " matches role sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46440 [Programs] Program "MINI ROAD SHOW -CHECK IN " has target_roles: Array(5)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46446 [Programs] ✅ "MINI ROAD SHOW -CHECK IN " matches role sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46440 [Programs] Program "AMB REVALIDATION" has target_roles: Array(5)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46446 [Programs] ✅ "AMB REVALIDATION" matches role sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46448 [Programs] ✅ Loaded programs for sales_executive : 7
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 0 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43029 [ProgramSubmitModal] ✅ Modal opened for user: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43057 [Shops] 🔄 Fetching ALL shops from database (paginated)...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43063 [Shops] 📦 Fetching batch 1 (rows 0-999)...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43088 [ProgramSubmitModal] Loading fields for program: c6d45122-af9c-4a0e-ab2a-91deec13dae8
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43194 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: false
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 0 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43194 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: true
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43218 [GPS] Browser geolocation error: User denied Geolocation
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 0 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43039 [ProgramSubmitModal] 📍 User zone from DB: NAIROBI METROPOLITAN
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 0 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43092 [ProgramSubmitModal] ✅ Loaded 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43092 [ProgramSubmitModal] 🔍 Fields data: [
+  {
+    "id": "b5495e00-7ed8-4df7-ae30-451016e01872",
+    "program_id": "c6d45122-af9c-4a0e-ab2a-91deec13dae8",
+    "field_name": "partner_name",
+    "field_label": "PARTNER NAME",
+    "field_type": "dropdown",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "database_source": {
+        "table": "Partner_vans",
+        "multi_select": false,
+        "display_field": "Partner Name",
+        "metadata_fields": [
+          "Van capacity",
+          "ZSM",
+          "Zone",
+          "Category"
+        ],
+        "repeatable_dropdown": false
+      },
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 0,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-04T13:41:25.031486+00:00"
+  },
+  {
+    "id": "1df83938-bc25-4eb1-9c96-5ac32382d936",
+    "program_id": "c6d45122-af9c-4a0e-ab2a-91deec13dae8",
+    "field_name": "van_registration_number_",
+    "field_label": "VAN REGISTRATION NUMBER ",
+    "field_type": "text",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": null,
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 1,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-04T13:41:25.031486+00:00"
+  },
+  {
+    "id": "c1687af9-080e-4655-bba0-3e58c551db06",
+    "program_id": "c6d45122-af9c-4a0e-ab2a-91deec13dae8",
+    "field_name": "van_capacity",
+    "field_label": "VAN CAPACITY",
+    "field_type": "radio",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "options": [
+        "10 SEATER",
+        "14 SEATER",
+        "25 SEATER"
+      ],
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 2,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-04T13:41:25.031486+00:00"
+  },
+  {
+    "id": "00816836-15aa-40a7-8b62-d272891f82eb",
+    "program_id": "c6d45122-af9c-4a0e-ab2a-91deec13dae8",
+    "field_name": "site_for_the_day",
+    "field_label": "SITE FOR THE DAY",
+    "field_type": "dropdown",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "database_source": {
+        "table": "sitewise_lat_long",
+        "multi_select": false,
+        "display_field": "SITE",
+        "metadata_fields": [
+          "SITE ID",
+          "WARDS",
+          "TOWN",
+          "SUB-COUNTY",
+          "TOWN CATEGORY",
+          "COUNTY",
+          "RURAL/URBAN CLASSIFICATION"
+        ],
+        "repeatable_dropdown": false
+      },
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 3,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-04T13:41:25.031486+00:00"
+  },
+  {
+    "id": "ae15dea3-3277-465a-b733-cbe39a81b76b",
+    "program_id": "c6d45122-af9c-4a0e-ab2a-91deec13dae8",
+    "field_name": "promoter_msisdn",
+    "field_label": "PROMOTER MSISDN",
+    "field_type": "repeatable_number",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "entry_label": "Promoter MSISDN",
+      "min_entries": 1,
+      "check_database": true,
+      "prevent_duplicates": true,
+      "remove_leading_zero": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 4,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-04T13:41:25.031486+00:00"
+  }
+]
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43097 [ProgramSubmitModal] Loading already-submitted values for 1 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43144 [DatabaseDropdown] 🔍 Checking fields: Array(5)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43159 [DatabaseDropdown] 🔄 Loading data for 2 database dropdown/multi-select field(s)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43159 [DatabaseDropdown] 🔒 Zone filtering: DISABLED | User zone: NAIROBI METROPOLITAN
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43162 [DatabaseDropdown] Loading from table: Partner_vans
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43167 [DatabaseDropdown] 📦 Fetching first batch from Partner_vans (max 1000 rows)...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43069 [Shops] ✅ Batch 1: 1000 shops (Total so far: 1000)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43063 [Shops] 📦 Fetching batch 2 (rows 1000-1999)...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43106 [ProgramSubmitModal] Field "PROMOTER MSISDN" has 0 already-submitted values
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 0 options for SITE FOR THE DAY (serverSearch: undefined, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43182 [DatabaseDropdown] ✅ Loaded all 28 rows from "Partner_vans" (client-side search)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43162 [DatabaseDropdown] Loading from table: sitewise_lat_long
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43167 [DatabaseDropdown] 📦 Fetching first batch from sitewise_lat_long (max 1000 rows)...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 28 options for PARTNER NAME (serverSearch: undefined, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43069 [Shops] ✅ Batch 2: 1000 shops (Total so far: 2000)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43063 [Shops] 📦 Fetching batch 3 (rows 2000-2999)...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43069 [Shops] ✅ Batch 3: 674 shops (Total so far: 2674)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43071 [Shops] ✅ Total loaded from database: 2674 shops
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43076 [Shops] ✅ Lookup map created with 2651 entries
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43076 [Shops] ✅ shopsLoaded flag set to true - component should re-render
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 28 options for PARTNER NAME (serverSearch: undefined, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43194 [ProgramSubmitModal] 🔄 Shops state updated: 2674 shops | shopsLoaded: true | loadingShops: false
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43194 [ProgramSubmitModal] ✅ Component should now show search dropdown instead of radio buttons
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43182 [DatabaseDropdown] 🚀 "sitewise_lat_long" has 1000+ rows → server-side search enabled
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 28 options for PARTNER NAME (serverSearch: undefined, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for SITE FOR THE DAY (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43957 [Dropdown] 🔍 Search input focused - opening dropdown
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 28 options for PARTNER NAME (serverSearch: undefined, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for SITE FOR THE DAY (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43998 [Shop Dropdown] 📱 Backdrop clicked - closing dropdown
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 28 options for PARTNER NAME (serverSearch: undefined, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for SITE FOR THE DAY (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43957 [Dropdown] 🔍 Search input focused - opening dropdown
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 28 options for PARTNER NAME (serverSearch: undefined, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for SITE FOR THE DAY (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43952 [Dropdown] ⌨️ Input changed: g
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 28 options for PARTNER NAME (serverSearch: undefined, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for SITE FOR THE DAY (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43952 [Dropdown] ⌨️ Input changed: gf
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 28 options for PARTNER NAME (serverSearch: undefined, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 0 options for SITE FOR THE DAY (serverSearch: true, hasTyped: true)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43124 [ServerSearch] 🔍 Raw: "gf" → Normalized: "gf" (isNumeric: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 28 options for PARTNER NAME (serverSearch: undefined, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 0 options for SITE FOR THE DAY (serverSearch: true, hasTyped: true)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43127 [ServerSearch] ✅ "gf" → 1 results from sitewise_lat_long
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 28 options for PARTNER NAME (serverSearch: undefined, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1 options for SITE FOR THE DAY (serverSearch: true, hasTyped: true)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43952 [Dropdown] ⌨️ Input changed: g
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 28 options for PARTNER NAME (serverSearch: undefined, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for SITE FOR THE DAY (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 28 options for PARTNER NAME (serverSearch: undefined, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for SITE FOR THE DAY (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43952 [Dropdown] ⌨️ Input changed: 
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43273 [FieldChange] Setting field 00816836-15aa-40a7-8b62-d272891f82eb to:  (single)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43275 [FieldChange] FormData after update: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 28 options for PARTNER NAME (serverSearch: undefined, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for SITE FOR THE DAY (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 28 options for PARTNER NAME (serverSearch: undefined, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for SITE FOR THE DAY (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:44037 [Shop Dropdown] ✅ DONE button clicked
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 28 options for PARTNER NAME (serverSearch: undefined, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for SITE FOR THE DAY (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 0 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43029 [ProgramSubmitModal] ✅ Modal opened for user: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43057 [Shops] 🔄 Fetching ALL shops from database (paginated)...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43063 [Shops] 📦 Fetching batch 1 (rows 0-999)...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43088 [ProgramSubmitModal] Loading fields for program: c6d45122-af9c-4a0e-ab2a-91deec13dae8
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43194 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: false
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 0 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43194 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: true
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43218 [GPS] Browser geolocation error: User denied Geolocation
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 0 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43092 [ProgramSubmitModal] ✅ Loaded 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43092 [ProgramSubmitModal] 🔍 Fields data: [
+  {
+    "id": "6c710f3b-cf1c-489d-b5c3-1c20364d8462",
+    "program_id": "c6d45122-af9c-4a0e-ab2a-91deec13dae8",
+    "field_name": "partner_name",
+    "field_label": "PARTNER NAME",
+    "field_type": "dropdown",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "database_source": {
+        "table": "amb_shops",
+        "multi_select": false,
+        "display_field": "partner_name",
+        "metadata_fields": [
+          "shop_code",
+          "fp_code",
+          "usdm_name",
+          "zsm"
+        ],
+        "repeatable_dropdown": false
+      },
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 0,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-05T04:49:23.254754+00:00"
+  },
+  {
+    "id": "56599013-a157-4e3f-90f1-640ca09d0c59",
+    "program_id": "c6d45122-af9c-4a0e-ab2a-91deec13dae8",
+    "field_name": "van_registration_number_",
+    "field_label": "VAN REGISTRATION NUMBER ",
+    "field_type": "text",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": null,
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 1,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-05T04:49:23.254754+00:00"
+  },
+  {
+    "id": "e03f7f23-9fbe-414f-a5e5-1a48831dff92",
+    "program_id": "c6d45122-af9c-4a0e-ab2a-91deec13dae8",
+    "field_name": "van_capacity",
+    "field_label": "VAN CAPACITY",
+    "field_type": "radio",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "options": [
+        "10 SEATER",
+        "14 SEATER",
+        "25 SEATER"
+      ],
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 2,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-05T04:49:23.254754+00:00"
+  },
+  {
+    "id": "019e0be7-8f19-4a56-a0c8-c3abf5caee10",
+    "program_id": "c6d45122-af9c-4a0e-ab2a-91deec13dae8",
+    "field_name": "site_for_the_day",
+    "field_label": "SITE FOR THE DAY",
+    "field_type": "dropdown",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "database_source": {
+        "table": "sitewise_lat_long",
+        "multi_select": false,
+        "display_field": "SITE",
+        "metadata_fields": [
+          "SITE ID",
+          "WARDS",
+          "TOWN",
+          "SUB-COUNTY",
+          "TOWN CATEGORY",
+          "COUNTY",
+          "RURAL/URBAN CLASSIFICATION"
+        ],
+        "repeatable_dropdown": false
+      },
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 3,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-05T04:49:23.254754+00:00"
+  },
+  {
+    "id": "1bdb7e31-191d-4af9-8ef2-6b1837e52ddd",
+    "program_id": "c6d45122-af9c-4a0e-ab2a-91deec13dae8",
+    "field_name": "promoter_msisdn",
+    "field_label": "PROMOTER MSISDN",
+    "field_type": "repeatable_number",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "entry_label": "Promoter MSISDN",
+      "min_entries": 1,
+      "check_database": true,
+      "prevent_duplicates": true,
+      "remove_leading_zero": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 4,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-05T04:49:23.254754+00:00"
+  }
+]
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43097 [ProgramSubmitModal] Loading already-submitted values for 1 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43144 [DatabaseDropdown] 🔍 Checking fields: Array(5)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43159 [DatabaseDropdown] 🔄 Loading data for 2 database dropdown/multi-select field(s)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43159 [DatabaseDropdown] 🔒 Zone filtering: DISABLED | User zone: NAIROBI METROPOLITAN
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43162 [DatabaseDropdown] Loading from table: amb_shops
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43167 [DatabaseDropdown] 📦 Fetching first batch from amb_shops (max 1000 rows)...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43039 [ProgramSubmitModal] 📍 User zone from DB: NAIROBI METROPOLITAN
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43106 [ProgramSubmitModal] Field "PROMOTER MSISDN" has 0 already-submitted values
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 0 options for SITE FOR THE DAY (serverSearch: undefined, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43069 [Shops] ✅ Batch 1: 1000 shops (Total so far: 1000)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43063 [Shops] 📦 Fetching batch 2 (rows 1000-1999)...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43182 [DatabaseDropdown] 🚀 "amb_shops" has 1000+ rows → server-side search enabled
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43162 [DatabaseDropdown] Loading from table: sitewise_lat_long
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43167 [DatabaseDropdown] 📦 Fetching first batch from sitewise_lat_long (max 1000 rows)...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for PARTNER NAME (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43069 [Shops] ✅ Batch 2: 1000 shops (Total so far: 2000)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43063 [Shops] 📦 Fetching batch 3 (rows 2000-2999)...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43069 [Shops] ✅ Batch 3: 674 shops (Total so far: 2674)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43071 [Shops] ✅ Total loaded from database: 2674 shops
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43076 [Shops] ✅ Lookup map created with 2651 entries
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43076 [Shops] ✅ shopsLoaded flag set to true - component should re-render
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for PARTNER NAME (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43194 [ProgramSubmitModal] 🔄 Shops state updated: 2674 shops | shopsLoaded: true | loadingShops: false
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43194 [ProgramSubmitModal] ✅ Component should now show search dropdown instead of radio buttons
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43182 [DatabaseDropdown] 🚀 "sitewise_lat_long" has 1000+ rows → server-side search enabled
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for PARTNER NAME (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for SITE FOR THE DAY (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43957 [Dropdown] 🔍 Search input focused - opening dropdown
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for PARTNER NAME (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for SITE FOR THE DAY (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43998 [Shop Dropdown] 📱 Backdrop clicked - closing dropdown
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for PARTNER NAME (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for SITE FOR THE DAY (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43957 [Dropdown] 🔍 Search input focused - opening dropdown
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for PARTNER NAME (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for SITE FOR THE DAY (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43998 [Shop Dropdown] 📱 Backdrop clicked - closing dropdown
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for PARTNER NAME (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for SITE FOR THE DAY (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 0 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43029 [ProgramSubmitModal] ✅ Modal opened for user: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43057 [Shops] 🔄 Fetching ALL shops from database (paginated)...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43063 [Shops] 📦 Fetching batch 1 (rows 0-999)...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43088 [ProgramSubmitModal] Loading fields for program: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43194 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: false
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 0 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43194 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: true
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43218 [GPS] Browser geolocation error: User denied Geolocation
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 0 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43039 [ProgramSubmitModal] 📍 User zone from DB: NAIROBI METROPOLITAN
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 0 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43092 [ProgramSubmitModal] ✅ Loaded 2 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43092 [ProgramSubmitModal] 🔍 Fields data: [
+  {
+    "id": "d2ba181c-3d79-487e-83f9-b17ce2cd816b",
+    "program_id": "9ae93739-a58e-4c60-8d18-3ef7e15e6f87",
+    "field_name": "retailer_msisdn",
+    "field_label": "RETAILER MSISDN",
+    "field_type": "dropdown",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "database_source": {
+        "table": "retailer_dump_full",
+        "multi_select": false,
+        "display_field": "RETAILER_MSISDN",
+        "metadata_fields": [
+          "Jan-26",
+          "Dec-25",
+          "MTD_GA",
+          "RETAILER_FIRST_NAME",
+          "RETAILER_LAST_NAME",
+          "TSE/SE",
+          "ZSM",
+          "ZONE"
+        ],
+        "repeatable_dropdown": false
+      },
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 0,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-04T10:02:03.39933+00:00"
+  },
+  {
+    "id": "c15fb392-3eeb-4548-b4ba-d92e75029e7a",
+    "program_id": "9ae93739-a58e-4c60-8d18-3ef7e15e6f87",
+    "field_name": "msisdn_category_",
+    "field_label": "MSISDN CATEGORY ",
+    "field_type": "radio",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "options": [
+        "Mobile Promoter",
+        "Fixed/Resident Promoter (Parasol Promoter)",
+        "Brick & Mortar Outlet"
+      ],
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 1,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-04T10:02:03.39933+00:00"
+  }
+]
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 0 options for RETAILER MSISDN (serverSearch: undefined, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43144 [DatabaseDropdown] 🔍 Checking fields: Array(2)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43159 [DatabaseDropdown] 🔄 Loading data for 1 database dropdown/multi-select field(s)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43159 [DatabaseDropdown] 🔒 Zone filtering: DISABLED | User zone: NAIROBI METROPOLITAN
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43162 [DatabaseDropdown] Loading from table: retailer_dump_full
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43167 [DatabaseDropdown] 📦 Fetching first batch from retailer_dump_full (max 1000 rows)...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43069 [Shops] ✅ Batch 1: 1000 shops (Total so far: 1000)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43063 [Shops] 📦 Fetching batch 2 (rows 1000-1999)...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43069 [Shops] ✅ Batch 2: 1000 shops (Total so far: 2000)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43063 [Shops] 📦 Fetching batch 3 (rows 2000-2999)...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43182 [DatabaseDropdown] 🚀 "retailer_dump_full" has 1000+ rows → server-side search enabled
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for RETAILER MSISDN (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43069 [Shops] ✅ Batch 3: 674 shops (Total so far: 2674)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43071 [Shops] ✅ Total loaded from database: 2674 shops
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43076 [Shops] ✅ Lookup map created with 2651 entries
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43076 [Shops] ✅ shopsLoaded flag set to true - component should re-render
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for RETAILER MSISDN (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43194 [ProgramSubmitModal] 🔄 Shops state updated: 2674 shops | shopsLoaded: true | loadingShops: false
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43194 [ProgramSubmitModal] ✅ Component should now show search dropdown instead of radio buttons
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43957 [Dropdown] 🔍 Search input focused - opening dropdown
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for RETAILER MSISDN (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43952 [Dropdown] ⌨️ Input changed: 105383313
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 0 options for RETAILER MSISDN (serverSearch: true, hasTyped: true)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43124 [ServerSearch] 🔍 Raw: "105383313" → Normalized: "105383313" (isNumeric: true)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 0 options for RETAILER MSISDN (serverSearch: true, hasTyped: true)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43127 [ServerSearch] ✅ "105383313" → 0 results from retailer_dump_full
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 0 options for RETAILER MSISDN (serverSearch: true, hasTyped: true)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43957 [Dropdown] 🔍 Search input focused - opening dropdown
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 0 options for RETAILER MSISDN (serverSearch: true, hasTyped: true)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 0 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43029 [ProgramSubmitModal] ✅ Modal opened for user: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43057 [Shops] 🔄 Fetching ALL shops from database (paginated)...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43063 [Shops] 📦 Fetching batch 1 (rows 0-999)...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43088 [ProgramSubmitModal] Loading fields for program: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43194 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: false
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 0 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43194 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: true
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43218 [GPS] Browser geolocation error: User denied Geolocation
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 0 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43039 [ProgramSubmitModal] 📍 User zone from DB: NAIROBI METROPOLITAN
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 0 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43092 [ProgramSubmitModal] ✅ Loaded 2 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43092 [ProgramSubmitModal] 🔍 Fields data: [
+  {
+    "id": "d2ba181c-3d79-487e-83f9-b17ce2cd816b",
+    "program_id": "9ae93739-a58e-4c60-8d18-3ef7e15e6f87",
+    "field_name": "retailer_msisdn",
+    "field_label": "RETAILER MSISDN",
+    "field_type": "dropdown",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "database_source": {
+        "table": "retailer_dump_full",
+        "multi_select": false,
+        "display_field": "RETAILER_MSISDN",
+        "metadata_fields": [
+          "Jan-26",
+          "Dec-25",
+          "MTD_GA",
+          "RETAILER_FIRST_NAME",
+          "RETAILER_LAST_NAME",
+          "TSE/SE",
+          "ZSM",
+          "ZONE"
+        ],
+        "repeatable_dropdown": false
+      },
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 0,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-04T10:02:03.39933+00:00"
+  },
+  {
+    "id": "c15fb392-3eeb-4548-b4ba-d92e75029e7a",
+    "program_id": "9ae93739-a58e-4c60-8d18-3ef7e15e6f87",
+    "field_name": "msisdn_category_",
+    "field_label": "MSISDN CATEGORY ",
+    "field_type": "radio",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "options": [
+        "Mobile Promoter",
+        "Fixed/Resident Promoter (Parasol Promoter)",
+        "Brick & Mortar Outlet"
+      ],
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 1,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-04T10:02:03.39933+00:00"
+  }
+]
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 0 options for RETAILER MSISDN (serverSearch: undefined, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43144 [DatabaseDropdown] 🔍 Checking fields: Array(2)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43159 [DatabaseDropdown] 🔄 Loading data for 1 database dropdown/multi-select field(s)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43159 [DatabaseDropdown] 🔒 Zone filtering: DISABLED | User zone: NAIROBI METROPOLITAN
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43162 [DatabaseDropdown] Loading from table: retailer_dump_full
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43167 [DatabaseDropdown] 📦 Fetching first batch from retailer_dump_full (max 1000 rows)...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43069 [Shops] ✅ Batch 1: 1000 shops (Total so far: 1000)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43063 [Shops] 📦 Fetching batch 2 (rows 1000-1999)...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43182 [DatabaseDropdown] 🚀 "retailer_dump_full" has 1000+ rows → server-side search enabled
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for RETAILER MSISDN (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43069 [Shops] ✅ Batch 2: 1000 shops (Total so far: 2000)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43063 [Shops] 📦 Fetching batch 3 (rows 2000-2999)...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43069 [Shops] ✅ Batch 3: 674 shops (Total so far: 2674)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43071 [Shops] ✅ Total loaded from database: 2674 shops
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43076 [Shops] ✅ Lookup map created with 2651 entries
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43076 [Shops] ✅ shopsLoaded flag set to true - component should re-render
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for RETAILER MSISDN (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43194 [ProgramSubmitModal] 🔄 Shops state updated: 2674 shops | shopsLoaded: true | loadingShops: false
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43194 [ProgramSubmitModal] ✅ Component should now show search dropdown instead of radio buttons
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43957 [Dropdown] 🔍 Search input focused - opening dropdown
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for RETAILER MSISDN (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43952 [Dropdown] ⌨️ Input changed: 754929381
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 0 options for RETAILER MSISDN (serverSearch: true, hasTyped: true)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43124 [ServerSearch] 🔍 Raw: "754929381" → Normalized: "754929381" (isNumeric: true)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 0 options for RETAILER MSISDN (serverSearch: true, hasTyped: true)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43127 [ServerSearch] ✅ "754929381" → 0 results from retailer_dump_full
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 0 options for RETAILER MSISDN (serverSearch: true, hasTyped: true)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 0 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43029 [ProgramSubmitModal] ✅ Modal opened for user: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43057 [Shops] 🔄 Fetching ALL shops from database (paginated)...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43063 [Shops] 📦 Fetching batch 1 (rows 0-999)...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43088 [ProgramSubmitModal] Loading fields for program: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43194 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: false
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 0 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43194 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: true
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43218 [GPS] Browser geolocation error: User denied Geolocation
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 0 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43039 [ProgramSubmitModal] 📍 User zone from DB: NAIROBI METROPOLITAN
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 0 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43092 [ProgramSubmitModal] ✅ Loaded 2 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43092 [ProgramSubmitModal] 🔍 Fields data: [
+  {
+    "id": "d2ba181c-3d79-487e-83f9-b17ce2cd816b",
+    "program_id": "9ae93739-a58e-4c60-8d18-3ef7e15e6f87",
+    "field_name": "retailer_msisdn",
+    "field_label": "RETAILER MSISDN",
+    "field_type": "dropdown",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "database_source": {
+        "table": "retailer_dump_full",
+        "multi_select": false,
+        "display_field": "RETAILER_MSISDN",
+        "metadata_fields": [
+          "Jan-26",
+          "Dec-25",
+          "MTD_GA",
+          "RETAILER_FIRST_NAME",
+          "RETAILER_LAST_NAME",
+          "TSE/SE",
+          "ZSM",
+          "ZONE"
+        ],
+        "repeatable_dropdown": false
+      },
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 0,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-04T10:02:03.39933+00:00"
+  },
+  {
+    "id": "c15fb392-3eeb-4548-b4ba-d92e75029e7a",
+    "program_id": "9ae93739-a58e-4c60-8d18-3ef7e15e6f87",
+    "field_name": "msisdn_category_",
+    "field_label": "MSISDN CATEGORY ",
+    "field_type": "radio",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "options": [
+        "Mobile Promoter",
+        "Fixed/Resident Promoter (Parasol Promoter)",
+        "Brick & Mortar Outlet"
+      ],
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 1,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-04T10:02:03.39933+00:00"
+  }
+]
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 0 options for RETAILER MSISDN (serverSearch: undefined, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43144 [DatabaseDropdown] 🔍 Checking fields: Array(2)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43159 [DatabaseDropdown] 🔄 Loading data for 1 database dropdown/multi-select field(s)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43159 [DatabaseDropdown] 🔒 Zone filtering: DISABLED | User zone: NAIROBI METROPOLITAN
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43162 [DatabaseDropdown] Loading from table: retailer_dump_full
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43167 [DatabaseDropdown] 📦 Fetching first batch from retailer_dump_full (max 1000 rows)...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43069 [Shops] ✅ Batch 1: 1000 shops (Total so far: 1000)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43063 [Shops] 📦 Fetching batch 2 (rows 1000-1999)...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43069 [Shops] ✅ Batch 2: 1000 shops (Total so far: 2000)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43063 [Shops] 📦 Fetching batch 3 (rows 2000-2999)...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43182 [DatabaseDropdown] 🚀 "retailer_dump_full" has 1000+ rows → server-side search enabled
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for RETAILER MSISDN (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43069 [Shops] ✅ Batch 3: 674 shops (Total so far: 2674)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43071 [Shops] ✅ Total loaded from database: 2674 shops
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43076 [Shops] ✅ Lookup map created with 2651 entries
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43076 [Shops] ✅ shopsLoaded flag set to true - component should re-render
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for RETAILER MSISDN (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43194 [ProgramSubmitModal] 🔄 Shops state updated: 2674 shops | shopsLoaded: true | loadingShops: false
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43194 [ProgramSubmitModal] ✅ Component should now show search dropdown instead of radio buttons
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43957 [Dropdown] 🔍 Search input focused - opening dropdown
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for RETAILER MSISDN (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43952 [Dropdown] ⌨️ Input changed: 5
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for RETAILER MSISDN (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for RETAILER MSISDN (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43952 [Dropdown] ⌨️ Input changed: 
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43273 [FieldChange] Setting field d2ba181c-3d79-487e-83f9-b17ce2cd816b to:  (single)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43275 [FieldChange] FormData after update: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for RETAILER MSISDN (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for RETAILER MSISDN (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43957 [Dropdown] 🔍 Search input focused - opening dropdown
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for RETAILER MSISDN (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:44037 [Shop Dropdown] ✅ DONE button clicked
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: SSO CLASSIFICATION with 2 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for RETAILER MSISDN (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12436 [Van Calendar Widget] 🔍 Loading stats for HQ...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47241 [Programs Widget Home] 🔍 Loading folders...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47243 [Programs Widget Home] 📦 localStorage data: null
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47257 [Programs Widget Home] ⚠️ No data in localStorage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47264 [Programs Widget Home] ℹ️ No folders in any storage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47295 [Programs Widget Home] 📁 Organized Programs: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:12460 [Van Calendar Widget] ✅ Stats loaded: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:47307 [Programs Widget Home] 🎯 Program clicked: MARKET OUTREACH -PARTNER VANS  c6d45122-af9c-4a0e-ab2a-91deec13dae8
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46407 [Programs] Loading programs for user: sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46427 [Programs] Fetching programs for role: sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46429 [Programs] Searching for programs with target_roles containing: Array(5)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46353 [Programs Dashboard] 🔍 Loading folders from localStorage...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46355 [Programs Dashboard] 📦 Raw localStorage data: null
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46369 [Programs Dashboard] ℹ️ No folders found in localStorage
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46345 [Programs Dashboard] ✅ Van Calendar enabled: true
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46437 [Programs] 📊 Total active programs in database: 7
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46440 [Programs] Program "MARKET OUTREACH -PARTNER VANS " has target_roles: Array(5)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46446 [Programs] ✅ "MARKET OUTREACH -PARTNER VANS " matches role sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46440 [Programs] Program "NEW SITE CHECK IN " has target_roles: Array(5)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46446 [Programs] ✅ "NEW SITE CHECK IN " matches role sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46440 [Programs] Program "SSO CLASSIFICATION" has target_roles: Array(3)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46446 [Programs] ✅ "SSO CLASSIFICATION" matches role sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46440 [Programs] Program "🚐 Van Weekly Calendar" has target_roles: Array(5)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46446 [Programs] ✅ "🚐 Van Weekly Calendar" matches role sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46440 [Programs] Program "MINI ROAD SHOW -CHECK OUT " has target_roles: Array(5)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46446 [Programs] ✅ "MINI ROAD SHOW -CHECK OUT " matches role sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46440 [Programs] Program "MINI ROAD SHOW -CHECK IN " has target_roles: Array(5)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46446 [Programs] ✅ "MINI ROAD SHOW -CHECK IN " matches role sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46440 [Programs] Program "AMB REVALIDATION" has target_roles: Array(5)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46446 [Programs] ✅ "AMB REVALIDATION" matches role sales_executive
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:46448 [Programs] ✅ Loaded programs for sales_executive : 7
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 0 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43029 [ProgramSubmitModal] ✅ Modal opened for user: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43057 [Shops] 🔄 Fetching ALL shops from database (paginated)...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43063 [Shops] 📦 Fetching batch 1 (rows 0-999)...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43088 [ProgramSubmitModal] Loading fields for program: c6d45122-af9c-4a0e-ab2a-91deec13dae8
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43194 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: false
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 0 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43194 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: true
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43218 [GPS] Browser geolocation error: User denied Geolocation
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 0 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43039 [ProgramSubmitModal] 📍 User zone from DB: NAIROBI METROPOLITAN
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 0 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43092 [ProgramSubmitModal] ✅ Loaded 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43092 [ProgramSubmitModal] 🔍 Fields data: [
+  {
+    "id": "6c710f3b-cf1c-489d-b5c3-1c20364d8462",
+    "program_id": "c6d45122-af9c-4a0e-ab2a-91deec13dae8",
+    "field_name": "partner_name",
+    "field_label": "PARTNER NAME",
+    "field_type": "dropdown",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "database_source": {
+        "table": "amb_shops",
+        "multi_select": false,
+        "display_field": "partner_name",
+        "metadata_fields": [
+          "shop_code",
+          "fp_code",
+          "usdm_name",
+          "zsm"
+        ],
+        "repeatable_dropdown": false
+      },
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 0,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-05T04:49:23.254754+00:00"
+  },
+  {
+    "id": "56599013-a157-4e3f-90f1-640ca09d0c59",
+    "program_id": "c6d45122-af9c-4a0e-ab2a-91deec13dae8",
+    "field_name": "van_registration_number_",
+    "field_label": "VAN REGISTRATION NUMBER ",
+    "field_type": "text",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": null,
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 1,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-05T04:49:23.254754+00:00"
+  },
+  {
+    "id": "e03f7f23-9fbe-414f-a5e5-1a48831dff92",
+    "program_id": "c6d45122-af9c-4a0e-ab2a-91deec13dae8",
+    "field_name": "van_capacity",
+    "field_label": "VAN CAPACITY",
+    "field_type": "radio",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "options": [
+        "10 SEATER",
+        "14 SEATER",
+        "25 SEATER"
+      ],
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 2,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-05T04:49:23.254754+00:00"
+  },
+  {
+    "id": "019e0be7-8f19-4a56-a0c8-c3abf5caee10",
+    "program_id": "c6d45122-af9c-4a0e-ab2a-91deec13dae8",
+    "field_name": "site_for_the_day",
+    "field_label": "SITE FOR THE DAY",
+    "field_type": "dropdown",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "database_source": {
+        "table": "sitewise_lat_long",
+        "multi_select": false,
+        "display_field": "SITE",
+        "metadata_fields": [
+          "SITE ID",
+          "WARDS",
+          "TOWN",
+          "SUB-COUNTY",
+          "TOWN CATEGORY",
+          "COUNTY",
+          "RURAL/URBAN CLASSIFICATION"
+        ],
+        "repeatable_dropdown": false
+      },
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 3,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-05T04:49:23.254754+00:00"
+  },
+  {
+    "id": "1bdb7e31-191d-4af9-8ef2-6b1837e52ddd",
+    "program_id": "c6d45122-af9c-4a0e-ab2a-91deec13dae8",
+    "field_name": "promoter_msisdn",
+    "field_label": "PROMOTER MSISDN",
+    "field_type": "repeatable_number",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "entry_label": "Promoter MSISDN",
+      "min_entries": 1,
+      "check_database": true,
+      "prevent_duplicates": true,
+      "remove_leading_zero": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 4,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-05T04:49:23.254754+00:00"
+  }
+]
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43097 [ProgramSubmitModal] Loading already-submitted values for 1 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43144 [DatabaseDropdown] 🔍 Checking fields: Array(5)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43159 [DatabaseDropdown] 🔄 Loading data for 2 database dropdown/multi-select field(s)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43159 [DatabaseDropdown] 🔒 Zone filtering: DISABLED | User zone: NAIROBI METROPOLITAN
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43162 [DatabaseDropdown] Loading from table: amb_shops
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43167 [DatabaseDropdown] 📦 Fetching first batch from amb_shops (max 1000 rows)...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43069 [Shops] ✅ Batch 1: 1000 shops (Total so far: 1000)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43063 [Shops] 📦 Fetching batch 2 (rows 1000-1999)...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43106 [ProgramSubmitModal] Field "PROMOTER MSISDN" has 0 already-submitted values
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 0 options for SITE FOR THE DAY (serverSearch: undefined, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43182 [DatabaseDropdown] 🚀 "amb_shops" has 1000+ rows → server-side search enabled
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43162 [DatabaseDropdown] Loading from table: sitewise_lat_long
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43167 [DatabaseDropdown] 📦 Fetching first batch from sitewise_lat_long (max 1000 rows)...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for PARTNER NAME (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43069 [Shops] ✅ Batch 2: 1000 shops (Total so far: 2000)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43063 [Shops] 📦 Fetching batch 3 (rows 2000-2999)...
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43069 [Shops] ✅ Batch 3: 674 shops (Total so far: 2674)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43071 [Shops] ✅ Total loaded from database: 2674 shops
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43076 [Shops] ✅ Lookup map created with 2651 entries
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43076 [Shops] ✅ shopsLoaded flag set to true - component should re-render
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for PARTNER NAME (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43194 [ProgramSubmitModal] 🔄 Shops state updated: 2674 shops | shopsLoaded: true | loadingShops: false
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43194 [ProgramSubmitModal] ✅ Component should now show search dropdown instead of radio buttons
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43182 [DatabaseDropdown] 🚀 "sitewise_lat_long" has 1000+ rows → server-side search enabled
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for PARTNER NAME (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for SITE FOR THE DAY (serverSearch: true, hasTyped: false)
+3584fa11578106ce9e75bcd0089ad32cac99a39609.js:82724 [OfflineManager] 🔄 Network type changed: 3g
+10584fa11578106ce9e75bcd0089ad32cac99a39609.js:82724 [OfflineManager] 🔄 Network type changed: 4g
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43957 [Dropdown] 🔍 Search input focused - opening dropdown
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for PARTNER NAME (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for SITE FOR THE DAY (serverSearch: true, hasTyped: false)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:44071 [Shop Dropdown] 🎯 Option clicked: ABADE LINK LIMITED
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43273 [FieldChange] Setting field 6c710f3b-cf1c-489d-b5c3-1c20364d8462 to: ABADE LINK LIMITED (single)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43280 [FieldChange] Auto-populating from: ABADE LINK LIMITED 
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43325 [AutoPopulate] ��� Database dropdown selection: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43342 [AutoPopulate] ✅ Found selected row: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43352 [AutoPopulate] 📦 Stored metadata for display: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43366 [AutoPopulate] ℹ️ No matching fields found to auto-populate
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43275 [FieldChange] FormData after update: Object
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43193 [ProgramSubmitModal] Program: MARKET OUTREACH -PARTNER VANS  with 5 fields
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 0 options for PARTNER NAME (serverSearch: true, hasTyped: true)
+84fa11578106ce9e75bcd0089ad32cac99a39609.js:43934 [DatabaseDropdown] Generated 1000 options for SITE FOR THE DAY (serverSearch: true, hasTyped: false)
+3584fa11578106ce9e75bcd0089ad32cac99a39609.js:82724 [OfflineManager] 🔄 Network type changed: 3g
+3584fa11578106ce9e75bcd0089ad32cac99a39609.js:82724 [OfflineManager] 🔄 Network type changed: 4g

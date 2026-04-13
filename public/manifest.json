@@ -1,0 +1,79 @@
+{
+  "id": "/",
+  "name": "Airtel Champions",
+  "short_name": "AC Champions",
+  "description": "Sales Intelligence Network for Airtel Kenya Sales Executives",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone"],
+  "orientation": "portrait-primary",
+  "theme_color": "#E60000",
+  "background_color": "#0A0A0A",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["business", "productivity"],
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Leaderboard",
+      "short_name": "Rank",
+      "description": "See your current ranking",
+      "url": "/?tab=leaderboard",
+      "icons": [{ "src": "/icons/shortcut-leaderboard.svg", "sizes": "96x96", "type": "image/svg+xml" }]
+    },
+    {
+      "name": "Programs",
+      "short_name": "Programs",
+      "description": "Submit a new program",
+      "url": "/?tab=programs",
+      "icons": [{ "src": "/icons/shortcut-programs.svg", "sizes": "96x96", "type": "image/svg+xml" }]
+    },
+    {
+      "name": "Social Feed",
+      "short_name": "Feed",
+      "description": "View team activity feed",
+      "url": "/?tab=feed",
+      "icons": [{ "src": "/icons/shortcut-feed.svg", "sizes": "96x96", "type": "image/svg+xml" }]
+    },
+    {
+      "name": "My Profile",
+      "short_name": "Profile",
+      "description": "View your profile and stats",
+      "url": "/?tab=profile",
+      "icons": [{ "src": "/icons/shortcut-profile.svg", "sizes": "96x96", "type": "image/svg+xml" }]
+    }
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "web+airtelac",
+      "url": "/?action=%s"
+    }
+  ],
+  "screenshots": []
+}

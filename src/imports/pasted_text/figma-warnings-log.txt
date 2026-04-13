@@ -1,0 +1,979 @@
+Running frontend commit 71a654e3f7c84371a154bcee0380e86a4f6c3018
+vendor-core-ade2edecaf4781c7.min.js.br:54 Statsig is not ready to log exposures, will retry in 1 seconds
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+A.logExposureCallback @ 3186-5d955a18ed0f9b29.min.js.br:1096
+u @ vendor-core-ade2edecaf4781c7.min.js.br:54
+setTimeout
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+logExposureForFeatureGateCheck @ 3186-5d955a18ed0f9b29.min.js.br:1096
+getFeatureGateFromInitialOptions @ 3186-5d955a18ed0f9b29.min.js.br:1096
+getFeatureGate @ 3186-5d955a18ed0f9b29.min.js.br:1096
+getFeatureGate @ 3186-5d955a18ed0f9b29.min.js.br:1431
+932235 @ figma_app-fb99c62a6754ab3a.min.js.br:420
+i @ runtime~figma_app-d038e0e2bd8510d9.min.js.br:3
+801936 @ figma_app-fb99c62a6754ab3a.min.js.br:41
+i @ runtime~figma_app-d038e0e2bd8510d9.min.js.br:3
+781295 @ figma_app-fb99c62a6754ab3a.min.js.br:418
+i @ runtime~figma_app-d038e0e2bd8510d9.min.js.br:3
+593464 @ figma_app-fb99c62a6754ab3a.min.js.br:4
+i @ runtime~figma_app-d038e0e2bd8510d9.min.js.br:3
+816199 @ 3186-5d955a18ed0f9b29.min.js.br:80
+i @ runtime~figma_app-d038e0e2bd8510d9.min.js.br:3
+881625 @ figma_app-fb99c62a6754ab3a.min.js.br:552
+i @ runtime~figma_app-d038e0e2bd8510d9.min.js.br:3
+28285 @ 1772-8c528df594295803.min.js.br:3
+i @ runtime~figma_app-d038e0e2bd8510d9.min.js.br:3
+344653 @ figma_app-fb99c62a6754ab3a.min.js.br:420
+i @ runtime~figma_app-d038e0e2bd8510d9.min.js.br:3
+912563 @ figma_app-fb99c62a6754ab3a.min.js.br:441
+i @ runtime~figma_app-d038e0e2bd8510d9.min.js.br:3
+941181 @ figma_app-fb99c62a6754ab3a.min.js.br:4
+i @ runtime~figma_app-d038e0e2bd8510d9.min.js.br:3
+577246 @ 5340-ca907fbcb950ef0b.min.js.br:3
+i @ runtime~figma_app-d038e0e2bd8510d9.min.js.br:3
+483051 @ 8222-714b50f6fa462b79.min.js.br:3
+i @ runtime~figma_app-d038e0e2bd8510d9.min.js.br:3
+269817 @ figma_app-fb99c62a6754ab3a.min.js.br:4
+i @ runtime~figma_app-d038e0e2bd8510d9.min.js.br:3
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:730
+i.O @ runtime~figma_app-d038e0e2bd8510d9.min.js.br:3
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:730
+r @ runtime~figma_app-d038e0e2bd8510d9.min.js.br:3
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:3Understand this warning
+3186-5d955a18ed0f9b29.min.js.br:191 [Intervention] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://static.figma.com/webfont/1/SourceCodePro-Medium.woff2
+1379-77d1fb5d78b88eed.min.js.br:8 The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127
+initialize @ 1379-77d1fb5d78b88eed.min.js.br:8
+g @ 1379-77d1fb5d78b88eed.min.js.br:8
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:191
+await in (anonymous)
+n @ 3186-5d955a18ed0f9b29.min.js.br:1437
+gs @ 3186-5d955a18ed0f9b29.min.js.br:191
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:191
+await in (anonymous)
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:1731
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:191
+dispatch @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:191
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:1731
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:191
+dispatch @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:191
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:1731
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:191
+dispatch @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:191
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:191
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:191
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:191
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:191
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:170
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:191
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:191
+dispatch @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:232
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:191
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:191
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:191
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:191
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:191
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:191
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:191
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:191
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:191
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:191
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:191
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:191
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:170
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:191
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:191
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:191
+d @ 3186-5d955a18ed0f9b29.min.js.br:1098
+K @ 3186-5d955a18ed0f9b29.min.js.br:191
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:191
+time @ 3186-5d955a18ed0f9b29.min.js.br:393
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:191
+await in (anonymous)
+tM @ 3186-5d955a18ed0f9b29.min.js.br:170
+SK @ 3186-5d955a18ed0f9b29.min.js.br:191
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:6
+i @ 3186-5d955a18ed0f9b29.min.js.br:1065
+269817 @ figma_app-fb99c62a6754ab3a.min.js.br:6
+i @ runtime~figma_app-d038e0e2bd8510d9.min.js.br:3
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:730
+i.O @ runtime~figma_app-d038e0e2bd8510d9.min.js.br:3
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:730
+r @ runtime~figma_app-d038e0e2bd8510d9.min.js.br:3
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:3Understand this warning
+vendor-core-ade2edecaf4781c7.min.js.br:54 Statsig is not ready to log exposures, will retry in 1 seconds
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+A.logExposureCallback @ 3186-5d955a18ed0f9b29.min.js.br:1096
+u @ vendor-core-ade2edecaf4781c7.min.js.br:54
+setTimeout
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+A.logExposureCallback @ 3186-5d955a18ed0f9b29.min.js.br:1096
+u @ vendor-core-ade2edecaf4781c7.min.js.br:54
+setTimeout
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+logExposureForFeatureGateCheck @ 3186-5d955a18ed0f9b29.min.js.br:1096
+getFeatureGateFromInitialOptions @ 3186-5d955a18ed0f9b29.min.js.br:1096
+getFeatureGate @ 3186-5d955a18ed0f9b29.min.js.br:1096
+getFeatureGate @ 3186-5d955a18ed0f9b29.min.js.br:1431
+932235 @ figma_app-fb99c62a6754ab3a.min.js.br:420
+i @ runtime~figma_app-d038e0e2bd8510d9.min.js.br:3
+801936 @ figma_app-fb99c62a6754ab3a.min.js.br:41
+i @ runtime~figma_app-d038e0e2bd8510d9.min.js.br:3
+781295 @ figma_app-fb99c62a6754ab3a.min.js.br:418
+i @ runtime~figma_app-d038e0e2bd8510d9.min.js.br:3
+593464 @ figma_app-fb99c62a6754ab3a.min.js.br:4
+i @ runtime~figma_app-d038e0e2bd8510d9.min.js.br:3
+816199 @ 3186-5d955a18ed0f9b29.min.js.br:80
+i @ runtime~figma_app-d038e0e2bd8510d9.min.js.br:3
+881625 @ figma_app-fb99c62a6754ab3a.min.js.br:552
+i @ runtime~figma_app-d038e0e2bd8510d9.min.js.br:3
+28285 @ 1772-8c528df594295803.min.js.br:3
+i @ runtime~figma_app-d038e0e2bd8510d9.min.js.br:3
+344653 @ figma_app-fb99c62a6754ab3a.min.js.br:420
+i @ runtime~figma_app-d038e0e2bd8510d9.min.js.br:3
+912563 @ figma_app-fb99c62a6754ab3a.min.js.br:441
+i @ runtime~figma_app-d038e0e2bd8510d9.min.js.br:3
+941181 @ figma_app-fb99c62a6754ab3a.min.js.br:4
+i @ runtime~figma_app-d038e0e2bd8510d9.min.js.br:3
+577246 @ 5340-ca907fbcb950ef0b.min.js.br:3
+i @ runtime~figma_app-d038e0e2bd8510d9.min.js.br:3
+483051 @ 8222-714b50f6fa462b79.min.js.br:3
+i @ runtime~figma_app-d038e0e2bd8510d9.min.js.br:3
+269817 @ figma_app-fb99c62a6754ab3a.min.js.br:4
+i @ runtime~figma_app-d038e0e2bd8510d9.min.js.br:3
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:730
+i.O @ runtime~figma_app-d038e0e2bd8510d9.min.js.br:3
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:730
+r @ runtime~figma_app-d038e0e2bd8510d9.min.js.br:3
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:3Understand this warning
+vendor-core-ade2edecaf4781c7.min.js.br:54 Autosave Changes not available or already claimed by another tab undefined
+chrome-extension://invalid/:1  GET chrome-extension://invalid/ net::ERR_FAILED
+Image
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:6
+aB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oD @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oL @ vendor-core-ade2edecaf4781c7.min.js.br:11
+f5 @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oE @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+S @ vendor-core-ade2edecaf4781c7.min.js.br:54
+O @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 [import] git: 40c21b0179015a5a6acee7f25b9df313c1ddb030, stamp: 8599BBF62A492803
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Fullscreen] Booting... (emscripten version 4.0.21)
+vendor-core-ade2edecaf4781c7.min.js.br:54 [GPU] graphicsAPI:"WebGPU", vendor:"Google Inc. (Intel)" renderer:"ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)" deviceArchitecture:"gen-12lp" deviceDescription:"" webGPUDevice:"" webGPUVendor:"intel" bindings:"emdawnwebgpu"
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Fullscreen] Ready in 2053.1ms
+vendor-core-ade2edecaf4781c7.min.js.br:54 [FullscreenApp] calling setEditorTheme and setting preference dark
+vendor-core-ade2edecaf4781c7.min.js.br:54 [MultiplayerSession] connecting to wss://www.figma.com/api/multiplayer/YgMsCvIqt7DMpx0rIB8UXV?role=editor&tracking_session_id=ouFkGZFnBio7i3vt&version=151&recentReload=0&file-load-streaming-compression&user-id=1575501824906211853&client_release=71a654e3f7c84371a154bcee0380e86a4f6c3018
+vendor-core-ade2edecaf4781c7.min.js.br:54 [FullscreenApp] calling setEditorTheme and setting preference dark
+vendor-core-ade2edecaf4781c7.min.js.br:54 [MultiplayerSession] Joining file version 106 (initial load)
+vendor-core-ade2edecaf4781c7.min.js.br:54 Migration succeeded: context: fullscreen_migrate_SceneGraphManager, version: 106, duration: 0ms.
+vendor-core-ade2edecaf4781c7.min.js.br:54 Loaded 0 scripts (0b), 0 from cache (0b)
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Fullscreen] loadtime=39.55s maxmem=355214288
+vendor-core-ade2edecaf4781c7.min.js.br:63  POST https://www.figma.com/api/make/fetch_ds_code_gen_status 400 (Bad Request)
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+h @ vendor-9145dcc223f9b840.min.js.br:3
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:1135
+T @ 3186-5d955a18ed0f9b29.min.js.br:1135
+C @ 3186-5d955a18ed0f9b29.min.js.br:1135
+r @ 3186-5d955a18ed0f9b29.min.js.br:1135
+s @ figma_app-fb99c62a6754ab3a.min.js.br:413
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:418
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:418
+aB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oD @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oL @ vendor-core-ade2edecaf4781c7.min.js.br:11
+f5 @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oD @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+S @ vendor-core-ade2edecaf4781c7.min.js.br:54
+O @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this error
+2vendor-core-ade2edecaf4781c7.min.js.br:54 [devtools] Initialized LS
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'mobile'}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+2code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+2code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [OfflineManager] 📴 Gone offline
+2code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+4code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+2code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [OfflineManager] 🌐 Back online!
+vendor-core-ade2edecaf4781c7.min.js.br:54  POST https://www.figma.com/api/cortex/foundry/sync net::ERR_NETWORK_IO_SUSPENDED
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+h @ vendor-9145dcc223f9b840.min.js.br:3
+o @ figma_app-fb99c62a6754ab3a.min.js.br:684
+l @ figma_app-fb99c62a6754ab3a.min.js.br:684
+times @ 3186-5d955a18ed0f9b29.min.js.br:1138
+await in times
+p @ 3186-5d955a18ed0f9b29.min.js.br:1437
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:1437
+l @ 3186-5d955a18ed0f9b29.min.js.br:1437
+syncItems @ 3186-5d955a18ed0f9b29.min.js.br:1138
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:1138
+await in (anonymous)
+O @ vendor-9145dcc223f9b840.min.js.br:109
+S @ vendor-9145dcc223f9b840.min.js.br:109
+k @ vendor-9145dcc223f9b840.min.js.br:109
+u @ vendor-core-ade2edecaf4781c7.min.js.br:54
+setTimeout
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+w @ vendor-9145dcc223f9b840.min.js.br:109
+A @ vendor-9145dcc223f9b840.min.js.br:109
+sync @ 3186-5d955a18ed0f9b29.min.js.br:1138
+doInitializeCode @ figma_app-fb99c62a6754ab3a.min.js.br:552
+transitionTo @ figma_app-fb99c62a6754ab3a.min.js.br:552
+initializeCode @ figma_app-fb99c62a6754ab3a.min.js.br:552
+await in initializeCode
+(anonymous) @ 1772-8c528df594295803.min.js.br:3
+(anonymous) @ 3161-944b502b9e4aa288.min.js.br:384
+aB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oD @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+S @ vendor-core-ade2edecaf4781c7.min.js.br:54
+O @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Livegraph] Connection closed. Code: 1006, reason: 
+vendor-core-ade2edecaf4781c7.min.js.br:54  POST https://www.figma.com/api/figment-proxy/monitor net::ERR_NETWORK_IO_SUSPENDED
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+h @ vendor-9145dcc223f9b840.min.js.br:3
+_makeRequest @ 3186-5d955a18ed0f9b29.min.js.br:1065
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:1065
+r @ 3186-5d955a18ed0f9b29.min.js.br:1065
+_makeRetryableRequest @ 3186-5d955a18ed0f9b29.min.js.br:1065
+track @ 3186-5d955a18ed0f9b29.min.js.br:1065
+track @ 3186-5d955a18ed0f9b29.min.js.br:1065
+track @ 3186-5d955a18ed0f9b29.min.js.br:1065
+track @ 3186-5d955a18ed0f9b29.min.js.br:1065
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:1065
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:1065
+(anonymous) @ 2179-523fbea3bec98b79.min.js.br:3
+(anonymous) @ 3161-944b502b9e4aa288.min.js.br:5
+r @ vendor-core-ade2edecaf4781c7.min.js.br:68
+a @ vendor-core-ade2edecaf4781c7.min.js.br:68
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:68
+r @ 3161-944b502b9e4aa288.min.js.br:5
+u @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54  POST https://www.figma.com/api/figment-proxy/monitor net::ERR_NETWORK_IO_SUSPENDED
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+h @ vendor-9145dcc223f9b840.min.js.br:3
+_makeRequest @ 3186-5d955a18ed0f9b29.min.js.br:1065
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:1065
+r @ 3186-5d955a18ed0f9b29.min.js.br:1065
+_makeRetryableRequest @ 3186-5d955a18ed0f9b29.min.js.br:1065
+track @ 3186-5d955a18ed0f9b29.min.js.br:1065
+track @ 3186-5d955a18ed0f9b29.min.js.br:1065
+track @ 3186-5d955a18ed0f9b29.min.js.br:1065
+track @ 3186-5d955a18ed0f9b29.min.js.br:1065
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:1065
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:1065
+endPageVisit @ 3186-5d955a18ed0f9b29.min.js.br:1095
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:1095
+emit @ 1379-77d1fb5d78b88eed.min.js.br:7
+d @ figma_app-fb99c62a6754ab3a.min.js.br:420Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54  POST https://www.figma.com/api/figment-proxy/monitor net::ERR_NETWORK_IO_SUSPENDED
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+h @ vendor-9145dcc223f9b840.min.js.br:3
+_makeRequest @ 3186-5d955a18ed0f9b29.min.js.br:1065
+_flushBufferWithBeacon @ 3186-5d955a18ed0f9b29.min.js.br:1065
+V._onVisibilityChange @ 3186-5d955a18ed0f9b29.min.js.br:1065Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54  POST https://www.figma.com/api/figment-proxy/monitor net::ERR_NETWORK_IO_SUSPENDED
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+h @ vendor-9145dcc223f9b840.min.js.br:3
+_makeRequest @ 3186-5d955a18ed0f9b29.min.js.br:1065
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:1065
+r @ 3186-5d955a18ed0f9b29.min.js.br:1065
+_makeRetryableRequest @ 3186-5d955a18ed0f9b29.min.js.br:1065
+track @ 3186-5d955a18ed0f9b29.min.js.br:1065
+track @ 3186-5d955a18ed0f9b29.min.js.br:1065
+track @ 3186-5d955a18ed0f9b29.min.js.br:1065
+track @ 3186-5d955a18ed0f9b29.min.js.br:1065
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:1065
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:1065
+c @ figma_app-fb99c62a6754ab3a.min.js.br:6
+(anonymous) @ vendor-fdcc732e0d2d4c0f.min.js.br:3
+(anonymous) @ vendor-fdcc732e0d2d4c0f.min.js.br:3
+u @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this error
+vendor-9145dcc223f9b840.min.js.br:6  POST https://browser-intake-datadoghq.com/api/v2/rum?ddsource=browser&dd-api-key=pub3f6fa9c94d5ff85890f30fdc10b09c61&dd-evp-origin-version=6.25.2&dd-evp-origin=browser&dd-request-id=b1c6b7ca-9c70-4d51-a490-4c9143086d76&dd-evp-encoding=deflate&batch_time=1773337531877&_dd.api=beacon net::ERR_NETWORK_IO_SUSPENDED
+A @ vendor-9145dcc223f9b840.min.js.br:6
+sendOnExit @ vendor-9145dcc223f9b840.min.js.br:6
+y @ vendor-9145dcc223f9b840.min.js.br:5
+(anonymous) @ vendor-9145dcc223f9b840.min.js.br:4
+(anonymous) @ vendor-9145dcc223f9b840.min.js.br:3
+notify @ vendor-9145dcc223f9b840.min.js.br:3
+p @ vendor-9145dcc223f9b840.min.js.br:6
+(anonymous) @ vendor-9145dcc223f9b840.min.js.br:6
+(anonymous) @ vendor-9145dcc223f9b840.min.js.br:3
+notify @ vendor-9145dcc223f9b840.min.js.br:3
+capture @ vendor-9145dcc223f9b840.min.js.br:3
+(anonymous) @ vendor-9145dcc223f9b840.min.js.br:3
+h @ vendor-9145dcc223f9b840.min.js.br:3
+(anonymous) @ vendor-9145dcc223f9b840.min.js.br:3
+u @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this error
+vendor-9145dcc223f9b840.min.js.br:6  POST https://browser-intake-datadoghq.com/api/v2/rum?ddsource=browser&dd-api-key=pub3f6fa9c94d5ff85890f30fdc10b09c61&dd-evp-origin-version=6.25.2&dd-evp-origin=browser&dd-request-id=121cdcd6-7b81-44a3-9624-d6b756f222fb&batch_time=1773337531890&_dd.api=beacon net::ERR_NETWORK_IO_SUSPENDED
+A @ vendor-9145dcc223f9b840.min.js.br:6
+sendOnExit @ vendor-9145dcc223f9b840.min.js.br:6
+y @ vendor-9145dcc223f9b840.min.js.br:5
+(anonymous) @ vendor-9145dcc223f9b840.min.js.br:4
+(anonymous) @ vendor-9145dcc223f9b840.min.js.br:3
+notify @ vendor-9145dcc223f9b840.min.js.br:3
+p @ vendor-9145dcc223f9b840.min.js.br:6
+(anonymous) @ vendor-9145dcc223f9b840.min.js.br:6
+(anonymous) @ vendor-9145dcc223f9b840.min.js.br:3
+notify @ vendor-9145dcc223f9b840.min.js.br:3
+capture @ vendor-9145dcc223f9b840.min.js.br:3
+(anonymous) @ vendor-9145dcc223f9b840.min.js.br:3
+h @ vendor-9145dcc223f9b840.min.js.br:3
+(anonymous) @ vendor-9145dcc223f9b840.min.js.br:3
+u @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:63  GET https://s3-alpha-sig.figma.com/img/f813/2c9f/1646872ae74afe43826a1502d614b2eb?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=HTlRpGoLt~oNXUsp2qvC0wi4Pa2GtjaZzV1qS7GeVXHm2ZONBrTHlBG4wEvOT2L2KmgBy2cBMGYG72aS7enm0270T1fBowNEtwq-GKnIrUIAcyId~DdOer8aAqz5egiBXTktl~wrQ-BlbSXZaupmXpOfWbgMPI4hQ4h17VjPkSL~fBY-A9gJbv9QY~nAxDRO1Eqz8R7Vn2GMzxOTs1We~Hmtuh4TcJFbQeI-n0mH6BtOAbah9~GCvindyHPFKyZ~mTNDUHmdfMwaFNh1kUfXkogHX~T9QlE03F6WFbfxBV029XguQmjZ2lSLka0figE6uXU7wudE1VCsW9d9lOi7iw__ net::ERR_NETWORK_IO_SUSPENDED
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+h @ vendor-9145dcc223f9b840.min.js.br:3
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:1135
+T @ 3186-5d955a18ed0f9b29.min.js.br:1135
+C @ 3186-5d955a18ed0f9b29.min.js.br:1135
+o @ 3186-5d955a18ed0f9b29.min.js.br:1135
+e.crossOriginGetAny @ 3186-5d955a18ed0f9b29.min.js.br:1135
+downloadFromS3 @ figma_app-fb99c62a6754ab3a.min.js.br:41
+download @ figma_app-fb99c62a6754ab3a.min.js.br:41
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:63  GET https://s3-alpha-sig.figma.com/img/64d7/1af0/edb2a174e176755e0a833d0ce94bed20?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=qZ53q0r9rY~dvY26uJrp5v7P0OPP4533iWB7QsawJll77h0~Av9quzlBBwWLYzVT~DlaXhhz0o8eldf7NPfuII3EF0eOgZpodzNK9m4jLOQ17JZ7c8W1p8gfvE1CIrRpFWL8mC7uCc017RU6SEact0YWgi~ct~JcCUxbNKLiKEinJV5TUfFz0Xq0cgCq~KWJNYAsGuSsRx621Vcnq6YrraJ18qUU7GsXDv2A7vacMKj3lqKbFkcnxafs98l7qstk-sdo8sA6JTGKbA2gtFZuFaNkwzU3~AeG8n5yKdfQhQbhTp1seKLa6jXc3AN5u6dOOw-cuztDuqh3oKXVhkZcrw__ net::ERR_NETWORK_IO_SUSPENDED
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+h @ vendor-9145dcc223f9b840.min.js.br:3
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:1135
+T @ 3186-5d955a18ed0f9b29.min.js.br:1135
+C @ 3186-5d955a18ed0f9b29.min.js.br:1135
+o @ 3186-5d955a18ed0f9b29.min.js.br:1135
+e.crossOriginGetAny @ 3186-5d955a18ed0f9b29.min.js.br:1135
+downloadFromS3 @ figma_app-fb99c62a6754ab3a.min.js.br:41
+download @ figma_app-fb99c62a6754ab3a.min.js.br:41
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:63  GET https://s3-alpha-sig.figma.com/img/2f95/77f0/418cf5909259e242be9cc66782f303fe?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=uVGs5cBSSNuA~UE3xePePD93ZInliTI9LWB-4s0fEMyUE2Fgq5bjk1pcnHQYW6CldCFGWy-a-jDJCxPk4pwRYzz3-OeUdQMiGNfYP6cBiHOelFGSh04TRrYAx3QFaykGP0N6JvDvP1qof1xosTNXUNdLqI8f1v~PoDW0QMtX0V8R~BCeYnzY8qpkGX4BhGfayfwPHNKJJr5QKk1r3pF2ZKVXnMQljjiLOw3ogx1ISvxz0hVr~rFU02SlxcoCrUzL2vIbx3CDWYH2QGdRX3a6QFGd7mXwNvNXLA7M7L2tQyqC~1w4PToGSRipzyftx5-XhZArtVhmk5EbJBTIpNOvSw__ net::ERR_NETWORK_IO_SUSPENDED
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+h @ vendor-9145dcc223f9b840.min.js.br:3
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:1135
+T @ 3186-5d955a18ed0f9b29.min.js.br:1135
+C @ 3186-5d955a18ed0f9b29.min.js.br:1135
+o @ 3186-5d955a18ed0f9b29.min.js.br:1135
+e.crossOriginGetAny @ 3186-5d955a18ed0f9b29.min.js.br:1135
+downloadFromS3 @ figma_app-fb99c62a6754ab3a.min.js.br:41
+download @ figma_app-fb99c62a6754ab3a.min.js.br:41
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41
+Promise.finally
+maybeDownloadMoreImages @ figma_app-fb99c62a6754ab3a.min.js.br:41
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:41Understand this error
+4code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+vendor-core-ade2edecaf4781c7.min.js.br:54 [MultiplayerSession] connecting to wss://www.figma.com/api/multiplayer/YgMsCvIqt7DMpx0rIB8UXV?role=editor&tracking_session_id=ouFkGZFnBio7i3vt&version=151&recentReload=0&file-load-streaming-compression=&user-id=1575501824906211853&client_release=71a654e3f7c84371a154bcee0380e86a4f6c3018&reconnect-key=9ca773c68284e6cc79ca9f91f799945fa12c0b17&reconnect-sequence-number=8503&initialFileVersion=106&previousLoadMode=full&incremental-loading-validation=0
+vendor-core-ade2edecaf4781c7.min.js.br:54 [MultiplayerSession] Joining file version 106 (skip_reload reconnect)
+4code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+2code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+vendor-core-ade2edecaf4781c7.min.js.br:54  POST https://www.figma.com/api/cortex/foundry/sync 413 (Content Too Large)
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+h @ vendor-9145dcc223f9b840.min.js.br:3
+o @ figma_app-fb99c62a6754ab3a.min.js.br:684
+l @ figma_app-fb99c62a6754ab3a.min.js.br:684
+times @ 3186-5d955a18ed0f9b29.min.js.br:1138
+await in times
+p @ 3186-5d955a18ed0f9b29.min.js.br:1437
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:1437
+l @ 3186-5d955a18ed0f9b29.min.js.br:1437
+syncItems @ 3186-5d955a18ed0f9b29.min.js.br:1138
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:1138
+await in (anonymous)
+O @ vendor-9145dcc223f9b840.min.js.br:109
+S @ vendor-9145dcc223f9b840.min.js.br:109
+k @ vendor-9145dcc223f9b840.min.js.br:109
+u @ vendor-core-ade2edecaf4781c7.min.js.br:54
+setTimeout
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+w @ vendor-9145dcc223f9b840.min.js.br:109
+A @ vendor-9145dcc223f9b840.min.js.br:109
+sync @ 3186-5d955a18ed0f9b29.min.js.br:1138
+doInitializeCode @ figma_app-fb99c62a6754ab3a.min.js.br:552
+transitionTo @ figma_app-fb99c62a6754ab3a.min.js.br:552
+recreateSandbox @ figma_app-fb99c62a6754ab3a.min.js.br:552
+await in recreateSandbox
+(anonymous) @ figma_app-fb99c62a6754ab3a.min.js.br:552
+trigger @ 3186-5d955a18ed0f9b29.min.js.br:1437
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:1193
+trigger @ 3186-5d955a18ed0f9b29.min.js.br:1437
+handleUrlMaybeChange @ 3186-5d955a18ed0f9b29.min.js.br:1193
+sendKeepAlive @ 3186-5d955a18ed0f9b29.min.js.br:1193
+await in sendKeepAlive
+handleVisibilityChange @ 3186-5d955a18ed0f9b29.min.js.br:1193
+u @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this error
+2code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+4code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+4code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+vendor-core-ade2edecaf4781c7.min.js.br:54  POST https://www.figma.com/api/cortex/foundry/sync 413 (Content Too Large)
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+h @ vendor-9145dcc223f9b840.min.js.br:3
+o @ figma_app-fb99c62a6754ab3a.min.js.br:684
+l @ figma_app-fb99c62a6754ab3a.min.js.br:684
+times @ 3186-5d955a18ed0f9b29.min.js.br:1138
+await in times
+p @ 3186-5d955a18ed0f9b29.min.js.br:1437
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:1437
+u @ vendor-core-ade2edecaf4781c7.min.js.br:54
+setTimeout
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:1437
+p @ 3186-5d955a18ed0f9b29.min.js.br:1437Understand this error
+2code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+2code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+vendor-core-ade2edecaf4781c7.min.js.br:54 [MultiplayerSession] connecting to wss://www.figma.com/api/multiplayer/YgMsCvIqt7DMpx0rIB8UXV?role=editor&tracking_session_id=ouFkGZFnBio7i3vt&version=151&recentReload=0&file-load-streaming-compression=&user-id=1575501824906211853&client_release=71a654e3f7c84371a154bcee0380e86a4f6c3018&reconnect-key=9ca773c68284e6cc79ca9f91f799945fa12c0b17&reconnect-sequence-number=8503&initialFileVersion=106&previousLoadMode=full&incremental-loading-validation=0
+vendor-core-ade2edecaf4781c7.min.js.br:54  POST https://www.figma.com/api/cortex/foundry/sync 413 (Content Too Large)
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+h @ vendor-9145dcc223f9b840.min.js.br:3
+o @ figma_app-fb99c62a6754ab3a.min.js.br:684
+l @ figma_app-fb99c62a6754ab3a.min.js.br:684
+times @ 3186-5d955a18ed0f9b29.min.js.br:1138
+await in times
+p @ 3186-5d955a18ed0f9b29.min.js.br:1437
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:1437
+u @ vendor-core-ade2edecaf4781c7.min.js.br:54
+setTimeout
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:1437
+p @ 3186-5d955a18ed0f9b29.min.js.br:1437
+await in p
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:1437
+u @ vendor-core-ade2edecaf4781c7.min.js.br:54
+setTimeout
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:1437
+p @ 3186-5d955a18ed0f9b29.min.js.br:1437Understand this error
+devtools_worker-cb4b391887eb8867.min.js.br:1190 [esbuild-wasm] Initializing from URL: /webpack-artifacts/assets/2b68f2d3d5e8b3d6.wasm
+vendor-core-ade2edecaf4781c7.min.js.br:54 [MultiplayerSession] Joining file version 106 (skip_reload reconnect)
+devtools_worker-cb4b391887eb8867.min.js.br:1190 [esbuild-wasm] Initialized
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [bundleCode] Found 1 CSS files in VFS
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [bundleCode] Total CSS size to be processed by lightningcss: 0.00MB
+devtools_worker-cb4b391887eb8867.min.js.br:1190 [lightningcss-wasm] Initialized
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Processing 0.16MB of CSS (environment: browser)
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Encoded size: 0.16MB
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Transform completed successfully
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'mobile'}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 📱 Normalized phone: 753078245
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 ✅ RPC Login successful: {id: '5d2a9de7-8d7d-4f6c-8fa1-59547bc146fc', zbm: 'SHEILA MSAVI', zsm: null, rank: 4, role: 'zonal_sales_manager', …}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28  POST https://xspogpfohjmkykfjadhk.supabase.co/rest/v1/user_sessions?select=* 400 (Bad Request)
+(anonymous) @ code_components_preview_iframe-7412fd47a5113f44.min.js.br:28
+(anonymous) @ supabase-js.mjs:3
+(anonymous) @ supabase-js.mjs:3
+await in (anonymous)
+then @ postgrest-js.mjs:2Understand this error
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [SessionTracker] ℹ️ Database tracking unavailable (table not configured)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [SessionTracker] ✅ Tracked login for SIMON NDUGIRE (zonal_sales_manager)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28  POST https://xspogpfohjmkykfjadhk.supabase.co/rest/v1/user_sessions 401 (Unauthorized)
+(anonymous) @ code_components_preview_iframe-7412fd47a5113f44.min.js.br:28
+(anonymous) @ supabase-js.mjs:3
+(anonymous) @ supabase-js.mjs:3
+await in (anonymous)
+then @ postgrest-js.mjs:2Understand this error
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Analytics] ℹ️ Session tracking unavailable (table not configured)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ActivityTracker] Initialized for SIMON NDUGIRE (zonal_sales_manager)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [PageTracking] 📄 Viewing: Dashboard
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 🔍 [ZSM] Loading team members for: SIMON NDUGIRE Zone: ABERDARE
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Role Dashboard] ✅ Loading announcements from localStorage for role: zonal_sales_manager
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [GuidedTour] Version 0 -> 5
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [App] Tour check: isAuthenticated= true shouldShow= true
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 🔍 [ZSM] Strategy 1 (exact match): 17 SEs found
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 ✅ [ZSM] Successfully loaded 17 team members
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 ℹ️ [ZSM] Preview mode - submissions disabled
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ActivityTracker] ✅ Logged: session_start 
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ActivityTracker] ✅ Logged: login {method: 'phone_pin'}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Role Dashboard] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Role Dashboard] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] Loading programs for user: zonal_sales_manager
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] Fetching programs for role: zonal_sales_manager
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] Searching for programs with target_roles containing: (4) ['zonal_sales_manager', 'ZSM', 'zsm', 'Zonal Sales Manager']
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs Dashboard] 🔍 Loading folders from localStorage...
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs Dashboard] 📦 Raw localStorage data: null
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs Dashboard] ℹ️ No folders found in localStorage
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs Dashboard] ✅ Van Calendar enabled: true
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] 📊 Total active programs in database: 7
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] Program "NEW-SITE-CHECK-IN " has target_roles: (5) ['sales_executive', 'zonal_sales_manager', 'zonal_business_manager', 'hq_command_center', 'director']
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] ✅ "NEW-SITE-CHECK-IN " matches role zonal_sales_manager
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] Program "MARKET OUTREACH -PARTNER VANS " has target_roles: (5) ['sales_executive', 'zonal_sales_manager', 'zonal_business_manager', 'hq_command_center', 'director']
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] ✅ "MARKET OUTREACH -PARTNER VANS " matches role zonal_sales_manager
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] Program "SSO CLASSIFICATION" has target_roles: (3) ['sales_executive', 'zonal_sales_manager', 'zonal_business_manager']
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] ✅ "SSO CLASSIFICATION" matches role zonal_sales_manager
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] Program "🚐 Van Weekly Calendar" has target_roles: (5) ['zonal_sales_manager', 'hq_command_center', 'director', 'sales_executive', 'zonal_business_manager']
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] ✅ "🚐 Van Weekly Calendar" matches role zonal_sales_manager
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] Program "MINI ROAD SHOW -CHECK OUT " has target_roles: (5) ['sales_executive', 'zonal_sales_manager', 'zonal_business_manager', 'hq_command_center', 'director']
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] ✅ "MINI ROAD SHOW -CHECK OUT " matches role zonal_sales_manager
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] Program "MINI ROAD SHOW -CHECK IN " has target_roles: (5) ['sales_executive', 'zonal_sales_manager', 'zonal_business_manager', 'hq_command_center', 'director']
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] ✅ "MINI ROAD SHOW -CHECK IN " matches role zonal_sales_manager
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] Program "AMB REVALIDATION" has target_roles: (5) ['sales_executive', 'zonal_sales_manager', 'zonal_business_manager', 'hq_command_center', 'director']
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] ✅ "AMB REVALIDATION" matches role zonal_sales_manager
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] ✅ Loaded programs for zonal_sales_manager : 7
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramsAPI] Fetching session checkin flags
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramsAPI] ✅ Checkin flags: {67b91b34-81f9-416a-9462-843a51bc920d: true, 9f0d8fab-336b-40dc-b38e-746b81397fc2: false, c6e6213c-0e9b-46f9-9183-5b7c64551247: false}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramsAPI] Fetching all program form configs
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramsAPI] ✅ All form configs: 3
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs] ✅ Merged checkin flags + configs into SE programs
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 0 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Shops] 🔄 Fetching ALL shops from database (paginated)...
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Shops] 📦 Fetching batch 1 (rows 0-999)...
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Loading fields for program: c6e6213c-0e9b-46f9-9183-5b7c64551247
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: false
+program-submit-modal.tsx:694 [Violation] Permissions policy violation: Geolocation access has been blocked because of a permissions policy applied to the current document. See https://crbug.com/414348233 for more details.
+requestLocation @ program-submit-modal.tsx:694
+(anonymous) @ program-submit-modal.tsx:719
+TN @ code_components_preview_iframe-7412fd47a5113f44.min.js.br:89
+T7 @ code_components_preview_iframe-7412fd47a5113f44.min.js.br:89
+T8 @ code_components_preview_iframe-7412fd47a5113f44.min.js.br:89
+T6 @ code_components_preview_iframe-7412fd47a5113f44.min.js.br:89
+T4 @ code_components_preview_iframe-7412fd47a5113f44.min.js.br:89
+S1 @ code_components_preview_iframe-7412fd47a5113f44.min.js.br:89
+SQ @ code_components_preview_iframe-7412fd47a5113f44.min.js.br:89
+SJ @ code_components_preview_iframe-7412fd47a5113f44.min.js.br:89
+SZ @ code_components_preview_iframe-7412fd47a5113f44.min.js.br:89
+SO @ code_components_preview_iframe-7412fd47a5113f44.min.js.br:89
+pC @ code_components_preview_iframe-7412fd47a5113f44.min.js.br:89
+(anonymous) @ code_components_preview_iframe-7412fd47a5113f44.min.js.br:89Understand this error
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 0 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: true
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [GPS] Browser geolocation error: Geolocation has been disabled in this document by permissions policy.
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 0 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] 📍 User zone from DB: ABERDARE
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 0 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] ✅ Loaded 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] 🔍 Fields data: [
+  {
+    "id": "bc4ac255-11df-493e-8598-ce3ade1f95a0",
+    "program_id": "c6e6213c-0e9b-46f9-9183-5b7c64551247",
+    "field_name": "number_plate_of_the_van_",
+    "field_label": "NUMBER PLATE OF THE VAN ",
+    "field_type": "dropdown",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "database_source": {
+        "table": "van_db",
+        "multi_select": true,
+        "display_field": "number_plate",
+        "metadata_fields": [
+          "zone"
+        ],
+        "repeatable_dropdown": false
+      },
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 0,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-11T17:45:24.274638+00:00"
+  },
+  {
+    "id": "67d91252-d82f-4dae-b0f8-537ecbcc2fa3",
+    "program_id": "c6e6213c-0e9b-46f9-9183-5b7c64551247",
+    "field_name": "odometer_reading_",
+    "field_label": "ODOMETER READING ",
+    "field_type": "number",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": null,
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 1,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-11T17:45:24.274638+00:00"
+  },
+  {
+    "id": "e0c35c7d-e57d-4499-9183-f03bfaf90074",
+    "program_id": "c6e6213c-0e9b-46f9-9183-5b7c64551247",
+    "field_name": "feedback_on_quality_of_network_(1_is_worst_5_is_best)",
+    "field_label": "FEEDBACK ON QUALITY OF NETWORK (1 is worst 5 is best)",
+    "field_type": "rating",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": null,
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 2,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-11T17:45:24.274638+00:00"
+  }
+]
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 0 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] 🔍 Checking fields: (3) [{…}, {…}, {…}]
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] 🔄 Loading data for 1 database dropdown/multi-select field(s)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] 🔒 Zone filtering: DISABLED | User zone: ABERDARE
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Loading from table: van_db
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Shops] ✅ Batch 1: 1000 shops (Total so far: 1000)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Shops] 📦 Fetching batch 2 (rows 1000-1999)...
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] 📦 "van_db" is small (≤500 rows) → loading all rows
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] 📦 Fetching batch 1 from van_db (rows 0-999)...
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Shops] ✅ Batch 2: 1000 shops (Total so far: 2000)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Shops] 📦 Fetching batch 3 (rows 2000-2999)...
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] ✅ Batch 1: 42 rows (Total so far: 42)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] ✅ Loaded all 42 rows from "van_db" (client-side search)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Shops] ✅ Batch 3: 674 shops (Total so far: 2674)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Shops] ✅ Total loaded from database: 2674 shops
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Shops] ✅ Lookup map created with 2651 entries
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Shops] ✅ shopsLoaded flag set to true - component should re-render
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 2674 shops | shopsLoaded: true | loadingShops: false
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] ✅ Component should now show search dropdown instead of radio buttons
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Dropdown] 🔍 Search input focused - opening dropdown
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Dropdown] ⌨️ Input changed: k
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Dropdown] ⌨️ Input changed: kc
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Dropdown] ⌨️ Input changed: kcb
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Shop Dropdown] 🎯 Option clicked: KCB 466U
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] Setting field bc4ac255-11df-493e-8598-ce3ade1f95a0 to: KCB 466U (single)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] Auto-populating from: KCB 466U 
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [AutoPopulate] ��� Database dropdown selection: {field: 'NUMBER PLATE OF THE VAN ', value: 'KCB 466U', table: 'van_db', displayField: 'number_plate', metadataFields: Array(1)}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [AutoPopulate] ✅ Found selected row: {id: 15, created_at: '2026-02-07T10:19:44.147589+00:00', number_plate: 'KCB 466U', capacity: null, vendor: null, …}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [AutoPopulate] 📦 Stored metadata for display: {zone: 'ABERDARE'}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [AutoPopulate] ℹ️ No matching fields found to auto-populate
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [LinkedCheckout] 🔍 Checking van check-in for plate="KCB466U", linked_program=9f0d8fab-336b-40dc-b38e-746b81397fc2
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] FormData after update: {bc4ac255-11df-493e-8598-ce3ade1f95a0: 'KCB 466U'}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [LinkedCheckout] Van lookup response: {"success":true,"has_checkin":true,"van_checked_in":true,"number_plate":"KCB466U","checkin_user_id":"3fd012fd-9805-4525-bfde-1d2718310109","sites":[],"promoters":[],"total_promoters":0,"message":"Van was checked in but no active session data found."}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [LinkedCheckout] No MSISDNs found in check-in data
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
