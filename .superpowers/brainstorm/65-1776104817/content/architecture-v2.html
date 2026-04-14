@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Architecture v2</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; background: #f2f2f7; padding: 28px 24px; color: #1c1c1e; }
+  h1 { font-size: 22px; font-weight: 800; margin-bottom: 4px; }
+  .sub { font-size: 13px; color: #8e8e93; margin-bottom: 28px; }
+  .sec-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #8e8e93; margin-bottom: 12px; margin-top: 28px; }
+  .flow { display: flex; align-items: center; gap: 0; flex-wrap: wrap; margin-bottom: 24px; }
+  .flow-box { background: white; border-radius: 14px; padding: 12px 16px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); min-width: 120px; text-align: center; }
+  .flow-box.red { background: #E60000; color: white; }
+  .flow-box.dark { background: #1c1c1e; color: white; }
+  .flow-box .title { font-size: 13px; font-weight: 700; }
+  .flow-box .desc { font-size: 10px; opacity: 0.75; margin-top: 3px; }
+  .arrow { font-size: 18px; color: #c7c7cc; padding: 0 8px; }
+  .tables { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+  .table-card { background: white; border-radius: 18px; overflow: hidden; box-shadow: 0 1px 6px rgba(0,0,0,0.07); }
+  .table-header { padding: 12px 16px; font-size: 13px; font-weight: 700; color: white; display: flex; align-items: center; gap: 8px; }
+  .table-header.red { background: #E60000; }
+  .table-header.dark { background: #1c1c1e; }
+  .table-header.blue { background: #3b82f6; }
+  .table-header.amber { background: #f59e0b; }
+  .table-header .icon { font-size: 16px; }
+  .table-body { padding: 12px 16px; }
+  .field-row { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; border-bottom: 1px solid #f2f2f7; font-size: 12px; }
+  .field-row:last-child { border-bottom: none; }
+  .field-row.new { background: #fff5f5; margin: 0 -16px; padding: 5px 16px; border-left: 3px solid #E60000; }
+  .field-name { color: #1c1c1e; font-weight: 500; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 11px; }
+  .field-type { color: #8e8e93; font-size: 10px; background: #f2f2f7; padding: 2px 6px; border-radius: 6px; }
+  .field-type.pk { background: #fff5f5; color: #E60000; }
+  .field-type.fk { background: #eff6ff; color: #3b82f6; }
+  .field-type.uq { background: #f0fdf4; color: #10b981; }
+  .field-type.new { background: #E60000; color: white; }
+  .isolation { background: #1c1c1e; border-radius: 16px; padding: 16px 20px; color: white; margin-bottom: 0; }
+  .isolation h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+  .isolation p { font-size: 12px; color: rgba(255,255,255,0.65); line-height: 1.6; }
+  .isolation .pill { display: inline-block; background: rgba(255,255,255,0.1); border-radius: 20px; padding: 3px 10px; font-size: 11px; margin: 6px 4px 0 0; color: rgba(255,255,255,0.8); }
+  .security-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .sec-card { background: white; border-radius: 14px; padding: 14px 16px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); }
+  .sec-card .icon { font-size: 22px; margin-bottom: 8px; display: block; }
+  .sec-card h4 { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+  .sec-card p { font-size: 11px; color: #8e8e93; line-height: 1.5; }
+
+  /* Promoter preview card */
+  .preview-card { background: white; border-radius: 18px; overflow: hidden; box-shadow: 0 1px 6px rgba(0,0,0,0.07); padding: 16px; }
+  .preview-row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f2f2f7; }
+  .preview-row:last-child { border-bottom: none; }
+  .avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg,#E60000,#ff4444); display: flex; align-items: center; justify-content: center; color: white; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+  .avatar.green { background: linear-gradient(135deg,#10b981,#34d399); }
+  .avatar.blue { background: linear-gradient(135deg,#3b82f6,#60a5fa); }
+  .pname { font-size: 13px; font-weight: 600; color: #1c1c1e; }
+  .pmsisdn { font-size: 11px; color: #8e8e93; margin-top: 1px; }
+  .ga-badge { background: #fff5f5; color: #E60000; font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 8px; margin-left: auto; }
+</style>
+</head>
+<body>
+
+<h1>Architecture v2 — Updated</h1>
+<p class="sub">promoter_members now includes promoter_name · Everything else unchanged</p>
+
+<div class="sec-title">Auth Flow</div>
+<div class="flow">
+  <div class="flow-box"><div class="title">Login Page</div><div class="desc">Sales mode only</div></div>
+  <div class="arrow">›</div>
+  <div class="flow-box red"><div class="title">PROMOTER<br>TEAM LEAD</div><div class="desc">Button tap</div></div>
+  <div class="arrow">›</div>
+  <div class="flow-box"><div class="title">TL Entry Page</div><div class="desc">Login / Sign Up</div></div>
+  <div class="arrow">›</div>
+  <div class="flow-box dark"><div class="title">TL Dashboard</div><div class="desc">4-tab experience</div></div>
+</div>
+
+<div class="isolation" style="margin-bottom:28px">
+  <h3>Complete isolation from existing auth</h3>
+  <p>Team Leads never touch <code>app_users</code>, the SE login chain, or any HBB tables. Session stored separately under <code>tai_tl_user</code>.</p>
+  <span class="pill">promoter_team_leads</span>
+  <span class="pill">promoter_members</span>
+  <span class="pill">promoter_daily_reports</span>
+  <span class="pill">promoter_gas_entries</span>
+</div>
+
+<div class="sec-title">Database Tables — 4 new · Supabase · RLS enabled</div>
+<div class="tables">
+
+  <div class="table-card">
+    <div class="table-header red"><span class="icon">👤</span>promoter_team_leads</div>
+    <div class="table-body">
+      <div class="field-row"><span class="field-name">id</span><span class="field-type pk">PK · uuid</span></div>
+      <div class="field-row"><span class="field-name">full_name</span><span class="field-type">text</span></div>
+      <div class="field-row"><span class="field-name">msisdn</span><span class="field-type uq">UNIQUE · text</span></div>
+      <div class="field-row"><span class="field-name">zone</span><span class="field-type">text</span></div>
+      <div class="field-row"><span class="field-name">se_cluster</span><span class="field-type">text</span></div>
+      <div class="field-row"><span class="field-name">password_hash</span><span class="field-type">text · bcrypt</span></div>
+      <div class="field-row"><span class="field-name">is_active</span><span class="field-type">boolean</span></div>
+      <div class="field-row"><span class="field-name">created_at</span><span class="field-type">timestamptz</span></div>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <div class="table-header dark"><span class="icon">👥</span>promoter_members</div>
+    <div class="table-body">
+      <div class="field-row"><span class="field-name">id</span><span class="field-type pk">PK · uuid</span></div>
+      <div class="field-row"><span class="field-name">team_lead_id</span><span class="field-type fk">FK → team_leads</span></div>
+      <div class="field-row new"><span class="field-name">promoter_name</span><span class="field-type new">NEW · text</span></div>
+      <div class="field-row"><span class="field-name">msisdn</span><span class="field-type uq">UNIQUE · text</span></div>
+      <div class="field-row"><span class="field-name">is_active</span><span class="field-type">boolean</span></div>
+      <div class="field-row"><span class="field-name">added_at</span><span class="field-type">timestamptz</span></div>
+      <div class="field-row"><span class="field-name">dropped_at</span><span class="field-type">timestamptz · null</span></div>
+      <div style="margin-top:8px;background:#f0fdf4;border-radius:8px;padding:6px 8px">
+        <p style="font-size:10px;color:#166534;font-weight:600">UNIQUE(msisdn) — global across all TLs</p>
+        <p style="font-size:10px;color:#6b7280;margin-top:2px">One promoter can only belong to one Team Lead.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <div class="table-header blue"><span class="icon">📋</span>promoter_daily_reports</div>
+    <div class="table-body">
+      <div class="field-row"><span class="field-name">id</span><span class="field-type pk">PK · uuid</span></div>
+      <div class="field-row"><span class="field-name">team_lead_id</span><span class="field-type fk">FK → team_leads</span></div>
+      <div class="field-row"><span class="field-name">report_date</span><span class="field-type">date</span></div>
+      <div class="field-row"><span class="field-name">total_gas</span><span class="field-type">integer</span></div>
+      <div class="field-row"><span class="field-name">is_locked</span><span class="field-type">boolean</span></div>
+      <div class="field-row"><span class="field-name">submitted_at</span><span class="field-type">timestamptz · null</span></div>
+      <div style="margin-top:8px;background:#eff6ff;border-radius:8px;padding:6px 8px">
+        <p style="font-size:10px;color:#3b82f6;font-weight:600">UNIQUE(team_lead_id, report_date)</p>
+        <p style="font-size:10px;color:#6b7280;margin-top:2px">Locked on submit — immutable at DB level.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <div class="table-header amber"><span class="icon">📊</span>promoter_gas_entries</div>
+    <div class="table-body">
+      <div class="field-row"><span class="field-name">id</span><span class="field-type pk">PK · uuid</span></div>
+      <div class="field-row"><span class="field-name">report_id</span><span class="field-type fk">FK → daily_reports</span></div>
+      <div class="field-row"><span class="field-name">team_lead_id</span><span class="field-type fk">FK → team_leads</span></div>
+      <div class="field-row"><span class="field-name">promoter_msisdn</span><span class="field-type">text</span></div>
+      <div class="field-row"><span class="field-name">promoter_name</span><span class="field-type">text · snapshot</span></div>
+      <div class="field-row"><span class="field-name">ga_count</span><span class="field-type">integer ≥ 0</span></div>
+      <div class="field-row"><span class="field-name">created_at</span><span class="field-type">timestamptz</span></div>
+      <div style="margin-top:8px;background:#fef3c7;border-radius:8px;padding:6px 8px">
+        <p style="font-size:10px;color:#92400e;font-weight:600">UNIQUE(report_id, promoter_msisdn)</p>
+        <p style="font-size:10px;color:#6b7280;margin-top:2px">promoter_name is a snapshot — safe even if the member is later dropped.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- How it looks in the dashboard -->
+<div class="sec-title" style="margin-top:28px">How promoter_name shows in the dashboard</div>
+<div class="preview-card">
+  <p style="font-size:11px;color:#8e8e93;margin-bottom:12px">Name shown prominently — MSISDN as secondary info. GA count on the right.</p>
+  <div class="preview-row">
+    <div class="avatar">JM</div>
+    <div><div class="pname">James Mutua</div><div class="pmsisdn">0712 345 678</div></div>
+    <div class="ga-badge">9 GAs</div>
+  </div>
+  <div class="preview-row">
+    <div class="avatar green">AK</div>
+    <div><div class="pname">Amina Kamau</div><div class="pmsisdn">0723 456 789</div></div>
+    <div class="ga-badge">12 GAs</div>
+  </div>
+  <div class="preview-row">
+    <div class="avatar blue">FO</div>
+    <div><div class="pname">Felix Omondi</div><div class="pmsisdn">0734 567 890</div></div>
+    <div class="ga-badge">7 GAs</div>
+  </div>
+</div>
+
+<div class="security-grid" style="margin-top:14px">
+  <div class="sec-card">
+    <span class="icon">🔐</span>
+    <h4>Password hashing</h4>
+    <p>pgcrypto <code>crypt(password, gen_salt('bf'))</code> — bcrypt cost 10. Verified via Supabase RPC. Never plaintext.</p>
+  </div>
+  <div class="sec-card">
+    <span class="icon">🧱</span>
+    <h4>Locked reports</h4>
+    <p>RLS policy blocks UPDATE/DELETE on gas_entries once <code>is_locked = true</code>. Immutable at DB level, not just app.</p>
+  </div>
+</div>
+
+</body>
+</html>

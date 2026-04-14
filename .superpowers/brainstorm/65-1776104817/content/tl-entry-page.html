@@ -1,0 +1,83 @@
+<h2>Promoter Team Lead — Entry Page</h2>
+<p class="subtitle">Login at top, Sign Up below. Single screen, scroll to reveal signup. Tell me if the layout feels right.</p>
+
+<div class="split">
+
+  <!-- LOGIN SECTION -->
+  <div class="mockup">
+    <div class="mockup-header">Top half — Login (returning TL)</div>
+    <div class="mockup-body">
+      <div style="background:#fff;border-radius:16px;padding:20px;font-family:system-ui;max-width:300px;margin:auto;">
+
+        <!-- Header -->
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+          <div style="width:36px;height:36px;background:#E60000;border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:16px">👤</div>
+          <div>
+            <p style="margin:0;font-size:14px;font-weight:700;color:#111">Promoter Team Lead</p>
+            <p style="margin:0;font-size:10px;color:#9ca3af">Sign in to your dashboard</p>
+          </div>
+        </div>
+
+        <input class="mock-input" placeholder="📱 MSISDN (phone number)" style="margin-bottom:8px;display:block;width:100%;box-sizing:border-box;font-size:12px">
+        <input class="mock-input" placeholder="🔒 Password" style="margin-bottom:8px;display:block;width:100%;box-sizing:border-box;font-size:12px">
+        <button style="width:100%;background:#E60000;color:white;border:none;border-radius:10px;padding:11px;font-weight:700;font-size:13px;margin-bottom:6px">LOG IN</button>
+
+        <!-- Divider to signup -->
+        <div style="display:flex;align-items:center;gap:8px;margin:14px 0 0">
+          <div style="flex:1;height:1px;background:#e5e7eb"></div>
+          <span style="font-size:9px;color:#9ca3af;text-transform:uppercase;letter-spacing:1px">New here? Sign Up below ↓</span>
+          <div style="flex:1;height:1px;background:#e5e7eb"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- SIGNUP SECTION -->
+  <div class="mockup">
+    <div class="mockup-header">Bottom half — Sign Up (new TL)</div>
+    <div class="mockup-body">
+      <div style="background:#fff;border-radius:16px;padding:20px;font-family:system-ui;max-width:300px;margin:auto;">
+
+        <p style="font-size:13px;font-weight:700;color:#111;margin:0 0 12px">Create Team Lead Account</p>
+
+        <input class="mock-input" placeholder="Full Name" style="margin-bottom:6px;display:block;width:100%;box-sizing:border-box;font-size:12px">
+        <input class="mock-input" placeholder="📱 MSISDN (phone number)" style="margin-bottom:6px;display:block;width:100%;box-sizing:border-box;font-size:12px">
+
+        <!-- Zone dropdown -->
+        <select style="width:100%;padding:10px 12px;border:1px solid #e5e7eb;border-radius:10px;font-size:12px;color:#6b7280;margin-bottom:6px;background:#f9fafb;box-sizing:border-box">
+          <option>Select Zone</option>
+          <option>ABERDARE</option>
+          <option>COAST</option>
+          <option>EASTERN</option>
+          <option>MT KENYA</option>
+          <option>NAIROBI EAST</option>
+          <option>NAIROBI METROPOLITAN</option>
+          <option>NAIROBI WEST</option>
+          <option>NYANZA</option>
+          <option>RIFT VALLEY</option>
+          <option>WESTERN</option>
+        </select>
+
+        <!-- SE Cluster dropdown -->
+        <select style="width:100%;padding:10px 12px;border:1px solid #e5e7eb;border-radius:10px;font-size:12px;color:#6b7280;margin-bottom:6px;background:#f9fafb;box-sizing:border-box">
+          <option>Select SE Cluster / Location</option>
+        </select>
+        <p style="font-size:9px;color:#9ca3af;margin:-2px 0 6px 2px">Populated once Zone is selected</p>
+
+        <input class="mock-input" placeholder="🔒 Create Password" style="margin-bottom:6px;display:block;width:100%;box-sizing:border-box;font-size:12px">
+        <input class="mock-input" placeholder="🔒 Confirm Password" style="margin-bottom:10px;display:block;width:100%;box-sizing:border-box;font-size:12px">
+
+        <button style="width:100%;background:#111827;color:white;border:none;border-radius:10px;padding:11px;font-weight:700;font-size:13px">SIGN UP AS TEAM LEAD</button>
+
+        <p style="text-align:center;font-size:9px;color:#9ca3af;margin-top:8px">Already registered? Log in above ↑</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div style="background:#fef3c7;border:1px solid #fcd34d;border-radius:12px;padding:14px;margin-top:20px;">
+  <p style="margin:0;font-size:12px;color:#92400e;font-weight:600">📝 Schema note</p>
+  <p style="margin:6px 0 0;font-size:11px;color:#92400e">Password will be hashed server-side using pgcrypto (crypt/gen_salt). The Team Lead gets a new table — separate from <code>app_users</code> — so Sales executives and Team Leads never collide.</p>
+</div>

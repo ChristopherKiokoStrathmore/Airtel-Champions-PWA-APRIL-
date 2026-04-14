@@ -55,7 +55,7 @@ async function geocodeEstateAddress(
   return null;
 }
 import { toast } from 'sonner@2.0.3';
-import airtelSmartConnectImg from '../../assets/LOGO.png';
+import airtelSmartConnectImg from '../../assets/5cefe3bd8a968e47f850ff725f15f7c1e5cc74bb.png';
 
 const ACCENT = '#E60000';
 const ACCENT_DARK = '#E60000';
@@ -64,13 +64,23 @@ const CONNECTION_FEE = 1000;
 const SMART_CONNECT_PLANS = [
   {
     id: 'sc-15', speed: '15 Mbps', price: 1999, label: 'KES 1,999',
-    tag: 'Starter', tagColor: '#3B82F6', border: '#3B82F6', bg: '#EFF6FF', highlight: '#1D4ED8',
+    tag: 'Starter', tagColor: '#E60000', border: '#E60000', bg: '#FFF1F1', highlight: '#E60000',
     description: 'Perfect for browsing, social media & video calls.',
   },
   {
     id: 'sc-30', speed: '30 Mbps', price: 2999, label: 'KES 2,999',
-    tag: 'Most Popular', tagColor: '#E60000', border: '#E60000', bg: '#FFF1F1', highlight: '#E60000',
+    tag: 'Popular', tagColor: '#E60000', border: '#E60000', bg: '#FFF1F1', highlight: '#E60000',
     description: 'Ideal for streaming, gaming & working from home.',
+  },
+  {
+    id: 'sc-60', speed: '60 Mbps', price: 3999, label: 'KES 3,999',
+    tag: 'Superfast', tagColor: '#E60000', border: '#E60000', bg: '#FFF1F1', highlight: '#E60000',
+    description: 'Great for families, 4K streaming, and smart homes.',
+  },
+  {
+    id: 'sc-100', speed: '100 Mbps', price: 4999, label: 'KES 4,999',
+    tag: 'Ultimate', tagColor: '#E60000', border: '#E60000', bg: '#FFF1F1', highlight: '#E60000',
+    description: 'For power users, offices, and heavy downloads.',
   },
 ];
 

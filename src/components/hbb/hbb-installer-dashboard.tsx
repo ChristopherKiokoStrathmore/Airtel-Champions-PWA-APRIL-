@@ -9,6 +9,7 @@ import { useLiveLocation } from '../../hooks/useLiveLocation';
 import { RejectDialog } from './hbb-reject-dialog';
 import { InstallerCalendar } from './hbb-installer-calendar';
 import { recordRejectionAndReassign } from './hbb-auto-assign';
+import { InstallerLocationSender } from '../InstallerLocationSender';
 
 const ACCENT = '#E60000';
 const ACCENT_DARK = '#CC0000';
@@ -312,22 +313,36 @@ export function HBBInstallerDashboard({ user, userData, onLogout }: Props) {
   };
 
   return (
-    <div data-testid="hbb-installer-dashboard" className="flex flex-col h-full bg-gray-50">
+    <div
+      data-testid="hbb-installer-dashboard"
+      className="flex flex-col flex-1 min-h-0 overflow-hidden"
+      style={{ background: 'linear-gradient(180deg, #f8fafc 0%, #f3f4f6 100%)' }}
+    >
+      {/* Live location sender for INHOUSE_INSTALLER_6TOWNS_MARCH ID */}
+      {userData?.ID && (
+        <InstallerLocationSender installerId={userData.ID} />
+      )}
       {/* Top Bar */}
-      <div className="flex-shrink-0 px-4 py-3 flex items-center justify-between"
-        style={{ background: `linear-gradient(135deg, ${ACCENT_DARK} 0%, ${ACCENT} 100%)` }}>
+      <div
+        className="flex-shrink-0 px-4 pb-4 flex items-center justify-between"
+        style={{
+          background: `linear-gradient(155deg, ${ACCENT} 0%, ${ACCENT_DARK} 80%, #A80C23 100%)`,
+          paddingTop: 'calc(max(env(safe-area-inset-top), 0px) + 14px)',
+          boxShadow: '0 10px 24px rgba(168,12,35,0.24)',
+        }}
+      >
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-white/20">
+          <div className="w-9 h-9 rounded-xl flex items-center justify-center bg-white/18 border border-white/15">
             <Wifi className="w-4 h-4 text-white" />
           </div>
           <div>
-            <h1 className="text-white font-bold text-sm tracking-wide">HBB Installer</h1>
-            <p className="text-white/60 text-[10px]">Field Operations</p>
+            <h1 className="text-white font-bold text-[15px] tracking-wide leading-tight">HBB Installer</h1>
+            <p className="text-white/72 text-[10px]">Field Operations</p>
           </div>
         </div>
         <div className="flex items-center gap-2">
           {assignedJobs.length > 0 && (
-            <span className="px-2 py-0.5 rounded-full text-[10px] font-bold text-white bg-white/25">
+            <span className="px-2.5 py-1 rounded-full text-[10px] font-bold text-white bg-white/20 border border-white/15">
               {assignedJobs.length} pending
             </span>
           )}
@@ -403,20 +418,27 @@ export function HBBInstallerDashboard({ user, userData, onLogout }: Props) {
       </div>
 
       {/* Content */}
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain">
         {renderContent()}
       </div>
 
       {/* Bottom Tab Bar */}
       {!selectedJob && (
-        <div className="flex-shrink-0 bg-white border-t border-gray-200 flex safe-bottom">
+        <div
+          className="flex-shrink-0 bg-white/96 border-t border-gray-200 flex backdrop-blur"
+          style={{
+            paddingBottom: 'max(env(safe-area-inset-bottom), 10px)',
+            minHeight: '76px',
+            boxShadow: '0 -6px 20px rgba(0,0,0,0.06)',
+          }}
+        >
           {tabs.map(tab => {
             const isActive = activeTab === tab.id;
             return (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className="flex-1 flex flex-col items-center py-2 gap-0.5 transition-colors relative"
+                className="flex-1 flex flex-col items-center justify-center py-2.5 gap-0.5 transition-colors relative"
                 style={{ color: isActive ? ACCENT : '#9CA3AF' }}
               >
                 <tab.icon className="w-5 h-5" strokeWidth={isActive ? 2.5 : 1.5} />
@@ -482,19 +504,24 @@ function InstallerHome({ userName, assignedCount, todayCount, completedCount, to
   const greeting = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
 
   return (
-    <div className="p-4 space-y-5">
-      <div className="flex items-center justify-between">
+    <div className="p-3 sm:p-4 space-y-4 max-w-md mx-auto w-full pb-5">
+      <div className="flex items-center justify-between pt-1">
         <div>
-          <h2 className="text-lg font-bold text-gray-900">{greeting},</h2>
-          <p className="text-sm font-medium" style={{ color: ACCENT }}>{installerName || userName} 🔧</p>
+          <h2 className="text-[15px] font-semibold text-gray-700 tracking-tight">{greeting},</h2>
+          <p className="text-2xl font-black text-gray-900 tracking-tight leading-tight">{installerName || userName}</p>
+          <p className="text-xs font-medium" style={{ color: ACCENT }}>Installer Dashboard</p>
         </div>
-        <button onClick={onRefresh} className="p-2.5 rounded-xl active:scale-95 transition-all" style={{ backgroundColor: '#FEF2F2' }}>
+        <button
+          onClick={onRefresh}
+          className="p-3 rounded-2xl active:scale-95 transition-all shadow-sm"
+          style={{ backgroundColor: '#FFF5F5', border: '1px solid rgba(230,0,0,0.08)' }}
+        >
           <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} style={{ color: ACCENT }} />
         </button>
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-3 gap-2.5">
         <StatCard label="Pending" value={assignedCount} color={ACCENT_DARK} bg="#FFF5F5" />
         <StatCard label="Today" value={todayCount} color={ACCENT} bg="#FEF2F2" />
         <StatCard label="Done" value={completedCount} color="#10B981" bg="#ECFDF5" />
@@ -503,26 +530,26 @@ function InstallerHome({ userName, assignedCount, todayCount, completedCount, to
       {/* Upcoming Jobs */}
       <div>
         <div className="flex items-center justify-between mb-3">
-          <h3 className="text-sm font-semibold text-gray-700">
+          <h3 className="text-sm font-bold text-gray-800 tracking-tight">
             {todayCount > 0 ? "Today's Jobs" : 'Next Up'}
           </h3>
           {assignedCount > 0 && (
-            <button onClick={onViewAll} className="text-xs font-medium" style={{ color: ACCENT }}>
+            <button onClick={onViewAll} className="text-xs font-semibold" style={{ color: ACCENT }}>
               View all →
             </button>
           )}
         </div>
 
         {todayJobs.length === 0 ? (
-          <div className="bg-white rounded-2xl p-8 border border-gray-100 text-center">
+          <div className="bg-white rounded-3xl p-8 border border-gray-100 text-center shadow-sm">
             <div className="w-12 h-12 rounded-full mx-auto mb-3 flex items-center justify-center" style={{ backgroundColor: '#FEF2F2' }}>
               <CheckCircle className="w-6 h-6" style={{ color: ACCENT }} />
             </div>
-            <p className="text-sm font-medium text-gray-600">All clear!</p>
+            <p className="text-sm font-semibold text-gray-700">All clear!</p>
             <p className="text-xs text-gray-400 mt-1">No pending jobs right now</p>
           </div>
         ) : (
-          <div className="space-y-2">
+          <div className="space-y-2.5">
             {todayJobs.map((job: any) => (
               <JobMiniCard key={job.id} job={job} onSelect={() => onSelectJob(job)} />
             ))}
@@ -531,7 +558,7 @@ function InstallerHome({ userName, assignedCount, todayCount, completedCount, to
       </div>
 
       {/* Performance */}
-      <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
+      <div className="bg-white rounded-3xl p-4 shadow-sm border border-gray-100">
         <h3 className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: ACCENT }}>Performance</h3>
         <div className="flex items-center justify-between">
           <div className="text-center flex-1">
