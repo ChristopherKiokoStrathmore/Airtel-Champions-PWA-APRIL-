@@ -1,8 +1,11 @@
 // Airtel Champions v4.0.0 - Theme System + Premium UI [Build: 2026-03-09-003]
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import airtelChampionsIcon from './assets/LOGO.png';
+import airtelChampionsIcon from './assets/5cefe3bd8a968e47f850ff725f15f7c1e5cc74bb.png';
 import { supabase } from './utils/supabase/client';
-import { Toaster } from 'sonner@2.0.3';
+// import { Toaster } from 'sonner@2.0.3'; // Disabled due to missing module
+import { SupervisorLogin } from './components/SupervisorLogin';
+import { SupervisorDashboard } from './components/SupervisorDashboard';
+import { SupervisorPinChange } from './components/SupervisorPinChange';
 import { trackUserLogin, trackUserLogout, updateUserActivity, initSessionTracker } from './lib/session-tracker';
 import { trackLogin, trackLogout } from './utils/analytics'; // New analytics tracking
 import { initActivityTracking, logPWAAction, clearActivityUser, ACTION_TYPES } from './lib/activity-tracker';
@@ -103,7 +106,7 @@ function MobileContainer({ children }: { children: React.ReactNode }) {
 
   return (
     <div
-      className="h-screen flex items-center justify-center p-0 md:p-4 overflow-hidden transition-colors duration-300"
+      className="h-[100dvh] flex items-center justify-center p-0 md:p-4 overflow-hidden transition-colors duration-300"
       style={{ backgroundColor: bgPage }}
     >
       <div
@@ -118,12 +121,16 @@ function MobileContainer({ children }: { children: React.ReactNode }) {
         {children}
         <PWAInstallPrompt />
       </div>
-      <Toaster position="top-center" richColors />
+      {/* <Toaster position="top-center" richColors /> */}
     </div>
   );
 }
 
 function App() {
+
+  // Supervisor state (must be before any return)
+  const [showSupervisorLogin, setShowSupervisorLogin] = useState(false);
+  const [supervisor, setSupervisor] = useState<any>(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isTLAuthenticated, setIsTLAuthenticated] = useState<boolean>(() => getTLSession() !== null);
   const [user, setUser] = useState<any>(null);
@@ -211,7 +218,7 @@ function App() {
       document.head.appendChild(favicon);
     }
     favicon.type = 'image/png';
-    favicon.href = airtelChampionsIcon;
+    favicon.href = taiLogo;
 
     // ── Apple Touch Icon — iOS uses this for home-screen icon ─────────────────
     // Must be a real PNG — iOS Safari silently ignores SVGs.
@@ -222,7 +229,7 @@ function App() {
       document.head.appendChild(appleTouchIcon);
     }
     appleTouchIcon.setAttribute('sizes', '180x180');
-    appleTouchIcon.href = airtelChampionsIcon;
+    appleTouchIcon.href = taiLogo;
     
     // Set page title
     document.title = 'Airtel Champions - Sales Intelligence Network';
@@ -265,9 +272,9 @@ function App() {
       lang: 'en',
       categories: ['business', 'productivity'],
       icons: [
-        { src: airtelChampionsIcon, sizes: '192x192', type: 'image/png', purpose: 'any' },
-        { src: airtelChampionsIcon, sizes: '512x512', type: 'image/png', purpose: 'any' },
-        { src: airtelChampionsIcon, sizes: 'any',     type: 'image/png', purpose: 'maskable' },
+        { src: taiLogo, sizes: '192x192', type: 'image/png', purpose: 'any' },
+        { src: taiLogo, sizes: '512x512', type: 'image/png', purpose: 'any' },
+        { src: taiLogo, sizes: 'any',     type: 'image/png', purpose: 'maskable' },
       ],
       shortcuts: [
         {
@@ -536,6 +543,196 @@ function App() {
             setIsTLAuthenticated(false);
           }}
         />
+      </MobileContainer>
+    );
+  }
+
+  // Show database setup instructions if there's a database error
+  if (showDatabaseSetup && databaseError) {
+    return (
+      <DatabaseSetupInstructions 
+        error={databaseError}
+        onDismiss={() => setShowDatabaseSetup(false)}
+      />
+    );
+  }
+
+  if (loading) {
+    return (
+      <div className="fixed inset-0 w-screen h-screen bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center p-0 md:p-4 overflow-hidden">
+        <div className="w-full h-auto md:max-w-[428px] bg-white md:rounded-3xl md:shadow-2xl p-8">
+          <div className="text-center">
+            <img src={airtelChampionsLogo} alt="Airtel Champions" className="w-32 h-32 mx-auto mb-4 object-contain" />
+            <div className="w-16 h-16 border-4 border-[#E60000] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+            <p className="text-gray-600">Loading Airtel Champions...</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // MobileContainer is now defined OUTSIDE App (see above) for stable identity
+
+  if (isAuthenticated) {
+    // Role-based routing
+    const userRole = user?.role || userData?.role;
+    
+    // Debug logging moved to useEffect to avoid running on every render
+
+    // Route to appropriate dashboard based on role
+    if (userRole === 'zonal_sales_manager') {
+      return (
+        <MobileContainer>
+          <ZoneCommanderDashboard user={user} userData={userData} onLogout={handleLogout} />
+        </MobileContainer>
+      );
+    }
+
+    if (userRole === 'zonal_business_manager') {
+      return (
+        <MobileContainer>
+          <ZoneBusinessLeadDashboard user={user} userData={userData} onLogout={handleLogout} />
+        </MobileContainer>
+      );
+    }
+
+    if (userRole === 'hq_staff' || userRole === 'hq_command_center') {
+      return (
+        <MobileContainer>
+          <HQDashboard user={user} userData={userData} onLogout={handleLogout} />
+        </MobileContainer>
+      );
+    }
+
+    // Developer Dashboard - Check for Christopher or developer role
+    if (userRole === 'developer' || 
+        userData?.full_name?.toLowerCase().includes('christopher') ||
+        userData?.employee_id === 'DEV001' ||
+        user?.full_name?.toLowerCase().includes('christopher')) {
+      return (
+        <MobileContainer>
+          <DeveloperDashboard user={user} userData={userData} onLogout={handleLogout} />
+        </MobileContainer>
+      );
+    }
+
+    if (userRole === 'director') {
+      return (
+        <MobileContainer>
+          <DirectorDashboardV2 user={user} userData={userData} onLogout={handleLogout} />
+        </MobileContainer>
+      );
+    }
+
+    // HBB CRM Roles
+    if (userRole === 'hbb_agent') {
+      // Only whitelisted agents (from agents_HBB table) get full CRM; self-signup customers get limited view
+      const isWhitelistedAgent = userData?.source_table === 'agents_HBB';
+      return (
+        <MobileContainer>
+          <HBBAgentDashboard
+            user={user}
+            userData={isWhitelistedAgent ? userData : { ...userData, _customerOnly: true }}
+            onLogout={handleLogout}
+            onBackToMainMenu={() => {
+              // Clear HBB session and return to main app
+              clearHBBSession();
+              // Force a re-render to go back to role selection/main menu
+              setUser(null);
+              setUserData(null);
+              localStorage.removeItem('tai_user');
+              localStorage.removeItem('tai_userData');
+            }}
+          />
+        </MobileContainer>
+      );
+    }
+
+    if (userRole === 'hbb_installer') {
+      return (
+        <MobileContainer>
+          <HBBInstallerDashboard user={user} userData={userData} onLogout={handleLogout} />
+        </MobileContainer>
+      );
+    }
+
+    if (userRole === 'hbb_dse') {
+      return (
+        <MobileContainer>
+          <DSEDashboard 
+            user={user} 
+            userData={userData} 
+            onLogout={handleLogout}
+            onBackToMainMenu={() => {
+              // Clear HBB session and return to main app
+              clearHBBSession();
+              // Force a re-render to go back to role selection/main menu
+              setUser(null);
+              setUserData(null);
+              localStorage.removeItem('tai_user');
+              localStorage.removeItem('tai_userData');
+            }}
+          />
+        </MobileContainer>
+      );
+    }
+
+    if (userRole === 'hbb_hq' || userRole === 'hbb_hq_admin') {
+      // HQ dashboard is full-width (laptop-optimized), no MobileContainer
+      return (
+        <HBBHQDashboard
+          user={user}
+          userData={userData}
+          onLogout={() => {
+            clearHBBSession();
+            setUser(null);
+            setUserData(null);
+            localStorage.removeItem('tai_user');
+            localStorage.removeItem('tai_userData');
+          }}
+        />
+      );
+    }
+
+    // Default: SE view
+    return (
+      <MobileContainer>
+        <HomeScreen user={user} onLogout={handleLogout} initialTab={initialTabRef.current} />
+        {showAppTour && (
+          <GuidedTour
+            type="app"
+            onComplete={() => setShowAppTour(false)}
+            onSkipAll={() => setShowAppTour(false)}
+          />
+        )}
+      </MobileContainer>
+    );
+  }
+
+  // Supervisor state
+  // (already declared at the top of App)
+
+  // Supervisor login flow
+  if (showSupervisorLogin && !supervisor) {
+    return (
+      <MobileContainer>
+        <SupervisorLogin onLogin={sup => { setSupervisor(sup); }} />
+        <button
+          className="mt-4 text-blue-600 underline text-sm"
+          onClick={() => setShowSupervisorLogin(false)}
+        >Back to Login</button>
+      </MobileContainer>
+    );
+  }
+  if (supervisor) {
+    return (
+      <MobileContainer>
+        <SupervisorDashboard supervisorNumber={supervisor['Supervisor number']} />
+        <SupervisorPinChange supervisorId={supervisor.ID} currentPin={String(supervisor['Supervisor PIN'])} onPinChanged={() => {}} />
+        <button
+          className="mt-4 text-blue-600 underline text-sm"
+          onClick={() => { setSupervisor(null); setShowSupervisorLogin(false); }}
+        >Log out</button>
       </MobileContainer>
     );
   }
@@ -1896,7 +2093,7 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
             <NavButton
               icon={
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
               }
               active={false}
@@ -2667,46 +2864,14 @@ function LeaderboardScreen({ onBack, onLogout, userData, onUserClick }: { onBack
     <div className="flex-1 flex flex-col bg-gray-50 overflow-hidden">
       {/* Header */}
       <div className="bg-white border-b border-gray-200 px-6 py-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center">
-            <button onClick={onBack} className="mr-3">
-              <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
+        <div className="flex items-center mb-4">
+          <button onClick={onBack} className="mr-3">
+            <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <div className="flex-1">
             <h2 className="text-2xl">{"🏆"} Top Performers Today</h2>
-          </div>
-          <div className="flex items-center gap-2">
-            {/* Keep screen on during presentations */}
-            <WakeLockButton />
-            {/* Push notifications toggle */}
-            <PushNotificationBell userId={userData?.id} />
-            {/* Share my rank button */}
-            <button
-              onClick={handleShareRank}
-              title={canShare ? 'Share my rank' : 'Copy rank link'}
-              className="px-3 py-2 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white rounded-lg transition-all shadow-md flex items-center gap-2"
-            >
-              {shareCopied ? (
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-              ) : (
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
-                </svg>
-              )}
-              <span className="hidden sm:inline">{shareCopied ? 'Copied!' : 'Share'}</span>
-            </button>
-            <button 
-              onClick={() => setShowCompare(true)} 
-              className="px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-lg transition-all shadow-md flex items-center gap-2"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-              </svg>
-              Compare
-            </button>
           </div>
         </div>
 
@@ -2951,7 +3116,7 @@ function LeaderboardScreen({ onBack, onLogout, userData, onUserClick }: { onBack
                   className="text-white hover:text-gray-200"
                 >
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                   </svg>
                 </button>
               </div>

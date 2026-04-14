@@ -560,7 +560,7 @@ export function DSEDashboard({ user, userData, onLogout, onBackToMainMenu }: DSE
   ];
 
   return (
-    <div data-testid="hbb-dashboard" className="flex flex-col h-screen min-h-0 bg-gray-50 overflow-hidden font-sans">
+    <div data-testid="hbb-dashboard" className="flex flex-col flex-1 min-h-0 bg-gray-50 overflow-hidden font-sans">
       {/* ── Header ─────────────────────────────────────────────────────────── */}
       <div
         className="flex-shrink-0 px-4 py-3 flex items-center justify-between"
