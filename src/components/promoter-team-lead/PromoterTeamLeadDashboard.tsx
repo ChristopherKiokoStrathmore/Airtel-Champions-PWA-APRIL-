@@ -64,21 +64,28 @@ export function PromoterTeamLeadDashboard({ onLogout }: Props) {
   ];
 
   return (
-    <div className="flex flex-col h-full min-h-0 bg-gray-50 overflow-hidden">
+    <div className="flex flex-col h-full min-h-0 overflow-hidden" style={{ background: 'linear-gradient(180deg, #f8fafc 0%, #f3f4f6 100%)' }}>
 
       {/* ── Header ── */}
-      <div style={{ background: '#E60000' }} className="px-5 pt-7 pb-4 flex-shrink-0">
-        <p className="text-white/80 text-xs tracking-wide">{greeting()}, Team Lead 👋</p>
-        <p className="text-white text-2xl font-black tracking-tight mt-0.5 mb-4">
+      <div
+        className="px-5 pb-4 flex-shrink-0"
+        style={{
+          background: 'linear-gradient(155deg, #E60000 0%, #C8102E 70%, #A80C23 100%)',
+          paddingTop: 'calc(max(env(safe-area-inset-top), 0px) + 18px)',
+          boxShadow: '0 10px 24px rgba(168,12,35,0.28)',
+        }}
+      >
+        <p className="text-white/85 text-xs tracking-wide">{greeting()}, Team Lead</p>
+        <p className="text-white text-[28px] font-black tracking-tight mt-0.5 mb-4 leading-tight">
           {tlUser.full_name.split(' ')[0]}
         </p>
 
-        <div className="flex gap-2.5">
+        <div className="grid grid-cols-3 gap-2.5">
           {stats.map(({ num, lbl }) => (
             <div
               key={lbl}
-              className="flex-1 rounded-2xl px-3 py-2.5 text-center"
-              style={{ background: 'rgba(255,255,255,0.18)' }}
+              className="rounded-2xl px-3 py-2.5 text-center"
+              style={{ background: 'rgba(255,255,255,0.14)', border: '1px solid rgba(255,255,255,0.18)' }}
             >
               <p className="text-white text-xl font-black leading-none">{num}</p>
               <p className="text-white/70 text-[9px] uppercase tracking-wide mt-1">{lbl}</p>
@@ -88,7 +95,7 @@ export function PromoterTeamLeadDashboard({ onLogout }: Props) {
       </div>
 
       {/* ── Tab content ── */}
-      <div className="flex-1 overflow-hidden flex flex-col bg-gray-50">
+      <div className="flex-1 min-h-0 overflow-hidden flex flex-col bg-transparent pt-2">
         {activeTab === 'today' && (
           <TodayTab
             tlUser={tlUser}
@@ -112,9 +119,10 @@ export function PromoterTeamLeadDashboard({ onLogout }: Props) {
 
       {/* ── Tab bar ── */}
       <div
-        className="bg-white border-t border-gray-100 flex flex-shrink-0"
+        className="bg-white/95 border-t border-gray-100 flex flex-shrink-0 backdrop-blur"
         style={{
-          paddingBottom: 'max(env(safe-area-inset-bottom), 8px)',
+          paddingBottom: 'max(env(safe-area-inset-bottom), 10px)',
+          minHeight: '74px',
           boxShadow: '0 -4px 20px rgba(0,0,0,0.06)',
         }}
       >
@@ -122,7 +130,7 @@ export function PromoterTeamLeadDashboard({ onLogout }: Props) {
           <button
             key={t.id}
             onClick={() => setActiveTab(t.id)}
-            className="flex-1 flex flex-col items-center justify-center py-2 gap-0.5 transition-colors"
+            className="flex-1 flex flex-col items-center justify-center py-2.5 gap-0.5 transition-colors"
             style={{ color: activeTab === t.id ? '#E60000' : '#9ca3af' }}
           >
             <span className="text-xl leading-none">{t.icon}</span>
