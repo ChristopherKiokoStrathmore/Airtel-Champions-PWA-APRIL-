@@ -89,6 +89,9 @@ export async function tlSignup(
   });
 
   if (error) {
+    if (error.message.includes('PIN_FORMAT_INVALID')) {
+      return { user: null, error: 'PIN must be exactly 4 digits.' };
+    }
     if (error.message.includes('MSISDN_EXISTS')) {
       return { user: null, error: 'An account with this phone number already exists.' };
     }

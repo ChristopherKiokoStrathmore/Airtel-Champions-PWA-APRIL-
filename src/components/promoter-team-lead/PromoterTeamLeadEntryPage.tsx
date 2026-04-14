@@ -37,6 +37,10 @@ export function PromoterTeamLeadEntryPage({ onSuccess, onBack }: Props) {
       setLoginError('Enter your phone number and password.');
       return;
     }
+    if (!/^\d{4}$/.test(loginPassword)) {
+      setLoginError('PIN must be exactly 4 digits.');
+      return;
+    }
     setLoginLoading(true);
     const { user, error } = await tlLogin(loginMsisdn.trim(), loginPassword);
     setLoginLoading(false);
@@ -53,7 +57,7 @@ export function PromoterTeamLeadEntryPage({ onSuccess, onBack }: Props) {
     if (!signupMsisdn.trim())             { setSignupError('Enter your MSISDN.');                       return; }
     if (!signupZone)                      { setSignupError('Select your zone.');                        return; }
     if (!signupCluster.trim())            { setSignupError('Enter your SE cluster / location.');        return; }
-    if (signupPassword.length < 6)        { setSignupError('Password must be at least 6 characters.'); return; }
+    if (!/^\d{4}$/.test(signupPassword))  { setSignupError('PIN must be exactly 4 digits.');            return; }
     if (signupPassword !== signupConfirm) { setSignupError('Passwords do not match.');                 return; }
 
     setSignupLoading(true);
@@ -116,7 +120,10 @@ export function PromoterTeamLeadEntryPage({ onSuccess, onBack }: Props) {
           type="password"
           value={loginPassword}
           onChange={e => setLoginPassword(e.target.value)}
-          placeholder="Password"
+          placeholder="4-digit PIN"
+          inputMode="numeric"
+          pattern="[0-9]*"
+          maxLength={4}
           className={inputCls}
         />
         <button
@@ -183,14 +190,20 @@ export function PromoterTeamLeadEntryPage({ onSuccess, onBack }: Props) {
           type="password"
           value={signupPassword}
           onChange={e => setSignupPassword(e.target.value)}
-          placeholder="Create Password (min. 6 characters)"
+          placeholder="Create 4-digit PIN"
+          inputMode="numeric"
+          pattern="[0-9]*"
+          maxLength={4}
           className={inputCls}
         />
         <input
           type="password"
           value={signupConfirm}
           onChange={e => setSignupConfirm(e.target.value)}
-          placeholder="Confirm Password"
+          placeholder="Confirm 4-digit PIN"
+          inputMode="numeric"
+          pattern="[0-9]*"
+          maxLength={4}
           className={inputCls}
         />
         <button
