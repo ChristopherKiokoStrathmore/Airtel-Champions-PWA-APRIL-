@@ -64,10 +64,10 @@ export function PromoterTeamLeadDashboard({ onLogout }: Props) {
   ];
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full min-h-0 bg-gray-50 overflow-hidden">
 
       {/* ── Header ── */}
-      <div style={{ background: '#E60000' }} className="px-5 pt-10 pb-5 flex-shrink-0">
+      <div style={{ background: '#E60000' }} className="px-5 pt-7 pb-4 flex-shrink-0">
         <p className="text-white/80 text-xs tracking-wide">{greeting()}, Team Lead 👋</p>
         <p className="text-white text-2xl font-black tracking-tight mt-0.5 mb-4">
           {tlUser.full_name.split(' ')[0]}
@@ -111,12 +111,18 @@ export function PromoterTeamLeadDashboard({ onLogout }: Props) {
       </div>
 
       {/* ── Tab bar ── */}
-      <div className="bg-white border-t border-gray-100 flex flex-shrink-0">
+      <div
+        className="bg-white border-t border-gray-100 flex flex-shrink-0"
+        style={{
+          paddingBottom: 'max(env(safe-area-inset-bottom), 8px)',
+          boxShadow: '0 -4px 20px rgba(0,0,0,0.06)',
+        }}
+      >
         {tabs.map(t => (
           <button
             key={t.id}
             onClick={() => setActiveTab(t.id)}
-            className="flex-1 flex flex-col items-center justify-center py-2.5 gap-0.5 transition-colors"
+            className="flex-1 flex flex-col items-center justify-center py-2 gap-0.5 transition-colors"
             style={{ color: activeTab === t.id ? '#E60000' : '#9ca3af' }}
           >
             <span className="text-xl leading-none">{t.icon}</span>
