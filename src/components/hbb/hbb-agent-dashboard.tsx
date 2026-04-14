@@ -322,12 +322,12 @@ export function HBBAgentDashboard({ user, userData, onLogout, onBackToMainMenu }
       </div>
 
       {/* Content */}
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1 min-h-0 overflow-y-auto">
         {renderContent()}
       </div>
 
       {/* Bottom Tab Bar */}
-      <div className="flex-shrink-0 bg-white border-t border-gray-200 flex safe-bottom">
+      <div className="flex-shrink-0 bg-white border-t border-gray-200 flex" style={{ paddingBottom: 'max(env(safe-area-inset-bottom), 0px)' }}>
         {tabs.map(tab => {
           const isActive = activeTab === tab.id;
           const isLogout = tab.id === 'logout-action';

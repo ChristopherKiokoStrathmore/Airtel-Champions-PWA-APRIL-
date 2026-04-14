@@ -469,7 +469,8 @@ export function LoginPage({
 
   // ─── Render ────────────────────────────────────────────────────────────────
   return (
-    <div className="flex-1 flex flex-col items-center justify-center px-6 py-4 overflow-y-auto">
+    <div className="flex-1 overflow-y-auto flex flex-col">
+      <div className="flex-1 flex flex-col items-center justify-center px-6 py-4">
       <div className="w-full max-w-sm mx-auto">
 
         {/* ① 3D logo cube ───────────────────────────────────────────────── */}
@@ -701,6 +702,7 @@ export function LoginPage({
         {showSchemaCheck && <DatabaseSchemaChecker onClose={() => setShowSchemaCheck(false)} />}
         {showDiagTool    && <PhoneDiagnosticTool   onClose={() => setShowDiagTool(false)} />}
 
+      </div>
       </div>
     </div>
   );

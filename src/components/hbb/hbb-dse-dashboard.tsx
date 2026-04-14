@@ -635,8 +635,13 @@ export function DSEDashboard({ user, userData, onLogout, onBackToMainMenu }: DSE
 
       {/* ── Bottom navigation ──────────────────────────────────────────────── */}
       <nav
-        className="flex-shrink-0 bg-white border-t border-gray-100 flex items-center justify-around px-2 py-1 shadow-lg"
-        style={{ boxShadow: '0 -4px 20px rgba(0,0,0,0.06)' }}
+        className="flex-shrink-0 bg-white border-t border-gray-100 flex items-center justify-around px-2 shadow-lg"
+        style={{
+          boxShadow: '0 -4px 20px rgba(0,0,0,0.06)',
+          paddingBottom: 'max(env(safe-area-inset-bottom), 8px)',
+          paddingTop: '4px',
+          minHeight: '60px',
+        }}
       >
         {NAV_ITEMS.map(({ id, icon: Icon, label }) => {
           const active = activeTab === id;
