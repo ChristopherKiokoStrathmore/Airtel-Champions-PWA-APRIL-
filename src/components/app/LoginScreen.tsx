@@ -31,8 +31,8 @@ export function LoginScreen({ onShowSignup, setUser, setUserData, setIsAuthentic
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#EA0228] to-[#003C71] flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
+    <div className="min-h-screen bg-gradient-to-br from-[#EA0228] to-[#003C71] flex flex-col justify-center items-center p-4 overflow-y-auto">
+      <div className="w-full max-w-md flex flex-col justify-center items-center">
         <div className="text-center mb-8">
           <div className="w-20 h-20 bg-white rounded-full mx-auto mb-4 flex items-center justify-center">
             <span className="text-3xl font-bold text-[#EA0228]">TA</span>
