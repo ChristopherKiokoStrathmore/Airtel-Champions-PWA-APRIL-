@@ -24,7 +24,7 @@ export function AMAgentDashboard({ user, userData, onLogout }: Props) {
   const agentCode = userData?.agent_code || user?.agent_code || '';
 
   return (
-    <div className="flex flex-col h-screen bg-gray-50 overflow-hidden">
+    <div className="flex flex-col h-[100dvh] bg-gray-50 overflow-hidden">
       {/* ── Top bar ─────────────────────────────────────────────────────────── */}
       <div className="bg-white border-b border-gray-100 px-4 py-3 flex items-center justify-between shrink-0">
         <div className="flex items-center gap-3">
@@ -83,7 +83,10 @@ export function AMAgentDashboard({ user, userData, onLogout }: Props) {
       </div>
 
       {/* ── Bottom navigation ─────────────────────────────────────────────── */}
-      <div className="bg-white border-t border-gray-100 flex shrink-0 safe-bottom">
+      <div
+        className="bg-white border-t border-gray-100 flex shrink-0"
+        style={{ paddingBottom: 'max(env(safe-area-inset-bottom), 8px)' }}
+      >
         {(
           [
             { id: 'education',  label: 'Education',  Icon: BookOpen   },
@@ -95,7 +98,7 @@ export function AMAgentDashboard({ user, userData, onLogout }: Props) {
             <button
               key={id}
               onClick={() => setActiveTab(id)}
-              className="flex-1 flex flex-col items-center justify-center py-3 transition-colors"
+              className="relative flex-1 flex flex-col items-center justify-center py-3 transition-colors"
               style={{ color: active ? ACCENT : '#9CA3AF' }}
             >
               <Icon className="w-5 h-5" strokeWidth={active ? 2.2 : 1.8} />
