@@ -46,6 +46,8 @@ export interface AMVideoSession {
   max_position_secs: number;
   completed: boolean;
   position_samples: Array<{ t: number; p: number }>;
+  integrity_suspicious: boolean;
+  integrity_reason?: string;
   created_at: string;
 }
 
@@ -99,6 +101,7 @@ export interface AMVideoAnalytics {
     completed: boolean;
     session_count: number;
     last_watched: string;
+    suspicious_sessions?: number;
   }>;
 }
 
@@ -639,20 +642,28 @@ export async function getVideoAnalytics(videoId: string): Promise<AMVideoAnalyti
   const rows: AMVideoSession[] = (sessions || []) as any[];
 
   // Unique agents
-  const agentMap = new Map<number, { agent_name: string; max_position_secs: number; completed: boolean; sessions: AMVideoSession[] }>();
+  const agentMap = new Map<number, {
+    agent_name: string;
+    max_position_secs: number;
+    completed: boolean;
+    suspicious_sessions: number;
+    sessions: AMVideoSession[];
+  }>();
   for (const s of rows) {
     const aid = s.agent_id;
     if (!agentMap.has(aid)) {
       agentMap.set(aid, {
         agent_name: (s as any).agent?.full_name || 'Unknown',
         max_position_secs: s.max_position_secs,
-        completed: s.completed,
+        completed: s.completed && !s.integrity_suspicious,
+        suspicious_sessions: s.integrity_suspicious ? 1 : 0,
         sessions: [s],
       });
     } else {
       const entry = agentMap.get(aid)!;
       entry.max_position_secs = Math.max(entry.max_position_secs, s.max_position_secs);
-      entry.completed = entry.completed || s.completed;
+      entry.completed = entry.completed || (s.completed && !s.integrity_suspicious);
+      if (s.integrity_suspicious) entry.suspicious_sessions += 1;
       entry.sessions.push(s);
     }
   }
@@ -680,6 +691,7 @@ export async function getVideoAnalytics(videoId: string): Promise<AMVideoAnalyti
     completed:        a.completed,
     session_count:    a.sessions.length,
     last_watched:     a.sessions[0]?.created_at || '',
+    suspicious_sessions: a.suspicious_sessions,
   }));
 
   return {
@@ -703,7 +715,7 @@ export async function getAllAgentsWithProgress(): Promise<Array<AMAgent & { vide
 
   const { data: sessions } = await supabase
     .from('am_video_sessions')
-    .select('agent_id, video_id, completed, duration_watched_secs, session_start');
+    .select('agent_id, video_id, completed, integrity_suspicious, duration_watched_secs, session_start');
 
   // agent_id is bigint (number) from DB
   const agentSessions = new Map<number, { videos: Set<string>; completedVideos: Set<string>; totalSecs: number; lastActive: string }>();
@@ -715,7 +727,7 @@ export async function getAllAgentsWithProgress(): Promise<Array<AMAgent & { vide
     }
     const entry = agentSessions.get(aid)!;
     entry.videos.add(s.video_id);
-    if (s.completed) entry.completedVideos.add(s.video_id);
+    if (s.completed && !s.integrity_suspicious) entry.completedVideos.add(s.video_id);
     entry.totalSecs += s.duration_watched_secs || 0;
     if (s.session_start > entry.lastActive) entry.lastActive = s.session_start;
   }

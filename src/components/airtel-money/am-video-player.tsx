@@ -39,6 +39,7 @@ export function AMVideoPlayer({ video, agentId, onClose }: Props) {
   const maxPosRef     = useRef(0);      // furthest point reached ever (across all sessions)
   const resumePosRef  = useRef(0);      // where to resume from
   const lastTickRef   = useRef<number | null>(null); // for computing watch time
+  const lastTrustedProgressAtRef = useRef<number | null>(null);
   const isPlayingRef  = useRef(false);
 
   const [isLoading,  setIsLoading]  = useState(true);
@@ -59,9 +60,20 @@ export function AMVideoPlayer({ video, agentId, onClose }: Props) {
       }
     });
 
+    const blockedForwardKeys = new Set(['ArrowRight', 'End', 'PageDown']);
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (blockedForwardKeys.has(e.key)) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    };
+
+    window.addEventListener('keydown', onKeyDown, true);
+
     return () => {
       stopSampling();
       closeSession();
+      window.removeEventListener('keydown', onKeyDown, true);
       // Clean up orientation lock on unmount
       if (window.screen?.orientation?.unlock) {
         window.screen.orientation.unlock();
@@ -110,9 +122,6 @@ export function AMVideoPlayer({ video, agentId, onClose }: Props) {
       watchSecsRef.current += Math.min(elapsed, SAMPLE_INTERVAL_MS / 1000 + 1);
       lastTickRef.current = now;
 
-      // Update max position
-      if (positionSecs > maxPosRef.current) maxPosRef.current = positionSecs;
-
       if (sessionIdRef.current) {
         appendPositionSample(
           sessionIdRef.current,
@@ -151,6 +160,7 @@ export function AMVideoPlayer({ video, agentId, onClose }: Props) {
     isPlayingRef.current = true;
     setIsPaused(false);
     lastTickRef.current = Date.now();
+    lastTrustedProgressAtRef.current = Date.now();
   };
 
   const handlePause = () => {
@@ -162,9 +172,31 @@ export function AMVideoPlayer({ video, agentId, onClose }: Props) {
   const handleTimeUpdate = () => {
     const vid = videoRef.current;
     if (!vid) return;
+
+    const now = Date.now();
     const pos = Math.floor(vid.currentTime);
-    setCurrentSec(pos);
+    const maxAllowed = Math.floor(getMaxAllowedSeek());
+    setCurrentSec(Math.min(pos, maxAllowed));
+
+    // Never count progress while user is actively scrubbing/seeking.
+    // This prevents forward drags from being treated as genuine watch progress.
+    if (vid.seeking) return;
+
+    // Block non-natural jumps (keyboard/programmatic seek) from being treated as watched.
+    // Allowed growth is bounded by elapsed wall-clock time * playback rate (+ tolerance).
+    const lastTrustedAt = lastTrustedProgressAtRef.current ?? now;
+    const elapsedSecs = Math.max(0, (now - lastTrustedAt) / 1000);
+    const rate = Math.max(0.5, Math.min(2, vid.playbackRate || 1));
+    const naturalAdvanceLimit = maxPosRef.current + Math.ceil(elapsedSecs * rate) + 1;
+
+    if (pos > naturalAdvanceLimit) {
+      vid.currentTime = maxPosRef.current;
+      setCurrentSec(Math.floor(maxPosRef.current));
+      return;
+    }
+
     if (pos > maxPosRef.current) maxPosRef.current = pos;
+    lastTrustedProgressAtRef.current = now;
   };
 
   const handleEnded = async () => {
@@ -268,6 +300,7 @@ export function AMVideoPlayer({ video, agentId, onClose }: Props) {
     const maxAllowed = getMaxAllowedSeek();
     if (vid.currentTime > maxAllowed + 0.25) {
       vid.currentTime = maxAllowed;
+      setCurrentSec(Math.floor(maxAllowed));
     }
   };
 
