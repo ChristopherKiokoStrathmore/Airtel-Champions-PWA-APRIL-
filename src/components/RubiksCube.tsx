@@ -43,7 +43,7 @@ function LogoCubeMesh({ logoSrc, onToggle }: LogoCubeMeshProps) {
   texture.magFilter = THREE.LinearFilter;
 
   const handleClick = () => {
-    targetY.current += Math.PI; // +180° per tap
+    targetY.current += Math.PI; // +180° per tap — always lands flat (0° or 180°)
     onToggle();
   };
 
@@ -124,4 +124,4 @@ export function RubiksCube({ logoSrc, onToggle, className, style }: RubiksCubePr
 }
 
 // Shared type re-exported so LoginPage only needs one import from this file
-export type AppMode = 'sales' | 'hbb';
+export type AppMode = 'sales' | 'hbb' | 'airtel-money';

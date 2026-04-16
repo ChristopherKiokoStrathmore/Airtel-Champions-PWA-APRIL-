@@ -48,6 +48,8 @@ import React, { useState, useEffect, Suspense } from 'react';
 
 import { RubiksCube, AppMode } from './RubiksCube';
 import { PromoterTeamLeadEntryPage } from './promoter-team-lead/PromoterTeamLeadEntryPage';
+import { AMSignUpForm } from './airtel-money/AMSignUpForm';
+import { amAgentLogin, amAdminLogin } from './airtel-money/am-api';
 
 import { supabase } from '../utils/supabase/client';
 import { hbbLogin } from './hbb/hbb-api';
@@ -103,10 +105,12 @@ function phoneFormats(normalised: string): string[] {
 
 // ─── localStorage helpers ─────────────────────────────────────────────────────
 
+const ALL_MODES: AppMode[] = ['sales', 'hbb', 'airtel-money'];
+
 function readStoredMode(): AppMode {
   try {
     const v = localStorage.getItem(MODE_KEY);
-    if (v === 'hbb' || v === 'sales') return v;
+    if (ALL_MODES.includes(v as AppMode)) return v as AppMode;
   } catch { /* ignore */ }
   return 'sales';
 }
@@ -145,6 +149,7 @@ export function LoginPage({
   const [showSchemaCheck, setShowSchemaCheck] = useState(false);
   const [showHelp,        setShowHelp]        = useState(false);
   const [showTLEntry,     setShowTLEntry]     = useState(false);
+  const [showAMSignUp,    setShowAMSignUp]    = useState(false);
 
   const isDev = (() => {
     try {
@@ -166,10 +171,11 @@ export function LoginPage({
     return () => window.removeEventListener('unhandledrejection', h);
   }, []);
 
-  // ── Mode toggle ─────────────────────────────────────────────────────────────
+  // ── Mode toggle — cycles through all 4 sides ─────────────────────────────
   const handleModeToggle = () => {
     setMode(prev => {
-      const next: AppMode = prev === 'sales' ? 'hbb' : 'sales';
+      const idx  = ALL_MODES.indexOf(prev);
+      const next = ALL_MODES[(idx + 1) % ALL_MODES.length];
       persistMode(next);
       return next;
     });
@@ -397,6 +403,39 @@ export function LoginPage({
   };
 
   // ─────────────────────────────────────────────────────────────────────────────
+  // STEP 3c — Airtel Money login chain (agent → admin)
+  // ─────────────────────────────────────────────────────────────────────────────
+  const runAMLogin = async (): Promise<void> => {
+    // Try agent login first
+    const agent = await amAgentLogin(phoneNumber.trim(), (pin || '').trim());
+    if (agent) {
+      console.log('✅ Airtel Money agent login successful:', agent.full_name);
+      const userData = { ...agent, _loginAt: Date.now() };
+      localStorage.setItem('tai_user', JSON.stringify(userData));
+      setUser(userData);
+      setUserData(userData);
+      setIsAuthenticated(true);
+      setLoading(false);
+      return;
+    }
+
+    // Try admin login
+    const admin = await amAdminLogin(phoneNumber.trim(), (pin || '').trim());
+    if (admin) {
+      console.log('✅ Airtel Money admin login successful:', admin.full_name);
+      const userData = { ...admin, _loginAt: Date.now() };
+      localStorage.setItem('tai_user', JSON.stringify(userData));
+      setUser(userData);
+      setUserData(userData);
+      setIsAuthenticated(true);
+      setLoading(false);
+      return;
+    }
+
+    throw new Error(ERR_GENERIC);
+  };
+
+  // ─────────────────────────────────────────────────────────────────────────────
   // Main submit handler
   // ─────────────────────────────────────────────────────────────────────────────
   const handleLogin = async (e: React.FormEvent) => {
@@ -444,8 +483,10 @@ export function LoginPage({
 
       if (mode === 'sales') {
         await runSalesLogin(normalised);
-      } else {
+      } else if (mode === 'hbb') {
         await runHbbLogin();
+      } else if (mode === 'airtel-money') {
+        await runAMLogin();
       }
 
     } catch (err: any) {
@@ -465,16 +506,39 @@ export function LoginPage({
     );
   }
 
-  const isHBB = mode === 'hbb';
+  // Show Airtel Money agent sign-up
+  if (showAMSignUp) {
+    return (
+      <AMSignUpForm
+        onBack={() => setShowAMSignUp(false)}
+        onSuccess={(newAgent) => {
+          const userData = { ...newAgent, _loginAt: Date.now() };
+          localStorage.setItem('tai_user', JSON.stringify(userData));
+          setUser(userData);
+          setUserData(userData);
+          setIsAuthenticated(true);
+        }}
+      />
+    );
+  }
+
+  const isHBB         = mode === 'hbb';
+  const isAirtelMoney = mode === 'airtel-money';
+
+  const modeLabel: Record<AppMode, string> = {
+    'sales':        'Airtel Champions Sales',
+    'hbb':          'Airtel Champions HBB',
+    'airtel-money': 'Airtel Champions Airtel Money',
+  };
 
   // ─── Render ────────────────────────────────────────────────────────────────
   return (
-    <div className="flex-1 overflow-y-auto flex flex-col">
-      <div className="flex-1 flex flex-col items-center justify-center px-6 py-4">
+    <div className="min-h-screen flex flex-col overflow-hidden">
+      <div className="flex-1 flex flex-col items-center justify-center px-4 py-2">
       <div className="w-full max-w-sm mx-auto">
 
         {/* ① 3D logo cube ───────────────────────────────────────────────── */}
-        <div style={{ width: '100%', height: '200px' }}>
+        <div style={{ width: '100%', height: '130px' }}>
           <Suspense
             fallback={
               <div className="w-full h-full flex items-center justify-center">
@@ -493,12 +557,12 @@ export function LoginPage({
         {/* ② Mode label ─────────────────────────────────────────────────── */}
         <p className="text-center text-base font-bold mt-1 tracking-tight"
           style={{ color: '#E60000' }}>
-          {isHBB ? 'Airtel Champions HBB' : 'Airtel Champions Sales'}
+          {modeLabel[mode]}
         </p>
 
         {/* ③ Tap hint ───────────────────────────────────────────────────── */}
         <p className="text-center text-[11px] text-gray-400 mt-0.5 mb-4 tracking-wide">
-          Tap cube to switch mode
+          Tap cube to switch mode · Side {ALL_MODES.indexOf(mode) + 1} of 3
         </p>
 
         {/* ④ Login form ─────────────────────────────────────────────────── */}
@@ -566,7 +630,9 @@ export function LoginPage({
           </button>
         </form>
 
-        {/* ⑤ HBB-only: submit leads section ────────────────────────────── */}
+        {/* ⑤ Mode-specific sections ──────────────────────────────────────── */}
+
+        {/* HBB: submit leads */}
         {isHBB && (
           <div className="mt-3">
             <div className="relative my-3">
@@ -590,8 +656,8 @@ export function LoginPage({
           </div>
         )}
 
-        {/* ⑤b Sales-only: Promoter Team Lead section ─────────────────────── */}
-        {!isHBB && (
+        {/* Sales: Promoter Team Lead */}
+        {mode === 'sales' && (
           <div className="mt-3">
             <div className="relative my-3">
               <div className="absolute inset-0 flex items-center">
@@ -611,6 +677,31 @@ export function LoginPage({
               style={{ borderColor: '#E60000', color: '#E60000' }}
             >
               PROMOTER TEAM LEAD
+            </button>
+          </div>
+        )}
+
+        {/* Airtel Money: agent sign-up */}
+        {isAirtelMoney && (
+          <div className="mt-3">
+            <div className="relative my-3">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-gray-200" />
+              </div>
+              <div className="relative flex justify-center text-[10px]">
+                <span className="px-3 text-gray-400 uppercase tracking-widest font-medium"
+                  style={{ background: 'var(--theme-bg-card, #ffffff)' }}>
+                  New agent?
+                </span>
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={() => setShowAMSignUp(true)}
+              className="w-full py-3.5 text-sm border-2 rounded-xl hover:bg-red-50 active:scale-[0.98] transition-all font-semibold tracking-wide"
+              style={{ borderColor: '#E60000', color: '#E60000' }}
+            >
+              REGISTER AS AGENT
             </button>
           </div>
         )}
