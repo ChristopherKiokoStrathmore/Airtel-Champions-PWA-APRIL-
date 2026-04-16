@@ -14,7 +14,7 @@ import {
   appendPositionSample,
   getLatestSession,
 } from './am-api';
-import { X, Play, Pause, Volume2, VolumeX, Maximize, SkipBack, SkipForward, RotateCw } from 'lucide-react';
+import { X, Play, Pause, Volume2, VolumeX, Maximize, SkipBack, RotateCw } from 'lucide-react';
 
 interface Props {
   video: {
@@ -29,6 +29,7 @@ interface Props {
 
 const ACCENT = '#E60000';
 const SAMPLE_INTERVAL_MS = 5000;
+const PLAYBACK_SPEEDS = [0.5, 0.75, 1, 1.25, 1.5, 2];
 
 export function AMVideoPlayer({ video, agentId, onClose }: Props) {
   const videoRef      = useRef<HTMLVideoElement>(null);
@@ -45,6 +46,7 @@ export function AMVideoPlayer({ video, agentId, onClose }: Props) {
   const [isPaused,   setIsPaused]   = useState(true);
   const [currentSec, setCurrentSec] = useState(0);
   const [totalSec,   setTotalSec]   = useState(video.duration_seconds || 0);
+  const [playbackRate, setPlaybackRate] = useState(1);
   const [error,      setError]      = useState('');
   const [isLandscape, setIsLandscape] = useState(false);
 
@@ -224,11 +226,7 @@ export function AMVideoPlayer({ video, agentId, onClose }: Props) {
     vid.currentTime = Math.max(0, vid.currentTime - 10);
   };
 
-  const skipForward = () => {
-    const vid = videoRef.current;
-    if (!vid) return;
-    vid.currentTime = Math.min(vid.duration, vid.currentTime + 10);
-  };
+  const getMaxAllowedSeek = () => maxPosRef.current;
 
   const toggleLandscape = () => {
     const vid = videoRef.current;
@@ -259,7 +257,25 @@ export function AMVideoPlayer({ video, agentId, onClose }: Props) {
   const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
     const vid = videoRef.current;
     if (!vid) return;
-    vid.currentTime = Number(e.target.value);
+    const requested = Number(e.target.value);
+    vid.currentTime = Math.min(requested, getMaxAllowedSeek());
+  };
+
+  const handleSeeking = () => {
+    const vid = videoRef.current;
+    if (!vid) return;
+
+    const maxAllowed = getMaxAllowedSeek();
+    if (vid.currentTime > maxAllowed + 0.25) {
+      vid.currentTime = maxAllowed;
+    }
+  };
+
+  const handlePlaybackRateChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const vid = videoRef.current;
+    const nextRate = Number(e.target.value);
+    setPlaybackRate(nextRate);
+    if (vid) vid.playbackRate = nextRate;
   };
 
   const fmt = (s: number) => {
@@ -303,6 +319,7 @@ export function AMVideoPlayer({ video, agentId, onClose }: Props) {
             onPlay={handlePlay}
             onPause={handlePause}
             onTimeUpdate={handleTimeUpdate}
+            onSeeking={handleSeeking}
             onEnded={handleEnded}
             onError={handleError}
             onClick={togglePlay}
@@ -325,6 +342,7 @@ export function AMVideoPlayer({ video, agentId, onClose }: Props) {
       {/* Controls */}
       {!error && (
         <div className="bg-black/90 px-4 pt-3 pb-5 space-y-2">
+          <p className="text-[11px] text-white/50">Forward seeking is disabled for training compliance. You can pause, rewind, or change speed.</p>
           {/* Seek bar */}
           <div className="relative h-1.5 rounded-full bg-white/20">
             <div
@@ -347,7 +365,19 @@ export function AMVideoPlayer({ video, agentId, onClose }: Props) {
               {fmt(currentSec)} / {fmt(totalSec)}
             </span>
 
-            <div className="flex items-center gap-5">
+            <div className="flex items-center gap-4">
+              <select
+                value={playbackRate}
+                onChange={handlePlaybackRateChange}
+                className="bg-white/10 text-white text-xs rounded-md px-2 py-1 border border-white/20 focus:outline-none"
+                title="Playback speed"
+              >
+                {PLAYBACK_SPEEDS.map(speed => (
+                  <option key={speed} value={speed} className="text-black">
+                    {speed}x
+                  </option>
+                ))}
+              </select>
               <button onClick={skipBackward} className="text-white/70 hover:text-white transition-colors" title="Skip 10 seconds back">
                 <SkipBack className="w-4 h-4" />
               </button>
@@ -355,9 +385,6 @@ export function AMVideoPlayer({ video, agentId, onClose }: Props) {
                 {isPaused
                   ? <Play  className="w-5 h-5 fill-white" />
                   : <Pause className="w-5 h-5 fill-white" />}
-              </button>
-              <button onClick={skipForward} className="text-white/70 hover:text-white transition-colors" title="Skip 10 seconds forward">
-                <SkipForward className="w-4 h-4" />
               </button>
               <button onClick={toggleMute} className="text-white/70 hover:text-white">
                 {isMuted
