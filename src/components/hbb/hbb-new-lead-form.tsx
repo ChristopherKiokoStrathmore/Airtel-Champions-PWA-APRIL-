@@ -1133,9 +1133,9 @@ export function HBBNewLeadForm({
       {/* ── Plan picker bottom sheet ─────────────────────────────────────────── */}
       {showPlanPicker && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-end">
-          <div className="bg-white rounded-t-3xl w-full max-w-lg mx-auto"
+          <div className="bg-white rounded-t-3xl w-full max-w-lg mx-auto max-h-[75vh] flex flex-col"
             style={{ animation: 'slideUp 0.3s ease-out' }}>
-            <div className="px-4 pt-4 pb-3 flex items-center justify-between border-b border-gray-100">
+            <div className="px-4 pt-4 pb-3 flex items-center justify-between border-b border-gray-100 flex-shrink-0">
               <div>
                 <h3 className="text-base font-bold text-gray-900">Select Plan</h3>
                 <p className="text-xs text-gray-400">5G Smart Connect – Outdoor Unit</p>
@@ -1145,7 +1145,7 @@ export function HBBNewLeadForm({
                 <X className="w-4 h-4 text-gray-500" />
               </button>
             </div>
-            <div className="p-4 space-y-3 pb-10">
+            <div className="flex-1 overflow-y-auto p-4 space-y-3 pb-10">
               {SMART_CONNECT_PLANS.map(plan => {
                 const isSel = selectedPlan?.id === plan.id;
                 return (
