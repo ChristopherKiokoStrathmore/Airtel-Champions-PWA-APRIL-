@@ -232,7 +232,8 @@ export function HBBAgentDashboard({ user, userData, onLogout, onBackToMainMenu }
       ];
 
   return (
-    <div data-testid="hbb-agent-dashboard" className="h-screen flex flex-col bg-gray-50">
+    <>
+      <div data-testid="hbb-agent-dashboard" className="h-screen flex flex-col bg-gray-50">
       {/* Top Bar */}
       <div className="flex-shrink-0 px-4 py-3 flex items-center justify-between"
         style={{ background: `linear-gradient(135deg, ${ACCENT} 0%, ${ACCENT_DARK} 100%)` }}>
@@ -326,27 +327,6 @@ export function HBBAgentDashboard({ user, userData, onLogout, onBackToMainMenu }
         {renderContent()}
       </div>
 
-      {/* Bottom Tab Bar - FIXED AT VIEWPORT BOTTOM */}
-      <div className="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 flex z-50" style={{ paddingBottom: 'max(env(safe-area-inset-bottom), 0px)' }}>
-        {tabs.map(tab => {
-          const isActive = activeTab === tab.id;
-          const isLogout = tab.id === 'logout-action';
-          return (
-            <button
-              key={tab.id}
-              onClick={() => isLogout ? onLogout() : setActiveTab(tab.id)}
-              className="flex-1 flex flex-col items-center py-2 gap-0.5 transition-colors"
-              style={{ color: isLogout ? '#EF4444' : isActive ? ACCENT : '#9CA3AF' }}
-            >
-              <tab.icon className="w-5 h-5" strokeWidth={isActive ? 2.5 : 1.5} />
-              <span className={`text-[10px] ${isActive ? 'font-semibold' : 'font-normal'}`}>
-                {tab.label}
-              </span>
-            </button>
-          );
-        })}
-      </div>
-
       {/* Dropdown animation */}
       <style>{`
         @keyframes hbb-dropdown-in {
@@ -355,6 +335,30 @@ export function HBBAgentDashboard({ user, userData, onLogout, onBackToMainMenu }
         }
       `}</style>
     </div>
+
+    {/* Bottom Tab Bar - FIXED AT VIEWPORT BOTTOM (OUTSIDE flex container) */}
+    <div className="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 flex z-50" style={{ paddingBottom: 'max(env(safe-area-inset-bottom), 0px)' }}>
+      {tabs.map(tab => {
+        const isActive = activeTab === tab.id;
+        const isLogout = tab.id === 'logout-action';
+        return (
+          <button
+            key={tab.id}
+            onClick={() => isLogout ? onLogout() : setActiveTab(tab.id)}
+            className="flex-1 flex flex-col items-center py-2 gap-0.5 transition-colors"
+            style={{ color: isLogout ? '#EF4444' : isActive ? ACCENT : '#9CA3AF' }}
+          >
+            <tab.icon className="w-5 h-5" strokeWidth={isActive ? 2.5 : 1.5} />
+            <span className={`text-[10px] ${isActive ? 'font-semibold' : 'font-normal'}`}>
+              {tab.label}
+            </span>
+          </button>
+        );
+      })}
+    </div>
+    </>
+  );
+}
   );
 }
 
