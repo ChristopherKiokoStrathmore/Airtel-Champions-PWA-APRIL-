@@ -359,8 +359,6 @@ export function HBBAgentDashboard({ user, userData, onLogout, onBackToMainMenu }
     </>
   );
 }
-  );
-}
 
 // ─── HOME TAB ────────────────────────────────────────────────────────────────
 function HomeTab({ stats, loading, agentName, agentPhone, onRefresh, onNewLead, onViewLeads, onAnalytics, onBulkImport, onMyOrder }: {
