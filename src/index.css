@@ -6593,7 +6593,7 @@ html, body {
   margin: 0;
   padding: 0;
   transition: background-color .3s, color .3s;
-  overflow: hidden;
+  overflow: auto;
 }
 
 :root {
@@ -6613,7 +6613,7 @@ html, body {
   height: 100%;
   min-height: 100vh;
   position: relative;
-  overflow: hidden;
+  overflow: auto;
 }
 
 input, textarea, select {

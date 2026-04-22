@@ -112,7 +112,7 @@ function MobileContainer({ children }: { children: React.ReactNode }) {
       style={{ backgroundColor: bgPage }}
     >
       <div
-        className="w-full h-full md:max-w-[428px] md:rounded-3xl md:h-[95vh] overflow-hidden flex flex-col transition-colors duration-300"
+        className="w-full h-full md:max-w-[428px] md:rounded-3xl md:h-[95vh] overflow-y-auto md:overflow-hidden flex flex-col transition-colors duration-300"
         style={{
           backgroundColor: bgCard,
           boxShadow: `0 25px 50px ${shadow}`,
@@ -2243,9 +2243,9 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
   }
 
   return (
-    <div className="flex-1 flex flex-col overflow-hidden transition-colors duration-300" style={{ backgroundColor: 'var(--theme-bg-page, #F9FAFB)' }}>
+    <div className="flex-1 flex flex-col overflow-visible transition-colors duration-300" style={{ backgroundColor: 'var(--theme-bg-page, #F9FAFB)' }}>
       {/* Header - Hello John */}
-      <div className="px-6 py-5 transition-colors duration-300" style={{ backgroundColor: 'var(--theme-bg-card, #FFFFFF)', borderBottom: '1px solid var(--theme-border, #E5E7EB)' }}>
+      <div className="px-6 py-5 flex-shrink-0 transition-colors duration-300" style={{ backgroundColor: 'var(--theme-bg-card, #FFFFFF)', borderBottom: '1px solid var(--theme-border, #E5E7EB)' }}>
         <div className="flex items-center justify-between">
           <div className="flex-1">
             {/* Animated greeting */}
@@ -2382,7 +2382,7 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
       </div>
 
       {/* Scrollable Content */}
-      <div className="flex-1 overflow-y-auto pb-20">
+      <div className="flex-1 overflow-y-auto pb-16 md:pb-20">
         {/* Top 3 SEs Section */}
         <div data-tour="top-performers" className="px-6 py-6 transition-colors duration-300" style={{ backgroundColor: 'var(--theme-bg-card, #FFFFFF)', borderBottom: '1px solid var(--theme-border, #E5E7EB)' }}>
           <div className="flex items-center justify-between mb-4">
