@@ -322,7 +322,7 @@ export function HBBAgentDashboard({ user, userData, onLogout, onBackToMainMenu }
       </div>
 
       {/* Content */}
-      <div className="flex-1 min-h-0 overflow-y-auto" style={{ maxHeight: 'calc(100vh - 56px)' }}>
+      <div className="flex-1 min-h-0 overflow-y-auto" style={{ maxHeight: 'calc(100vh - 56px)', paddingBottom: 'calc(70px + max(env(safe-area-inset-bottom), 0px))' }}>
         {renderContent()}
       </div>
 
