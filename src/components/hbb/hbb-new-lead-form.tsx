@@ -1130,11 +1130,11 @@ export function HBBNewLeadForm({
         </div>
       )}
 
-      {/* ── Plan picker bottom sheet ─────────────────────────────────────────── */}
+      {/* ── Plan picker modal (centered) ─────────────────────────────────────────── */}
       {showPlanPicker && (
-        <div className="fixed inset-0 bg-black/50 z-50 flex items-end" style={{ pointerEvents: 'auto', touchAction: 'none' }}>
-          <div className="bg-white rounded-t-3xl w-full max-w-lg mx-auto max-h-[75vh] flex flex-col overflow-hidden" 
-            style={{ animation: 'slideUp 0.3s ease-out', touchAction: 'none', pointerEvents: 'auto' }}>
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center" style={{ pointerEvents: 'auto', touchAction: 'none' }}>
+          <div className="bg-white rounded-3xl w-11/12 max-w-sm flex flex-col overflow-hidden" 
+            style={{ animation: 'fadeIn 0.3s ease-out', touchAction: 'none', pointerEvents: 'auto' }}>
             <div className="px-4 pt-4 pb-3 flex items-center justify-between border-b border-gray-100 flex-shrink-0">
               <div>
                 <h3 className="text-base font-bold text-gray-900">Select Plan</h3>
@@ -1145,7 +1145,7 @@ export function HBBNewLeadForm({
                 <X className="w-4 h-4 text-gray-500" />
               </button>
             </div>
-            <div className="flex-1 overflow-y-auto p-4 space-y-3 pb-10" style={{ touchAction: 'manipulation' }}>
+            <div className="p-4 space-y-2 max-h-[calc(90vh-120px)] overflow-y-auto" style={{ touchAction: 'manipulation' }}>
               {SMART_CONNECT_PLANS.map(plan => {
                 const isSel = selectedPlan?.id === plan.id;
                 return (
@@ -1177,7 +1177,7 @@ export function HBBNewLeadForm({
               })}
             </div>
           </div>
-          <style>{`@keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }`}</style>
+          <style>{`@keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }`}</style>
         </div>
       )}
     </div>
