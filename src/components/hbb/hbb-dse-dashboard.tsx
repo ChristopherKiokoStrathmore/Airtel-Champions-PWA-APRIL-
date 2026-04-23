@@ -55,7 +55,7 @@ interface DSEDashboardProps {
   onBackToMainMenu?: () => void;
 }
 
-type TabType = 'home' | 'new-lead' | 'my-leads' | 'profile';
+type TabType = 'home' | 'new-lead' | 'my-leads' | 'profile' | 'gases';
 
 // ─── Lead journey stages ──────────────────────────────────────────────────────
 const LEAD_STAGES = [
@@ -227,6 +227,11 @@ export function DSEDashboard({ user, userData, onLogout, onBackToMainMenu }: DSE
   const [statusFilter, setStatusFilter] = useState<string>('all');
   const [selectedLead, setSelectedLead] = useState<DSELead | null>(null);
   const [stats, setStats] = useState({ total: 0, pending: 0, assigned: 0, completed: 0 });
+  const [gaData, setGaData] = useState<any>(null);
+  const [topPerformers, setTopPerformers] = useState<any[]>([]);
+  const [gaLoading, setGaLoading] = useState(false);
+  const [selectedTeamMember, setSelectedTeamMember] = useState<any>(null);
+  const [teamMembers, setTeamMembers] = useState<any[]>([]);
 
   const dseId = user?.id;
   const dseName = user?.full_name || userData?.full_name || 'DSE';
@@ -484,6 +489,222 @@ export function DSEDashboard({ user, userData, onLogout, onBackToMainMenu }: DSE
     </div>
   );
 
+  // ── GAs Tab ────────────────────────────────────────────────────────────────
+  const GAsTab = () => (
+    <div className="flex-1 min-h-0 overflow-y-auto pb-8">
+      {gaLoading ? (
+        <div className="flex items-center justify-center h-full">
+          <LoadingSpinner />
+        </div>
+      ) : gaData ? (
+        <div className="p-4 space-y-5">
+          {/* Greeting & Your Stats (Top Section) */}
+          <div className="space-y-4">
+            {/* Greeting */}
+            <div>
+              <p className="text-gray-600 text-sm font-medium">{getGreeting()},</p>
+              <h1 className="text-2xl font-bold text-gray-900 mt-1">{dseName.split(' ')[0]}</h1>
+            </div>
+
+            {/* Your Stats - Circular Badges */}
+            <div className="flex items-center gap-3">
+              {/* GA Badge */}
+              <div
+                className="w-20 h-20 rounded-full flex flex-col items-center justify-center flex-shrink-0 shadow-md"
+                style={{
+                  background: 'linear-gradient(135deg, #FFB800 0%, #FF9800 100%)',
+                  boxShadow: '0 4px 12px rgba(255,152,0,0.3)',
+                }}
+              >
+                <p className="text-2xl font-bold text-white">{gaData.ga_count || 0}</p>
+                <p className="text-[10px] text-white/90 font-semibold mt-0.5">GAs</p>
+              </div>
+
+              {/* Incentive Badge */}
+              <div
+                className="w-20 h-20 rounded-full flex flex-col items-center justify-center flex-shrink-0 shadow-md"
+                style={{
+                  background: 'linear-gradient(135deg, #4CAF50 0%, #45a049 100%)',
+                  boxShadow: '0 4px 12px rgba(76,175,80,0.3)',
+                }}
+              >
+                <p className="text-xs font-bold text-white text-center px-2 leading-tight">
+                  KES {Math.round((gaData.incentive_earned || 0) / 1000)}K
+                </p>
+                <p className="text-[10px] text-white/90 font-semibold mt-0.5">Incentive</p>
+              </div>
+
+              {/* Team Size Badge (only for Team Lead) */}
+              {userRole === 'team_lead' && (
+                <div
+                  className="w-20 h-20 rounded-full flex flex-col items-center justify-center flex-shrink-0 shadow-md"
+                  style={{
+                    background: 'linear-gradient(135deg, #E60000 0%, #CC0000 100%)',
+                    boxShadow: '0 4px 12px rgba(230,0,0,0.3)',
+                  }}
+                >
+                  <p className="text-2xl font-bold text-white">{gaData.team_size || 0}</p>
+                  <p className="text-[10px] text-white/90 font-semibold mt-0.5">Team</p>
+                </div>
+              )}
+            </div>
+
+            <p className="text-xs text-gray-500 mt-2">
+              Month: {gaData.month_year || 'Current'} {userRole === 'team_lead' && '• Cumulative figures'}
+            </p>
+          </div>
+
+          {/* Top Performers Section */}
+          <div className="mt-6">
+            <div className="flex items-center justify-between px-1 mb-4">
+              <div>
+                <h3 className="text-base font-bold text-gray-900">
+                  {userRole === 'team_lead' ? 'Team Members' : 'Top Performers'}
+                </h3>
+                <p className="text-xs text-gray-500 mt-0.5">This month</p>
+              </div>
+              <button
+                onClick={fetchGAData}
+                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                title="Refresh"
+              >
+                <RefreshCw className="w-4 h-4 text-gray-600" />
+              </button>
+            </div>
+
+            {topPerformers.length > 0 ? (
+              <div className="flex gap-3 overflow-x-auto pb-2 snap-x snap-mandatory">
+                {topPerformers.map((performer, index) => {
+                  const colors = [
+                    'linear-gradient(135deg, #FFD700, #FFA500)', // Gold
+                    'linear-gradient(135deg, #C0C0C0, #A9A9A9)', // Silver
+                    'linear-gradient(135deg, #CD7F32, #8B4513)',  // Bronze
+                  ];
+                  const color = colors[index] || colors[2];
+
+                  return (
+                    <button
+                      key={performer.dse_msisdn}
+                      onClick={() => {
+                        if (userRole === 'team_lead' && performer.dse_msisdn !== dsePhone) {
+                          setSelectedTeamMember(performer);
+                        }
+                      }}
+                      className={`flex-shrink-0 flex flex-col items-center gap-2 snap-center ${
+                        userRole === 'team_lead' && performer.dse_msisdn !== dsePhone ? 'cursor-pointer active:opacity-70' : ''
+                      }`}
+                    >
+                      {/* Circular Avatar */}
+                      <div
+                        className="w-24 h-24 rounded-full flex flex-col items-center justify-center text-white font-bold shadow-lg relative"
+                        style={{ background: color, boxShadow: '0 4px 16px rgba(0,0,0,0.15)' }}
+                      >
+                        {/* Initials */}
+                        <p className="text-2xl font-bold">
+                          {performer.dse_msisdn
+                            ?.split('')
+                            .filter(c => c >= 'A' && c <= 'z')
+                            .slice(0, 1)
+                            .join('') || '?'}
+                        </p>
+                        {/* Rank Badge */}
+                        <div className="absolute -top-2 -right-2 w-7 h-7 bg-white rounded-full flex items-center justify-center text-xs font-bold text-gray-900 shadow-md">
+                          #{index + 1}
+                        </div>
+                      </div>
+
+                      {/* Name & GAs */}
+                      <div className="text-center max-w-[100px]">
+                        <p className="text-xs font-semibold text-gray-900 truncate">{performer.dse_msisdn}</p>
+                        <p className="text-2xl font-bold text-red-600 mt-0.5">{performer.ga_count}</p>
+                        <p className="text-[10px] text-gray-500">GAs</p>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            ) : (
+              <div className="flex flex-col items-center justify-center py-8 bg-gray-50 rounded-2xl">
+                <TrendingUp className="w-8 h-8 text-gray-300 mb-2" />
+                <p className="text-sm text-gray-500">No data yet</p>
+              </div>
+            )}
+          </div>
+        </div>
+      ) : (
+        <div className="flex flex-col items-center justify-center h-full">
+          <Package className="w-12 h-12 text-gray-300 mb-4" />
+          <p className="text-gray-500 text-center">No GA data for this month yet</p>
+        </div>
+      )}
+    </div>
+  );
+
+  // ── Team Member Detail Tab ────────────────────────────────────────────────
+  const TeamMemberDetailTab = ({ member, onBack }: { member: any; onBack: () => void }) => (
+    <div className="flex flex-col h-full">
+      {/* Header */}
+      <div
+        className="flex-shrink-0 px-4 py-3 flex items-center gap-3"
+        style={{
+          background: 'linear-gradient(135deg, #CC0000 0%, #E60000 100%)',
+          boxShadow: '0 2px 16px rgba(204,0,0,0.25)',
+        }}
+      >
+        <button
+          onClick={onBack}
+          className="w-8 h-8 rounded-full flex items-center justify-center active:scale-90 transition-transform"
+          style={{ background: 'rgba(255,255,255,0.15)' }}
+        >
+          <ArrowLeft className="w-4 h-4 text-white" />
+        </button>
+        <div>
+          <p className="text-white/70 text-xs font-medium">Team Member</p>
+          <h2 className="text-white font-bold text-sm">{member.dse_msisdn}</h2>
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+        {/* Stats Card */}
+        <div
+          className="p-6 text-white relative overflow-hidden shadow-lg rounded-2xl"
+          style={{
+            background: 'linear-gradient(135deg, #E60000 0%, #CC0000 100%)',
+            boxShadow: '0 8px 32px rgba(204,0,0,0.22)',
+          }}
+        >
+          <div className="absolute -top-8 -right-8 w-32 h-32 rounded-full bg-white/10" />
+          <div className="relative z-10">
+            <p className="text-white/80 text-sm font-medium mb-2">Performance This Month</p>
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <p className="text-3xl font-bold">{member.ga_count}</p>
+                <p className="text-white/70 text-xs mt-1">GAs</p>
+              </div>
+              <div>
+                <p className="text-2xl font-bold">KES {(member.incentive_earned || 0).toLocaleString()}</p>
+                <p className="text-white/70 text-xs mt-1">Incentive</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Details */}
+        <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden divide-y divide-gray-50">
+          <div className="p-4 flex items-center justify-between">
+            <p className="text-sm text-gray-600">Phone</p>
+            <p className="font-semibold text-gray-900">{member.dse_msisdn}</p>
+          </div>
+          <div className="p-4 flex items-center justify-between">
+            <p className="text-sm text-gray-600">Month</p>
+            <p className="font-semibold text-gray-900">{member.month_year}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
   // ── Profile Tab ───────────────────────────────────────────────────────────
   const ProfileTab = () => (
     <div className="p-4 space-y-4 pb-8">
@@ -551,12 +772,110 @@ export function DSEDashboard({ user, userData, onLogout, onBackToMainMenu }: DSE
     </div>
   );
 
+  // Determine user role from various sources
+  const getUserRole = () => {
+    const role = user?.role || userData?.role || '';
+    const fullName = (user?.full_name || userData?.full_name || '').toLowerCase();
+    if (fullName.includes('installer') || role.toLowerCase().includes('installer')) return 'installer';
+    if (fullName.includes('team lead') || role.toLowerCase().includes('team_lead')) return 'team_lead';
+    return 'dse';
+  };
+
+  const userRole = getUserRole();
+
+  // Fetch GA data
+  useEffect(() => {
+    if (activeTab === 'gases') {
+      fetchGAData();
+    }
+  }, [activeTab, dsePhone, userRole]);
+
+  const fetchGAData = async () => {
+    setGaLoading(true);
+    try {
+      const currentMonth = new Date().toISOString().slice(0, 7); // YYYY-MM
+      
+      if (userRole === 'team_lead') {
+        // Fetch team members for Team Lead
+        const { data: membersData, error: membersError } = await supabase
+          .from('hbb_teams')
+          .select('dse_msisdn')
+          .eq('team_lead_msisdn', dsePhone)
+          .eq('month_year', currentMonth);
+        
+        if (membersError) console.error('Team fetch error:', membersError);
+        
+        const dseList = membersData?.map(t => t.dse_msisdn) || [];
+        
+        // Fetch GA data for all team members
+        if (dseList.length > 0) {
+          const { data: gaDataList, error: gaError } = await supabase
+            .from('hbb_ga_performance')
+            .select('*')
+            .in('dse_msisdn', dseList)
+            .eq('month_year', currentMonth)
+            .order('ga_count', { ascending: false });
+          
+          if (gaDataList) {
+            setTeamMembers(gaDataList);
+            // Set cumulative data for Team Lead
+            const totalGas = gaDataList.reduce((sum, item) => sum + (item.ga_count || 0), 0);
+            const totalIncentive = gaDataList.reduce((sum, item) => sum + (item.incentive_earned || 0), 0);
+            setGaData({
+              ga_count: totalGas,
+              incentive_earned: totalIncentive,
+              month_year: currentMonth,
+              dse_msisdn: dsePhone,
+              team_size: gaDataList.length,
+              is_team_data: true
+            });
+            // Set top performers from team
+            setTopPerformers(gaDataList.slice(0, 3));
+          }
+          if (gaError) console.error('GA fetch error:', gaError);
+        } else {
+          // No team members assigned
+          setGaData(null);
+          setTopPerformers([]);
+          setTeamMembers([]);
+        }
+      } else {
+        // Fetch current user's GA data (DSE or Installer)
+        const { data: myData, error: myError } = await supabase
+          .from('hbb_ga_performance')
+          .select('*')
+          .eq('dse_msisdn', dsePhone)
+          .eq('month_year', currentMonth)
+          .maybeSingle();
+        
+        if (myData) setGaData(myData);
+        if (myError && myError.code !== 'PGRST116') console.error('GA fetch error:', myError);
+        
+        // Fetch top 3 performers (same role type)
+        const { data: topData, error: topError } = await supabase
+          .from('hbb_ga_performance')
+          .select('*')
+          .eq('month_year', currentMonth)
+          .order('ga_count', { ascending: false })
+          .limit(3);
+        
+        if (topData) setTopPerformers(topData);
+        if (topError) console.error('Top performers fetch error:', topError);
+      }
+    } catch (error) {
+      console.error('Error fetching GA data:', error);
+    } finally {
+      setGaLoading(false);
+    }
+  };
+
   // ── Bottom nav items ──────────────────────────────────────────────────────
   const NAV_ITEMS: { id: TabType; icon: React.ElementType; label: string }[] = [
-    { id: 'home',     icon: Home,  label: 'Home'    },
-    { id: 'my-leads', icon: List,  label: 'Leads'   },
-    { id: 'new-lead', icon: Plus,  label: 'New'     },
-    { id: 'profile',  icon: User,  label: 'Profile' },
+    { id: 'home',     icon: Home,       label: 'Home'   },
+    { id: 'my-leads', icon: List,       label: 'Leads'  },
+    { id: 'gases',    icon: TrendingUp, label: 'GAs'    },
+    { id: 'new-lead', icon: Plus,       label: 'New'    },
+    { id: 'profile',  icon: User,       label: 'Profile' },
   ];
 
   return (
@@ -617,6 +936,7 @@ export function DSEDashboard({ user, userData, onLogout, onBackToMainMenu }: DSE
       <main className="flex-1 min-h-0 flex flex-col overflow-y-auto">
         {activeTab === 'home'     && <HomeTab />}
         {activeTab === 'my-leads' && <MyLeadsTab />}
+        {activeTab === 'gases'    && (selectedTeamMember ? <TeamMemberDetailTab member={selectedTeamMember} onBack={() => setSelectedTeamMember(null)} /> : <GAsTab />)}
         {activeTab === 'profile'  && <ProfileTab />}
         {activeTab === 'new-lead' && (
           <div className="flex-1 overflow-y-auto">

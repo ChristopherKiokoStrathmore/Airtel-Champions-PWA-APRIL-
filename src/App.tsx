@@ -67,6 +67,8 @@ import { ClientOrderTracker } from './components/hbb/ClientOrderTracker';
 import { LoginPage } from './components/LoginPage';
 import { PromoterTeamLeadDashboard } from './components/promoter-team-lead/PromoterTeamLeadDashboard';
 import { getTLSession, clearTLSession } from './components/promoter-team-lead/promoter-tl-api';
+// TEMPORARILY DISABLED - Causing blank screen - see BLANK_SCREEN_DIAGNOSTIC_GUIDE.md
+// import { HBBGADashboardPage } from './pages/hbb-ga-dashboard';
 import { LogOut, Package, Plus, Phone, ChevronRight } from 'lucide-react';
 
 // Safe fields to select from app_users (never select * to avoid leaking sensitive data)
@@ -140,6 +142,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [showSignup, setShowSignup] = useState(false);
   const [showClientTracker, setShowClientTracker] = useState(false);
+  const [showHBBGADashboard, setShowHBBGADashboard] = useState(false);
   const [clientTrackerData, setClientTrackerData] = useState<{ jobId: string; customerName: string; customerPhone: string } | null>(null);
   const [showClientHome, setShowClientHome] = useState(false);
   const [showSplash, setShowSplash] = useState(true);
@@ -192,6 +195,13 @@ function App() {
     if (tabParam && validTabs.includes(tabParam)) {
       initialTabRef.current = tabParam;
     }
+    // TEMPORARILY DISABLED - Causing blank screen
+    // // Check for HBB GA Dashboard route
+    // const hbbGAParam = urlParams.get('view');
+    // if (hbbGAParam === 'hbb-ga') {
+    //   setShowHBBGADashboard(true);
+    // }
+
     // Protocol handler: web+airtelac:tab/leaderboard
     const actionParam = urlParams.get('action');
     if (actionParam) {
@@ -710,6 +720,16 @@ function App() {
         </MobileContainer>
       );
     }
+
+    // â"€â"€ HBB GA Dashboard â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
+    // TEMPORARILY DISABLED - Causing blank screen
+    // if (showHBBGADashboard) {
+    //   return (
+    //     <MobileContainer>
+    //       <HBBGADashboardPage />
+    //     </MobileContainer>
+    //   );
+    // }
 
     // Default: SE view
     return (
