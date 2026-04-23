@@ -2,9 +2,8 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { Play, CheckCircle, Clock, BookOpen, RefreshCw } from 'lucide-react';
-import { AMVideo, AMVideoSession, getVideosForAgent, getLatestSession } from './am-api';
+import { AMVideo, AMVideoSession, getVideosForAgent, getLatestSession, resolveMediaUrl } from './am-api';
 import { AMVideoPlayer } from './am-video-player';
-import { supabase } from '../../utils/supabase/client';
 
 interface Props {
   agentId: number;
@@ -39,7 +38,8 @@ export function AMEducation({ agentId }: Props) {
           const progressPct = session
             ? Math.min(100, Math.round((session.max_position_secs / duration) * 100))
             : 0;
-          return { ...v, lastSession: session, progressPct, completed: session?.completed || false };
+          const thumbnailUrl = await resolveMediaUrl('am-videos', v.thumbnail_url);
+          return { ...v, thumbnail_url: thumbnailUrl || undefined, lastSession: session, progressPct, completed: session?.completed || false };
         })
       );
       setVideos(withProgress);

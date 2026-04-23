@@ -1,7 +1,7 @@
 // am-agent-dashboard.tsx — Mobile-first Airtel Money agent dashboard.
 // Two tabs: Education (training videos) and Complaints (tickets).
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BookOpen, AlertCircle, LogOut, User } from 'lucide-react';
 import { AMEducation } from './am-education';
 import { AMComplaints } from './am-complaints';
@@ -22,6 +22,15 @@ export function AMAgentDashboard({ user, userData, onLogout }: Props) {
 
   const agentName = userData?.full_name || user?.full_name || 'Agent';
   const agentCode = userData?.agent_code || user?.agent_code || '';
+  const agentIdRaw = userData?.id ?? user?.id ?? userData?.agent_id ?? user?.agent_id ?? null;
+  const agentId = Number(agentIdRaw);
+
+  useEffect(() => {
+    console.log('[AM][Dashboard] Resolved agent id:', { agentIdRaw, agentId, userRole: userData?.role || user?.role });
+    if (!Number.isFinite(agentId) || agentId <= 0) {
+      console.warn('[AM][Dashboard] Invalid agent id; targeted video visibility may be limited.');
+    }
+  }, [agentIdRaw, agentId, userData?.role, user?.role]);
 
   return (
     <div className="flex flex-col h-[100dvh] bg-gray-50 overflow-hidden">
@@ -78,8 +87,8 @@ export function AMAgentDashboard({ user, userData, onLogout }: Props) {
 
       {/* ── Content area ─────────────────────────────────────────────────────── */}
       <div className="flex-1 overflow-hidden">
-        {activeTab === 'education'  && <AMEducation  agentId={Number(userData?.id || user?.id)} />}
-        {activeTab === 'complaints' && <AMComplaints agentId={Number(userData?.id || user?.id)} />}
+        {activeTab === 'education'  && <AMEducation  agentId={agentId} />}
+        {activeTab === 'complaints' && <AMComplaints agentId={agentId} />}
       </div>
 
       {/* ── Bottom navigation ─────────────────────────────────────────────── */}
