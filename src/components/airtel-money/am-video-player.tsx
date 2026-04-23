@@ -15,6 +15,7 @@ import {
   getLatestSession,
 } from './am-api';
 import { X, Play, Pause, Volume2, VolumeX, Maximize, SkipBack, RotateCw } from 'lucide-react';
+import { supabase } from '../../utils/supabase/client';
 
 interface Props {
   video: {
@@ -41,6 +42,7 @@ export function AMVideoPlayer({ video, agentId, onClose }: Props) {
   const lastTickRef   = useRef<number | null>(null); // for computing watch time
   const lastTrustedProgressAtRef = useRef<number | null>(null);
   const isPlayingRef  = useRef(false);
+  const retriedWithSignedUrlRef = useRef(false);
 
   const [isLoading,  setIsLoading]  = useState(true);
   const [isMuted,    setIsMuted]    = useState(false);
@@ -50,6 +52,93 @@ export function AMVideoPlayer({ video, agentId, onClose }: Props) {
   const [playbackRate, setPlaybackRate] = useState(1);
   const [error,      setError]      = useState('');
   const [isLandscape, setIsLandscape] = useState(false);
+  const [playbackUrl, setPlaybackUrl] = useState(video.video_url);
+
+  const extractStoragePath = useCallback((rawUrlOrPath: string): string | null => {
+    const input = (rawUrlOrPath || '').trim();
+    if (!input) return null;
+
+    // Already a relative storage path in DB (e.g. videos/foo.mp4)
+    if (!/^https?:\/\//i.test(input)) {
+      return input.replace(/^\/+/, '');
+    }
+
+    try {
+      const u = new URL(input);
+      const path = decodeURIComponent(u.pathname);
+      const markers = [
+        '/storage/v1/object/public/am-videos/',
+        '/storage/v1/object/sign/am-videos/',
+        '/storage/v1/object/authenticated/am-videos/',
+      ];
+
+      for (const marker of markers) {
+        const idx = path.indexOf(marker);
+        if (idx >= 0) {
+          return path.substring(idx + marker.length);
+        }
+      }
+    } catch {
+      return null;
+    }
+
+    return null;
+  }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    const initPlaybackUrl = async () => {
+      const raw = (video.video_url || '').trim();
+      retriedWithSignedUrlRef.current = false;
+      setError('');
+      setIsLoading(true);
+
+      if (!raw) {
+        setError('Video URL is missing.');
+        setIsLoading(false);
+        return;
+      }
+
+      // If DB stores only storage path, prefer signed URL (works for private buckets),
+      // then fall back to public URL.
+      if (!/^https?:\/\//i.test(raw)) {
+        const storagePath = raw.replace(/^\/+/, '');
+        try {
+          const { data, error: signErr } = await supabase
+            .storage
+            .from('am-videos')
+            .createSignedUrl(storagePath, 60 * 60);
+
+          if (!signErr && data?.signedUrl) {
+            if (!cancelled) {
+              setPlaybackUrl(data.signedUrl);
+              console.log('[AMVideoPlayer] Resolved relative storage path to signed URL:', storagePath);
+            }
+            return;
+          }
+
+          console.warn('[AMVideoPlayer] Could not create signed URL for relative path, falling back to public URL:', signErr);
+        } catch (e) {
+          console.warn('[AMVideoPlayer] Signed URL resolution threw, falling back to public URL:', e);
+        }
+
+        const publicUrl = supabase.storage.from('am-videos').getPublicUrl(storagePath).data.publicUrl;
+        if (!cancelled) {
+          setPlaybackUrl(publicUrl);
+          console.log('[AMVideoPlayer] Resolved relative storage path to public URL:', publicUrl);
+        }
+        return;
+      }
+
+      if (!cancelled) {
+        setPlaybackUrl(raw);
+      }
+    };
+
+    initPlaybackUrl();
+    return () => { cancelled = true; };
+  }, [video.video_url]);
 
   // ── Fetch last session to get resume position ────────────────────────────
   useEffect(() => {
@@ -208,7 +297,40 @@ export function AMVideoPlayer({ video, agentId, onClose }: Props) {
     await closeSession();
   };
 
-  const handleError = () => {
+  const handleError = async () => {
+    const source = (playbackUrl || video.video_url || '').trim();
+    const storagePath = extractStoragePath(source);
+    const mediaErr = videoRef.current?.error;
+    console.error('[AMVideoPlayer] Video element error:', {
+      source,
+      storagePath,
+      mediaErrorCode: mediaErr?.code,
+      mediaErrorMessage: mediaErr?.message,
+    });
+
+    // One retry path: if bucket/private/CORS blocks direct URL, use signed URL.
+    if (!retriedWithSignedUrlRef.current && storagePath) {
+      retriedWithSignedUrlRef.current = true;
+      try {
+        const { data, error: signErr } = await supabase
+          .storage
+          .from('am-videos')
+          .createSignedUrl(storagePath, 60 * 60);
+
+        if (!signErr && data?.signedUrl) {
+          console.warn('[AMVideoPlayer] Retrying playback with signed URL fallback');
+          setPlaybackUrl(data.signedUrl);
+          setIsLoading(true);
+          setError('');
+          return;
+        }
+
+        console.error('[AMVideoPlayer] Signed URL fallback failed:', signErr);
+      } catch (e) {
+        console.error('[AMVideoPlayer] Signed URL fallback exception:', e);
+      }
+    }
+
     setError('Could not load video. Please try again later.');
     setIsLoading(false);
   };
@@ -344,7 +466,7 @@ export function AMVideoPlayer({ video, agentId, onClose }: Props) {
         ) : (
           <video
             ref={videoRef}
-            src={video.video_url}
+            src={playbackUrl}
             className="w-full h-full object-contain"
             playsInline
             preload="metadata"

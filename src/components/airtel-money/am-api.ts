@@ -105,6 +105,31 @@ export interface AMVideoAnalytics {
   }>;
 }
 
+/** Resolve a media URL that may be a full URL or a Supabase Storage path.
+ *  Prefers signed URLs for path-style values so private buckets still work.
+ */
+export async function resolveMediaUrl(bucket: string, rawUrlOrPath?: string | null): Promise<string | null> {
+  const raw = String(rawUrlOrPath ?? '').trim();
+  if (!raw) return null;
+
+  if (/^https?:\/\//i.test(raw)) {
+    return raw;
+  }
+
+  const storagePath = raw.replace(/^\/+/, '');
+
+  try {
+    const { data, error } = await supabase.storage.from(bucket).createSignedUrl(storagePath, 60 * 60);
+    if (!error && data?.signedUrl) {
+      return data.signedUrl;
+    }
+  } catch {
+    // Fall through to public URL.
+  }
+
+  return supabase.storage.from(bucket).getPublicUrl(storagePath).data.publicUrl;
+}
+
 // ─── app_users lookup ────────────────────────────────────────────────────────
 
 export interface AppUserOption {
@@ -305,21 +330,44 @@ export async function amAdminLogin(phone: string, pin: string): Promise<any | nu
 /** Fetch all published videos visible to an agent.
  *  If a video is targeted, only return it if the agent matches one of its targets.
  */
-export async function getVideosForAgent(agentId: string): Promise<AMVideo[]> {
-  const { data: videos, error } = await supabase
+export async function getVideosForAgent(agentId: string | number): Promise<AMVideo[]> {
+  const agentIdStr = String(agentId);
+  const parsedAgentId = Number(agentId);
+  const hasValidAgentId = Number.isFinite(parsedAgentId) && parsedAgentId > 0;
+
+  const { data: rawVideos, error } = await supabase
     .from('am_videos')
     .select('*')
-    .eq('status', 'published')
     .order('created_at', { ascending: false });
 
-  if (error || !videos) return [];
+  if (error || !rawVideos) {
+    console.error('[AM][getVideosForAgent] Failed to fetch am_videos:', error);
+    return [];
+  }
+
+  // Keep compatibility with environments where status values differ.
+  const videos = (rawVideos as any[]).filter(v => {
+    const hasVideoUrl = Boolean(String(v?.video_url ?? '').trim());
+    if (!hasVideoUrl) return false;
+
+    const status = String(v?.status ?? '').trim().toLowerCase();
+    if (!status) return true;
+    // Show anything that is not explicitly hidden.
+    return status !== 'draft' && status !== 'deleted' && status !== 'archived' && status !== 'inactive';
+  });
 
   // Fetch agent details for targeting check
-  const { data: agentRows } = await supabase
-    .from('airtelmoney_agents')
-    .select('zone, se, zsm')
-    .eq('id', agentId)
-    .limit(1);
+  let agentRows: any[] | null = null;
+  if (hasValidAgentId) {
+    const { data } = await supabase
+      .from('airtelmoney_agents')
+      .select('zone, se, zsm')
+      .eq('id', parsedAgentId)
+      .limit(1);
+    agentRows = data;
+  } else {
+    console.warn('[AM][getVideosForAgent] Invalid agentId; showing non-targeted/all-agents videos only:', agentId);
+  }
 
   const agent = agentRows?.[0];
 
@@ -334,15 +382,32 @@ export async function getVideosForAgent(agentId: string): Promise<AMVideo[]> {
     targets = t || [];
   }
 
+  console.log('[AM][getVideosForAgent] Debug:', {
+    agentId,
+    hasValidAgentId,
+    rawVideoCount: rawVideos.length,
+    visibleByStatusCount: videos.length,
+    targetedVideoCount: targetedVideoIds.length,
+    targetRowCount: targets.length,
+  });
+
   return videos.filter(video => {
     if (!video.is_targeted) return true;
     // Check if this agent matches any target row for this video
     const videoTargets = targets.filter(t => t.video_id === video.id);
+
+    // Legacy rows can be marked targeted before target rows are created.
+    if (videoTargets.length === 0) return true;
+
     return videoTargets.some(t => {
-      if (t.target_type === 'agent')  return t.target_value === agentId;
-      if (t.target_type === 'zone')   return t.target_value === agent?.zone;
-      if (t.target_type === 'se')     return t.target_value === agent?.se;
-      if (t.target_type === 'zsm')    return t.target_value === agent?.zsm;
+      const targetType = String(t.target_type ?? '').trim().toLowerCase();
+      const targetValue = String(t.target_value ?? '').trim();
+
+      if (targetType === 'all_agents' || targetType === 'all') return true;
+      if (targetType === 'agent' || targetType === 'agent_id') return targetValue === agentIdStr;
+      if (targetType === 'zone') return targetValue === String(agent?.zone ?? '').trim();
+      if (targetType === 'se') return targetValue === String(agent?.se ?? '').trim();
+      if (targetType === 'zsm') return targetValue === String(agent?.zsm ?? '').trim();
       return false;
     });
   });
