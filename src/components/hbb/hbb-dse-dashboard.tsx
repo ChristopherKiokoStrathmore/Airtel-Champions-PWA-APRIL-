@@ -601,11 +601,7 @@ export function DSEDashboard({ user, userData, onLogout, onBackToMainMenu }: DSE
                       >
                         {/* Initials */}
                         <p className="text-2xl font-bold">
-                          {performer.dse_msisdn
-                            ?.split('')
-                            .filter(c => c >= 'A' && c <= 'z')
-                            .slice(0, 1)
-                            .join('') || '?'}
+                          {(performer.name || performer.dse_msisdn || '?').toString().trim().charAt(0).toUpperCase()}
                         </p>
                         {/* Rank Badge */}
                         <div className="absolute -top-2 -right-2 w-7 h-7 bg-white rounded-full flex items-center justify-center text-xs font-bold text-gray-900 shadow-md">
@@ -615,7 +611,7 @@ export function DSEDashboard({ user, userData, onLogout, onBackToMainMenu }: DSE
 
                       {/* Name & GAs */}
                       <div className="text-center max-w-[100px]">
-                        <p className="text-xs font-semibold text-gray-900 truncate">{performer.dse_msisdn}</p>
+                        <p className="text-xs font-semibold text-gray-900 truncate">{performer.name || performer.dse_msisdn}</p>
                         <p className="text-2xl font-bold text-red-600 mt-0.5">{performer.ga_count}</p>
                         <p className="text-[10px] text-gray-500">GAs</p>
                       </div>
@@ -815,9 +811,19 @@ export function DSEDashboard({ user, userData, onLogout, onBackToMainMenu }: DSE
             .in('dse_msisdn', dseList)
             .eq('month_year', currentMonth)
             .order('ga_count', { ascending: false });
+
+          let nameMap: Record<string, string> = {};
+          if (gaDataList && gaDataList.length > 0) {
+            const { data: usersData } = await supabase
+              .from('hbb_users')
+              .select('msisdn, name')
+              .in('msisdn', gaDataList.map(item => item.dse_msisdn));
+            nameMap = Object.fromEntries((usersData || []).map((u: any) => [u.msisdn, u.name]));
+          }
           
           if (gaDataList) {
-            setTeamMembers(gaDataList);
+            const enrichedList = gaDataList.map(item => ({ ...item, name: nameMap[item.dse_msisdn] || item.dse_msisdn }));
+            setTeamMembers(enrichedList);
             // Set cumulative data for Team Lead
             const totalGas = gaDataList.reduce((sum, item) => sum + (item.ga_count || 0), 0);
             const totalIncentive = gaDataList.reduce((sum, item) => sum + (item.incentive_earned || 0), 0);
@@ -830,7 +836,7 @@ export function DSEDashboard({ user, userData, onLogout, onBackToMainMenu }: DSE
               is_team_data: true
             });
             // Set top performers from team
-            setTopPerformers(gaDataList.slice(0, 3));
+            setTopPerformers(enrichedList.slice(0, 3));
           }
           if (gaError) console.error('GA fetch error:', gaError);
         } else {
@@ -848,7 +854,17 @@ export function DSEDashboard({ user, userData, onLogout, onBackToMainMenu }: DSE
           .eq('month_year', currentMonth)
           .maybeSingle();
         
-        if (myData) setGaData(myData);
+        if (myData) {
+          setGaData(myData);
+        } else {
+          // Keep GA tab content visible even when this user has no personal row yet.
+          setGaData({
+            ga_count: 0,
+            incentive_earned: 0,
+            month_year: currentMonth,
+            dse_msisdn: dsePhone,
+          });
+        }
         if (myError && myError.code !== 'PGRST116') console.error('GA fetch error:', myError);
         
         // Fetch top 3 performers (same role type)
@@ -859,7 +875,18 @@ export function DSEDashboard({ user, userData, onLogout, onBackToMainMenu }: DSE
           .order('ga_count', { ascending: false })
           .limit(3);
         
-        if (topData) setTopPerformers(topData);
+        if (topData && topData.length > 0) {
+          const { data: usersData } = await supabase
+            .from('hbb_users')
+            .select('msisdn, name')
+            .in('msisdn', topData.map(item => item.dse_msisdn));
+
+          const nameMap: Record<string, string> = Object.fromEntries((usersData || []).map((u: any) => [u.msisdn, u.name]));
+          const enrichedTopData = topData.map(item => ({ ...item, name: nameMap[item.dse_msisdn] || item.dse_msisdn }));
+          setTopPerformers(enrichedTopData);
+        } else {
+          setTopPerformers([]);
+        }
         if (topError) console.error('Top performers fetch error:', topError);
       }
     } catch (error) {

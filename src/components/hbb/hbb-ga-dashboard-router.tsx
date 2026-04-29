@@ -6,7 +6,7 @@ import { AlertCircle, LogOut } from 'lucide-react';
 import { HBBDSEGADashboard } from './hbb-dse-ga-dashboard';
 import { HBBTeamLeadDashboard } from './hbb-team-lead-dashboard';
 import { HBBManagerDashboard } from './hbb-manager-dashboard';
-import { getUserRole, logoutUser } from './hbb-ga-api';
+import { getUserRole } from './hbb-ga-api';
 import { toast } from 'sonner';
 
 type UserRole = 'dse' | 'team_lead' | 'manager' | 'admin' | null;
@@ -29,24 +29,36 @@ export function HBBGADashboardRouter() {
   const loadUserInfo = async () => {
     setLoading(true);
     try {
-      // Try to get from localStorage first (cached)
-      const cachedUser = localStorage.getItem('hbb_user');
-      if (cachedUser) {
-        setUser(JSON.parse(cachedUser));
+      // Use the active authenticated PWA profile only.
+      const taiUserRaw = localStorage.getItem('tai_user');
+      if (!taiUserRaw) {
+        setError('Please log in first to view your GA progress.');
         setLoading(false);
         return;
       }
 
-      // Get from phone in session or prompt for it
-      const userPhone = localStorage.getItem('hbb_user_phone') || await promptForPhone();
-      
+      let taiUser: any;
+      try {
+        taiUser = JSON.parse(taiUserRaw);
+      } catch {
+        setError('Invalid session. Please log in again.');
+        setLoading(false);
+        return;
+      }
+
+      const userPhone = taiUser.phone_number || taiUser.phone || taiUser.msisdn || '';
       if (!userPhone) {
-        setError('Phone number is required');
+        setError('Your profile has no phone number. Contact support.');
         setLoading(false);
         return;
       }
 
-      const role = await getUserRole(userPhone);
+      // Trust explicit HBB login role first, fallback to GA table role lookup.
+      let role: UserRole = null;
+      if (taiUser.role === 'hbb_dse') role = 'dse';
+      if (!role) {
+        role = await getUserRole(userPhone);
+      }
 
       if (!role) {
         setError('Unable to determine your role. Please contact your manager.');
@@ -57,7 +69,7 @@ export function HBBGADashboardRouter() {
       const userData: User = {
         phone: userPhone,
         role,
-        name: `User ${userPhone.slice(-4)}`, // Placeholder - would be fetched from API
+        name: taiUser.full_name || `User ${String(userPhone).slice(-4)}`,
       };
 
       setUser(userData);
@@ -72,23 +84,12 @@ export function HBBGADashboardRouter() {
     }
   };
 
-  const promptForPhone = (): Promise<string | null> => {
-    return new Promise((resolve) => {
-      const phone = prompt('Enter your phone number (MSISDN):');
-      resolve(phone);
-    });
-  };
-
   const handleLogout = () => {
     localStorage.removeItem('hbb_user');
     localStorage.removeItem('hbb_user_phone');
+    localStorage.removeItem('tai_user');
     setUser(null);
     toast.success('Logged out successfully');
-  };
-
-  const handleSwitchUser = async () => {
-    localStorage.removeItem('hbb_user_phone');
-    await loadUserInfo();
   };
 
   if (loading) {
@@ -156,12 +157,6 @@ export function HBBGADashboardRouter() {
             </div>
 
             <div className="flex items-center gap-2 ml-4 pl-4 border-l border-gray-200">
-              <button
-                onClick={handleSwitchUser}
-                className="text-xs font-medium text-gray-600 hover:text-gray-900 transition"
-              >
-                Switch User
-              </button>
               <button
                 onClick={handleLogout}
                 className="inline-flex items-center gap-1 text-xs font-medium text-red-600 hover:text-red-700 transition"

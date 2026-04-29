@@ -318,6 +318,114 @@ export function LoginPage({
   };
 
   // ─────────────────────────────────────────────────────────────────────────────
+  // STEP 2d — Unified installers table check
+  // Covers installers added after the monthly INHOUSE snapshot (e.g. April+)
+  // ─────────────────────────────────────────────────────────────────────────────
+  const checkUnifiedInstallersTable = async (
+    normalised: string,
+    enteredPin: string,
+  ): Promise<any | null> => {
+    const formats = phoneFormats(normalised);
+
+    try {
+      const { data, error: qErr } = await supabase
+        .from('installers')
+        .select('id, name, phone, pin, town, status, max_jobs_per_day')
+        .in('phone', formats)
+        .limit(1);
+
+      if (qErr) {
+        console.log('[Auth] installers table not accessible:', qErr.message);
+        return null;
+      }
+      if (!data || data.length === 0) return null;
+
+      const row = data[0];
+      const storedPin = String(row.pin ?? '1234').trim();
+      if (enteredPin !== storedPin) throw new Error(ERR_GENERIC);
+
+      return {
+        id:               row.id,
+        full_name:        row.name,
+        phone_number:     row.phone,
+        role:             'hbb_installer',
+        town:             row.town ?? '',
+        status:           row.status ?? 'active',
+        max_jobs_per_day: row.max_jobs_per_day ?? null,
+        source_table:     'installers',
+        _loginAt:         Date.now(),
+      };
+    } catch (err: any) {
+      if (err.message === ERR_GENERIC) throw err;
+      console.log('[Auth] Unified installers table check error (non-fatal):', err.message);
+      return null;
+    }
+  };
+
+  // ─────────────────────────────────────────────────────────────────────────────
+  // STEP 2e — GA monthly table check (new + old)
+  // Covers installers who only appear in the GA upload tables.
+  // PIN defaults to "1234" (no PIN column on these tables).
+  // ─────────────────────────────────────────────────────────────────────────────
+  const checkGAMonthlyTable = async (
+    normalised: string,
+    enteredPin: string,
+  ): Promise<any | null> => {
+    const formats = phoneFormats(normalised);
+    const DEFAULT_PIN = '1234';
+
+    if (enteredPin !== DEFAULT_PIN) {
+      // GA tables have no PIN column — only 1234 is accepted
+      return null;
+    }
+
+    // Try new lowercase table first, fall back to old uppercase
+    const tables = [
+      { table: 'hbb_installer_ga_monthly', msisdnCol: 'installer_msisdn', nameCol: 'installer_name' },
+      { table: 'HBB_INSTALLER_GA_MONTHLY', msisdnCol: 'installer_msisdn', nameCol: 'installer_name' },
+    ] as const;
+
+    for (const { table, msisdnCol, nameCol } of tables) {
+      try {
+        const { data, error: qErr } = await supabase
+          .from(table as any)
+          .select(`${msisdnCol}, ${nameCol}, town, month_year`)
+          .in(msisdnCol, formats)
+          .order('month_year', { ascending: false })
+          .limit(1);
+
+        if (qErr) {
+          console.log(`[Auth] ${table} not accessible:`, qErr.message);
+          continue;
+        }
+        if (!data || data.length === 0) continue;
+
+        const row = data[0] as any;
+        const msisdn = row[msisdnCol] ?? normalised;
+        const name   = row[nameCol]   ?? 'Installer';
+        const town   = row['town']     ?? '';
+
+        console.log(`[Auth] Found installer in ${table}:`, name, msisdn);
+        return {
+          id:               msisdn,
+          full_name:        name,
+          phone_number:     msisdn.startsWith('0') ? msisdn : '0' + msisdn,
+          role:             'hbb_installer',
+          town,
+          status:           'active',
+          max_jobs_per_day: null,
+          source_table:     table,
+          _loginAt:         Date.now(),
+        };
+      } catch (err: any) {
+        console.log(`[Auth] ${table} check error (non-fatal):`, err.message);
+      }
+    }
+
+    return null;
+  };
+
+  // ─────────────────────────────────────────────────────────────────────────────
   // STEP 3a — Sales login chain
   // ─────────────────────────────────────────────────────────────────────────────
   const runSalesLogin = async (normalised: string): Promise<void> => {
@@ -536,10 +644,39 @@ export function LoginPage({
         }
       }
 
+      // ── STEP 2d: Unified installers table check ──────────────────────────
+      if (mode === 'hbb') {
+        const unifiedInstaller = await checkUnifiedInstallersTable(normalised, pin || '');
+        if (unifiedInstaller) {
+          console.log('✅ Installer login (unified table):', unifiedInstaller.full_name);
+          localStorage.setItem('tai_user', JSON.stringify(unifiedInstaller));
+          setUser(unifiedInstaller);
+          setUserData(unifiedInstaller);
+          setIsAuthenticated(true);
+          setLoading(false);
+          return;
+        }
+      }
+
+      // ── STEP 2e: GA monthly table check (no edge function needed) ─────────
+      if (mode === 'hbb') {
+        const gaInstaller = await checkGAMonthlyTable(normalised, pin || '');
+        if (gaInstaller) {
+          console.log('✅ Installer login (GA monthly table):', gaInstaller.full_name);
+          localStorage.setItem('tai_user', JSON.stringify(gaInstaller));
+          setUser(gaInstaller);
+          setUserData(gaInstaller);
+          setIsAuthenticated(true);
+          setLoading(false);
+          return;
+        }
+      }
+
       if (mode === 'sales') {
         await runSalesLogin(normalised);
       } else if (mode === 'hbb') {
-        await runHbbLogin();
+        // All direct table checks exhausted — fail fast without edge function
+        throw new Error(ERR_GENERIC);
       } else if (mode === 'airtel-money') {
         await runAMLogin();
       }

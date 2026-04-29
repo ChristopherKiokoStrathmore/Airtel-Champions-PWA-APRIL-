@@ -897,6 +897,95 @@ hbbApp.get('/notifications', async (c) => {
   }
 });
 
+// ─── HBB GA: Go-live - persist daily rows and update monthly aggregates ───
+hbbApp.post('/hbb-ga-go-live', async (c) => {
+  try {
+    const { batch_id } = await c.req.json();
+    if (!batch_id) return c.json({ success: false, error: 'batch_id required' }, 400);
+
+    const supabase = getFrontendSupabase();
+
+    // Fetch installer and DSE rows that were created/attached to this batch
+    const [{ data: installers, error: instErr }, { data: dses, error: dseErr }] = await Promise.all([
+      supabase.from('hbb_installer_ga_monthly').select('*').eq('report_batch_id', batch_id).limit(5000),
+      supabase.from('hbb_dse_ga_monthly').select('*').eq('report_batch_id', batch_id).limit(5000),
+    ]);
+
+    if (instErr || dseErr) {
+      console.error('[HBB GA] Fetch batch rows error', instErr || dseErr);
+      return c.json({ success: false, error: (instErr || dseErr).message || 'failed to fetch batch rows' }, 500);
+    }
+
+    const installerDailyInserts: any[] = [];
+    for (const r of (installers || [])) {
+      // derive a date for the row: prefer explicit upload_date, fallback to created_at, else use first day of month_year
+      let dateStr = r.upload_date || r.created_at || null;
+      let gaDate: string | null = null;
+      if (dateStr) {
+        gaDate = (new Date(dateStr)).toISOString().slice(0, 10);
+      } else if (r.month_year) {
+        // month_year e.g. '2026-04' -> use first day
+        gaDate = `${r.month_year}-01`;
+      }
+      if (!gaDate) gaDate = (new Date()).toISOString().slice(0,10);
+
+      installerDailyInserts.push({
+        installer_msisdn: r.installer_msisdn,
+        installer_name: r.installer_name,
+        town: r.town || null,
+        ga_date: gaDate,
+        ga_count: r.ga_count || 0,
+        report_batch_id: batch_id,
+      });
+    }
+
+    const dseDailyInserts: any[] = [];
+    for (const r of (dses || [])) {
+      let dateStr = r.upload_date || r.created_at || null;
+      let gaDate: string | null = null;
+      if (dateStr) gaDate = (new Date(dateStr)).toISOString().slice(0,10);
+      else if (r.month_year) gaDate = `${r.month_year}-01`;
+      if (!gaDate) gaDate = (new Date()).toISOString().slice(0,10);
+
+      dseDailyInserts.push({
+        dse_msisdn: r.dse_msisdn,
+        dse_name: r.dse_name,
+        town: r.town || null,
+        ga_date: gaDate,
+        ga_count: r.ga_count || 0,
+        report_batch_id: batch_id,
+      });
+    }
+
+    // Insert daily rows in batches
+    if (installerDailyInserts.length > 0) {
+      const { error: insErr } = await supabase.from('hbb_installer_ga_daily').insert(installerDailyInserts);
+      if (insErr) console.error('[HBB GA] Insert installer daily error', insErr);
+    }
+    if (dseDailyInserts.length > 0) {
+      const { error: insDseErr } = await supabase.from('hbb_dse_ga_daily').insert(dseDailyInserts);
+      if (insDseErr) console.error('[HBB GA] Insert dse daily error', insDseErr);
+    }
+
+    // Recompute monthly aggregates from daily table for the affected month(s)
+    // Installer aggregates
+    const { data: aggInstaller, error: aggInstErr } = await supabase.rpc('recompute_hbb_installer_monthly_from_daily', { batch_uuid: batch_id });
+    if (aggInstErr) console.error('[HBB GA] Recompute installer monthly error', aggInstErr);
+
+    // DSE aggregates
+    const { data: aggDse, error: aggDseErr } = await supabase.rpc('recompute_hbb_dse_monthly_from_daily', { batch_uuid: batch_id });
+    if (aggDseErr) console.error('[HBB GA] Recompute dse monthly error', aggDseErr);
+
+    // Mark batch as live
+    await supabase.from('hbb_ga_upload_batches').update({ status: 'live', went_live_at: new Date().toISOString() }).eq('id', batch_id);
+
+    return c.json({ success: true, installer_rows: installers?.length || 0, dse_rows: dses?.length || 0 });
+  } catch (err: any) {
+    console.error('[HBB GA] go-live error', err);
+    return c.json({ success: false, error: err?.message || String(err) }, 500);
+  }
+});
+
 hbbApp.post('/notifications/read', async (c) => {
   try {
     const { phone } = await c.req.json();
