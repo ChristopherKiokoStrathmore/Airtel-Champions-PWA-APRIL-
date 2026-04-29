@@ -151,6 +151,49 @@ export async function getInstallerGACurrentMonth(
   return null;
 }
 
+async function resolveTeamLeadMsisdns(teamLeadMsisdn: string): Promise<string[]> {
+  const normalized = normalizePhone(teamLeadMsisdn);
+  const base = normalized.replace(/^0/, '');
+  const variants = Array.from(new Set([
+    teamLeadMsisdn,
+    normalized,
+    base,
+    `0${base}`,
+    `254${base}`,
+    `+254${base}`,
+  ].filter(Boolean)));
+
+  // Try to map supervisor phone -> supervisor name -> canonical team lead MSISDN(s)
+  try {
+    const { data: supervisorRows } = await supabase
+      .from('installer_supervisor')
+      .select('"Installers supervisor", "Phone"')
+      .in('"Phone"', variants)
+      .limit(1);
+
+    const supervisorName = supervisorRows?.[0]?.['Installers supervisor'];
+    if (supervisorName) {
+      const { data: teamLeadRows } = await supabase
+        .from('hbb_installer_team_lead')
+        .select('team_lead_msisdn')
+        .ilike('team_lead_name', `%${supervisorName}%`)
+        .limit(20);
+
+      (teamLeadRows || []).forEach((row: any) => {
+        const msisdn = row?.team_lead_msisdn;
+        if (!msisdn) return;
+        const msisdnNormalized = normalizePhone(msisdn);
+        const msisdnBase = msisdnNormalized.replace(/^0/, '');
+        variants.push(msisdn, msisdnNormalized, msisdnBase, `0${msisdnBase}`, `254${msisdnBase}`, `+254${msisdnBase}`);
+      });
+    }
+  } catch {
+    // Best effort only; keep base variants.
+  }
+
+  return Array.from(new Set(variants.filter(Boolean)));
+}
+
 /**
  * Fetch all installers under a supervisor for the given month, ranked by GA count.
  * Queries hbb_installer_ga_monthly filtered by team_lead_msisdn.
@@ -159,18 +202,30 @@ export async function getInstallersByTeamLead(
   teamLeadMsisdn: string,
   monthYear: string
 ): Promise<InstallerLeaderboardEntry[]> {
-  const normalized = normalizePhone(teamLeadMsisdn);
+  const teamLeadKeys = await resolveTeamLeadMsisdns(teamLeadMsisdn);
 
   const { data, error } = await supabase
     .from('hbb_installer_ga_monthly')
     .select('installer_msisdn, installer_name, town, ga_count, incentive_earned')
-    .eq('team_lead_msisdn', normalized)
+    .in('team_lead_msisdn', teamLeadKeys)
     .eq('month_year', monthYear)
     .order('ga_count', { ascending: false });
 
-  if (error) throw error;
+  // Fallback to legacy uppercase table if new table has no mapped rows.
+  let rows = data || [];
+  if (error || rows.length === 0) {
+    const { data: legacyData, error: legacyError } = await supabase
+      .from('HBB_INSTALLER_GA_MONTHLY')
+      .select('installer_msisdn, installer_name, town, ga_count, incentive_earned')
+      .in('team_lead_msisdn', teamLeadKeys)
+      .eq('month_year', monthYear)
+      .order('ga_count', { ascending: false });
 
-  return (data || []).map((d, idx) => ({
+    if (legacyError && error) throw error;
+    rows = legacyData || rows;
+  }
+
+  return rows.map((d: any, idx: number) => ({
     msisdn: d.installer_msisdn,
     name: d.installer_name,
     town: d.town || '',
@@ -189,21 +244,31 @@ export async function getInstallerJobsLeaderboard(
   period: 'month' | 'all',
   monthYear: string = getCurrentMonthYear()
 ): Promise<InstallerJobsEntry[]> {
-  const normalized = normalizePhone(teamLeadMsisdn);
+  const teamLeadKeys = await resolveTeamLeadMsisdns(teamLeadMsisdn);
 
   // Step 1: get all installer MSISDNs under this supervisor
   const { data: gaRows, error: gaErr } = await supabase
     .from('hbb_installer_ga_monthly')
     .select('installer_msisdn, installer_name, town')
-    .eq('team_lead_msisdn', normalized)
+    .in('team_lead_msisdn', teamLeadKeys)
     .eq('month_year', monthYear);
 
-  if (gaErr) throw gaErr;
-  if (!gaRows || gaRows.length === 0) return [];
+  let rows = gaRows || [];
+  if (gaErr || rows.length === 0) {
+    const { data: legacyRows, error: legacyErr } = await supabase
+      .from('HBB_INSTALLER_GA_MONTHLY')
+      .select('installer_msisdn, installer_name, town')
+      .in('team_lead_msisdn', teamLeadKeys)
+      .eq('month_year', monthYear);
+    if (legacyErr && gaErr) throw gaErr;
+    rows = legacyRows || rows;
+  }
+
+  if (rows.length === 0) return [];
 
   // Step 2: generate phone variants for each MSISDN and look up installer IDs
   const allVariants: string[] = [];
-  gaRows.forEach(inst => {
+  rows.forEach((inst: any) => {
     const base = inst.installer_msisdn.replace(/[\s\-\(\)\+]/g, '').replace(/^254/, '').replace(/^0/, '');
     allVariants.push(base, '0' + base, '254' + base, '+254' + base);
   });
@@ -217,7 +282,7 @@ export async function getInstallerJobsLeaderboard(
 
   // Build phone → installer id map (try all variant formats)
   const phoneToId = new Map<string, number>();
-  (installerRows || []).forEach(row => {
+  (installerRows || []).forEach((row: any) => {
     const base = row.phone.replace(/[\s\-\(\)\+]/g, '').replace(/^254/, '').replace(/^0/, '');
     [base, '0' + base, '254' + base, '+254' + base].forEach(v => {
       if (!phoneToId.has(v)) phoneToId.set(v, row.id);
@@ -249,7 +314,7 @@ export async function getInstallerJobsLeaderboard(
     const { data: jobs, error: jobErr } = await query;
     if (jobErr) console.warn('[GA API] Jobs leaderboard query failed:', jobErr.message);
     if (!jobErr) {
-      (jobs || []).forEach(j => {
+      (jobs || []).forEach((j: any) => {
         const id = j.installer_id as number;
         jobCounts.set(id, (jobCounts.get(id) || 0) + 1);
       });
@@ -257,8 +322,8 @@ export async function getInstallerJobsLeaderboard(
   }
 
   // Step 4: merge and rank (keep all installers, even those with 0 jobs)
-  return gaRows
-    .map(inst => {
+  return rows
+    .map((inst: any) => {
       const base = inst.installer_msisdn.replace(/[\s\-\(\)\+]/g, '').replace(/^254/, '').replace(/^0/, '');
       const instId = phoneToId.get(base) ?? phoneToId.get('0' + base) ?? null;
       return {
@@ -269,8 +334,8 @@ export async function getInstallerJobsLeaderboard(
         position: 0,
       };
     })
-    .sort((a, b) => b.jobsCompleted - a.jobsCompleted)
-    .map((e, idx) => ({ ...e, position: idx + 1 }));
+    .sort((a: InstallerJobsEntry, b: InstallerJobsEntry) => b.jobsCompleted - a.jobsCompleted)
+    .map((e: InstallerJobsEntry, idx: number) => ({ ...e, position: idx + 1 }));
 }
 
 // Get auth headers

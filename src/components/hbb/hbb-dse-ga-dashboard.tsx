@@ -3,8 +3,8 @@
 // Shows: GA count, band progress, incentive earned, team lead, history
 
 import React, { useState, useEffect } from 'react';
-import { TrendingUp, Target, Award, Calendar, ChevronRight } from 'lucide-react';
-import { getDSEGAData, getPersonGAHistory, getTop3DSEs } from './hbb-ga-api';
+import { TrendingUp, Target, Calendar, ChevronRight } from 'lucide-react';
+import { getDSEGAData, getPersonGAHistory } from './hbb-ga-api';
 import { getIncentiveBand, calculateProgressToNextBand } from './hbb-ga-utilities';
 import { toast } from 'sonner';
 
@@ -26,18 +26,9 @@ interface HistoryEntry {
   band_name: string;
 }
 
-interface TopPerformer {
-  dse_msisdn: string;
-  dse_name: string;
-  ga_count: number;
-  incentive_earned: number;
-  rank: number;
-}
-
 export function HBBDSEGADashboard({ userPhone }: { userPhone: string }) {
   const [gaData, setGaData] = useState<DSEGAData | null>(null);
   const [history, setHistory] = useState<HistoryEntry[]>([]);
-  const [top3, setTop3] = useState<TopPerformer[]>([]);
   const [loading, setLoading] = useState(true);
   const [viewMode, setViewMode] = useState<'current' | 'history'>('current');
   const [selectedMonth, setSelectedMonth] = useState<string>('');
@@ -58,10 +49,6 @@ export function HBBDSEGADashboard({ userPhone }: { userPhone: string }) {
       // Get history
       const historyData = await getPersonGAHistory(userPhone, 'dse');
       setHistory(historyData);
-
-      // Get top performers
-      const topPerformers = await getTop3DSEs();
-      setTop3(topPerformers);
     } catch (error) {
       toast.error(`Failed to load GA data: ${error instanceof Error ? error.message : 'Unknown error'}`);
     } finally {
@@ -90,7 +77,6 @@ export function HBBDSEGADashboard({ userPhone }: { userPhone: string }) {
 
   const bandInfo = getIncentiveBand(gaData.ga_count, 'dse');
   const progress = calculateProgressToNextBand(gaData.ga_count, 'dse');
-  const isTopPerformer = top3.some(p => p.dse_msisdn === userPhone);
 
   return (
     <div className="p-6 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen pb-24">
@@ -99,12 +85,6 @@ export function HBBDSEGADashboard({ userPhone }: { userPhone: string }) {
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-1">{gaData.dse_name}</h1>
           <p className="text-gray-600">DSE GA Dashboard</p>
-          {isTopPerformer && (
-            <div className="mt-3 inline-flex items-center gap-2 bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm font-medium">
-              <Award className="w-4 h-4" />
-              Top 3 Performer
-            </div>
-          )}
         </div>
 
         {/* View Toggle */}

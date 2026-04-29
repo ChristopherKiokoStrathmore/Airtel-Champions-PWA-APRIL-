@@ -11,6 +11,7 @@ import {
   goLiveGAReport,
   rollbackGAReport,
   getUploadHistory,
+  fetchUploadedData,
   UploadBatch,
 } from './hbb-ga-api';
 import { normalizePhone, GAUploadError } from './hbb-ga-utilities';
@@ -26,6 +27,9 @@ export function HBBGAUploadManager() {
   const [loading, setLoading] = useState(false);
   const [uploadHistory, setUploadHistory] = useState<UploadBatch[]>([]);
   const [validationResult, setValidationResult] = useState<any>(null);
+  const [previewModalOpen, setPreviewModalOpen] = useState(false);
+  const [previewData, setPreviewData] = useState<{ dse_records: any[]; installer_records: any[] } | null>(null);
+  const [previewLoading, setPreviewLoading] = useState(false);
 
   // Handle file selection and upload
   const handleFileSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -114,6 +118,27 @@ export function HBBGAUploadManager() {
       toast.error(`Failed to load history: ${error instanceof Error ? error.message : 'Unknown error'}`);
     } finally {
       setLoading(false);
+    }
+  };
+
+  // Preview uploaded records by upload id
+  const handlePreview = async (uploadId: string) => {
+    if (!uploadId) return;
+    setPreviewLoading(true);
+    setPreviewModalOpen(true);
+    try {
+      const res = await fetchUploadedData(uploadId);
+      if (res.error) {
+        toast.error(`Failed to fetch preview: ${res.error?.message || res.error}`);
+        setPreviewData({ dse_records: [], installer_records: [] });
+      } else {
+        setPreviewData({ dse_records: res.dse_records || [], installer_records: res.installer_records || [] });
+      }
+    } catch (err) {
+      toast.error(`Preview failed: ${err instanceof Error ? err.message : 'Unknown error'}`);
+      setPreviewData({ dse_records: [], installer_records: [] });
+    } finally {
+      setPreviewLoading(false);
     }
   };
 
@@ -354,18 +379,102 @@ export function HBBGAUploadManager() {
                       <p className="font-medium text-gray-900">{batch.filename}</p>
                       <p className="text-xs text-gray-500">{new Date(batch.uploadedAt).toLocaleString()}</p>
                     </div>
-                    <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                      batch.status === 'live' ? 'bg-green-100 text-green-700' :
-                      batch.status === 'rolled_back' ? 'bg-red-100 text-red-700' :
-                      'bg-yellow-100 text-yellow-700'
-                    }`}>
-                      {batch.status === 'live' ? '✓ Live' : batch.status === 'rolled_back' ? '✕ Rolled Back' : 'Staged'}
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={() => handlePreview(batch.id)}
+                        className="px-3 py-1 text-xs bg-white border border-gray-200 rounded-md hover:bg-gray-50"
+                      >
+                        Preview Data
+                      </button>
+                      <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                        batch.status === 'live' ? 'bg-green-100 text-green-700' :
+                        batch.status === 'rolled_back' ? 'bg-red-100 text-red-700' :
+                        'bg-yellow-100 text-yellow-700'
+                      }`}>
+                        {batch.status === 'live' ? '✓ Live' : batch.status === 'rolled_back' ? '✕ Rolled Back' : 'Staged'}
+                      </span>
+                    </div>
                   </div>
                   <p className="text-sm text-gray-600">{batch.totalRecords} records • {batch.warningsCount} warnings</p>
                 </div>
               ))}
             </div>
+
+            {/* Preview Modal */}
+            {previewModalOpen && (
+              <div className="fixed inset-0 z-50 flex items-start justify-center p-6">
+                <div className="absolute inset-0 bg-black opacity-40" onClick={() => setPreviewModalOpen(false)} />
+                <div className="relative bg-white rounded-lg shadow-lg max-w-6xl w-full max-h-[80vh] overflow-y-auto z-60 p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-lg font-semibold">Upload Preview</h3>
+                    <div className="flex items-center gap-2">
+                      {previewLoading && <p className="text-sm text-gray-500">Loading...</p>}
+                      <button onClick={() => setPreviewModalOpen(false)} className="px-3 py-1 rounded-md border">Close</button>
+                    </div>
+                  </div>
+
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="font-medium mb-2">Installer Records (first 50)</h4>
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-sm">
+                          <thead>
+                            <tr className="border-b bg-gray-50">
+                              {(previewData?.installer_records?.[0]
+                                ? Object.keys(previewData!.installer_records[0])
+                                : ['No data']).slice(0, 20).map((h, i) => (
+                                <th key={i} className="px-3 py-2 text-left font-semibold">{h}</th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {(previewData?.installer_records || []).slice(0, 50).map((row, idx) => (
+                              <tr key={idx} className="border-b hover:bg-gray-50">
+                                {(previewData!.installer_records[0] ? Object.keys(previewData!.installer_records[0]) : ['no']).slice(0,20).map((k, j) => (
+                                  <td key={j} className="px-3 py-2">{String(row[k] ?? '—')}</td>
+                                ))}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                        {(!previewData || (previewData.installer_records || []).length === 0) && (
+                          <p className="text-sm text-gray-500 mt-2">No installer rows for this upload.</p>
+                        )}
+                      </div>
+                    </div>
+
+                    <div>
+                      <h4 className="font-medium mb-2">DSE Records (first 50)</h4>
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-sm">
+                          <thead>
+                            <tr className="border-b bg-gray-50">
+                              {(previewData?.dse_records?.[0]
+                                ? Object.keys(previewData!.dse_records[0])
+                                : ['No data']).slice(0, 20).map((h, i) => (
+                                <th key={i} className="px-3 py-2 text-left font-semibold">{h}</th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {(previewData?.dse_records || []).slice(0, 50).map((row, idx) => (
+                              <tr key={idx} className="border-b hover:bg-gray-50">
+                                {(previewData!.dse_records[0] ? Object.keys(previewData!.dse_records[0]) : ['no']).slice(0,20).map((k, j) => (
+                                  <td key={j} className="px-3 py-2">{String(row[k] ?? '—')}</td>
+                                ))}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                        {(!previewData || (previewData.dse_records || []).length === 0) && (
+                          <p className="text-sm text-gray-500 mt-2">No DSE rows for this upload.</p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
 
             <button
               onClick={() => setUploadStep('select')}

@@ -3,13 +3,14 @@ import { useState, useEffect, useCallback } from 'react';
 import { Home, ClipboardList, Clock, User, LogOut, RefreshCw, Wifi, MapPin, Phone, Calendar, CheckCircle, XCircle, AlertTriangle, ChevronRight, Navigation, MessageCircle, Award, TrendingUp, Shield, Zap, Star, Copy, Lock, Bell, Camera, Upload, Navigation2 } from 'lucide-react';
 import { getServiceRequests, updateServiceRequestStatus, getInstallerByPhone, generateWhatsAppLink, changePin } from './hbb-api';
 import { NotificationBell } from './hbb-notifications';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { supabase } from '../../utils/supabase/client';
 import { useLiveLocation } from '../../hooks/useLiveLocation';
 import { RejectDialog } from './hbb-reject-dialog';
 import { InstallerCalendar } from './hbb-installer-calendar';
 import { recordRejectionAndReassign } from './hbb-auto-assign';
 import { InstallerLocationSender } from '../InstallerLocationSender';
+import { HBBInstallerGADashboard } from './hbb-installer-ga-dashboard';
 
 const ACCENT = '#E60000';
 const ACCENT_DARK = '#CC0000';
@@ -101,12 +102,14 @@ export function HBBInstallerDashboard({ user, userData, onLogout }: Props) {
     const base9 = userPhone.replace(/[\s\-\(\)\+]/g, '').replace(/^0/, '').replace(/^254/, '');
     const phoneVariants = ['0' + base9, '254' + base9, '+254' + base9, base9];
 
-    supabase
-      .from('installers')
-      .select('id, name, phone, town, status, max_jobs_per_day')
-      .in('phone', phoneVariants)
-      .limit(1)
-      .then(({ data }) => {
+    const lookupInstaller = async () => {
+      try {
+        const { data } = await supabase
+          .from('installers')
+          .select('id, name, phone, town, status, max_jobs_per_day')
+          .in('phone', phoneVariants)
+          .limit(1);
+
         const inst = data?.[0];
         if (inst) {
           console.log('[Installer] Found:', inst.name);
@@ -115,8 +118,12 @@ export function HBBInstallerDashboard({ user, userData, onLogout }: Props) {
         } else {
           console.log('[Installer] Not found for phone:', userPhone);
         }
-      })
-      .catch(err => console.error('[Installer] Lookup failed:', err));
+      } catch (err: unknown) {
+        console.error('[Installer] Lookup failed:', err);
+      }
+    };
+
+    void lookupInstaller();
   }, [userPhone]);
 
   // Subscribe to immediate-dispatch jobs via Realtime
@@ -140,15 +147,15 @@ export function HBBInstallerDashboard({ user, userData, onLogout }: Props) {
     refresh();
 
     const ch = supabase.channel(`new-jobs-${inHouseInstallerId}`)
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'jobs', filter: `installer_id=eq.${inHouseInstallerId}` }, payload => {
-        const job = payload.new as any;
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'jobs', filter: `installer_id=eq.${inHouseInstallerId}` }, (payload: { new: any }) => {
+        const job = (payload as { new: any }).new as any;
         if (job?.status === 'assigned') {
           setNewJobs(prev => prev.some(j => j.id === job.id) ? prev.map(j => j.id === job.id ? job : j) : [job, ...prev]);
         } else {
           setNewJobs(prev => prev.filter(j => j.id !== job?.id));
           if (job && ['on_way', 'arrived'].includes(job.status)) { setActiveJob(job); setIsTracking(true); }
           else if (job && ['completed', 'cancelled'].includes(job.status)) {
-            setActiveJob(prev => prev?.id === job.id ? null : prev);
+            setActiveJob((prev: any | null) => (prev?.id === job.id ? null : prev));
             setIsTracking(false);
           }
         }
@@ -194,7 +201,7 @@ export function HBBInstallerDashboard({ user, userData, onLogout }: Props) {
     try {
       const result = await recordRejectionAndReassign(
         { id: job.id, remarks: job.remarks, town: job.town, estate_name: job.estate_name || job.estate },
-        inHouseInstallerId,
+        Number(inHouseInstallerId),
         userName,
         reason
       );
@@ -245,6 +252,7 @@ export function HBBInstallerDashboard({ user, userData, onLogout }: Props) {
     { id: 'requests', label: 'Requests', icon: Bell },
     { id: 'calendar', label: 'Calendar', icon: Calendar },
     { id: 'history',  label: 'History',  icon: Clock },
+    { id: 'ga',       label: 'GA',       icon: TrendingUp },
     { id: 'profile',  label: 'Profile',  icon: User },
   ];
 
@@ -274,6 +282,8 @@ export function HBBInstallerDashboard({ user, userData, onLogout }: Props) {
             loading={loading}
           />
         );
+      case 'ga':
+        return <HBBInstallerGADashboard userPhone={userPhone} userName={installer?.name || userName} />;
       case 'calendar':
         return (
           <InstallerCalendar
