@@ -186,7 +186,8 @@ export async function getInstallersByTeamLead(
  */
 export async function getInstallerJobsLeaderboard(
   teamLeadMsisdn: string,
-  period: 'month' | 'all'
+  period: 'month' | 'all',
+  monthYear: string = getCurrentMonthYear()
 ): Promise<InstallerJobsEntry[]> {
   const normalized = normalizePhone(teamLeadMsisdn);
 
@@ -194,7 +195,8 @@ export async function getInstallerJobsLeaderboard(
   const { data: gaRows, error: gaErr } = await supabase
     .from('hbb_installer_ga_monthly')
     .select('installer_msisdn, installer_name, town')
-    .eq('team_lead_msisdn', normalized);
+    .eq('team_lead_msisdn', normalized)
+    .eq('month_year', monthYear);
 
   if (gaErr) throw gaErr;
   if (!gaRows || gaRows.length === 0) return [];
@@ -234,11 +236,12 @@ export async function getInstallerJobsLeaderboard(
       .in('installer_id', installerIds);
 
     if (period === 'month') {
-      const [year, month] = getCurrentMonthYear().split('-');
+      const [year, month] = monthYear.split('-');
       query = query.gte('completed_at', `${year}-${month}-01`);
     }
 
     const { data: jobs, error: jobErr } = await query;
+    if (jobErr) console.warn('[GA API] Jobs leaderboard query failed:', jobErr.message);
     if (!jobErr) {
       (jobs || []).forEach(j => {
         const id = j.installer_id as number;
