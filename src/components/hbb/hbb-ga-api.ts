@@ -237,7 +237,13 @@ export async function getInstallerJobsLeaderboard(
 
     if (period === 'month') {
       const [year, month] = monthYear.split('-');
-      query = query.gte('completed_at', `${year}-${month}-01`);
+      const nextMonth = Number(month) + 1;
+      const nextYear = nextMonth > 12 ? Number(year) + 1 : Number(year);
+      const nextMonthStr = (nextMonth > 12 ? 1 : nextMonth).toString().padStart(2, '0');
+      const nextYearStr = nextYear.toString();
+      query = query
+        .gte('completed_at', `${year}-${month}-01`)
+        .lt('completed_at', `${nextYearStr}-${nextMonthStr}-01`);
     }
 
     const { data: jobs, error: jobErr } = await query;
