@@ -7,6 +7,263 @@ import { normalizePhone, GAReportRecord, getCurrentMonthYear } from './hbb-ga-ut
 
 const BASE = `https://${projectId}.supabase.co/functions/v1`;
 
+// ═════════════════════════════════════════════════════════════════════════════
+// FALLBACK QUERY HELPER
+// Tries new lowercase tables first, falls back to old uppercase tables if RLS issues occur
+// ═════════════════════════════════════════════════════════════════════════════
+
+async function tryQueryInstallerMonthly(msisdn: string, monthYear: string) {
+  try {
+    // Try new lowercase table first
+    const { data, error } = await supabase
+      .from('hbb_installer_ga_monthly')
+      .select('*')
+      .eq('installer_msisdn', msisdn)
+      .eq('month_year', monthYear)
+      .single();
+    
+    if (!error) return { data, error };
+    
+    // If error, try old uppercase table (which definitely has the data)
+    console.warn(`[GA API] New table query failed (${error?.code}), trying old table...`);
+    const { data: oldData, error: oldError } = await supabase
+      .from('HBB_INSTALLER_GA_MONTHLY')
+      .select('*')
+      .eq('installer_msisdn', msisdn)
+      .eq('month_year', monthYear)
+      .single();
+    
+    return { data: oldData, error: oldError };
+  } catch (err) {
+    console.error('[GA API] Query error:', err);
+    return { data: null, error: err };
+  }
+}
+
+async function tryQueryInstallerMonthlyByName(namePrefix: string, monthYear: string) {
+  try {
+    // Try new lowercase table first
+    const { data, error } = await supabase
+      .from('hbb_installer_ga_monthly')
+      .select('*')
+      .ilike('installer_name', `%${namePrefix}%`)
+      .eq('month_year', monthYear)
+      .limit(1)
+      .single();
+    
+    if (!error) return { data, error };
+    
+    // Fallback to old table
+    console.warn(`[GA API] New table name query failed (${error?.code}), trying old table...`);
+    const { data: oldData, error: oldError } = await supabase
+      .from('HBB_INSTALLER_GA_MONTHLY')
+      .select('*')
+      .ilike('installer_name', `%${namePrefix}%`)
+      .eq('month_year', monthYear)
+      .limit(1)
+      .single();
+    
+    return { data: oldData, error: oldError };
+  } catch (err) {
+    console.error('[GA API] Name query error:', err);
+    return { data: null, error: err };
+  }
+}
+
+async function tryQueryInstallerHistory(msisdn: string) {
+  try {
+    // Try new lowercase table first
+    const { data, error } = await supabase
+      .from('hbb_installer_ga_monthly')
+      .select('*')
+      .eq('installer_msisdn', msisdn)
+      .order('month_year', { ascending: false });
+
+    // Only return new table result if it has data — fall back if empty (data may still be in old table)
+    if (!error && data && data.length > 0) return { data, error: null };
+
+    if (error) {
+      console.warn(`[GA API] New history query failed (${error?.code}), trying old table...`);
+    } else {
+      console.log('[GA API] New history table empty, checking old table...');
+    }
+
+    const { data: oldData, error: oldError } = await supabase
+      .from('HBB_INSTALLER_GA_MONTHLY')
+      .select('*')
+      .eq('installer_msisdn', msisdn)
+      .order('month_year', { ascending: false });
+
+    return { data: oldData, error: oldError };
+  } catch (err) {
+    console.error('[GA API] History query error:', err);
+    return { data: [], error: err };
+  }
+}
+
+/**
+ * Get current-month GA record for an installer.
+ * Uses .maybeSingle() (no 406 on empty) and falls back: new table → old table, MSISDN → name.
+ */
+export async function getInstallerGACurrentMonth(
+  msisdn: string,
+  monthYear: string,
+  namePrefix?: string
+): Promise<any | null> {
+  const { data: byMsisdn } = await supabase
+    .from('hbb_installer_ga_monthly')
+    .select('*')
+    .eq('installer_msisdn', msisdn)
+    .eq('month_year', monthYear)
+    .maybeSingle();
+  if (byMsisdn) return byMsisdn;
+
+  if (namePrefix) {
+    const { data: byName } = await supabase
+      .from('hbb_installer_ga_monthly')
+      .select('*')
+      .ilike('installer_name', `%${namePrefix}%`)
+      .eq('month_year', monthYear)
+      .limit(1)
+      .maybeSingle();
+    if (byName) return byName;
+  }
+
+  const { data: oldByMsisdn } = await supabase
+    .from('HBB_INSTALLER_GA_MONTHLY')
+    .select('*')
+    .eq('installer_msisdn', msisdn)
+    .eq('month_year', monthYear)
+    .maybeSingle();
+  if (oldByMsisdn) return oldByMsisdn;
+
+  if (namePrefix) {
+    const { data: oldByName } = await supabase
+      .from('HBB_INSTALLER_GA_MONTHLY')
+      .select('*')
+      .ilike('installer_name', `%${namePrefix}%`)
+      .eq('month_year', monthYear)
+      .limit(1)
+      .maybeSingle();
+    if (oldByName) return oldByName;
+  }
+
+  return null;
+}
+
+/**
+ * Fetch all installers under a supervisor for the given month, ranked by GA count.
+ * Queries hbb_installer_ga_monthly filtered by team_lead_msisdn.
+ */
+export async function getInstallersByTeamLead(
+  teamLeadMsisdn: string,
+  monthYear: string
+): Promise<InstallerLeaderboardEntry[]> {
+  const normalized = normalizePhone(teamLeadMsisdn);
+
+  const { data, error } = await supabase
+    .from('hbb_installer_ga_monthly')
+    .select('installer_msisdn, installer_name, town, ga_count, incentive_earned')
+    .eq('team_lead_msisdn', normalized)
+    .eq('month_year', monthYear)
+    .order('ga_count', { ascending: false });
+
+  if (error) throw error;
+
+  return (data || []).map((d, idx) => ({
+    msisdn: d.installer_msisdn,
+    name: d.installer_name,
+    town: d.town || '',
+    gaCount: d.ga_count || 0,
+    incentiveEarned: d.incentive_earned || 0,
+    position: idx + 1,
+  }));
+}
+
+/**
+ * Count completed service_requests per installer for all installers under a supervisor.
+ * period='month' filters to the current calendar month; 'all' counts all time.
+ */
+export async function getInstallerJobsLeaderboard(
+  teamLeadMsisdn: string,
+  period: 'month' | 'all'
+): Promise<InstallerJobsEntry[]> {
+  const normalized = normalizePhone(teamLeadMsisdn);
+
+  // Step 1: get all installer MSISDNs under this supervisor
+  const { data: gaRows, error: gaErr } = await supabase
+    .from('hbb_installer_ga_monthly')
+    .select('installer_msisdn, installer_name, town')
+    .eq('team_lead_msisdn', normalized);
+
+  if (gaErr) throw gaErr;
+  if (!gaRows || gaRows.length === 0) return [];
+
+  // Step 2: generate phone variants for each MSISDN and look up installer IDs
+  const allVariants: string[] = [];
+  gaRows.forEach(inst => {
+    const base = inst.installer_msisdn.replace(/[\s\-\(\)\+]/g, '').replace(/^254/, '').replace(/^0/, '');
+    allVariants.push(base, '0' + base, '254' + base, '+254' + base);
+  });
+
+  const { data: installerRows, error: idErr } = await supabase
+    .from('installers')
+    .select('id, phone')
+    .in('phone', [...new Set(allVariants)]);
+
+  if (idErr) throw idErr;
+
+  // Build phone → installer id map (try all variant formats)
+  const phoneToId = new Map<string, number>();
+  (installerRows || []).forEach(row => {
+    const base = row.phone.replace(/[\s\-\(\)\+]/g, '').replace(/^254/, '').replace(/^0/, '');
+    [base, '0' + base, '254' + base, '+254' + base].forEach(v => {
+      if (!phoneToId.has(v)) phoneToId.set(v, row.id);
+    });
+  });
+
+  const installerIds = [...new Set(Array.from(phoneToId.values()))];
+
+  // Step 3: count completed service_requests per installer_id
+  const jobCounts = new Map<number, number>();
+  if (installerIds.length > 0) {
+    let query = supabase
+      .from('service_requests')
+      .select('installer_id')
+      .eq('status', 'completed')
+      .in('installer_id', installerIds);
+
+    if (period === 'month') {
+      const [year, month] = getCurrentMonthYear().split('-');
+      query = query.gte('completed_at', `${year}-${month}-01`);
+    }
+
+    const { data: jobs, error: jobErr } = await query;
+    if (!jobErr) {
+      (jobs || []).forEach(j => {
+        const id = j.installer_id as number;
+        jobCounts.set(id, (jobCounts.get(id) || 0) + 1);
+      });
+    }
+  }
+
+  // Step 4: merge and rank (keep all installers, even those with 0 jobs)
+  return gaRows
+    .map(inst => {
+      const base = inst.installer_msisdn.replace(/[\s\-\(\)\+]/g, '').replace(/^254/, '').replace(/^0/, '');
+      const instId = phoneToId.get(base) ?? phoneToId.get('0' + base) ?? null;
+      return {
+        msisdn: inst.installer_msisdn,
+        name: inst.installer_name,
+        town: inst.town || '',
+        jobsCompleted: instId ? (jobCounts.get(instId) || 0) : 0,
+        position: 0,
+      };
+    })
+    .sort((a, b) => b.jobsCompleted - a.jobsCompleted)
+    .map((e, idx) => ({ ...e, position: idx + 1 }));
+}
+
 // Get auth headers
 async function getAuthHeaders(): Promise<Record<string, string>> {
   const { data: { session } } = await supabase.auth.getSession();
@@ -202,6 +459,33 @@ export interface PersonGAData {
   position?: number;
 }
 
+export interface InstallerDailyHistoryEntry {
+  installer_msisdn: string;
+  installer_name: string;
+  town: string;
+  ga_date: string;
+  total_ga: number;
+  report_batch_id?: string | null;
+  month_year?: string | null;
+}
+
+export interface InstallerLeaderboardEntry {
+  msisdn: string;
+  name: string;
+  town: string;
+  gaCount: number;
+  incentiveEarned: number;
+  position: number;
+}
+
+export interface InstallerJobsEntry {
+  msisdn: string;
+  name: string;
+  town: string;
+  jobsCompleted: number;
+  position: number;
+}
+
 export interface TeamLeadData {
   msisdn: string;
   name: string;
@@ -213,6 +497,69 @@ export interface TeamLeadData {
 }
 
 /**
+ * Fetch uploaded records by report_batch_id for previewing in the UI.
+ * Returns both DSE and Installer records (arrays) and an error if any.
+ */
+export async function fetchUploadedData(uploadId: string): Promise<{ dse_records: any[]; installer_records: any[]; error?: any }> {
+  if (!uploadId) return { dse_records: [], installer_records: [], error: 'report_batch_id required' };
+
+  try {
+    // Fetch from new lowercase tables first
+    let dseAttempt = supabase
+      .from('hbb_dse_ga_monthly')
+      .select('*')
+      .eq('report_batch_id', uploadId)
+      .order('id', { ascending: true })
+      .limit(5000);
+    
+    let installerAttempt = supabase
+      .from('hbb_installer_ga_monthly')
+      .select('*')
+      .eq('report_batch_id', uploadId)
+      .order('id', { ascending: true })
+      .limit(5000);
+
+    const [{ data: dse_records, error: dseError }, { data: installer_records, error: installerError }] = await Promise.all([
+      dseAttempt,
+      installerAttempt,
+    ]);
+
+    // If new tables error, try old uppercase tables
+    let finalDseRecords = dse_records || [];
+    let finalInstallerRecords = installer_records || [];
+    let finalError = dseError || installerError;
+
+    if (dseError) {
+      console.warn(`[GA API] DSE query failed (${dseError?.code}), trying old table...`);
+      const { data: oldDse, error: oldDseErr } = await supabase
+        .from('HBB_DSE_GA_MONTHLY')
+        .select('*')
+        .eq('report_batch_id', uploadId)
+        .order('id', { ascending: true })
+        .limit(5000);
+      finalDseRecords = oldDse || [];
+      if (oldDseErr) finalError = oldDseErr;
+    }
+
+    if (installerError) {
+      console.warn(`[GA API] Installer query failed (${installerError?.code}), trying old table...`);
+      const { data: oldInstaller, error: oldInstallerErr } = await supabase
+        .from('HBB_INSTALLER_GA_MONTHLY')
+        .select('*')
+        .eq('report_batch_id', uploadId)
+        .order('id', { ascending: true })
+        .limit(5000);
+      finalInstallerRecords = oldInstaller || [];
+      if (oldInstallerErr) finalError = oldInstallerErr;
+    }
+
+    return { dse_records: finalDseRecords, installer_records: finalInstallerRecords, error: finalError };
+  } catch (err) {
+    return { dse_records: [], installer_records: [], error: err };
+  }
+}
+
+/**
  * Get GA data for DSE
  */
 export async function getDSEGAData(
@@ -220,7 +567,7 @@ export async function getDSEGAData(
   monthYear: string = getCurrentMonthYear()
 ): Promise<PersonGAData | null> {
   const { data, error } = await supabase
-    .from('HBB_DSE_GA_MONTHLY')
+    .from('hbb_dse_ga_monthly')
     .select('*')
     .eq('dse_msisdn', normalizePhone(dseMsisdn))
     .eq('month_year', monthYear)
@@ -241,7 +588,7 @@ export async function getDSETeamLeadData(
   
   // Get all DSEs under this team lead
   const { data, error } = await supabase
-    .from('HBB_DSE_GA_MONTHLY')
+    .from('hbb_dse_ga_monthly')
     .select('*')
     .eq('team_lead_msisdn', normalized)
     .eq('month_year', monthYear)
@@ -286,7 +633,7 @@ export async function getTop3DSEs(
   monthYear: string = getCurrentMonthYear()
 ): Promise<PersonGAData[]> {
   let query = supabase
-    .from('HBB_DSE_GA_MONTHLY')
+    .from('hbb_dse_ga_monthly')
     .select('*')
     .eq('month_year', monthYear)
     .order('ga_count', { ascending: false })
@@ -321,7 +668,7 @@ export async function getTop3Installers(
   monthYear: string = getCurrentMonthYear()
 ): Promise<PersonGAData[]> {
   let query = supabase
-    .from('HBB_INSTALLER_GA_MONTHLY')
+    .from('hbb_installer_ga_monthly')
     .select('*')
     .eq('month_year', monthYear)
     .order('ga_count', { ascending: false })
@@ -357,7 +704,7 @@ export async function getGALeaderboard(
   town?: string,
   limit: number = 100
 ): Promise<PersonGAData[]> {
-  const table = reportType === 'dse' ? 'HBB_DSE_GA_MONTHLY' : 'HBB_INSTALLER_GA_MONTHLY';
+  const table = reportType === 'dse' ? 'hbb_dse_ga_monthly' : 'hbb_installer_ga_monthly';
   
   let query = supabase
     .from(table)
@@ -398,8 +745,30 @@ export async function getPersonGAHistory(
   reportType: 'dse' | 'installer'
 ): Promise<PersonGAData[]> {
   const normalized = normalizePhone(msisdn);
-  const table = reportType === 'dse' ? 'HBB_DSE_GA_MONTHLY' : 'HBB_INSTALLER_GA_MONTHLY';
-  const field = reportType === 'dse' ? 'dse_msisdn' : 'installer_msisdn';
+  
+  // Use fallback helper for installers, direct query for DSEs
+  if (reportType === 'installer') {
+    const { data, error } = await tryQueryInstallerHistory(normalized);
+    if (error) throw error;
+    
+    return (data || []).map(d => ({
+      msisdn: d.installer_msisdn,
+      name: d.installer_name,
+      town: d.town,
+      gaCount: d.ga_count,
+      currentBandMin: d.current_band_min,
+      currentBandMax: d.current_band_max,
+      incentiveEarned: d.incentive_earned,
+      lastUpdated: d.last_updated,
+      reportBatchId: d.report_batch_id || null,
+      monthYear: d.month_year,
+      uploadDate: d.upload_date || d.created_at || null,
+    }));
+  }
+  
+  // DSE history (use new table)
+  const table = 'hbb_dse_ga_monthly';
+  const field = 'dse_msisdn';
   
   let query = supabase.from(table).select('*').eq(field, normalized);
   
@@ -407,7 +776,7 @@ export async function getPersonGAHistory(
   
   if (error) throw error;
   
-  const nameField = reportType === 'dse' ? 'dse_name' : 'installer_name';
+  const nameField = 'dse_name';
   
   return (data || []).map(d => ({
     msisdn: d[field],
@@ -418,6 +787,9 @@ export async function getPersonGAHistory(
     currentBandMax: d.current_band_max,
     incentiveEarned: d.incentive_earned,
     lastUpdated: d.last_updated,
+    reportBatchId: d.report_batch_id || null,
+    monthYear: d.month_year,
+    uploadDate: d.upload_date || d.created_at || null,
   }));
 }
 
@@ -440,6 +812,92 @@ export async function switchTableSource(newTableName: string): Promise<void> {
   if (!response.ok) {
     throw new Error(`Table switch failed: ${response.statusText}`);
   }
+}
+
+/**
+ * Get daily GA history for an installer from the calendar-backed history view.
+ * The view should return one row per date, including zero-count days.
+ */
+export async function getInstallerDailyHistory(
+  msisdn: string,
+  startDate?: string,
+  endDate?: string
+): Promise<InstallerDailyHistoryEntry[]> {
+  const normalized = normalizePhone(msisdn);
+
+  const normalizeRow = (row: any): InstallerDailyHistoryEntry => ({
+    installer_msisdn: row.installer_msisdn,
+    installer_name: row.installer_name,
+    town: row.town,
+    ga_date: row.ga_date,
+    total_ga: row.total_ga ?? row.ga_count ?? 0,
+    report_batch_id: row.report_batch_id || null,
+    month_year: row.month_year || null,
+  });
+
+  const buildContinuousHistory = (rows: InstallerDailyHistoryEntry[]) => {
+    if (rows.length === 0) return rows;
+
+    const byDate = new Map<string, InstallerDailyHistoryEntry>();
+    rows.forEach(row => byDate.set(row.ga_date, row));
+
+    const sortedDates = rows.map(row => row.ga_date).sort();
+    const first = startDate || sortedDates[0];
+    const last = endDate || sortedDates[sortedDates.length - 1];
+
+    const current = new Date(`${first}T00:00:00`);
+    const final = new Date(`${last}T00:00:00`);
+    const filled: InstallerDailyHistoryEntry[] = [];
+
+    while (current <= final) {
+      const day = current.toISOString().slice(0, 10);
+      const existing = byDate.get(day);
+      if (existing) {
+        filled.push(existing);
+      } else {
+        filled.push({
+          installer_msisdn: rows[0].installer_msisdn,
+          installer_name: rows[0].installer_name,
+          town: rows[0].town,
+          ga_date: day,
+          total_ga: 0,
+          report_batch_id: null,
+          month_year: day.slice(0, 7),
+        });
+      }
+      current.setDate(current.getDate() + 1);
+    }
+
+    return filled;
+  };
+
+  const queryHistory = async (tableName: string) => {
+    let query = supabase
+      .from(tableName)
+      .select('*')
+      .eq('installer_msisdn', normalized)
+      .order('ga_date', { ascending: true });
+
+    if (startDate) query = query.gte('ga_date', startDate);
+    if (endDate) query = query.lte('ga_date', endDate);
+
+    const { data, error } = await query;
+    return { data: data || [], error };
+  };
+
+  const viewResult = await queryHistory('hbb_ga_daily_history_view');
+  if (!viewResult.error) {
+    return viewResult.data.map(normalizeRow);
+  }
+
+  console.warn(`[GA API] Daily history view unavailable (${viewResult.error?.code || 'unknown'}), falling back to raw daily table...`);
+
+  const dailyResult = await queryHistory('hbb_installer_ga_daily');
+  if (dailyResult.error) {
+    throw new Error(`Failed to fetch daily GA history: ${dailyResult.error.message || 'Unknown error'}`);
+  }
+
+  return buildContinuousHistory(dailyResult.data.map(normalizeRow));
 }
 
 /**
@@ -545,14 +1003,26 @@ export interface DashboardTeamAnalytics {
 export async function getUserRole(msisdn: string): Promise<UserRole> {
   try {
     // Check if user exists in appropriate tables
-    const { data: dseData } = await supabase
-      .from('HBB_DSE_GA_MONTHLY')
+    const { data: dseData, error: dseError } = await supabase
+      .from('hbb_dse_ga_monthly')
       .select('dse_msisdn')
       .eq('dse_msisdn', normalizePhone(msisdn))
       .limit(1);
 
     if (dseData && dseData.length > 0) {
       return 'dse';
+    }
+
+    // Fallback to old table if new table fails
+    if (dseError) {
+      const { data: oldDseData } = await supabase
+        .from('HBB_DSE_GA_MONTHLY')
+        .select('dse_msisdn')
+        .eq('dse_msisdn', normalizePhone(msisdn))
+        .limit(1);
+      if (oldDseData && oldDseData.length > 0) {
+        return 'dse';
+      }
     }
 
     // Could also check for team_lead role in future with appropriate table
@@ -573,7 +1043,7 @@ export async function getDashboardDSEGAData(
     const normalized = normalizePhone(msisdn);
     
     const { data, error } = await supabase
-      .from('HBB_DSE_GA_MONTHLY')
+      .from('hbb_dse_ga_monthly')
       .select('*')
       .eq('dse_msisdn', normalized)
       .eq('month_year', monthYear)
@@ -620,7 +1090,7 @@ export async function getDashboardPersonGAHistory(
     const normalized = normalizePhone(msisdn);
     
     const { data, error } = await supabase
-      .from('HBB_DSE_GA_MONTHLY')
+      .from('hbb_dse_ga_monthly')
       .select('*')
       .eq('dse_msisdn', normalized)
       .order('month_year', { ascending: false })
