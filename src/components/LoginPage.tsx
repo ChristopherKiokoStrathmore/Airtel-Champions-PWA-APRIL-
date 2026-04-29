@@ -277,6 +277,47 @@ export function LoginPage({
   };
 
   // ─────────────────────────────────────────────────────────────────────────────
+  // STEP 2c — Installer Supervisor table check
+  // ─────────────────────────────────────────────────────────────────────────────
+  const checkInstallerSupervisorTable = async (
+    normalised: string,
+    enteredPin: string,
+  ): Promise<any | null> => {
+    const formats = phoneFormats(normalised);
+
+    try {
+      const { data, error: qErr } = await supabase
+        .from('installer_supervisor')
+        .select('"Installers supervisor", "Phone", pin')
+        .in('"Phone"', formats)
+        .limit(1);
+
+      if (qErr) {
+        console.log('[Auth] installer_supervisor not accessible:', qErr.message);
+        return null;
+      }
+      if (!data || data.length === 0) return null;
+
+      const row = data[0];
+      const storedPin = String(row.pin ?? '1234').trim();
+      if (enteredPin !== storedPin) throw new Error(ERR_GENERIC);
+
+      return {
+        id:           row['Phone'],
+        full_name:    row['Installers supervisor'],
+        phone_number: row['Phone'],
+        role:         'hbb_installer_supervisor',
+        source_table: 'installer_supervisor',
+        _loginAt:     Date.now(),
+      };
+    } catch (err: any) {
+      if (err.message === ERR_GENERIC) throw err;
+      console.log('[Auth] Supervisor table check error (non-fatal):', err.message);
+      return null;
+    }
+  };
+
+  // ─────────────────────────────────────────────────────────────────────────────
   // STEP 3a — Sales login chain
   // ─────────────────────────────────────────────────────────────────────────────
   const runSalesLogin = async (normalised: string): Promise<void> => {
@@ -479,6 +520,20 @@ export function LoginPage({
           throw new Error(ERR_GENERIC);
         }
         return;
+      }
+
+      // ── STEP 2c: Installer Supervisor table check ────────────────────────
+      if (mode === 'hbb') {
+        const supervisorUser = await checkInstallerSupervisorTable(normalised, pin || '');
+        if (supervisorUser) {
+          console.log('✅ Supervisor login:', supervisorUser.full_name);
+          localStorage.setItem('tai_user', JSON.stringify(supervisorUser));
+          setUser(supervisorUser);
+          setUserData(supervisorUser);
+          setIsAuthenticated(true);
+          setLoading(false);
+          return;
+        }
       }
 
       if (mode === 'sales') {
