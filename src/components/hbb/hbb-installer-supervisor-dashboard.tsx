@@ -2,8 +2,8 @@
 // Supervisor dashboard: shows a ranked leaderboard of installers under this supervisor.
 // Two tabs — GA Count (current month) and Jobs Completed (current month / all time).
 
-import { useState, useEffect } from 'react';
-import { LogOut, RefreshCw, TrendingUp, Briefcase, Medal, User, Users } from 'lucide-react';
+import { useState, useEffect, useMemo } from 'react';
+import { LogOut, RefreshCw, TrendingUp, Briefcase, User, Users } from 'lucide-react';
 import {
   getInstallersByTeamLead,
   getInstallerJobsLeaderboard,
@@ -29,9 +29,12 @@ export function HBBInstallerSupervisorDashboard({ user, userData, onLogout }: Pr
   const [jobsList, setJobsList] = useState<InstallerJobsEntry[]>([]);
   const [loading, setLoading] = useState(true);
 
-  const supervisorPhone = normalizePhone(userData?.phone_number || user?.phone_number || '');
+  const supervisorPhone = useMemo(
+    () => normalizePhone(userData?.phone_number || user?.phone_number || ''),
+    [userData?.phone_number, user?.phone_number]
+  );
   const supervisorName  = userData?.full_name || user?.full_name || 'Supervisor';
-  const monthYear = getCurrentMonthYear();
+  const monthYear = useMemo(() => getCurrentMonthYear(), []);
   const [refreshKey, setRefreshKey] = useState(0);
 
   useEffect(() => {
@@ -81,12 +84,14 @@ export function HBBInstallerSupervisorDashboard({ user, userData, onLogout }: Pr
         <div className="flex items-center gap-2">
           <button
             onClick={() => setRefreshKey(k => k + 1)}
+            aria-label="Refresh leaderboard"
             className="p-2 rounded-xl bg-white/20 active:bg-white/30 transition-colors"
           >
             <RefreshCw className={`w-4 h-4 text-white ${loading ? 'animate-spin' : ''}`} />
           </button>
           <button
             onClick={onLogout}
+            aria-label="Log out"
             className="p-2 rounded-xl bg-white/20 active:bg-white/30 transition-colors"
           >
             <LogOut className="w-4 h-4 text-white" />
