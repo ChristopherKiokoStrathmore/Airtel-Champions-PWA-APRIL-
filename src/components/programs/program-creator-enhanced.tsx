@@ -472,9 +472,13 @@ export function ProgramCreatorEnhanced({ onClose, onSuccess, editingProgram }: P
 
   const fetchColumnsForField = async (fieldIndex: number, tableName: string) => {
     if (!tableName) return;
-    const res = await fetch(`https://${projectId}.supabase.co/functions/v1/make-server-28f2f653/schema/tables/${encodeURIComponent(tableName)}/columns`);
-    const d = await res.json();
-    setWlAvailableColumns(prev => ({ ...prev, [fieldIndex]: d.columns ?? [] }));
+    try {
+      const res = await fetch(`https://${projectId}.supabase.co/functions/v1/make-server-28f2f653/schema/tables/${encodeURIComponent(tableName)}/columns`);
+      const d = await res.json();
+      setWlAvailableColumns(prev => ({ ...prev, [fieldIndex]: d.columns ?? [] }));
+    } catch (err) {
+      console.error('[Whitelist] Failed to fetch columns for', tableName, err);
+    }
   };
 
   // Load session checkin flag from KV store when editing a program
@@ -1852,7 +1856,7 @@ export function ProgramCreatorEnhanced({ onClose, onSuccess, editingProgram }: P
                             <label className="text-sm font-semibold text-gray-700 block mb-2">Whitelist Fields</label>
                             <div className="space-y-3">
                               {whitelistFields.map((field, idx) => (
-                                <div key={idx} className="bg-white border border-gray-200 rounded-lg p-3 space-y-2">
+                                <div key={field.db_column || idx} className="bg-white border border-gray-200 rounded-lg p-3 space-y-2">
                                   <div className="flex gap-2 items-end">
                                     <div className="flex-1">
                                       <label className="text-xs text-gray-500 block mb-1">Label</label>
@@ -1907,7 +1911,19 @@ export function ProgramCreatorEnhanced({ onClose, onSuccess, editingProgram }: P
                                     </div>
                                     <button
                                       type="button"
-                                      onClick={() => setWhitelistFields(whitelistFields.filter((_, i) => i !== idx))}
+                                      onClick={() => {
+                                        setWhitelistFields(whitelistFields.filter((_, i) => i !== idx));
+                                        setWlAvailableColumns(prev => {
+                                          const next: Record<number, string[]> = {};
+                                          Object.entries(prev).forEach(([k, v]) => {
+                                            const ki = Number(k);
+                                            if (ki < idx) next[ki] = v;
+                                            else if (ki > idx) next[ki - 1] = v;
+                                            // ki === idx is dropped
+                                          });
+                                          return next;
+                                        });
+                                      }}
                                       className="text-red-500 hover:text-red-700 font-bold px-2 py-1 text-sm"
                                     >
                                       ✕
