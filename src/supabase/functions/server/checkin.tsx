@@ -931,15 +931,15 @@ app.get('/programs/:id/checkin/van-lookup', async (c) => {
     // PRIMARY STRATEGY: Search ALL today's submissions for this number plate
     // This works for BOTH session-based and form-based check-ins
     console.log(`[CheckIn] VAN LOOKUP: Searching ALL submissions for plate=\"${numberPlate}\" in program=${linkedProgramId}`);
-    const todayStart = `${todayStr}T00:00:00`;
-    const todayEnd = `${todayStr}T23:59:59`;
+    const todayStart3 = `${todayStr}T00:00:00`;
+    const todayEnd3 = `${todayStr}T23:59:59`;
 
     const { data: allSubmissions, error: subError } = await frontendSupabase
       .from('submissions')
       .select('id, user_id, responses, created_at')
       .eq('program_id', linkedProgramId)
-      .gte('created_at', todayStart)
-      .lte('created_at', todayEnd)
+      .gte('created_at', todayStart3)
+      .lte('created_at', todayEnd3)
       .order('created_at', { ascending: false })
       .limit(100);
 

@@ -244,65 +244,68 @@ app.onError((err, c) => {
 // DATABASE INITIALIZATION (Auto-setup on startup)
 // ============================================================================
 
-(async () => {
-  try {
-    // STEP 1: Fix KV store permissions FIRST
-    console.log('[Startup] 🔑 Fixing KV store permissions...');
-    const kvResult = await fixKvPermissions();
-    if (kvResult.success) {
-      console.log('[Startup] ✅ KV store permissions fixed:', kvResult.message);
-      if (kvResult.details) console.log('[Startup]   Details:', kvResult.details);
-    } else {
-      console.warn('[Startup] ⚠️ KV permission fix failed:', kvResult.message);
-      if (kvResult.details) console.warn('[Startup]   Details:', kvResult.details);
-    }
-
-    // STEP 2: Database verification
-    console.log('[Startup] 🔍 Verifying database access...');
-    const result = await setupDatabase();
-    
-    if (result.success) {
-      console.log('[Startup] ✅ Database ready:', result.message);
-    } else {
-      console.warn('[Startup] ⚠️ Database verification failed');
-      console.warn('[Startup] Error:', result.error);
-      if (result.needsManualSetup) {
-        console.log('[Startup] 💡 Manual Setup Required:');
-        console.log('[Startup] → Open Supabase Dashboard → Table Editor');
-        console.log('[Startup] → Verify all core tables exist');
-        console.log('[Startup] → Check app_users, programs, program_fields, submissions');
+// Run optional startup tasks (database verification, KV fix, storage setup).
+// These are potentially heavy and can cause cold-start failures if environment
+// variables or DB access are not configured. Keep them opt-in so the function
+// can boot by default, then enable explicitly when the environment is ready.
+if (Deno.env.get('ENABLE_STARTUP') === 'true') {
+  (async () => {
+    try {
+      console.log('[Startup] 🔑 Fixing KV store permissions...');
+      const kvResult = await fixKvPermissions();
+      if (kvResult.success) {
+        console.log('[Startup] ✅ KV store permissions fixed:', kvResult.message);
+        if (kvResult.details) console.log('[Startup]   Details:', kvResult.details);
+      } else {
+        console.warn('[Startup] ⚠️ KV permission fix failed:', kvResult.message);
+        if (kvResult.details) console.warn('[Startup]   Details:', kvResult.details);
       }
-    }
-    
-    console.log('[Startup] 🚐 Setting up van database...');
-    const vanResult = await setupVanDatabase();
-    
-    if (vanResult.success) {
-      console.log('[Startup] ✅ Van database ready:', vanResult.message);
-    } else {
-      console.warn('[Startup] ⚠️ Van database setup failed');
-      console.warn('[Startup] Error:', vanResult.error);
-      if (vanResult.needsManualSetup) {
-        console.log('[Startup] 💡 Manual Setup Required:');
-        console.log('[Startup] → Run SQL script: /database/VAN_DB_COMPLETE_SETUP.sql');
-      }
-    }
 
-    // STEP 5: Initialize storage buckets
-    console.log('[Startup] 🗄️ Initializing storage buckets...');
-    const storageResult = await initializeStorageBucket();
-    if (storageResult.success) {
-      console.log('[Startup] ✅ Storage buckets ready');
-      storageResult.results?.forEach((r: any) => {
-        console.log(`[Startup]   - ${r.bucket}: ${r.message || 'OK'}`);
-      });
-    } else {
-      console.warn('[Startup] ⚠️ Storage bucket initialization had issues');
+      console.log('[Startup] 🔍 Verifying database access...');
+      const result = await setupDatabase();
+      if (result.success) {
+        console.log('[Startup] ✅ Database ready:', result.message);
+      } else {
+        console.warn('[Startup] ⚠️ Database verification failed');
+        console.warn('[Startup] Error:', result.error);
+        if (result.needsManualSetup) {
+          console.log('[Startup] 💡 Manual Setup Required:');
+          console.log('[Startup] → Open Supabase Dashboard → Table Editor');
+          console.log('[Startup] → Verify all core tables exist');
+          console.log('[Startup] → Check app_users, programs, program_fields, submissions');
+        }
+      }
+
+      console.log('[Startup] 🚐 Setting up van database...');
+      const vanResult = await setupVanDatabase();
+      if (vanResult.success) {
+        console.log('[Startup] ✅ Van database ready:', vanResult.message);
+      } else {
+        console.warn('[Startup] ⚠️ Van database setup failed');
+        console.warn('[Startup] Error:', vanResult.error);
+        if (vanResult.needsManualSetup) {
+          console.log('[Startup] 💡 Manual Setup Required:');
+          console.log('[Startup] → Run SQL script: /database/VAN_DB_COMPLETE_SETUP.sql');
+        }
+      }
+
+      console.log('[Startup] 🗄️ Initializing storage buckets...');
+      const storageResult = await initializeStorageBucket();
+      if (storageResult.success) {
+        console.log('[Startup] ✅ Storage buckets ready');
+        storageResult.results?.forEach((r: any) => {
+          console.log(`[Startup]   - ${r.bucket}: ${r.message || 'OK'}`);
+        });
+      } else {
+        console.warn('[Startup] ⚠️ Storage bucket initialization had issues');
+      }
+    } catch (error) {
+      console.error('[Startup] Startup error:', error);
     }
-  } catch (error) {
-    console.error('[Startup] Startup error:', error);
-  }
-})();
+  })();
+} else {
+  console.log('[Startup] ⚠️ Startup tasks disabled by default (set ENABLE_STARTUP=true to run)');
+}
 
 console.log('[Server] Airtel Champions API v3.4.0 - Modularized for Performance');
 console.log('[Server] Van Calendar routes mounted at /make-server-28f2f653/van-calendar');
