@@ -7,7 +7,15 @@ const app = new Hono();
 
 // CORS configuration
 app.use('*', cors({
-  origin: '*',
+  origin: (origin) => {
+    const allowed = [
+      'https://airtel-champions.vercel.app',
+      'https://airtel-champions-pwa-april-6gnsktent.vercel.app',
+      'http://localhost:5173',
+      'http://localhost:3000',
+    ];
+    return allowed.includes(origin) ? origin : null;
+  },
   allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowHeaders: ['Content-Type', 'Authorization', 'X-User-Id'],
 }));
@@ -1491,5 +1499,34 @@ app.get('/make-server-28f2f653/programs/:id/analytics', async (c) => {
     return c.json({ error: 'Failed to fetch analytics' }, 500);
   }
 });
+
+// ─── Whitelist: schema introspection + dropdown options ──────────────────────
+
+app.get('/make-server-28f2f653/schema/tables', async (c) => {
+  const { data, error } = await supabase.rpc('get_public_tables');
+  if (error) return c.json({ error: error.message }, 500);
+  return c.json({ tables: (data as { table_name: string }[]).map(r => r.table_name) });
+});
+
+app.get('/make-server-28f2f653/schema/tables/:tableName/columns', async (c) => {
+  const tableName = c.req.param('tableName');
+  const { data, error } = await supabase.rpc('get_table_columns', { p_table_name: tableName });
+  if (error) return c.json({ error: error.message }, 500);
+  return c.json({ columns: (data as { column_name: string }[]).map(r => r.column_name) });
+});
+
+app.get('/make-server-28f2f653/whitelist/options', async (c) => {
+  const table = c.req.query('table');
+  const column = c.req.query('column');
+  if (!table || !column) return c.json({ error: 'table and column are required' }, 400);
+  const { data, error } = await supabase.rpc('get_distinct_values', {
+    p_table: table,
+    p_column: column,
+  });
+  if (error) return c.json({ error: error.message }, 500);
+  return c.json({ options: (data as { value: string }[]).map(r => r.value) });
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
 
 export default app;
