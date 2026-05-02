@@ -2,7 +2,7 @@
 // Supervisor dashboard: shows a ranked leaderboard of installers under this supervisor.
 // Two tabs — GA Count (current month) and Jobs Completed (current month / all time).
 
-import { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { LogOut, RefreshCw, TrendingUp, Briefcase, User, Users } from 'lucide-react';
 import {
   getInstallersByTeamLead,
@@ -22,7 +22,7 @@ interface Props {
   onLogout: () => void;
 }
 
-export function HBBInstallerSupervisorDashboard({ user, userData, onLogout }: Props) {
+export const HBBInstallerSupervisorDashboard = React.memo(function HBBInstallerSupervisorDashboard({ user, userData, onLogout }: Props) {
   const [activeTab, setActiveTab] = useState<'ga' | 'jobs'>('ga');
   const [jobsPeriod, setJobsPeriod] = useState<'month' | 'all'>('month');
   const [gaList, setGaList] = useState<InstallerLeaderboardEntry[]>([]);
@@ -172,7 +172,7 @@ export function HBBInstallerSupervisorDashboard({ user, userData, onLogout }: Pr
       </div>
     </div>
   );
-}
+});
 
 // ─── SUMMARY CARD ───────────────────────────────────────────────────────────
 function SummaryCard({ label, value, icon: Icon }: { label: string; value: number; icon: any }) {

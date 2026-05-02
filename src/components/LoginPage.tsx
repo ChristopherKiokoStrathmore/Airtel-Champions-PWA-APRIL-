@@ -151,12 +151,18 @@ export function LoginPage({
   const [showTLEntry,     setShowTLEntry]     = useState(false);
   const [showAMSignUp,    setShowAMSignUp]    = useState(false);
 
+  // First-login PIN change interception
+  const [requiresPinChange, setRequiresPinChange] = useState(false);
+  const [pendingUser,        setPendingUser]       = useState<any>(null);
+  const [newPin,             setNewPin]            = useState('');
+  const [confirmPin,         setConfirmPin]        = useState('');
+  const [pinChangeError,     setPinChangeError]    = useState('');
+  const [isPinChanging,      setIsPinChanging]     = useState(false);
+
   const isDev = (() => {
     try {
       const u = JSON.parse(localStorage.getItem('tai_user') || '{}');
-      return u.role === 'developer'
-          || u?.full_name?.toLowerCase().includes('christopher')
-          || u?.employee_id === 'DEV001';
+      return u.role === 'developer' || u?.employee_id === 'DEV001';
     } catch { return false; }
   })();
 
@@ -170,6 +176,69 @@ export function LoginPage({
     window.addEventListener('unhandledrejection', h);
     return () => window.removeEventListener('unhandledrejection', h);
   }, []);
+
+  // ── PIN helpers ───────────────────────────────────────────────────────────
+
+  /** Write new PIN to whichever source table the user logged in from. */
+  const updatePinInDB = async (user: any, updatedPin: string): Promise<void> => {
+    try {
+      const tbl = user?.source_table ?? '';
+      if (tbl === 'INHOUSE_INSTALLER_6TOWNS_MARCH') {
+        await supabase.from('INHOUSE_INSTALLER_6TOWNS_MARCH')
+          .update({ PIN: updatedPin }).eq('Installer contact', user.phone_number);
+      } else if (tbl === 'DSE_14TOWNS') {
+        await supabase.from('DSE_14TOWNS')
+          .update({ pin: updatedPin }).eq('Phone', user.phone_number);
+      } else if (tbl === 'installer_supervisor') {
+        await supabase.from('installer_supervisor' as any)
+          .update({ pin: updatedPin }).eq('Phone', user.phone_number);
+      } else if (tbl === 'installers') {
+        await supabase.from('installers' as any)
+          .update({ pin: updatedPin }).eq('phone', user.phone_number);
+      } else if (user.id) {
+        await supabase.from('app_users')
+          .update({ pin: updatedPin, pin_changed: true }).eq('id', user.id);
+      }
+    } catch { /* non-critical — user is still logged in */ }
+  };
+
+  /** Final step shared by all login paths. */
+  const completeLogin = (user: any) => {
+    localStorage.setItem('tai_user', JSON.stringify(sanitizeUserForStorage(user)));
+    setUser(user);
+    setUserData(user);
+    setIsAuthenticated(true);
+    setLoading(false);
+  };
+
+  /**
+   * Default-PIN interception is disabled.
+   * Users can continue directly after successful authentication.
+   */
+  const interceptDefaultPin = (_user: any, _enteredPin: string): boolean => {
+    return false;
+  };
+
+  const handlePinChange = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setPinChangeError('');
+    if (!/^\d{4,6}$/.test(newPin)) {
+      setPinChangeError('PIN must be 4 – 6 digits');
+      return;
+    }
+    if (newPin !== confirmPin) {
+      setPinChangeError('PINs do not match — please re-enter');
+      return;
+    }
+    if (newPin === '1234') {
+      setPinChangeError('Choose a PIN different from the default 1234');
+      return;
+    }
+    setIsPinChanging(true);
+    await updatePinInDB(pendingUser, newPin);
+    setIsPinChanging(false);
+    completeLogin(pendingUser!);
+  };
 
   // ── Mode toggle — cycles through all 4 sides ─────────────────────────────
   const handleModeToggle = () => {
@@ -514,11 +583,7 @@ export function LoginPage({
           max_jobs_per_day: result.max_jobs_per_day,
           _loginAt:         Date.now(),
         };
-        localStorage.setItem('tai_user', JSON.stringify(hbbData));
-        setUser(hbbData);
-        setUserData(hbbData);
-        setIsAuthenticated(true);
-        setLoading(false);
+        if (!interceptDefaultPin(hbbData, pin || '')) completeLogin(hbbData);
         return;
       }
     } catch {
@@ -532,7 +597,6 @@ export function LoginPage({
   // Shared post-login finalisation (Sales + Installer paths)
   // ─────────────────────────────────────────────────────────────────────────────
   const finaliseSalesLogin = async (user: any, method: string): Promise<void> => {
-    localStorage.setItem('tai_user', JSON.stringify(sanitizeUserForStorage(user)));
     trackUserLogin(user.id, user.full_name, user.role);
     await trackLogin(user.id);
     initActivityTracking(user.id, user.full_name, user.role);
@@ -545,10 +609,7 @@ export function LoginPage({
         .eq('id', user.id);
     } catch { /* non-critical */ }
 
-    setUser(user);
-    setUserData(user);
-    setIsAuthenticated(true);
-    setLoading(false);
+    if (!interceptDefaultPin(user, pin || '')) completeLogin(user);
   };
 
   // ─────────────────────────────────────────────────────────────────────────────
@@ -560,11 +621,7 @@ export function LoginPage({
     if (agent) {
       console.log('✅ Airtel Money agent login successful:', agent.full_name);
       const userData = { ...agent, _loginAt: Date.now() };
-      localStorage.setItem('tai_user', JSON.stringify(userData));
-      setUser(userData);
-      setUserData(userData);
-      setIsAuthenticated(true);
-      setLoading(false);
+      if (!interceptDefaultPin(userData, pin || '')) completeLogin(userData);
       return;
     }
 
@@ -573,11 +630,7 @@ export function LoginPage({
     if (admin) {
       console.log('✅ Airtel Money admin login successful:', admin.full_name);
       const userData = { ...admin, _loginAt: Date.now() };
-      localStorage.setItem('tai_user', JSON.stringify(userData));
-      setUser(userData);
-      setUserData(userData);
-      setIsAuthenticated(true);
-      setLoading(false);
+      if (!interceptDefaultPin(userData, pin || '')) completeLogin(userData);
       return;
     }
 
@@ -602,11 +655,7 @@ export function LoginPage({
       if (installerUser) {
         if (mode === 'hbb') {
           console.log('✅ Installer login (INHOUSE table):', installerUser.full_name);
-          localStorage.setItem('tai_user', JSON.stringify(installerUser));
-          setUser(installerUser);
-          setUserData(installerUser);
-          setIsAuthenticated(true);
-          setLoading(false);
+          if (!interceptDefaultPin(installerUser, pin || '')) completeLogin(installerUser);
         } else {
           throw new Error(ERR_GENERIC);
         }
@@ -619,11 +668,7 @@ export function LoginPage({
       if (dseUser) {
         if (mode === 'hbb') {
           console.log('✅ DSE login (DSE_14TOWNS table):', dseUser.full_name);
-          localStorage.setItem('tai_user', JSON.stringify(dseUser));
-          setUser(dseUser);
-          setUserData(dseUser);
-          setIsAuthenticated(true);
-          setLoading(false);
+          if (!interceptDefaultPin(dseUser, pin || '')) completeLogin(dseUser);
         } else {
           throw new Error(ERR_GENERIC);
         }
@@ -635,11 +680,7 @@ export function LoginPage({
         const supervisorUser = await checkInstallerSupervisorTable(normalised, pin || '');
         if (supervisorUser) {
           console.log('✅ Supervisor login:', supervisorUser.full_name);
-          localStorage.setItem('tai_user', JSON.stringify(supervisorUser));
-          setUser(supervisorUser);
-          setUserData(supervisorUser);
-          setIsAuthenticated(true);
-          setLoading(false);
+          if (!interceptDefaultPin(supervisorUser, pin || '')) completeLogin(supervisorUser);
           return;
         }
       }
@@ -649,11 +690,7 @@ export function LoginPage({
         const unifiedInstaller = await checkUnifiedInstallersTable(normalised, pin || '');
         if (unifiedInstaller) {
           console.log('✅ Installer login (unified table):', unifiedInstaller.full_name);
-          localStorage.setItem('tai_user', JSON.stringify(unifiedInstaller));
-          setUser(unifiedInstaller);
-          setUserData(unifiedInstaller);
-          setIsAuthenticated(true);
-          setLoading(false);
+          if (!interceptDefaultPin(unifiedInstaller, pin || '')) completeLogin(unifiedInstaller);
           return;
         }
       }
@@ -663,11 +700,7 @@ export function LoginPage({
         const gaInstaller = await checkGAMonthlyTable(normalised, pin || '');
         if (gaInstaller) {
           console.log('✅ Installer login (GA monthly table):', gaInstaller.full_name);
-          localStorage.setItem('tai_user', JSON.stringify(gaInstaller));
-          setUser(gaInstaller);
-          setUserData(gaInstaller);
-          setIsAuthenticated(true);
-          setLoading(false);
+          if (!interceptDefaultPin(gaInstaller, pin || '')) completeLogin(gaInstaller);
           return;
         }
       }
@@ -687,6 +720,89 @@ export function LoginPage({
       setLoading(false);
     }
   };
+
+  // First-login PIN change screen
+  if (requiresPinChange && pendingUser) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center px-4 py-8">
+        <div className="w-full max-w-sm mx-auto">
+          <div className="text-center mb-6">
+            <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3"
+              style={{ background: '#FEF2F2' }}>
+              <svg className="w-7 h-7" style={{ color: '#E60000' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
+            </div>
+            <h2 className="text-xl font-bold text-gray-900">Set a new PIN</h2>
+            <p className="text-sm text-gray-500 mt-1">
+              For your security, please change your default PIN before continuing.
+            </p>
+          </div>
+
+          <form onSubmit={handlePinChange} className="space-y-3">
+            {pinChangeError && (
+              <div className="bg-red-50 border border-red-200 text-red-700 px-3 py-2 rounded-xl text-sm">
+                <p className="font-semibold">{pinChangeError}</p>
+              </div>
+            )}
+
+            <div className="relative">
+              <span className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+              </span>
+              <input
+                type="password"
+                value={newPin}
+                onChange={e => setNewPin(e.target.value.replace(/\D/g, '').slice(0, 6))}
+                placeholder="New PIN (4 – 6 digits)"
+                maxLength={6}
+                className="w-full pl-12 pr-4 py-3.5 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition-all placeholder-gray-400"
+                style={{ color: '#111827' }}
+                autoFocus
+                required
+              />
+            </div>
+
+            <div className="relative">
+              <span className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </span>
+              <input
+                type="password"
+                value={confirmPin}
+                onChange={e => setConfirmPin(e.target.value.replace(/\D/g, '').slice(0, 6))}
+                placeholder="Confirm new PIN"
+                maxLength={6}
+                className="w-full pl-12 pr-4 py-3.5 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition-all placeholder-gray-400"
+                style={{ color: '#111827' }}
+                required
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={isPinChanging}
+              className="w-full py-3.5 text-sm bg-red-600 hover:bg-red-700 active:scale-[0.98] text-white rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed font-semibold tracking-wide"
+            >
+              {isPinChanging ? (
+                <span className="flex items-center justify-center">
+                  <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
+                  Saving…
+                </span>
+              ) : 'SET NEW PIN & CONTINUE'}
+            </button>
+          </form>
+        </div>
+      </div>
+    );
+  }
 
   // Show Team Lead entry page when button is tapped
   if (showTLEntry) {

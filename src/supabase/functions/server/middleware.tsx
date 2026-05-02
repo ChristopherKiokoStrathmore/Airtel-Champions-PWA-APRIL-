@@ -107,7 +107,16 @@ export async function requireAuth(c: Context, next: Function) {
   try {
     // Verify JWT
     const payload = await verifyJWT(token);
-    
+
+    // Cross-check X-User-Id header against the JWT sub claim to prevent
+    // privilege escalation via header spoofing.
+    const headerUserId = c.req.header('X-User-Id');
+    if (headerUserId && headerUserId !== payload.sub) {
+      const mismatchError: any = new Error('User ID mismatch');
+      mismatchError.statusCode = 401;
+      throw mismatchError;
+    }
+
     // Set user in context
     c.set('user', {
       id: payload.sub,
@@ -115,7 +124,7 @@ export async function requireAuth(c: Context, next: Function) {
       role: payload.role
     });
     c.set('userId', payload.sub);
-    
+
     await next();
     
   } catch (error: any) {

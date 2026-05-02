@@ -1,5 +1,5 @@
 // HBB Installer Dashboard — Mobile-first view for field installers
-import { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { Home, ClipboardList, Clock, User, LogOut, RefreshCw, Wifi, MapPin, Phone, Calendar, CheckCircle, XCircle, AlertTriangle, ChevronRight, Navigation, MessageCircle, Award, TrendingUp, Shield, Zap, Star, Copy, Lock, Bell, Camera, Upload, Navigation2 } from 'lucide-react';
 import { getServiceRequests, updateServiceRequestStatus, getInstallerByPhone, generateWhatsAppLink, changePin } from './hbb-api';
 import { NotificationBell } from './hbb-notifications';
@@ -30,7 +30,7 @@ interface Props {
   onLogout: () => void;
 }
 
-export function HBBInstallerDashboard({ user, userData, onLogout }: Props) {
+export const HBBInstallerDashboard = React.memo(function HBBInstallerDashboard({ user, userData, onLogout }: Props) {
   const [activeTab, setActiveTab] = useState('home');
   const [installer, setInstaller] = useState<any>(null);
   const [jobs, setJobs] = useState<any[]>([]);
@@ -240,12 +240,12 @@ export function HBBInstallerDashboard({ user, userData, onLogout }: Props) {
     }
   };
 
-  const assignedJobs = jobs.filter(j => j.status === 'assigned');
-  const completedJobs = jobs.filter(j => j.status === 'completed');
-  const todayJobs = jobs.filter(j => {
+  const assignedJobs = useMemo(() => jobs.filter(j => j.status === 'assigned'), [jobs]);
+  const completedJobs = useMemo(() => jobs.filter(j => j.status === 'completed'), [jobs]);
+  const todayJobs = useMemo(() => {
     const today = new Date().toISOString().split('T')[0];
-    return j.scheduled_date === today || j.assigned_at?.startsWith(today);
-  });
+    return jobs.filter(j => j.scheduled_date === today || j.assigned_at?.startsWith(today));
+  }, [jobs]);
 
   const tabs = [
     { id: 'home',     label: 'Home',     icon: Home },
@@ -506,7 +506,7 @@ export function HBBInstallerDashboard({ user, userData, onLogout }: Props) {
       `}</style>
     </div>
   );
-}
+});
 
 // ─── INSTALLER HOME ─────────────────────────────────────────────────────────
 function InstallerHome({ userName, assignedCount, todayCount, completedCount, totalCount, todayJobs, loading, onRefresh, onSelectJob, onViewAll, installerName }: any) {

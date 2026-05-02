@@ -1,6 +1,14 @@
 -- WARNING: This schema is for context only and is not meant to be run.
 -- Table order and constraints may not be valid for execution.
 
+CREATE TABLE public.AIRTELMONEY_HQ (
+  id bigint GENERATED ALWAYS AS IDENTITY NOT NULL,
+  created_at timestamp with time zone NOT NULL DEFAULT now(),
+  Name text,
+  number numeric,
+  PIN numeric,
+  CONSTRAINT AIRTELMONEY_HQ_pkey PRIMARY KEY (id)
+);
 CREATE TABLE public.DSE_14TOWNS (
   ID bigint NOT NULL,
   Site ID text,
@@ -14,6 +22,32 @@ CREATE TABLE public.DSE_14TOWNS (
   pin text,
   CONSTRAINT DSE_14TOWNS_pkey PRIMARY KEY (ID)
 );
+CREATE TABLE public.HBB_DSE_APRIL (
+  KYC MSISDN bigint NOT NULL,
+  Category text,
+  Town text,
+  Name text,
+  Team Leader text,
+  Status text,
+  CONSTRAINT HBB_DSE_APRIL_pkey PRIMARY KEY (KYC MSISDN),
+  CONSTRAINT fk_hbb_dse_team_leader FOREIGN KEY (Team Leader) REFERENCES public.HBB_TEAM_LEAD(Team Leader)
+);
+CREATE TABLE public.HBB_DSE_GA_MONTHLY (
+  id bigint NOT NULL DEFAULT nextval('"HBB_DSE_GA_MONTHLY_id_seq"'::regclass),
+  dse_msisdn character varying NOT NULL,
+  dse_name character varying NOT NULL,
+  ga_count integer NOT NULL DEFAULT 0,
+  incentive_earned numeric,
+  current_band_min integer,
+  current_band_max integer,
+  team_lead_msisdn character varying,
+  month_year character varying NOT NULL,
+  town character varying,
+  upload_id character varying,
+  created_at timestamp with time zone DEFAULT now(),
+  updated_at timestamp with time zone DEFAULT now(),
+  CONSTRAINT HBB_DSE_GA_MONTHLY_pkey PRIMARY KEY (id)
+);
 CREATE TABLE public.HBB_HQ_TEAM (
   ID bigint NOT NULL,
   NAME text,
@@ -21,6 +55,24 @@ CREATE TABLE public.HBB_HQ_TEAM (
   ROLE text,
   pin numeric DEFAULT '1234'::numeric,
   CONSTRAINT HBB_HQ_TEAM_pkey PRIMARY KEY (ID)
+);
+CREATE TABLE public.HBB_INSTALLER_GA_MONTHLY (
+  id bigint NOT NULL DEFAULT nextval('"HBB_INSTALLER_GA_MONTHLY_id_seq"'::regclass),
+  installer_msisdn character varying NOT NULL,
+  installer_name character varying NOT NULL,
+  ga_count integer NOT NULL DEFAULT 0,
+  incentive_earned numeric,
+  month_year character varying NOT NULL,
+  upload_id character varying,
+  created_at timestamp with time zone DEFAULT now(),
+  updated_at timestamp with time zone DEFAULT now(),
+  PIN numeric DEFAULT '1234'::numeric,
+  CONSTRAINT HBB_INSTALLER_GA_MONTHLY_pkey PRIMARY KEY (id)
+);
+CREATE TABLE public.HBB_TEAM_LEAD (
+  Team Leader text UNIQUE,
+  MSISDN bigint NOT NULL,
+  CONSTRAINT HBB_TEAM_LEAD_pkey PRIMARY KEY (MSISDN)
 );
 CREATE TABLE public.INHOUSE_INSTALLER_6TOWNS_MARCH (
   ID bigint NOT NULL,
@@ -42,7 +94,29 @@ CREATE TABLE public.INHOUSE_INSTALLER_6TOWNS_MARCH (
   max_jobs_per_day integer NOT NULL DEFAULT 6,
   daily_job_count integer NOT NULL DEFAULT 0,
   last_reset_date date,
+  Supervisor number numeric,
+  Supervisor PIN numeric DEFAULT '1234'::numeric,
   CONSTRAINT INHOUSE_INSTALLER_6TOWNS_MARCH_pkey PRIMARY KEY (ID)
+);
+CREATE TABLE public.NEW_SITES_APRIL (
+  Sr. No bigint,
+  SITE ID text NOT NULL,
+  SITE NAME text,
+  Latitude double precision,
+  Longitude double precision,
+  Parent ID text,
+  WARD_ID text,
+  WARD_NAME text,
+  SUBCOUNTY text,
+  COUNTY text,
+  Town Cat text,
+  Infill/Coverage text,
+  CLUSTER text,
+  TSE text,
+  ZSM text,
+  ZONE text,
+  On Air Date text,
+  CONSTRAINT NEW_SITES_APRIL_pkey PRIMARY KEY (SITE ID)
 );
 CREATE TABLE public.NEW_SITES_MARCH (
   Sr. No bigint NOT NULL,
@@ -164,6 +238,112 @@ CREATE TABLE public.agents_HBB (
   Agent Type text DEFAULT 'DSE'::text,
   pin text DEFAULT '1234'::text,
   CONSTRAINT agents_HBB_pkey PRIMARY KEY (id)
+);
+CREATE TABLE public.airtelmoney_agents (
+  id bigint NOT NULL DEFAULT nextval('airtelmoney_agents_id_seq'::regclass),
+  full_name character varying NOT NULL,
+  phone character varying NOT NULL UNIQUE,
+  agent_code character varying,
+  se character varying,
+  zsm character varying,
+  zone character varying,
+  super_agent_number character varying,
+  pin character varying NOT NULL,
+  role character varying DEFAULT 'airtel_money_agent'::character varying,
+  status character varying DEFAULT 'active'::character varying,
+  created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+  updated_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+  last_login_at timestamp without time zone,
+  CONSTRAINT airtelmoney_agents_pkey PRIMARY KEY (id)
+);
+CREATE TABLE public.airtelmoney_hq (
+  id bigint NOT NULL DEFAULT nextval('airtelmoney_hq_id_seq'::regclass),
+  name character varying NOT NULL,
+  phone character varying NOT NULL UNIQUE,
+  pin character varying NOT NULL,
+  role character varying DEFAULT 'airtel_money_admin'::character varying,
+  se character varying,
+  zsm character varying,
+  zone character varying,
+  status character varying DEFAULT 'active'::character varying,
+  created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+  updated_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT airtelmoney_hq_pkey PRIMARY KEY (id)
+);
+CREATE TABLE public.am_complaint_ratings (
+  id uuid NOT NULL DEFAULT gen_random_uuid(),
+  complaint_id uuid,
+  agent_id bigint,
+  rating integer CHECK (rating >= 1 AND rating <= 5),
+  comment text,
+  created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT am_complaint_ratings_pkey PRIMARY KEY (id),
+  CONSTRAINT am_complaint_ratings_complaint_id_fkey FOREIGN KEY (complaint_id) REFERENCES public.am_complaints(id),
+  CONSTRAINT am_complaint_ratings_agent_id_fkey FOREIGN KEY (agent_id) REFERENCES public.airtelmoney_agents(id)
+);
+CREATE TABLE public.am_complaint_responses (
+  id uuid NOT NULL DEFAULT gen_random_uuid(),
+  complaint_id uuid,
+  responder_id character varying,
+  message text NOT NULL,
+  created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT am_complaint_responses_pkey PRIMARY KEY (id),
+  CONSTRAINT am_complaint_responses_complaint_id_fkey FOREIGN KEY (complaint_id) REFERENCES public.am_complaints(id)
+);
+CREATE TABLE public.am_complaints (
+  id uuid NOT NULL DEFAULT gen_random_uuid(),
+  agent_id bigint,
+  category character varying,
+  description text NOT NULL,
+  photo_url character varying,
+  status character varying DEFAULT 'open'::character varying,
+  picked_up_at timestamp without time zone,
+  resolved_at timestamp without time zone,
+  created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+  updated_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT am_complaints_pkey PRIMARY KEY (id),
+  CONSTRAINT am_complaints_agent_id_fkey FOREIGN KEY (agent_id) REFERENCES public.airtelmoney_agents(id)
+);
+CREATE TABLE public.am_video_sessions (
+  id uuid NOT NULL DEFAULT gen_random_uuid(),
+  agent_id bigint,
+  video_id uuid,
+  session_start timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+  session_end timestamp without time zone,
+  max_position_secs integer DEFAULT 0,
+  duration_watched_secs integer DEFAULT 0,
+  completed boolean DEFAULT false,
+  position_samples json DEFAULT '[]'::json,
+  created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+  updated_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT am_video_sessions_pkey PRIMARY KEY (id),
+  CONSTRAINT am_video_sessions_agent_id_fkey FOREIGN KEY (agent_id) REFERENCES public.airtelmoney_agents(id),
+  CONSTRAINT am_video_sessions_video_id_fkey FOREIGN KEY (video_id) REFERENCES public.am_videos(id)
+);
+CREATE TABLE public.am_video_targets (
+  id uuid NOT NULL DEFAULT gen_random_uuid(),
+  video_id uuid,
+  target_type character varying,
+  target_value character varying,
+  created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT am_video_targets_pkey PRIMARY KEY (id),
+  CONSTRAINT am_video_targets_video_id_fkey FOREIGN KEY (video_id) REFERENCES public.am_videos(id)
+);
+CREATE TABLE public.am_videos (
+  id uuid NOT NULL DEFAULT gen_random_uuid(),
+  title character varying NOT NULL,
+  description text,
+  video_url character varying,
+  thumbnail_url character varying,
+  duration_seconds integer,
+  category character varying DEFAULT 'General'::character varying,
+  is_targeted boolean DEFAULT false,
+  status character varying DEFAULT 'draft'::character varying,
+  created_by bigint,
+  created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+  updated_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT am_videos_pkey PRIMARY KEY (id),
+  CONSTRAINT am_videos_created_by_fkey FOREIGN KEY (created_by) REFERENCES public.airtelmoney_hq(id)
 );
 CREATE TABLE public.amb_shops (
   shop_code text NOT NULL,
@@ -301,18 +481,23 @@ CREATE TABLE public.call_signals (
 );
 CREATE TABLE public.challenges (
   id uuid NOT NULL DEFAULT uuid_generate_v4(),
-  title character varying NOT NULL,
-  description text,
-  mission_type_id uuid,
-  target_count integer NOT NULL,
-  bonus_points integer DEFAULT 0,
-  start_date timestamp with time zone NOT NULL,
-  end_date timestamp with time zone NOT NULL,
-  is_active boolean DEFAULT true,
   created_at timestamp with time zone DEFAULT now(),
   updated_at timestamp with time zone DEFAULT now(),
-  CONSTRAINT challenges_pkey PRIMARY KEY (id),
-  CONSTRAINT challenges_mission_type_id_fkey FOREIGN KEY (mission_type_id) REFERENCES public.mission_types(id)
+  Sr. No integer NOT NULL DEFAULT nextval('"challenges_Sr. No_seq"'::regclass),
+  SITE ID character varying,
+  SITE NAME character varying,
+  Latitude numeric,
+  Longitude numeric,
+  WARD_NAME character varying,
+  SUBCOUNTY character varying,
+  COUNTY character varying,
+  Town Cat character varying,
+  Infill/Coverage character varying,
+  CLUSTER character varying,
+  TSE character varying,
+  ZSM character varying,
+  ZONE character varying,
+  CONSTRAINT challenges_pkey PRIMARY KEY (id)
 );
 CREATE TABLE public.departments (
   id uuid NOT NULL DEFAULT uuid_generate_v4(),
@@ -403,6 +588,170 @@ CREATE TABLE public.hashtags (
   created_at timestamp with time zone DEFAULT now(),
   CONSTRAINT hashtags_pkey PRIMARY KEY (id)
 );
+CREATE TABLE public.hbb_dse_ga_daily (
+  id uuid NOT NULL DEFAULT gen_random_uuid(),
+  dse_msisdn text NOT NULL,
+  dse_name text,
+  town text,
+  ga_date date NOT NULL,
+  ga_count integer NOT NULL DEFAULT 0,
+  report_batch_id uuid,
+  created_at timestamp with time zone NOT NULL DEFAULT now(),
+  CONSTRAINT hbb_dse_ga_daily_pkey PRIMARY KEY (id),
+  CONSTRAINT hbb_dse_ga_daily_report_batch_id_fkey FOREIGN KEY (report_batch_id) REFERENCES public.hbb_ga_upload_batches(id)
+);
+CREATE TABLE public.hbb_dse_ga_monthly (
+  id uuid NOT NULL DEFAULT gen_random_uuid(),
+  dse_msisdn text NOT NULL,
+  dse_name text NOT NULL,
+  team_lead_msisdn text,
+  town text,
+  ga_count integer NOT NULL DEFAULT 0,
+  current_band_min integer DEFAULT 0,
+  current_band_max integer DEFAULT 0,
+  incentive_earned integer DEFAULT 0,
+  report_batch_id uuid,
+  month_year text NOT NULL,
+  upload_date timestamp with time zone,
+  last_updated timestamp with time zone NOT NULL DEFAULT now(),
+  created_at timestamp with time zone NOT NULL DEFAULT now(),
+  CONSTRAINT hbb_dse_ga_monthly_pkey PRIMARY KEY (id),
+  CONSTRAINT hbb_dse_ga_monthly_report_batch_id_fkey FOREIGN KEY (report_batch_id) REFERENCES public.hbb_ga_upload_batches(id)
+);
+CREATE TABLE public.hbb_ga_calendar (
+  ga_date date NOT NULL,
+  month_year text NOT NULL,
+  day_name text NOT NULL,
+  CONSTRAINT hbb_ga_calendar_pkey PRIMARY KEY (ga_date)
+);
+CREATE TABLE public.hbb_ga_performance (
+  id bigint GENERATED ALWAYS AS IDENTITY NOT NULL,
+  dse_msisdn character varying NOT NULL,
+  ga_count integer NOT NULL DEFAULT 0,
+  incentive_earned numeric NOT NULL DEFAULT 0,
+  month_year character varying NOT NULL,
+  created_at timestamp with time zone DEFAULT now(),
+  updated_at timestamp with time zone DEFAULT now(),
+  CONSTRAINT hbb_ga_performance_pkey PRIMARY KEY (id)
+);
+CREATE TABLE public.hbb_ga_upload_batches (
+  id uuid NOT NULL DEFAULT gen_random_uuid(),
+  filename text NOT NULL,
+  report_type text NOT NULL CHECK (report_type = ANY (ARRAY['dse_ga'::text, 'installer_ga'::text])),
+  status text NOT NULL DEFAULT 'staged'::text CHECK (status = ANY (ARRAY['staged'::text, 'live'::text, 'rolled_back'::text])),
+  table_source text NOT NULL DEFAULT 'HBB_DSE_APRIL'::text,
+  total_records integer DEFAULT 0,
+  warnings_count integer DEFAULT 0,
+  validation_errors jsonb DEFAULT '[]'::jsonb,
+  uploaded_at timestamp with time zone NOT NULL DEFAULT now(),
+  went_live_at timestamp with time zone,
+  rolled_back_at timestamp with time zone,
+  rolled_back_reason text,
+  CONSTRAINT hbb_ga_upload_batches_pkey PRIMARY KEY (id)
+);
+CREATE TABLE public.hbb_ga_upload_history (
+  id text NOT NULL,
+  file_name text NOT NULL,
+  uploaded_by text NOT NULL,
+  status text NOT NULL DEFAULT 'pending'::text CHECK (status = ANY (ARRAY['pending'::text, 'success'::text, 'failed'::text, 'rolled_back'::text])),
+  row_count integer NOT NULL DEFAULT 0,
+  error_message text,
+  created_at timestamp with time zone NOT NULL DEFAULT now(),
+  updated_at timestamp with time zone,
+  CONSTRAINT hbb_ga_upload_history_pkey PRIMARY KEY (id)
+);
+CREATE TABLE public.hbb_ga_upload_warnings (
+  id uuid NOT NULL DEFAULT gen_random_uuid(),
+  batch_id uuid NOT NULL,
+  row_number integer NOT NULL,
+  phone_number text,
+  name text,
+  issue_type text NOT NULL CHECK (issue_type = ANY (ARRAY['phone_format_invalid'::text, 'person_not_found'::text, 'duplicate_same_day'::text, 'name_mismatch'::text])),
+  severity text NOT NULL DEFAULT 'warning'::text CHECK (severity = ANY (ARRAY['error'::text, 'warning'::text])),
+  message text NOT NULL,
+  suggested_action text,
+  resolved boolean NOT NULL DEFAULT false,
+  resolution_notes text,
+  created_at timestamp with time zone NOT NULL DEFAULT now(),
+  CONSTRAINT hbb_ga_upload_warnings_pkey PRIMARY KEY (id),
+  CONSTRAINT hbb_ga_upload_warnings_batch_id_fkey FOREIGN KEY (batch_id) REFERENCES public.hbb_ga_upload_batches(id)
+);
+CREATE TABLE public.hbb_incentive_bands (
+  id uuid NOT NULL DEFAULT gen_random_uuid(),
+  role_type text NOT NULL CHECK (role_type = ANY (ARRAY['dse'::text, 'dse_tl'::text, 'installer'::text, 'installer_tl'::text])),
+  band_name text NOT NULL,
+  ga_range_min integer NOT NULL,
+  ga_range_max integer NOT NULL,
+  split_percentage numeric DEFAULT 0,
+  mid_value numeric DEFAULT 0,
+  variable_value integer DEFAULT 0,
+  total_bonus integer DEFAULT 0,
+  is_active boolean NOT NULL DEFAULT true,
+  created_at timestamp with time zone NOT NULL DEFAULT now(),
+  updated_at timestamp with time zone NOT NULL DEFAULT now(),
+  CONSTRAINT hbb_incentive_bands_pkey PRIMARY KEY (id)
+);
+CREATE TABLE public.hbb_installer_ga_daily (
+  id uuid NOT NULL DEFAULT gen_random_uuid(),
+  installer_msisdn text NOT NULL,
+  installer_name text,
+  town text,
+  ga_date date NOT NULL,
+  ga_count integer NOT NULL DEFAULT 0,
+  report_batch_id uuid,
+  created_at timestamp with time zone NOT NULL DEFAULT now(),
+  CONSTRAINT hbb_installer_ga_daily_pkey PRIMARY KEY (id),
+  CONSTRAINT hbb_installer_ga_daily_report_batch_id_fkey FOREIGN KEY (report_batch_id) REFERENCES public.hbb_ga_upload_batches(id)
+);
+CREATE TABLE public.hbb_installer_ga_monthly (
+  id uuid NOT NULL DEFAULT gen_random_uuid(),
+  installer_msisdn text NOT NULL,
+  installer_name text NOT NULL,
+  team_lead_msisdn text,
+  town text,
+  ga_count integer NOT NULL DEFAULT 0,
+  current_band_min integer DEFAULT 0,
+  current_band_max integer DEFAULT 0,
+  incentive_earned integer DEFAULT 0,
+  report_batch_id uuid,
+  month_year text NOT NULL,
+  upload_date timestamp with time zone,
+  last_updated timestamp with time zone NOT NULL DEFAULT now(),
+  created_at timestamp with time zone NOT NULL DEFAULT now(),
+  CONSTRAINT hbb_installer_ga_monthly_pkey PRIMARY KEY (id),
+  CONSTRAINT hbb_installer_ga_monthly_team_lead_msisdn_fkey FOREIGN KEY (team_lead_msisdn) REFERENCES public.hbb_installer_team_lead(team_lead_msisdn),
+  CONSTRAINT hbb_installer_ga_monthly_report_batch_id_fkey FOREIGN KEY (report_batch_id) REFERENCES public.hbb_ga_upload_batches(id)
+);
+CREATE TABLE public.hbb_installer_team_lead (
+  team_lead_msisdn text NOT NULL,
+  team_lead_name text NOT NULL,
+  town text,
+  zone text,
+  created_at timestamp with time zone NOT NULL DEFAULT now(),
+  is_active boolean NOT NULL DEFAULT true,
+  CONSTRAINT hbb_installer_team_lead_pkey PRIMARY KEY (team_lead_msisdn)
+);
+CREATE TABLE public.hbb_teams (
+  id bigint GENERATED ALWAYS AS IDENTITY NOT NULL,
+  team_lead_msisdn character varying NOT NULL,
+  dse_msisdn character varying NOT NULL,
+  month_year character varying NOT NULL,
+  created_at timestamp with time zone DEFAULT now(),
+  updated_at timestamp with time zone DEFAULT now(),
+  CONSTRAINT hbb_teams_pkey PRIMARY KEY (id),
+  CONSTRAINT hbb_teams_team_lead_msisdn_fkey FOREIGN KEY (team_lead_msisdn) REFERENCES public.hbb_users(msisdn),
+  CONSTRAINT hbb_teams_dse_msisdn_fkey FOREIGN KEY (dse_msisdn) REFERENCES public.hbb_users(msisdn)
+);
+CREATE TABLE public.hbb_users (
+  msisdn character varying NOT NULL,
+  name character varying NOT NULL,
+  role character varying NOT NULL CHECK (role::text = ANY (ARRAY['dse'::character varying, 'team_lead'::character varying, 'manager'::character varying, 'admin'::character varying]::text[])),
+  team_lead_msisdn character varying,
+  area_code character varying,
+  created_at timestamp with time zone DEFAULT now(),
+  updated_at timestamp with time zone DEFAULT now(),
+  CONSTRAINT hbb_users_pkey PRIMARY KEY (msisdn)
+);
 CREATE TABLE public.hq_directors (
   id uuid NOT NULL DEFAULT gen_random_uuid(),
   full_name text NOT NULL,
@@ -416,6 +765,15 @@ CREATE TABLE public.hq_directors (
   created_at timestamp with time zone DEFAULT now(),
   updated_at timestamp with time zone DEFAULT now(),
   CONSTRAINT hq_directors_pkey PRIMARY KEY (id)
+);
+CREATE TABLE public.installer_live_locations (
+  id bigint NOT NULL DEFAULT nextval('installer_live_locations_id_seq'::regclass),
+  installer_id bigint NOT NULL,
+  latitude double precision NOT NULL,
+  longitude double precision NOT NULL,
+  updated_at timestamp with time zone NOT NULL DEFAULT now(),
+  CONSTRAINT installer_live_locations_pkey PRIMARY KEY (id),
+  CONSTRAINT installer_live_locations_installer_id_fkey FOREIGN KEY (installer_id) REFERENCES public.INHOUSE_INSTALLER_6TOWNS_MARCH(ID)
 );
 CREATE TABLE public.installer_locations (
   id uuid DEFAULT gen_random_uuid(),
@@ -472,6 +830,12 @@ CREATE TABLE public.installer_notifications (
   CONSTRAINT installer_notifications_pkey PRIMARY KEY (id),
   CONSTRAINT installer_notifications_job_id_fkey FOREIGN KEY (job_id) REFERENCES public.jobs(id)
 );
+CREATE TABLE public.installer_supervisor (
+  Installers supervisor text NOT NULL,
+  Phone text NOT NULL,
+  pin numeric DEFAULT '1234'::numeric,
+  CONSTRAINT installer_supervisor_pkey PRIMARY KEY (Installers supervisor)
+);
 CREATE TABLE public.installers (
   id bigint NOT NULL DEFAULT nextval('installers_id_seq'::regclass),
   name text NOT NULL,
@@ -488,6 +852,7 @@ CREATE TABLE public.installers (
   source_table text,
   legacy_id bigint,
   created_at timestamp with time zone NOT NULL DEFAULT now(),
+  unique_identifier text,
   CONSTRAINT installers_pkey PRIMARY KEY (id)
 );
 CREATE TABLE public.installers_HBB (
@@ -810,6 +1175,50 @@ CREATE TABLE public.programs (
   session_checkin_enabled boolean DEFAULT false,
   CONSTRAINT programs_pkey PRIMARY KEY (id)
 );
+CREATE TABLE public.promoter_daily_reports (
+  id uuid NOT NULL DEFAULT uuid_generate_v4(),
+  team_lead_id uuid NOT NULL,
+  report_date date NOT NULL,
+  total_gas integer NOT NULL DEFAULT 0,
+  is_locked boolean NOT NULL DEFAULT false,
+  submitted_at timestamp with time zone,
+  CONSTRAINT promoter_daily_reports_pkey PRIMARY KEY (id),
+  CONSTRAINT promoter_daily_reports_team_lead_id_fkey FOREIGN KEY (team_lead_id) REFERENCES public.promoter_team_leads(id)
+);
+CREATE TABLE public.promoter_gas_entries (
+  id uuid NOT NULL DEFAULT uuid_generate_v4(),
+  report_id uuid NOT NULL,
+  team_lead_id uuid NOT NULL,
+  promoter_msisdn text NOT NULL,
+  promoter_name text NOT NULL,
+  ga_count integer NOT NULL DEFAULT 0 CHECK (ga_count >= 0),
+  created_at timestamp with time zone NOT NULL DEFAULT now(),
+  CONSTRAINT promoter_gas_entries_pkey PRIMARY KEY (id),
+  CONSTRAINT promoter_gas_entries_report_id_fkey FOREIGN KEY (report_id) REFERENCES public.promoter_daily_reports(id),
+  CONSTRAINT promoter_gas_entries_team_lead_id_fkey FOREIGN KEY (team_lead_id) REFERENCES public.promoter_team_leads(id)
+);
+CREATE TABLE public.promoter_members (
+  id uuid NOT NULL DEFAULT uuid_generate_v4(),
+  team_lead_id uuid NOT NULL,
+  promoter_name text NOT NULL,
+  msisdn text NOT NULL UNIQUE,
+  is_active boolean NOT NULL DEFAULT true,
+  added_at timestamp with time zone NOT NULL DEFAULT now(),
+  dropped_at timestamp with time zone,
+  CONSTRAINT promoter_members_pkey PRIMARY KEY (id),
+  CONSTRAINT promoter_members_team_lead_id_fkey FOREIGN KEY (team_lead_id) REFERENCES public.promoter_team_leads(id)
+);
+CREATE TABLE public.promoter_team_leads (
+  id uuid NOT NULL DEFAULT uuid_generate_v4(),
+  full_name text NOT NULL,
+  msisdn text NOT NULL UNIQUE,
+  zone text NOT NULL,
+  se_cluster text NOT NULL,
+  password_hash text NOT NULL,
+  is_active boolean NOT NULL DEFAULT true,
+  created_at timestamp with time zone NOT NULL DEFAULT now(),
+  CONSTRAINT promoter_team_leads_pkey PRIMARY KEY (id)
+);
 CREATE TABLE public.regions (
   id uuid NOT NULL DEFAULT uuid_generate_v4(),
   name character varying NOT NULL UNIQUE,
@@ -889,6 +1298,7 @@ CREATE TABLE public.service_request (
   source_type text DEFAULT 'public'::text CHECK (source_type = ANY (ARRAY['dse'::text, 'public'::text, 'agent'::text])),
   source_id bigint,
   source_name text,
+  location_accuracy numeric,
   CONSTRAINT service_request_pkey PRIMARY KEY (id)
 );
 CREATE TABLE public.sitewise (
@@ -1060,7 +1470,6 @@ CREATE TABLE public.user_challenges (
   created_at timestamp with time zone DEFAULT now(),
   updated_at timestamp with time zone DEFAULT now(),
   CONSTRAINT user_challenges_pkey PRIMARY KEY (id),
-  CONSTRAINT user_challenges_challenge_id_fkey FOREIGN KEY (challenge_id) REFERENCES public.challenges(id),
   CONSTRAINT user_challenges_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.app_users(id)
 );
 CREATE TABLE public.user_follows (
@@ -1158,3 +1567,4 @@ CREATE TABLE public.verification_codes (
   CONSTRAINT verification_codes_pkey PRIMARY KEY (id),
   CONSTRAINT verification_codes_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.app_users(id)
 );
+

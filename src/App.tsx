@@ -73,7 +73,7 @@ import { getTLSession, clearTLSession } from './components/promoter-team-lead/pr
 import { LogOut, Package, Plus, Phone, ChevronRight } from 'lucide-react';
 
 // Safe fields to select from app_users (never select * to avoid leaking sensitive data)
-const SAFE_USER_FIELDS = 'id, employee_id, full_name, phone_number, role, zone, zsm, region, rank, total_points, avatar_url, profile_photo, pin, two_factor_enabled, gps_tracking_consent' as const;
+const SAFE_USER_FIELDS = 'id, employee_id, full_name, phone_number, role, zone, zsm, region, rank, total_points, avatar_url, profile_photo, two_factor_enabled, gps_tracking_consent' as const;
 
 // Strip sensitive fields before persisting user to localStorage
 function sanitizeUserForStorage(user: any): any {
@@ -104,10 +104,54 @@ type UserRole = 'sales_executive' | 'zonal_sales_manager' | 'zonal_business_mana
 // re-render, which tears down and recreates the entire child tree (all state,
 // effects, API calls restart). Moving it here keeps the reference stable.
 function MobileContainer({ children }: { children: React.ReactNode }) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const touchStartYRef = useRef<number | null>(null);
+  const [pullDistance, setPullDistance] = useState(0);
+  const [isRefreshing, setIsRefreshing] = useState(false);
+
   // Theme-aware container â€” reads CSS custom properties set by ThemeProvider
   const bgPage = 'var(--theme-bg-page, #F3F4F6)';
   const bgCard = 'var(--theme-bg-card, #FFFFFF)';
   const shadow = 'var(--theme-shadow, rgba(0,0,0,0.08))';
+
+  const refreshPage = useCallback(() => {
+    if (isRefreshing) return;
+    setIsRefreshing(true);
+    window.location.reload();
+  }, [isRefreshing]);
+
+  const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
+    if (event.touches.length !== 1) return;
+    const scrollEl = scrollRef.current;
+    if (!scrollEl || scrollEl.scrollTop > 0 || isRefreshing) return;
+    touchStartYRef.current = event.touches[0].clientY;
+    setPullDistance(0);
+  };
+
+  const handleTouchMove = (event: React.TouchEvent<HTMLDivElement>) => {
+    if (touchStartYRef.current === null || isRefreshing) return;
+    const scrollEl = scrollRef.current;
+    if (!scrollEl || scrollEl.scrollTop > 0) return;
+
+    const deltaY = event.touches[0].clientY - touchStartYRef.current;
+    if (deltaY <= 0) {
+      setPullDistance(0);
+      return;
+    }
+
+    event.preventDefault();
+    setPullDistance(Math.min(deltaY * 0.6, 120));
+  };
+
+  const handleTouchEnd = () => {
+    if (isRefreshing) return;
+    if (pullDistance >= 88) {
+      refreshPage();
+      return;
+    }
+    touchStartYRef.current = null;
+    setPullDistance(0);
+  };
 
   return (
     <div
@@ -115,12 +159,36 @@ function MobileContainer({ children }: { children: React.ReactNode }) {
       style={{ backgroundColor: bgPage }}
     >
       <div
-        className="w-full h-full md:max-w-[428px] md:rounded-3xl md:h-[95vh] overflow-y-auto md:overflow-hidden flex flex-col transition-colors duration-300"
+        ref={scrollRef}
+        className="w-full h-full md:max-w-[428px] md:rounded-3xl md:h-[95vh] overflow-y-auto md:overflow-hidden flex flex-col transition-colors duration-300 relative"
         style={{
           backgroundColor: bgCard,
           boxShadow: `0 25px 50px ${shadow}`,
+          touchAction: 'pan-y',
+          WebkitOverflowScrolling: 'touch',
         }}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+        onTouchCancel={handleTouchEnd}
       >
+        <div
+          className="absolute left-1/2 top-2 z-30 -translate-x-1/2 pointer-events-none transition-all duration-150"
+          style={{
+            opacity: pullDistance > 0 || isRefreshing ? 1 : 0,
+            transform: `translateX(-50%) translateY(${Math.min(pullDistance, 80)}px)`,
+          }}
+        >
+          <div className="flex items-center gap-2 rounded-full bg-white/95 px-3 py-2 shadow-lg border border-gray-200">
+            <div
+              className={`h-4 w-4 rounded-full border-2 border-gray-300 border-t-transparent ${isRefreshing ? 'animate-spin' : ''}`}
+              style={isRefreshing ? { borderTopColor: 'transparent' } : {}}
+            />
+            <span className="text-xs font-semibold text-gray-700">
+              {isRefreshing ? 'Refreshing...' : 'Pull to refresh'}
+            </span>
+          </div>
+        </div>
         <NetworkStatus />
         <UpdateManager />
         {children}
@@ -840,11 +908,9 @@ function App() {
       );
     }
 
-    // Developer Dashboard - Check for Christopher or developer role
-    if (userRole === 'developer' || 
-        userData?.full_name?.toLowerCase().includes('christopher') ||
-        userData?.employee_id === 'DEV001' ||
-        user?.full_name?.toLowerCase().includes('christopher')) {
+    // Developer Dashboard
+    if (userRole === 'developer' ||
+        userData?.employee_id === 'DEV001') {
       return (
         <MobileContainer>
           <DeveloperDashboard user={user} userData={userData} onLogout={handleLogout} />
@@ -963,11 +1029,9 @@ function App() {
       );
     }
 
-    // Developer Dashboard - Check for Christopher or developer role
+    // Developer Dashboard
     if (userRole === 'developer' ||
-        userData?.full_name?.toLowerCase().includes('christopher') ||
-        userData?.employee_id === 'DEV001' ||
-        user?.full_name?.toLowerCase().includes('christopher')) {
+        userData?.employee_id === 'DEV001') {
       return (
         <MobileContainer>
           <DeveloperDashboard user={user} userData={userData} onLogout={handleLogout} />

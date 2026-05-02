@@ -63,6 +63,8 @@ Adding a future column (e.g. `region`) requires only adding a new object to this
 
 `supabase/migrations/<timestamp>_add_whitelist_to_programs.sql` — filename timestamp set at implementation time.
 
+> **Already applied** — columns were added directly to the production DB on 2026-05-02. No migration file needs to be run.
+
 ---
 
 ## Settings UI — `program-creator-enhanced.tsx`

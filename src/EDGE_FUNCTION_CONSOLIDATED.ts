@@ -49,7 +49,15 @@ const kvGet = async (key: string): Promise<any> => {
 app.use('*', logger(console.log));
 
 app.use('/*', cors({
-  origin: '*',
+  origin: (origin) => {
+    const allowed = [
+      'https://airtel-champions.vercel.app',
+      'https://airtel-champions-pwa-april-6gnsktent.vercel.app',
+      'http://localhost:5173',
+      'http://localhost:3000',
+    ];
+    return allowed.includes(origin) ? origin : null;
+  },
   allowHeaders: ['Content-Type', 'Authorization'],
   allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   exposeHeaders: ['Content-Length'],
@@ -130,32 +138,18 @@ app.get('/make-server-28f2f653/health', (c) => {
 app.get('/make-server-28f2f653/programs', async (c) => {
   try {
     console.log('[Programs] === GET PROGRAMS REQUEST ===');
-    
-    let userRole = 'sales_executive';
-    let userId = '';
 
-    // Support TAI custom auth via query params
-    const roleParam = c.req.query('role');
-    const userIdParam = c.req.query('user_id');
+    const user = await authenticateUser(c.req.header('Authorization'));
+    const userId = user.id;
 
-    if (roleParam && userIdParam) {
-      userRole = roleParam;
-      userId = userIdParam;
-      console.log('[Programs] Using query params - role:', userRole, 'userId:', userId);
-    } else {
-      const accessToken = c.req.header('Authorization')?.split(' ')[1];
-      const user = await authenticateUser(`Bearer ${accessToken}`);
-      userId = user.id;
+    const { data: userData } = await supabase
+      .from('app_users')
+      .select('role')
+      .eq('id', userId)
+      .single();
 
-      const { data: userData } = await supabase
-        .from('app_users')
-        .select('role')
-        .eq('id', userId)
-        .single();
-
-      userRole = userData?.role || 'sales_executive';
-      console.log('[Programs] Using auth token - role:', userRole);
-    }
+    const userRole = userData?.role || 'sales_executive';
+    console.log('[Programs] Using auth token - role:', userRole);
 
     console.log('[Programs] Querying programs table...');
 
@@ -182,15 +176,15 @@ app.get('/make-server-28f2f653/programs', async (c) => {
     return c.json({ programs: programs || [] });
   } catch (error: any) {
     console.error('[Programs] ERROR:', error);
-    return c.json({ error: error.message || 'Failed to fetch programs' }, 500);
+    return c.json({ error: 'Internal server error' }, 500);
   }
 });
 
 // POST /make-server-28f2f653/programs - Create program
 app.post('/make-server-28f2f653/programs', async (c) => {
   try {
-    const userId = c.req.query('user_id');
-    const userRole = c.req.query('role');
+    const { user: authUser, role: userRole } = await requireAdmin(c.req.header('Authorization'));
+    const userId = authUser.id;
 
     console.log('[Programs] ========================================');
     console.log('[Programs] CREATE PROGRAM REQUEST');
@@ -232,12 +226,8 @@ app.post('/make-server-28f2f653/programs', async (c) => {
       console.error('[Programs] Error code:', insertError.code);
       console.error('[Programs] Error message:', insertError.message);
       console.error('[Programs] Error details:', insertError.details);
-      
-      return c.json({ 
-        error: insertError.message || 'Database insert failed',
-        code: insertError.code,
-        details: insertError.details
-      }, 500);
+
+      return c.json({ error: 'Internal server error' }, 500);
     }
 
     console.log('[Programs] ✅ Program created! ID:', program.id);
@@ -277,10 +267,7 @@ app.post('/make-server-28f2f653/programs', async (c) => {
     return c.json({ program, message: 'Program created successfully' });
   } catch (error: any) {
     console.error('[Programs] Error creating program:', error);
-    return c.json({ 
-      error: error.message || 'Failed to create program',
-      details: error.details || null
-    }, 500);
+    return c.json({ error: 'Internal server error' }, 500);
   }
 });
 
@@ -288,11 +275,11 @@ app.post('/make-server-28f2f653/programs', async (c) => {
 app.delete('/make-server-28f2f653/programs/:id', async (c) => {
   try {
     const programId = c.req.param('id');
-    const userId = c.req.query('user_id');
-    const userRole = c.req.query('role');
-    
+    const { user: authUser, role: userRole } = await requireAdmin(c.req.header('Authorization'));
+    const userId = authUser.id;
+
     console.log('[Programs] DELETE program:', programId, 'by user:', userId, 'role:', userRole);
-    
+
     const allowedRoles = ['director', 'hq_command_center'];
     if (!allowedRoles.includes(userRole)) {
       return c.json({ error: 'Unauthorized - Only Director and HQ Team can delete programs' }, 403);
@@ -325,7 +312,7 @@ app.post('/make-server-28f2f653/submissions/approve', async (c) => {
     const { user, role } = await requireAdmin(c.req.header('Authorization'));
 
     const rateLimitKey = `approve:${user.id}`;
-    const allowed = await checkRateLimit(rateLimitKey, 100, 60);
+    const allowed = await checkRateLimit(rateLimitKey, 60, 60);
     if (!allowed) {
       return c.json({ error: 'Rate limit exceeded' }, 429);
     }
@@ -356,7 +343,7 @@ app.post('/make-server-28f2f653/submissions/approve', async (c) => {
 
     if (updateError) {
       console.error('Error approving submission:', updateError);
-      return c.json({ error: 'Failed to approve submission', details: updateError.message }, 500);
+      return c.json({ error: 'Internal server error' }, 500);
     }
 
     await supabase.from('audit_logs').insert({
@@ -375,7 +362,7 @@ app.post('/make-server-28f2f653/submissions/approve', async (c) => {
 
   } catch (error: any) {
     console.error('Error in approve endpoint:', error);
-    return c.json({ error: error.message || 'Internal server error' }, 500);
+    return c.json({ error: 'Internal server error' }, 500);
   }
 });
 
@@ -475,7 +462,7 @@ app.get('/make-server-28f2f653/leaderboard', async (c) => {
 
   } catch (error: any) {
     console.error('Error fetching leaderboard:', error);
-    return c.json({ error: error.message || 'Internal server error' }, 500);
+    return c.json({ error: 'Internal server error' }, 500);
   }
 });
 
@@ -542,7 +529,7 @@ app.get('/make-server-28f2f653/analytics/generate', async (c) => {
 
   } catch (error: any) {
     console.error('Error generating analytics:', error);
-    return c.json({ error: error.message || 'Internal server error' }, 500);
+    return c.json({ error: 'Internal server error' }, 500);
   }
 });
 

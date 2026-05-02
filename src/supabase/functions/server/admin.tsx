@@ -59,7 +59,17 @@ async function requireAdmin(req: any) {
     throw new Error('User not found');
   }
 
-  const adminRoles = ['admin', 'zsm', 'asm', 'rsm'];
+  const adminRoles = [
+    'admin',
+    'zsm',
+    'asm',
+    'rsm',
+    'director',
+    'hbb_hq_admin',
+    'hq_command_center',
+    'zonal_business_manager',
+    'zonal_sales_manager',
+  ];
   if (!adminRoles.includes(userData.role)) {
     throw new Error('Insufficient permissions - admin access required');
   }
@@ -106,7 +116,7 @@ app.post("/make-server-28f2f653/admin/recalculate-points", async (c) => {
 
   } catch (error: any) {
     console.error('Error recalculating points:', error);
-    return c.json({ error: error.message || 'Internal server error' }, 500);
+    return c.json({ error: 'Internal server error' }, 500);
   }
 });
 
@@ -128,7 +138,7 @@ app.post("/make-server-28f2f653/admin/refresh-views", async (c) => {
 
   } catch (error: any) {
     console.error('Error refreshing views:', error);
-    return c.json({ error: error.message || 'Internal server error' }, 500);
+    return c.json({ error: 'Internal server error' }, 500);
   }
 });
 
@@ -159,7 +169,7 @@ app.post("/make-server-28f2f653/webhooks", async (c) => {
 
   } catch (error: any) {
     console.error('Error processing webhook:', error);
-    return c.json({ error: error.message || 'Internal server error' }, 500);
+    return c.json({ error: 'Internal server error' }, 500);
   }
 });
 
@@ -229,7 +239,7 @@ app.post("/make-server-28f2f653/seed-posts", async (c) => {
 
   } catch (error: any) {
     console.error('[SeedPosts] Error:', error);
-    return c.json({ error: error.message || 'Failed to seed posts' }, 500);
+    return c.json({ error: 'Internal server error' }, 500);
   }
 });
 
@@ -258,9 +268,9 @@ app.post("/make-server-28f2f653/create-buckets", async (c) => {
     
   } catch (error: any) {
     console.error('[CreateBuckets] Error:', error);
-    return c.json({ 
+    return c.json({
       success: false,
-      error: error.message || 'Failed to create buckets' 
+      error: 'Internal server error'
     }, 500);
   }
 });
@@ -314,7 +324,7 @@ app.post("/make-server-28f2f653/upload-image", async (c) => {
     
     if (uploadError) {
       console.error('[UploadImage] Upload error:', uploadError);
-      return c.json({ error: uploadError.message || 'Failed to upload image' }, 500);
+      return c.json({ error: 'Internal server error' }, 500);
     }
     
     const { data: urlData } = supabase.storage
@@ -338,7 +348,7 @@ app.post("/make-server-28f2f653/upload-image", async (c) => {
     
   } catch (error: any) {
     console.error('[UploadImage] Error:', error);
-    return c.json({ error: error.message || 'Failed to upload image' }, 500);
+    return c.json({ error: 'Internal server error' }, 500);
   }
 });
 
@@ -355,7 +365,7 @@ app.get("/make-server-28f2f653/users/zsms", async (c) => {
 
     if (error) {
       console.error('[GetZSMs] Error fetching ZSMs:', error);
-      return c.json({ error: 'Failed to fetch ZSMs', details: error.message }, 500);
+      return c.json({ error: 'Internal server error' }, 500);
     }
 
     console.log(`[GetZSMs] ✅ Found ${zsms?.length || 0} ZSMs`);
@@ -368,7 +378,7 @@ app.get("/make-server-28f2f653/users/zsms", async (c) => {
 
   } catch (error: any) {
     console.error('[GetZSMs] Error:', error);
-    return c.json({ error: error.message || 'Internal server error' }, 500);
+    return c.json({ error: 'Internal server error' }, 500);
   }
 });
 
@@ -383,7 +393,7 @@ app.post("/make-server-28f2f653/reset-all-points", async (c) => {
 
     if (fetchError) {
       console.error('[ResetPoints] Error fetching users:', fetchError);
-      return c.json({ error: 'Failed to fetch users', details: fetchError.message }, 500);
+      return c.json({ error: 'Internal server error' }, 500);
     }
 
     console.log(`[ResetPoints] Found ${users?.length || 0} users to reset`);
@@ -400,7 +410,7 @@ app.post("/make-server-28f2f653/reset-all-points", async (c) => {
 
     if (updateError) {
       console.error('[ResetPoints] Error resetting points:', updateError);
-      return c.json({ error: 'Failed to reset points', details: updateError.message }, 500);
+      return c.json({ error: 'Internal server error' }, 500);
     }
 
     console.log(`[ResetPoints] ✅ Successfully reset points for all users`);
@@ -413,10 +423,7 @@ app.post("/make-server-28f2f653/reset-all-points", async (c) => {
     });
   } catch (error: any) {
     console.error('[ResetPoints] Unexpected error:', error);
-    return c.json({ 
-      error: 'Internal server error', 
-      details: error.message 
-    }, 500);
+    return c.json({ error: 'Internal server error' }, 500);
   }
 });
 
@@ -432,9 +439,7 @@ app.post("/make-server-28f2f653/groups/users-hierarchy", async (c) => {
     
   } catch (error: any) {
     console.error('[GetUsersHierarchy] ❌ Error:', error);
-    return c.json({ 
-      error: error.message || 'Internal server error',
-    }, 500);
+    return c.json({ error: 'Internal server error' }, 500);
   }
 });
 

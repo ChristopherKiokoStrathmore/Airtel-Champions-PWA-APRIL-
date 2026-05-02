@@ -76,7 +76,15 @@ const kvStore = {
 
 // CORS configuration
 app.use('*', cors({
-  origin: '*',
+  origin: (origin) => {
+    const allowed = [
+      'https://airtel-champions.vercel.app',
+      'https://airtel-champions-pwa-april-6gnsktent.vercel.app',
+      'http://localhost:5173',
+      'http://localhost:3000',
+    ];
+    return allowed.includes(origin) ? origin : null;
+  },
   allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowHeaders: ['Content-Type', 'Authorization', 'apikey'], // Added apikey for Supabase Edge Functions
 }));
