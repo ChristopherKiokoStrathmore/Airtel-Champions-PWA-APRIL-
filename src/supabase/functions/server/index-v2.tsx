@@ -57,7 +57,15 @@ app.use('*', logger(console.log));
 
 // 2. CORS with security headers
 app.use('/*', cors({
-  origin: '*',
+  origin: (origin) => {
+    const allowed = [
+      'https://airtel-champions.vercel.app',
+      'https://airtel-champions-pwa-april-6gnsktent.vercel.app',
+      'http://localhost:5173',
+      'http://localhost:3000',
+    ];
+    return allowed.includes(origin) ? origin : null;
+  },
   allowHeaders: ['Content-Type', 'Authorization', 'X-Request-ID'],
   allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
   exposeHeaders: ['X-Request-ID', 'X-Response-Time', 'X-API-Version'],

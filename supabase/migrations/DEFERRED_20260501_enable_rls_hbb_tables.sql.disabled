@@ -1,0 +1,85 @@
+-- =============================================================================
+-- Migration: Enable RLS on HBB GA tables + internal kv_store cache table
+-- Created: 2026-05-01
+--
+-- What this does:
+--   1. Enables Row Level Security on the four HBB GA data tables:
+--        hbb_installer_ga_daily, hbb_installer_ga_monthly,
+--        hbb_dse_ga_daily, hbb_dse_ga_monthly
+--   2. Adds a SELECT-only policy on each table so that authenticated users
+--      can only read rows where the table's `phone_number` column matches
+--      the `phone` claim in their JWT (auth.jwt() ->> 'phone').
+--      INSERT / UPDATE / DELETE remain service-role-only (no policies added
+--      for those operations — Supabase denies them by default when RLS is on).
+--   3. Enables RLS on `kv_store_28f2f653` (internal cache table) and adds a
+--      service-role-only guard that denies all access to non-service roles.
+--
+-- NOTE: Supersedes the disabled policies in 20260428_hbb_ga_rls_policies.sql.
+-- =============================================================================
+
+-- -----------------------------------------------------------------------------
+-- 1. hbb_installer_ga_daily
+-- -----------------------------------------------------------------------------
+ALTER TABLE public.hbb_installer_ga_daily ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "hbb_installer_ga_daily_own_phone" ON public.hbb_installer_ga_daily;
+CREATE POLICY "hbb_installer_ga_daily_own_phone"
+  ON public.hbb_installer_ga_daily
+  FOR SELECT
+  TO authenticated
+  USING (phone_number = auth.jwt() ->> 'phone');
+
+-- -----------------------------------------------------------------------------
+-- 2. hbb_installer_ga_monthly
+-- -----------------------------------------------------------------------------
+ALTER TABLE public.hbb_installer_ga_monthly ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "hbb_installer_ga_monthly_own_phone" ON public.hbb_installer_ga_monthly;
+CREATE POLICY "hbb_installer_ga_monthly_own_phone"
+  ON public.hbb_installer_ga_monthly
+  FOR SELECT
+  TO authenticated
+  USING (phone_number = auth.jwt() ->> 'phone');
+
+-- -----------------------------------------------------------------------------
+-- 3. hbb_dse_ga_daily
+-- -----------------------------------------------------------------------------
+ALTER TABLE public.hbb_dse_ga_daily ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "hbb_dse_ga_daily_own_phone" ON public.hbb_dse_ga_daily;
+CREATE POLICY "hbb_dse_ga_daily_own_phone"
+  ON public.hbb_dse_ga_daily
+  FOR SELECT
+  TO authenticated
+  USING (phone_number = auth.jwt() ->> 'phone');
+
+-- -----------------------------------------------------------------------------
+-- 4. hbb_dse_ga_monthly
+-- -----------------------------------------------------------------------------
+ALTER TABLE public.hbb_dse_ga_monthly ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "hbb_dse_ga_monthly_own_phone" ON public.hbb_dse_ga_monthly;
+CREATE POLICY "hbb_dse_ga_monthly_own_phone"
+  ON public.hbb_dse_ga_monthly
+  FOR SELECT
+  TO authenticated
+  USING (phone_number = auth.jwt() ->> 'phone');
+
+-- -----------------------------------------------------------------------------
+-- 5. kv_store_28f2f653 — internal cache, service-role access only
+--    Deny all access to authenticated and anon roles; only service_role
+--    (which bypasses RLS) can read/write this table.
+-- -----------------------------------------------------------------------------
+ALTER TABLE public.kv_store_28f2f653 ENABLE ROW LEVEL SECURITY;
+
+-- Remove any previously created policies to avoid conflicts.
+DROP POLICY IF EXISTS "kv_store_deny_non_service_roles" ON public.kv_store_28f2f653;
+
+-- An explicit DENY-ALL policy for authenticated users.
+-- service_role always bypasses RLS, so it is unaffected.
+CREATE POLICY "kv_store_deny_non_service_roles"
+  ON public.kv_store_28f2f653
+  FOR ALL
+  TO authenticated, anon
+  USING (false)
+  WITH CHECK (false);

@@ -42,6 +42,15 @@ interface Program {
   linked_checkin_program_id?: string; // 🆕 Checkout mode: linked check-in program
   fields?: any[];
   who_can_submit?: string[]; // 🆕 Roles that can submit this form
+  whitelist_enabled?: boolean;
+  whitelist_target?: string;
+  whitelist_fields?: {
+    label: string;
+    db_column: string;
+    input_type: 'text' | 'dropdown';
+    source_table?: string;
+    source_column?: string;
+  }[];
 }
 
 interface ProgramSubmitModalProps {
@@ -1120,7 +1129,22 @@ export function ProgramSubmitModal({ program, userId, onClose, onSuccess }: Prog
   };
 
   const handleSubmit = () => handleFormSubmit(
-    { program, userId, fields, formData, photos, location, shopName, submissionDate, submissionTime, linkedMSISDNs, linkedCheckInData, morningOdometer, inlineOdometer: inlineOdometerRef.current },
+    {
+      program,
+      userId,
+      fields,
+      formData,
+      photos,
+      location,
+      shopName,
+      submissionDate,
+      submissionTime,
+      linkedMSISDNs,
+      linkedCheckInData,
+      morningOdometer,
+      inlineOdometer: inlineOdometerRef.current,
+      fieldMetadata,
+    },
     { setSubmitting, setError, setValidationErrors, onSuccess }
   );
 
@@ -1631,13 +1655,22 @@ export function ProgramSubmitModal({ program, userId, onClose, onSuccess }: Prog
 
                 {/* Number */}
                 {fieldType === 'number' && (
-                  <input
-                    type="number"
-                    value={formData[field.id] || ''}
-                    onChange={(e) => handleFieldChange(field.id, e.target.value ? parseFloat(e.target.value) : '')}
-                    placeholder={field.placeholder}
-                    className={`w-full px-4 py-2 border rounded-lg ${errorClass}`}
-                  />
+                  <div>
+                    <input
+                      type="number"
+                      value={formData[field.id] || ''}
+                      onChange={(e) => handleFieldChange(field.id, e.target.value ? parseFloat(e.target.value) : '')}
+                      placeholder={field.placeholder}
+                      min={field.validation?.min !== undefined ? field.validation.min : undefined}
+                      max={field.validation?.max !== undefined ? field.validation.max : undefined}
+                      className={`w-full px-4 py-2 border rounded-lg ${errorClass}`}
+                    />
+                    {field.validation?.min !== undefined && field.validation?.max !== undefined && (
+                      <p className="text-xs text-gray-600 mt-1">
+                        Range: {field.validation.min} - {field.validation.max}
+                      </p>
+                    )}
+                  </div>
                 )}
 
                 {/* 🆕 Repeatable Number */}

@@ -108,7 +108,7 @@ export function TodayTab({ tlUser, refreshKey, onTotalChange }: Props) {
           <p className="text-sm font-bold text-gray-900">
             {report ? formatDisplayDate(report.report_date) : formatDisplayDate(todayDateString())}
           </p>
-          <p className="text-xs text-gray-400 mt-0.5">{tlUser.zone} · {tlUser.se_cluster}</p>
+          <p className="text-xs text-gray-400 mt-0.5">{tlUser.full_name} · {tlUser.se_cluster}</p>
         </div>
         {isLocked && (
           <span className="bg-green-100 text-green-700 text-xs font-bold px-3 py-1.5 rounded-full">

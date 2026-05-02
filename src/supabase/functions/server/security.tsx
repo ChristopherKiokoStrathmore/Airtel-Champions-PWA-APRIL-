@@ -14,7 +14,11 @@ const supabase = createClient(
   Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!,
 );
 
-const JWT_SECRET = Deno.env.get('JWT_SECRET') || 'your-secret-key-change-in-production';
+const JWT_SECRET = (() => {
+  const secret = Deno.env.get('JWT_SECRET');
+  if (!secret) throw new Error('JWT_SECRET environment variable is required but not set');
+  return secret;
+})();
 
 // ============================================================================
 // INPUT SANITIZATION (XSS Protection)

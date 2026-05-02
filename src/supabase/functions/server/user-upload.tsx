@@ -75,8 +75,31 @@ app.post("/upload-excel", async (c) => {
       return c.json({ success: false, error: "No file uploaded" }, 400);
     }
 
+    // --- Security: file size check (max 10 MB) ---
+    if (file.size > 10 * 1024 * 1024) {
+      return c.json({ success: false, error: "File too large. Maximum allowed size is 10 MB." }, 400);
+    }
+
+    // --- Security: MIME type check ---
+    const allowedMimeTypes = [
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "application/vnd.ms-excel",
+    ];
+    if (file.type && !allowedMimeTypes.includes(file.type)) {
+      return c.json({ success: false, error: `Invalid file type: ${file.type}. Only .xlsx and .xls files are accepted.` }, 400);
+    }
+
     // Read Excel file
     const arrayBuffer = await file.arrayBuffer();
+
+    // --- Security: magic bytes check (xlsx/zip files begin with PK = 0x50 0x4B 0x03 0x04) ---
+    const headerBytes = new Uint8Array(arrayBuffer.slice(0, 4));
+    const isPKZip = headerBytes[0] === 0x50 && headerBytes[1] === 0x4B &&
+                    headerBytes[2] === 0x03 && headerBytes[3] === 0x04;
+    if (!isPKZip) {
+      return c.json({ success: false, error: "File content does not match a valid Excel (.xlsx) format." }, 400);
+    }
+
     const workbook = XLSX.read(arrayBuffer, { type: "array" });
     const sheetName = workbook.SheetNames[0];
     const worksheet = workbook.Sheets[sheetName];

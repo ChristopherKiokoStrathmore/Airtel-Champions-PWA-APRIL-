@@ -1,5 +1,5 @@
 // DSE Dashboard - Direct Sales Executive Dashboard for HBB Lead Generation
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { supabase } from '../../utils/supabase/client';
 import { Capacitor } from '@capacitor/core';
 // Loaded dynamically — static import crashes on web when Capacitor runtime is absent
@@ -218,7 +218,7 @@ function LeadDetailModal({ lead, onClose }: { lead: DSELead; onClose: () => void
 }
 
 // ─── Main Dashboard ───────────────────────────────────────────────────────────
-export function DSEDashboard({ user, userData, onLogout, onBackToMainMenu }: DSEDashboardProps) {
+export const DSEDashboard = React.memo(function DSEDashboard({ user, userData, onLogout, onBackToMainMenu }: DSEDashboardProps) {
   const [activeTab, setActiveTab] = useState<TabType>('home');
   const [leads, setLeads] = useState<DSELead[]>([]);
   const [loading, setLoading] = useState(true);
@@ -304,7 +304,7 @@ export function DSEDashboard({ user, userData, onLogout, onBackToMainMenu }: DSE
     return () => { sub.unsubscribe(); };
   }, [dseId, fetchLeads]);
 
-  const filteredLeads = leads.filter(lead => {
+  const filteredLeads = useMemo(() => leads.filter(lead => {
     const q = searchQuery.toLowerCase();
     const matchSearch = !q ||
       lead.customer_name?.toLowerCase().includes(q) ||
@@ -312,7 +312,7 @@ export function DSEDashboard({ user, userData, onLogout, onBackToMainMenu }: DSE
       lead.estate_name?.toLowerCase().includes(q);
     const matchStatus = statusFilter === 'all' || lead.status === statusFilter;
     return matchSearch && matchStatus;
-  });
+  }), [leads, searchQuery, statusFilter]);
 
   // ── Home Tab ──────────────────────────────────────────────────────────────
   const HomeTab = () => (
@@ -1038,7 +1038,7 @@ export function DSEDashboard({ user, userData, onLogout, onBackToMainMenu }: DSE
       )}
     </div>
   );
-}
+});
 
 // ─── Shared lead card ─────────────────────────────────────────────────────────
 function LeadCard({ lead, onClick, detailed = false }: { lead: DSELead; onClick: () => void; detailed?: boolean }) {

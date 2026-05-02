@@ -90,13 +90,6 @@ interface WhitelistField {
   source_column?: string;
 }
 
-const PROMOTER_TL_WHITELIST_DEFAULTS: WhitelistField[] = [
-  { label: 'Name',    db_column: 'full_name',  input_type: 'text' },
-  { label: 'MSISDN',  db_column: 'msisdn',     input_type: 'text' },
-  { label: 'Cluster', db_column: 'se_cluster', input_type: 'dropdown', source_table: '', source_column: '' },
-  { label: 'ZSM',     db_column: 'zone',       input_type: 'dropdown', source_table: '', source_column: '' },
-];
-
 const FIELD_TYPES = [
   { value: 'text', label: 'Short Text', icon: Type, description: 'Single line text input', color: 'blue' },
   { value: 'long_text', label: 'Paragraph', icon: FileText, description: 'Multi-line text area', color: 'indigo' },
@@ -1859,9 +1852,7 @@ export function ProgramCreatorEnhanced({ onClose, onSuccess, editingProgram }: P
                             onChange={(e) => {
                               const t = e.target.value as typeof whitelistTarget;
                               setWhitelistTarget(t);
-                              if (t === 'promoter_team_lead' && whitelistFields.length === 0) {
-                                setWhitelistFields([...PROMOTER_TL_WHITELIST_DEFAULTS]);
-                              }
+                                setWhitelistFields([]);
                             }}
                             className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-emerald-500"
                           >
@@ -1869,142 +1860,9 @@ export function ProgramCreatorEnhanced({ onClose, onSuccess, editingProgram }: P
                             <option value="promoter_team_lead">Promoter Team Lead</option>
                           </select>
                         </div>
-
-                        {/* Field configuration */}
-                        {whitelistTarget && (
-                          <div>
-                            <label className="text-sm font-semibold text-gray-700 block mb-2">Whitelist Fields</label>
-                            <div className="space-y-3">
-                              {whitelistFields.map((field, idx) => (
-                                <div key={field.db_column || idx} className="bg-white border border-gray-200 rounded-lg p-3 space-y-2">
-                                  <div className="flex gap-2 items-end">
-                                    <div className="flex-1">
-                                      <label className="text-xs text-gray-500 block mb-1">Label</label>
-                                      <input
-                                        type="text"
-                                        value={field.label}
-                                        onChange={(e) => {
-                                          const updated = [...whitelistFields];
-                                          updated[idx] = { ...updated[idx], label: e.target.value };
-                                          setWhitelistFields(updated);
-                                        }}
-                                        className="w-full border border-gray-300 rounded px-2 py-1 text-sm"
-                                      />
-                                    </div>
-                                    <div className="flex-1">
-                                      <label className="text-xs text-gray-500 block mb-1">DB Column</label>
-                                      <input
-                                        type="text"
-                                        value={field.db_column}
-                                        onChange={(e) => {
-                                          const updated = [...whitelistFields];
-                                          updated[idx] = { ...updated[idx], db_column: e.target.value };
-                                          setWhitelistFields(updated);
-                                        }}
-                                        className="w-full border border-gray-300 rounded px-2 py-1 text-sm"
-                                      />
-                                    </div>
-                                    <div className="w-28">
-                                      <label className="text-xs text-gray-500 block mb-1">Type</label>
-                                      <select
-                                        value={field.input_type}
-                                        onChange={(e) => {
-                                          const updated = [...whitelistFields];
-                                          updated[idx] = {
-                                            ...updated[idx],
-                                            input_type: e.target.value as 'text' | 'dropdown',
-                                            source_table: '',
-                                            source_column: '',
-                                          };
-                                          setWhitelistFields(updated);
-                                          setWlAvailableColumns(prev => {
-                                            const next = { ...prev };
-                                            delete next[idx];
-                                            return next;
-                                          });
-                                        }}
-                                        className="w-full border border-gray-300 rounded px-2 py-1 text-sm"
-                                      >
-                                        <option value="text">Text</option>
-                                        <option value="dropdown">Dropdown</option>
-                                      </select>
-                                    </div>
-                                    <button
-                                      type="button"
-                                      onClick={() => {
-                                        setWhitelistFields(whitelistFields.filter((_, i) => i !== idx));
-                                        setWlAvailableColumns(prev => {
-                                          const next: Record<number, string[]> = {};
-                                          Object.entries(prev).forEach(([k, v]) => {
-                                            const ki = Number(k);
-                                            if (ki < idx) next[ki] = v;
-                                            else if (ki > idx) next[ki - 1] = v;
-                                            // ki === idx is dropped
-                                          });
-                                          return next;
-                                        });
-                                      }}
-                                      className="text-red-500 hover:text-red-700 font-bold px-2 py-1 text-sm"
-                                    >
-                                      ✕
-                                    </button>
-                                  </div>
-
-                                  {field.input_type === 'dropdown' && (
-                                    <div className="flex gap-2">
-                                      <div className="flex-1">
-                                        <label className="text-xs text-gray-500 block mb-1">Source Table</label>
-                                        <select
-                                          value={field.source_table ?? ''}
-                                          onChange={(e) => {
-                                            const updated = [...whitelistFields];
-                                            updated[idx] = { ...updated[idx], source_table: e.target.value, source_column: '' };
-                                            setWhitelistFields(updated);
-                                            fetchColumnsForField(idx, e.target.value);
-                                          }}
-                                          className="w-full border border-gray-300 rounded px-2 py-1 text-sm"
-                                        >
-                                          <option value="">— Select table —</option>
-                                          {wlAvailableTables.map(t => (
-                                            <option key={t} value={t}>{t}</option>
-                                          ))}
-                                        </select>
-                                      </div>
-                                      <div className="flex-1">
-                                        <label className="text-xs text-gray-500 block mb-1">Source Column</label>
-                                        <select
-                                          value={field.source_column ?? ''}
-                                          onChange={(e) => {
-                                            const updated = [...whitelistFields];
-                                            updated[idx] = { ...updated[idx], source_column: e.target.value };
-                                            setWhitelistFields(updated);
-                                          }}
-                                          className="w-full border border-gray-300 rounded px-2 py-1 text-sm"
-                                          disabled={!field.source_table}
-                                        >
-                                          <option value="">— Select column —</option>
-                                          {(wlAvailableColumns[idx] ?? []).map(col => (
-                                            <option key={col} value={col}>{col}</option>
-                                          ))}
-                                        </select>
-                                      </div>
-                                    </div>
-                                  )}
-                                </div>
-                              ))}
-                            </div>
-                            <button
-                              type="button"
-                              onClick={() => setWhitelistFields([
-                                ...whitelistFields,
-                                { label: '', db_column: '', input_type: 'text' },
-                              ])}
-                              className="mt-2 text-sm text-emerald-700 font-semibold hover:underline"
-                            >
-                              + Add Field
-                            </button>
-                          </div>
-                        )}
+                        <div className="mt-4 bg-white border border-emerald-200 rounded-lg p-3 text-sm text-emerald-800">
+                          Promoter Team Lead whitelisting will use the values entered in the normal form fields.
+                        </div>
                       </div>
                     )}
                   </div>

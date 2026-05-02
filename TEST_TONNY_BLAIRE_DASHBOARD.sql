@@ -2,7 +2,7 @@
 -- This demonstrates supervisor dashboard functionality
 
 -- 1. Verify Tonny Blaire exists in team lead registry
-SELECT
+SELECT 
   team_lead_msisdn,
   team_lead_name,
   is_active
@@ -10,7 +10,7 @@ FROM public.hbb_installer_team_lead
 WHERE team_lead_msisdn = '733862039';
 
 -- 2. Count of installers assigned to Tonny Blaire
-SELECT
+SELECT 
   COUNT(*) AS total_installers_for_tonny,
   COUNT(DISTINCT installer_msisdn) AS unique_installer_msisdns,
   COUNT(DISTINCT month_year) AS months_covered,

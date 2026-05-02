@@ -35,6 +35,35 @@ const supabase = createClient(
   Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!,
 );
 
+// ============================================================================
+// AUTHENTICATION HELPERS
+// ============================================================================
+
+async function requireAdminAuth(c: any): Promise<{ ok: true } | { ok: false; response: Response }> {
+  const authHeader = c.req.header('Authorization');
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    return { ok: false, response: c.json({ error: 'Unauthorized' }, 401) };
+  }
+  const token = authHeader.substring(7);
+  const { data: { user }, error: authError } = await supabase.auth.getUser(token);
+  if (authError || !user) {
+    return { ok: false, response: c.json({ error: 'Unauthorized' }, 401) };
+  }
+  const { data: userData, error: roleError } = await supabase
+    .from('app_users')
+    .select('role')
+    .eq('id', user.id)
+    .single();
+  if (roleError || !userData) {
+    return { ok: false, response: c.json({ error: 'Unauthorized' }, 401) };
+  }
+  const adminRoles = ['admin', 'zsm', 'asm', 'rsm', 'director', 'hq_command_center'];
+  if (!adminRoles.includes(userData.role)) {
+    return { ok: false, response: c.json({ error: 'Forbidden' }, 403) };
+  }
+  return { ok: true };
+}
+
 // Enable logger
 app.use('*', logger(console.log));
 
@@ -42,7 +71,15 @@ app.use('*', logger(console.log));
 app.use(
   "/*",
   cors({
-    origin: "*",
+    origin: (origin) => {
+      const allowed = [
+        'https://airtel-champions.vercel.app',
+        'https://airtel-champions-pwa-april-6gnsktent.vercel.app',
+        'http://localhost:5173',
+        'http://localhost:3000',
+      ];
+      return allowed.includes(origin) ? origin : null;
+    },
     allowHeaders: ["Content-Type", "Authorization", "apikey", "X-User-Id"],
     allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     exposeHeaders: ["Content-Length"],
@@ -68,6 +105,8 @@ app.get("/make-server-28f2f653/health", (c) => {
 // ============================================================================
 
 app.post("/make-server-28f2f653/setup-database", async (c) => {
+  const auth = await requireAdminAuth(c);
+  if (!auth.ok) return auth.response;
   try {
     console.log('[Endpoint] Database setup requested');
     const result = await setupDatabase();
@@ -81,7 +120,7 @@ app.post("/make-server-28f2f653/setup-database", async (c) => {
     console.error('[Endpoint] Database setup error:', error);
     return c.json({
       success: false,
-      error: error.message || 'Failed to setup database',
+      error: 'Internal server error',
       code: 'SETUP_ERROR'
     }, 500);
   }
@@ -92,6 +131,8 @@ app.post("/make-server-28f2f653/setup-database", async (c) => {
 // ============================================================================
 
 app.post("/make-server-28f2f653/setup-van-database", async (c) => {
+  const auth = await requireAdminAuth(c);
+  if (!auth.ok) return auth.response;
   try {
     console.log('[Endpoint] Van database setup requested');
     const result = await setupVanDatabase();
@@ -105,7 +146,7 @@ app.post("/make-server-28f2f653/setup-van-database", async (c) => {
     console.error('[Endpoint] Van database setup error:', error);
     return c.json({
       success: false,
-      error: error.message || 'Failed to setup van database',
+      error: 'Internal server error',
       code: 'VAN_SETUP_ERROR'
     }, 500);
   }
@@ -116,6 +157,8 @@ app.post("/make-server-28f2f653/setup-van-database", async (c) => {
 // ============================================================================
 
 app.post("/make-server-28f2f653/fix-kv-permissions", async (c) => {
+  const auth = await requireAdminAuth(c);
+  if (!auth.ok) return auth.response;
   try {
     console.log('[Endpoint] KV permission fix requested');
     const result = await fixKvPermissions();
@@ -124,7 +167,7 @@ app.post("/make-server-28f2f653/fix-kv-permissions", async (c) => {
     console.error('[Endpoint] KV permission fix error:', error);
     return c.json({
       success: false,
-      error: error.message || 'Failed to fix KV permissions',
+      error: 'Internal server error',
       code: 'KV_PERMISSION_FIX_ERROR'
     }, 500);
   }

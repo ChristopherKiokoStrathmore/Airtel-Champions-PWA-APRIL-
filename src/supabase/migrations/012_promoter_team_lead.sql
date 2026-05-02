@@ -176,7 +176,13 @@ BEGIN
   WHERE msisdn = p_msisdn
     AND is_active = TRUE;
 
-  IF NOT FOUND OR crypt(p_password, v_row.password_hash) <> v_row.password_hash THEN
+  -- Row not found
+  IF NOT FOUND THEN
+    RETURN NULL;
+  END IF;
+
+  -- Password does not match
+  IF crypt(p_password, v_row.password_hash) <> v_row.password_hash THEN
     RETURN NULL;
   END IF;
 

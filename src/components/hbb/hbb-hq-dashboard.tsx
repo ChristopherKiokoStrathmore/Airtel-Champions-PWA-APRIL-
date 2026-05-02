@@ -1,5 +1,5 @@
 // HBB HQ Dashboard — Full-width, laptop-optimized management view
-import { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import {
   BarChart3,
   List,
@@ -30,7 +30,7 @@ interface Props {
 
 type Tab = 'overview' | 'leads' | 'analytics';
 
-export function HBBHQDashboard({ user, userData, onLogout }: Props) {
+export const HBBHQDashboard = React.memo(function HBBHQDashboard({ user, userData, onLogout }: Props) {
   const [activeTab, setActiveTab] = useState<Tab>('overview');
   const [stats, setStats] = useState({ open: 0, assigned: 0, completed: 0, failed: 0, total: 0, todayInstallations: 0 });
   const [leads, setLeads] = useState<any[]>([]);
@@ -84,7 +84,7 @@ export function HBBHQDashboard({ user, userData, onLogout }: Props) {
   useEffect(() => { if (activeTab === 'leads') loadLeads(); }, [activeTab, loadLeads]);
   useEffect(() => { if (activeTab === 'analytics') loadAnalytics(); }, [activeTab, loadAnalytics]);
 
-  const filteredLeads = leads.filter(lead => {
+  const filteredLeads = useMemo(() => leads.filter(lead => {
     if (!searchQuery) return true;
     const q = searchQuery.toLowerCase();
     return (
@@ -94,7 +94,7 @@ export function HBBHQDashboard({ user, userData, onLogout }: Props) {
       lead.town?.toLowerCase().includes(q) ||
       lead.job_id?.toLowerCase().includes(q)
     );
-  });
+  }), [leads, searchQuery]);
 
   const statCards = [
     { label: 'Open Leads', value: stats.open, color: '#3B82F6', bg: '#EFF6FF', icon: Clock },
@@ -205,7 +205,7 @@ export function HBBHQDashboard({ user, userData, onLogout }: Props) {
       </main>
     </div>
   );
-}
+});
 
 // ─── OVERVIEW TAB ────────────────────────────────────────────────────────────
 function OverviewTab({ stats, statCards, loading, onRefresh }: {

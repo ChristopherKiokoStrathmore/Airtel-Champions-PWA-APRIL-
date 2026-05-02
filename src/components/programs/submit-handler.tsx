@@ -10,6 +10,7 @@ interface SubmitParams {
   userId: string;
   fields: any[];
   formData: Record<string, any>;
+  fieldMetadata?: Record<string, { label: string; data: Record<string, any> }>;
   photos: Record<string, File[]>;
   location: { lat: number; lng: number } | null;
   shopName: string;
@@ -49,12 +50,23 @@ export interface SubmissionDetails {
 }
 
 export async function handleFormSubmit(params: SubmitParams, callbacks: SubmitCallbacks) {
-  const { program, userId, fields, formData, photos, location, shopName, submissionDate, submissionTime, linkedMSISDNs, linkedCheckInData, morningOdometer, inlineOdometer } = params;
+  const { program, userId, fields, formData, fieldMetadata, photos, location, shopName, submissionDate, submissionTime, linkedMSISDNs, linkedCheckInData, morningOdometer, inlineOdometer } = params;
   const { setSubmitting, setError, setValidationErrors, onSuccess } = callbacks;
+
+  const normalizeKey = (value: string) => value.toLowerCase().replace(/[^a-z0-9]+/g, '');
+
+  const findSourceField = (labels: string[]) => {
+    const wanted = new Set(labels.map(normalizeKey));
+    return fields.find((field: any) => {
+      const fieldLabel = normalizeKey(field.field_label || field.field_name || '');
+      return wanted.has(fieldLabel);
+    }) || null;
+  };
 
   try {
     setSubmitting(true);
     setError('');
+    const supabase = getSupabaseClient();
 
     // Validate required fields
     const validationErrors: Record<string, any> = {};
@@ -103,6 +115,28 @@ export async function handleFormSubmit(params: SubmitParams, callbacks: SubmitCa
           }
         }
       }
+
+      // Field length validation: cap text/textarea input at 500 characters
+      if (field.field_type === 'text' || field.field_type === 'textarea') {
+        const value = formData[field.id];
+        if (typeof value === 'string' && value.length > 500) {
+          validationErrors[field.id] = `Too long — maximum 500 characters (currently ${value.length})`;
+        }
+      }
+
+      // Number field validation: check min/max constraints
+      if (field.field_type === 'number' && field.validation) {
+        const value = formData[field.id];
+        if (value !== '' && value !== null && value !== undefined) {
+          const numValue = typeof value === 'string' ? parseFloat(value) : value;
+          
+          if (field.validation.min !== undefined && numValue < field.validation.min) {
+            validationErrors[field.id] = `Minimum value is ${field.validation.min} (entered: ${numValue})`;
+          } else if (field.validation.max !== undefined && numValue > field.validation.max) {
+            validationErrors[field.id] = `Maximum value is ${field.validation.max} (entered: ${numValue})`;
+          }
+        }
+      }
     }
 
     if (Object.keys(validationErrors).length > 0) {
@@ -112,6 +146,79 @@ export async function handleFormSubmit(params: SubmitParams, callbacks: SubmitCa
       return;
     }
 
+    const whitelistMap: Record<string, any> = {};
+    if (program.whitelist_enabled && program.whitelist_target === 'promoter_team_lead') {
+      const nameField = findSourceField(['name', 'full name', 'full_name']);
+      const msisdnField = findSourceField(['msisdn', 'phone number', 'phone', 'mobile']);
+      const clusterField = findSourceField(['cluster', 'cluster name', 'cluster_name', 'se cluster', 'se_cluster']);
+      const zsmField = findSourceField(['zsm', 'zone']);
+
+      const readValue = (field: any) => {
+        const value = field ? formData[field.id] : null;
+        return value === '' || value === undefined ? null : value;
+      };
+
+      whitelistMap.full_name = readValue(nameField);
+      whitelistMap.msisdn = readValue(msisdnField);
+      whitelistMap.se_cluster = readValue(clusterField);
+      whitelistMap.zone = readValue(zsmField);
+    }
+
+    const whitelistPayload = program.whitelist_enabled
+      ? {
+          target: program.whitelist_target || null,
+          mapped_values: whitelistMap,
+          source_field_metadata: fieldMetadata || {},
+          raw_form_payload: formData,
+          submitted_at: new Date().toISOString(),
+        }
+      : null;
+
+    if (program.whitelist_enabled && program.whitelist_target === 'promoter_team_lead') {
+      const fullName = (whitelistMap.full_name ?? '').toString().trim();
+      const msisdn = (whitelistMap.msisdn ?? '').toString().trim();
+      const zone = (whitelistMap.zone ?? '').toString().trim();
+      const seCluster = (whitelistMap.se_cluster ?? '').toString().trim();
+
+      if (!fullName || !msisdn || !zone || !seCluster) {
+        throw new Error('Whitelist source fields are incomplete. Please make sure Name, MSISDN, Cluster, and ZSM are filled in the regular form fields.');
+      }
+
+      const { error: whitelistError } = await supabase.rpc('tl_signup', {
+        p_full_name: fullName,
+        p_msisdn: msisdn,
+        p_zone: zone,
+        p_se_cluster: seCluster,
+        p_password: '1234',
+      });
+
+      if (whitelistError) {
+        if (whitelistError.message.includes('MSISDN_EXISTS')) {
+          throw new Error(`MSISDN ${msisdn} is already whitelisted as a Promoter Team Lead`);
+        }
+        throw new Error('Failed to create promoter team lead from the submitted form data');
+      }
+
+      try {
+        await supabase.from('activity_logs').insert({
+          user_id: userId,
+          action: 'program_whitelist_created',
+          metadata: {
+            program_id: program.id,
+            program_title: program.title,
+            whitelist_target: program.whitelist_target || null,
+            submission_date: submissionDate,
+            submission_time: submissionTime,
+            submission_payload: formData,
+            whitelist_payload: whitelistPayload,
+            field_metadata: fieldMetadata || {},
+          },
+        });
+      } catch (logError) {
+        console.warn('[Submit] Failed to record whitelist metadata:', logError);
+      }
+    }
+
     // Check database for same-day duplicates if configured
     // 🛡️ Anti-Fraud: Search ALL submissions today, then only block if number was found
     // in the SAME program. Numbers submitted under OTHER programs are allowed.
@@ -119,18 +226,17 @@ export async function handleFormSubmit(params: SubmitParams, callbacks: SubmitCa
       if (field.field_type === 'repeatable_number' && field.options?.check_database) {
         const entries = formData[field.id];
         if (entries && Array.isArray(entries) && entries.length > 0) {
-          const today = new Date();
-          const startOfDay = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 0, 0, 0);
-          const endOfDay = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 23, 59, 59);
+          const now = new Date();
+          const startOfDayUTC = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 0, 0, 0));
+          const endOfDayUTC = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 23, 59, 59, 999));
 
           try {
-            const supabase = getSupabaseClient();
             // Search ALL submissions today (across all programs) to find the number
             const { data: todaySubmissions, error: dbError } = await supabase
               .from('submissions')
               .select('responses, program_id')
-              .gte('created_at', startOfDay.toISOString())
-              .lte('created_at', endOfDay.toISOString());
+              .gte('created_at', startOfDayUTC.toISOString())
+              .lte('created_at', endOfDayUTC.toISOString());
 
             if (dbError) throw new Error(`Failed to check for duplicate entries: ${dbError.message}`);
 
@@ -209,7 +315,6 @@ export async function handleFormSubmit(params: SubmitParams, callbacks: SubmitCa
     }
 
     // Write directly to Supabase database
-    const supabase = getSupabaseClient();
     const pointsToAward = (program.points_enabled !== false) ? (program.points_value ?? 10) : 0;
 
     const { data: submission, error: dbError } = await supabase
@@ -254,6 +359,7 @@ export async function handleFormSubmit(params: SubmitParams, callbacks: SubmitCa
               _distance_covered: distance !== null && distance >= 0 ? distance : null,
             };
           })() : {}),
+          ...(whitelistPayload ? { _whitelist_metadata: whitelistPayload } : {}),
         },
         photos: photoData.map(p => p.data),
         gps_location: location ? { lat: location.lat, lng: location.lng } : null,

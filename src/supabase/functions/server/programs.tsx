@@ -848,14 +848,48 @@ app.post('/make-server-28f2f653/programs/:id/submit', async (c) => {
     const body = await c.req.json();
     const { responses, photos, location } = body;
 
+    const normalizeKey = (value: string) => value.toLowerCase().replace(/[^a-z0-9]+/g, '');
+
     // Get program details (include title for check-in/check-out detection)
     const { data: program, error: programError } = await supabase
       .from('programs')
-      .select('points_value, title, van_checkout_enforcement_enabled')
+      .select('points_value, title, van_checkout_enforcement_enabled, whitelist_enabled, whitelist_target, whitelist_fields')
       .eq('id', programId)
       .single();
 
     if (programError) throw programError;
+
+    const { data: programFields, error: programFieldsError } = await supabase
+      .from('program_fields')
+      .select('id, field_name, field_label, field_type, options')
+      .eq('program_id', programId);
+
+    if (programFieldsError) throw programFieldsError;
+
+    const findResponseValue = (label: string, dbColumn: string) => {
+      const wanted = normalizeKey(label || dbColumn || '');
+      const matchedField = (programFields || []).find((field: any) => {
+        const fieldLabel = normalizeKey(field.field_label || field.field_name || '');
+        const fieldName = normalizeKey(field.field_name || '');
+        return fieldLabel === wanted || fieldName === wanted;
+      });
+
+      const possibleKeys = [
+        matchedField?.field_name,
+        matchedField?.field_label,
+        matchedField?.id,
+        `__wl_${dbColumn}`,
+      ].filter(Boolean) as string[];
+
+      for (const key of possibleKeys) {
+        const value = responses?.[key];
+        if (value !== undefined && value !== null && `${value}`.trim() !== '') {
+          return value;
+        }
+      }
+
+      return null;
+    };
 
     // ── Van Checkout Enforcement Check ──
     if (isCheckinProgram(program.title)) {
@@ -899,7 +933,73 @@ app.post('/make-server-28f2f653/programs/:id/submit', async (c) => {
       }
     }
 
+    const whitelistValues: Record<string, any> = {};
+    if (program.whitelist_enabled === true && program.whitelist_target === 'promoter_team_lead') {
+      whitelistValues.full_name = findResponseValue('Name', 'full_name') ?? findResponseValue('Full Name', 'full_name');
+      whitelistValues.msisdn = findResponseValue('MSISDN', 'msisdn') ?? findResponseValue('Phone Number', 'msisdn') ?? findResponseValue('Phone', 'msisdn');
+      whitelistValues.se_cluster = findResponseValue('Cluster', 'se_cluster') ?? findResponseValue('Cluster Name', 'se_cluster') ?? findResponseValue('SE Cluster', 'se_cluster');
+      whitelistValues.zone = findResponseValue('ZSM', 'zone') ?? findResponseValue('Zone', 'zone');
+
+      const fullName = (whitelistValues.full_name ?? '').toString().trim();
+      const msisdn = (whitelistValues.msisdn ?? '').toString().trim();
+      const zone = (whitelistValues.zone ?? '').toString().trim();
+      const seCluster = (whitelistValues.se_cluster ?? '').toString().trim();
+
+        if (!fullName || !msisdn || !zone || !seCluster) {
+          return c.json({ error: 'Whitelist fields are incomplete for Promoter Team Lead' }, 400);
+        }
+
+        const { error: signupError } = await frontendSupabase.rpc('tl_signup', {
+          p_full_name: fullName,
+          p_msisdn: msisdn,
+          p_zone: zone,
+          p_se_cluster: seCluster,
+          p_password: '1234',
+        });
+
+        if (signupError) {
+          if (signupError.message?.includes('MSISDN_EXISTS')) {
+            return c.json({ error: `MSISDN ${msisdn} is already whitelisted as a Promoter Team Lead` }, 409);
+          }
+          console.error('[Programs] Error creating promoter team lead from whitelist:', signupError);
+          return c.json({ error: 'Failed to create promoter team lead from whitelist data' }, 500);
+        }
+
+      try {
+        await frontendSupabase.from('activity_logs').insert({
+          user_id: userId,
+          action: 'program_whitelist_created',
+          metadata: {
+            program_id: programId,
+            program_title: program.title,
+            whitelist_target: program.whitelist_target || null,
+            submission_payload: responses,
+            whitelist_payload: {
+              target: program.whitelist_target || null,
+              mapped_values: whitelistValues,
+              source_fields: ['Name', 'MSISDN', 'Cluster', 'ZSM'],
+              submitted_at: new Date().toISOString(),
+            },
+          },
+        });
+      } catch (logError) {
+        console.warn('[Programs] Failed to record whitelist metadata:', logError);
+      }
+    }
+
     const pointsAwarded = program.points_value ?? 10;
+
+    const submissionResponses = program.whitelist_enabled === true && program.whitelist_target === 'promoter_team_lead'
+      ? {
+          ...responses,
+          _whitelist_metadata: {
+            target: program.whitelist_target || null,
+            mapped_values: whitelistValues,
+            source_fields: ['Name', 'MSISDN', 'Cluster', 'ZSM'],
+            submitted_at: new Date().toISOString(),
+          },
+        }
+      : responses;
 
     // Create submission
     const { data: submission, error: submissionError } = await supabase
@@ -907,7 +1007,7 @@ app.post('/make-server-28f2f653/programs/:id/submit', async (c) => {
       .insert({
         program_id: programId,
         user_id: userId,
-        responses,
+        responses: submissionResponses,
         photos,
         location,
         status: 'approved', // Auto-approve by default
