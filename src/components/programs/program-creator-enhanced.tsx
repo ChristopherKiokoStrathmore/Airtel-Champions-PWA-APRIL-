@@ -543,16 +543,18 @@ export function ProgramCreatorEnhanced({ onClose, onSuccess, editingProgram }: P
       }]);
     }
 
-    setWhitelistEnabled(editingProgram.whitelist_enabled ?? false);
-    setWhitelistTarget((editingProgram.whitelist_target as 'promoter_team_lead' | 'airtel_champions' | '') ?? '');
-    setWhitelistFields((editingProgram.whitelist_fields as WhitelistField[]) ?? []);
+    if (editingProgram) {
+      setWhitelistEnabled(editingProgram.whitelist_enabled ?? false);
+      setWhitelistTarget((editingProgram.whitelist_target as 'promoter_team_lead' | 'airtel_champions' | '') ?? '');
+      setWhitelistFields((editingProgram.whitelist_fields as WhitelistField[]) ?? []);
 
-    if (editingProgram.whitelist_fields?.length) {
-      (editingProgram.whitelist_fields as WhitelistField[]).forEach((field, idx) => {
-        if (field.input_type === 'dropdown' && field.source_table) {
-          fetchColumnsForField(idx, field.source_table);
-        }
-      });
+      if (editingProgram.whitelist_fields?.length) {
+        (editingProgram.whitelist_fields as WhitelistField[]).forEach((field: WhitelistField, idx: number) => {
+          if (field.input_type === 'dropdown' && field.source_table) {
+            fetchColumnsForField(idx, field.source_table);
+          }
+        });
+      }
     }
   }, [editingProgram]);
 
