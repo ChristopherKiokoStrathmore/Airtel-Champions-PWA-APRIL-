@@ -1503,23 +1503,29 @@ app.get('/make-server-28f2f653/programs/:id/analytics', async (c) => {
 // ─── Whitelist: schema introspection + dropdown options ──────────────────────
 
 app.get('/make-server-28f2f653/schema/tables', async (c) => {
-  const { data, error } = await supabase.rpc('get_public_tables');
+  const { authorized } = await verifyUser(c.req);
+  if (!authorized) return c.json({ error: 'Unauthorized' }, 401);
+  const { data, error } = await frontendSupabase.rpc('get_public_tables');
   if (error) return c.json({ error: error.message }, 500);
   return c.json({ tables: (data as { table_name: string }[]).map(r => r.table_name) });
 });
 
 app.get('/make-server-28f2f653/schema/tables/:tableName/columns', async (c) => {
+  const { authorized } = await verifyUser(c.req);
+  if (!authorized) return c.json({ error: 'Unauthorized' }, 401);
   const tableName = c.req.param('tableName');
-  const { data, error } = await supabase.rpc('get_table_columns', { p_table_name: tableName });
+  const { data, error } = await frontendSupabase.rpc('get_table_columns', { p_table_name: tableName });
   if (error) return c.json({ error: error.message }, 500);
   return c.json({ columns: (data as { column_name: string }[]).map(r => r.column_name) });
 });
 
 app.get('/make-server-28f2f653/whitelist/options', async (c) => {
+  const { authorized } = await verifyUser(c.req);
+  if (!authorized) return c.json({ error: 'Unauthorized' }, 401);
   const table = c.req.query('table');
   const column = c.req.query('column');
   if (!table || !column) return c.json({ error: 'table and column are required' }, 400);
-  const { data, error } = await supabase.rpc('get_distinct_values', {
+  const { data, error } = await frontendSupabase.rpc('get_distinct_values', {
     p_table: table,
     p_column: column,
   });
