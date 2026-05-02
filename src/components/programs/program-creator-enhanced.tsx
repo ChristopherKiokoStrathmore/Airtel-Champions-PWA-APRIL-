@@ -542,6 +542,18 @@ export function ProgramCreatorEnhanced({ onClose, onSuccess, editingProgram }: P
         fields: loadedFields
       }]);
     }
+
+    setWhitelistEnabled(editingProgram.whitelist_enabled ?? false);
+    setWhitelistTarget((editingProgram.whitelist_target as 'promoter_team_lead' | 'airtel_champions' | '') ?? '');
+    setWhitelistFields((editingProgram.whitelist_fields as WhitelistField[]) ?? []);
+
+    if (editingProgram.whitelist_fields?.length) {
+      (editingProgram.whitelist_fields as WhitelistField[]).forEach((field, idx) => {
+        if (field.input_type === 'dropdown' && field.source_table) {
+          fetchColumnsForField(idx, field.source_table);
+        }
+      });
+    }
   }, [editingProgram]);
 
   useEffect(() => {
@@ -926,6 +938,9 @@ export function ProgramCreatorEnhanced({ onClose, onSuccess, editingProgram }: P
             progressive_disclosure_enabled: progressiveDisclosureEnabled, // 🆕 Progressive Disclosure toggle
             zone_filtering_enabled: zoneFilteringEnabled, // 🆕 Zone filtering toggle
             van_checkout_enforcement_enabled: vanCheckoutEnforcementEnabled, // 🚐 Van checkout enforcement
+            whitelist_enabled: whitelistEnabled,
+            whitelist_target: whitelistTarget || null,
+            whitelist_fields: whitelistFields,
             // session_checkin_enabled is stored in KV store, not programs table
             target_roles: targetRoles,
             who_can_submit: whoCanSubmit, // 🆕 Who can submit
@@ -991,6 +1006,9 @@ export function ProgramCreatorEnhanced({ onClose, onSuccess, editingProgram }: P
             progressive_disclosure_enabled: progressiveDisclosureEnabled, // 🆕 Progressive Disclosure toggle
             zone_filtering_enabled: zoneFilteringEnabled, // 🆕 Zone filtering toggle
             van_checkout_enforcement_enabled: vanCheckoutEnforcementEnabled, // 🚐 Van checkout enforcement
+            whitelist_enabled: whitelistEnabled,
+            whitelist_target: whitelistTarget || null,
+            whitelist_fields: whitelistFields,
             // session_checkin_enabled is stored in KV store, not programs table
             target_roles: targetRoles,
             who_can_submit: whoCanSubmit, // 🆕 Who can submit
