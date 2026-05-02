@@ -82,6 +82,21 @@ interface ProgramCreatorEnhancedProps {
   editingProgram?: any; // Program to edit
 }
 
+interface WhitelistField {
+  label: string;
+  db_column: string;
+  input_type: 'text' | 'dropdown';
+  source_table?: string;
+  source_column?: string;
+}
+
+const PROMOTER_TL_WHITELIST_DEFAULTS: WhitelistField[] = [
+  { label: 'Name',    db_column: 'full_name',  input_type: 'text' },
+  { label: 'MSISDN',  db_column: 'msisdn',     input_type: 'text' },
+  { label: 'Cluster', db_column: 'se_cluster', input_type: 'dropdown', source_table: '', source_column: '' },
+  { label: 'ZSM',     db_column: 'zone',       input_type: 'dropdown', source_table: '', source_column: '' },
+];
+
 const FIELD_TYPES = [
   { value: 'text', label: 'Short Text', icon: Type, description: 'Single line text input', color: 'blue' },
   { value: 'long_text', label: 'Paragraph', icon: FileText, description: 'Multi-line text area', color: 'indigo' },
@@ -119,6 +134,11 @@ export function ProgramCreatorEnhanced({ onClose, onSuccess, editingProgram }: P
   const [zoneFilteringEnabled, setZoneFilteringEnabled] = useState(editingProgram?.zone_filtering_enabled !== undefined ? editingProgram.zone_filtering_enabled : false); // 🆕 Zone-based filtering for dropdowns
   const [vanCheckoutEnforcementEnabled, setVanCheckoutEnforcementEnabled] = useState(editingProgram?.van_checkout_enforcement_enabled !== undefined ? editingProgram.van_checkout_enforcement_enabled : false); // 🆕 Van checkout enforcement per-program
   const [sessionCheckinEnabled, setSessionCheckinEnabled] = useState(false); // 📋 Session-based check-in (loaded from KV store)
+  const [whitelistEnabled, setWhitelistEnabled] = useState(false);
+  const [whitelistTarget, setWhitelistTarget] = useState<'promoter_team_lead' | 'airtel_champions' | ''>('');
+  const [whitelistFields, setWhitelistFields] = useState<WhitelistField[]>([]);
+  const [wlAvailableTables, setWlAvailableTables] = useState<string[]>([]);
+  const [wlAvailableColumns, setWlAvailableColumns] = useState<Record<number, string[]>>({});
   const [linkedCheckinProgramId, setLinkedCheckinProgramId] = useState(''); // 🔗 Link to another program for checkout mode
   const [allProgramsForLinking, setAllProgramsForLinking] = useState<{id: string; title: string}[]>([]); // Programs list for linking dropdown
   const [targetRoles, setTargetRoles] = useState<string[]>(editingProgram?.target_roles || ['sales_executive']);
@@ -450,6 +470,13 @@ export function ProgramCreatorEnhanced({ onClose, onSuccess, editingProgram }: P
     }
   };
 
+  const fetchColumnsForField = async (fieldIndex: number, tableName: string) => {
+    if (!tableName) return;
+    const res = await fetch(`https://${projectId}.supabase.co/functions/v1/make-server-28f2f653/schema/tables/${encodeURIComponent(tableName)}/columns`);
+    const d = await res.json();
+    setWlAvailableColumns(prev => ({ ...prev, [fieldIndex]: d.columns ?? [] }));
+  };
+
   // Load session checkin flag from KV store when editing a program
   useEffect(() => {
     if (editingProgram?.id) {
@@ -512,6 +539,14 @@ export function ProgramCreatorEnhanced({ onClose, onSuccess, editingProgram }: P
       }]);
     }
   }, [editingProgram]);
+
+  useEffect(() => {
+    if (!whitelistEnabled || wlAvailableTables.length > 0) return;
+    fetch(`https://${projectId}.supabase.co/functions/v1/make-server-28f2f653/schema/tables`)
+      .then(r => r.json())
+      .then(d => setWlAvailableTables(d.tables ?? []))
+      .catch(console.error);
+  }, [whitelistEnabled]);
 
   // Add or update field
   const saveField = () => {
@@ -1758,6 +1793,182 @@ export function ProgramCreatorEnhanced({ onClose, onSuccess, editingProgram }: P
                           <li>• When GA data needs to be collected at end-of-day</li>
                           <li>• To allow flexible, incremental data entry throughout the day</li>
                         </ul>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              {/* ── Auto Whitelist ─────────────────────────────────────────────────────── */}
+              <div className="bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-300 rounded-xl p-6">
+                <div className="flex items-start gap-4">
+                  <input
+                    type="checkbox"
+                    id="whitelistEnabled"
+                    checked={whitelistEnabled}
+                    onChange={(e) => {
+                      setWhitelistEnabled(e.target.checked);
+                      if (!e.target.checked) {
+                        setWhitelistTarget('');
+                        setWhitelistFields([]);
+                      }
+                    }}
+                    className="w-6 h-6 text-emerald-600 rounded-lg focus:ring-2 focus:ring-emerald-500 mt-0.5 cursor-pointer"
+                  />
+                  <div className="flex-1">
+                    <label htmlFor="whitelistEnabled" className="text-base font-bold text-gray-800 cursor-pointer flex items-center gap-2">
+                      <span>✅ Auto Whitelist on Submission</span>
+                    </label>
+                    <p className="text-sm text-gray-600 mt-1">
+                      {whitelistEnabled
+                        ? 'Submitting this form will automatically create a login account for the person whose details are collected.'
+                        : 'Disabled. Submissions do not create any login accounts.'}
+                    </p>
+
+                    {whitelistEnabled && (
+                      <div className="mt-4 space-y-4">
+                        {/* Target selector */}
+                        <div>
+                          <label className="text-sm font-semibold text-gray-700 block mb-1">Whitelist Target</label>
+                          <select
+                            value={whitelistTarget}
+                            onChange={(e) => {
+                              const t = e.target.value as typeof whitelistTarget;
+                              setWhitelistTarget(t);
+                              if (t === 'promoter_team_lead' && whitelistFields.length === 0) {
+                                setWhitelistFields([...PROMOTER_TL_WHITELIST_DEFAULTS]);
+                              }
+                            }}
+                            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-emerald-500"
+                          >
+                            <option value="">— Select target —</option>
+                            <option value="promoter_team_lead">Promoter Team Lead</option>
+                          </select>
+                        </div>
+
+                        {/* Field configuration */}
+                        {whitelistTarget && (
+                          <div>
+                            <label className="text-sm font-semibold text-gray-700 block mb-2">Whitelist Fields</label>
+                            <div className="space-y-3">
+                              {whitelistFields.map((field, idx) => (
+                                <div key={idx} className="bg-white border border-gray-200 rounded-lg p-3 space-y-2">
+                                  <div className="flex gap-2 items-end">
+                                    <div className="flex-1">
+                                      <label className="text-xs text-gray-500 block mb-1">Label</label>
+                                      <input
+                                        type="text"
+                                        value={field.label}
+                                        onChange={(e) => {
+                                          const updated = [...whitelistFields];
+                                          updated[idx] = { ...updated[idx], label: e.target.value };
+                                          setWhitelistFields(updated);
+                                        }}
+                                        className="w-full border border-gray-300 rounded px-2 py-1 text-sm"
+                                      />
+                                    </div>
+                                    <div className="flex-1">
+                                      <label className="text-xs text-gray-500 block mb-1">DB Column</label>
+                                      <input
+                                        type="text"
+                                        value={field.db_column}
+                                        onChange={(e) => {
+                                          const updated = [...whitelistFields];
+                                          updated[idx] = { ...updated[idx], db_column: e.target.value };
+                                          setWhitelistFields(updated);
+                                        }}
+                                        className="w-full border border-gray-300 rounded px-2 py-1 text-sm"
+                                      />
+                                    </div>
+                                    <div className="w-28">
+                                      <label className="text-xs text-gray-500 block mb-1">Type</label>
+                                      <select
+                                        value={field.input_type}
+                                        onChange={(e) => {
+                                          const updated = [...whitelistFields];
+                                          updated[idx] = {
+                                            ...updated[idx],
+                                            input_type: e.target.value as 'text' | 'dropdown',
+                                            source_table: '',
+                                            source_column: '',
+                                          };
+                                          setWhitelistFields(updated);
+                                          setWlAvailableColumns(prev => {
+                                            const next = { ...prev };
+                                            delete next[idx];
+                                            return next;
+                                          });
+                                        }}
+                                        className="w-full border border-gray-300 rounded px-2 py-1 text-sm"
+                                      >
+                                        <option value="text">Text</option>
+                                        <option value="dropdown">Dropdown</option>
+                                      </select>
+                                    </div>
+                                    <button
+                                      type="button"
+                                      onClick={() => setWhitelistFields(whitelistFields.filter((_, i) => i !== idx))}
+                                      className="text-red-500 hover:text-red-700 font-bold px-2 py-1 text-sm"
+                                    >
+                                      ✕
+                                    </button>
+                                  </div>
+
+                                  {field.input_type === 'dropdown' && (
+                                    <div className="flex gap-2">
+                                      <div className="flex-1">
+                                        <label className="text-xs text-gray-500 block mb-1">Source Table</label>
+                                        <select
+                                          value={field.source_table ?? ''}
+                                          onChange={(e) => {
+                                            const updated = [...whitelistFields];
+                                            updated[idx] = { ...updated[idx], source_table: e.target.value, source_column: '' };
+                                            setWhitelistFields(updated);
+                                            fetchColumnsForField(idx, e.target.value);
+                                          }}
+                                          className="w-full border border-gray-300 rounded px-2 py-1 text-sm"
+                                        >
+                                          <option value="">— Select table —</option>
+                                          {wlAvailableTables.map(t => (
+                                            <option key={t} value={t}>{t}</option>
+                                          ))}
+                                        </select>
+                                      </div>
+                                      <div className="flex-1">
+                                        <label className="text-xs text-gray-500 block mb-1">Source Column</label>
+                                        <select
+                                          value={field.source_column ?? ''}
+                                          onChange={(e) => {
+                                            const updated = [...whitelistFields];
+                                            updated[idx] = { ...updated[idx], source_column: e.target.value };
+                                            setWhitelistFields(updated);
+                                          }}
+                                          className="w-full border border-gray-300 rounded px-2 py-1 text-sm"
+                                          disabled={!field.source_table}
+                                        >
+                                          <option value="">— Select column —</option>
+                                          {(wlAvailableColumns[idx] ?? []).map(col => (
+                                            <option key={col} value={col}>{col}</option>
+                                          ))}
+                                        </select>
+                                      </div>
+                                    </div>
+                                  )}
+                                </div>
+                              ))}
+                            </div>
+                            <button
+                              type="button"
+                              onClick={() => setWhitelistFields([
+                                ...whitelistFields,
+                                { label: '', db_column: '', input_type: 'text' },
+                              ])}
+                              className="mt-2 text-sm text-emerald-700 font-semibold hover:underline"
+                            >
+                              + Add Field
+                            </button>
+                          </div>
+                        )}
                       </div>
                     )}
                   </div>
