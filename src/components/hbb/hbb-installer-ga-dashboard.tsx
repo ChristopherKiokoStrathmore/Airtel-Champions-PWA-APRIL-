@@ -151,14 +151,18 @@ export function HBBInstallerGADashboard({ userPhone, userName }: { userPhone: st
   const bandInfo = getIncentiveBand(gaData.ga_count, 'installer');
   const progress = calculateProgressToNextBand(gaData.ga_count, 'installer');
 
-  // Conversion rate metrics
-  const daysProductive = history.filter(e => (e.total_ga ?? 0) >= 1).length;
+  // Conversion rate metrics — scoped to current month only
+  const currentMonthHistory = history.filter(
+    e => (e.month_year || e.ga_date.slice(0, 7)) === gaData.month_year
+  );
+  const daysProductive = currentMonthHistory.filter(e => (e.total_ga ?? 0) >= 1).length;
   const workingDaysElapsed = getWorkingDaysElapsed(gaData.month_year);
   const daysProductivePct = workingDaysElapsed > 0
     ? Math.round((daysProductive / workingDaysElapsed) * 100)
     : 0;
+  const currentMonthGA = currentMonthHistory.reduce((sum, e) => sum + (e.total_ga ?? 0), 0);
   const gaEfficiency = daysProductive > 0
-    ? (gaData.ga_count / daysProductive).toFixed(1)
+    ? (currentMonthGA / daysProductive).toFixed(1)
     : '0.0';
   const jobConversionPct = (completedJobsCount !== null && completedJobsCount > 0)
     ? Math.round((gaData.ga_count / completedJobsCount) * 100)
