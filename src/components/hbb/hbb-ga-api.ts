@@ -994,6 +994,55 @@ export async function getTableSources(): Promise<string[]> {
 }
 
 /**
+ * Count completed service_requests for an installer in the given month.
+ * Looks up the installer's numeric ID from the `installers` table by phone variants,
+ * then counts completed jobs within the calendar month.
+ * Returns 0 silently on any error — metric is best-effort.
+ */
+export async function getInstallerCompletedJobsCount(
+  msisdn: string,
+  monthYear: string
+): Promise<number> {
+  try {
+    const normalized = normalizePhone(msisdn);
+    const base = normalized.replace(/^0/, '');
+    const variants = Array.from(new Set([
+      normalized, base, `254${base}`, `+254${base}`,
+    ]));
+
+    const { data: installerRows, error: idErr } = await supabase
+      .from('installers')
+      .select('id')
+      .in('phone', variants);
+
+    if (idErr || !installerRows || installerRows.length === 0) return 0;
+
+    const ids = installerRows.map((r: any) => r.id);
+    const [year, month] = monthYear.split('-');
+    const nextMonthNum = Number(month) + 1;
+    const nextYear = nextMonthNum > 12 ? Number(year) + 1 : Number(year);
+    const nextMonthStr = (nextMonthNum > 12 ? 1 : nextMonthNum).toString().padStart(2, '0');
+
+    const { count, error: jobErr } = await supabase
+      .from('service_requests')
+      .select('*', { count: 'exact', head: true })
+      .eq('status', 'completed')
+      .in('installer_id', ids)
+      .gte('completed_at', `${year}-${month}-01`)
+      .lt('completed_at', `${nextYear}-${nextMonthStr}-01`);
+
+    if (jobErr) {
+      console.warn('[GA API] Completed jobs count failed:', jobErr.message);
+      return 0;
+    }
+
+    return count ?? 0;
+  } catch {
+    return 0;
+  }
+}
+
+/**
  * Update incentive bands
  */
 export async function updateIncentiveBands(

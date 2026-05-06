@@ -246,6 +246,26 @@ export function getDaysRemainingInMonth(): number {
   return Math.max(0, lastDay - today.getDate());
 }
 
+/**
+ * Count working days elapsed so far in a given month_year (e.g. "2026-05").
+ * A working day is any day that is NOT a Sunday (1 rest day per week).
+ * For the current month, counts up to today. For past months, counts the full month.
+ */
+export function getWorkingDaysElapsed(monthYear: string): number {
+  const [y, m] = monthYear.split('-').map(Number);
+  if (!y || !m) return 0;
+  const today = new Date();
+  const isCurrentMonth = today.getFullYear() === y && today.getMonth() + 1 === m;
+  const lastDay = isCurrentMonth
+    ? today.getDate()
+    : new Date(y, m, 0).getDate();
+  let count = 0;
+  for (let d = 1; d <= lastDay; d++) {
+    if (new Date(y, m - 1, d).getDay() !== 0) count++;
+  }
+  return count;
+}
+
 // ═════════════════════════════════════════════════════════════════════════════
 // ADDITIONAL DASHBOARD UTILITIES
 // ═════════════════════════════════════════════════════════════════════════════
