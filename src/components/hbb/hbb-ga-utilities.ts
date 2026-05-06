@@ -247,23 +247,15 @@ export function getDaysRemainingInMonth(): number {
 }
 
 /**
- * Count working days elapsed so far in a given month_year (e.g. "2026-05").
- * A working day is any day that is NOT a Sunday (1 rest day per week).
- * For the current month, counts up to today. For past months, counts the full month.
+ * Count calendar days elapsed so far in a given month_year (e.g. "2026-05").
+ * For the current month, returns today's date. For past months, returns the full month length.
  */
 export function getWorkingDaysElapsed(monthYear: string): number {
   const [y, m] = monthYear.split('-').map(Number);
   if (!y || !m) return 0;
   const today = new Date();
   const isCurrentMonth = today.getFullYear() === y && today.getMonth() + 1 === m;
-  const lastDay = isCurrentMonth
-    ? today.getDate()
-    : new Date(y, m, 0).getDate();
-  let count = 0;
-  for (let d = 1; d <= lastDay; d++) {
-    if (new Date(y, m - 1, d).getDay() !== 0) count++;
-  }
-  return count;
+  return isCurrentMonth ? today.getDate() : new Date(y, m, 0).getDate();
 }
 
 // ═════════════════════════════════════════════════════════════════════════════
@@ -271,7 +263,7 @@ export function getWorkingDaysElapsed(monthYear: string): number {
 // ═════════════════════════════════════════════════════════════════════════════
 
 /**
- * Format currency to KES format with abbreviation
+ * Format currency to KES format with abbreviation (for compact displays)
  */
 export function formatCurrency(amount: number): string {
   if (!amount && amount !== 0) return 'KES 0';
@@ -282,6 +274,14 @@ export function formatCurrency(amount: number): string {
     return `KES ${(amount / 1000).toFixed(1)}K`;
   }
   return `KES ${Math.round(amount)}`;
+}
+
+/**
+ * Format currency to exact KES format with comma separators (e.g. KES 15,250)
+ */
+export function formatCurrencyExact(amount: number): string {
+  if (!amount && amount !== 0) return 'KES 0';
+  return `KES ${Math.round(amount).toLocaleString('en-KE')}`;
 }
 
 /**
