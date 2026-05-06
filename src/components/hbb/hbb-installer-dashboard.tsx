@@ -827,54 +827,19 @@ function JobDetailView({ job, onBack, onUpdateStatus }: {
   const townName = job.town || '—';
 
   // Capture GPS location
-  const captureGPS = () => {
-    if (!navigator.geolocation) {
-      setGpsError('Geolocation not supported');
-      return;
-    }
+  const captureGPS = async () => {
     setGpsLoading(true);
     setGpsError('');
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        console.log('[GPS] Raw position object:', pos);
-        console.log('[GPS] Position coords:', pos.coords);
-        
-        // Validate GPS coordinates to prevent NaN values
-        const lat = pos.coords.latitude;
-        const lng = pos.coords.longitude;
-        const accuracy = pos.coords.accuracy;
-        
-        console.log('[GPS] Extracted values:', {
-          lat,
-          lng,
-          accuracy,
-          latIsNaN: isNaN(lat),
-          lngIsNaN: isNaN(lng),
-          accuracyIsNaN: accuracy ? isNaN(accuracy) : 'N/A'
-        });
-        
-        if (isNaN(lat) || isNaN(lng) || (accuracy && isNaN(accuracy))) {
-          setGpsError('Invalid GPS coordinates received');
-          setGpsLoading(false);
-          toast.error('Invalid GPS coordinates');
-          return;
-        }
-        
-        setGpsLocation({
-          lat: lat,
-          lng: lng,
-          accuracy: accuracy,
-        });
-        setGpsLoading(false);
-        toast.success('Location captured!');
-      },
-      (err) => {
-        setGpsError(err.message || 'Failed to get location');
-        setGpsLoading(false);
-        toast.error('Could not capture location');
-      },
-      { enableHighAccuracy: true, timeout: 15000, maximumAge: 0 }
-    );
+    try {
+      const pos = await captureCurrentPosition();
+      setGpsLocation({ lat: pos.lat, lng: pos.lng, accuracy: pos.accuracy });
+      toast.success('Location captured!');
+    } catch (err: any) {
+      setGpsError(err.message || 'Failed to get location');
+      toast.error('Could not capture location');
+    } finally {
+      setGpsLoading(false);
+    }
   };
 
   const handleAction = async (status: string) => {
