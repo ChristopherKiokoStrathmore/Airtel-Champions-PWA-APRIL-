@@ -11,7 +11,7 @@ import {
   getInstallerCompletedJobsCount,
   InstallerLeaderboardEntry,
 } from './hbb-ga-api';
-import { getIncentiveBand, calculateProgressToNextBand, getCurrentMonthYear, normalizePhone, formatCurrency, getWorkingDaysElapsed } from './hbb-ga-utilities';
+import { getIncentiveBand, calculateProgressToNextBand, getCurrentMonthYear, normalizePhone, formatCurrency, formatCurrencyExact, getWorkingDaysElapsed } from './hbb-ga-utilities';
 import { toast } from 'sonner';
 
 interface InstallerGAData {
@@ -317,7 +317,7 @@ export function HBBInstallerGADashboard({ userPhone, userName }: { userPhone: st
                   const monthBand = getIncentiveBand(gaData.ga_count, 'installer');
                   const perGa = monthBand?.totalBonus || 0;
                   const earned = gaData.incentive_earned || (gaData.ga_count * perGa) || 0;
-                  return earned > 0 ? formatCurrency(earned) : '-';
+                  return earned > 0 ? formatCurrencyExact(earned) : '-';
                 })()}
               </div>
               <p className="text-xs text-gray-600">This month</p>
