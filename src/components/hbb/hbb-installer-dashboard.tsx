@@ -676,67 +676,161 @@ function MorningCheckInCard({ installerMsisdn, installerName }: { installerMsisd
     }
   };
 
+  const openMaps = () => {
+    if (!result) return;
+    window.open(`https://www.google.com/maps?q=${result.lat},${result.lng}`, '_blank', 'noopener,noreferrer');
+  };
+
+  const now = new Date();
+  const dateLabel = now.toLocaleDateString('en-KE', { weekday: 'long', day: 'numeric', month: 'long' });
+
+  /* ── Loading skeleton ── */
   if (state === 'loading-today') {
     return (
-      <div className="bg-white rounded-3xl p-4 shadow-sm border border-gray-100 flex items-center gap-3">
-        <div className="w-4 h-4 border-2 border-gray-300 border-t-transparent rounded-full animate-spin flex-shrink-0" />
-        <span className="text-sm text-gray-400">Loading check-in status…</span>
+      <div className="relative overflow-hidden rounded-3xl shadow-sm" style={{ background: 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)', border: '1px solid #e2e8f0' }}>
+        <div className="p-4 flex items-center gap-3">
+          <div className="w-11 h-11 rounded-2xl bg-gray-200 animate-pulse flex-shrink-0" />
+          <div className="flex-1 space-y-2">
+            <div className="h-3 bg-gray-200 rounded-full w-32 animate-pulse" />
+            <div className="h-2.5 bg-gray-100 rounded-full w-24 animate-pulse" />
+          </div>
+        </div>
       </div>
     );
   }
 
+  /* ── Success / already checked in ── */
   if (state === 'done') {
     const time = result
       ? new Date(result.checkedInAt).toLocaleTimeString('en-KE', { hour: '2-digit', minute: '2-digit' })
       : '';
+    const latStr = result ? result.lat.toFixed(6) : '';
+    const lngStr = result ? result.lng.toFixed(6) : '';
+    const accuracyStr = result?.accuracy ? `±${Math.round(result.accuracy)}m` : null;
+
     return (
-      <div className="rounded-3xl p-4 border border-green-200 bg-green-50 flex items-center gap-3 shadow-sm">
-        <div className="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center flex-shrink-0">
-          <CheckCircle className="w-5 h-5 text-green-600" />
-        </div>
-        <div className="flex-1 min-w-0">
-          <p className="text-sm font-semibold text-green-700">Checked In Today</p>
+      <div className="relative overflow-hidden rounded-3xl shadow-md" style={{ background: 'linear-gradient(135deg, #064e3b 0%, #065f46 50%, #047857 100%)' }}>
+        {/* Decorative circles */}
+        <div className="absolute -top-8 -right-8 w-32 h-32 rounded-full opacity-10 bg-white" />
+        <div className="absolute -bottom-6 -left-6 w-24 h-24 rounded-full opacity-10 bg-white" />
+        <div className="absolute top-1/2 right-8 -translate-y-1/2 w-16 h-16 rounded-full opacity-5 bg-white" />
+
+        <div className="relative p-4">
+          {/* Header row */}
+          <div className="flex items-start justify-between mb-3">
+            <div className="flex items-center gap-2.5">
+              <div className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center border border-white/20">
+                <CheckCircle className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <p className="text-[10px] font-semibold text-green-200 uppercase tracking-widest">Check-In Complete</p>
+                <p className="text-sm font-bold text-white leading-tight">{dateLabel}</p>
+              </div>
+            </div>
+            {time && (
+              <div className="flex flex-col items-end">
+                <span className="text-[10px] text-green-300 uppercase tracking-wider">Logged at</span>
+                <span className="text-base font-bold text-white">{time}</span>
+              </div>
+            )}
+          </div>
+
+          {/* Divider */}
+          <div className="h-px bg-white/15 mb-3" />
+
+          {/* Coordinates row */}
           {result && (
-            <p className="text-[11px] text-green-600 font-mono truncate">
-              {result.lat.toFixed(5)}, {result.lng.toFixed(5)}
-              {result.accuracy ? ` (±${Math.round(result.accuracy)}m)` : ''}
-            </p>
+            <div className="flex items-center gap-2 mb-3">
+              <div className="w-6 h-6 rounded-lg bg-white/15 flex items-center justify-center flex-shrink-0">
+                <MapPin className="w-3.5 h-3.5 text-green-200" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-[11px] text-green-200 font-mono truncate">
+                  {latStr}, {lngStr}
+                </p>
+                {accuracyStr && (
+                  <p className="text-[10px] text-green-400 mt-0.5">Accuracy {accuracyStr}</p>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Google Maps button */}
+          {result && (
+            <button
+              onClick={openMaps}
+              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-2xl font-semibold text-xs active:scale-[0.98] transition-all border border-white/25"
+              style={{ background: 'rgba(255,255,255,0.15)', color: 'white', backdropFilter: 'blur(4px)' }}
+            >
+              <Navigation2 className="w-3.5 h-3.5" />
+              View on Google Maps
+            </button>
           )}
         </div>
-        {time && <span className="text-xs font-semibold text-green-600 flex-shrink-0">{time}</span>}
+
+        {/* Animated pulse dot — top-right indicator */}
+        <div className="absolute top-3.5 right-3.5 flex items-center gap-1.5">
+          <span className="relative flex h-2.5 w-2.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-300 opacity-75" />
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-400" />
+          </span>
+        </div>
       </div>
     );
   }
 
+  /* ── Idle / ready to check in ── */
   return (
-    <div className="bg-white rounded-3xl p-4 shadow-sm border border-gray-100">
-      <div className="flex items-center gap-2 mb-3">
-        <div className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#FEF2F2' }}>
-          <MapPin className="w-4 h-4" style={{ color: ACCENT }} />
+    <div className="relative overflow-hidden rounded-3xl shadow-md" style={{ background: `linear-gradient(135deg, ${ACCENT_DARK} 0%, ${ACCENT} 60%, #FF2020 100%)` }}>
+      {/* Decorative circles */}
+      <div className="absolute -top-10 -right-10 w-36 h-36 rounded-full opacity-10 bg-white" />
+      <div className="absolute -bottom-8 -left-8 w-28 h-28 rounded-full opacity-10 bg-white" />
+
+      <div className="relative p-4">
+        {/* Header */}
+        <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center gap-2.5">
+            <div className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center border border-white/20">
+              <MapPin className="w-5 h-5 text-white" />
+            </div>
+            <div>
+              <p className="text-[10px] font-semibold text-red-200 uppercase tracking-widest">Morning Check-In</p>
+              <p className="text-sm font-bold text-white leading-tight">{dateLabel}</p>
+            </div>
+          </div>
+          <div className="px-2.5 py-1 rounded-full bg-white/20 border border-white/20">
+            <span className="text-[10px] font-bold text-white">NOT DONE</span>
+          </div>
         </div>
-        <div>
-          <p className="text-sm font-semibold text-gray-800">Morning Check-In</p>
-          <p className="text-[10px] text-gray-400">Tap to record your location for today</p>
-        </div>
+
+        {/* Divider */}
+        <div className="h-px bg-white/15 mb-3" />
+
+        {/* Description */}
+        <p className="text-[11px] text-red-100 mb-3 leading-relaxed">
+          Tap below to record your GPS location for today. Required once per day before starting your jobs.
+        </p>
+
+        {/* CTA button */}
+        <button
+          onClick={handleCheckIn}
+          disabled={state === 'checking'}
+          className="w-full flex items-center justify-center gap-2.5 py-3.5 rounded-2xl font-bold text-sm active:scale-[0.98] transition-all disabled:opacity-70"
+          style={{ background: 'rgba(255,255,255,0.95)', color: ACCENT_DARK }}
+        >
+          {state === 'checking' ? (
+            <>
+              <div className="w-4 h-4 border-2 border-red-600 border-t-transparent rounded-full animate-spin" />
+              <span>Getting your location…</span>
+            </>
+          ) : (
+            <>
+              <Navigation className="w-4 h-4" />
+              <span>Check In for Today</span>
+            </>
+          )}
+        </button>
       </div>
-      <button
-        onClick={handleCheckIn}
-        disabled={state === 'checking'}
-        className="w-full py-3 rounded-2xl text-white font-semibold text-sm flex items-center justify-center gap-2 disabled:opacity-60 active:scale-[0.98] transition-all"
-        style={{ backgroundColor: ACCENT }}
-      >
-        {state === 'checking' ? (
-          <>
-            <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-            Getting your location…
-          </>
-        ) : (
-          <>
-            <Navigation className="w-4 h-4" />
-            Check In for Today
-          </>
-        )}
-      </button>
     </div>
   );
 }
