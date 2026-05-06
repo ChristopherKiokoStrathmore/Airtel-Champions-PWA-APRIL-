@@ -528,3 +528,43 @@ export async function seedTestData() {
 export async function getDebugInfo() {
   return await hbbFetch('/debug');
 }
+
+// ─── INSTALLER MORNING CHECK-IN ─────────────────────────────────────────────
+export async function submitInstallerCheckIn(params: {
+  installerMsisdn: string;
+  installerName: string;
+  teamLeadMsisdn?: string | null;
+  lat: number;
+  lng: number;
+  accuracy?: number;
+}): Promise<{
+  id: string;
+  checkInDate: string;
+  checkedInAt: string;
+  latitude: number;
+  longitude: number;
+}> {
+  const { data, error } = await supabase.rpc('hbb_installer_check_in', {
+    p_installer_msisdn:  params.installerMsisdn,
+    p_installer_name:    params.installerName,
+    p_team_lead_msisdn:  params.teamLeadMsisdn ?? null,
+    p_latitude:          params.lat,
+    p_longitude:         params.lng,
+    p_accuracy_meters:   params.accuracy ?? null,
+  });
+
+  if (error) {
+    const msg = error.message || '';
+    if (msg.includes('CHECKIN_ALREADY_SUBMITTED_TODAY')) throw new Error('CHECKIN_ALREADY_SUBMITTED_TODAY');
+    if (msg.includes('CHECKIN_INPUT_INVALID'))           throw new Error('CHECKIN_INPUT_INVALID');
+    throw error;
+  }
+
+  return {
+    id:          data.id,
+    checkInDate: data.check_in_date,
+    checkedInAt: data.checked_in_at,
+    latitude:    data.latitude,
+    longitude:   data.longitude,
+  };
+}
