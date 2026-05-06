@@ -8,9 +8,10 @@ import {
   getInstallerDailyHistory,
   getInstallerGACurrentMonth,
   getInstallersByTeamLead,
+  getInstallerCompletedJobsCount,
   InstallerLeaderboardEntry,
 } from './hbb-ga-api';
-import { getIncentiveBand, calculateProgressToNextBand, getCurrentMonthYear, normalizePhone, formatCurrency } from './hbb-ga-utilities';
+import { getIncentiveBand, calculateProgressToNextBand, getCurrentMonthYear, normalizePhone, formatCurrency, getWorkingDaysElapsed } from './hbb-ga-utilities';
 import { toast } from 'sonner';
 
 interface InstallerGAData {
@@ -49,6 +50,7 @@ export function HBBInstallerGADashboard({ userPhone, userName }: { userPhone: st
   const [viewMode, setViewMode] = useState<'current' | 'history'>('current');
   const [leaderboard, setLeaderboard] = useState<InstallerLeaderboardEntry[]>([]);
   const [leaderboardLoading, setLeaderboardLoading] = useState(false);
+  const [completedJobsCount, setCompletedJobsCount] = useState<number | null>(null);
   const [selectedMonth, setSelectedMonth] = useState<string>('all');
   const [startDateFilter, setStartDateFilter] = useState<string>('');
   const [endDateFilter, setEndDateFilter] = useState<string>('');
@@ -113,6 +115,13 @@ export function HBBInstallerGADashboard({ userPhone, userName }: { userPhone: st
       const historyMsisdn = data?.installer_msisdn || msisdnToQuery;
       const historyData = await getInstallerDailyHistory(historyMsisdn);
       setHistory(historyData);
+
+      // Fetch completed jobs count for job conversion metric (best-effort, non-blocking)
+      const jobsMsisdn = data?.installer_msisdn || msisdnToQuery;
+      const jobMonth = data?.month_year || currentMonth;
+      getInstallerCompletedJobsCount(jobsMsisdn, jobMonth)
+        .then(count => setCompletedJobsCount(count))
+        .catch(() => setCompletedJobsCount(0));
     } catch (error) {
       toast.error(`Failed to load GA data: ${error instanceof Error ? error.message : 'Unknown error'}`);
     } finally {
@@ -141,6 +150,19 @@ export function HBBInstallerGADashboard({ userPhone, userName }: { userPhone: st
 
   const bandInfo = getIncentiveBand(gaData.ga_count, 'installer');
   const progress = calculateProgressToNextBand(gaData.ga_count, 'installer');
+
+  // Conversion rate metrics
+  const daysProductive = history.filter(e => (e.total_ga ?? 0) >= 1).length;
+  const workingDaysElapsed = getWorkingDaysElapsed(gaData.month_year);
+  const daysProductivePct = workingDaysElapsed > 0
+    ? Math.round((daysProductive / workingDaysElapsed) * 100)
+    : 0;
+  const gaEfficiency = daysProductive > 0
+    ? (gaData.ga_count / daysProductive).toFixed(1)
+    : '0.0';
+  const jobConversionPct = (completedJobsCount !== null && completedJobsCount > 0)
+    ? Math.round((gaData.ga_count / completedJobsCount) * 100)
+    : null;
   const availableMonths = Array.from(
     new Set(history.map(entry => (entry.month_year || entry.ga_date.slice(0, 7))))
   ).sort((a, b) => b.localeCompare(a));
@@ -197,6 +219,46 @@ export function HBBInstallerGADashboard({ userPhone, userName }: { userPhone: st
               </div>
               <div className="text-5xl font-bold text-red-600 mb-2">{gaData.ga_count}</div>
               <p className="text-gray-600 text-sm">GAs this month ({gaData.month_year})</p>
+            </div>
+
+            {/* Conversion Rate Section */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 mb-6">
+              <h2 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                <TrendingUp className="w-5 h-5 text-red-600" />
+                Conversion Rate
+              </h2>
+              <div className="grid grid-cols-3 gap-3">
+                {/* Days Productive % */}
+                <div className="bg-gray-50 rounded-xl p-3 text-center">
+                  <p className="text-2xl font-bold text-gray-900">{daysProductivePct}%</p>
+                  <p className="text-xs text-gray-500 mt-1 leading-tight">Days Productive</p>
+                  <p className="text-[10px] text-gray-400 mt-0.5">{daysProductive}/{workingDaysElapsed} days</p>
+                </div>
+
+                {/* GA Efficiency */}
+                <div className="bg-gray-50 rounded-xl p-3 text-center">
+                  <p className="text-2xl font-bold text-gray-900">{gaEfficiency}</p>
+                  <p className="text-xs text-gray-500 mt-1 leading-tight">GA / Day</p>
+                  <p className="text-[10px] text-gray-400 mt-0.5">on active days</p>
+                </div>
+
+                {/* Job Conversion */}
+                <div className="bg-gray-50 rounded-xl p-3 text-center">
+                  {jobConversionPct !== null ? (
+                    <>
+                      <p className="text-2xl font-bold text-gray-900">{jobConversionPct}%</p>
+                      <p className="text-xs text-gray-500 mt-1 leading-tight">Job Conversion</p>
+                      <p className="text-[10px] text-gray-400 mt-0.5">{gaData.ga_count} GA / {completedJobsCount} jobs</p>
+                    </>
+                  ) : (
+                    <>
+                      <p className="text-2xl font-bold text-gray-400">—</p>
+                      <p className="text-xs text-gray-500 mt-1 leading-tight">Job Conversion</p>
+                      <p className="text-[10px] text-gray-400 mt-0.5">no jobs yet</p>
+                    </>
+                  )}
+                </div>
+              </div>
             </div>
 
             {/* Band & Progress Card */}
