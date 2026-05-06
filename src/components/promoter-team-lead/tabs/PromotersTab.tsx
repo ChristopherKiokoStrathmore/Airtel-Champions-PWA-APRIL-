@@ -157,7 +157,7 @@ export function PromotersTab({ teamLeadId, onPromoterChange }: Props) {
         <div className="bg-amber-50 rounded-xl p-3 flex gap-2">
           <span className="text-sm flex-shrink-0">⚠️</span>
           <p className="text-xs text-amber-700">
-            If this MSISDN is already mapped to another Team Lead, you'll see an error and the promoter will not be added.
+            If this MSISDN is already recruited by another Team Lead, the system will refuse it.
           </p>
         </div>
       </div>

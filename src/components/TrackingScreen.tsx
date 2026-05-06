@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
-import { ArrowLeft, MapPin, Clock, CheckCircle2, Truck, Home as HomeIcon } from 'lucide-react';
+import { ArrowLeft, MapPin, Clock, CheckCircle2, Truck, Home as HomeIcon, QrCode, X, ScanLine } from 'lucide-react';
 import { supabase } from '../utils/supabase/client';
 
 // ─── Fix Leaflet default marker icon (Vite/Webpack asset issue) ───────────────
@@ -26,6 +26,12 @@ const STATUS_STEPS = [
 ] as const;
 
 const ACCENT = '#E60000';
+const PAYMENT_QR_TEXT = 'Airtel HBB installation payment';
+
+function getPaymentQrUrl(jobId: string) {
+  const payload = `${PAYMENT_QR_TEXT} | Job ${String(jobId).slice(0, 8).toUpperCase()}`;
+  return `https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=${encodeURIComponent(payload)}`;
+}
 
 // Nairobi as default map centre
 const DEFAULT_CENTER: [number, number] = [-1.2921, 36.8219];
@@ -50,6 +56,7 @@ export function TrackingScreen({ jobId, onBack }: TrackingScreenProps) {
   const [job, setJob]                         = useState<any>(null);
   const [location, setLocation]               = useState<{ lat: number; lng: number } | null>(null);
   const [loading, setLoading]                 = useState(true);
+  const [showPaymentQr, setShowPaymentQr]     = useState(false);
 
   // ── Initial job fetch ──────────────────────────────────────────────────────
   useEffect(() => {
@@ -102,23 +109,76 @@ export function TrackingScreen({ jobId, onBack }: TrackingScreenProps) {
   // ── Completed screen ───────────────────────────────────────────────────────
   if (job?.status === 'completed') {
     return (
-      <div className="flex flex-col items-center justify-center h-full px-8 text-center bg-gray-50">
-        <div className="w-24 h-24 rounded-full flex items-center justify-center mb-5 bg-green-100">
-          <CheckCircle2 className="w-12 h-12 text-green-500" />
+      <>
+        <div className="flex flex-col items-center justify-center h-full px-8 text-center bg-gray-50">
+          <div className="w-24 h-24 rounded-full flex items-center justify-center mb-5 bg-green-100">
+            <CheckCircle2 className="w-12 h-12 text-green-500" />
+          </div>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">Installation Complete!</h2>
+          <p className="text-gray-500 text-sm leading-relaxed mb-8">
+            Your Airtel HBB connection has been installed successfully.
+            Tap to pay now to open the payment QR code.
+          </p>
+          <div className="w-full max-w-xs space-y-3">
+            <button
+              onClick={() => setShowPaymentQr(true)}
+              className="w-full px-6 py-3.5 rounded-2xl text-white font-semibold text-base shadow-lg flex items-center justify-center gap-2"
+              style={{ background: `linear-gradient(135deg, ${ACCENT}, #B30000)` }}
+            >
+              <ScanLine className="w-5 h-5" />
+              Tap to Pay
+            </button>
+            <button
+              onClick={onBack}
+              className="w-full px-6 py-3 rounded-2xl text-sm font-semibold text-gray-700 bg-white border border-gray-200"
+            >
+              Back to Home
+            </button>
+          </div>
         </div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Installation Complete!</h2>
-        <p className="text-gray-500 text-sm leading-relaxed mb-8">
-          Your Airtel HBB connection has been installed successfully.
-          Welcome to high-speed internet!
-        </p>
-        <button
-          onClick={onBack}
-          className="px-10 py-3.5 rounded-2xl text-white font-semibold text-base shadow-lg"
-          style={{ background: `linear-gradient(135deg, ${ACCENT}, #B30000)` }}
-        >
-          Back to Home
-        </button>
-      </div>
+
+        {showPaymentQr && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center px-4"
+            style={{ backgroundColor: 'rgba(0,0,0,0.55)', backdropFilter: 'blur(4px)' }}
+            onClick={() => setShowPaymentQr(false)}
+          >
+            <div
+              className="w-full max-w-sm bg-white rounded-[28px] overflow-hidden shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="px-5 py-4 flex items-start justify-between" style={{ background: `linear-gradient(135deg, ${ACCENT}, #B30000)` }}>
+                <div>
+                  <p className="text-white/70 text-[10px] font-bold uppercase tracking-widest">Tap to Pay</p>
+                  <h3 className="text-white text-lg font-bold leading-tight">Scan the QR code</h3>
+                </div>
+                <button onClick={() => setShowPaymentQr(false)} className="text-white/90 p-1">
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              <div className="px-5 py-6 text-center">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-red-50 mb-4">
+                  <QrCode className="w-6 h-6" style={{ color: ACCENT }} />
+                </div>
+                <p className="text-sm text-gray-500 mb-5">
+                  Open your payment app and scan this code to complete the Airtel HBB installation payment.
+                </p>
+                <div className="mx-auto w-[280px] max-w-full rounded-3xl bg-gray-50 p-4 border border-gray-100">
+                  <img
+                    src={getPaymentQrUrl(String(jobId))}
+                    alt="Airtel HBB payment QR code"
+                    className="w-full h-auto rounded-2xl bg-white"
+                  />
+                </div>
+                <p className="mt-4 text-[11px] text-gray-400">
+                  Reference: {PAYMENT_QR_TEXT}
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+      </>
     );
   }
 
