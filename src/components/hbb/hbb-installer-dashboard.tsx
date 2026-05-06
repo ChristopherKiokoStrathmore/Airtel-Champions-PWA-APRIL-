@@ -1,10 +1,11 @@
 // HBB Installer Dashboard — Mobile-first view for field installers
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { Home, ClipboardList, Clock, User, LogOut, RefreshCw, Wifi, MapPin, Phone, Calendar, CheckCircle, XCircle, AlertTriangle, ChevronRight, Navigation, MessageCircle, Award, TrendingUp, Shield, Zap, Star, Copy, Lock, Bell, Camera, Upload, Navigation2 } from 'lucide-react';
-import { getServiceRequests, updateServiceRequestStatus, getInstallerByPhone, generateWhatsAppLink, changePin } from './hbb-api';
+import { getServiceRequests, updateServiceRequestStatus, getInstallerByPhone, generateWhatsAppLink, changePin, submitInstallerCheckIn, normalizeKenyanPhone } from './hbb-api';
 import { NotificationBell } from './hbb-notifications';
 import { toast } from 'sonner';
 import { supabase } from '../../utils/supabase/client';
+import { captureCurrentPosition } from '../../utils/geolocation';
 import { useLiveLocation } from '../../hooks/useLiveLocation';
 import { RejectDialog } from './hbb-reject-dialog';
 import { InstallerCalendar } from './hbb-installer-calendar';
@@ -317,6 +318,7 @@ export const HBBInstallerDashboard = React.memo(function HBBInstallerDashboard({
             onRefresh={fetchData}
             onSelectJob={setSelectedJob}
             onViewAll={() => setActiveTab('jobs')}
+            installerMsisdn={userPhone}
           />
         );
     }
@@ -509,7 +511,7 @@ export const HBBInstallerDashboard = React.memo(function HBBInstallerDashboard({
 });
 
 // ─── INSTALLER HOME ─────────────────────────────────────────────────────────
-function InstallerHome({ userName, assignedCount, todayCount, completedCount, totalCount, todayJobs, loading, onRefresh, onSelectJob, onViewAll, installerName }: any) {
+function InstallerHome({ userName, assignedCount, todayCount, completedCount, totalCount, todayJobs, loading, onRefresh, onSelectJob, onViewAll, installerName, installerMsisdn }: any) {
   const hour = new Date().getHours();
   const greeting = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
 
@@ -536,6 +538,14 @@ function InstallerHome({ userName, assignedCount, todayCount, completedCount, to
         <StatCard label="Today" value={todayCount} color={ACCENT} bg="#FEF2F2" />
         <StatCard label="Done" value={completedCount} color="#10B981" bg="#ECFDF5" />
       </div>
+
+      {/* Morning Check-In */}
+      {installerMsisdn && (
+        <MorningCheckInCard
+          installerMsisdn={installerMsisdn}
+          installerName={installerName || userName}
+        />
+      )}
 
       {/* Upcoming Jobs */}
       <div>
@@ -589,6 +599,144 @@ function InstallerHome({ userName, assignedCount, todayCount, completedCount, to
           </div>
         </div>
       </div>
+    </div>
+  );
+}
+
+// ─── MORNING CHECK-IN CARD ──────────────────────────────────────────────────
+function MorningCheckInCard({ installerMsisdn, installerName }: { installerMsisdn: string; installerName: string }) {
+  const [state, setState] = React.useState<'loading-today' | 'idle' | 'checking' | 'done'>('loading-today');
+  const [result, setResult] = React.useState<{ checkedInAt: string; lat: number; lng: number; accuracy?: number } | null>(null);
+  const [teamLeadMsisdn, setTeamLeadMsisdn] = React.useState<string | null>(null);
+
+  React.useEffect(() => {
+    if (!installerMsisdn) return;
+    const msisdn = normalizeKenyanPhone(installerMsisdn);
+    const today = new Date().toISOString().split('T')[0];
+
+    (async () => {
+      try {
+        const { data: existing } = await supabase
+          .from('hbb_installer_morning_checkins')
+          .select('checked_in_at, latitude, longitude, accuracy_meters')
+          .eq('installer_msisdn', msisdn)
+          .eq('check_in_date', today)
+          .maybeSingle();
+
+        if (existing) {
+          setResult({
+            checkedInAt: existing.checked_in_at,
+            lat: existing.latitude,
+            lng: existing.longitude,
+            accuracy: existing.accuracy_meters ?? undefined,
+          });
+          setState('done');
+          return;
+        }
+
+        const { data: gaRow } = await supabase
+          .from('hbb_installer_ga_monthly')
+          .select('team_lead_msisdn')
+          .eq('installer_msisdn', msisdn)
+          .order('month_year', { ascending: false })
+          .limit(1)
+          .maybeSingle();
+
+        setTeamLeadMsisdn(gaRow?.team_lead_msisdn ?? null);
+        setState('idle');
+      } catch {
+        setState('idle');
+      }
+    })();
+  }, [installerMsisdn]);
+
+  const handleCheckIn = async () => {
+    setState('checking');
+    try {
+      const pos = await captureCurrentPosition();
+      const res = await submitInstallerCheckIn({
+        installerMsisdn,
+        installerName,
+        teamLeadMsisdn,
+        lat: pos.lat,
+        lng: pos.lng,
+        accuracy: pos.accuracy,
+      });
+      setResult({ checkedInAt: res.checkedInAt, lat: res.latitude, lng: res.longitude, accuracy: pos.accuracy });
+      setState('done');
+      toast.success('Checked in successfully!');
+    } catch (err: any) {
+      if (err.message === 'CHECKIN_ALREADY_SUBMITTED_TODAY') {
+        toast.error('You already checked in today');
+        setState('done');
+        return;
+      }
+      toast.error(err.message || 'Check-in failed. Please try again.');
+      setState('idle');
+    }
+  };
+
+  if (state === 'loading-today') {
+    return (
+      <div className="bg-white rounded-3xl p-4 shadow-sm border border-gray-100 flex items-center gap-3">
+        <div className="w-4 h-4 border-2 border-gray-300 border-t-transparent rounded-full animate-spin flex-shrink-0" />
+        <span className="text-sm text-gray-400">Loading check-in status…</span>
+      </div>
+    );
+  }
+
+  if (state === 'done') {
+    const time = result
+      ? new Date(result.checkedInAt).toLocaleTimeString('en-KE', { hour: '2-digit', minute: '2-digit' })
+      : '';
+    return (
+      <div className="rounded-3xl p-4 border border-green-200 bg-green-50 flex items-center gap-3 shadow-sm">
+        <div className="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center flex-shrink-0">
+          <CheckCircle className="w-5 h-5 text-green-600" />
+        </div>
+        <div className="flex-1 min-w-0">
+          <p className="text-sm font-semibold text-green-700">Checked In Today</p>
+          {result && (
+            <p className="text-[11px] text-green-600 font-mono truncate">
+              {result.lat.toFixed(5)}, {result.lng.toFixed(5)}
+              {result.accuracy ? ` (±${Math.round(result.accuracy)}m)` : ''}
+            </p>
+          )}
+        </div>
+        {time && <span className="text-xs font-semibold text-green-600 flex-shrink-0">{time}</span>}
+      </div>
+    );
+  }
+
+  return (
+    <div className="bg-white rounded-3xl p-4 shadow-sm border border-gray-100">
+      <div className="flex items-center gap-2 mb-3">
+        <div className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#FEF2F2' }}>
+          <MapPin className="w-4 h-4" style={{ color: ACCENT }} />
+        </div>
+        <div>
+          <p className="text-sm font-semibold text-gray-800">Morning Check-In</p>
+          <p className="text-[10px] text-gray-400">Tap to record your location for today</p>
+        </div>
+      </div>
+      <button
+        onClick={handleCheckIn}
+        disabled={state === 'checking'}
+        className="w-full py-3 rounded-2xl text-white font-semibold text-sm flex items-center justify-center gap-2 disabled:opacity-60 active:scale-[0.98] transition-all"
+        style={{ backgroundColor: ACCENT }}
+      >
+        {state === 'checking' ? (
+          <>
+            <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+            Getting your location…
+          </>
+        ) : (
+          <>
+            <Navigation className="w-4 h-4" />
+            Check In for Today
+          </>
+        )}
+      </button>
     </div>
   );
 }
