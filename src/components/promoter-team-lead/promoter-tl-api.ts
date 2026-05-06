@@ -140,15 +140,24 @@ export async function addPromoter(
   promoterName: string,
   msisdn: string,
 ): Promise<{ member: PromoterMember | null; error: string | null }> {
-  const { data, error } = await supabase
-    .from('promoter_members')
-    .insert({ team_lead_id: teamLeadId, promoter_name: promoterName, msisdn })
-    .select()
-    .single();
+  const { data, error } = await supabase.rpc('promoter_add_member', {
+    p_team_lead_id: teamLeadId,
+    p_promoter_name: promoterName,
+    p_msisdn: msisdn,
+  });
 
   if (error) {
-    if (error.code === '23505') {
+    if (error.message.includes('PROMOTER_ALREADY_ASSIGNED_TO_ANOTHER_TEAM_LEAD')) {
       return { member: null, error: 'This promoter is already assigned to another Team Lead.' };
+    }
+    if (error.message.includes('PROMOTER_ALREADY_ASSIGNED_TO_YOUR_TEAM')) {
+      return { member: null, error: 'This promoter is already in your team.' };
+    }
+    if (error.message.includes('PROMOTER_INPUT_INVALID')) {
+      return { member: null, error: 'Enter both a promoter name and MSISDN.' };
+    }
+    if (error.message.includes('TEAM_LEAD_NOT_FOUND')) {
+      return { member: null, error: 'Your Team Lead account could not be found.' };
     }
     return { member: null, error: 'Could not add promoter. Please try again.' };
   }

@@ -6,13 +6,19 @@
 import { useState, useEffect, useCallback } from 'react';
 import {
   CheckCircle2, Clock, User, Calendar, Wrench, Home, RefreshCw,
-  Wifi, MapPin, Phone, ChevronRight, AlertCircle, Package, Navigation2, ExternalLink,
+  Wifi, MapPin, Phone, ChevronRight, AlertCircle, Package, Navigation2, ExternalLink, QrCode, X, ScanLine,
 } from 'lucide-react';
 import { getServiceRequests } from './hbb-api';
 import { motion, AnimatePresence } from 'motion/react';
 import { supabase } from '../../utils/supabase/client';
 
 const ACCENT = '#E60000';
+const PAYMENT_QR_TEXT = 'Airtel HBB installation payment';
+
+function getPaymentQrUrl(jobId: string | number) {
+  const payload = `${PAYMENT_QR_TEXT} | Job ${String(jobId).slice(0, 8).toUpperCase()}`;
+  return `https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=${encodeURIComponent(payload)}`;
+}
 
 // ─── Stage definitions ────────────────────────────────────────────────────────
 const STAGES = [
@@ -253,6 +259,7 @@ export function HBBOrderTracker({ agentPhone, agentName, srId, onNewOrder }: Pro
   const [loading, setLoading] = useState(true);
   const [lastRefresh, setLastRefresh] = useState<Date | null>(null);
   const [refreshing, setRefreshing] = useState(false);
+  const [showPaymentQr, setShowPaymentQr] = useState(false);
 
   const normalizePhone = (p: string) => String(p).replace(/\D/g, '').slice(-9);
   const agentDigits = normalizePhone(agentPhone);
@@ -372,6 +379,16 @@ export function HBBOrderTracker({ agentPhone, agentName, srId, onNewOrder }: Pro
               Refresh
             </button>
           </div>
+
+          {isComplete && (
+            <button
+              onClick={() => setShowPaymentQr(true)}
+              className="mt-4 w-full px-4 py-3 rounded-2xl bg-white/15 text-white text-sm font-semibold flex items-center justify-center gap-2 active:scale-[0.98] transition-transform"
+            >
+              <ScanLine className="w-4 h-4" />
+              Tap to Pay
+            </button>
+          )}
         </div>
       </div>
 
@@ -570,6 +587,48 @@ export function HBBOrderTracker({ agentPhone, agentName, srId, onNewOrder }: Pro
           (toll-free) and quote your SR number.
         </p>
       </div>
+
+      {showPaymentQr && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center px-4"
+          style={{ backgroundColor: 'rgba(0,0,0,0.55)', backdropFilter: 'blur(4px)' }}
+          onClick={() => setShowPaymentQr(false)}
+        >
+          <div
+            className="w-full max-w-sm bg-white rounded-[28px] overflow-hidden shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="px-5 py-4 flex items-start justify-between" style={{ background: `linear-gradient(135deg, ${ACCENT}, #B30000)` }}>
+              <div>
+                <p className="text-white/70 text-[10px] font-bold uppercase tracking-widest">Tap to Pay</p>
+                <h3 className="text-white text-lg font-bold leading-tight">Scan the QR code</h3>
+              </div>
+              <button onClick={() => setShowPaymentQr(false)} className="text-white/90 p-1">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="px-5 py-6 text-center">
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-red-50 mb-4">
+                <QrCode className="w-6 h-6" style={{ color: ACCENT }} />
+              </div>
+              <p className="text-sm text-gray-500 mb-5">
+                Open your payment app and scan this code to complete the Airtel HBB installation payment.
+              </p>
+              <div className="mx-auto w-[280px] max-w-full rounded-3xl bg-gray-50 p-4 border border-gray-100">
+                <img
+                  src={getPaymentQrUrl(order?.id || order?.sr_number || 'hbb')}
+                  alt="Airtel HBB payment QR code"
+                  className="w-full h-auto rounded-2xl bg-white"
+                />
+              </div>
+              <p className="mt-4 text-[11px] text-gray-400">
+                Reference: {PAYMENT_QR_TEXT}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

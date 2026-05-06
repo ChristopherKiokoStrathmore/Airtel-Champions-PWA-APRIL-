@@ -10,6 +10,7 @@ import { ProgramGFormsImporter } from './program-gforms-importer';
 import { ProgramDetails } from './program-details';
 import { ProgramSubmitModal } from './program-submit-modal';
 import { LinkedCheckoutModal } from './linked-checkout-modal';
+import { SubmissionSuccessModal } from './submission-success-modal';
 import { ProgramsTest } from './programs-test';
 import { DiagnosticPanel } from '../diagnostic-panel';
 import { programsAPI } from './programs-api';
@@ -60,6 +61,9 @@ export function ProgramsDashboard({ onBack }: { onBack?: () => void }) {
   const [vanCalendarView, setVanCalendarView] = useState<'form' | 'grid' | 'compliance' | 'view'>('form'); // Van Calendar view
   const [vanCalendarEnabled, setVanCalendarEnabled] = useState(true); // Van Calendar feature toggle
   const [showVanCalendarViewModal, setShowVanCalendarViewModal] = useState(false); // Van Calendar View modal
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [successData, setSuccessData] = useState<{ points: number; newTotal: number; programTitle: string; submissionDetails?: any } | null>(null);
+  const [flashMessage, setFlashMessage] = useState<string | null>(null);
 
   useEffect(() => {
     loadUserRole();
@@ -1058,8 +1062,15 @@ export function ProgramsDashboard({ onBack }: { onBack?: () => void }) {
             program={selectedProgramForSubmit}
             userId={JSON.parse(localStorage.getItem('tai_user') || '{}').id || ''}
             onClose={() => setSelectedProgramForSubmit(null)}
-            onSuccess={() => {
+            onSuccess={(pointsAwarded, newTotal, submissionDetails) => {
+              setSuccessData({ points: pointsAwarded, newTotal, programTitle: selectedProgramForSubmit.title, submissionDetails });
               setSelectedProgramForSubmit(null);
+              setShowSuccessModal(true);
+              // Flash notification for whitelist actions
+              if (selectedProgramForSubmit?.whitelist_target === 'promoter_team_lead') {
+                setFlashMessage(`✅ Whitelisted — +${pointsAwarded} points earned`);
+                setTimeout(() => setFlashMessage(null), 3000);
+              }
               loadPrograms();
             }}
           />
@@ -1068,12 +1079,42 @@ export function ProgramsDashboard({ onBack }: { onBack?: () => void }) {
             program={selectedProgramForSubmit}
             userId={JSON.parse(localStorage.getItem('tai_user') || '{}').id || ''}
             onClose={() => setSelectedProgramForSubmit(null)}
-            onSuccess={() => {
+            onSuccess={(pointsAwarded, newTotal, submissionDetails) => {
+              setSuccessData({ points: pointsAwarded, newTotal, programTitle: selectedProgramForSubmit.title, submissionDetails });
               setSelectedProgramForSubmit(null);
+              setShowSuccessModal(true);
+              // Flash notification for whitelist actions
+              if (selectedProgramForSubmit?.whitelist_target === 'promoter_team_lead') {
+                setFlashMessage(`✅ Whitelisted — +${pointsAwarded} points earned`);
+                setTimeout(() => setFlashMessage(null), 3000);
+              }
               loadPrograms();
             }}
           />
         )
+      )}
+
+      {/* Success Modal */}
+      {showSuccessModal && successData && (
+        <SubmissionSuccessModal
+          pointsEarned={successData.points}
+          newTotalPoints={successData.newTotal}
+          programTitle={successData.programTitle}
+          submissionDetails={successData.submissionDetails}
+          onClose={() => {
+            setShowSuccessModal(false);
+            setSuccessData(null);
+          }}
+        />
+      )}
+
+      {/* Ephemeral flash message (top-right) */}
+      {flashMessage && (
+        <div className="fixed top-6 right-6 z-50">
+          <div className="bg-green-600 text-white px-4 py-2 rounded-lg shadow-lg">
+            <div className="text-sm font-semibold">{flashMessage}</div>
+          </div>
+        </div>
       )}
 
       {/* Diagnostic Panel */}
