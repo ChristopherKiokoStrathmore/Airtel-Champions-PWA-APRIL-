@@ -678,7 +678,12 @@ function MorningCheckInCard({ installerMsisdn, installerName }: { installerMsisd
 
   const openMaps = () => {
     if (!result) return;
-    window.open(`https://www.google.com/maps?q=${result.lat},${result.lng}`, '_blank', 'noopener,noreferrer');
+    // Precise pin at the exact captured coordinates
+    window.open(
+      `https://www.google.com/maps/search/?api=1&query=${result.lat},${result.lng}`,
+      '_blank',
+      'noopener,noreferrer',
+    );
   };
 
   const now = new Date();
@@ -709,7 +714,7 @@ function MorningCheckInCard({ installerMsisdn, installerName }: { installerMsisd
     const accuracyStr = result?.accuracy ? `±${Math.round(result.accuracy)}m` : null;
 
     return (
-      <div className="relative overflow-hidden rounded-3xl shadow-md" style={{ background: 'linear-gradient(135deg, #064e3b 0%, #065f46 50%, #047857 100%)' }}>
+      <div className="relative overflow-hidden rounded-3xl shadow-md" style={{ background: `linear-gradient(135deg, ${ACCENT_DARK} 0%, ${ACCENT} 60%, #FF2020 100%)` }}>
         {/* Decorative circles */}
         <div className="absolute -top-8 -right-8 w-32 h-32 rounded-full opacity-10 bg-white" />
         <div className="absolute -bottom-6 -left-6 w-24 h-24 rounded-full opacity-10 bg-white" />
@@ -723,13 +728,13 @@ function MorningCheckInCard({ installerMsisdn, installerName }: { installerMsisd
                 <CheckCircle className="w-5 h-5 text-white" />
               </div>
               <div>
-                <p className="text-[10px] font-semibold text-green-200 uppercase tracking-widest">Check-In Complete</p>
+                <p className="text-[10px] font-semibold text-red-200 uppercase tracking-widest">Check-In Complete</p>
                 <p className="text-sm font-bold text-white leading-tight">{dateLabel}</p>
               </div>
             </div>
             {time && (
               <div className="flex flex-col items-end">
-                <span className="text-[10px] text-green-300 uppercase tracking-wider">Logged at</span>
+                <span className="text-[10px] text-red-200 uppercase tracking-wider">Logged at</span>
                 <span className="text-base font-bold text-white">{time}</span>
               </div>
             )}
@@ -742,14 +747,14 @@ function MorningCheckInCard({ installerMsisdn, installerName }: { installerMsisd
           {result && (
             <div className="flex items-center gap-2 mb-3">
               <div className="w-6 h-6 rounded-lg bg-white/15 flex items-center justify-center flex-shrink-0">
-                <MapPin className="w-3.5 h-3.5 text-green-200" />
+                <MapPin className="w-3.5 h-3.5 text-red-200" />
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-[11px] text-green-200 font-mono truncate">
+                <p className="text-[11px] text-red-100 font-mono truncate">
                   {latStr}, {lngStr}
                 </p>
                 {accuracyStr && (
-                  <p className="text-[10px] text-green-400 mt-0.5">Accuracy {accuracyStr}</p>
+                  <p className="text-[10px] text-red-200 mt-0.5">Accuracy {accuracyStr}</p>
                 )}
               </div>
             </div>
@@ -759,8 +764,8 @@ function MorningCheckInCard({ installerMsisdn, installerName }: { installerMsisd
           {result && (
             <button
               onClick={openMaps}
-              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-2xl font-semibold text-xs active:scale-[0.98] transition-all border border-white/25"
-              style={{ background: 'rgba(255,255,255,0.15)', color: 'white', backdropFilter: 'blur(4px)' }}
+              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-2xl font-semibold text-xs active:scale-[0.98] transition-all"
+              style={{ background: 'rgba(255,255,255,0.95)', color: ACCENT_DARK }}
             >
               <Navigation2 className="w-3.5 h-3.5" />
               View on Google Maps
@@ -771,8 +776,8 @@ function MorningCheckInCard({ installerMsisdn, installerName }: { installerMsisd
         {/* Animated pulse dot — top-right indicator */}
         <div className="absolute top-3.5 right-3.5 flex items-center gap-1.5">
           <span className="relative flex h-2.5 w-2.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-300 opacity-75" />
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-400" />
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-300 opacity-75" />
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-white" />
           </span>
         </div>
       </div>
