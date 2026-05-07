@@ -1,0 +1,35 @@
+name: Update Mappings
+
+on:
+  push:
+    paths:
+      - 'mappings/**'
+  workflow_dispatch: {}
+  schedule:
+    - cron: '0 2 * * *' # daily at 02:00 UTC
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r scripts/requirements.txt
+      - name: Find mapping file
+        id: find
+        run: |
+          FILE=$(ls mappings/* | head -n1 || true)
+          echo "file=$FILE" >> $GITHUB_OUTPUT
+      - name: Run mapping script
+        if: steps.find.outputs.file != ''
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          echo "Using mapping file: ${{ steps.find.outputs.file }}"
+          python scripts/update_mappings.py --file "${{ steps.find.outputs.file }}" --db-url "$DATABASE_URL"

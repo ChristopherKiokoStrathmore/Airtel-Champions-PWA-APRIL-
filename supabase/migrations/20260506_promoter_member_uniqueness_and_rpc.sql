@@ -115,3 +115,6 @@ EXCEPTION
     RAISE EXCEPTION 'PROMOTER_ALREADY_ASSIGNED_TO_ANOTHER_TEAM_LEAD';
 END;
 $$;
+
+GRANT EXECUTE ON FUNCTION public.promoter_add_member(uuid, text, text) TO anon;
+GRANT EXECUTE ON FUNCTION public.promoter_add_member(uuid, text, text) TO authenticated;
