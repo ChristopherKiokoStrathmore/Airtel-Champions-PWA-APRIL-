@@ -183,6 +183,8 @@ export function HomeScreen({ user, onLogout, initialTab }: HomeScreenProps) {
       return <HQDashboard user={user} userData={userData} />;
     } else if (userRole === 'director') {
       return <DirectorDashboard user={user} userData={userData} />;
+    } else if (userRole === 'developer' || userData?.employee_id === 'DEV001') {
+      return <DeveloperDashboard user={user} userData={userData} onLogout={handleLogout} />;
     } else {
       // Default to sales executive dashboard
       return (

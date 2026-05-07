@@ -1,8 +1,9 @@
 -- =====================================================
 -- UNIVERSAL LOGIN FUNCTION FOR TAI APP
 -- =====================================================
--- This function handles all phone number formats and PIN authentication
--- Works for all roles: SE, ZSM, ZBM, HQ, Director
+-- This function handles all phone number formats and PIN authentication.
+-- It now resolves sales logins from public.app_users directly so the app
+-- uses the same profile source that the login screen already validates.
 
 CREATE OR REPLACE FUNCTION se_login(
   input_phone TEXT,
@@ -46,7 +47,7 @@ BEGIN
   -- =====================================================
   -- STEP 2: Find user by normalized phone number
   -- =====================================================
-  -- Check all phone number columns (phone_number can be in any format)
+  -- Check the canonical sales profile table first.
   SELECT 
     id,
     employee_id,
@@ -62,7 +63,7 @@ BEGIN
     total_points,
     pin_hash
   INTO user_record
-  FROM public.users
+  FROM public.app_users
   WHERE 
     -- Match against 9-digit format
     right(regexp_replace(phone_number, '[^0-9]', '', 'g'), 9) = normalized_phone
@@ -109,7 +110,7 @@ BEGIN
   -- STEP 4: Return success with user data
   -- =====================================================
   RETURN json_build_object(
-    'success', true,
+      'success', true,
     'user', json_build_object(
       'id', user_record.id,
       'employee_id', user_record.employee_id,
