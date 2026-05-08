@@ -49,6 +49,21 @@ export interface DailyReportWithEntries extends DailyReport {
   entries: GasEntry[];
 }
 
+function normalizePromoterMsisdn(input: string): string {
+  const digitsOnly = input.replace(/\D/g, '');
+  let normalized = digitsOnly;
+
+  if (normalized.startsWith('254')) {
+    normalized = `0${normalized.slice(3)}`;
+  }
+
+  if (!normalized.startsWith('0')) {
+    normalized = `0${normalized}`;
+  }
+
+  return normalized.slice(-10);
+}
+
 // ── Session helpers ───────────────────────────────────────────────────────────
 
 const SESSION_KEY = 'tai_tl_user';
@@ -146,6 +161,73 @@ export async function addPromoter(
     p_msisdn: msisdn,
   });
 
+  if (!error) {
+    return { member: data as PromoterMember, error: null };
+  }
+
+  const rpcMissing =
+    error.code === 'PGRST202' ||
+    /Could not find the function public\.promoter_add_member/i.test(error.message);
+
+  if (rpcMissing) {
+    const trimmedName = promoterName.trim();
+    const trimmedMsisdn = msisdn.trim();
+    if (!teamLeadId || !trimmedName || !trimmedMsisdn) {
+      return { member: null, error: 'Enter both a promoter name and MSISDN.' };
+    }
+
+    const normalizedMsisdn = normalizePromoterMsisdn(trimmedMsisdn);
+
+    const { data: tlRow, error: tlError } = await supabase
+      .from('promoter_team_leads')
+      .select('id')
+      .eq('id', teamLeadId)
+      .eq('is_active', true)
+      .maybeSingle();
+
+    if (tlError || !tlRow) {
+      return { member: null, error: 'Your Team Lead account could not be found.' };
+    }
+
+    const { data: existing } = await supabase
+      .from('promoter_members')
+      .select('team_lead_id')
+      .eq('msisdn', normalizedMsisdn)
+      .eq('is_active', true)
+      .order('added_at', { ascending: false })
+      .limit(1)
+      .maybeSingle();
+
+    if (existing) {
+      if (existing.team_lead_id === teamLeadId) {
+        return { member: null, error: 'This promoter is already in your team.' };
+      }
+      return { member: null, error: 'This promoter is already assigned to another Team Lead.' };
+    }
+
+    const { data: inserted, error: insertError } = await supabase
+      .from('promoter_members')
+      .insert({
+        team_lead_id: teamLeadId,
+        promoter_name: trimmedName,
+        msisdn: normalizedMsisdn,
+        is_active: true,
+        added_at: new Date().toISOString(),
+        dropped_at: null,
+      })
+      .select('*')
+      .single();
+
+    if (insertError) {
+      if ((insertError.message || '').toLowerCase().includes('duplicate key')) {
+        return { member: null, error: 'This promoter is already assigned to another Team Lead.' };
+      }
+      return { member: null, error: 'Could not add promoter. Please try again.' };
+    }
+
+    return { member: inserted as PromoterMember, error: null };
+  }
+
   if (error) {
     if (error.message.includes('PROMOTER_ALREADY_ASSIGNED_TO_ANOTHER_TEAM_LEAD')) {
       return { member: null, error: 'This promoter is already assigned to another Team Lead.' };
@@ -162,7 +244,7 @@ export async function addPromoter(
     return { member: null, error: 'Could not add promoter. Please try again.' };
   }
 
-  return { member: data as PromoterMember, error: null };
+  return { member: null, error: 'Could not add promoter. Please try again.' };
 }
 
 export async function dropPromoter(memberId: string): Promise<{ error: string | null }> {

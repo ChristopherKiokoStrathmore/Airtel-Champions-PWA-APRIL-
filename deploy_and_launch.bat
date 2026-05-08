@@ -25,6 +25,9 @@ echo.
 echo Step 3/4: Verifying deployment on xspogpfohjmkykfjadhk...
 call npx supabase functions list --project-ref xspogpfohjmkykfjadhk
 echo.
+echo Step 3b/4: Verifying promoter RPC is exposed...
+powershell -ExecutionPolicy Bypass -File scripts\check_promoter_rpc.ps1
+echo.
 
 echo Step 4/4: Starting development server on FIXED port 3001...
 echo Launching on http://localhost:3001
