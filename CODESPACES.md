@@ -12,7 +12,7 @@ This project includes a `.devcontainer` configuration for optimal Codespaces exp
 ## Features in Codespaces
 - Pre-configured Node.js environment
 - Auto-installed dependencies
-- Port forwarding for localhost:3001
+- Port forwarding for localhost:3000
 - Integrated Git workflow
 - VS Code extensions pre-installed
 
