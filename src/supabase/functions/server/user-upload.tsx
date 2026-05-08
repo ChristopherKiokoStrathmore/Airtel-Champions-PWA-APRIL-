@@ -699,8 +699,8 @@ app.post("/go-live", async (c) => {
     // Strategy: Delete existing records by phone_number from new batch, then insert all staging records
     // This handles the case where same person can be SE and ZSM (different rows)
     
-    const stagingPhones = new Set(stagingUsers.map((u: any) => u.phone_number));
-    const stagingPhonesList = Array.from(stagingPhones);
+    const stagingPhonesForUpsert = new Set(stagingUsers.map((u: any) => u.phone_number));
+    const stagingPhonesList = Array.from(stagingPhonesForUpsert);
     
     // Delete old records that we're replacing
     console.log(`[User Upload] Deleting old records for ${stagingPhonesList.length} phone numbers...`);
@@ -986,6 +986,210 @@ app.get("/upload-history", async (c) => {
     });
   } catch (error: any) {
     console.error("[User Upload] History error:", error);
+    return c.json({ success: false, error: error.message }, 500);
+  }
+});
+
+// ============================================================================
+// SITEWISE MAPPING UPDATE — patch zsm/zbm/zone without full user replace
+// ============================================================================
+
+function detectContactSheet(workbook: any): { rows: any[]; sheetName: string } {
+  for (const sheetName of workbook.SheetNames) {
+    const ws = workbook.Sheets[sheetName];
+    const rows = XLSX.utils.sheet_to_json(ws) as any[];
+    if (rows.length === 0) continue;
+    const cols = Object.keys(rows[0] || {}).map((k) => k.toLowerCase().replace(/[_\s/]/g, ""));
+    const hasSE = cols.some((c) => c.includes("msisdn") || (c.includes("se") && c.includes("phone")));
+    const hasMgmt = cols.some((c) => c.includes("zsm") || c.includes("zbm"));
+    if (hasSE && hasMgmt) return { rows, sheetName };
+  }
+  const sheetName = workbook.SheetNames[0];
+  const rows = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName]) as any[];
+  return { rows, sheetName };
+}
+
+app.post("/upload-sitewise-mapping", async (c) => {
+  try {
+    const body = await c.req.parseBody();
+    const file = body.file as File;
+    if (!file) return c.json({ success: false, error: "No file uploaded" }, 400);
+    if (file.size > 20 * 1024 * 1024) return c.json({ success: false, error: "File too large (max 20 MB)" }, 400);
+
+    const arrayBuffer = await file.arrayBuffer();
+    const magic = new Uint8Array(arrayBuffer.slice(0, 4));
+    const isPKZip = magic[0] === 0x50 && magic[1] === 0x4b;
+    const isCFB = magic[0] === 0xd0 && magic[1] === 0xcf && magic[2] === 0x11 && magic[3] === 0xe0;
+    if (!isPKZip && !isCFB) {
+      return c.json({ success: false, error: "File must be .xlsx or .xlsb format" }, 400);
+    }
+
+    const workbook = XLSX.read(arrayBuffer, { type: "array" });
+    const { rows: contactRows, sheetName } = detectContactSheet(workbook);
+
+    if (contactRows.length === 0) {
+      return c.json({ success: false, error: `Sheet "${sheetName}" has no rows` }, 400);
+    }
+
+    const sampleCols = Object.keys(contactRows[0] || {});
+
+    interface MappingRow {
+      se_phone: string;
+      se_name: string;
+      zsm_name: string;
+      zbm_name: string;
+      zone: string;
+    }
+
+    function getMappingCol(row: any, ...candidates: string[]): string {
+      for (const c of candidates) {
+        if (row[c] !== undefined && row[c] !== null && String(row[c]).trim()) return String(row[c]).trim();
+      }
+      const rowKeys = Object.keys(row);
+      for (const c of candidates) {
+        const needle = c.toLowerCase().replace(/[_\s/]/g, "");
+        const match = rowKeys.find((k) => {
+          const norm = k.toLowerCase().replace(/[_\s/]/g, "");
+          return norm === needle || norm.includes(needle) || needle.includes(norm);
+        });
+        if (match && row[match] !== undefined && row[match] !== null && String(row[match]).trim()) {
+          return String(row[match]).trim();
+        }
+      }
+      return "";
+    }
+
+    const mappingRows: MappingRow[] = [];
+    const seen = new Set<string>();
+
+    for (const row of contactRows) {
+      const sePhone = normalizePhone(
+        getMappingCol(row, "SE MSISDNS", "SE MSISDN", "SE Phone", "SE MSISDN(S)", "MSISDN", "Phone")
+      );
+      const seName = getMappingCol(row, "SE NAME", "TSESE NAME", "TSE/SE NAME", "SE Name", "Name");
+      const zsmName = getMappingCol(row, "ZSM NAME", "ZSM");
+      const zbmName = getMappingCol(row, "ZBM NAME", "ZBM");
+      const zone = getMappingCol(row, "ZONE", "Zone", "REGION");
+
+      if (!sePhone || !seName) continue;
+      if (seName.toUpperCase().includes("VACANT")) continue;
+      if (seen.has(sePhone)) continue;
+      seen.add(sePhone);
+
+      mappingRows.push({ se_phone: sePhone, se_name: seName, zsm_name: zsmName, zbm_name: zbmName, zone });
+    }
+
+    if (mappingRows.length === 0) {
+      return c.json({
+        success: false,
+        error: `No SE records found in sheet "${sheetName}". Detected columns: ${sampleCols.join(", ")}`,
+      }, 400);
+    }
+
+    const { data: existingUsers } = await frontendSupabase
+      .from("app_users")
+      .select("id, phone_number, full_name, role, zsm, zbm, zone")
+      .in("phone_number", mappingRows.map((r) => r.se_phone));
+
+    const existingMap = new Map<string, any>(
+      ((existingUsers || []) as Array<{ phone_number: string; [key: string]: any }>).map((u) => [u.phone_number, u])
+    );
+
+    const updates: any[] = [];
+    const noMatch: any[] = [];
+
+    for (const record of mappingRows) {
+      const existing = existingMap.get(record.se_phone);
+      if (!existing) {
+        noMatch.push({ phone: record.se_phone, name: record.se_name });
+        continue;
+      }
+      const changed =
+        existing.zsm !== (record.zsm_name || null) ||
+        existing.zbm !== (record.zbm_name || null) ||
+        (record.zone && existing.zone !== record.zone);
+
+      updates.push({
+        user_id: existing.id,
+        phone_number: record.se_phone,
+        full_name: existing.full_name,
+        role: existing.role,
+        old_zsm: existing.zsm,
+        new_zsm: record.zsm_name || null,
+        old_zbm: existing.zbm,
+        new_zbm: record.zbm_name || null,
+        old_zone: existing.zone,
+        new_zone: record.zone || existing.zone,
+        changed,
+      });
+    }
+
+    const batchId = crypto.randomUUID();
+    await supabase.from("kv_store_28f2f653").upsert({
+      key: `mapping_batch_${batchId}`,
+      value: JSON.stringify({ updates, filename: file.name, created_at: new Date().toISOString() }),
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
+    });
+
+    return c.json({
+      success: true,
+      batch_id: batchId,
+      sheet_used: sheetName,
+      total_se_in_file: mappingRows.length,
+      updates,
+      no_match: noMatch,
+      changes_count: updates.filter((u) => u.changed).length,
+      unchanged_count: updates.filter((u) => !u.changed).length,
+      debug: { sheets: workbook.SheetNames, columns: sampleCols, sample: contactRows[0] || null },
+    });
+  } catch (error: any) {
+    return c.json({ success: false, error: error.message }, 500);
+  }
+});
+
+app.post("/apply-sitewise-mapping", async (c) => {
+  try {
+    const { batch_id } = await c.req.json();
+
+    const { data: kvData, error: kvError } = await supabase
+      .from("kv_store_28f2f653")
+      .select("value")
+      .eq("key", `mapping_batch_${batch_id}`)
+      .single();
+
+    if (kvError || !kvData) {
+      return c.json({ success: false, error: "Batch not found — it may have expired" }, 404);
+    }
+
+    const { updates } = JSON.parse(kvData.value as string);
+    const changedUpdates = (updates as any[]).filter((u) => u.changed);
+
+    let successCount = 0;
+    const errors: string[] = [];
+
+    for (const update of changedUpdates) {
+      const { error } = await frontendSupabase
+        .from("app_users")
+        .update({
+          zsm: update.new_zsm,
+          zbm: update.new_zbm,
+          zone: update.new_zone,
+          updated_at: new Date().toISOString(),
+        })
+        .eq("id", update.user_id);
+
+      if (error) {
+        errors.push(`${update.phone_number}: ${error.message}`);
+      } else {
+        successCount++;
+      }
+    }
+
+    await supabase.from("kv_store_28f2f653").delete().eq("key", `mapping_batch_${batch_id}`);
+
+    return c.json({ success: true, updated: successCount, errors, total_changed: changedUpdates.length });
+  } catch (error: any) {
     return c.json({ success: false, error: error.message }, 500);
   }
 });
