@@ -1,6 +1,40 @@
-// Wrapper entrypoint for deploying the consolidated router
-// This imports the server implementation from `src` so the Supabase
-// functions deployer can bundle and run it under the expected slug.
+// FIXED DEPLOYMENT: Minimal wrapper with essential routes bundled
+import { Hono } from "npm:hono@4.7.9";
+import { cors } from "npm:hono@4.7.9/cors";
+import { createClient } from "jsr:@supabase/supabase-js@2";
 
-// IMPORTANT: Keep the relative path in sync if the project layout changes.
-import "../../../src/supabase/functions/server/index.tsx";
+// Import only critical modules needed for upload to work
+// (We'll gradually add others once this baseline works)
+import announcementsApp from "../../../src/supabase/functions/server/announcements.tsx";
+import userUploadApp from "../../../src/supabase/functions/server/user-upload.tsx";
+import programsApp from "../../../src/supabase/functions/server/programs.tsx";
+
+const app = new Hono();
+
+// CORS setup for all origins during development
+app.use("/*", cors({
+  origin: '*',
+  allowHeaders: ["Content-Type", "Authorization", "apikey"],
+  allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+}));
+
+// Health check
+app.get("/make-server-28f2f653/health", (c) => {
+  return c.json({ 
+    status: "ok",
+    version: "3.5.0",
+    timestamp: new Date().toISOString()
+  });
+});
+
+// Route handlers
+app.route('/make-server-28f2f653', announcementsApp);
+app.route('/make-server-28f2f653', userUploadApp);
+app.route('/', programsApp);
+
+// Catch-all 404 handler
+app.notFound((c) => {
+  return c.json({ error: "Endpoint not found", path: c.req.path }, 404);
+});
+
+Deno.serve(app.fetch);

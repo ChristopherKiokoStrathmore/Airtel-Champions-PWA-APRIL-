@@ -2,6 +2,11 @@
 import React, { useState, useEffect } from 'react';
 import { Upload, AlertTriangle, CheckCircle, Users, ArrowRight, History, X, Edit2, Save } from 'lucide-react';
 import { projectId, publicAnonKey } from '../utils/supabase/info';
+import { parseCSV, extractUserRecords } from '../utils/csv-parser';
+
+// Development mode detection - use localhost:3001 for local dev server
+const isDev = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+const API_BASE = isDev ? 'http://localhost:3001' : `https://${projectId}.supabase.co/functions/v1/make-server-28f2f653`;
 
 interface UserChange {
   type: "new_user" | "removed_user" | "role_change" | "zone_transfer" | "unchanged";
@@ -32,6 +37,13 @@ interface PreviewData {
   unchanged_count: number;
 }
 
+interface MappingPreview {
+  headers: string[];
+  columnMapping: Record<string, string | null>;
+  sourceRows: number;
+  extractedUsers: number;
+}
+
 export function UserUploadManager() {
   const [uploading, setUploading] = useState(false);
   const [previewData, setPreviewData] = useState<PreviewData | null>(null);
@@ -42,19 +54,27 @@ export function UserUploadManager() {
   const [showHistory, setShowHistory] = useState(false);
   const [editingWarning, setEditingWarning] = useState<{ warning: ValidationWarning; value: string } | null>(null);
   const [debugInfo, setDebugInfo] = useState<any>(null);
+  const [mappingPreview, setMappingPreview] = useState<MappingPreview | null>(null);
 
   useEffect(() => {
+    if (isDev) {
+      console.log('✅ DEV MODE: UI will return mock upload responses');
+    }
     loadUploadHistory();
   }, []);
 
   const loadUploadHistory = async () => {
     try {
-      const response = await fetch(
-        `https://${projectId}.supabase.co/functions/v1/make-server-28f2f653/upload-history`,
-        {
-          headers: { Authorization: `Bearer ${publicAnonKey}` },
-        }
-      );
+      // DEV MODE: Return mock history
+      if (isDev) {
+        setUploadHistory([]);
+        return;
+      }
+
+      const endpoint = isDev ? `${API_BASE}/make-server-28f2f653/upload-history` : `${API_BASE}/upload-history`;
+      const response = await fetch(endpoint, {
+        headers: { Authorization: `Bearer ${publicAnonKey}` },
+      });
       const data = await response.json();
       if (data.success) {
         setUploadHistory(data.batches || []);
@@ -70,32 +90,97 @@ export function UserUploadManager() {
 
     setUploading(true);
     try {
-      const formData = new FormData();
-      formData.append('file', file);
+      // Read file content
+      const fileContent = await file.text();
+      console.log(`📄 Read file: ${file.name} (${fileContent.length} bytes)`);
 
-      const response = await fetch(
-        `https://${projectId}.supabase.co/functions/v1/make-server-28f2f653/upload-excel`,
-        {
-          method: 'POST',
-          headers: { Authorization: `Bearer ${publicAnonKey}` },
-          body: formData,
-        }
-      );
-
-      const data = await response.json();
-      if (data.success) {
-        setPreviewData(data.changes);
-        setWarnings(data.warnings || []);
-        setBatchId(data.batch_id);
-        setDebugInfo(data.debug || null);
-        if (data.debug) {
-          console.log('[Upload Debug] Excel columns detected:', data.debug.excel_columns);
-          console.log('[Upload Debug] Sample row:', data.debug.sample_row);
-        }
-      } else {
-        alert(`Upload failed: ${data.error}`);
+      // Parse CSV/TSV
+      const parseResult = parseCSV(fileContent);
+      if (!parseResult.success) {
+        alert(`Parse error: ${parseResult.warnings.join('\n')}`);
+        setUploading(false);
+        return;
       }
+
+      console.log(`✅ Parsed ${parseResult.rows.length} contact rows`);
+      console.log(`📊 Column mapping:`, parseResult.columnMapping);
+      
+      // Extract user records (SE, ZSM, ZBM)
+      const records = extractUserRecords(parseResult.rows);
+      console.log(`👥 Extracted ${records.length} user records (SE/ZSM/ZBM)`);
+
+      setMappingPreview({
+        headers: parseResult.headers,
+        columnMapping: parseResult.columnMapping,
+        sourceRows: parseResult.rows.length,
+        extractedUsers: records.length,
+      });
+
+      // TODO: Compare with existing users to generate preview
+      // For now, show all as new users
+      const mockBatchId = 'batch_' + Date.now();
+      const groupedByRole = {
+        se: records.filter(r => r.role === 'se'),
+        zsm: records.filter(r => r.role === 'zsm'),
+        zbm: records.filter(r => r.role === 'zbm'),
+      };
+
+      console.log(`SE count: ${groupedByRole.se.length}, ZSM: ${groupedByRole.zsm.length}, ZBM: ${groupedByRole.zbm.length}`);
+
+      setPreviewData({
+        new_users: records.map(r => ({
+          type: "new_user" as const,
+          phone_number: r.phone_number,
+          full_name: r.full_name,
+          new_data: r,
+        })),
+        removed_users: [],
+        role_changes: [],
+        zone_transfers: [],
+        unchanged_count: 0,
+      });
+      setBatchId(mockBatchId);
+      setWarnings(parseResult.warnings.map((w, idx) => ({
+        row: idx,
+        field: 'parse',
+        issue: w,
+        severity: 'warning' as const,
+      })));
+
+      // Try to stage the parsed hierarchy on the server so the Go Live button
+      // has a real batch id and staging rows to work with.
+      try {
+        const stageResponse = await fetch(`https://${projectId}.supabase.co/functions/v1/make-server-28f2f653/upload-sales-force-contacts`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${publicAnonKey}`,
+          },
+          body: JSON.stringify({
+            filename: file.name,
+            records,
+            warnings: parseResult.warnings,
+            headers: parseResult.headers,
+            source_rows: parseResult.rows.length,
+          }),
+        });
+
+        const stageData = await stageResponse.json();
+        if (stageResponse.ok && stageData.success) {
+          setBatchId(stageData.batch_id);
+          console.log(`✅ Staged ${stageData.total_users} records on server. Batch: ${stageData.batch_id}`);
+        } else {
+          setBatchId(mockBatchId);
+          console.warn('⚠️ Server staging failed, keeping local preview only:', stageData?.error || stageResponse.statusText);
+        }
+      } catch (stageError: any) {
+        setBatchId(mockBatchId);
+        console.warn('⚠️ Unable to stage on server yet, keeping local preview only:', stageError?.message || stageError);
+      }
+      
+      console.log(`✅ Preview ready. ${records.length} users from file.`);
     } catch (error: any) {
+      console.error('Upload error:', error);
       alert(`Upload error: ${error.message}`);
     } finally {
       setUploading(false);
@@ -216,6 +301,20 @@ export function UserUploadManager() {
   };
 
   const hasErrors = warnings.some((w) => w.severity === "error");
+
+  const mappingRows = mappingPreview
+    ? [
+        { label: 'TSESE NAME', source: mappingPreview.columnMapping.se_name, target: 'app_users.full_name', note: 'role = se' },
+        { label: 'SE MSISDNS', source: mappingPreview.columnMapping.se_phone, target: 'app_users.phone_number', note: 'normalized to 254…' },
+        { label: 'TERRITORY', source: mappingPreview.columnMapping.se_territory, target: 'app_users.territory', note: 'SE territory' },
+        { label: 'ZSM NAME', source: mappingPreview.columnMapping.zsm_name, target: 'app_users.full_name', note: 'role = zsm' },
+        { label: 'ZSM MSISDNS', source: mappingPreview.columnMapping.zsm_phone, target: 'app_users.phone_number', note: 'normalized to 254…' },
+        { label: 'ZSM TERRITORY', source: mappingPreview.columnMapping.zsm_territory, target: 'app_users.territory', note: 'ZSM territory' },
+        { label: 'ZBM NAME', source: mappingPreview.columnMapping.zbm_name, target: 'app_users.full_name', note: 'role = zbm' },
+        { label: 'ZBM MSISDNS', source: mappingPreview.columnMapping.zbm_phone, target: 'app_users.phone_number', note: 'normalized to 254…' },
+        { label: 'ZONE', source: mappingPreview.columnMapping.zone, target: 'app_users.zone', note: 'region grouping' },
+      ]
+    : [];
 
   return (
     <div className="p-6 max-w-7xl mx-auto">
@@ -403,6 +502,39 @@ export function UserUploadManager() {
           )}
 
           {/* Summary */}
+          {mappingPreview && (
+            <div className="bg-[var(--color-surface)] rounded-2xl p-6">
+              <div className="flex items-center justify-between gap-4 mb-4">
+                <div>
+                  <h2 className="text-lg font-bold">File to DB Mapping</h2>
+                  <p className="text-sm opacity-70 mt-1">
+                    {mappingPreview.sourceRows} parsed source rows will create {mappingPreview.extractedUsers} app_users records.
+                  </p>
+                </div>
+                <span className="px-3 py-1 rounded-full bg-white/10 text-sm opacity-80">
+                  Vacant SE rows are skipped
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {mappingRows.map((item) => (
+                  <div key={item.label} className="rounded-xl border border-white/10 bg-white/5 p-4">
+                    <div className="flex items-start justify-between gap-3">
+                      <div>
+                        <p className="font-medium">{item.label}</p>
+                        <p className="text-sm opacity-70 mt-1">{item.source || 'not found'}</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-sm text-green-400">{item.target}</p>
+                        <p className="text-xs opacity-60 mt-1">{item.note}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <StatCard
               icon={<Users className="w-5 h-5" />}
@@ -445,6 +577,21 @@ export function UserUploadManager() {
                     <p className="text-sm text-green-400 mt-1">
                       {change.new_data?.role} - {change.new_data?.zone}
                     </p>
+                    {change.new_data?.territory && (
+                      <p className="text-sm opacity-70 mt-1">
+                        Territory: {change.new_data.territory}
+                      </p>
+                    )}
+                    {change.new_data?.zsm && (
+                      <p className="text-sm opacity-70 mt-1">
+                        ZSM: {change.new_data.zsm}
+                      </p>
+                    )}
+                    {change.new_data?.zbm && (
+                      <p className="text-sm opacity-70 mt-1">
+                        ZBM: {change.new_data.zbm}
+                      </p>
+                    )}
                   </div>
                 )}
               />
