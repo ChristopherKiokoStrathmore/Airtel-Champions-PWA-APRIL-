@@ -1,4 +1,5 @@
 // User Upload Management System - Excel Upload, Preview, Go-Live, Rollback
+// Cache bust: 2026-05-08-delete-insert-fix
 import { Hono } from "npm:hono@4.7.9";
 import { createClient } from "jsr:@supabase/supabase-js@2";
 import * as XLSX from "npm:xlsx@0.18.5";
