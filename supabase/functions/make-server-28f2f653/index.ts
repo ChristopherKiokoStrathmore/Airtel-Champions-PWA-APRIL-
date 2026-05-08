@@ -1,12 +1,11 @@
 // FIXED DEPLOYMENT: Minimal wrapper with essential routes bundled
+// Cache bust: 2026-05-08-user-upload-redeploy-2
 import { Hono } from "npm:hono@4.7.9";
 import { cors } from "npm:hono@4.7.9/cors";
 import { createClient } from "jsr:@supabase/supabase-js@2";
 
-// Import only critical modules needed for upload to work
-// (We'll gradually add others once this baseline works)
 import announcementsApp from "../../../src/supabase/functions/server/announcements.tsx";
-import userUploadApp from "../../../src/supabase/functions/server/user-upload.tsx";
+import userUploadApp from "./user-upload.tsx";
 import programsApp from "../../../src/supabase/functions/server/programs.tsx";
 
 const app = new Hono();

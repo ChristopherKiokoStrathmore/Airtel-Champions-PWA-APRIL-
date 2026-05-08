@@ -20,11 +20,13 @@ import { getLayoutMode } from '../lib/platform';
 import { DesktopLayout } from './desktop-layout';
 import { DeveloperToggle } from './developer-toggle';
 import { UserUploadManager } from './user-upload-manager';
+import { SitewiseMappingUpload } from './sitewise-mapping-upload';
 import { HQDirectorsManager } from './hq-directors-manager';
 import { ActivityDashboard } from './activity-dashboard';
 
 export function DeveloperDashboard({ user, userData, onLogout }: any) {
   const [activeTab, setActiveTab] = useState('home');
+  const [uploadSubTab, setUploadSubTab] = useState<'users' | 'mapping'>('users');
   const [analytics, setAnalytics] = useState<any>({
     totalUsers: 0,
     activeUsers: 0,
@@ -922,8 +924,8 @@ export function DeveloperDashboard({ user, userData, onLogout }: any) {
         <div className="bg-gradient-to-r from-purple-600 to-purple-700 border-b border-purple-800 px-6 py-4">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-2xl text-white">📤 User Upload</h2>
-              <p className="text-sm text-purple-100 mt-1">Excel upload with preview & rollback</p>
+              <h2 className="text-2xl text-white">📤 Upload</h2>
+              <p className="text-sm text-purple-100 mt-1">Manage users and org structure updates</p>
             </div>
             <ProfileDropdown
               userData={userData}
@@ -934,10 +936,33 @@ export function DeveloperDashboard({ user, userData, onLogout }: any) {
               onViewAbout={() => setShowAbout(true)}
             />
           </div>
+          {/* Sub-tab switcher */}
+          <div className="flex gap-1 mt-4">
+            <button
+              onClick={() => setUploadSubTab('users')}
+              className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+                uploadSubTab === 'users'
+                  ? 'bg-white text-purple-700'
+                  : 'text-white/70 hover:text-white hover:bg-white/10'
+              }`}
+            >
+              User List Upload
+            </button>
+            <button
+              onClick={() => setUploadSubTab('mapping')}
+              className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+                uploadSubTab === 'mapping'
+                  ? 'bg-white text-purple-700'
+                  : 'text-white/70 hover:text-white hover:bg-white/10'
+              }`}
+            >
+              Sitewise Mapping Update
+            </button>
+          </div>
         </div>
 
         <div className="flex-1 overflow-y-auto pb-20">
-          <UserUploadManager />
+          {uploadSubTab === 'users' ? <UserUploadManager /> : <SitewiseMappingUpload />}
         </div>
 
         <BottomNav activeTab={activeTab} setActiveTab={setActiveTab} />
