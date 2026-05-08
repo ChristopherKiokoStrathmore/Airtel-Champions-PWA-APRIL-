@@ -3,9 +3,9 @@ import { initializeStorageBucket } from "./storage-setup.tsx";
 import { setupDatabase } from "./database-setup.tsx";
 import { setupVanDatabase } from "./van-db-setup.tsx";
 import { fixKvPermissions } from "./fix-kv-permissions.tsx";
-import { Hono } from "npm:hono";
-import { cors } from "npm:hono/cors";
-import { logger } from "npm:hono/logger";
+import { Hono } from "npm:hono@4.7.9";
+import { cors } from "npm:hono@4.7.9/cors";
+import { logger } from "npm:hono@4.7.9/logger";
 import { createClient } from "jsr:@supabase/supabase-js@2";
 
 // Import modularized route handlers
@@ -77,6 +77,7 @@ app.use(
       const productionAllowed = [
         'https://airtel-champions.vercel.app',
         'https://airtel-champions-pwa-april-6gnsktent.vercel.app',
+        'https://airtelchampionsapp.vercel.app',
       ];
       if (productionAllowed.includes(origin)) return origin;
       // Any localhost / 127.0.0.1 port (dev)
@@ -98,7 +99,7 @@ app.use(
 app.options('/*', (c) => {
   const origin = c.req.header('Origin') ?? '';
   const isLocal = /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin);
-  const isProd = ['https://airtel-champions.vercel.app', 'https://airtel-champions-pwa-april-6gnsktent.vercel.app'].includes(origin);
+  const isProd = ['https://airtel-champions.vercel.app', 'https://airtel-champions-pwa-april-6gnsktent.vercel.app', 'https://airtelchampionsapp.vercel.app'].includes(origin);
   const isVercel = /^https:\/\/airtel-champions(-pwa)?(-[a-z0-9]+)*\.vercel\.app$/.test(origin);
   if (origin && (isLocal || isProd || isVercel)) {
     c.header('Access-Control-Allow-Origin', origin);

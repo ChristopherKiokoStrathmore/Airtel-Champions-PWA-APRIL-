@@ -1,3 +1,6 @@
+[functions.make-server-28f2f653]
+verify_jwt = false
+
 [functions.towns]
 verify_jwt = false
 

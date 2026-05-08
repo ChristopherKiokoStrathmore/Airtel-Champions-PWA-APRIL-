@@ -18,7 +18,7 @@ call npx supabase functions deploy hbb-handle-rejection --project-ref xspogpfohj
 call npx supabase functions deploy hbb-installer-by-phone --project-ref xspogpfohjmkykfjadhk
 call npx supabase functions deploy hbb-notifications --project-ref xspogpfohjmkykfjadhk
 call npx supabase functions deploy auto-allocate --project-ref xspogpfohjmkykfjadhk
-call npx supabase functions deploy make-server-28f2f653 --project-ref xspogpfohjmkykfjadhk
+call npx supabase functions deploy make-server-28f2f653 --project-ref xspogpfohjmkykfjadhk --no-verify-jwt
 echo.
 echo [OK] Functions deployed to xspogpfohjmkykfjadhk.supabase.co
 echo.
