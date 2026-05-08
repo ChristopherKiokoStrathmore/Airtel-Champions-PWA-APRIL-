@@ -36,6 +36,70 @@ interface ExcelUser {
   zsm?: string;
   zbm?: string;
   job_title?: string;
+  territory?: string;
+  raw_phone_number?: string;
+  role_group?: string;
+}
+
+interface SalesForceHierarchyRecord {
+  full_name: string;
+  phone_number: string;
+  role: 'se' | 'zsm' | 'zbm';
+  territory?: string;
+  zone?: string;
+  zsm?: string;
+  zbm?: string;
+  raw_phone_number?: string;
+}
+
+function normalizeRole(role: string | undefined): string {
+  return String(role || '').trim().toLowerCase();
+}
+
+function buildSalesForceStagingUsers(
+  records: SalesForceHierarchyRecord[],
+  existingMap: Map<string, any>
+) {
+  return records.map((record) => {
+    const existing = existingMap.get(record.phone_number);
+    const role = normalizeRole(record.role);
+
+    return {
+      id: existing?.id,
+      full_name: record.full_name,
+      phone_number: record.phone_number,
+      raw_phone_number: record.raw_phone_number || null,
+      employee_id: existing?.employee_id || null,
+      email: existing?.email || null,
+      role,
+      role_group: 'sales_force',
+      region: record.zone || null,
+      zone: record.zone || null,
+      territory: record.territory || null,
+      zsm: role === 'se' ? (record.zsm || null) : null,
+      zbm: role === 'se' ? (record.zbm || null) : (role === 'zsm' ? (record.zbm || null) : null),
+      job_title: existing?.job_title || null,
+      is_active: true,
+      pin: '1234',
+      import_source: 'sales_force_contacts',
+      source_table: 'app_users',
+    };
+  });
+}
+
+function buildPreviewUsers(records: SalesForceHierarchyRecord[]): ExcelUser[] {
+  return records.map((record) => ({
+    full_name: record.full_name,
+    phone_number: record.phone_number,
+    role: normalizeRole(record.role),
+    territory: record.territory,
+    region: record.zone,
+    zone: record.zone,
+    zsm: record.role === 'se' ? record.zsm : undefined,
+    zbm: record.role === 'se' ? record.zbm : undefined,
+    raw_phone_number: record.raw_phone_number,
+    role_group: 'sales_force',
+  }));
 }
 
 interface UserChange {
@@ -140,7 +204,7 @@ app.post("/upload-excel", async (c) => {
       phone_number: normalizePhone(getCol(row, "Phone Number", "Phone", "phone_number", "PHONE NUMBER", "phone", "Mobile", "Mobile Number", "Contact", "PHONE", "MSISDN", "Tel")),
       employee_id: getCol(row, "Employee ID", "employee_id", "EMPLOYEE ID", "Emp ID", "EmpID", "Staff ID"),
       email: getCol(row, "Email", "email", "EMAIL", "Email Address", "E-mail"),
-      role: getCol(row, "Role", "role", "ROLE", "Designation", "Position", "Title") || "SE",
+      role: normalizeRole(getCol(row, "Role", "role", "ROLE", "Designation", "Position", "Title")) || "se",
       region: getCol(row, "Region", "region", "REGION"),
       zone: getCol(row, "Zone", "zone", "ZONE", "Territory"),
       zsm: getCol(row, "ZSM", "zsm", "Zone Sales Manager", "Zone Manager"),
@@ -206,8 +270,8 @@ app.post("/upload-excel", async (c) => {
       .from("app_users")
       .select("id, phone_number, full_name, role, zone, zsm, total_points");
 
-    const existingMap = new Map(
-      existingUsers?.map((u) => [u.phone_number, u]) || []
+    const existingMap = new Map<string, any>(
+      ((existingUsers || []) as Array<{ phone_number: string; [key: string]: any }>).map((u) => [u.phone_number, u])
     );
 
     // Insert into staging with stable UUIDs
@@ -278,6 +342,135 @@ app.post("/upload-excel", async (c) => {
 });
 
 // ============================================================================
+// UPLOAD SALES FORCE CONTACTS (Hierarchy CSV/TSV/Excel parsed on client)
+// ============================================================================
+
+app.post("/upload-sales-force-contacts", async (c) => {
+  try {
+    const body = await c.req.json();
+    const filename = String(body?.filename || 'sales-force-contacts');
+    const records = Array.isArray(body?.records) ? body.records as SalesForceHierarchyRecord[] : [];
+
+    if (records.length === 0) {
+      return c.json({ success: false, error: 'No parsed records supplied' }, 400);
+    }
+
+    const normalizedRecords = records
+      .map((record) => ({
+        ...record,
+        full_name: String(record.full_name || '').trim(),
+        phone_number: String(record.phone_number || '').trim(),
+        role: normalizeRole(record.role) as 'se' | 'zsm' | 'zbm',
+        territory: String(record.territory || '').trim() || undefined,
+        zone: String(record.zone || '').trim() || undefined,
+        zsm: String(record.zsm || '').trim() || undefined,
+        zbm: String(record.zbm || '').trim() || undefined,
+        raw_phone_number: String(record.raw_phone_number || '').trim() || undefined,
+      }))
+      .filter((record) => record.full_name && record.phone_number && ['se', 'zsm', 'zbm'].includes(record.role));
+
+    const warnings: ValidationWarning[] = [];
+    const validRecords: SalesForceHierarchyRecord[] = [];
+    const seen = new Set<string>();
+
+    normalizedRecords.forEach((record, index) => {
+      const rowNum = index + 2;
+
+      if (record.full_name.toUpperCase().includes('VACANT')) {
+        warnings.push({
+          row: rowNum,
+          field: 'full_name',
+          issue: `Skipping vacant ${record.role.toUpperCase()}: ${record.full_name}`,
+          severity: 'warning',
+          data: record,
+        });
+        return;
+      }
+
+      const key = `${record.role}:${record.phone_number}`;
+      if (seen.has(key)) {
+        warnings.push({
+          row: rowNum,
+          field: 'phone_number',
+          issue: `Duplicate ${record.role.toUpperCase()} phone number: ${record.phone_number}`,
+          severity: 'error',
+          data: record,
+        });
+        return;
+      }
+
+      seen.add(key);
+      validRecords.push(record);
+    });
+
+    if (validRecords.length === 0) {
+      return c.json({ success: false, error: 'No valid records found after validation', warnings }, 400);
+    }
+
+    await frontendSupabase
+      .from('app_users_staging')
+      .delete()
+      .neq('id', '00000000-0000-0000-0000-000000000000');
+
+    const { data: existingUsers } = await frontendSupabase
+      .from('app_users')
+      .select('id, phone_number, full_name, role, zone, zsm, zbm, employee_id, email, job_title');
+
+    const existingMap = new Map<string, any>(
+      ((existingUsers || []) as Array<{ phone_number: string; [key: string]: any }>).map((user) => [user.phone_number, user])
+    );
+    const stagingUsers = buildSalesForceStagingUsers(validRecords, existingMap);
+    const previewUsers = buildPreviewUsers(validRecords);
+
+    const { error: insertError } = await frontendSupabase
+      .from('app_users_staging')
+      .insert(stagingUsers);
+
+    if (insertError) {
+      console.error('[User Upload] Sales Force staging insert error:', insertError);
+      return c.json({ success: false, error: insertError.message }, 500);
+    }
+
+    const batchId = crypto.randomUUID();
+    const { error: batchError } = await frontendSupabase.from('upload_batches').insert({
+      id: batchId,
+      filename,
+      status: 'staged',
+      total_users: stagingUsers.length,
+      warnings_count: warnings.length,
+      uploaded_at: new Date().toISOString(),
+    });
+
+    if (batchError) {
+      console.error('[User Upload] Sales Force batch record error:', batchError);
+    }
+
+    const changes = await generateChangePreview(existingMap, previewUsers);
+
+    return c.json({
+      success: true,
+      batch_id: batchId,
+      total_users: stagingUsers.length,
+      warnings,
+      changes,
+      debug: {
+        filename,
+        source_rows: normalizedRecords.length,
+        valid_records: validRecords.length,
+        roles: {
+          se: validRecords.filter((record) => record.role === 'se').length,
+          zsm: validRecords.filter((record) => record.role === 'zsm').length,
+          zbm: validRecords.filter((record) => record.role === 'zbm').length,
+        },
+      },
+    });
+  } catch (error: any) {
+    console.error('[User Upload] Sales Force upload error:', error);
+    return c.json({ success: false, error: error.message }, 500);
+  }
+});
+
+// ============================================================================
 // GENERATE CHANGE PREVIEW
 // ============================================================================
 
@@ -302,6 +495,8 @@ async function generateChangePreview(
   // Detect changes
   for (const newUser of newUsers) {
     const existing = existingMap.get(newUser.phone_number);
+    const existingRole = normalizeRole(existing?.role);
+    const newRole = normalizeRole(newUser.role);
 
     if (!existing) {
       // New user
@@ -313,11 +508,11 @@ async function generateChangePreview(
       });
     } else {
       // Check for role change
-      if (existing.role !== newUser.role) {
+      if (existingRole !== newRole) {
         // Get team info if becoming ZSM
         let teamMembers: string[] = [];
         let teamPoints = 0;
-        if (newUser.role === "ZSM") {
+        if (newRole === "zsm") {
           const team = await getTeamMembers(newUser.full_name, newUsers);
           teamMembers = team.members;
           teamPoints = team.totalPoints;
@@ -327,8 +522,8 @@ async function generateChangePreview(
           type: "role_change",
           phone_number: newUser.phone_number,
           full_name: newUser.full_name,
-          old_data: { role: existing.role, zone: existing.zone },
-          new_data: { role: newUser.role, zone: newUser.zone },
+          old_data: { role: existingRole, zone: existing.zone },
+          new_data: { role: newRole, zone: newUser.zone },
           points: existing.total_points || 0,
           team_members: teamMembers,
           team_count: teamMembers.length,
@@ -389,7 +584,7 @@ async function getTeamMembers(
 ): Promise<{ members: string[]; totalPoints: number }> {
   // Find all SEs reporting to this ZSM
   const teamMembers = allUsers
-    .filter((u) => u.zsm === zsmName && u.role === "SE")
+    .filter((u) => u.zsm === zsmName && normalizeRole(u.role) === "se")
     .map((u) => u.full_name);
 
   // Get their phone numbers and calculate total points
@@ -488,8 +683,10 @@ app.post("/go-live", async (c) => {
     }
 
     // Step 3: Mark removed users as inactive (don't delete)
-    const stagingPhones = new Set(stagingUsers.map((u) => u.phone_number));
-    const removedUsers = currentUsers?.filter((u) => !stagingPhones.has(u.phone_number)) || [];
+    const stagingUsersList = (stagingUsers || []) as Array<{ phone_number: string; id: string }>;
+    const currentUsersList = (currentUsers || []) as Array<{ phone_number: string; id: string }>;
+    const stagingPhones = new Set<string>(stagingUsersList.map((u) => u.phone_number));
+    const removedUsers = currentUsersList.filter((u) => !stagingPhones.has(u.phone_number));
 
     if (removedUsers.length > 0) {
       const removedIds = removedUsers.map((u) => u.id);
@@ -571,13 +768,13 @@ async function recalculateAllPoints() {
   for (const user of users) {
     let totalPoints = 0;
 
-    if (user.role === "ZSM") {
+    if (normalizeRole(user.role) === "zsm") {
       // ZSM: Get team points only (exclude personal SE points)
       const { data: teamMembers } = await frontendSupabase
         .from("app_users")
         .select("id, phone_number")
         .eq("zsm", user.full_name)
-        .eq("role", "SE")
+        .eq("role", "se")
         .eq("is_active", true);
 
       if (teamMembers) {
@@ -587,7 +784,7 @@ async function recalculateAllPoints() {
             .select("points")
             .eq("user_id", member.id);
 
-          totalPoints += points?.reduce((sum, p) => sum + (p.points || 0), 0) || 0;
+          totalPoints += (points as Array<{ points?: number }> | null)?.reduce((sum: number, p: { points?: number }) => sum + (p.points || 0), 0) || 0;
         }
       }
     } else {
@@ -597,7 +794,7 @@ async function recalculateAllPoints() {
         .select("points")
         .eq("user_id", user.id);
 
-      totalPoints = points?.reduce((sum, p) => sum + (p.points || 0), 0) || 0;
+      totalPoints = (points as Array<{ points?: number }> | null)?.reduce((sum: number, p: { points?: number }) => sum + (p.points || 0), 0) || 0;
     }
 
     // Update user's total_points
