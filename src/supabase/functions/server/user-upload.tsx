@@ -68,11 +68,9 @@ function buildSalesForceStagingUsers(
       id: existing?.id,
       full_name: record.full_name,
       phone_number: record.phone_number,
-      raw_phone_number: record.raw_phone_number || null,
       employee_id: existing?.employee_id || null,
       email: existing?.email || null,
       role,
-      role_group: 'sales_force',
       region: record.zone || null,
       zone: record.zone || null,
       territory: record.territory || null,
@@ -81,8 +79,6 @@ function buildSalesForceStagingUsers(
       job_title: existing?.job_title || null,
       is_active: true,
       pin: '1234',
-      import_source: 'sales_force_contacts',
-      source_table: 'app_users',
     };
   });
 }
@@ -699,9 +695,10 @@ app.post("/go-live", async (c) => {
     }
 
     // Step 4: Upsert staging users into app_users
+    // Use phone_number + role as composite key for upsert (person can be SE and ZSM)
     const { error: upsertError } = await frontendSupabase
       .from("app_users")
-      .upsert(stagingUsers, { onConflict: "phone_number" });
+      .upsert(stagingUsers, { onConflict: "phone_number,role" });
 
     if (upsertError) {
       console.error("[User Upload] Upsert error:", upsertError);
