@@ -18,6 +18,7 @@ call npx supabase functions deploy hbb-handle-rejection --project-ref xspogpfohj
 call npx supabase functions deploy hbb-installer-by-phone --project-ref xspogpfohjmkykfjadhk
 call npx supabase functions deploy hbb-notifications --project-ref xspogpfohjmkykfjadhk
 call npx supabase functions deploy auto-allocate --project-ref xspogpfohjmkykfjadhk
+call npx supabase functions deploy make-server-28f2f653 --project-ref xspogpfohjmkykfjadhk
 echo.
 echo [OK] Functions deployed to xspogpfohjmkykfjadhk.supabase.co
 echo.
@@ -29,18 +30,18 @@ echo Step 3b/4: Verifying promoter RPC is exposed...
 powershell -ExecutionPolicy Bypass -File scripts\check_promoter_rpc.ps1
 echo.
 
-echo Step 4/4: Starting development server on FIXED port 3001...
-echo Launching on http://localhost:3001
-echo (Killing any old process on port 3001 first...)
+echo Step 4/4: Starting development server on FIXED port 3000...
+echo Launching on http://localhost:3000
+echo (Killing any old process on port 3000 first...)
 
-:: Kill any existing Vite / Node process on port 3001
-for /f "tokens=5" %%a in ('netstat -aon ^| find ":3001" ^| find "LISTENING"') do taskkill /F /PID %%a >nul 2>&1
+:: Kill any existing Vite / Node process on port 3000
+for /f "tokens=5" %%a in ('netstat -aon ^| find ":3000" ^| find "LISTENING"') do taskkill /F /PID %%a >nul 2>&1
 
-:: Force Vite to use EXACTLY port 3001
-call npx vite --port 3001 --strictPort --host
+:: Force Vite to use EXACTLY port 3000
+call npx vite --port 3000 --strictPort --host
 
 echo.
 echo ========================================
-echo ✅ App running at: http://localhost:3001
+echo ✅ App running at: http://localhost:3000
 echo ========================================
 pause

@@ -75,6 +75,31 @@ import { LogOut, Package, Plus, Phone, ChevronRight } from 'lucide-react';
 // Safe fields to select from app_users (never select * to avoid leaking sensitive data)
 const SAFE_USER_FIELDS = 'id, employee_id, full_name, phone_number, role, zone, zsm, region, rank, total_points, avatar_url, profile_photo, two_factor_enabled, gps_tracking_consent' as const;
 
+function normalizePhoneForRoleCheck(v: any): string {
+  if (!v) return '';
+  const s = String(v).trim().replace(/[\s\-\(\)\+]/g, '');
+  if (s.startsWith('254')) return s.substring(3);
+  if (s.startsWith('0')) return s.substring(1);
+  return s;
+}
+
+const DEVELOPER_EMPLOYEE_IDS = ['DEV001'];
+
+function isDeveloperIdentity(user: any, userData: any, userRole: any): boolean {
+  // Only treat a user as a developer when there's an explicit developer flag
+  // (role === 'developer') or a known developer employee_id. Avoid loose
+  // matching (by name or phone) to prevent accidental mapping when the
+  // developer's phone appears elsewhere in the data.
+  const role = String(userRole || '').toLowerCase();
+  const employeeId = String(userData?.employee_id || user?.employee_id || '').toUpperCase();
+
+  if (role === 'developer') return true;
+  if (DEVELOPER_EMPLOYEE_IDS.includes(employeeId)) return true;
+
+  // Future: add explicit user-id whitelist here if needed
+  return false;
+}
+
 // Strip sensitive fields before persisting user to localStorage
 function sanitizeUserForStorage(user: any): any {
   if (!user) return user;
@@ -686,6 +711,14 @@ function App() {
       );
     }
 
+    // Developer Dashboard
+    if (isDeveloperIdentity(user, userData, userRole)) {
+      return (
+        <MobileContainer>
+          <DeveloperDashboard user={user} userData={userData} onLogout={handleLogout} />
+        </MobileContainer>
+      );
+    }
 
     if (userRole === 'director') {
       return (
@@ -908,9 +941,9 @@ function App() {
       );
     }
 
+    // Christopher profile behaves like a standard SE profile
     // Developer Dashboard
-    if (userRole === 'developer' ||
-        userData?.employee_id === 'DEV001') {
+    if (isDeveloperIdentity(user, userData, userRole)) {
       return (
         <MobileContainer>
           <DeveloperDashboard user={user} userData={userData} onLogout={handleLogout} />
@@ -1030,8 +1063,7 @@ function App() {
     }
 
     // Developer Dashboard
-    if (userRole === 'developer' ||
-        userData?.employee_id === 'DEV001') {
+    if (isDeveloperIdentity(user, userData, userRole)) {
       return (
         <MobileContainer>
           <DeveloperDashboard user={user} userData={userData} onLogout={handleLogout} />

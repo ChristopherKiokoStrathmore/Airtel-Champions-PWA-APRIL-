@@ -72,20 +72,42 @@ app.use(
   "/*",
   cors({
     origin: (origin) => {
-      const allowed = [
+      if (!origin) return null;
+      // Named production deployments
+      const productionAllowed = [
         'https://airtel-champions.vercel.app',
         'https://airtel-champions-pwa-april-6gnsktent.vercel.app',
-        'http://localhost:5173',
-        'http://localhost:3000',
       ];
-      return allowed.includes(origin) ? origin : null;
+      if (productionAllowed.includes(origin)) return origin;
+      // Any localhost / 127.0.0.1 port (dev)
+      if (/^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)) return origin;
+      // Any Vercel preview for this project
+      if (/^https:\/\/airtel-champions(-pwa)?(-[a-z0-9]+)*\.vercel\.app$/.test(origin)) return origin;
+      return null;
     },
-    allowHeaders: ["Content-Type", "Authorization", "apikey", "X-User-Id"],
+    allowHeaders: ["Content-Type", "Authorization", "apikey", "X-User-Id", "x-client-info"],
     allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     exposeHeaders: ["Content-Length"],
     maxAge: 600,
+    credentials: false,
   }),
 );
+
+// Explicit OPTIONS handler so sub-app routes also answer preflight even if
+// Hono's CORS middleware short-circuits before reaching the route handler.
+app.options('/*', (c) => {
+  const origin = c.req.header('Origin') ?? '';
+  const isLocal = /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin);
+  const isProd = ['https://airtel-champions.vercel.app', 'https://airtel-champions-pwa-april-6gnsktent.vercel.app'].includes(origin);
+  const isVercel = /^https:\/\/airtel-champions(-pwa)?(-[a-z0-9]+)*\.vercel\.app$/.test(origin);
+  if (origin && (isLocal || isProd || isVercel)) {
+    c.header('Access-Control-Allow-Origin', origin);
+    c.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    c.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, apikey, X-User-Id, x-client-info');
+    c.header('Access-Control-Max-Age', '600');
+  }
+  return c.body(null, 204);
+});
 
 // ============================================================================
 // HEALTH CHECK

@@ -40,20 +40,26 @@ if ('serviceWorker' in navigator) {
       .catch((registrationError) => {
         console.log('SW registration failed: ', registrationError);
       });
+  });
 }
 
 // Fallback: Server health check and refresh (every 5 minutes)
-setInterval(() => {
-  // Send a no-op request to check if content has changed
-  fetch('/?_t=' + Date.now(), { 
-    method: 'HEAD',
-    cache: 'no-store',
-    headers: {
-      'Pragma': 'no-cache',
-      'Cache-Control': 'no-cache, no-store, must-revalidate'
-    }
-  }).catch(() => {
-    // Silently handle errors
-  });
-}, 5 * 60 * 1000);
-  
+function scheduleServerHealthCheck() {
+  setInterval(() => {
+    // Send a no-op request to check if content has changed
+    fetch('/?_t=' + Date.now(), { 
+      method: 'HEAD',
+      cache: 'no-store',
+      headers: {
+        'Pragma': 'no-cache',
+        'Cache-Control': 'no-cache, no-store, must-revalidate'
+      }
+    }).catch(() => {
+      // Silently handle errors
+    });
+  }, 5 * 60 * 1000);
+}
+
+scheduleServerHealthCheck();
+
+createRoot(document.getElementById("root")!).render(<App />);

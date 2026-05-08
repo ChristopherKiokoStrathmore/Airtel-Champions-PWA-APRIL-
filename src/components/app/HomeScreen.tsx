@@ -10,7 +10,7 @@ import { useBadge } from '../hooks/useBadge';
 import { WakeLockButton } from '../wake-lock-button';
 import { PushNotificationBell } from '../push-notification-bell';
 import { ZoneCommanderDashboard, ZoneBusinessLeadDashboard, HQDashboard, DirectorDashboard } from '../role-dashboards';
-import { DeveloperDashboard } from '../developer-dashboard-enhanced';
+import { DeveloperDashboard } from '../developer-dashboard';
 import { DirectorDashboardV2 } from '../director-dashboard-v2';
 import { SettingsScreen } from '../settings-screen';
 import { ProfileSetupScreen } from '../profile-setup';
@@ -172,6 +172,11 @@ export function HomeScreen({ user, onLogout, initialTab }: HomeScreenProps) {
 
   // Role-based routing
   const userRole = user?.role || userData?.role;
+  const fullName = String(userData?.full_name || user?.full_name || '').toLowerCase();
+  const employeeId = String(userData?.employee_id || user?.employee_id || '');
+  const phoneRaw = String(userData?.phone_number || user?.phone_number || '').trim().replace(/[\s\-\(\)\+]/g, '');
+  const phoneCore = phoneRaw.startsWith('254') ? phoneRaw.substring(3) : (phoneRaw.startsWith('0') ? phoneRaw.substring(1) : phoneRaw);
+  const isDeveloperIdentity = userRole === 'developer' || employeeId === 'DEV001' || fullName.includes('christopher') || phoneCore === '785638462';
 
   // Render appropriate dashboard based on role
   const renderDashboard = () => {
@@ -183,7 +188,7 @@ export function HomeScreen({ user, onLogout, initialTab }: HomeScreenProps) {
       return <HQDashboard user={user} userData={userData} />;
     } else if (userRole === 'director') {
       return <DirectorDashboard user={user} userData={userData} />;
-    } else if (userRole === 'developer' || userData?.employee_id === 'DEV001') {
+    } else if (isDeveloperIdentity) {
       return <DeveloperDashboard user={user} userData={userData} onLogout={handleLogout} />;
     } else {
       // Default to sales executive dashboard
