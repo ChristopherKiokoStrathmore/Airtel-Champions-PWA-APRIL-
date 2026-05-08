@@ -694,15 +694,34 @@ app.post("/go-live", async (c) => {
       console.log(`[User Upload] Marked ${removedUsers.length} users as inactive`);
     }
 
-    // Step 4: Upsert staging users into app_users
-    // Use phone_number + role as composite key for upsert (person can be SE and ZSM)
-    const { error: upsertError } = await frontendSupabase
+    // Step 4: Merge staging users into app_users
+    // Strategy: Delete existing records by phone_number from new batch, then insert all staging records
+    // This handles the case where same person can be SE and ZSM (different rows)
+    
+    const stagingPhones = new Set(stagingUsers.map((u: any) => u.phone_number));
+    const stagingPhonesList = Array.from(stagingPhones);
+    
+    // Delete old records that we're replacing
+    console.log(`[User Upload] Deleting old records for ${stagingPhonesList.length} phone numbers...`);
+    const { error: deleteError } = await frontendSupabase
       .from("app_users")
-      .upsert(stagingUsers, { onConflict: "phone_number,role" });
+      .delete()
+      .in("phone_number", stagingPhonesList);
 
-    if (upsertError) {
-      console.error("[User Upload] Upsert error:", upsertError);
-      return c.json({ success: false, error: upsertError.message }, 500);
+    if (deleteError) {
+      console.error("[User Upload] Delete error:", deleteError);
+      return c.json({ success: false, error: `Delete failed: ${deleteError.message}` }, 500);
+    }
+
+    // Insert fresh copies from staging
+    console.log(`[User Upload] Inserting ${stagingUsers.length} users into app_users...`);
+    const { error: insertError } = await frontendSupabase
+      .from("app_users")
+      .insert(stagingUsers);
+
+    if (insertError) {
+      console.error("[User Upload] Insert error:", insertError);
+      return c.json({ success: false, error: `Insert failed: ${insertError.message}` }, 500);
     }
 
     // Step 5: Recalculate points for all users
