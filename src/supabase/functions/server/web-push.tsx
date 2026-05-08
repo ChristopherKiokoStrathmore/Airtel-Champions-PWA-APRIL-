@@ -10,7 +10,7 @@
 // this Node-native module doesn't crash the entire edge function at startup.
 // ============================================================================
 
-import { Hono } from 'npm:hono';
+import { Hono } from 'npm:hono@4.7.9';
 import * as kv from './kv_store.tsx';
 
 const app = new Hono();

@@ -3,7 +3,7 @@
 // Sessions are stored in the make-server KV store (no external table needed)
 // Key pattern: cs:{programId}:{userId}:{YYYY-MM-DD} → session object
 
-import { Hono } from 'npm:hono';
+import { Hono } from 'npm:hono@4.7.9';
 import { createClient } from 'jsr:@supabase/supabase-js@2';
 import * as kv from './kv_store.tsx';
 

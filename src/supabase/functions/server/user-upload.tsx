@@ -1,7 +1,7 @@
 // User Upload Management System - Excel Upload, Preview, Go-Live, Rollback
-import { Hono } from "npm:hono";
+import { Hono } from "npm:hono@4.7.9";
 import { createClient } from "jsr:@supabase/supabase-js@2";
-import * as XLSX from "npm:xlsx";
+import * as XLSX from "npm:xlsx@0.18.5";
 
 const app = new Hono();
 

@@ -1,5 +1,5 @@
 // PWA Activity Tracking - Logs user actions, page views, and engagement metrics
-import { Hono } from "npm:hono";
+import { Hono } from "npm:hono@4.7.9";
 import { createClient } from "jsr:@supabase/supabase-js@2";
 
 const app = new Hono();

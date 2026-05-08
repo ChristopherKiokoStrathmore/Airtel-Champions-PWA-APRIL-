@@ -1,5 +1,5 @@
 // Submissions API - Approval, Rejection, Bulk Operations
-import { Hono } from "npm:hono";
+import { Hono } from "npm:hono@4.7.9";
 import { createClient } from "jsr:@supabase/supabase-js@2";
 import * as kv from "./kv_store.tsx";
 

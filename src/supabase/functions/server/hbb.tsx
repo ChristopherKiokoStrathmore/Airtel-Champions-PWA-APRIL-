@@ -1,7 +1,7 @@
 // HBB CRM Server Routes — Production-hardened
 // All HBB data flows through here. The frontend Supabase (xspogpfohjmkykfjadhk)
 // can't be reached directly from the Figma Make preview iframe, so we proxy every query.
-import { Hono } from "npm:hono";
+import { Hono } from "npm:hono@4.7.9";
 import { createClient } from "jsr:@supabase/supabase-js@2";
 import {
   normalizeKenyanPhone,

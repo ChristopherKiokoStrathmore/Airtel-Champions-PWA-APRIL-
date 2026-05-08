@@ -1,9 +1,11 @@
-// Wrapper entrypoint for deploying the consolidated router
-// This imports the server implementation from `src` so the Supabase
-// functions deployer can bundle and run it under the expected slug.
+// DIAGNOSTIC TEST: hono with cors and logger sub-path imports
+import { Hono } from "npm:hono@4.7.9";
+import { cors } from "npm:hono@4.7.9/cors";
+import { logger } from "npm:hono@4.7.9/logger";
+import { createClient } from "jsr:@supabase/supabase-js@2";
 
-// IMPORTANT: Keep the relative path in sync if the project layout changes.
-import "../../../src/supabase/functions/server/index.tsx";
-
-// The imported module calls `Deno.serve(...)` itself, so no further code
-// is required here.
+const app = new Hono();
+app.use('*', logger(console.log));
+app.use('*', cors({ origin: '*' }));
+app.get("/make-server-28f2f653/health", (c) => c.json({ status: "ok", test: "hono-full" }));
+Deno.serve(app.fetch);

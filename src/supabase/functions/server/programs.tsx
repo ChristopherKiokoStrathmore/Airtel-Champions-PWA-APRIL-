@@ -1,5 +1,5 @@
-import { Hono } from 'npm:hono';
-import { cors } from 'npm:hono/cors';
+import { Hono } from 'npm:hono@4.7.9';
+import { cors } from 'npm:hono@4.7.9/cors';
 import { createClient } from 'jsr:@supabase/supabase-js@2';
 import * as kv from "./kv_store.tsx";
 
