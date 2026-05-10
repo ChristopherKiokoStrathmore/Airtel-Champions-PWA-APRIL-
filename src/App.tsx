@@ -442,7 +442,7 @@ function App() {
       navigator.serviceWorker
         .register('/sw.js', { scope: '/' })
         .then((reg) => {
-          console.log('[SW] âœ… Registered â€” scope:', reg.scope);
+          console.log('[SW] ✅ Registered - scope:', reg.scope);
           reg.update();
 
           // â”€â”€ #6 PERIODIC BACKGROUND SYNC â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
@@ -451,16 +451,16 @@ function App() {
           if ('periodicSync' in reg) {
             (reg as any).periodicSync.register('refresh-leaderboard', {
               minInterval: 60 * 60 * 1000, // 1 hour
-            }).then(() => console.log('[PeriodicSync] âœ… leaderboard registered'))
-              .catch(() => console.log('[PeriodicSync] â„¹ï¸ Permission pending'));
+            }).then(() => console.log('[PeriodicSync] ✅ leaderboard registered'))
+              .catch(() => console.log('[PeriodicSync] ℹ️ Permission pending'));
 
             (reg as any).periodicSync.register('refresh-announcements', {
               minInterval: 30 * 60 * 1000, // 30 min
-            }).then(() => console.log('[PeriodicSync] âœ… announcements registered'))
+            }).then(() => console.log('[PeriodicSync] ✅ announcements registered'))
               .catch(() => {});
           }
         })
-        .catch((err) => console.warn('[SW] âŒ Registration failed:', err));
+        .catch((err) => console.warn('[SW] ❌ Registration failed:', err));
 
       // â”€â”€ #5 BACKGROUND SYNC â€” message listener â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
       // The SW sends PROCESS_OFFLINE_QUEUE when connectivity is restored.
@@ -469,16 +469,16 @@ function App() {
         const { type, data } = event.data || {};
 
         if (type === 'PROCESS_OFFLINE_QUEUE') {
-          console.log('[SWâ†’App] ðŸ”„ Processing offline queue after reconnect...');
+          console.log('[SW->App] 🔄 Processing offline queue after reconnect...');
           OfflineManager.syncQueue()
             .then(({ success, failed }) =>
-              console.log(`[SWâ†’App] âœ… Queue flushed â€” success:${success} failed:${failed}`)
+              console.log(`[SW->App] ✅ Queue flushed - success:${success} failed:${failed}`)
             )
-            .catch((err) => console.error('[SWâ†’App] Queue flush error:', err));
+            .catch((err) => console.error('[SW->App] Queue flush error:', err));
         }
 
         if (type === 'PERIODIC_REFRESH') {
-          console.log('[SWâ†’App] â±ï¸ Periodic refresh for:', data);
+          console.log('[SW->App] ⏱️ Periodic refresh for:', data);
           window.dispatchEvent(
             new CustomEvent('pwa-periodic-refresh', { detail: { scope: data } })
           );
@@ -486,10 +486,10 @@ function App() {
       });
 
     } else if (isPreviewEnv) {
-      console.log('[SW] â„¹ï¸ Skipped â€” preview/dev environment, SW not needed here');
+      console.log('[SW] ℹ️ Skipped - preview/dev environment, SW not needed here');
     }
 
-    // â”€â”€ PERIODIC SYNC CONSUMER â”€â”€â”€â”€â”€â”€â”€â”€ï¿½ï¿½ï¿½â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    // Periodic sync consumer
     // Listen for the CustomEvent dispatched when periodic sync fires
     const handlePeriodicRefresh = (e: any) => {
       const scope = e.detail?.scope;
@@ -509,7 +509,7 @@ function App() {
     
     // Initialize offline manager
     OfflineManager.setupListeners();
-    console.log('[App] âœ… Offline manager initialized');
+    console.log('[App] ✅ Offline manager initialized');
     
     // Show splash screen for 2.5 seconds
     const splashTimer = setTimeout(() => {
@@ -542,7 +542,7 @@ function App() {
             updateUserActivity(parsedUserData.id);
           }
           
-          console.log('âœ… User loaded from localStorage:', parsedUserData.full_name, parsedUserData.role);
+          console.log('✅ User loaded from localStorage:', parsedUserData.full_name, parsedUserData.role);
           
           // Initialize PWA activity tracking
           initActivityTracking(parsedUserData.id, parsedUserData.full_name, parsedUserData.role);
@@ -562,10 +562,10 @@ function App() {
   }, []);
 
   // Auto-setup database on first load (runs once)
-  // âœ… DISABLED: Database setup SQL has been run manually in Supabase
+  // ✅ DISABLED: Database setup SQL has been run manually in Supabase
   // No need for automatic checks since kv_store_28f2f653 table is already configured
   useEffect(() => {
-    console.log('[App] âœ… Database setup completed manually - skipping automatic check');
+    console.log('[App] ✅ Database setup completed manually - skipping automatic check');
     setDatabaseError(null);
     setShowDatabaseSetup(false);
   }, []);
@@ -578,7 +578,7 @@ function App() {
         try {
           const parsedUserData = JSON.parse(storedUser);
           setUserData(parsedUserData);
-          console.log('âœ… [App] UserData refreshed from localStorage:', parsedUserData.full_name);
+          console.log('✅ [App] UserData refreshed from localStorage:', parsedUserData.full_name);
         } catch (err) {
           console.error('Failed to parse stored user on change:', err);
         }
@@ -592,7 +592,7 @@ function App() {
         try {
           const parsedUserData = JSON.parse(storedUser);
           setUserData(parsedUserData);
-          console.log('âœ… [App] Profile picture updated from custom event:', event.detail);
+          console.log('✅ [App] Profile picture updated from custom event:', event.detail);
         } catch (err) {
           console.error('Failed to parse stored user:', err);
         }
@@ -1284,12 +1284,12 @@ function LoginScreen({ onShowSignup, setUser, setUserData, setIsAuthenticated }:
   const [error, setError] = useState('');
   const [showHelpContact, setShowHelpContact] = useState(false);
 
-  // ðŸ›¡ï¸ Error Boundary for UpdateManager to prevent crashes if DB table missing
+  // 🛡️ Error Boundary for UpdateManager to prevent crashes if DB table missing
   // This ensures the app still works even if the SQL migration hasn't been run
   useEffect(() => {
     const suppressMissingTableError = (event: PromiseRejectionEvent) => {
       if (event.reason?.message?.includes('app_versions')) {
-        console.warn('âš ï¸ App Update check failed: app_versions table missing. Skipping check.');
+        console.warn('⚠️ App Update check failed: app_versions table missing. Skipping check.');
         event.preventDefault(); // Prevent crash
       }
     };
@@ -1315,7 +1315,7 @@ function LoginScreen({ onShowSignup, setUser, setUserData, setIsAuthenticated }:
         normalizedPhone = normalizedPhone.substring(1);
       }
       
-      console.log('ðŸ“± Normalized phone:', normalizedPhone);
+      console.log('📱 Normalized phone:', normalizedPhone);
 
       // Try RPC function first
       try {
@@ -1327,7 +1327,7 @@ function LoginScreen({ onShowSignup, setUser, setUserData, setIsAuthenticated }:
         if (!error && data?.success) {
           // RPC login successful
           localStorage.setItem('tai_user', JSON.stringify(sanitizeUserForStorage(data.user)));
-          console.log('âœ… RPC Login successful:', data.user);
+          console.log('✅ RPC Login successful:', data.user);
           
           // Track user session (OLD system - keep for backward compatibility)
           trackUserLogin(data.user.id, data.user.full_name, data.user.role);
@@ -1354,7 +1354,7 @@ function LoginScreen({ onShowSignup, setUser, setUserData, setIsAuthenticated }:
           return;
         }
       } catch (rpcError) {
-        console.log('âš ï¸ RPC login failed, trying direct query...');
+        console.log('⚠️ RPC login failed, trying direct query...');
       }
 
       // Fallback: Direct database query â€” exact match only (no fuzzy)
@@ -1366,7 +1366,7 @@ function LoginScreen({ onShowSignup, setUser, setUserData, setIsAuthenticated }:
         '254' + normalizedPhone             // 254762555550
       ];
 
-      console.log('ðŸ” Searching for phone in formats:', possibleFormats);
+      console.log('🔍 Searching for phone in formats:', possibleFormats);
 
       const { data: users, error: queryError } = await supabase
         .from('app_users')
@@ -1380,7 +1380,7 @@ function LoginScreen({ onShowSignup, setUser, setUserData, setIsAuthenticated }:
       }
 
       if (!users || users.length === 0) {
-        console.log('âš ï¸ No exact match found for phone formats:', possibleFormats);
+        console.log('⚠️ No exact match found for phone formats:', possibleFormats);
         
         // Also try employee_id as a last resort (exact match only)
         const { data: empUsers } = await supabase
@@ -1424,11 +1424,11 @@ function LoginScreen({ onShowSignup, setUser, setUserData, setIsAuthenticated }:
         }
         
         // 3. Not in app_users â€” try HBB tables (agents_HBB / installers_HBB)
-        console.log('ðŸ”„ Not found in app_users, trying HBB login (agents_HBB / installers_HBB)...');
+        console.log('🔄 Not found in app_users, trying HBB login (agents_HBB / installers_HBB)...');
         try {
           const hbbUser = await hbbLogin(phoneNumber.trim(), pin || '');
           if (hbbUser && hbbUser.role) {
-            console.log(`âœ… HBB login successful: ${hbbUser.full_name} (${hbbUser.role}) from ${hbbUser.source_table}`);
+            console.log(`✅ HBB login successful: ${hbbUser.full_name} (${hbbUser.role}) from ${hbbUser.source_table}`);
             
             // Store HBB user in localStorage with consistent shape
             const hbbUserData = {
@@ -1452,7 +1452,7 @@ function LoginScreen({ onShowSignup, setUser, setUserData, setIsAuthenticated }:
             return;
           }
         } catch (hbbErr: any) {
-          console.log('ï¿½ï¿½ï¸ HBB login also failed:', hbbErr.message);
+          console.log('⚠️ HBB login also failed:', hbbErr.message);
         }
         
         throw new Error('Phone number not found. Please check and try again.');
@@ -1471,8 +1471,8 @@ function LoginScreen({ onShowSignup, setUser, setUserData, setIsAuthenticated }:
       // Store user data in localStorage (PIN stripped for security)
       localStorage.setItem('tai_user', JSON.stringify(sanitizeUserForStorage(user)));
       
-      console.log('âœ… Direct login successful:', user.full_name);
-      console.log('ðŸ“ User name:', user.full_name);
+      console.log('✅ Direct login successful:', user.full_name);
+      console.log('📝 User name:', user.full_name);
       
       // Update app state immediately
       setUser(user);
@@ -1690,7 +1690,7 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
     { 
       id: 1, 
       name: 'Network Experience', 
-      icon: 'ðŸ“¶',
+      icon: '📶',
       submissions: 0,
       description: 'Capture network quality and customer experience data',
       color: 'bg-blue-50 border-blue-200 text-blue-600'
@@ -1698,7 +1698,7 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
     { 
       id: 2, 
       name: 'Competition Conversion', 
-      icon: 'ðŸŽ¯',
+      icon: '🎯',
       submissions: 0,
       description: 'Document competitor customer conversions to Airtel',
       color: 'bg-green-50 border-green-200 text-green-600'
@@ -1706,7 +1706,7 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
     { 
       id: 3, 
       name: 'New Site Launch', 
-      icon: 'ðŸš€',
+      icon: '🚀',
       submissions: 0,
       description: 'Report new network site launches and coverage',
       color: 'bg-purple-50 border-purple-200 text-purple-600'
@@ -1714,7 +1714,7 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
     { 
       id: 4, 
       name: 'AMB Visitation', 
-      icon: 'ðŸ¢',
+      icon: '🏢',
       submissions: 0,
       description: 'Track visits to Airtel Money Business locations',
       color: 'bg-orange-50 border-orange-200 text-orange-600'
@@ -1748,7 +1748,7 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
 
   // Android Back Button Handler
   useEffect(() => {
-    console.log('[AndroidBackButton] ðŸ“± Setting up Android back button listener in HomeScreen...');
+    console.log('[AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...');
     
     let listenerHandle: any = null;
     
@@ -1760,7 +1760,7 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
           return;
         }
         listenerHandle = await CapacitorApp.addListener('backButton', ({ canGoBack }: any) => {
-          console.log('[AndroidBackButton] â¬…ï¸ Back button pressed, canGoBack:', canGoBack);
+          console.log('[AndroidBackButton] ⬅️ Back button pressed, canGoBack:', canGoBack);
           
           // Priority 1: Close any open modals first
           if (showTodayLeaderboard) {
@@ -1846,16 +1846,16 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
           console.log('[AndroidBackButton] On home tab, exiting app');
           CapacitorApp?.exitApp();
         });
-        console.log('[AndroidBackButton] âœ… Listener setup complete');
+        console.log('[AndroidBackButton] ✅ Listener setup complete');
       } catch (error) {
-        console.error('[AndroidBackButton] âŒ Error setting up listener:', error);
+        console.error('[AndroidBackButton] ❌ Error setting up listener:', error);
       }
     };
     
     setupListener();
     
     return () => {
-      console.log('[AndroidBackButton] ðŸ§¹ Cleaning up back button listener');
+      console.log('[AndroidBackButton] 🧹 Cleaning up back button listener');
       if (listenerHandle && typeof listenerHandle.remove === 'function') {
         listenerHandle.remove();
       }
@@ -1918,14 +1918,14 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
 
   const loadTopPerformers = async () => {
     try {
-      console.log('[Top Performers] ðŸ”¥ Loading top performers for TODAY...');
+      console.log('[Top Performers] 🔥 Loading top performers for TODAY...');
       
       // Get today's date range (start of day to now)
       const today = new Date();
       today.setHours(0, 0, 0, 0);
       const todayStart = today.toISOString();
       
-      console.log('[Top Performers] ðŸ“… Today starts at:', todayStart);
+      console.log('[Top Performers] 📅 Today starts at:', todayStart);
       
       // STEP 1: Get all Sales Executives
       const { data: allSEs, error: sesError } = await supabase
@@ -1934,18 +1934,18 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
         .eq('role', 'sales_executive');
       
       if (sesError) {
-        console.error('[Top Performers] âŒ Error loading SEs:', sesError);
+        console.error('[Top Performers] ❌ Error loading SEs:', sesError);
         return;
       }
       
       if (!allSEs || allSEs.length === 0) {
-        console.log('[Top Performers] âš ï¸ No SEs found');
+        console.log('[Top Performers] ⚠️ No SEs found');
         setTopPerformers([]);
         return;
       }
       
       const seIdsSet = new Set(allSEs.map(se => se.id));
-      console.log('[Top Performers] ðŸ‘¥ Found', seIdsSet.size, 'Sales Executives');
+      console.log('[Top Performers] 👥 Found', seIdsSet.size, 'Sales Executives');
       
       // STEP 2: Get all submissions from today
       const { data: allSubmissions, error: submissionsError } = await supabase
@@ -1954,14 +1954,14 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
         .gte('created_at', todayStart);
       
       if (submissionsError) {
-        console.error('[Top Performers] âŒ Error loading submissions:', submissionsError);
+        console.error('[Top Performers] ❌ Error loading submissions:', submissionsError);
         return;
       }
       
       // STEP 3: Filter to only SE submissions
       const todaySubmissions = allSubmissions?.filter(sub => seIdsSet.has(sub.user_id)) || [];
       
-      console.log('[Top Performers] âœ… Loaded', todaySubmissions.length, 'SE submissions from today (filtered from', allSubmissions?.length || 0, 'total)');
+      console.log('[Top Performers] ✅ Loaded', todaySubmissions.length, 'SE submissions from today (filtered from', allSubmissions?.length || 0, 'total)');
       
       // Calculate points per user for today
       const userPointsMap: Record<string, number> = {};
@@ -1976,16 +1976,16 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
       const sortedUsers = Object.entries(userPointsMap)
         .sort(([, pointsA], [, pointsB]) => pointsB - pointsA);
       
-      console.log('[Top Performers] ðŸ“Š ALL users sorted by points:', sortedUsers.slice(0, 10).map(([id, pts]) => ({ id: id.substring(0, 8), points: pts })));
+      console.log('[Top Performers] 📊 ALL users sorted by points:', sortedUsers.slice(0, 10).map(([id, pts]) => ({ id: id.substring(0, 8), points: pts })));
       
       const topUserIds = sortedUsers
         .slice(0, 3)
         .map(([userId, points]) => ({ userId, points }));
       
-      console.log('[Top Performers] ðŸ† Top 3 user IDs:', topUserIds.map(u => ({ id: u.userId.substring(0, 8), points: u.points })));
+      console.log('[Top Performers] 🏆 Top 3 user IDs:', topUserIds.map(u => ({ id: u.userId.substring(0, 8), points: u.points })));
       
       if (topUserIds.length === 0) {
-        console.log('[Top Performers] âš ï¸ No submissions today - showing empty list');
+        console.log('[Top Performers] ⚠️ No submissions today - showing empty list');
         setTopPerformers([]);
         return;
       }
@@ -1998,7 +1998,7 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
         .in('id', userIds);
       
       if (usersError) {
-        console.error('[Top Performers] âŒ Error loading user details:', usersError);
+        console.error('[Top Performers] ❌ Error loading user details:', usersError);
         return;
       }
       
@@ -2009,7 +2009,7 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
       const performersWithRank = topUserIds.map((topUser, index) => {
         const user = validUsers.find(u => u.id === topUser.userId);
         if (!user) {
-          console.warn('[Top Performers] âš ï¸ User not found for ID:', topUser.userId.substring(0, 8));
+          console.warn('[Top Performers] ⚠️ User not found for ID:', topUser.userId.substring(0, 8));
           return null;
         }
         return {
@@ -2020,10 +2020,10 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
         };
       }).filter(p => p !== null); // Remove any null entries
       
-      console.log('[Top Performers] âœ… Final top performers:', performersWithRank.map(p => ({ name: p.full_name, rank: p.rank, points: p.points_today })));
+      console.log('[Top Performers] ✅ Final top performers:', performersWithRank.map(p => ({ name: p.full_name, rank: p.rank, points: p.points_today })));
       setTopPerformers(performersWithRank);
     } catch (error) {
-      console.error('[Top Performers] âŒ Error loading top performers:', error);
+      console.error('[Top Performers] ❌ Error loading top performers:', error);
     }
   };
 
@@ -2077,7 +2077,7 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
         localStorage.setItem('tai_user', JSON.stringify(userObj));
       }
 
-      console.log('âœ… Updated user rank:', currentRank, 'points:', currentPoints);
+      console.log('✅ Updated user rank:', currentRank, 'points:', currentPoints);
     } catch (error) {
       console.error('Error loading user points and rank:', error);
     }
@@ -2095,17 +2095,17 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
     try {
       if (!userData) return;
       
-      console.log('[HomeScreen] âœ… Loading announcements from localStorage for role:', userData.role);
+      console.log('[HomeScreen] ✅ Loading announcements from localStorage for role:', userData.role);
       
       // Use the localStorage-based getAnnouncements function
       const { data, error } = await getAnnouncements();
 
       if (error) {
-        console.error('[HomeScreen] âŒ Error loading announcements:', error);
+        console.error('[HomeScreen] ❌ Error loading announcements:', error);
         return;
       }
 
-      console.log('[HomeScreen] âœ… Raw announcements loaded:', data?.length || 0);
+      console.log('[HomeScreen] ✅ Raw announcements loaded:', data?.length || 0);
 
       // Validate and filter announcements by target role
       const validData = Array.isArray(data) ? data : [];
@@ -2114,7 +2114,7 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
         return targetRoles.includes(userData.role) || targetRoles.includes('all');
       });
 
-      console.log('[HomeScreen] âœ… Filtered announcements for role:', filteredAnnouncements.length);
+      console.log('[HomeScreen] ✅ Filtered announcements for role:', filteredAnnouncements.length);
 
       // Add is_read flag for each announcement
       const announcementsWithReadStatus = filteredAnnouncements.map((announcement: any) => {
@@ -2133,9 +2133,9 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
       setUnreadAnnouncementsCount(unread);
       if (unread > 0) { setBadge(unread); } else { clearBadge(); }
       
-      console.log('[HomeScreen] âœ… Total announcements:', announcementsWithReadStatus.length, '| Unread:', unread);
+      console.log('[HomeScreen] ✅ Total announcements:', announcementsWithReadStatus.length, '| Unread:', unread);
     } catch (error) {
-      console.error('[HomeScreen] âŒ Error loading announcements:', error);
+      console.error('[HomeScreen] ❌ Error loading announcements:', error);
     }
   };
 
@@ -2143,7 +2143,7 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
     try {
       if (!userData) return;
 
-      console.log('[HomeScreen] âœ… Marking announcement as read (localStorage):', announcementId);
+      console.log('[HomeScreen] ✅ Marking announcement as read (localStorage):', announcementId);
 
       // Load all announcements from localStorage
       const storedData = localStorage.getItem('tai_announcements') || '[]';
@@ -2171,9 +2171,9 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
       ));
       setUnreadAnnouncementsCount(prev => Math.max(0, prev - 1));
 
-      console.log('[HomeScreen] âœ… Announcement marked as read successfully');
+      console.log('[HomeScreen] ✅ Announcement marked as read successfully');
     } catch (error) {
-      console.error('[HomeScreen] âŒ Error marking announcement as read:', error);
+      console.error('[HomeScreen] ❌ Error marking announcement as read:', error);
     }
   };
 
@@ -2212,9 +2212,9 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
 
   const getTimeEmoji = () => {
     const hour = new Date().getHours();
-    if (hour < 12) return 'â˜€ï¸';
+    if (hour < 12) return '☀️';
     if (hour < 18) return '';
-    return 'ðŸŒ™';
+    return '🌙';
   };
 
   // Render different tabs
@@ -2252,12 +2252,12 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
   }
 
   if (activeTab === 'programs') {
-    console.log('[App] ðŸŽ¬ Rendering Programs tab with initialProgramId:', programToOpen);
+    console.log('[App] 🎬 Rendering Programs tab with initialProgramId:', programToOpen);
     return (
       <div className="flex-1 flex flex-col overflow-hidden" style={{ backgroundColor: 'var(--theme-bg-page, #F9FAFB)' }}>
         <ProgramsListFoldersApp 
           onBack={() => {
-            console.log('[App] â¬…ï¸ Going back, clearing programToOpen');
+            console.log('[App] ⬅️ Going back, clearing programToOpen');
             setProgramToOpen(undefined);
             setActiveTab('home');
           }}
@@ -2393,7 +2393,7 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
                 className="inline-flex items-center px-4 py-2 rounded-full shadow-sm hover:shadow-md transition-all active:scale-95"
                 style={{ backgroundColor: 'var(--theme-primary-light, #FEF2F2)', border: '1px solid var(--theme-border, #E5E7EB)' }}
               >
-                <span className="text-sm font-semibold" style={{ color: 'var(--theme-primary, #E60000)' }}>ðŸ¦… SE #{userRank}</span>
+                  <span className="text-sm font-semibold" style={{ color: 'var(--theme-primary, #E60000)' }}>SE #{userRank}</span>
               </button>
               {/* Points Badge - Click to view submissions history */}
               <button
@@ -2401,7 +2401,7 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
                 className="inline-flex items-center px-4 py-2 rounded-full shadow-sm hover:shadow-md transition-all active:scale-95"
                 style={{ backgroundColor: 'var(--theme-accent-light, #FEF3C7)', border: '1px solid var(--theme-border, #E5E7EB)' }}
               >
-                <span className="text-sm font-semibold" style={{ color: 'var(--theme-accent, #F59E0B)' }}>â­ {userData?.total_points || 0} pts</span>
+                  <span className="text-sm font-semibold" style={{ color: 'var(--theme-accent, #F59E0B)' }}>⭐ {userData?.total_points || 0} pts</span>
               </button>
             </div>
           </div>
@@ -2519,7 +2519,7 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
         {/* Top 3 SEs Section */}
         <div data-tour="top-performers" className="px-6 py-6 transition-colors duration-300" style={{ backgroundColor: 'var(--theme-bg-card, #FFFFFF)', borderBottom: '1px solid var(--theme-border, #E5E7EB)' }}>
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg" style={{ color: 'var(--theme-text-primary, #111827)' }}>ðŸ† Top Performers Today</h3>
+            <h3 className="text-lg" style={{ color: 'var(--theme-text-primary, #111827)' }}>🏆 Top Performers Today</h3>
             <button
               onClick={handleViewAllLeaderboard}
               className="text-sm transition-colors flex items-center"
@@ -2548,7 +2548,7 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
                   <p className="text-sm font-semibold truncate" style={{ color: 'var(--theme-text-primary, #111827)' }}>{performer?.full_name?.split(' ')[0] || 'User'}</p>
                   <p className="text-xs" style={{ color: 'var(--theme-text-secondary, #4B5563)' }}>Rank #{performer?.rank || '--'}</p>
                   <p className="text-xs font-bold" style={{ color: 'var(--theme-success, #059669)' }}>{performer?.points_today || 0} pts today</p>
-                  {index === 0 && <p className="text-xs text-yellow-600">ðŸ‘‘ #1</p>}
+                  {index === 0 && <p className="text-xs text-yellow-600">👑 #1</p>}
                 </button>
               ))
             ) : (
@@ -2593,10 +2593,10 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
             }}
             onPointsUpdated={refreshAllStats}
             onProgramClick={(programId) => {
-              console.log('[App] ðŸŽ¯ Opening program from home widget:', programId);
-              console.log('[App] ðŸ“‹ Setting programToOpen state to:', programId);
+              console.log('[App] 🎯 Opening program from home widget:', programId);
+              console.log('[App] 📋 Setting programToOpen state to:', programId);
               setProgramToOpen(programId);
-              console.log('[App] ðŸ”„ Switching to programs tab');
+              console.log('[App] 🔄 Switching to programs tab');
               setActiveTab('programs');
             }}
           />
@@ -2661,7 +2661,7 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
           className="fixed bottom-24 right-6 w-14 h-14 bg-gradient-to-r from-red-600 to-orange-600 rounded-full shadow-lg flex items-center justify-center text-white text-2xl hover:shadow-xl transition-all hover:scale-110 active:scale-95 z-30"
           title="Create Announcement"
         >
-          ðŸ“¢
+          📢
         </button>
       )}
 
@@ -2687,7 +2687,7 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
             setShowPermissionRequest(false);
             if (granted) {
               await webrtc.goOnline();
-              console.log('[WebRTC] âœ… Permissions granted, user is now online');
+              console.log('[WebRTC] ✅ Permissions granted, user is now online');
               // Proceed with the action that triggered the permission request
               if (pendingCallActionRef.current === 'directory') {
                 setShowUserDirectory(true);
@@ -2695,7 +2695,7 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
                 setShowCallHistory(true);
               }
             } else {
-              console.log('[WebRTC] âŒ Permissions denied');
+              console.log('[WebRTC] ❌ Permissions denied');
             }
             pendingCallActionRef.current = null;
           }}
@@ -2862,7 +2862,7 @@ function LeaderboardScreen({ onBack, onLogout, userData, onUserClick }: { onBack
     const rank = leaderboard.findIndex(u => u.id === userData?.id || u.employee_id === userData?.employee_id) + 1;
     const points = userData?.total_points || 0;
     const rankText = rank > 0 ? `#${rank}` : 'the top';
-    const text = `ðŸ† ${name} is ranked ${rankText} on the Airtel Champions leaderboard with ${points} points! Can you beat it?`;
+    const text = `🏆 ${name} is ranked ${rankText} on the Airtel Champions leaderboard with ${points} points! Can you beat it?`;
     const appUrl = window.location.origin + '/?tab=leaderboard';
     const copied = await share({ title: 'Airtel Champions Leaderboard', text, url: appUrl });
     if (copied && !canShare) {
@@ -3058,7 +3058,7 @@ function LeaderboardScreen({ onBack, onLogout, userData, onUserClick }: { onBack
             </svg>
           </button>
           <div className="flex-1">
-            <h2 className="text-2xl">{"ðŸ†"} Top Performers Today</h2>
+            <h2 className="text-2xl">🏆 Top Performers Today</h2>
           </div>
         </div>
 
@@ -3257,7 +3257,7 @@ function LeaderboardScreen({ onBack, onLogout, userData, onUserClick }: { onBack
         ) : (
           <div className="flex-1 flex items-center justify-center p-6">
             <div className="text-center">
-              <div className="text-6xl mb-4">ðŸ”</div>
+              <div className="text-6xl mb-4">🔍</div>
               <h3 className="text-xl mb-2">No SEs Found</h3>
               <p className="text-gray-600 text-sm mb-4">
                 No sales executives match your filter criteria
@@ -3511,7 +3511,7 @@ function LeaderboardScreen({ onBack, onLogout, userData, onUserClick }: { onBack
 
                     {/* Comparison Stats */}
                     <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg p-6 border border-purple-200">
-                      <h4 className="text-xl font-bold mb-4 text-center">ðŸ“Š Head-to-Head Analysis</h4>
+                      <h4 className="text-xl font-bold mb-4 text-center">📊 Head-to-Head Analysis</h4>
                       
                       <div className="grid grid-cols-3 gap-4 mb-4">
                         {/* Rank Winner */}
@@ -3519,7 +3519,7 @@ function LeaderboardScreen({ onBack, onLogout, userData, onUserClick }: { onBack
                           <p className="text-sm text-gray-600 mb-2">Better Rank</p>
                           <div className={`p-4 rounded-lg ${compareUser1.rank < compareUser2.rank ? 'bg-blue-100 border-2 border-blue-500' : 'bg-green-100 border-2 border-green-500'}`}>
                             <p className="font-bold">{compareUser1.rank < compareUser2.rank ? compareUser1.full_name.split(' ')[0] : compareUser2.full_name.split(' ')[0]}</p>
-                            <p className="text-2xl">ðŸ†</p>
+                            <p className="text-2xl">🏆</p>
                           </div>
                         </div>
 
@@ -3602,7 +3602,7 @@ function TopPerformerProfileModal({ performer, onClose }: { performer: any; onCl
     calculateActualRank();
   }, [performer]);
   
-  // ðŸ”¥ Calculate real-time rank based on current points
+  // 🔥 Calculate real-time rank based on current points
   const calculateActualRank = async () => {
     try {
       if (!performer?.id) return;
@@ -3623,7 +3623,7 @@ function TopPerformerProfileModal({ performer, onClose }: { performer: any; onCl
       const rankPosition = allSEs?.findIndex(se => se.id === performer.id) + 1;
       setActualRank(rankPosition || 0);
       
-      console.log(`[TopPerformerProfileModal] âœ… Calculated rank: ${rankPosition} (Points: ${performer.total_points})`);
+      console.log(`[TopPerformerProfileModal] ✅ Calculated rank: ${rankPosition} (Points: ${performer.total_points})`);
     } catch (error) {
       console.error('[TopPerformerProfileModal] Error calculating rank:', error);
     }
@@ -3637,7 +3637,7 @@ function TopPerformerProfileModal({ performer, onClose }: { performer: any; onCl
   const performerInitial = performer.full_name?.substring(0, 1).toUpperCase() || 'U';
 
   const loadSubmissions = async () => {
-    console.log('[TopPerformerProfileModal] ðŸ“Š Loading ACTUAL program submissions from database');
+    console.log('[TopPerformerProfileModal] 📊 Loading ACTUAL program submissions from database');
     console.log('[TopPerformerProfileModal] Performer object:', performer);
     try {
       const userId = performer.id || performer.employee_id;
@@ -3648,7 +3648,7 @@ function TopPerformerProfileModal({ performer, onClose }: { performer: any; onCl
         return;
       }
 
-      console.log('[TopPerformerProfileModal] ðŸ” Searching for submissions with user_id:', userId);
+      console.log('[TopPerformerProfileModal] 🔍 Searching for submissions with user_id:', userId);
 
       // First, check ALL submissions to see what statuses exist
       const { data: allSubmissionsData, error: allSubmissionsError } = await supabase
@@ -3669,7 +3669,7 @@ function TopPerformerProfileModal({ performer, onClose }: { performer: any; onCl
         return;
       }
 
-      console.log(`[TopPerformerProfileModal] âœ… Found ${allSubmissionsData?.length || 0} TOTAL submissions for ${performer.full_name}`);
+      console.log(`[TopPerformerProfileModal] ✅ Found ${allSubmissionsData?.length || 0} TOTAL submissions for ${performer.full_name}`);
       console.log('[TopPerformerProfileModal] Raw submissions data:', allSubmissionsData);
       
       // Log status breakdown
@@ -3677,7 +3677,7 @@ function TopPerformerProfileModal({ performer, onClose }: { performer: any; onCl
       allSubmissionsData?.forEach((sub: any) => {
         statusBreakdown[sub.status] = (statusBreakdown[sub.status] || 0) + 1;
       });
-      console.log('[TopPerformerProfileModal] ðŸ“Š Status breakdown:', statusBreakdown);
+      console.log('[TopPerformerProfileModal] 📊 Status breakdown:', statusBreakdown);
 
       // Count submissions per program (ALL statuses for now to see where points come from)
       const counts: { [key: string]: number } = {};
@@ -3690,7 +3690,7 @@ function TopPerformerProfileModal({ performer, onClose }: { performer: any; onCl
       }
 
       setProgramCounts(counts);
-      console.log('[TopPerformerProfileModal] ðŸ“‹ Program breakdown:', counts);
+      console.log('[TopPerformerProfileModal] 📋 Program breakdown:', counts);
       setLoading(false);
     } catch (error) {
       console.error('[TopPerformerProfileModal] Error loading submissions:', error);
@@ -3740,7 +3740,7 @@ function TopPerformerProfileModal({ performer, onClose }: { performer: any; onCl
         {/* Submissions by Program */}
         <div className="flex-1 overflow-y-auto px-4 py-3">
           <div className="flex items-center justify-between mb-3">
-            <h4 className="font-semibold text-sm">ðŸ“Š Submissions by Program</h4>
+            <h4 className="font-semibold text-sm">📊 Submissions by Program</h4>
             {totalSubmissions > 0 && (
               <span className="text-xs text-gray-500">{totalSubmissions} total</span>
             )}
@@ -3768,7 +3768,7 @@ function TopPerformerProfileModal({ performer, onClose }: { performer: any; onCl
             </div>
           ) : (
             <div className="text-center py-8">
-              <div className="text-5xl mb-3">ðŸ“‹</div>
+              <div className="text-5xl mb-3">📋</div>
               <p className="text-gray-600 text-sm">No submissions yet</p>
               <p className="text-gray-500 text-xs mt-1">This SE hasn't made any submissions</p>
             </div>
@@ -3907,7 +3907,7 @@ function HallOfFameScreen({ onBack, userData }: { onBack: () => void; userData: 
             </svg>
           </button>
           <div className="flex-1">
-            <h1 className="text-2xl mb-1">ðŸ† Hall of Fame</h1>
+            <h1 className="text-2xl mb-1">🏆 Hall of Fame</h1>
             <p className="text-sm text-yellow-100">Legends of Airtel Champions</p>
           </div>
         </div>
@@ -4060,7 +4060,7 @@ function HallOfFameScreen({ onBack, userData }: { onBack: () => void; userData: 
               const initial = performer.full_name?.substring(0, 1).toUpperCase() || 'U';
               const actualRank = hallOfFamers.findIndex(p => p.id === performer.id) + 1;
               const medalColor = actualRank === 1 ? 'bg-yellow-500' : actualRank === 2 ? 'bg-gray-400' : actualRank === 3 ? 'bg-orange-600' : 'bg-blue-500';
-              const medal = actualRank === 1 ? 'ðŸ¥‡' : actualRank === 2 ? 'ðŸ¥ˆ' : actualRank === 3 ? 'ðŸ¥‰' : 'â­';
+              const medal = actualRank === 1 ? '🥇' : actualRank === 2 ? '🥈' : actualRank === 3 ? '🥉' : '⭐';
               const isCurrentUser = performer.id === userData?.id;
 
               return (
@@ -4096,10 +4096,10 @@ function HallOfFameScreen({ onBack, userData }: { onBack: () => void; userData: 
                           </span>
                         )}
                       </div>
-                      <p className="text-sm text-gray-600 mb-1">ðŸ“ {performer.zone}</p>
+                      <p className="text-sm text-gray-600 mb-1">📍 {performer.zone}</p>
                       <div className="flex items-center gap-3">
                         <span className="text-sm bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full">
-                          â­ {performer.total_points || 0} pts
+                          ⭐ {performer.total_points || 0} pts
                         </span>
                         <span className="text-xs text-gray-500">
                           Rank #{actualRank}
@@ -4110,7 +4110,7 @@ function HallOfFameScreen({ onBack, userData }: { onBack: () => void; userData: 
                     {/* Trophy Icon for Top 3 */}
                     {actualRank <= 3 && (
                       <div className="flex-shrink-0 text-4xl">
-                        ðŸ†
+                        🏆
                       </div>
                     )}
                   </div>
@@ -4138,7 +4138,7 @@ function HallOfFameScreen({ onBack, userData }: { onBack: () => void; userData: 
 
             {filteredFamers.length === 0 && !loading && (
               <div className="text-center py-12">
-                <div className="text-6xl mb-4">ðŸ”</div>
+                <div className="text-6xl mb-4">🔍</div>
                 <h3 className="text-xl text-gray-600 mb-2">No Results Found</h3>
                 <p className="text-gray-500">
                   {searchQuery || selectedZone !== 'all' || selectedZSM !== 'all'
