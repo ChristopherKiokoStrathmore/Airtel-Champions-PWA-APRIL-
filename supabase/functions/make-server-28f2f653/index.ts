@@ -7,6 +7,7 @@ import { createClient } from "jsr:@supabase/supabase-js@2";
 import announcementsApp from "../../../src/supabase/functions/server/announcements.tsx";
 import userUploadApp from "./user-upload.tsx";
 import programsApp from "../../../src/supabase/functions/server/programs.tsx";
+import checkinApp from "../../../src/supabase/functions/server/checkin.tsx";
 
 const app = new Hono();
 
@@ -20,6 +21,7 @@ const corsMiddleware = cors({
     "Authorization",
     "apikey",
     "x-client-info",
+    "X-User-Id",
     "Accept",
     "Accept-Language",
   ],
@@ -48,6 +50,7 @@ app.get("/make-server-28f2f653/health", (c) => {
 // Route handlers
 app.route('/make-server-28f2f653', announcementsApp);
 app.route('/make-server-28f2f653', userUploadApp);
+app.route('/make-server-28f2f653', checkinApp);
 app.route('/', programsApp);
 
 // Catch-all 404 handler

@@ -1587,17 +1587,26 @@ function ZSMQuickViewModal({
   if (!isOpen) return null;
 
   const totalPoints = teamMembers.reduce((sum, se) => sum + (se.total_points || 0), 0);
-  const activeCount = teamMembers.filter(se => se.total_points > 0).length;
+  const recentActiveMemberIds = new Set(
+    recentSubmissions
+      .map((submission: any) => submission.user_id)
+      .filter(Boolean)
+      .map((userId: any) => String(userId))
+  );
+  const activeCount = teamMembers.filter(
+    se => (se.total_points || 0) > 0 || recentActiveMemberIds.has(String(se.id))
+  ).length;
   const totalCount = teamMembers.length;
+  const activityRate = totalCount > 0 ? activeCount / totalCount : 0;
   
   // Calculate team health
   let healthColor = 'Healthy';
   let healthStatus = 'Healthy';
-  if (activeCount / totalCount < 0.8) {
+  if (activityRate < 0.8) {
     healthColor = 'Needs Attention';
     healthStatus = 'Needs Attention';
   }
-  if (activeCount / totalCount < 0.5) {
+  if (activityRate < 0.5) {
     healthColor = 'Critical';
     healthStatus = 'Critical';
   }
@@ -1699,7 +1708,7 @@ function ZSMQuickViewModal({
           ) : (
             <div className="space-y-2">
               {topSEs.map((se, index) => {
-                const isActive = se.total_points > 0;
+                const isActive = (se.total_points || 0) > 0 || recentActiveMemberIds.has(String(se.id));
                 return (
                   <div 
                     key={se.id}

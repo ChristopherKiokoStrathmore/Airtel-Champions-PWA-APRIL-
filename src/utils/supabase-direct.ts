@@ -95,13 +95,32 @@ const SUBMISSIONS_PREFIX = 'submissions:';
 
 import { localCache, CACHE_TTL } from '../lib/local-cache';
 
+const ROLE_ALIASES: Record<string, string[]> = {
+  se: ['se', 'sales_executive', 'Sales Executive', 'Sales Executives'],
+  zsm: ['zsm', 'zonal_sales_manager', 'Zonal Sales Manager'],
+  zbm: ['zbm', 'zone_business_lead', 'zonal_business_manager', 'Zone Business Lead', 'Zonal Business Manager'],
+  director: ['director'],
+  hq: ['hq', 'hq_staff', 'hq_command_center'],
+};
+
+export function getProgramRoleAliases(userRole: string) {
+  const normalized = (userRole || '').trim().toLowerCase();
+  return ROLE_ALIASES[normalized] || [userRole];
+}
+
+export function canSubmitPrograms(userRole: string) {
+  const normalized = (userRole || '').trim().toLowerCase();
+  return ['se', 'sales_executive', 'zsm', 'zonal_sales_manager', 'zbm', 'zone_business_lead', 'zonal_business_manager'].includes(normalized);
+}
+
 export const programsAPI = {
   // Get all programs
   async getPrograms(userRole: string = 'sales_executive') {
     try {
       console.log('[ProgramsAPI] Fetching programs for role:', userRole);
+      const roleAliases = getProgramRoleAliases(userRole);
       
-      const cacheKey = `programs_list_${userRole}`;
+      const cacheKey = `programs_list_${roleAliases[0]}`;
       
       const programs = await localCache.fetchWithCache(
         cacheKey,
@@ -123,7 +142,7 @@ export const programsAPI = {
       
       // Filter programs for this role (done client-side so cache is shared)
       const filteredPrograms = programs.filter((p: any) => 
-        p.target_roles?.includes(userRole)
+        roleAliases.some(role => p.target_roles?.includes(role))
       );
       
       // Merge session checkin flags from make-server KV store
