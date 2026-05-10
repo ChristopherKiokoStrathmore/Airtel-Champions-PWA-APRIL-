@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { supabase } from '../../utils/supabase/client';
 import { projectId } from '../../utils/supabase/info';
 import { Trophy, Clock, Users, CheckCircle, ArrowRight } from 'lucide-react';
+import { getProgramRoleAliases } from '../../utils/supabase-direct';
 
 interface Program {
   id: string;
@@ -42,6 +43,7 @@ export function ProgramList({ onStartProgram }: ProgramListProps) {
       
       const user = JSON.parse(storedUser);
       const userRole = user.role || 'sales_executive';
+      const roleAliases = getProgramRoleAliases(userRole);
       
       console.log('[ProgramList] User role:', userRole);
       
@@ -49,7 +51,7 @@ export function ProgramList({ onStartProgram }: ProgramListProps) {
         .from('programs')
         .select('*')
         .eq('status', 'active')
-        .contains('target_roles', [userRole])
+        .overlaps('target_roles', roleAliases)
         .order('created_at', { ascending: false });
 
       if (error) {

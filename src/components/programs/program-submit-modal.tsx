@@ -4,6 +4,7 @@ import { projectId, publicAnonKey } from '../../utils/supabase/info';
 import { getSupabaseClient } from '../../utils/supabase/client';
 import { getAuthHeaders } from '../../utils/api-helper';
 import { trackAction, ANALYTICS_ACTIONS } from '../../utils/analytics';
+import { getProgramRoleAliases } from '../../utils/supabase-direct';
 // Capacitor Geolocation — dynamically imported to avoid crashes on web
 // Falls back to navigator.geolocation when Capacitor is not available
 let CapacitorGeolocation: any = null;
@@ -1179,12 +1180,16 @@ export function ProgramSubmitModal({ program, userId, onClose, onSuccess }: Prog
   };
 
   const userInfo = getUserInfo();
-  const roleDisplay = userInfo.role === 'zonal_sales_manager' ? 'ZSM' :
-                      userInfo.role === 'zone_business_lead' ? 'ZBM' :
-                      userInfo.role === 'sales_executive' ? 'SE' : '';
+  const roleDisplay = userInfo.role === 'zonal_sales_manager' || userInfo.role === 'zsm' ? 'ZSM' :
+                      userInfo.role === 'zone_business_lead' || userInfo.role === 'zbm' || userInfo.role === 'zonal_business_manager' ? 'ZBM' :
+                      userInfo.role === 'sales_executive' || userInfo.role === 'se' ? 'SE' : '';
 
   // 🆕 Check if user's role is allowed to submit this program
-  const canSubmit = !program.who_can_submit || program.who_can_submit.length === 0 || program.who_can_submit.includes(userInfo.role);
+  const currentRoleAliases = getProgramRoleAliases(userInfo.role);
+  const canSubmit = !program.who_can_submit || program.who_can_submit.length === 0 || program.who_can_submit.some((allowedRole) => {
+    const allowedAliases = getProgramRoleAliases(allowedRole);
+    return allowedAliases.some(alias => currentRoleAliases.includes(alias));
+  });
   
   // If user cannot submit, show a different modal
   if (!canSubmit) {

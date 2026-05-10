@@ -1,6 +1,7 @@
 import { X, Send, Edit, Trash2 } from 'lucide-react';
 import { useState } from 'react';
 import { getSupabaseClient } from '../../utils/supabase/client';
+import { canSubmitPrograms } from '../../utils/supabase-direct';
 
 interface ProgramDetailsProps {
   program: any;
@@ -18,7 +19,7 @@ export function ProgramDetails({ program, onClose, onSubmit, userRole, onEdit, o
   const isExpired = program.end_date && new Date(program.end_date) < new Date();
   
   // Check if user can submit (SE, ZSM, ZBM can submit, and program must not be expired)
-  const canSubmit = userRole && ['sales_executive', 'zonal_sales_manager', 'zonal_business_manager'].includes(userRole) && !isExpired;
+  const canSubmit = !!userRole && canSubmitPrograms(userRole) && !isExpired;
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
