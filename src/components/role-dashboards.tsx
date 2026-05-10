@@ -36,12 +36,12 @@ const getRoleDisplayName = (role: string): string => {
 };
 
 // Time-sensitive greeting helper
-const getTimeBasedGreeting = () => {
+const getTimeBasedGreeting = (): string => {
   const hour = new Date().getHours();
-  if (hour >= 5 && hour < 12) return { text: 'Good morning', emoji: '🌤️' };
-  if (hour >= 12 && hour < 17) return { text: 'Good afternoon', emoji: '☀️' };
-  if (hour >= 17 && hour < 21) return { text: 'Good evening', emoji: '🌆' };
-  return { text: 'Good night', emoji: '🌙' };
+  if (hour >= 5 && hour < 12) return 'Good morning';
+  if (hour >= 12 && hour < 17) return 'Good afternoon';
+  if (hour >= 17 && hour < 21) return 'Good evening';
+  return 'Good night';
 };
 
 // Announcement helper functions
@@ -901,9 +901,9 @@ export function ZoneCommanderDashboard({ user, userData, onLogout }: any) {
     const total = teamMembers.length;
     const active = teamMembers.filter(se => se.total_points > 0).length;
     
-    if (active / total >= 0.8) return { color: '🟢', status: 'Healthy', bgColor: 'bg-green-50', textColor: 'text-green-800' };
-    if (active / total >= 0.5) return { color: '🟡', status: 'Needs Attention', bgColor: 'bg-yellow-50', textColor: 'text-yellow-800' };
-    return { color: '🔴', status: 'Critical', bgColor: 'bg-red-50', textColor: 'text-red-800' };
+    if (active / total >= 0.8) return { status: 'Healthy', bgColor: 'bg-green-50', textColor: 'text-green-800' };
+    if (active / total >= 0.5) return { status: 'Needs Attention', bgColor: 'bg-yellow-50', textColor: 'text-yellow-800' };
+    return { status: 'Critical', bgColor: 'bg-red-50', textColor: 'text-red-800' };
   };
 
   const health = getTeamHealth();
@@ -917,10 +917,10 @@ export function ZoneCommanderDashboard({ user, userData, onLogout }: any) {
           <div className="flex items-center justify-between">
             <div className="flex-1">
               <h2 className="text-3xl mb-2 text-gray-800">
-                {getTimeBasedGreeting().text}, {userData?.full_name?.split(' ')[0]} {getTimeBasedGreeting().emoji}
+                {getTimeBasedGreeting()}, {userData?.full_name?.split(' ')[0]}
               </h2>
               <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-200 rounded-full shadow-sm">
-                <span className="text-sm text-blue-800">👔 Zone Sales Manager</span>
+                <span className="text-sm text-blue-800">Zone Sales Manager</span>
               </div>
             </div>
             {/* Profile Icon with Dropdown */}
@@ -1027,7 +1027,7 @@ export function ZoneCommanderDashboard({ user, userData, onLogout }: any) {
             <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl p-6 text-white shadow-lg">
               <div className="flex items-center justify-between">
                 <div className="flex-1">
-                  <p className="text-blue-100 text-sm mb-1">🏆 Zone Total Points</p>
+                  <p className="text-blue-100 text-sm mb-1">Zone Total Points</p>
                   <p className="text-4xl font-bold">
                     {teamMembers.reduce((sum, se) => sum + (se.total_points || 0), 0).toLocaleString()}
                   </p>
@@ -1044,12 +1044,12 @@ export function ZoneCommanderDashboard({ user, userData, onLogout }: any) {
           <div className={`${health.bgColor} border-b border-gray-200 px-6 py-6 mt-6`}>
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="text-lg mb-2">{health.color} Team Health: {health.status}</h3>
+                <h3 className="text-lg mb-2">Team Health: {health.status}</h3>
                 <p className={`text-sm ${health.textColor}`}>
                   {teamMembers.filter(se => se.total_points > 0).length} of {teamMembers.length} SEs active
                 </p>
               </div>
-              <div className="text-4xl">{health.color}</div>
+              <div className="text-sm font-medium text-gray-700">{health.status}</div>
             </div>
           </div>
 
@@ -1089,7 +1089,7 @@ export function ZoneCommanderDashboard({ user, userData, onLogout }: any) {
           {/* Recent Submissions Section */}
           <div className="px-6 py-6 border-t border-gray-200">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg">📝 Recent Submissions</h3>
+              <h3 className="text-lg">Recent Submissions</h3>
               <select
                 value={submissionsLimit}
                 onChange={(e) => setSubmissionsLimit(Number(e.target.value))}
@@ -1232,7 +1232,7 @@ export function ZoneCommanderDashboard({ user, userData, onLogout }: any) {
       <div className="flex-1 flex flex-col bg-gray-50 overflow-hidden">
         {/* Header */}
         <div className="bg-white border-b border-gray-200 px-6 py-5">
-          <h2 className="text-3xl mb-2">👥 My Team</h2>
+          <h2 className="text-3xl mb-2">My Team</h2>
           <p className="text-sm text-gray-600">Managing {teamMembers.length} Sales Executives</p>
         </div>
 
@@ -1241,7 +1241,7 @@ export function ZoneCommanderDashboard({ user, userData, onLogout }: any) {
           {/* Search */}
           <input
             type="text"
-            placeholder="🔍 Search by name..."
+            placeholder="Search by name..."
             value={teamSearchQuery}
             onChange={(e) => setTeamSearchQuery(e.target.value)}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
@@ -1311,7 +1311,7 @@ export function ZoneCommanderDashboard({ user, userData, onLogout }: any) {
             </div>
           ) : filteredTeam.length === 0 ? (
             <div className="text-center py-12">
-              <div className="text-6xl mb-4">🔍</div>
+              <div className="text-2xl mb-4 text-gray-500">No Results</div>
               <h3 className="text-xl mb-2">No team members found</h3>
               <p className="text-gray-600">Try adjusting your filters</p>
             </div>
@@ -1348,7 +1348,7 @@ export function ZoneCommanderDashboard({ user, userData, onLogout }: any) {
                       <div className="flex-1 text-left">
                         <div className="flex items-center gap-2 mb-1">
                           <h4 className="font-semibold text-gray-900">{se.full_name}</h4>
-                          {isTopPerformer && <span className="text-xs">⭐</span>}
+                          {isTopPerformer && <span className="text-xs">Top</span>}
                         </div>
                         <p className="text-xs text-gray-600">
                           {se.zone} • Rank #{se.rank} • {se.employee_id || 'N/A'}
@@ -1359,7 +1359,7 @@ export function ZoneCommanderDashboard({ user, userData, onLogout }: any) {
                               ? 'bg-green-100 text-green-700' 
                               : 'bg-gray-100 text-gray-600'
                           }`}>
-                            {isActive ? '🟢 Active' : '⚪ Inactive'}
+                            {isActive ? 'Active' : 'Inactive'}
                           </span>
                         </div>
                       </div>
@@ -1591,14 +1591,14 @@ function ZSMQuickViewModal({
   const totalCount = teamMembers.length;
   
   // Calculate team health
-  let healthColor = '🟢';
+  let healthColor = 'Healthy';
   let healthStatus = 'Healthy';
   if (activeCount / totalCount < 0.8) {
-    healthColor = '🟡';
+    healthColor = 'Needs Attention';
     healthStatus = 'Needs Attention';
   }
   if (activeCount / totalCount < 0.5) {
-    healthColor = '🔴';
+    healthColor = 'Critical';
     healthStatus = 'Critical';
   }
 
@@ -1623,7 +1623,7 @@ function ZSMQuickViewModal({
               </div>
               <div>
                 <h3 className="text-xl">{zsm.full_name}</h3>
-                <p className="text-sm text-purple-100">📍 {zsm.zone}</p>
+                <p className="text-sm text-purple-100">Zone: {zsm.zone}</p>
               </div>
             </div>
             <button 
@@ -1661,7 +1661,7 @@ function ZSMQuickViewModal({
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm">
-                <span className="text-xl mr-2">{healthColor}</span>
+                <span className="text-sm mr-2">{healthColor}</span>
                 Team Health: <span className="font-semibold text-gray-900">{healthStatus}</span>
               </p>
               <p className="text-xs text-gray-600 mt-1">
@@ -1674,7 +1674,7 @@ function ZSMQuickViewModal({
         {/* Top Performers Preview */}
         <div className="flex-1 overflow-y-auto px-6 py-4">
           <h4 className="text-sm font-semibold text-gray-700 mb-3">
-            🏆 Top Performers
+            Top Performers
           </h4>
           
           {loading ? (
@@ -1717,7 +1717,7 @@ function ZSMQuickViewModal({
                           <span>#{se.rank}</span>
                           <span>•</span>
                           <span className={isActive ? 'text-green-600' : 'text-gray-400'}>
-                            {isActive ? '🟢 Active' : '⚪ Inactive'}
+                            {isActive ? 'Active' : 'Inactive'}
                           </span>
                         </div>
                       </div>
@@ -1872,10 +1872,10 @@ export function ZoneBusinessLeadDashboard({ user, userData, onLogout }: any) {
             const total = seData?.length || 0;
             const active = seData?.filter(se => se.total_points > 0).length || 0;
 
-            let health = '🟢';
+            let health = 'Healthy';
             let healthStatus = 'Healthy';
-            if (active / total < 0.8) health = '🟡', healthStatus = 'Needs Attention';
-            if (active / total < 0.5) health = '🔴', healthStatus = 'Critical';
+            if (active / total < 0.8) health = 'Needs Attention', healthStatus = 'Needs Attention';
+            if (active / total < 0.5) health = 'Critical', healthStatus = 'Critical';
 
             return {
               ...zoneItem,
@@ -1927,7 +1927,7 @@ export function ZoneBusinessLeadDashboard({ user, userData, onLogout }: any) {
                 </svg>
               </button>
               <div>
-                <h2 className="text-2xl">📍 {selectedZone.zone}</h2>
+                <h2 className="text-2xl">{selectedZone.zone}</h2>
                 <p className="text-sm text-gray-600">ZSM: {selectedZone.zsm}</p>
               </div>
             </div>
@@ -1938,7 +1938,7 @@ export function ZoneBusinessLeadDashboard({ user, userData, onLogout }: any) {
         {/* Zone Team */}
         <div className="flex-1 overflow-y-auto p-6 space-y-3">
           <h3 className="text-lg mb-4">
-            👥 Team Members ({zoneTeam.length} SEs)
+            Team Members ({zoneTeam.length} SEs)
           </h3>
           {zoneTeam.map((se) => (
             <div key={se.id} className="bg-white rounded-xl p-4 shadow-sm">
@@ -1950,7 +1950,7 @@ export function ZoneBusinessLeadDashboard({ user, userData, onLogout }: any) {
                   <h4 className="font-semibold text-gray-900">{se.full_name}</h4>
                   <p className="text-xs text-gray-600">Rank #{se.rank}</p>
                   <p className={`text-xs ${se.total_points > 0 ? 'text-green-600' : 'text-gray-400'}`}>
-                    {se.total_points > 0 ? '🟢 Active' : '⚪ No activity'}
+                    {se.total_points > 0 ? 'Active' : 'No activity'}
                   </p>
                 </div>
                 <div className="text-right">
@@ -1979,10 +1979,10 @@ export function ZoneBusinessLeadDashboard({ user, userData, onLogout }: any) {
           <div className="flex items-center justify-between">
             <div className="flex-1">
               <h2 className="text-3xl mb-2 text-gray-800">
-                {getTimeBasedGreeting().text}, {firstName} {getTimeBasedGreeting().emoji}
+                {getTimeBasedGreeting()}, {firstName}
               </h2>
               <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-50 to-purple-100 border border-purple-200 rounded-full shadow-sm">
-                <span className="text-sm text-purple-800">👔 Zonal Business Manager</span>
+                <span className="text-sm text-purple-800">Zonal Business Manager</span>
               </div>
             </div>
             {/* Profile Icon with Dropdown */}
@@ -2154,7 +2154,7 @@ export function ZoneBusinessLeadDashboard({ user, userData, onLogout }: any) {
       <div className="flex-1 flex flex-col bg-gray-50 overflow-hidden">
         {/* Header */}
         <div className="bg-white border-b border-gray-200 px-6 py-5">
-          <h2 className="text-3xl mb-2">👥 My Team</h2>
+          <h2 className="text-3xl mb-2">My Team</h2>
           <p className="text-sm text-gray-600">Managing {zsms.length} Zonal Sales Managers</p>
         </div>
 
@@ -2197,14 +2197,14 @@ export function ZoneBusinessLeadDashboard({ user, userData, onLogout }: any) {
                         </div>
                         <div className="flex-1 text-left">
                           <h4 className="font-semibold text-lg">{zsm.full_name}</h4>
-                          <p className="text-sm text-gray-600">📍 {zsm.zone}</p>
+                          <p className="text-sm text-gray-600">Zone: {zsm.zone}</p>
                           <div className="flex items-center gap-3 mt-2">
                             <span className="text-xs">
-                              {zoneInfo.health || '🟢'} {zoneInfo.healthStatus || 'Healthy'}
+                              {zoneInfo.health || 'Healthy'} {zoneInfo.healthStatus || 'Healthy'}
                             </span>
                             <span className="text-xs text-gray-400">•</span>
                             <span className={`text-xs ${isActive ? 'text-green-600' : 'text-gray-400'}`}>
-                              {isActive ? '🟢 Active' : '⚪ Inactive'}
+                              {isActive ? 'Active' : 'Inactive'}
                             </span>
                           </div>
                         </div>
@@ -2474,10 +2474,10 @@ export function HQDashboard({ user, userData, onLogout }: any) {
           <div className="flex items-center justify-between">
             <div className="flex-1">
               <h2 className="text-3xl mb-2 text-gray-800">
-                {getTimeBasedGreeting().text}, {userData?.full_name?.split(' ')[0]} {getTimeBasedGreeting().emoji}
+                {getTimeBasedGreeting()}, {userData?.full_name?.split(' ')[0]}
               </h2>
               <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-green-50 to-green-100 border border-green-200 rounded-full shadow-sm">
-                <span className="text-sm text-green-800">🏢 {userData?.job_title || 'HQ Command Center'}</span>
+                <span className="text-sm text-green-800">{userData?.job_title || 'HQ Command Center'}</span>
               </div>
             </div>
             {/* Profile Icon with Dropdown */}
@@ -2717,7 +2717,7 @@ export function DirectorDashboard({ user, userData, onLogout }: any) {
           <div className="flex items-center justify-between">
             <div className="flex-1">
               <h2 className="text-3xl mb-2 text-gray-800">
-                {getTimeBasedGreeting().text}, {userData?.full_name?.split(' ')[0]} {getTimeBasedGreeting().emoji}
+                {getTimeBasedGreeting()}, {userData?.full_name?.split(' ')[0]}
               </h2>
               <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-yellow-50 to-yellow-100 border border-yellow-200 rounded-full shadow-sm">
                 <span className="text-sm text-yellow-800">👑 S&D Director</span>
@@ -2954,31 +2954,31 @@ export function DirectorDashboard({ user, userData, onLogout }: any) {
 function BottomNav({ activeTab, setActiveTab, role }: { activeTab: string; setActiveTab: (tab: string) => void; role: string }) {
   const navItems: any = {
     zsm: [
-      { id: 'home', icon: '🏠' },
-      { id: 'explore', icon: '🔍' },
-      { id: 'submissions', icon: '📊' },
-      { id: 'leaderboard', icon: '🏆' },
-      { id: 'team', icon: '👥' }
+      { id: 'home', icon: 'H' },
+      { id: 'explore', icon: 'E' },
+      { id: 'submissions', icon: 'S' },
+      { id: 'leaderboard', icon: 'L' },
+      { id: 'team', icon: 'T' }
     ],
     zbm: [
-      { id: 'home', icon: '🏠' },
-      { id: 'explore', icon: '🔍' },
-      { id: 'submissions', icon: '📊' },
-      { id: 'leaderboard', icon: '🏆' },
-      { id: 'team', icon: '👥' }
+      { id: 'home', icon: 'H' },
+      { id: 'explore', icon: 'E' },
+      { id: 'submissions', icon: 'S' },
+      { id: 'leaderboard', icon: 'L' },
+      { id: 'team', icon: 'T' }
     ],
     hq: [
-      { id: 'home', icon: '🏠' },
-      { id: 'explore', icon: '🔍' },
-      { id: 'submissions', icon: '📊' },
-      { id: 'leaderboard', icon: '🏆' },
-      { id: 'users', icon: '👥' }
+      { id: 'home', icon: 'H' },
+      { id: 'explore', icon: 'E' },
+      { id: 'submissions', icon: 'S' },
+      { id: 'leaderboard', icon: 'L' },
+      { id: 'users', icon: 'U' }
     ],
     director: [
-      { id: 'home', icon: '🏠' },
-      { id: 'explore', icon: '🔍' },
-      { id: 'submissions', icon: '📊' },
-      { id: 'leaderboard', icon: '🏆' }
+      { id: 'home', icon: 'H' },
+      { id: 'explore', icon: 'E' },
+      { id: 'submissions', icon: 'S' },
+      { id: 'leaderboard', icon: 'L' }
     ]
   };
 

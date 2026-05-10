@@ -67,25 +67,16 @@ function normalizePhone(phone: unknown): string {
 
 function buildStagingUsers(records: SalesForceHierarchyRecord[], existingMap: Map<string, any>): StageUser[] {
   return records.map((record) => {
-    const existing = existingMap.get(record.phone_number);
     const role = normalizeRole(record.role);
 
     return {
-      id: existing?.id,
       full_name: record.full_name,
       phone_number: record.phone_number,
-      employee_id: existing?.employee_id || null,
-      email: existing?.email || null,
       role,
-      region: record.zone || null,
       zone: record.zone || null,
-      territory: record.territory || null,
       zsm: role === "se" ? (record.zsm || null) : null,
       zbm: role === "se" ? (record.zbm || null) : role === "zsm" ? (record.zbm || null) : null,
-      job_title: existing?.job_title || null,
-      raw_phone_number: record.raw_phone_number || null,
       is_active: true,
-      pin: "1234",
     };
   });
 }
@@ -105,41 +96,44 @@ function buildPreviewUsers(records: SalesForceHierarchyRecord[]) {
 }
 
 async function recalculateAllPoints() {
-  const { data: users } = await frontendSupabase
-    .from("app_users")
-    .select("id, phone_number, role, full_name");
+  try {
+    // Get all users with a single query to minimize database round trips
+    const { data: users, error } = await frontendSupabase
+      .from("app_users")
+      .select("id, phone_number, role, full_name")
+      .eq("is_active", true);
 
-  if (!users) return;
+    if (error || !users || users.length === 0) return;
 
-  for (const user of users as Array<{ id: string; phone_number: string; role: string; full_name: string }>) {
-    let totalPoints = 0;
+    // Fetch all points at once instead of per-user
+    const { data: allPoints } = await frontendSupabase
+      .from("points_history")
+      .select("user_id, points");
 
-    if (normalizeRole(user.role) === "zsm") {
-      const { data: teamMembers } = await frontendSupabase
-        .from("app_users")
-        .select("id")
-        .eq("zsm", user.full_name)
-        .eq("role", "se")
-        .eq("is_active", true);
+    const pointsByUser = new Map<string, number>();
+    (allPoints || []).forEach((p: any) => {
+      const current = pointsByUser.get(p.user_id) || 0;
+      pointsByUser.set(p.user_id, current + (p.points || 0));
+    });
 
-      for (const member of teamMembers || []) {
-        const { data: points } = await frontendSupabase
-          .from("points_history")
-          .select("points")
-          .eq("user_id", member.id);
+    // Batch update all users with calculated points
+    const updates = users.map((u: any) => ({
+      id: u.id,
+      total_points: pointsByUser.get(u.id) || 0,
+    }));
 
-        totalPoints += (points || []).reduce((sum: number, row: { points?: number }) => sum + (row.points || 0), 0);
+    for (let i = 0; i < updates.length; i += 10) {
+      const batch = updates.slice(i, i + 10);
+      for (const update of batch) {
+        await frontendSupabase
+          .from("app_users")
+          .update({ total_points: update.total_points })
+          .eq("id", update.id);
       }
-    } else {
-      const { data: points } = await frontendSupabase
-        .from("points_history")
-        .select("points")
-        .eq("user_id", user.id);
-
-      totalPoints = (points || []).reduce((sum: number, row: { points?: number }) => sum + (row.points || 0), 0);
     }
-
-    await frontendSupabase.from("app_users").update({ total_points: totalPoints }).eq("id", user.id);
+  } catch (e) {
+    console.error("recalculateAllPoints error:", e);
+    // Don't fail go-live if points calculation fails
   }
 }
 

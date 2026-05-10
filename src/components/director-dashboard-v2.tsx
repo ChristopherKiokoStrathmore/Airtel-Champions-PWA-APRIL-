@@ -13,12 +13,12 @@ import { UrgentAnnouncementCard } from './urgent-announcement-card';
 import { getAnnouncements } from '../lib/supabase';
 
 // Time-sensitive greeting helper
-const getTimeBasedGreeting = () => {
+const getTimeBasedGreeting = (): string => {
   const hour = new Date().getHours();
-  if (hour >= 5 && hour < 12) return { text: 'Good morning', emoji: '🌤️' };
-  if (hour >= 12 && hour < 17) return { text: 'Good afternoon', emoji: '☀️' };
-  if (hour >= 17 && hour < 21) return { text: 'Good evening', emoji: '🌆' };
-  return { text: 'Good night', emoji: '🌙' };
+  if (hour >= 5 && hour < 12) return 'Good morning';
+  if (hour >= 12 && hour < 17) return 'Good afternoon';
+  if (hour >= 17 && hour < 21) return 'Good evening';
+  return 'Good night';
 };
 
 export function DirectorDashboardV2({ user, userData, onLogout }: any) {
@@ -249,10 +249,10 @@ export function DirectorDashboardV2({ user, userData, onLogout }: any) {
             <div className="flex items-center justify-between">
               <div className="flex-1">
                 <h2 className="text-2xl text-white mb-1">
-                  {getTimeBasedGreeting().text} - {userData?.full_name?.split(' ')[0]} {getTimeBasedGreeting().emoji}
+                  {getTimeBasedGreeting()} - {userData?.full_name?.split(' ')[0]}
                 </h2>
                 <div className="inline-flex items-center px-3 py-1 bg-white rounded-full">
-                  <span className="text-sm text-black font-semibold">{userData?.job_title || '👑 Director'}</span>
+                  <span className="text-sm text-black font-semibold">{userData?.job_title || 'Director'}</span>
                 </div>
               </div>
               {/* Action Buttons */}
@@ -493,7 +493,7 @@ export function DirectorDashboardV2({ user, userData, onLogout }: any) {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                   </svg>
                 </button>
-                <h2 className="text-2xl text-white">Full Rankings 🏆</h2>
+                <h2 className="text-2xl text-white">Full Rankings</h2>
               </div>
               
               {/* Announcement Button */}
