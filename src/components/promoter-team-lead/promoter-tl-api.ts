@@ -21,6 +21,7 @@ export interface PromoterMember {
   team_lead_id: string;
   promoter_name: string;
   msisdn: string;
+  cluster: string;
   is_active: boolean;
   added_at: string;
   dropped_at: string | null;
@@ -154,6 +155,7 @@ export async function addPromoter(
   teamLeadId: string,
   promoterName: string,
   msisdn: string,
+  cluster = '',
 ): Promise<{ member: PromoterMember | null; error: string | null }> {
   const { data, error } = await supabase.rpc('promoter_add_member', {
     p_team_lead_id: teamLeadId,
@@ -172,6 +174,7 @@ export async function addPromoter(
   if (rpcMissing) {
     const trimmedName = promoterName.trim();
     const trimmedMsisdn = msisdn.trim();
+    const trimmedCluster = cluster.trim();
     if (!teamLeadId || !trimmedName || !trimmedMsisdn) {
       return { member: null, error: 'Enter both a promoter name and MSISDN.' };
     }
@@ -211,6 +214,7 @@ export async function addPromoter(
         team_lead_id: teamLeadId,
         promoter_name: trimmedName,
         msisdn: normalizedMsisdn,
+        cluster: trimmedCluster,
         is_active: true,
         added_at: new Date().toISOString(),
         dropped_at: null,
@@ -245,6 +249,31 @@ export async function addPromoter(
   }
 
   return { member: null, error: 'Could not add promoter. Please try again.' };
+}
+
+export async function updatePromoterCluster(
+  memberId: string,
+  cluster: string,
+): Promise<{ member: PromoterMember | null; error: string | null }> {
+  const trimmedCluster = cluster.trim();
+
+  if (!memberId || !trimmedCluster) {
+    return { member: null, error: 'Enter a cluster name.' };
+  }
+
+  const { data, error } = await supabase
+    .from('promoter_members')
+    .update({ cluster: trimmedCluster })
+    .eq('id', memberId)
+    .eq('is_active', true)
+    .select('*')
+    .single();
+
+  if (error || !data) {
+    return { member: null, error: 'Could not update the promoter cluster. Please try again.' };
+  }
+
+  return { member: data as PromoterMember, error: null };
 }
 
 export async function dropPromoter(memberId: string): Promise<{ error: string | null }> {
