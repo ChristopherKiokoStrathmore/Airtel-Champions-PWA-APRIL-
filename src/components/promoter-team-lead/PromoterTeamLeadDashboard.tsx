@@ -106,6 +106,7 @@ export function PromoterTeamLeadDashboard({ onLogout }: Props) {
         {activeTab === 'promoters' && (
           <PromotersTab
             teamLeadId={tlUser.id}
+            tlUser={tlUser}
             onPromoterChange={handlePromoterChange}
           />
         )}

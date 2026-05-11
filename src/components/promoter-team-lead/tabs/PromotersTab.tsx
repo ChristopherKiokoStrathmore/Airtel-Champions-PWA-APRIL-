@@ -1,9 +1,11 @@
 // src/components/promoter-team-lead/tabs/PromotersTab.tsx
 import React, { useEffect, useState } from 'react';
-import { PromoterMember, getActivePromoters, addPromoter, dropPromoter } from '../promoter-tl-api';
+import { TLUser, PromoterMember, getActivePromoters, addPromoter, dropPromoter, updatePromoterCluster } from '../promoter-tl-api';
+import { PromoterClusterDropdown } from '../PromoterClusterDropdown';
 
 interface Props {
   teamLeadId: string;
+  tlUser: TLUser;
   onPromoterChange: () => void;
 }
 
@@ -24,7 +26,7 @@ function initials(name: string) {
   return name.split(' ').map(n => n[0]).slice(0, 2).join('').toUpperCase();
 }
 
-export function PromotersTab({ teamLeadId, onPromoterChange }: Props) {
+export function PromotersTab({ teamLeadId, tlUser, onPromoterChange }: Props) {
   const [promoters, setPromoters] = useState<PromoterMember[]>([]);
   const [loading,   setLoading]   = useState(true);
   const [newName,   setNewName]   = useState('');
@@ -32,6 +34,10 @@ export function PromotersTab({ teamLeadId, onPromoterChange }: Props) {
   const [adding,    setAdding]    = useState(false);
   const [addError,  setAddError]  = useState('');
   const [dropId,    setDropId]    = useState<string | null>(null);
+  const [editingMember, setEditingMember] = useState<PromoterMember | null>(null);
+  const [clusterDraft, setClusterDraft] = useState('');
+  const [savingCluster, setSavingCluster] = useState(false);
+  const [editError, setEditError] = useState('');
 
   const load = async () => {
     setLoading(true);
@@ -50,7 +56,7 @@ export function PromotersTab({ teamLeadId, onPromoterChange }: Props) {
     if (!msisdn) { setAddError("Enter the promoter's MSISDN."); return; }
 
     setAdding(true);
-    const { member, error } = await addPromoter(teamLeadId, name, msisdn);
+    const { member, error } = await addPromoter(teamLeadId, name, msisdn, tlUser.se_cluster);
     setAdding(false);
 
     if (error) { setAddError(error); return; }
@@ -68,6 +74,44 @@ export function PromotersTab({ teamLeadId, onPromoterChange }: Props) {
     await dropPromoter(member.id);
     setPromoters(prev => prev.filter(p => p.id !== member.id));
     setDropId(null);
+    onPromoterChange();
+  };
+
+  const openEditCluster = (member: PromoterMember) => {
+    setEditError('');
+    setEditingMember(member);
+    setClusterDraft(member.cluster || tlUser.se_cluster || '');
+  };
+
+  const closeEditCluster = () => {
+    if (savingCluster) return;
+    setEditingMember(null);
+    setClusterDraft('');
+    setEditError('');
+  };
+
+  const handleSaveCluster = async () => {
+    if (!editingMember) return;
+
+    setEditError('');
+    const cluster = clusterDraft.trim();
+    if (!cluster) {
+      setEditError('Enter a cluster name.');
+      return;
+    }
+
+    setSavingCluster(true);
+    const { member, error } = await updatePromoterCluster(editingMember.id, cluster);
+    setSavingCluster(false);
+
+    if (error || !member) {
+      setEditError(error || 'Could not update the promoter cluster. Please try again.');
+      return;
+    }
+
+    setPromoters(prev => prev.map(p => (p.id === member.id ? member : p)));
+    setEditingMember(null);
+    setClusterDraft('');
     onPromoterChange();
   };
 
@@ -107,15 +151,27 @@ export function PromotersTab({ teamLeadId, onPromoterChange }: Props) {
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-semibold text-gray-900 truncate">{p.promoter_name}</p>
                 <p className="text-xs text-gray-400">{p.msisdn}</p>
+                <p className="mt-1 text-[10px] font-semibold inline-flex items-center rounded-full bg-gray-100 px-2 py-0.5 text-gray-500 uppercase tracking-wide">
+                  Cluster: {p.cluster || tlUser.se_cluster}
+                </p>
               </div>
-              <button
-                onClick={() => handleDrop(p)}
-                disabled={dropId === p.id}
-                className="flex-shrink-0 text-xs font-semibold px-3 py-1.5 rounded-lg disabled:opacity-40 active:scale-95 transition-all"
-                style={{ background: '#fff5f5', color: '#E60000' }}
-              >
-                {dropId === p.id ? '…' : 'Drop'}
-              </button>
+              <div className="flex items-center gap-2 flex-shrink-0">
+                <button
+                  onClick={() => openEditCluster(p)}
+                  className="text-xs font-semibold px-3 py-1.5 rounded-lg active:scale-95 transition-all"
+                  style={{ background: '#eff6ff', color: '#2563eb' }}
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={() => handleDrop(p)}
+                  disabled={dropId === p.id}
+                  className="text-xs font-semibold px-3 py-1.5 rounded-lg disabled:opacity-40 active:scale-95 transition-all"
+                  style={{ background: '#fff5f5', color: '#E60000' }}
+                >
+                  {dropId === p.id ? '…' : 'Drop'}
+                </button>
+              </div>
             </div>
           ))}
         </div>
@@ -161,6 +217,60 @@ export function PromotersTab({ teamLeadId, onPromoterChange }: Props) {
           </p>
         </div>
       </div>
+
+      {editingMember && (
+        <div
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/40 px-4"
+          onClick={closeEditCluster}
+        >
+          <div
+            className="w-full max-w-lg rounded-t-3xl sm:rounded-3xl bg-white shadow-2xl p-5 space-y-4"
+            onClick={e => e.stopPropagation()}
+          >
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <p className="text-lg font-bold text-gray-900">Edit Cluster</p>
+                <p className="text-xs text-gray-500 mt-1">{editingMember.promoter_name}</p>
+              </div>
+              <button
+                onClick={closeEditCluster}
+                className="w-9 h-9 rounded-full bg-gray-100 text-gray-500 font-bold"
+                disabled={savingCluster}
+              >
+                ×
+              </button>
+            </div>
+
+            <PromoterClusterDropdown
+              value={clusterDraft}
+              onChange={value => {
+                setClusterDraft(value);
+                setEditError('');
+              }}
+            />
+
+            {editError && <p className="text-xs font-medium text-red-600">{editError}</p>}
+
+            <div className="flex gap-3">
+              <button
+                onClick={closeEditCluster}
+                disabled={savingCluster}
+                className="flex-1 py-3 rounded-xl bg-gray-100 text-sm font-bold text-gray-600 disabled:opacity-40"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleSaveCluster}
+                disabled={savingCluster}
+                className="flex-1 py-3 rounded-xl text-sm font-bold text-white disabled:opacity-50"
+                style={{ background: '#E60000' }}
+              >
+                {savingCluster ? 'Saving…' : 'Save'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
     </div>
   );
