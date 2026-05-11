@@ -271,7 +271,7 @@ app.post("/upload-excel", async (c) => {
       ((existingUsers || []) as Array<{ phone_number: string; [key: string]: any }>).map((u) => [u.phone_number, u])
     );
 
-    // Insert into staging with stable UUIDs
+    // Insert into staging with stable UUIDs and preserved points
     const stagingUsers = validUsers.map((user) => {
       const existing = existingMap.get(user.phone_number);
       return {
@@ -288,6 +288,7 @@ app.post("/upload-excel", async (c) => {
         job_title: user.job_title || null,
         is_active: true,
         pin: "1234", // Default PIN for new users
+        total_points: existing?.total_points || 0, // Preserve existing points
       };
     });
 
@@ -698,9 +699,27 @@ app.post("/go-live", async (c) => {
     // Step 4: Merge staging users into app_users
     // Strategy: Delete existing records by phone_number from new batch, then insert all staging records
     // This handles the case where same person can be SE and ZSM (different rows)
+    // IMPORTANT: Preserve total_points from existing users
     
     const stagingPhonesForUpsert = new Set(stagingUsers.map((u: any) => u.phone_number));
     const stagingPhonesList = Array.from(stagingPhonesForUpsert);
+    
+    // Get existing users to preserve their points
+    const { data: existingForPoints } = await frontendSupabase
+      .from("app_users")
+      .select("phone_number, total_points")
+      .in("phone_number", stagingPhonesList);
+    
+    const existingPointsMap = new Map<string, number>(
+      ((existingForPoints || []) as Array<{ phone_number: string; total_points: number }>)
+        .map((u) => [u.phone_number, u.total_points || 0])
+    );
+    
+    // Merge existing points into staging users
+    const stagingUsersWithPoints = (stagingUsers as any[]).map((user) => ({
+      ...user,
+      total_points: existingPointsMap.get(user.phone_number) || user.total_points || 0,
+    }));
     
     // Delete old records that we're replacing
     console.log(`[User Upload] Deleting old records for ${stagingPhonesList.length} phone numbers...`);
@@ -714,11 +733,11 @@ app.post("/go-live", async (c) => {
       return c.json({ success: false, error: `Delete failed: ${deleteError.message}` }, 500);
     }
 
-    // Insert fresh copies from staging
+    // Insert fresh copies from staging WITH preserved points
     console.log(`[User Upload] Inserting ${stagingUsers.length} users into app_users...`);
     const { error: insertError } = await frontendSupabase
       .from("app_users")
-      .insert(stagingUsers);
+      .insert(stagingUsersWithPoints);
 
     if (insertError) {
       console.error("[User Upload] Insert error:", insertError);
