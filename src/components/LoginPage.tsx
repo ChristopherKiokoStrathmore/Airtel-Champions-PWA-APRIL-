@@ -47,7 +47,6 @@
 import React, { useState, useEffect, Suspense } from 'react';
 
 import { RubiksCube, AppMode } from './RubiksCube';
-import { PromoterTeamLeadEntryPage } from './promoter-team-lead/PromoterTeamLeadEntryPage';
 import { AMSignUpForm } from './airtel-money/AMSignUpForm';
 import { amAgentLogin, amAdminLogin } from './airtel-money/am-api';
 
@@ -148,7 +147,6 @@ export function LoginPage({
   const [showDiagTool,    setShowDiagTool]    = useState(false);
   const [showSchemaCheck, setShowSchemaCheck] = useState(false);
   const [showHelp,        setShowHelp]        = useState(false);
-  const [showTLEntry,     setShowTLEntry]     = useState(false);
   const [showAMSignUp,    setShowAMSignUp]    = useState(false);
 
   // First-login PIN change interception
@@ -804,16 +802,6 @@ export function LoginPage({
     );
   }
 
-  // Show Team Lead entry page when button is tapped
-  if (showTLEntry) {
-    return (
-      <PromoterTeamLeadEntryPage
-        onSuccess={() => window.location.reload()}
-        onBack={() => setShowTLEntry(false)}
-      />
-    );
-  }
-
   // Show Airtel Money agent sign-up
   if (showAMSignUp) {
     return (
@@ -980,7 +968,7 @@ export function LoginPage({
             </div>
             <button
               type="button"
-              onClick={() => setShowTLEntry(true)}
+              onClick={() => setError('Promoter Team Lead section has migrated to Sales app')}
               className="w-full py-3.5 text-sm border-2 rounded-xl hover:bg-red-50 active:scale-[0.98] transition-all font-semibold tracking-wide"
               style={{ borderColor: '#E60000', color: '#E60000' }}
             >
