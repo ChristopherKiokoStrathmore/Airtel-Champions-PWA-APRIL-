@@ -1,0 +1,261 @@
+[Hydrated]
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:23202 App initialized
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:23215 App.tsx - User from localStorage: Object
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:23229 App.tsx - Fresh user data loaded: Object
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:23229 App.tsx - Profile picture URL: null
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:23202 App initialized
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:63086 [Realtime] Channel status: SUBSCRIBED
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:21726 [DBManager] Initialized — tier: primary
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:23202 App initialized
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:63086 [Realtime] Channel status: CLOSED
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:69214 🚀 AIRTEL HQ SUBMISSIONS - Fast Init
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:69214 ⏰ 3/12/2026, 10:14:03 PM
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:69424 🔍 Testing Supabase connection...
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:69426 ✅ Supabase connection successful
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:69388 🔄 Loading programs... (Attempt 1)
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:69412 🔐 Current user data: Object
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:69412 📞 User phone number: 706874314
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:69412 📞 Phone number type: string
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:69414 📞 Normalized phone: 706874314
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:69416 🔧 Fix Field Mapping access: ✅ Granted
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:69416 ✏️ Edit Submission access: ✅ Granted
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:69399 ✅ Loaded 9 programs (7 active, 2 paused/hidden)
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:69270 ✅ Loaded 20 zones
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:69282 ✅ Built ZSM map: 13 zone→ZSM entries
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:69378 ✅ Page 1 loaded: 20 rows / 39947 total in 1700ms
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:69378 ✅ Page 1 loaded: 20 rows / 3021 total in 1040ms
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:69378 ✅ Page 1 loaded: 20 rows / 3021 total in 1802ms
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:63150 Dashboard: parallel queries done in 19527ms
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:63218 Dashboard: total load time 19554ms
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:69378 ✅ Page 1 loaded: 20 rows / 34 total in 1926ms
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70149 📥 Starting BI-optimized multi-sheet export...
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70167 📡 Export paginated fetch — "MINI ROAD SHOW -CHECK IN " | 2026-03-12 → 2026-03-12 | pending
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70176 📡 Export filters — program: MINI ROAD SHOW -CHECK IN , status: pending, zone: all, dates: 2026-03-12 → 2026-03-12
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70193    Export page 1: +34 rows (running total: 34)
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70200 ✅ Export fetch complete: 34 total rows across 1 page(s)
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70212 ✅ dataToExport ready: 34 enriched submissions
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70212 🚗 Loading van database...
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70227 ✅ Loaded 42 vans from van_db table
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70234 📋 Total unique field keys found: 11
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70236 🔍 Found 8 UUID field keys to look up
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70239 🔄 Querying program_fields table...
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70241 ✅ Retrieved 4 field definitions
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70256 🔍 Auto-detecting 4 unknown / placeholder field entries...
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70290   ⚠️ Could not auto-detect field 39e7c166 — samples: SHIANDA, CHEKALINI, CHEKALINI
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70290   ⚠️ Could not auto-detect field 637a392d — samples: 840165, 563125, 563125
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70290   ⚠️ Could not auto-detect field d33e70b9 — samples: KCN 381L, KCC 879F, KCC 879F
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70297 🔍 Export mode: workbook | Early-exit (skip fleet/sitewise): false
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70307 📊 Analytics: {totalSubmissions: 34, approvedCount: 0, pendingCount: 0, rejectedCount: 0, totalPoints: 340}
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70307 📊 Programs: 1 | Regions: 9
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70397 
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70397 🔬 ONE SHEET DEBUG — Field map for first submission:
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70397    Look for the row whose Value = the retailer MSISDN number
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70399    "Shop Name"  (_shop_na…) → ""
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70399    "Submission Date"  (_submiss…) → "2026-03-12"
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70399    "Submission Time"  (_submiss…) → "21:34"
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70399    "SITE(S) WORKING TODAY"  (0b48697b…) → "KINYUI"
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70399    "NUMBER OF PROMOTERS IN THE VAN TODAY "  (5a0f4d04…) → [755902650,105196470,789151944,104858630,784705360,756655442,737039306,788207388]
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70399    "NUMBER PLATE "  (7a5af159…) → "KCV 831C"
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70399    "ODOMETER"  (9cf32e56…) → 371719
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70400 
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70402 🔬 MSISDN DIAGNOSTIC — Known MSISDN field keys: []
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70402 🔬 MSISDN DIAGNOSTIC — Known Category field keys: []
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70407 🔬 MSISDN DIAGNOSTIC — 3 sample submissions with EMPTY Retailer MSISDN:
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70409    --- Empty Sub #1: SHADRACK WABWIRE @ 3/12/2026, 9:38:14 PM ---
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70409    Response keys count: 7
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70411    "Shop Name" (_shop_na…) → 
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70411    "Submission Date" (_submiss…) → 2026-03-12
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70411    "Submission Time" (_submiss…) → 21:34
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70411    "SITE(S) WORKING TODAY" (0b48697b…) → KINYUI
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70411    "NUMBER OF PROMOTERS IN THE VAN TODAY " (5a0f4d04…) → [755902650,105196470,789151944,104858630,784705360,756655442,737039306,788207388]
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70411    "NUMBER PLATE " (7a5af159…) → KCV 831C
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70411    "ODOMETER" (9cf32e56…) → 371719
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70409    --- Empty Sub #2: PATRICK MAKAU @ 3/12/2026, 7:56:47 PM ---
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70409    Response keys count: 7
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70411    "Shop Name" (_shop_na…) → 
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70411    "Submission Date" (_submiss…) → 2026-03-12
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70411    "Submission Time" (_submiss…) → 19:50
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70411    "SITE(S) WORKING TODAY" (0b48697b…) → KIRWAU
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70411    "NUMBER OF PROMOTERS IN THE VAN TODAY " (5a0f4d04…) → [100027612,102906938,107893144,107912708,102092756,782646168,107109723,780481899,788883965,102900929...
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70411    "NUMBER PLATE " (7a5af159…) → KDC 378W
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70411    "ODOMETER" (9cf32e56…) → 188450
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70409    --- Empty Sub #3: SALMA RAJAB @ 3/12/2026, 5:44:38 PM ---
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70409    Response keys count: 7
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70411    "Shop Name" (_shop_na…) → 
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70411    "Submission Date" (_submiss…) → 2026-03-12
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70411    "Submission Time" (_submiss…) → 17:41
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70411    "SITE(S) WORKING TODAY" (0b48697b…) → KAKANJU_KILIFI
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70411    "NUMBER OF PROMOTERS IN THE VAN TODAY " (5a0f4d04…) → [111111111,222222222,333333333,444444445,666666666,777777777]
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70411    "NUMBER PLATE " (7a5af159…) → KCJ 078S
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70411    "ODOMETER" (9cf32e56…) → 111111
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70413 
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70593 📊 Building Promoter-wise sheet...
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70593 🔍 DEBUG: Analyzing form fields for van data...
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70593 📋 ALL FIELD LABELS: Shop Name, Submission Date, Submission Time, SITE(S) WORKING TODAY, NUMBER OF PROMOTERS IN THE VAN TODAY , NUMBER PLATE , ODOMETER, [Deleted Field] 39e7c166, [Deleted Field] 4f26cbcb, [Deleted Field] 637a392d, [Deleted Field] d33e70b9
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70597 🚗 Van field candidate: NUMBER OF PROMOTERS IN THE VAN TODAY  (5a0f4d04-ae15-4a83-ab11-d080ee9f19d1)
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70597 👥 Promoter count field candidate: NUMBER OF PROMOTERS IN THE VAN TODAY  (5a0f4d04-ae15-4a83-ab11-d080ee9f19d1)
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70597 🚗 Van field candidate: NUMBER PLATE  (7a5af159-7b60-45cf-b8f4-f287cd463fe6)
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70598 
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70598 ================================================================================
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70598 🚛 FLEET MANAGEMENT DATA EXTRACTION - DYNAMIC DETECTION
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70598 ================================================================================
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70598 📋 Scanning all submissions for van number plates...
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70598 
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70607 
+🔍 [Sub 1] Scanning 7 fields:
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70612    • shop name: "" (type: )
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70612    • submission date: "2026-03-12" (type: )
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70612    • submission time: "21:34" (type: )
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70612    • site(s) working today: "KINYUI" (type: dropdown)
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70612    • number of promoters in the van today : "755902650,105196470,789151944,104858630,784705360,..." (type: repeatable_number)
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70646 ✅ [Sub 1] Found 8 promoters from label "number of promoters in the van today " (type: repeatable_number)
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70612    • number plate : "KCV 831C" (type: dropdown)
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70622 ✅ [Sub 1] Found van from label "number plate ": KCV 831C
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70612    • odometer: "371719" (type: number)
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70670 🚗 [Sub 1] SUCCESS - Van: KCV 831C | Promoters: 8 | ZSM: SHADRACK WABWIRE
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70607 
+🔍 [Sub 2] Scanning 7 fields:
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70612    • shop name: "" (type: )
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70612    • submission date: "2026-03-12" (type: )
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70612    • submission time: "19:50" (type: )
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70612    • site(s) working today: "KIRWAU" (type: dropdown)
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70612    • number of promoters in the van today : "100027612,102906938,107893144,107912708,102092756,..." (type: repeatable_number)
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70646 ✅ [Sub 2] Found 14 promoters from label "number of promoters in the van today " (type: repeatable_number)
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70612    • number plate : "KDC 378W" (type: dropdown)
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70622 ✅ [Sub 2] Found van from label "number plate ": KDC 378W
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70612    • odometer: "188450" (type: number)
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70670 🚗 [Sub 2] SUCCESS - Van: KDC 378W | Promoters: 14 | ZSM: PATRICK MAKAU
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70607 
+🔍 [Sub 3] Scanning 7 fields:
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70612    • shop name: "" (type: )
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70612    • submission date: "2026-03-12" (type: )
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70612    • submission time: "17:41" (type: )
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70612    • site(s) working today: "KAKANJU_KILIFI" (type: dropdown)
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70612    • number of promoters in the van today : "111111111,222222222,333333333,444444445,666666666,..." (type: repeatable_number)
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70646 ✅ [Sub 3] Found 6 promoters from label "number of promoters in the van today " (type: repeatable_number)
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70612    • number plate : "KCJ 078S" (type: dropdown)
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70622 ✅ [Sub 3] Found van from label "number plate ": KCJ 078S
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70612    • odometer: "111111" (type: number)
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70670 🚗 [Sub 3] SUCCESS - Van: KCJ 078S | Promoters: 6 | ZSM: CAROLYN NYAWADE
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70670 🚗 [Sub 4] SUCCESS - Van: KCQ 129G | Promoters: 14 | ZSM: MATHIAS MUEKE
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70670 🚗 [Sub 5] SUCCESS - Van: KDC 378W | Promoters: 15 | ZSM: PATRICK MAKAU
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70670 🚗 [Sub 6] SUCCESS - Van: KCR 709C | Promoters: 23 | ZSM: JUMA OLILO
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70670 🚗 [Sub 7] SUCCESS - Van: KCU 691B | Promoters: 29 | ZSM: VICTOR AUDI
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70670 🚗 [Sub 8] SUCCESS - Van: KCA 530C | Promoters: 27 | ZSM: KEZIAH WANGARI
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70670 🚗 [Sub 9] SUCCESS - Van: KCQ 564B | Promoters: 14 | ZSM: ANTONY ISAGI
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70670 🚗 [Sub 10] SUCCESS - Van: KCN 381L | Promoters: 18 | ZSM: VEROLYNE ATIENO
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70674 
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70674 📊 FLEET EXTRACTION SUMMARY:
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70674    Total submissions analyzed: 34
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70674    Submissions with vans detected: YES
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70674    Total unique vans found: 30
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70674    Total promoter-van links created: 487
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70676 
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70676 🚗 ALL DETECTED VAN NUMBER PLATES (30 vans):
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70676    • KAW 747X
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70676    • KBG 957A
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70676    • KBS 528F
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70676    • KBX 128E
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70676    • KCA 530C
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70676    • KCB 466U
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70676    • KCC 879F
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70676    • KCE 629Q
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70676    • KCG 720W
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70676    • KCJ 078S
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70676    • KCJ 834G
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70676    • KCK 594S
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70676    • KCN 381L
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70676    • KCP 126Q
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70676    • KCP 597S
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70676    • KCQ 114R
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70676    • KCQ 129G
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70676    • KCQ 564B
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70676    • KCQ 689V
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70676    • KCR 709C
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70676    • KCR 803Q
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70676    • KCS 248G
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70676    • KCU 536G
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70676    • KCU 691B
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70676    • KCV 831C
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70676    • KCV 836A
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70676    • KCW 152M
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70676    • KCX 291B
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70676    • KDB 151X
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70676    • KDC 378W
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70712 ✅ Promoter-wise sheet: 487 promoters
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70712 📊 Building Van-wise sheet...
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70771 
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70771 ✅ FLEET TRACKING COMPLETE!
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70771    Unique vans tracked: 30
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70771    Total promoter-van assignments: 487
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70771    Matched against 42 vans in van_db table
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70771 
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70771 📊 All vans found:
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70772    KCV 831C: 13 promoters | ZSM: SHADRACK WABWIRE
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70772    KDC 378W: 29 promoters | ZSM: PATRICK MAKAU
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70772    KCJ 078S: 6 promoters | ZSM: CAROLYN NYAWADE
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70772    KCQ 129G: 14 promoters | ZSM: MATHIAS MUEKE
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70772    KCR 709C: 23 promoters | ZSM: JUMA OLILO
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70772    KCU 691B: 29 promoters | ZSM: VICTOR AUDI
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70772    KCA 530C: 27 promoters | ZSM: KEZIAH WANGARI
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70772    KCQ 564B: 14 promoters | ZSM: ANTONY ISAGI
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70772    KCN 381L: 18 promoters | ZSM: VEROLYNE ATIENO
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70772    KCC 879F: 18 promoters | ZSM: SOLOMON WALINGO
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70772    KAW 747X: 21 promoters | ZSM: SCHOLA NGALA
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70772    KCE 629Q: 11 promoters | ZSM: FARAH MOHAMMED
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70772    KCR 803Q: 12 promoters | ZSM: KERECHA ONGERI
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70772    KCQ 689V: 10 promoters | ZSM: Christine Atitu
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70772    KCP 597S: 8 promoters | ZSM: SHADRACK WABWIRE
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70772    KBG 957A: 24 promoters | ZSM: GRACE MUMBI
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70772    KCW 152M: 9 promoters | ZSM: SHARON WANJOHI
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70772    KCB 466U: 16 promoters | ZSM: SIMON NDUGIRE
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70772    KCS 248G: 14 promoters | ZSM: NAFTAL OMOKE
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70772    KBS 528F: 20 promoters | ZSM: MOLLY MATHENGE
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70772    KCP 126Q: 22 promoters | ZSM: NELSON OKWARO
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70772    KCQ 114R: 12 promoters | ZSM: VERONICA NALIANYA
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70772    KCU 536G: 14 promoters | ZSM: SHADRACK OWINO ABONGO
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70772    KCX 291B: 20 promoters | ZSM: GEORGE OGUTU
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70772    KCK 594S: 11 promoters | ZSM: JOSEPH MULWA
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70772    KCG 720W: 19 promoters | ZSM: PATRICK MAKAU
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70772    KCV 836A: 16 promoters | ZSM: ANTONY OMOLO 
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70772    KBX 128E: 12 promoters | ZSM: SABASTIAN NYAMU
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70772    KDB 151X: 6 promoters | ZSM: KULLOW IBRAHIM
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70772    KCJ 834G: 19 promoters | ZSM: DANIEL MUMO
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70773 📍 Building Sitewise Analysis sheet...
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70778 🔍 Found 2 site-related fields: (2) ['Shop Name', 'SITE(S) WORKING TODAY']
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70779 📋 DEBUG - All fields in first submission:
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70783    Shop Name: 
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70783    Submission Date: 2026-03-12
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70783    Submission Time: 21:34
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70783    SITE(S) WORKING TODAY: KINYUI
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70783    NUMBER OF PROMOTERS IN THE VAN TODAY : 755902650,105196470,789151944,104858630,784705360,756655442,737039306,788207388
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70783    NUMBER PLATE : KCV 831C
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70783    ODOMETER: 371719
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70825 🚫 Filtered out number plate: "KCV 831C" (not a site name)
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70832 ✅ Site #1: "KINYUI" from SITE(S) WORKING TODAY (priority 4)
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70825 🚫 Filtered out number plate: "KDC 378W" (not a site name)
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70832 ✅ Site #2: "KIRWAU" from SITE(S) WORKING TODAY (priority 4)
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70825 🚫 Filtered out number plate: "KCJ 078S" (not a site name)
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70832 ✅ Site #3: "KAKANJU_KILIFI" from SITE(S) WORKING TODAY (priority 4)
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70825 🚫 Filtered out number plate: "KCQ 129G" (not a site name)
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70825 🚫 Filtered out number plate: "KDC 378W" (not a site name)
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70904 
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70904 ✅ SITEWISE ANALYSIS COMPLETE!
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70904    Unique sites identified: 31
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70904    Submissions with known sites: 34
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70904    Submissions with unknown sites: 0
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70906 
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70906 📍 Top 10 sites by submission count:
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70907    1. KINYUI: 2 submissions
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70907    2. KIRWAU: 2 submissions
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70907    3. CHEKALINI: 2 submissions
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70907    4. KAKANJU_KILIFI: 1 submissions
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70907    5. NANYUKI_THINGITHU: 1 submissions
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70907    6. KAMSER_SEKA: 1 submissions
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70907    7. KOLOWA_ATC: 1 submissions
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70907    8. BANTU_NYERI: 1 submissions
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70907    9. BOKOLI_TOWN: 1 submissions
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:70907    10. SHIANDA: 1 submissions
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:71166 ✅ Multi-sheet workbook created with 7 sheets
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:71166 ✅ Exported 34 submissions with 11 form fields
+69efd6937a6bb21d59fc52a5f9c8985333e617e9.js:21725 [DBManager] Cold-start grace period ended

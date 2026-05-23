@@ -1,0 +1,36 @@
+[Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [AndroidBackButton] 🧹 Cleaning up back button listener
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [TodayLeaderboard] 🔥 Loading SE leaderboard with ALL 662 SEs...
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [TodayLeaderboard] 📅 Today starts at: 2026-03-02T21:00:00.000Z
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+2code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+5code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+4code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+4code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+4code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+4code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+4code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+3code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+3code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+4code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+4code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [TodayLeaderboard] 👥 Loaded 668 total SEs
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [TodayLeaderboard] ✅ Loaded 992 submissions from today
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [TodayLeaderboard] 📊 Top 10 entries: (10) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [TodayLeaderboard] ✅ Final SE leaderboard with 668 entries
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [TodayLeaderboard] 📊 Active SEs: 36 | Inactive SEs: 632
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [AndroidBackButton] 🧹 Cleaning up back button listener
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [AndroidBackButton] 🧹 Cleaning up back button listener
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete

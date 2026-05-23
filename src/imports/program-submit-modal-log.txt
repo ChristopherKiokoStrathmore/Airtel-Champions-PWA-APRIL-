@@ -1,0 +1,24 @@
+[ProgramSubmitModal] ✅ Component should now show search dropdown instead of radio buttons
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [DatabaseDropdown] 🚀 "sitewise" has 1000+ rows → server-side search enabled
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [DatabaseDropdown] Generated 40 options for NUMBER PLATE 
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [Dropdown] 🔍 Search input focused - opening dropdown
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [DatabaseDropdown] Generated 40 options for NUMBER PLATE 
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [Dropdown] ⌨️ Input changed: KCK 594S
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [DatabaseDropdown] Generated 40 options for NUMBER PLATE 
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [Shop Dropdown] 🎯 Option clicked: KCK 594S
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [FieldChange] Setting field d33e70b9-eea4-4c73-8f76-6891698b5fc3 to: KCK 594S (single)
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [FieldChange] Auto-populating from: KCK 594S 
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [AutoPopulate] ��� Database dropdown selection: {field: 'NUMBER PLATE ', value: 'KCK 594S', table: 'van_db', displayField: 'number_plate', metadataFields: Array(1)}
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [AutoPopulate] ✅ Found selected row: {id: 35, created_at: '2026-02-10T07:16:04.282478+00:00', number_plate: 'KCK 594S', capacity: null, vendor: 'WE EVOLVE', …}
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [AutoPopulate] 📦 Stored metadata for display: {zone: 'EASTERN'}
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [AutoPopulate] ℹ️ No matching fields found to auto-populate
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [VanEnforcement] 🔍 Checking van checkout status for: "KCK 594S" | program.van_checkout_enforcement_enabled=true
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [FieldChange] FormData after update: {d33e70b9-eea4-4c73-8f76-6891698b5fc3: 'KCK 594S'}
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [DatabaseDropdown] Generated 40 options for NUMBER PLATE 
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [VanEnforcement] Response for "KCK 594S": {"success":true,"allowed":true,"enforcement_enabled":true,"message":"Van was checked out — you can proceed with check-in"}
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK IN  with 5 fields
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [DatabaseDropdown] Generated 40 options for NUMBER PLATE 

@@ -1,0 +1,1246 @@
+// User Upload Management System - Excel Upload, Preview, Go-Live, Rollback
+// Cache bust: 2026-05-08-delete-insert-fix
+import { Hono } from "npm:hono@4.7.9";
+import { createClient } from "jsr:@supabase/supabase-js@2";
+import * as XLSX from "npm:xlsx@0.18.5";
+
+const app = new Hono();
+
+// Make-server Supabase client (for kv_store only)
+const supabase = createClient(
+  Deno.env.get("SUPABASE_URL")!,
+  Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!
+);
+
+// Frontend Supabase client — all data tables (app_users, app_users_staging,
+// upload_batches, org_change_log, submissions, points_history) live here.
+// The make-server project does NOT have these tables.
+const FRONTEND_SUPABASE_URL = Deno.env.get('FRONTEND_SUPABASE_URL')?.startsWith('https://')
+  ? Deno.env.get('FRONTEND_SUPABASE_URL')!
+  : 'https://xspogpfohjmkykfjadhk.supabase.co';
+const FRONTEND_SERVICE_ROLE_KEY = Deno.env.get('FRONTEND_SERVICE_ROLE_KEY') || '';
+const FRONTEND_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhzcG9ncGZvaGpta3lrZmphZGhrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU0MzcxNjMsImV4cCI6MjA4MTAxMzE2M30.C75SxALoWysJ6tHggNMC1fBvIXjzcQsfAGwAjrugGNg';
+// Use service_role key if available (bypasses RLS), fallback to anon key
+const frontendKey = FRONTEND_SERVICE_ROLE_KEY || FRONTEND_ANON_KEY;
+const frontendSupabase = createClient(FRONTEND_SUPABASE_URL, frontendKey);
+console.log('[User Upload] Frontend Supabase client initialized:', FRONTEND_SUPABASE_URL, 'using', FRONTEND_SERVICE_ROLE_KEY ? 'service_role key' : 'anon key');
+
+// Types
+interface ExcelUser {
+  full_name: string;
+  phone_number: string;
+  employee_id?: string;
+  email?: string;
+  role: string;
+  region?: string;
+  zone?: string;
+  zsm?: string;
+  zbm?: string;
+  job_title?: string;
+  territory?: string;
+  raw_phone_number?: string;
+  role_group?: string;
+}
+
+interface SalesForceHierarchyRecord {
+  full_name: string;
+  phone_number: string;
+  role: 'se' | 'zsm' | 'zbm';
+  territory?: string;
+  zone?: string;
+  zsm?: string;
+  zbm?: string;
+  raw_phone_number?: string;
+}
+
+function normalizeRole(role: string | undefined): string {
+  return String(role || '').trim().toLowerCase();
+}
+
+function buildSalesForceStagingUsers(
+  records: SalesForceHierarchyRecord[],
+  existingMap: Map<string, any>
+) {
+  return records.map((record) => {
+    const existing = existingMap.get(record.phone_number);
+    const role = normalizeRole(record.role);
+
+    return {
+      id: existing?.id,
+      full_name: record.full_name,
+      phone_number: record.phone_number,
+      employee_id: existing?.employee_id || null,
+      email: existing?.email || null,
+      role,
+      region: record.zone || null,
+      zone: record.zone || null,
+      territory: record.territory || null,
+      zsm: role === 'se' ? (record.zsm || null) : null,
+      zbm: role === 'se' ? (record.zbm || null) : (role === 'zsm' ? (record.zbm || null) : null),
+      job_title: existing?.job_title || null,
+      is_active: true,
+      pin: '1234',
+    };
+  });
+}
+
+function buildPreviewUsers(records: SalesForceHierarchyRecord[]): ExcelUser[] {
+  return records.map((record) => ({
+    full_name: record.full_name,
+    phone_number: record.phone_number,
+    role: normalizeRole(record.role),
+    territory: record.territory,
+    region: record.zone,
+    zone: record.zone,
+    zsm: record.role === 'se' ? record.zsm : undefined,
+    zbm: record.role === 'se' ? record.zbm : undefined,
+    raw_phone_number: record.raw_phone_number,
+    role_group: 'sales_force',
+  }));
+}
+
+interface UserChange {
+  type: "new_user" | "removed_user" | "role_change" | "zone_transfer" | "unchanged";
+  phone_number: string;
+  full_name: string;
+  old_data?: any;
+  new_data?: any;
+  points?: number;
+  submissions_count?: number;
+  team_members?: string[];
+  team_count?: number;
+  team_points?: number;
+}
+
+interface ValidationWarning {
+  row: number;
+  field: string;
+  issue: string;
+  severity: "error" | "warning";
+  data?: any;
+}
+
+// ============================================================================
+// UPLOAD EXCEL FILE (Stage Preview)
+// ============================================================================
+
+app.post("/upload-excel", async (c) => {
+  try {
+    console.log("[User Upload] Excel upload initiated");
+    
+    // Get uploaded file
+    const body = await c.req.parseBody();
+    const file = body.file as File;
+    
+    if (!file) {
+      return c.json({ success: false, error: "No file uploaded" }, 400);
+    }
+
+    // --- Security: file size check (max 10 MB) ---
+    if (file.size > 10 * 1024 * 1024) {
+      return c.json({ success: false, error: "File too large. Maximum allowed size is 10 MB." }, 400);
+    }
+
+    // --- Security: MIME type check ---
+    const allowedMimeTypes = [
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "application/vnd.ms-excel",
+    ];
+    if (file.type && !allowedMimeTypes.includes(file.type)) {
+      return c.json({ success: false, error: `Invalid file type: ${file.type}. Only .xlsx and .xls files are accepted.` }, 400);
+    }
+
+    // Read Excel file
+    const arrayBuffer = await file.arrayBuffer();
+
+    // --- Security: magic bytes check (xlsx/zip files begin with PK = 0x50 0x4B 0x03 0x04) ---
+    const headerBytes = new Uint8Array(arrayBuffer.slice(0, 4));
+    const isPKZip = headerBytes[0] === 0x50 && headerBytes[1] === 0x4B &&
+                    headerBytes[2] === 0x03 && headerBytes[3] === 0x04;
+    if (!isPKZip) {
+      return c.json({ success: false, error: "File content does not match a valid Excel (.xlsx) format." }, 400);
+    }
+
+    const workbook = XLSX.read(arrayBuffer, { type: "array" });
+    const sheetName = workbook.SheetNames[0];
+    const worksheet = workbook.Sheets[sheetName];
+    const jsonData = XLSX.utils.sheet_to_json(worksheet) as any[];
+
+    console.log(`[User Upload] Parsed ${jsonData.length} rows from Excel`);
+    
+    // Log the actual column headers for debugging
+    if (jsonData.length > 0) {
+      console.log(`[User Upload] Excel columns found:`, Object.keys(jsonData[0]));
+    }
+
+    // Helper: case-insensitive column lookup
+    function getCol(row: any, ...candidates: string[]): string {
+      // First try exact match
+      for (const c of candidates) {
+        if (row[c] !== undefined && row[c] !== null) return String(row[c]);
+      }
+      // Then try case-insensitive match
+      const rowKeys = Object.keys(row);
+      for (const c of candidates) {
+        const lower = c.toLowerCase();
+        const match = rowKeys.find(k => k.toLowerCase() === lower);
+        if (match && row[match] !== undefined && row[match] !== null) return String(row[match]);
+      }
+      // Try partial match (e.g., "Name" matches "Agent Name", "Full_Name" matches "Full Name")
+      for (const c of candidates) {
+        const lower = c.toLowerCase().replace(/[_\s]/g, '');
+        const match = rowKeys.find(k => k.toLowerCase().replace(/[_\s]/g, '') === lower);
+        if (match && row[match] !== undefined && row[match] !== null) return String(row[match]);
+      }
+      return "";
+    }
+
+    // Normalize data with flexible column matching
+    const users: ExcelUser[] = jsonData.map((row) => ({
+      full_name: getCol(row, "Full Name", "Name", "full_name", "FULL NAME", "name", "Agent Name", "Employee Name", "FullName"),
+      phone_number: normalizePhone(getCol(row, "Phone Number", "Phone", "phone_number", "PHONE NUMBER", "phone", "Mobile", "Mobile Number", "Contact", "PHONE", "MSISDN", "Tel")),
+      employee_id: getCol(row, "Employee ID", "employee_id", "EMPLOYEE ID", "Emp ID", "EmpID", "Staff ID"),
+      email: getCol(row, "Email", "email", "EMAIL", "Email Address", "E-mail"),
+      role: normalizeRole(getCol(row, "Role", "role", "ROLE", "Designation", "Position", "Title")) || "se",
+      region: getCol(row, "Region", "region", "REGION"),
+      zone: getCol(row, "Zone", "zone", "ZONE", "Territory"),
+      zsm: getCol(row, "ZSM", "zsm", "Zone Sales Manager", "Zone Manager"),
+      zbm: getCol(row, "ZBM", "zbm", "Zone Business Manager"),
+      job_title: getCol(row, "Job Title", "job_title", "JOB TITLE", "Designation"),
+    }));
+
+    // Validate data
+    const warnings: ValidationWarning[] = [];
+    const validUsers: ExcelUser[] = [];
+
+    users.forEach((user, index) => {
+      const rowNum = index + 2; // Excel row (1-indexed + header)
+
+      // Check required fields
+      if (!user.full_name || user.full_name.trim() === "") {
+        warnings.push({
+          row: rowNum,
+          field: "full_name",
+          issue: "Missing name",
+          severity: "error",
+          data: user,
+        });
+        return;
+      }
+
+      if (!user.phone_number || user.phone_number.trim() === "") {
+        warnings.push({
+          row: rowNum,
+          field: "phone_number",
+          issue: "Missing phone number",
+          severity: "error",
+          data: user,
+        });
+        return;
+      }
+
+      // Check for duplicates within Excel
+      const duplicate = validUsers.find(
+        (u) => u.phone_number === user.phone_number
+      );
+      if (duplicate) {
+        warnings.push({
+          row: rowNum,
+          field: "phone_number",
+          issue: `Duplicate phone number: ${user.phone_number}`,
+          severity: "error",
+          data: { user1: duplicate, user2: user },
+        });
+        return;
+      }
+
+      validUsers.push(user);
+    });
+
+    console.log(`[User Upload] ${validUsers.length} valid users, ${warnings.length} warnings`);
+
+    // Clear staging table
+    await frontendSupabase.from("app_users_staging").delete().neq("id", "00000000-0000-0000-0000-000000000000");
+
+    // Get existing users to preserve UUIDs (Stable UUID UPSERT)
+    const { data: existingUsers } = await frontendSupabase
+      .from("app_users")
+      .select("id, phone_number, full_name, role, zone, zsm, total_points");
+
+    const existingMap = new Map<string, any>(
+      ((existingUsers || []) as Array<{ phone_number: string; [key: string]: any }>).map((u) => [u.phone_number, u])
+    );
+
+    // Insert into staging with stable UUIDs and preserved points
+    const stagingUsers = validUsers.map((user) => {
+      const existing = existingMap.get(user.phone_number);
+      return {
+        id: existing?.id, // Reuse UUID if exists, otherwise Postgres will generate new
+        full_name: user.full_name,
+        phone_number: user.phone_number,
+        employee_id: user.employee_id || null,
+        email: user.email || null,
+        role: user.role,
+        region: user.region || null,
+        zone: user.zone || null,
+        zsm: user.zsm || null,
+        zbm: user.zbm || null,
+        job_title: user.job_title || null,
+        is_active: true,
+        pin: "1234", // Default PIN for new users
+        total_points: existing?.total_points || 0, // Preserve existing points
+      };
+    });
+
+    const { error: insertError } = await frontendSupabase
+      .from("app_users_staging")
+      .insert(stagingUsers);
+
+    if (insertError) {
+      console.error("[User Upload] Staging insert error:", insertError);
+      return c.json({ success: false, error: insertError.message }, 500);
+    }
+
+    // Create upload batch record
+    const batchId = crypto.randomUUID();
+    const { error: batchError } = await frontendSupabase.from("upload_batches").insert({
+      id: batchId,
+      filename: file.name,
+      status: "staged",
+      total_users: validUsers.length,
+      warnings_count: warnings.length,
+      uploaded_at: new Date().toISOString(),
+    });
+
+    if (batchError) {
+      console.error("[User Upload] Batch record error:", batchError);
+    }
+
+    // Generate preview comparison
+    const changes = await generateChangePreview(existingMap, validUsers);
+
+    console.log(`[User Upload] Upload complete - Batch ID: ${batchId}`);
+
+    return c.json({
+      success: true,
+      batch_id: batchId,
+      total_users: validUsers.length,
+      warnings,
+      changes,
+      debug: {
+        excel_columns: jsonData.length > 0 ? Object.keys(jsonData[0]) : [],
+        total_rows_parsed: jsonData.length,
+        sample_row: jsonData.length > 0 ? jsonData[0] : null,
+      },
+    });
+  } catch (error: any) {
+    console.error("[User Upload] Upload error:", error);
+    return c.json({ success: false, error: error.message }, 500);
+  }
+});
+
+// ============================================================================
+// UPLOAD SALES FORCE CONTACTS (Hierarchy CSV/TSV/Excel parsed on client)
+// ============================================================================
+
+app.post("/upload-sales-force-contacts", async (c) => {
+  try {
+    const body = await c.req.json();
+    const filename = String(body?.filename || 'sales-force-contacts');
+    const records = Array.isArray(body?.records) ? body.records as SalesForceHierarchyRecord[] : [];
+
+    if (records.length === 0) {
+      return c.json({ success: false, error: 'No parsed records supplied' }, 400);
+    }
+
+    const normalizedRecords = records
+      .map((record) => ({
+        ...record,
+        full_name: String(record.full_name || '').trim(),
+        phone_number: String(record.phone_number || '').trim(),
+        role: normalizeRole(record.role) as 'se' | 'zsm' | 'zbm',
+        territory: String(record.territory || '').trim() || undefined,
+        zone: String(record.zone || '').trim() || undefined,
+        zsm: String(record.zsm || '').trim() || undefined,
+        zbm: String(record.zbm || '').trim() || undefined,
+        raw_phone_number: String(record.raw_phone_number || '').trim() || undefined,
+      }))
+      .filter((record) => record.full_name && record.phone_number && ['se', 'zsm', 'zbm'].includes(record.role));
+
+    const warnings: ValidationWarning[] = [];
+    const validRecords: SalesForceHierarchyRecord[] = [];
+    const seen = new Set<string>();
+
+    normalizedRecords.forEach((record, index) => {
+      const rowNum = index + 2;
+
+      if (record.full_name.toUpperCase().includes('VACANT')) {
+        warnings.push({
+          row: rowNum,
+          field: 'full_name',
+          issue: `Skipping vacant ${record.role.toUpperCase()}: ${record.full_name}`,
+          severity: 'warning',
+          data: record,
+        });
+        return;
+      }
+
+      const key = `${record.role}:${record.phone_number}`;
+      if (seen.has(key)) {
+        warnings.push({
+          row: rowNum,
+          field: 'phone_number',
+          issue: `Duplicate ${record.role.toUpperCase()} phone number: ${record.phone_number}`,
+          severity: 'error',
+          data: record,
+        });
+        return;
+      }
+
+      seen.add(key);
+      validRecords.push(record);
+    });
+
+    if (validRecords.length === 0) {
+      return c.json({ success: false, error: 'No valid records found after validation', warnings }, 400);
+    }
+
+    await frontendSupabase
+      .from('app_users_staging')
+      .delete()
+      .neq('id', '00000000-0000-0000-0000-000000000000');
+
+    const { data: existingUsers } = await frontendSupabase
+      .from('app_users')
+      .select('id, phone_number, full_name, role, zone, zsm, zbm, employee_id, email, job_title');
+
+    const existingMap = new Map<string, any>(
+      ((existingUsers || []) as Array<{ phone_number: string; [key: string]: any }>).map((user) => [user.phone_number, user])
+    );
+    const stagingUsers = buildSalesForceStagingUsers(validRecords, existingMap);
+    const previewUsers = buildPreviewUsers(validRecords);
+
+    const { error: insertError } = await frontendSupabase
+      .from('app_users_staging')
+      .insert(stagingUsers);
+
+    if (insertError) {
+      console.error('[User Upload] Sales Force staging insert error:', insertError);
+      return c.json({ success: false, error: insertError.message }, 500);
+    }
+
+    const batchId = crypto.randomUUID();
+    const { error: batchError } = await frontendSupabase.from('upload_batches').insert({
+      id: batchId,
+      filename,
+      status: 'staged',
+      total_users: stagingUsers.length,
+      warnings_count: warnings.length,
+      uploaded_at: new Date().toISOString(),
+    });
+
+    if (batchError) {
+      console.error('[User Upload] Sales Force batch record error:', batchError);
+    }
+
+    const changes = await generateChangePreview(existingMap, previewUsers);
+
+    return c.json({
+      success: true,
+      batch_id: batchId,
+      total_users: stagingUsers.length,
+      warnings,
+      changes,
+      debug: {
+        filename,
+        source_rows: normalizedRecords.length,
+        valid_records: validRecords.length,
+        roles: {
+          se: validRecords.filter((record) => record.role === 'se').length,
+          zsm: validRecords.filter((record) => record.role === 'zsm').length,
+          zbm: validRecords.filter((record) => record.role === 'zbm').length,
+        },
+      },
+    });
+  } catch (error: any) {
+    console.error('[User Upload] Sales Force upload error:', error);
+    return c.json({ success: false, error: error.message }, 500);
+  }
+});
+
+// ============================================================================
+// GENERATE CHANGE PREVIEW
+// ============================================================================
+
+async function generateChangePreview(
+  existingMap: Map<string, any>,
+  newUsers: ExcelUser[]
+): Promise<{
+  new_users: UserChange[];
+  removed_users: UserChange[];
+  role_changes: UserChange[];
+  zone_transfers: UserChange[];
+  unchanged_count: number;
+}> {
+  const newUsersChanges: UserChange[] = [];
+  const removedUsersChanges: UserChange[] = [];
+  const roleChanges: UserChange[] = [];
+  const zoneTransfers: UserChange[] = [];
+  let unchangedCount = 0;
+
+  const newPhonesSet = new Set(newUsers.map((u) => u.phone_number));
+
+  // Detect changes
+  for (const newUser of newUsers) {
+    const existing = existingMap.get(newUser.phone_number);
+    const existingRole = normalizeRole(existing?.role);
+    const newRole = normalizeRole(newUser.role);
+
+    if (!existing) {
+      // New user
+      newUsersChanges.push({
+        type: "new_user",
+        phone_number: newUser.phone_number,
+        full_name: newUser.full_name,
+        new_data: newUser,
+      });
+    } else {
+      // Check for role change
+      if (existingRole !== newRole) {
+        // Get team info if becoming ZSM
+        let teamMembers: string[] = [];
+        let teamPoints = 0;
+        if (newRole === "zsm") {
+          const team = await getTeamMembers(newUser.full_name, newUsers);
+          teamMembers = team.members;
+          teamPoints = team.totalPoints;
+        }
+
+        roleChanges.push({
+          type: "role_change",
+          phone_number: newUser.phone_number,
+          full_name: newUser.full_name,
+          old_data: { role: existingRole, zone: existing.zone },
+          new_data: { role: newRole, zone: newUser.zone },
+          points: existing.total_points || 0,
+          team_members: teamMembers,
+          team_count: teamMembers.length,
+          team_points: teamPoints,
+        });
+      } else if (existing.zone !== newUser.zone) {
+        // Zone transfer (same role, different zone)
+        zoneTransfers.push({
+          type: "zone_transfer",
+          phone_number: newUser.phone_number,
+          full_name: newUser.full_name,
+          old_data: { zone: existing.zone },
+          new_data: { zone: newUser.zone },
+          points: existing.total_points || 0,
+        });
+      } else {
+        unchangedCount++;
+      }
+    }
+  }
+
+  // Find removed users
+  for (const [phone, existing] of existingMap.entries()) {
+    if (!newPhonesSet.has(phone)) {
+      // Get submission count
+      const { count } = await frontendSupabase
+        .from("submissions")
+        .select("*", { count: "exact", head: true })
+        .eq("user_id", existing.id);
+
+      removedUsersChanges.push({
+        type: "removed_user",
+        phone_number: phone,
+        full_name: existing.full_name,
+        old_data: { role: existing.role, zone: existing.zone },
+        points: existing.total_points || 0,
+        submissions_count: count || 0,
+      });
+    }
+  }
+
+  return {
+    new_users: newUsersChanges,
+    removed_users: removedUsersChanges,
+    role_changes: roleChanges,
+    zone_transfers: zoneTransfers,
+    unchanged_count: unchangedCount,
+  };
+}
+
+// ============================================================================
+// GET TEAM MEMBERS FOR ZSM
+// ============================================================================
+
+async function getTeamMembers(
+  zsmName: string,
+  allUsers: ExcelUser[]
+): Promise<{ members: string[]; totalPoints: number }> {
+  // Find all SEs reporting to this ZSM
+  const teamMembers = allUsers
+    .filter((u) => u.zsm === zsmName && normalizeRole(u.role) === "se")
+    .map((u) => u.full_name);
+
+  // Get their phone numbers and calculate total points
+  let totalPoints = 0;
+  for (const member of teamMembers) {
+    const user = allUsers.find((u) => u.full_name === member);
+    if (user?.phone_number) {
+      // Get points from existing user
+      const { data: existingUser } = await frontendSupabase
+        .from("app_users")
+        .select("total_points")
+        .eq("phone_number", user.phone_number)
+        .single();
+
+      totalPoints += existingUser?.total_points || 0;
+    }
+  }
+
+  return { members: teamMembers, totalPoints };
+}
+
+// ============================================================================
+// FIX WARNING (Inline Edit)
+// ============================================================================
+
+app.post("/fix-warning", async (c) => {
+  try {
+    const { phone_number, field, value } = await c.req.json();
+
+    console.log(`[User Upload] Fixing warning: ${phone_number} - ${field} = ${value}`);
+
+    // Update staging record
+    const { error } = await frontendSupabase
+      .from("app_users_staging")
+      .update({ [field]: value })
+      .eq("phone_number", phone_number);
+
+    if (error) {
+      return c.json({ success: false, error: error.message }, 500);
+    }
+
+    return c.json({ success: true });
+  } catch (error: any) {
+    console.error("[User Upload] Fix warning error:", error);
+    return c.json({ success: false, error: error.message }, 500);
+  }
+});
+
+// ============================================================================
+// GO LIVE (Atomic Swap)
+// ============================================================================
+
+app.post("/go-live", async (c) => {
+  try {
+    const { batch_id } = await c.req.json();
+    console.log(`[User Upload] Going live - Batch: ${batch_id}`);
+
+    const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
+    const archiveTable = `app_users_archive_${timestamp}`;
+
+    // Step 1: Create archive table (copy current app_users)
+    console.log(`[User Upload] Creating archive: ${archiveTable}`);
+    
+    const { data: currentUsers, error: fetchError } = await frontendSupabase
+      .from("app_users")
+      .select("*");
+
+    if (fetchError) {
+      console.error("[User Upload] Failed to fetch current users:", fetchError);
+      return c.json({ success: false, error: fetchError.message }, 500);
+    }
+
+    // Store archive in KV (since we can't create tables dynamically)
+    const archiveKey = `archive_${timestamp}`;
+    const { error: kvError } = await supabase
+      .from("kv_store_28f2f653")
+      .upsert({
+        key: archiveKey,
+        value: JSON.stringify(currentUsers),
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+      });
+
+    if (kvError) {
+      console.error("[User Upload] Failed to create archive:", kvError);
+      return c.json({ success: false, error: kvError.message }, 500);
+    }
+
+    // Step 2: Get staging data
+    const { data: stagingUsers, error: stagingError } = await frontendSupabase
+      .from("app_users_staging")
+      .select("*");
+
+    if (stagingError || !stagingUsers) {
+      return c.json({ success: false, error: "No staging data found" }, 500);
+    }
+
+    // Step 3: Mark removed users as inactive (don't delete)
+    const stagingUsersList = (stagingUsers || []) as Array<{ phone_number: string; id: string }>;
+    const currentUsersList = (currentUsers || []) as Array<{ phone_number: string; id: string }>;
+    const stagingPhones = new Set<string>(stagingUsersList.map((u) => u.phone_number));
+    const removedUsers = currentUsersList.filter((u) => !stagingPhones.has(u.phone_number));
+
+    if (removedUsers.length > 0) {
+      const removedIds = removedUsers.map((u) => u.id);
+      await frontendSupabase
+        .from("app_users")
+        .update({ is_active: false })
+        .in("id", removedIds);
+
+      console.log(`[User Upload] Marked ${removedUsers.length} users as inactive`);
+    }
+
+    // Step 4: Merge staging users into app_users
+    // Strategy: Delete existing records by phone_number from new batch, then insert all staging records
+    // This handles the case where same person can be SE and ZSM (different rows)
+    // IMPORTANT: Preserve total_points from existing users
+    
+    const stagingPhonesForUpsert = new Set(stagingUsers.map((u: any) => u.phone_number));
+    const stagingPhonesList = Array.from(stagingPhonesForUpsert);
+    
+    // Get existing users to preserve their points
+    const { data: existingForPoints } = await frontendSupabase
+      .from("app_users")
+      .select("phone_number, total_points")
+      .in("phone_number", stagingPhonesList);
+    
+    const existingPointsMap = new Map<string, number>(
+      ((existingForPoints || []) as Array<{ phone_number: string; total_points: number }>)
+        .map((u) => [u.phone_number, u.total_points || 0])
+    );
+    
+    // Merge existing points into staging users
+    const stagingUsersWithPoints = (stagingUsers as any[]).map((user) => ({
+      ...user,
+      total_points: existingPointsMap.get(user.phone_number) || user.total_points || 0,
+    }));
+    
+    // Delete old records that we're replacing
+    console.log(`[User Upload] Deleting old records for ${stagingPhonesList.length} phone numbers...`);
+    const { error: deleteError } = await frontendSupabase
+      .from("app_users")
+      .delete()
+      .in("phone_number", stagingPhonesList);
+
+    if (deleteError) {
+      console.error("[User Upload] Delete error:", deleteError);
+      return c.json({ success: false, error: `Delete failed: ${deleteError.message}` }, 500);
+    }
+
+    // Insert fresh copies from staging WITH preserved points
+    console.log(`[User Upload] Inserting ${stagingUsers.length} users into app_users...`);
+    const { error: insertError } = await frontendSupabase
+      .from("app_users")
+      .insert(stagingUsersWithPoints);
+
+    if (insertError) {
+      console.error("[User Upload] Insert error:", insertError);
+      return c.json({ success: false, error: `Insert failed: ${insertError.message}` }, 500);
+    }
+
+    // Step 5: Recalculate points for all users
+    console.log("[User Upload] Recalculating points...");
+    await recalculateAllPoints();
+
+    // Step 6: Log changes to org_change_log
+    const changeLogs = await generateChangeLogs(batch_id, currentUsers || [], stagingUsers);
+    if (changeLogs.length > 0) {
+      await frontendSupabase.from("org_change_log").insert(changeLogs);
+    }
+
+    // Step 7: Update batch status
+    await frontendSupabase
+      .from("upload_batches")
+      .update({ status: "live", went_live_at: new Date().toISOString() })
+      .eq("id", batch_id);
+
+    // Step 8: Update KV flag to point to live table
+    await supabase
+      .from("kv_store_28f2f653")
+      .upsert({
+        key: "active_user_table",
+        value: JSON.stringify("app_users"),
+        updated_at: new Date().toISOString(),
+      });
+
+    // Step 9: Clear staging
+    await frontendSupabase.from("app_users_staging").delete().neq("id", "00000000-0000-0000-0000-000000000000");
+
+    // Step 10: Schedule archive cleanup (3 months)
+    await scheduleArchiveCleanup(archiveKey);
+
+    console.log(`[User Upload] Go-live complete! Archive: ${archiveKey}`);
+
+    return c.json({
+      success: true,
+      archive_key: archiveKey,
+      users_updated: stagingUsers.length,
+      users_deactivated: removedUsers.length,
+    });
+  } catch (error: any) {
+    console.error("[User Upload] Go-live error:", error);
+    return c.json({ success: false, error: error.message }, 500);
+  }
+});
+
+// ============================================================================
+// RECALCULATE POINTS FOR ALL USERS
+// ============================================================================
+
+async function recalculateAllPoints() {
+  // Get all active users
+  const { data: users } = await frontendSupabase
+    .from("app_users")
+    .select("id, phone_number, role, full_name");
+
+  if (!users) return;
+
+  for (const user of users) {
+    let totalPoints = 0;
+
+    if (normalizeRole(user.role) === "zsm") {
+      // ZSM: Get team points only (exclude personal SE points)
+      const { data: teamMembers } = await frontendSupabase
+        .from("app_users")
+        .select("id, phone_number")
+        .eq("zsm", user.full_name)
+        .eq("role", "se")
+        .eq("is_active", true);
+
+      if (teamMembers) {
+        for (const member of teamMembers) {
+          const { data: points } = await frontendSupabase
+            .from("points_history")
+            .select("points")
+            .eq("user_id", member.id);
+
+          totalPoints += (points as Array<{ points?: number }> | null)?.reduce((sum: number, p: { points?: number }) => sum + (p.points || 0), 0) || 0;
+        }
+      }
+    } else {
+      // SE or other roles: Get personal points
+      const { data: points } = await frontendSupabase
+        .from("points_history")
+        .select("points")
+        .eq("user_id", user.id);
+
+      totalPoints = (points as Array<{ points?: number }> | null)?.reduce((sum: number, p: { points?: number }) => sum + (p.points || 0), 0) || 0;
+    }
+
+    // Update user's total_points
+    await frontendSupabase
+      .from("app_users")
+      .update({ total_points: totalPoints })
+      .eq("id", user.id);
+  }
+
+  console.log(`[User Upload] Recalculated points for ${users.length} users`);
+}
+
+// ============================================================================
+// GENERATE CHANGE LOGS
+// ============================================================================
+
+async function generateChangeLogs(
+  batchId: string,
+  oldUsers: any[],
+  newUsers: any[]
+): Promise<any[]> {
+  const logs: any[] = [];
+  const oldMap = new Map(oldUsers.map((u) => [u.phone_number, u]));
+  const newMap = new Map(newUsers.map((u) => [u.phone_number, u]));
+
+  // New users
+  for (const newUser of newUsers) {
+    if (!oldMap.has(newUser.phone_number)) {
+      logs.push({
+        change_batch_id: batchId,
+        phone_number: newUser.phone_number,
+        user_name: newUser.full_name,
+        change_type: "new_user",
+        old_value: null,
+        new_value: { role: newUser.role, zone: newUser.zone },
+        effective_date: new Date().toISOString(),
+      });
+    }
+  }
+
+  // Removed users
+  for (const oldUser of oldUsers) {
+    if (!newMap.has(oldUser.phone_number)) {
+      logs.push({
+        change_batch_id: batchId,
+        phone_number: oldUser.phone_number,
+        user_name: oldUser.full_name,
+        change_type: "removed_user",
+        old_value: { role: oldUser.role, zone: oldUser.zone },
+        new_value: null,
+        effective_date: new Date().toISOString(),
+      });
+    }
+  }
+
+  // Changed users
+  for (const newUser of newUsers) {
+    const oldUser = oldMap.get(newUser.phone_number);
+    if (oldUser) {
+      if (oldUser.role !== newUser.role) {
+        logs.push({
+          change_batch_id: batchId,
+          phone_number: newUser.phone_number,
+          user_name: newUser.full_name,
+          change_type: "role_change",
+          old_value: { role: oldUser.role, zone: oldUser.zone },
+          new_value: { role: newUser.role, zone: newUser.zone },
+          effective_date: new Date().toISOString(),
+        });
+      } else if (oldUser.zone !== newUser.zone) {
+        logs.push({
+          change_batch_id: batchId,
+          phone_number: newUser.phone_number,
+          user_name: newUser.full_name,
+          change_type: "zone_transfer",
+          old_value: { zone: oldUser.zone },
+          new_value: { zone: newUser.zone },
+          effective_date: new Date().toISOString(),
+        });
+      }
+    }
+  }
+
+  return logs;
+}
+
+// ============================================================================
+// SCHEDULE ARCHIVE CLEANUP (3 months)
+// ============================================================================
+
+async function scheduleArchiveCleanup(archiveKey: string) {
+  const deleteAfter = new Date();
+  deleteAfter.setMonth(deleteAfter.getMonth() + 3);
+
+  await supabase.from("kv_store_28f2f653").upsert({
+    key: `cleanup_${archiveKey}`,
+    value: JSON.stringify({ archive_key: archiveKey, delete_at: deleteAfter.toISOString() }),
+    updated_at: new Date().toISOString(),
+  });
+}
+
+// ============================================================================
+// ROLLBACK TO ARCHIVE
+// ============================================================================
+
+app.post("/rollback", async (c) => {
+  try {
+    const { archive_key } = await c.req.json();
+    console.log(`[User Upload] Rolling back to: ${archive_key}`);
+
+    // Get archive data from KV
+    const { data: kvData, error: kvError } = await supabase
+      .from("kv_store_28f2f653")
+      .select("value")
+      .eq("key", archive_key)
+      .single();
+
+    if (kvError || !kvData) {
+      return c.json({ success: false, error: "Archive not found" }, 404);
+    }
+
+    const archiveUsers = JSON.parse(kvData.value);
+
+    // Update KV flag to point to archive
+    await supabase
+      .from("kv_store_28f2f653")
+      .upsert({
+        key: "active_user_table",
+        value: JSON.stringify(archive_key),
+        updated_at: new Date().toISOString(),
+      });
+
+    console.log(`[User Upload] Rollback complete - now using ${archive_key}`);
+
+    return c.json({
+      success: true,
+      archive_key,
+      user_count: archiveUsers.length,
+    });
+  } catch (error: any) {
+    console.error("[User Upload] Rollback error:", error);
+    return c.json({ success: false, error: error.message }, 500);
+  }
+});
+
+// ============================================================================
+// GET UPLOAD HISTORY
+// ============================================================================
+
+app.get("/upload-history", async (c) => {
+  try {
+    const { data: batches, error } = await frontendSupabase
+      .from("upload_batches")
+      .select("*")
+      .order("uploaded_at", { ascending: false })
+      .limit(20);
+
+    if (error) {
+      return c.json({ success: false, error: error.message }, 500);
+    }
+
+    // Get archives from KV
+    const { data: archives } = await supabase
+      .from("kv_store_28f2f653")
+      .select("key, value")
+      .like("key", "archive_%");
+
+    return c.json({
+      success: true,
+      batches: batches || [],
+      archives: archives || [],
+    });
+  } catch (error: any) {
+    console.error("[User Upload] History error:", error);
+    return c.json({ success: false, error: error.message }, 500);
+  }
+});
+
+// ============================================================================
+// SITEWISE MAPPING UPDATE — patch zsm/zbm/zone without full user replace
+// ============================================================================
+
+function detectContactSheet(workbook: any): { rows: any[]; sheetName: string } {
+  for (const sheetName of workbook.SheetNames) {
+    const ws = workbook.Sheets[sheetName];
+    const rows = XLSX.utils.sheet_to_json(ws) as any[];
+    if (rows.length === 0) continue;
+    const cols = Object.keys(rows[0] || {}).map((k) => k.toLowerCase().replace(/[_\s/]/g, ""));
+    const hasSE = cols.some((c) => c.includes("msisdn") || (c.includes("se") && c.includes("phone")));
+    const hasMgmt = cols.some((c) => c.includes("zsm") || c.includes("zbm"));
+    if (hasSE && hasMgmt) return { rows, sheetName };
+  }
+  const sheetName = workbook.SheetNames[0];
+  const rows = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName]) as any[];
+  return { rows, sheetName };
+}
+
+app.post("/upload-sitewise-mapping", async (c) => {
+  try {
+    const body = await c.req.parseBody();
+    const file = body.file as File;
+    if (!file) return c.json({ success: false, error: "No file uploaded" }, 400);
+    if (file.size > 20 * 1024 * 1024) return c.json({ success: false, error: "File too large (max 20 MB)" }, 400);
+
+    const arrayBuffer = await file.arrayBuffer();
+    const magic = new Uint8Array(arrayBuffer.slice(0, 4));
+    const isPKZip = magic[0] === 0x50 && magic[1] === 0x4b;
+    const isCFB = magic[0] === 0xd0 && magic[1] === 0xcf && magic[2] === 0x11 && magic[3] === 0xe0;
+    if (!isPKZip && !isCFB) {
+      return c.json({ success: false, error: "File must be .xlsx or .xlsb format" }, 400);
+    }
+
+    const workbook = XLSX.read(arrayBuffer, { type: "array" });
+    const { rows: contactRows, sheetName } = detectContactSheet(workbook);
+
+    if (contactRows.length === 0) {
+      return c.json({ success: false, error: `Sheet "${sheetName}" has no rows` }, 400);
+    }
+
+    const sampleCols = Object.keys(contactRows[0] || {});
+
+    interface MappingRow {
+      se_phone: string;
+      se_name: string;
+      zsm_name: string;
+      zbm_name: string;
+      zone: string;
+    }
+
+    function getMappingCol(row: any, ...candidates: string[]): string {
+      for (const c of candidates) {
+        if (row[c] !== undefined && row[c] !== null && String(row[c]).trim()) return String(row[c]).trim();
+      }
+      const rowKeys = Object.keys(row);
+      for (const c of candidates) {
+        const needle = c.toLowerCase().replace(/[_\s/]/g, "");
+        const match = rowKeys.find((k) => {
+          const norm = k.toLowerCase().replace(/[_\s/]/g, "");
+          return norm === needle || norm.includes(needle) || needle.includes(norm);
+        });
+        if (match && row[match] !== undefined && row[match] !== null && String(row[match]).trim()) {
+          return String(row[match]).trim();
+        }
+      }
+      return "";
+    }
+
+    const mappingRows: MappingRow[] = [];
+    const seen = new Set<string>();
+
+    for (const row of contactRows) {
+      const sePhone = normalizePhone(
+        getMappingCol(row, "SE MSISDNS", "SE MSISDN", "SE Phone", "SE MSISDN(S)", "MSISDN", "Phone")
+      );
+      const seName = getMappingCol(row, "SE NAME", "TSESE NAME", "TSE/SE NAME", "SE Name", "Name");
+      const zsmName = getMappingCol(row, "ZSM NAME", "ZSM");
+      const zbmName = getMappingCol(row, "ZBM NAME", "ZBM");
+      const zone = getMappingCol(row, "ZONE", "Zone", "REGION");
+
+      if (!sePhone || !seName) continue;
+      if (seName.toUpperCase().includes("VACANT")) continue;
+      if (seen.has(sePhone)) continue;
+      seen.add(sePhone);
+
+      mappingRows.push({ se_phone: sePhone, se_name: seName, zsm_name: zsmName, zbm_name: zbmName, zone });
+    }
+
+    if (mappingRows.length === 0) {
+      return c.json({
+        success: false,
+        error: `No SE records found in sheet "${sheetName}". Detected columns: ${sampleCols.join(", ")}`,
+      }, 400);
+    }
+
+    const { data: existingUsers } = await frontendSupabase
+      .from("app_users")
+      .select("id, phone_number, full_name, role, zsm, zbm, zone")
+      .in("phone_number", mappingRows.map((r) => r.se_phone));
+
+    const existingMap = new Map<string, any>(
+      ((existingUsers || []) as Array<{ phone_number: string; [key: string]: any }>).map((u) => [u.phone_number, u])
+    );
+
+    const updates: any[] = [];
+    const noMatch: any[] = [];
+
+    for (const record of mappingRows) {
+      const existing = existingMap.get(record.se_phone);
+      if (!existing) {
+        noMatch.push({ phone: record.se_phone, name: record.se_name });
+        continue;
+      }
+      const changed =
+        existing.zsm !== (record.zsm_name || null) ||
+        existing.zbm !== (record.zbm_name || null) ||
+        (record.zone && existing.zone !== record.zone);
+
+      updates.push({
+        user_id: existing.id,
+        phone_number: record.se_phone,
+        full_name: existing.full_name,
+        role: existing.role,
+        old_zsm: existing.zsm,
+        new_zsm: record.zsm_name || null,
+        old_zbm: existing.zbm,
+        new_zbm: record.zbm_name || null,
+        old_zone: existing.zone,
+        new_zone: record.zone || existing.zone,
+        changed,
+      });
+    }
+
+    const batchId = crypto.randomUUID();
+    await supabase.from("kv_store_28f2f653").upsert({
+      key: `mapping_batch_${batchId}`,
+      value: JSON.stringify({ updates, filename: file.name, created_at: new Date().toISOString() }),
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
+    });
+
+    return c.json({
+      success: true,
+      batch_id: batchId,
+      sheet_used: sheetName,
+      total_se_in_file: mappingRows.length,
+      updates,
+      no_match: noMatch,
+      changes_count: updates.filter((u) => u.changed).length,
+      unchanged_count: updates.filter((u) => !u.changed).length,
+      debug: { sheets: workbook.SheetNames, columns: sampleCols, sample: contactRows[0] || null },
+    });
+  } catch (error: any) {
+    return c.json({ success: false, error: error.message }, 500);
+  }
+});
+
+app.post("/apply-sitewise-mapping", async (c) => {
+  try {
+    const { batch_id } = await c.req.json();
+
+    const { data: kvData, error: kvError } = await supabase
+      .from("kv_store_28f2f653")
+      .select("value")
+      .eq("key", `mapping_batch_${batch_id}`)
+      .single();
+
+    if (kvError || !kvData) {
+      return c.json({ success: false, error: "Batch not found — it may have expired" }, 404);
+    }
+
+    const { updates } = JSON.parse(kvData.value as string);
+    const changedUpdates = (updates as any[]).filter((u) => u.changed);
+
+    let successCount = 0;
+    const errors: string[] = [];
+
+    for (const update of changedUpdates) {
+      const { error } = await frontendSupabase
+        .from("app_users")
+        .update({
+          zsm: update.new_zsm,
+          zbm: update.new_zbm,
+          zone: update.new_zone,
+          updated_at: new Date().toISOString(),
+        })
+        .eq("id", update.user_id);
+
+      if (error) {
+        errors.push(`${update.phone_number}: ${error.message}`);
+      } else {
+        successCount++;
+      }
+    }
+
+    await supabase.from("kv_store_28f2f653").delete().eq("key", `mapping_batch_${batch_id}`);
+
+    return c.json({ success: true, updated: successCount, errors, total_changed: changedUpdates.length });
+  } catch (error: any) {
+    return c.json({ success: false, error: error.message }, 500);
+  }
+});
+
+// ============================================================================
+// UTILITY FUNCTIONS
+// ============================================================================
+
+function normalizePhone(phone: string): string {
+  if (!phone || phone.trim() === "") return "";
+  
+  // Convert to string in case it's a number from Excel
+  let normalized = String(phone).trim();
+  
+  // Remove spaces, dashes, parentheses
+  normalized = normalized.replace(/[\s\-()]/g, "");
+
+  // Remove any trailing .0 from Excel number formatting
+  normalized = normalized.replace(/\.0+$/, "");
+
+  // Add +254 if not present
+  if (!normalized.startsWith("+")) {
+    if (normalized.startsWith("254")) {
+      normalized = "+" + normalized;
+    } else if (normalized.startsWith("0")) {
+      normalized = "+254" + normalized.substring(1);
+    } else if (normalized.length >= 9) {
+      normalized = "+254" + normalized;
+    }
+  }
+
+  return normalized;
+}
+
+export default app;

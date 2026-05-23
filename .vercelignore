@@ -1,0 +1,75 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build outputs
+dist/
+build/
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Development files
+.git/
+.gitignore
+README.md
+*.md
+docs/
+
+# Testing
+coverage/
+.nyc_output/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Cache
+.cache/
+.parcel-cache/
+
+# Temporary files
+tmp/
+temp/
+
+# Scripts (if not needed for deployment)
+scripts/
+
+# Database files
+*.sql
+*.db
+
+# Test files
+**/__tests__/
+**/*.test.*
+**/*.spec.*
+
+# Development configuration
+.eslintrc*
+.prettierrc*
+jest.config.*
+
+# Capacitor (if not needed for web)
+capacitor.config.ts
+android/
+ios/
+
+# Supabase migrations (if not needed)
+supabase/migrations/
+supabase/functions/

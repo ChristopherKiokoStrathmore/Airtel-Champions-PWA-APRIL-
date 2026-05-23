@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Promoter Team Lead Dashboard</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+    background: #f2f2f7;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  h1.page-title {
+    width: 100%;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1c1c1e;
+    margin-bottom: 4px;
+  }
+  p.page-sub {
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    color: #8e8e93;
+    margin-bottom: 20px;
+  }
+
+  /* ── Phone frame ── */
+  .phone {
+    width: 375px;
+    min-height: 780px;
+    background: #f2f2f7;
+    border-radius: 50px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.22), 0 0 0 10px #1c1c1e, 0 0 0 11px #3a3a3c;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  /* ── Status bar ── */
+  .status-bar {
+    background: #E60000;
+    padding: 12px 24px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  /* ── Header ── */
+  .header {
+    background: #E60000;
+    padding: 0 20px 20px;
+    color: white;
+  }
+  .header-greeting {
+    font-size: 12px;
+    opacity: 0.85;
+    margin-bottom: 2px;
+    letter-spacing: 0.3px;
+  }
+  .header-name {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+  }
+
+  /* ── Stats strip ── */
+  .stats-strip {
+    display: flex;
+    gap: 10px;
+    margin-top: 4px;
+  }
+  .stat-pill {
+    flex: 1;
+    background: rgba(255,255,255,0.18);
+    border-radius: 14px;
+    padding: 10px 12px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+  }
+  .stat-pill .num {
+    font-size: 20px;
+    font-weight: 800;
+    display: block;
+    letter-spacing: -0.5px;
+  }
+  .stat-pill .lbl {
+    font-size: 9px;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    display: block;
+    margin-top: 1px;
+  }
+
+  /* ── Body ── */
+  .body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* ── Section label ── */
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #8e8e93;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0 4px;
+    margin-bottom: -6px;
+  }
+
+  /* ── Date badge ── */
+  .date-badge {
+    background: white;
+    border-radius: 14px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .date-badge .date-txt { font-size: 14px; font-weight: 600; color: #1c1c1e; }
+  .date-badge .date-sub { font-size: 11px; color: #8e8e93; }
+  .date-badge .edit-lnk { font-size: 11px; color: #E60000; font-weight: 600; }
+
+  /* ── Promoter card ── */
+  .promoter-list {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .promoter-row {
+    display: flex;
+    align-items: center;
+    padding: 13px 16px;
+    gap: 12px;
+    border-bottom: 1px solid #f2f2f7;
+    transition: background 0.15s;
+  }
+  .promoter-row:last-child { border-bottom: none; }
+
+  .avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #E60000, #ff4444);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .avatar.green { background: linear-gradient(135deg,#10b981,#34d399); }
+  .avatar.blue  { background: linear-gradient(135deg,#3b82f6,#60a5fa); }
+  .avatar.amber { background: linear-gradient(135deg,#f59e0b,#fbbf24); }
+  .avatar.purple { background: linear-gradient(135deg,#8b5cf6,#a78bfa); }
+
+  .promoter-info { flex: 1; min-width: 0; }
+  .promoter-msisdn { font-size: 13px; font-weight: 600; color: #1c1c1e; }
+  .promoter-joined { font-size: 10px; color: #8e8e93; margin-top: 1px; }
+
+  /* ── GA input ── */
+  .ga-wrap {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+  .ga-input {
+    width: 52px;
+    height: 38px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1c1c1e;
+    background: #f9fafb;
+    outline: none;
+  }
+  .ga-input.filled {
+    border-color: #E60000;
+    background: #fff5f5;
+    color: #E60000;
+  }
+  .ga-label { font-size: 10px; color: #8e8e93; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* ── Total bar ── */
+  .total-bar {
+    background: #1c1c1e;
+    border-radius: 18px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+  .total-bar .total-lbl { color: rgba(255,255,255,0.65); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+  .total-bar .total-num { color: white; font-size: 28px; font-weight: 800; letter-spacing: -1px; }
+  .total-bar .total-sub { color: rgba(255,255,255,0.45); font-size: 10px; margin-top: 1px; }
+
+  /* ── Submit button ── */
+  .submit-btn {
+    background: #E60000;
+    color: white;
+    border: none;
+    border-radius: 16px;
+    padding: 16px;
+    font-size: 15px;
+    font-weight: 700;
+    width: 100%;
+    letter-spacing: 0.3px;
+    box-shadow: 0 4px 20px rgba(230,0,0,0.35);
+    cursor: pointer;
+  }
+
+  /* ── Add promoter ── */
+  .add-btn {
+    background: white;
+    border: 2px dashed #e5e7eb;
+    border-radius: 14px;
+    padding: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #8e8e93;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: none;
+  }
+  .add-btn .plus { font-size: 18px; color: #E60000; }
+
+  /* ── Tab bar ── */
+  .tab-bar {
+    background: white;
+    border-top: 1px solid #e5e7eb;
+    padding: 8px 0 12px;
+    display: flex;
+    justify-content: space-around;
+  }
+  .tab { display: flex; flex-direction: column; align-items: center; gap: 3px; cursor: pointer; }
+  .tab .icon { font-size: 20px; }
+  .tab .tab-lbl { font-size: 9px; color: #8e8e93; font-weight: 500; }
+  .tab.active .tab-lbl { color: #E60000; }
+  .tab .dot { width: 4px; height: 4px; border-radius: 50%; background: #E60000; }
+
+  /* ── Confirmed badge ── */
+  .confirmed { background: #f0fdf4; border: 1.5px solid #86efac; border-radius: 12px; padding: 12px 16px; display: flex; gap: 10px; align-items: flex-start; }
+  .confirmed p { font-size: 12px; color: #166534; margin: 0; }
+</style>
+</head>
+<body>
+
+<h1 class="page-title">Team Lead Dashboard — Steve Jobs Edition</h1>
+<p class="page-sub">One job. Done beautifully. Clarity over decoration.</p>
+
+<!-- ═══════════════════════════════════════════ SCREEN 1: GA Entry ═══ -->
+<div class="phone">
+
+  <!-- Status bar -->
+  <div class="status-bar">
+    <span>9:41</span>
+    <span>📶 ●●●●●</span>
+  </div>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-greeting">Good morning, Team Lead 👋</div>
+    <div class="header-name">Jane Wanjiku</div>
+    <div class="stats-strip">
+      <div class="stat-pill">
+        <span class="num">6</span>
+        <span class="lbl">Promoters</span>
+      </div>
+      <div class="stat-pill">
+        <span class="num">47</span>
+        <span class="lbl">Total GAs Today</span>
+      </div>
+      <div class="stat-pill">
+        <span class="num">312</span>
+        <span class="lbl">GAs This Month</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Body -->
+  <div class="body">
+
+    <div class="section-label">Today's GA Report</div>
+
+    <!-- Date -->
+    <div class="date-badge">
+      <div>
+        <div class="date-txt">Sunday, 13 April 2026</div>
+        <div class="date-sub">Nairobi East · Eastlands Cluster</div>
+      </div>
+      <span class="edit-lnk">Change ›</span>
+    </div>
+
+    <!-- Promoter rows -->
+    <div class="promoter-list">
+
+      <div class="promoter-row">
+        <div class="avatar">JM</div>
+        <div class="promoter-info">
+          <div class="promoter-msisdn">0712 345 678</div>
+          <div class="promoter-joined">Added 3 weeks ago</div>
+        </div>
+        <div class="ga-wrap">
+          <input class="ga-input filled" value="9" readonly>
+          <span class="ga-label">GAs</span>
+        </div>
+      </div>
+
+      <div class="promoter-row">
+        <div class="avatar green">AK</div>
+        <div class="promoter-info">
+          <div class="promoter-msisdn">0723 456 789</div>
+          <div class="promoter-joined">Added 2 weeks ago</div>
+        </div>
+        <div class="ga-wrap">
+          <input class="ga-input filled" value="12" readonly>
+          <span class="ga-label">GAs</span>
+        </div>
+      </div>
+
+      <div class="promoter-row">
+        <div class="avatar blue">FO</div>
+        <div class="promoter-info">
+          <div class="promoter-msisdn">0734 567 890</div>
+          <div class="promoter-joined">Added 1 week ago</div>
+        </div>
+        <div class="ga-wrap">
+          <input class="ga-input filled" value="7" readonly>
+          <span class="ga-label">GAs</span>
+        </div>
+      </div>
+
+      <div class="promoter-row">
+        <div class="avatar amber">MW</div>
+        <div class="promoter-info">
+          <div class="promoter-msisdn">0745 678 901</div>
+          <div class="promoter-joined">Added 5 days ago</div>
+        </div>
+        <div class="ga-wrap">
+          <input class="ga-input filled" value="8" readonly>
+          <span class="ga-label">GAs</span>
+        </div>
+      </div>
+
+      <div class="promoter-row">
+        <div class="avatar purple">BN</div>
+        <div class="promoter-info">
+          <div class="promoter-msisdn">0756 789 012</div>
+          <div class="promoter-joined">Added 4 days ago</div>
+        </div>
+        <div class="ga-wrap">
+          <input class="ga-input filled" value="11" readonly>
+          <span class="ga-label">GAs</span>
+        </div>
+      </div>
+
+      <div class="promoter-row">
+        <div class="avatar">SM</div>
+        <div class="promoter-info">
+          <div class="promoter-msisdn">0767 890 123</div>
+          <div class="promoter-joined">Added yesterday</div>
+        </div>
+        <div class="ga-wrap">
+          <input class="ga-input" placeholder="—" readonly>
+          <span class="ga-label">GAs</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Add promoter -->
+    <button class="add-btn">
+      <span class="plus">＋</span>
+      <span>Add Promoter</span>
+    </button>
+
+    <!-- Total bar -->
+    <div class="total-bar">
+      <div>
+        <div class="total-lbl">Team Total</div>
+        <div class="total-num">47 GAs</div>
+        <div class="total-sub">Sunday, 13 April 2026</div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-size:11px;color:rgba(255,255,255,0.5)">5 of 6 filled</div>
+        <div style="font-size:18px;margin-top:4px">📊</div>
+      </div>
+    </div>
+
+    <!-- Submit -->
+    <button class="submit-btn">Submit Today's Report</button>
+
+  </div>
+
+  <!-- Tab bar -->
+  <div class="tab-bar">
+    <div class="tab active">
+      <span class="icon">📋</span>
+      <span class="tab-lbl">Today</span>
+      <div class="dot"></div>
+    </div>
+    <div class="tab">
+      <span class="icon">👥</span>
+      <span class="tab-lbl">Promoters</span>
+    </div>
+    <div class="tab">
+      <span class="icon">📈</span>
+      <span class="tab-lbl">History</span>
+    </div>
+    <div class="tab">
+      <span class="icon">⚙️</span>
+      <span class="tab-lbl">Settings</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════ SCREEN 2: Promoters Tab ═══ -->
+<div class="phone">
+
+  <div class="status-bar"><span>9:41</span><span>📶 ●●●●●</span></div>
+
+  <div class="header">
+    <div class="header-greeting">Manage your team</div>
+    <div class="header-name">My Promoters</div>
+    <div class="stats-strip">
+      <div class="stat-pill"><span class="num">6</span><span class="lbl">Active</span></div>
+      <div class="stat-pill"><span class="num">312</span><span class="lbl">GAs Month</span></div>
+      <div class="stat-pill"><span class="num">52</span><span class="lbl">GAs/Day avg</span></div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <div class="section-label">Active Promoters</div>
+
+    <div class="promoter-list">
+
+      <div class="promoter-row">
+        <div class="avatar">JM</div>
+        <div class="promoter-info">
+          <div class="promoter-msisdn">0712 345 678</div>
+          <div class="promoter-joined">Best performer · 9 GAs today</div>
+        </div>
+        <button style="background:#fff5f5;color:#E60000;border:none;border-radius:8px;padding:6px 10px;font-size:11px;font-weight:600;cursor:pointer">Drop</button>
+      </div>
+
+      <div class="promoter-row">
+        <div class="avatar green">AK</div>
+        <div class="promoter-info">
+          <div class="promoter-msisdn">0723 456 789</div>
+          <div class="promoter-joined">12 GAs today · Top of team</div>
+        </div>
+        <button style="background:#fff5f5;color:#E60000;border:none;border-radius:8px;padding:6px 10px;font-size:11px;font-weight:600;cursor:pointer">Drop</button>
+      </div>
+
+      <div class="promoter-row">
+        <div class="avatar blue">FO</div>
+        <div class="promoter-info">
+          <div class="promoter-msisdn">0734 567 890</div>
+          <div class="promoter-joined">7 GAs today</div>
+        </div>
+        <button style="background:#fff5f5;color:#E60000;border:none;border-radius:8px;padding:6px 10px;font-size:11px;font-weight:600;cursor:pointer">Drop</button>
+      </div>
+
+      <div class="promoter-row">
+        <div class="avatar amber">MW</div>
+        <div class="promoter-info">
+          <div class="promoter-msisdn">0745 678 901</div>
+          <div class="promoter-joined">8 GAs today</div>
+        </div>
+        <button style="background:#fff5f5;color:#E60000;border:none;border-radius:8px;padding:6px 10px;font-size:11px;font-weight:600;cursor:pointer">Drop</button>
+      </div>
+
+    </div>
+
+    <!-- Add new promoter card -->
+    <div class="section-label">Add New Promoter</div>
+
+    <div style="background:white;border-radius:18px;padding:16px;box-shadow:0 1px 4px rgba(0,0,0,0.06)">
+      <p style="font-size:11px;color:#8e8e93;margin-bottom:10px">Enter promoter MSISDN. System checks if they're already mapped to another Team Lead.</p>
+      <div style="display:flex;gap:8px">
+        <input class="mock-input" placeholder="07XX XXX XXX" style="flex:1;font-size:13px;border:1.5px solid #e5e7eb;border-radius:10px;padding:10px 12px;outline:none;background:#f9fafb">
+        <button style="background:#E60000;color:white;border:none;border-radius:10px;padding:10px 14px;font-weight:700;font-size:13px;cursor:pointer;flex-shrink:0">Add</button>
+      </div>
+      <div style="background:#fef3c7;border-radius:8px;padding:8px 10px;margin-top:8px;display:flex;gap:6px;align-items:flex-start">
+        <span style="font-size:12px">⚠️</span>
+        <p style="font-size:10px;color:#92400e;margin:0">If this MSISDN is already mapped to another Team Lead, you'll see an error and cannot add them.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="tab-bar">
+    <div class="tab"><span class="icon">📋</span><span class="tab-lbl">Today</span></div>
+    <div class="tab active"><span class="icon">👥</span><span class="tab-lbl">Promoters</span><div class="dot"></div></div>
+    <div class="tab"><span class="icon">📈</span><span class="tab-lbl">History</span></div>
+    <div class="tab"><span class="icon">⚙️</span><span class="tab-lbl">Settings</span></div>
+  </div>
+
+</div>
+
+</body>
+</html>

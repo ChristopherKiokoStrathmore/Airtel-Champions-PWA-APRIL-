@@ -1,0 +1,326 @@
+Running frontend commit 5084b8a5ef0aad015649692cc3cfc7638b196e89
+vendor-core-ade2edecaf4781c7.min.js.br:54 Statsig is not ready to log exposures, will retry in 1 seconds
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+A.logExposureCallback @ 856-e6e311b392928463.min.js.br:1096
+u @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this warning
+vendor-core-ade2edecaf4781c7.min.js.br:54 Loaded 31 scripts (5937419b), 0 from cache (0b)
+856-e6e311b392928463.min.js.br:191 [Intervention] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://static.figma.com/webfont/1/SourceCodePro-Medium.woff2
+1379-7435cf66a2de8919.min.js.br:8 The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127
+initialize @ 1379-7435cf66a2de8919.min.js.br:8
+g @ 1379-7435cf66a2de8919.min.js.br:8
+(anonymous) @ 856-e6e311b392928463.min.js.br:191Understand this warning
+vendor-core-ade2edecaf4781c7.min.js.br:54 Statsig is not ready to log exposures, will retry in 1 seconds
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+A.logExposureCallback @ 856-e6e311b392928463.min.js.br:1096
+u @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this warning
+vendor-core-ade2edecaf4781c7.min.js.br:54 Autosave Changes not available or already claimed by another tab undefined
+(index):1  Failed to load resource: net::ERR_FAILEDUnderstand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 [import] git: e1bb60c7a9d46aa6582b687e2b4db9ed4c3ef967, stamp: 84583C7BDAE7F45D
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Fullscreen] Booting... (emscripten version 4.0.21)
+vendor-core-ade2edecaf4781c7.min.js.br:54 [GPU] graphicsAPI:"WebGPU", vendor:"Google Inc. (Intel)" renderer:"ANGLE (Intel, Intel(R) UHD Graphics 620 (0x00003EA0) Direct3D11 vs_5_0 ps_5_0, D3D11)" deviceArchitecture:"gen-9" deviceDescription:"" webGPUDevice:"" webGPUVendor:"intel" bindings:"emdawnwebgpu"
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Fullscreen] Ready in 1461.7ms
+vendor-core-ade2edecaf4781c7.min.js.br:54 [FullscreenApp] calling setEditorTheme and setting preference dark
+vendor-core-ade2edecaf4781c7.min.js.br:54 [MultiplayerSession] connecting to wss://www.figma.com/api/multiplayer/YgMsCvIqt7DMpx0rIB8UXV?role=editor&tracking_session_id=jXAhyljDSHcoc9Zi&version=151&recentReload=0&file-load-streaming-compression&user-id=1575501824906211853&client_release=5084b8a5ef0aad015649692cc3cfc7638b196e89
+vendor-core-ade2edecaf4781c7.min.js.br:54 [FullscreenApp] calling setEditorTheme and setting preference dark
+vendor-core-ade2edecaf4781c7.min.js.br:54 [MultiplayerSession] Joining file version 106 (initial load)
+vendor-core-ade2edecaf4781c7.min.js.br:54 Migration succeeded: context: fullscreen_migrate_SceneGraphManager, version: 106, duration: 0ms.
+/api/make/YgMsCvIqt7DMpx0rIB8UXV/cached_preview_urls?source_code_hash=51a52f2e2e802c60d9e4d2956aa9907e5b505436:1  Failed to load resource: the server responded with a status of 404 ()Understand this error
+/api/make/fetch_ds_code_gen_status:1  Failed to load resource: the server responded with a status of 400 ()Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Fullscreen] loadtime=26.79s maxmem=337716348
+2vendor-core-ade2edecaf4781c7.min.js.br:54 [devtools] Initialized LS
+xspogpfohjmkykfjadhk.supabase.co/rest/v1/user_sessions:1  Failed to load resource: the server responded with a status of 401 ()Understand this error
+xspogpfohjmkykfjadhk.supabase.co/rest/v1/user_sessions:1  Failed to load resource: the server responded with a status of 401 ()Understand this error
+xspogpfohjmkykfjadhk.supabase.co/rest/v1/user_sessions:1  Failed to load resource: the server responded with a status of 401 ()Understand this error
+xspogpfohjmkykfjadhk.supabase.co/rest/v1/user_sessions?select=*:1  Failed to load resource: the server responded with a status of 400 ()Understand this error
+xspogpfohjmkykfjadhk.supabase.co/rest/v1/user_sessions?select=*:1  Failed to load resource: the server responded with a status of 400 ()Understand this error
+xspogpfohjmkykfjadhk.supabase.co/rest/v1/user_sessions?select=*:1  Failed to load resource: the server responded with a status of 400 ()Understand this error
+6[Violation] Permissions policy violation: Geolocation access has been blocked because of a permissions policy applied to the current document. See <URL> for more details.Understand this error
+/api/rev/YgMsCvIqt7DMpx0rIB8UXV/code_snapshot/adaf0a48a7d45ae8473bacc31d21a2dd403631fa32f1c1445a17e08e8c5d4998:1  Failed to load resource: the server responded with a status of 404 ()Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 Failed to fetch snapshot files: E: XHR for "/api/rev/YgMsCvIqt7DMpx0rIB8UXV/code_snapshot/adaf0a48a7d45ae8473bacc31d21a2dd403631fa32f1c1445a17e08e8c5d4998" failed with status 404
+    at C (856-e6e311b392928463.min.js.br:1135:13967)
+    at async Object.k [as get] (856-e6e311b392928463.min.js.br:1135:14350)
+    at async 5531-e1594893d9624e3e.min.js.br:3:24015
+    at async 5531-e1594893d9624e3e.min.js.br:34:208758
+    at async 5531-e1594893d9624e3e.min.js.br:3:24445
+    at async k (5531-e1594893d9624e3e.min.js.br:34:208266)
+    at async 5531-e1594893d9624e3e.min.js.br:34:117873
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:34Understand this warning
+vendor-core-ade2edecaf4781c7.min.js.br:54 Sentry event id: 87aae52785ae4a778d3e5a7d4b7110da
+vendor-core-ade2edecaf4781c7.min.js.br:54 Sentry event id: 8bb1b889037f4cb394b8d67a913720ce
+vendor-core-ade2edecaf4781c7.min.js.br:54 Sentry event id: 915a717236274d9c8e8f6b2dade9774f
+vendor-core-ade2edecaf4781c7.min.js.br:54 Sentry event id: 5fcdbf0346a4429eb4ab4839e23d9237
+vendor-core-ade2edecaf4781c7.min.js.br:54 Too many elapsed hits of react since last report
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+t @ figma_app-8c346c91cb60aa3c.min.js.br:41
+eB @ figma_app-8c346c91cb60aa3c.min.js.br:41
+g0 @ 856-e6e311b392928463.min.js.br:191
+u @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this warning
+/api/rev/YgMsCvIqt7DMpx0rIB8UXV/code_snapshot/bbbd8b21d9c06e2769b5a83d4a7d63b38e0c89aba802562101e810a631dd32e8:1  Failed to load resource: the server responded with a status of 404 ()Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 Failed to fetch snapshot files: E: XHR for "/api/rev/YgMsCvIqt7DMpx0rIB8UXV/code_snapshot/bbbd8b21d9c06e2769b5a83d4a7d63b38e0c89aba802562101e810a631dd32e8" failed with status 404
+    at C (856-e6e311b392928463.min.js.br:1135:13967)
+    at async Object.k [as get] (856-e6e311b392928463.min.js.br:1135:14350)
+    at async 5531-e1594893d9624e3e.min.js.br:3:24015
+    at async 5531-e1594893d9624e3e.min.js.br:34:208758
+    at async 5531-e1594893d9624e3e.min.js.br:3:24445
+    at async k (5531-e1594893d9624e3e.min.js.br:34:208266)
+    at async 5531-e1594893d9624e3e.min.js.br:34:117873
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:34Understand this warning
+vendor-core-ade2edecaf4781c7.min.js.br:54 Sentry event id: 2c0e3861106d4900b634ac18fd8c19a4
+vendor-core-ade2edecaf4781c7.min.js.br:54 Sentry event id: 0054b318741f4c85b7a32757e2f263d5
+/api/rev/YgMsCvIqt7DMpx0rIB8UXV/code_snapshot/6f9adbc29e2e972422bd97edb66ea0f318899e3f469784ef5a462f4b44436293:1  Failed to load resource: the server responded with a status of 404 ()Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 Failed to fetch snapshot files: E: XHR for "/api/rev/YgMsCvIqt7DMpx0rIB8UXV/code_snapshot/6f9adbc29e2e972422bd97edb66ea0f318899e3f469784ef5a462f4b44436293" failed with status 404
+    at C (856-e6e311b392928463.min.js.br:1135:13967)
+    at async Object.k [as get] (856-e6e311b392928463.min.js.br:1135:14350)
+    at async 5531-e1594893d9624e3e.min.js.br:3:24015
+    at async 5531-e1594893d9624e3e.min.js.br:34:208758
+    at async 5531-e1594893d9624e3e.min.js.br:3:24445
+    at async k (5531-e1594893d9624e3e.min.js.br:34:208266)
+    at async 5531-e1594893d9624e3e.min.js.br:34:117873
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+(anonymous) @ 5531-e1594893d9624e3e.min.js.br:34Understand this warning
+/api/rev/YgMsCvIqt7DMpx0rIB8UXV/code_snapshot/d1123908eb21efddc2fd9603973d45e794b9612bbe6ed5d8e45acdceaa912f35:1  Failed to load resource: the server responded with a status of 404 ()Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 Failed to fetch snapshot files: E: XHR for "/api/rev/YgMsCvIqt7DMpx0rIB8UXV/code_snapshot/d1123908eb21efddc2fd9603973d45e794b9612bbe6ed5d8e45acdceaa912f35" failed with status 404
+    at C (856-e6e311b392928463.min.js.br:1135:13967)
+    at async Object.k [as get] (856-e6e311b392928463.min.js.br:1135:14350)
+    at async 5531-e1594893d9624e3e.min.js.br:3:24015
+    at async 5531-e1594893d9624e3e.min.js.br:34:208758
+    at async 5531-e1594893d9624e3e.min.js.br:3:24445
+    at async k (5531-e1594893d9624e3e.min.js.br:34:208266)
+    at async 5531-e1594893d9624e3e.min.js.br:34:117873
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this warning
+ 🔵 Creating NEW Supabase client (singleton)
+ ✅ Using shared Supabase client from /utils/supabase/client
+ [Platform] Detected: Object
+ [Supabase Direct] Using shared client: Object
+ [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+ [SessionTracker] ✅ Initialized
+ [App] ✅ Offline manager initialized
+ ✅ User loaded from localStorage: JOHN KINYUA NJIRU sales_executive
+ [ActivityTracker] Initialized for JOHN KINYUA NJIRU (sales_executive)
+ [App] ✅ Database setup completed manually - skipping automatic check
+2 ✅ [App] UserData refreshed from localStorage: JOHN KINYUA NJIRU
+ [ActivityTracker] ✅ Logged: session_start 
+ [Programs Widget Home] 🔍 Loading folders...
+ [Programs Widget Home] 📦 localStorage data: null
+ [Programs Widget Home] ⚠️ No data in localStorage
+ [Programs Widget Home] ℹ️ No folders in any storage
+ [Top Performers] 🔥 Loading top performers for TODAY...
+ [Top Performers] 📅 Today starts at: 2026-03-10T21:00:00.000Z
+ [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+ [App] Tour check: isAuthenticated= true shouldShow= false
+ [AndroidBackButton] ✅ Listener setup complete
+ [Programs Widget Home] 📁 Organized Programs: Object
+ [Programs Widget Home] 📁 Organized Programs: Object
+ [HomeScreen] ✅ Loading announcements from localStorage for role: sales_executive
+ [HomeScreen] ✅ Raw announcements loaded: 0
+ [HomeScreen] ✅ Filtered announcements for role: 0
+ [HomeScreen] ✅ Total announcements: 0 | Unread: 0
+ [Programs Widget Home] 📁 Organized Programs: Object
+ [Top Performers] 👥 Found 729 Sales Executives
+ ✅ Updated user rank: 520 points: 30
+ [Programs Widget Home] 📁 Organized Programs: Object
+ [Top Performers] ✅ Loaded 997 SE submissions from today (filtered from 1000 total)
+ [Top Performers] 📊 ALL users sorted by points: Array(10)
+ [Top Performers] 🏆 Top 3 user IDs: Array(3)
+ [Top Performers] ✅ Final top performers: Array(3)
+ [Programs Widget Home] 📁 Organized Programs: Object
+ [App] 🎬 Rendering Programs tab with initialProgramId: undefined
+ [ProgramsList] 🚀 Component render with initialProgramId: undefined
+ [AndroidBackButton] 🧹 Cleaning up back button listener
+ [PageTracking] 📄 Viewing: Programs
+ [ProgramsList] 🎬 Component mounted with initialProgramId: undefined
+ [ProgramsList] ✅ User loaded: Object
+ [ProgramsList] 🔍 Checking auto-open: Object
+ [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+ [AndroidBackButton] ✅ Listener setup complete
+ [ProgramsList] 🚀 Component render with initialProgramId: undefined
+ [ProgramsList] ✅ Van Calendar enabled: true
+ [ProgramsList] 🚀 Component render with initialProgramId: undefined
+ [ProgramsAPI] Fetching programs for role: sales_executive
+ [ProgramsAPI] ✅ Merged checkin flags into SE programs
+ [ProgramsAPI] Found 7 programs for role sales_executive
+ [ProgramsAPI] Fetching all program form configs
+ [ProgramsAPI] ✅ All form configs: 2
+ [ProgramsList] 🔗 Linked checkout program: MINI ROAD SHOW -CHECK OUT  → 9f0d8fab-336b-40dc-b38e-746b81397fc2
+ [ProgramsList] ✅ Merged linked checkin configs into programs
+ [ProgramsList] 🚀 Component render with initialProgramId: undefined
+ [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+ [ProgramsList] 🔍 Checking auto-open: Object
+ [ProgramsList] 🔍 Checking initial program: Object
+ [ProgramsList] 🚀 Component render with initialProgramId: undefined
+ [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+ [ProgramsList] 🎯 Program clicked: Object
+ [ProgramsList] 🚀 Component render with initialProgramId: undefined
+ [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 0 fields
+ [Shops] 🔄 Fetching ALL shops from database (paginated)...
+ [Shops] 📦 Fetching batch 1 (rows 0-999)...
+ [ProgramSubmitModal] Loading fields for program: c6e6213c-0e9b-46f9-9183-5b7c64551247
+ [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: false
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 0 fields
+ [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: true
+ [GPS] Browser geolocation error: Geolocation has been disabled in this document by permissions policy.
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 0 fields
+ [ProgramSubmitModal] 📍 User zone from DB: NAIROBI WEST
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 0 fields
+ [ProgramSubmitModal] ✅ Loaded 4 fields
+ [ProgramSubmitModal] 🔍 Fields data: [
+  {
+    "id": "1a71d4be-dd4e-4873-b896-1c797df4bf2b",
+    "program_id": "c6e6213c-0e9b-46f9-9183-5b7c64551247",
+    "field_name": "number_plate_of_the_van_",
+    "field_label": "NUMBER PLATE OF THE VAN ",
+    "field_type": "dropdown",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "database_source": {
+        "table": "van_db",
+        "multi_select": true,
+        "display_field": "number_plate",
+        "metadata_fields": [
+          "zone"
+        ],
+        "repeatable_dropdown": false
+      },
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 0,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-11T16:21:30.508409+00:00"
+  },
+  {
+    "id": "60fd0ad6-9832-46d4-8250-24e46fd05fb4",
+    "program_id": "c6e6213c-0e9b-46f9-9183-5b7c64551247",
+    "field_name": "no_of_activations_done_",
+    "field_label": "ODOMETER READING ",
+    "field_type": "number",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": null,
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 1,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-11T16:21:30.508409+00:00"
+  },
+  {
+    "id": "16a11b6c-90b3-4bb4-8edf-f12299bb9c9c",
+    "program_id": "c6e6213c-0e9b-46f9-9183-5b7c64551247",
+    "field_name": "feedback_from_customers_on_airtel_products_",
+    "field_label": "ADDITIONAL PROMOTER NUMBERS ",
+    "field_type": "repeatable_number",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "entry_label": "Entry",
+      "min_entries": 1,
+      "digit_length": 9,
+      "check_database": true,
+      "prevent_duplicates": true,
+      "remove_leading_zero": true
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 2,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-11T16:21:30.508409+00:00"
+  },
+  {
+    "id": "6b63ad51-1816-4cab-956c-5d808cd75567",
+    "program_id": "c6e6213c-0e9b-46f9-9183-5b7c64551247",
+    "field_name": "feedback_on_quality_of_network_(1_is_worst_5_is_best)",
+    "field_label": "FEEDBACK ON QUALITY OF NETWORK (1 is worst 5 is best)",
+    "field_type": "rating",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": null,
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 3,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-11T16:21:30.508409+00:00"
+  }
+]
+ [ProgramSubmitModal] Loading already-submitted values for 1 fields
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+ [DatabaseDropdown] 🔍 Checking fields: Array(4)
+ [DatabaseDropdown] 🔄 Loading data for 1 database dropdown/multi-select field(s)
+ [DatabaseDropdown] 🔒 Zone filtering: DISABLED | User zone: NAIROBI WEST
+ [DatabaseDropdown] Loading from table: van_db
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+ [Shops] ✅ Batch 1: 1000 shops (Total so far: 1000)
+ [Shops] 📦 Fetching batch 2 (rows 1000-1999)...
+ [DatabaseDropdown] 📦 "van_db" is small (≤500 rows) → loading all rows
+ [DatabaseDropdown] 📦 Fetching batch 1 from van_db (rows 0-999)...
+ [ProgramSubmitModal] Field "ADDITIONAL PROMOTER NUMBERS " has 0 already-submitted values
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+ [DatabaseDropdown] ✅ Batch 1: 42 rows (Total so far: 42)
+ [DatabaseDropdown] ✅ Loaded all 42 rows from "van_db" (client-side search)
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+ [Shops] ✅ Batch 2: 1000 shops (Total so far: 2000)
+ [Shops] 📦 Fetching batch 3 (rows 2000-2999)...
+ [Shops] ✅ Batch 3: 674 shops (Total so far: 2674)
+ [Shops] ✅ Total loaded from database: 2674 shops
+ [Shops] ✅ Lookup map created with 2651 entries
+ [Shops] ✅ shopsLoaded flag set to true - component should re-render
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+ [ProgramSubmitModal] 🔄 Shops state updated: 2674 shops | shopsLoaded: true | loadingShops: false
+ [ProgramSubmitModal] ✅ Component should now show search dropdown instead of radio buttons
+ [Dropdown] 🔍 Search input focused - opening dropdown
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+ [Shop Dropdown] 🎯 Option clicked: KAW 747X
+ [FieldChange] Setting field 1a71d4be-dd4e-4873-b896-1c797df4bf2b to: KAW 747X (single)
+ [FieldChange] Auto-populating from: KAW 747X 
+ [AutoPopulate] ��� Database dropdown selection: Object
+ [AutoPopulate] ✅ Found selected row: Object
+ [AutoPopulate] 📦 Stored metadata for display: Object
+ [AutoPopulate] ℹ️ No matching fields found to auto-populate
+ [LinkedCheckout] 🔍 Checking van check-in for plate="KAW747X", linked_program=9f0d8fab-336b-40dc-b38e-746b81397fc2
+ [FieldChange] FormData after update: Object
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+ [LinkedCheckout] Van lookup response: {"success":true,"has_checkin":true,"van_checked_in":true,"number_plate":"KAW747X","checkin_user_id":"dc990973-c0bb-40aa-82e7-09650dc164de","sites":[],"promoters":[],"total_promoters":0,"message":"Van was checked in (found in submissions) but session data unavailable."}
+ [LinkedCheckout] No MSISDNs found in check-in data
+ [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 4 fields
+ [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+2 [OfflineManager] 🔄 Network type changed: 4g
+2 [OfflineManager] 🔄 Network type changed: 3g
+2 [OfflineManager] 🔄 Network type changed: 4g

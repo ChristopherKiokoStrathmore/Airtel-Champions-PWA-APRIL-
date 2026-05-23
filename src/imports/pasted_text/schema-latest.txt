@@ -1,0 +1,215 @@
+-- ============================================
+-- AIRTEL CHAMPIONS APP - COMPLETE DATABASE SCHEMA
+-- Updated: March 30, 2026
+-- ============================================
+-- WARNING: This schema is for context only and is not meant to be run directly.
+-- Table order and constraints may not be valid for execution.
+
+-- ============================================
+-- HBB/DSE TABLES
+-- ============================================
+
+CREATE TABLE public.DSE_14TOWNS (
+  ID bigint NOT NULL,
+  "Site ID" text,
+  "Site Name" text,
+  Town text,
+  "DSE Name" text,
+  "Estate Name" text,
+  WARD text,
+  "WARD ID" text,
+  Phone text,
+  pin text,
+  CONSTRAINT DSE_14TOWNS_pkey PRIMARY KEY (ID)
+);
+
+CREATE TABLE public.INHOUSE_INSTALLER_6TOWNS_MARCH (
+  ID bigint NOT NULL,
+  Supervisor text,
+  "Estate Name" text,
+  Partner text,
+  "Installer name" text,
+  "Installer contact" bigint,
+  KYC bigint,
+  "Alternative contact" text,
+  Zone text,
+  PIN numeric DEFAULT '1234'::numeric,
+  is_available boolean DEFAULT true,
+  current_job_id uuid,
+  last_seen timestamp with time zone,
+  last_known_lat double precision,
+  last_known_lng double precision,
+  CONSTRAINT INHOUSE_INSTALLER_6TOWNS_MARCH_pkey PRIMARY KEY (ID)
+);
+
+CREATE TABLE public.jobs (
+  id uuid NOT NULL DEFAULT gen_random_uuid(),
+  customer_phone text NOT NULL,
+  customer_name text,
+  town text,
+  estate_name text NOT NULL,
+  status text NOT NULL DEFAULT 'pending'::text CHECK (status = ANY (ARRAY['pending'::text, 'assigned'::text, 'on_way'::text, 'arrived'::text, 'completed'::text, 'cancelled'::text, 'scheduled'::text])),
+  installer_id bigint,
+  requested_at timestamp with time zone DEFAULT now(),
+  assigned_at timestamp with time zone,
+  on_way_at timestamp with time zone,
+  arrived_at timestamp with time zone,
+  completed_at timestamp with time zone,
+  before_photo_url text,
+  after_photo_url text,
+  created_at timestamp with time zone DEFAULT now(),
+  customer_lat double precision,
+  customer_lng double precision,
+  street_address text,
+  landmark text,
+  building text,
+  Estate text,
+  package text,
+  scheduled_date text,
+  zone text,
+  scheduled_time text,
+  service_request_id bigint,
+  -- NEW: Lead source tracking
+  source_type text DEFAULT 'public'::text CHECK (source_type = ANY (ARRAY['dse'::text, 'public'::text, 'agent'::text])),
+  source_id bigint, -- DSE ID or Agent ID
+  source_name text, -- DSE Name or Agent Name
+  CONSTRAINT jobs_pkey PRIMARY KEY (id),
+  CONSTRAINT jobs_installer_id_fkey FOREIGN KEY (installer_id) REFERENCES public.INHOUSE_INSTALLER_6TOWNS_MARCH(ID),
+  CONSTRAINT jobs_service_request_id_fkey FOREIGN KEY (service_request_id) REFERENCES public.service_request(id)
+);
+
+CREATE TABLE public.service_request (
+  id bigint GENERATED ALWAYS AS IDENTITY NOT NULL,
+  created_at timestamp with time zone NOT NULL DEFAULT now(),
+  sr_number text,
+  customer_name text,
+  customer_phone text,
+  town_id integer,
+  estate text,
+  package text,
+  preferred_date date,
+  preferred_time text,
+  status text NOT NULL DEFAULT 'open'::text CHECK (status = ANY (ARRAY['open'::text, 'assigned'::text, 'completed'::text, 'failed'::text, 'rescheduled'::text, 'unreachable'::text, 'not_ready'::text])),
+  assigned_installer_id bigint,
+  assigned_at timestamp with time zone,
+  agent_name text,
+  agent_phone text,
+  remarks text,
+  completed_at timestamp with time zone,
+  rejection_count integer NOT NULL DEFAULT 0,
+  rejected_by ARRAY NOT NULL DEFAULT '{}'::bigint[],
+  escalated_at timestamp with time zone,
+  allocation_attempted_at timestamp with time zone,
+  allocation_attempt_id uuid,
+  -- NEW: Lead source tracking
+  source_type text DEFAULT 'public'::text CHECK (source_type = ANY (ARRAY['dse'::text, 'public'::text, 'agent'::text])),
+  source_id bigint,
+  source_name text,
+  CONSTRAINT service_request_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE public.installer_locations (
+  id uuid DEFAULT gen_random_uuid(),
+  installer_id bigint NOT NULL,
+  job_id uuid NOT NULL,
+  lat double precision NOT NULL,
+  lng double precision NOT NULL,
+  accuracy double precision,
+  recorded_at timestamp with time zone NOT NULL DEFAULT now(),
+  CONSTRAINT installer_locations_installer_id_fkey1 FOREIGN KEY (installer_id) REFERENCES public.INHOUSE_INSTALLER_6TOWNS_MARCH(ID),
+  CONSTRAINT installer_locations_job_id_fkey FOREIGN KEY (job_id) REFERENCES public.jobs(id)
+);
+
+CREATE TABLE public.installers_availability (
+  installer_id bigint NOT NULL,
+  is_available boolean NOT NULL DEFAULT true,
+  current_job_id uuid,
+  daily_job_count integer NOT NULL DEFAULT 0,
+  updated_at timestamp with time zone DEFAULT now(),
+  CONSTRAINT installers_availability_pkey PRIMARY KEY (installer_id),
+  CONSTRAINT installers_availability_installer_id_fkey FOREIGN KEY (installer_id) REFERENCES public.INHOUSE_INSTALLER_6TOWNS_MARCH(ID),
+  CONSTRAINT installers_availability_current_job_id_fkey FOREIGN KEY (current_job_id) REFERENCES public.jobs(id)
+);
+
+CREATE TABLE public.job_issues (
+  id uuid NOT NULL DEFAULT gen_random_uuid(),
+  job_id uuid NOT NULL,
+  customer_phone text NOT NULL,
+  issue_type text NOT NULL,
+  description text NOT NULL,
+  status text DEFAULT 'open'::text CHECK (status = ANY (ARRAY['open'::text, 'in_progress'::text, 'resolved'::text, 'closed'::text])),
+  created_at timestamp with time zone DEFAULT now(),
+  updated_at timestamp with time zone DEFAULT now(),
+  resolved_at timestamp with time zone,
+  resolution_notes text,
+  CONSTRAINT job_issues_pkey PRIMARY KEY (id),
+  CONSTRAINT job_issues_job_id_fkey FOREIGN KEY (job_id) REFERENCES public.jobs(id)
+);
+
+CREATE TABLE public.job_reviews (
+  id uuid NOT NULL DEFAULT gen_random_uuid(),
+  job_id uuid NOT NULL,
+  installer_id bigint,
+  customer_phone text NOT NULL,
+  rating integer NOT NULL CHECK (rating >= 1 AND rating <= 5),
+  comment text,
+  created_at timestamp with time zone DEFAULT now(),
+  updated_at timestamp with time zone DEFAULT now(),
+  CONSTRAINT job_reviews_pkey PRIMARY KEY (id),
+  CONSTRAINT job_reviews_job_id_fkey FOREIGN KEY (job_id) REFERENCES public.jobs(id),
+  CONSTRAINT job_reviews_installer_id_fkey FOREIGN KEY (installer_id) REFERENCES public.INHOUSE_INSTALLER_6TOWNS_MARCH(ID)
+);
+
+CREATE TABLE public.estate_neighbours (
+  estate_name text NOT NULL,
+  neighbour_name text NOT NULL,
+  town text NOT NULL,
+  priority integer NOT NULL DEFAULT 1,
+  distance_km integer NOT NULL DEFAULT 1,
+  walking_mins integer,
+  active boolean NOT NULL DEFAULT true,
+  CONSTRAINT estate_neighbours_pkey PRIMARY KEY (estate_name, neighbour_name)
+);
+
+-- ============================================
+-- CORE APP TABLES
+-- ============================================
+
+CREATE TABLE public.app_users (
+  id uuid NOT NULL DEFAULT gen_random_uuid(),
+  employee_id character varying,
+  full_name text NOT NULL,
+  email text,
+  phone_number character varying,
+  role character varying,
+  region text,
+  zone text,
+  zsm text,
+  zbm text,
+  rank integer DEFAULT 1,
+  total_points integer DEFAULT 0,
+  pin_hash text DEFAULT encode('\x31323334'::bytea, 'base64'::text),
+  is_active boolean DEFAULT true,
+  created_at timestamp without time zone DEFAULT now(),
+  updated_at timestamp without time zone DEFAULT now(),
+  last_login_at timestamp without time zone,
+  login_count integer DEFAULT 0,
+  is_locked boolean DEFAULT false,
+  failed_attempts integer DEFAULT 0,
+  job_title text,
+  profile_picture text,
+  bio text,
+  avatar_url text,
+  banner_url text,
+  two_factor_enabled boolean DEFAULT false,
+  gps_tracking_consent boolean DEFAULT false,
+  profile_photo text,
+  pin text DEFAULT '1234'::text,
+  password_hash text,
+  password_updated_at timestamp with time zone,
+  source_table text DEFAULT 'app_users'::text,
+  CONSTRAINT app_users_pkey PRIMARY KEY (id)
+);
+
+-- ... (rest of the schema would continue here)
+-- Note: This is the HBB/DSE focused subset of the full schema

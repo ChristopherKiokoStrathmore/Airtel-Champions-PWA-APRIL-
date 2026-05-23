@@ -1,0 +1,90 @@
+<h2>Login Page — Button Placement</h2>
+<p class="subtitle">Where should the "Promoter Team Lead" entry point live? Current login page structure shown below.</p>
+
+<div class="split">
+  <div class="mockup">
+    <div class="mockup-header">Option A — Below "Need help signing in?"</div>
+    <div class="mockup-body">
+      <div style="background:#fff;border-radius:16px;padding:20px;font-family:system-ui;max-width:320px;margin:auto;box-shadow:0 4px 20px rgba(0,0,0,0.08)">
+
+        <!-- Cube placeholder -->
+        <div style="width:100%;height:120px;background:linear-gradient(135deg,#E60000,#ff4444);border-radius:16px;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:14px;margin-bottom:8px">
+          3D CUBE (Sales / HBB)
+        </div>
+        <p style="text-align:center;font-size:12px;color:#E60000;font-weight:700;margin:4px 0">Airtel Champions Sales</p>
+        <p style="text-align:center;font-size:10px;color:#9ca3af;margin-bottom:12px">Tap cube to switch mode</p>
+
+        <!-- Form -->
+        <input class="mock-input" placeholder="📱 Phone number" style="margin-bottom:8px;display:block;width:100%;box-sizing:border-box">
+        <input class="mock-input" placeholder="🔒 PIN" style="margin-bottom:8px;display:block;width:100%;box-sizing:border-box">
+        <button class="mock-button" style="width:100%;background:#E60000;color:white;border:none;border-radius:12px;padding:12px;font-weight:700;font-size:14px;margin-bottom:8px">SIGN IN</button>
+
+        <!-- Need help -->
+        <p style="text-align:center;font-size:11px;color:#9ca3af;margin:8px 0">Need help signing in?</p>
+
+        <!-- Divider -->
+        <div style="display:flex;align-items:center;gap:8px;margin:10px 0">
+          <div style="flex:1;height:1px;background:#e5e7eb"></div>
+          <span style="font-size:9px;color:#9ca3af;text-transform:uppercase;letter-spacing:1px">Sales Team</span>
+          <div style="flex:1;height:1px;background:#e5e7eb"></div>
+        </div>
+
+        <!-- NEW BUTTON -->
+        <button style="width:100%;background:transparent;border:2px solid #E60000;color:#E60000;border-radius:12px;padding:10px;font-weight:700;font-size:12px;cursor:pointer;letter-spacing:0.5px">
+          PROMOTER TEAM LEAD
+        </button>
+        <p style="text-align:center;font-size:9px;color:#9ca3af;margin-top:6px">Sign up or log in as a Promoter Team Lead</p>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="mockup">
+    <div class="mockup-header">Option B — Floating badge / pill (bottom of screen)</div>
+    <div class="mockup-body">
+      <div style="background:#fff;border-radius:16px;padding:20px;font-family:system-ui;max-width:320px;margin:auto;box-shadow:0 4px 20px rgba(0,0,0,0.08);position:relative;min-height:380px">
+
+        <!-- Cube placeholder -->
+        <div style="width:100%;height:120px;background:linear-gradient(135deg,#E60000,#ff4444);border-radius:16px;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:14px;margin-bottom:8px">
+          3D CUBE (Sales / HBB)
+        </div>
+        <p style="text-align:center;font-size:12px;color:#E60000;font-weight:700;margin:4px 0">Airtel Champions Sales</p>
+        <p style="text-align:center;font-size:10px;color:#9ca3af;margin-bottom:12px">Tap cube to switch mode</p>
+
+        <!-- Form -->
+        <input class="mock-input" placeholder="📱 Phone number" style="margin-bottom:8px;display:block;width:100%;box-sizing:border-box">
+        <input class="mock-input" placeholder="🔒 PIN" style="margin-bottom:8px;display:block;width:100%;box-sizing:border-box">
+        <button class="mock-button" style="width:100%;background:#E60000;color:white;border:none;border-radius:12px;padding:12px;font-weight:700;font-size:14px;margin-bottom:8px">SIGN IN</button>
+
+        <!-- Need help -->
+        <p style="text-align:center;font-size:11px;color:#9ca3af;margin:8px 0">Need help signing in?</p>
+
+        <!-- Floating pill at bottom -->
+        <div style="position:absolute;bottom:16px;left:50%;transform:translateX(-50%);white-space:nowrap">
+          <button style="background:#1f2937;color:white;border:none;border-radius:50px;padding:8px 20px;font-size:11px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:6px;box-shadow:0 4px 14px rgba(0,0,0,0.2)">
+            <span style="width:6px;height:6px;background:#E60000;border-radius:50%;display:inline-block"></span>
+            Promoter Team Lead
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="options" style="margin-top:24px">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Below "Need help signing in?"</h3>
+      <p>Visible, clearly separated, no clutter. Clean divider labels it as "Sales Team" section.</p>
+    </div>
+  </div>
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Floating pill (bottom)</h3>
+      <p>Subtle, doesn't distract main login flow. Ideal if it's rarely used.</p>
+    </div>
+  </div>
+</div>

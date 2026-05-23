@@ -1,0 +1,615 @@
+Running frontend commit 71a654e3f7c84371a154bcee0380e86a4f6c3018
+vendor-core-ade2edecaf4781c7.min.js.br:54 Statsig is not ready to log exposures, will retry in 1 seconds
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:1096
+u @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this warning
+vendor-core-ade2edecaf4781c7.min.js.br:54 Loaded 31 scripts (5955910b), 31 from cache (5955910b)
+3186-5d955a18ed0f9b29.min.js.br:191 [Intervention] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://static.figma.com/webfont/1/SourceCodePro-Medium.woff2
+1379-77d1fb5d78b88eed.min.js.br:8 The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127
+initialize @ 1379-77d1fb5d78b88eed.min.js.br:8
+g @ 1379-77d1fb5d78b88eed.min.js.br:8
+(anonymous) @ 3186-5d955a18ed0f9b29.min.js.br:191Understand this warning
+vendor-core-ade2edecaf4781c7.min.js.br:54 [import] git: 40c21b0179015a5a6acee7f25b9df313c1ddb030, stamp: 8599BBF62A492803
+(index):1  Failed to load resource: net::ERR_FAILEDUnderstand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Fullscreen] Booting... (emscripten version 4.0.21)
+vendor-core-ade2edecaf4781c7.min.js.br:54 [GPU] graphicsAPI:"WebGPU", vendor:"Google Inc. (Intel)" renderer:"ANGLE (Intel, Intel(R) UHD Graphics 620 (0x00003EA0) Direct3D11 vs_5_0 ps_5_0, D3D11)" deviceArchitecture:"gen-9" deviceDescription:"" webGPUDevice:"" webGPUVendor:"intel" bindings:"emdawnwebgpu"
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Fullscreen] Ready in 5785.2ms
+vendor-core-ade2edecaf4781c7.min.js.br:54 [FullscreenApp] calling setEditorTheme and setting preference dark
+vendor-core-ade2edecaf4781c7.min.js.br:54 [MultiplayerSession] connecting to wss://www.figma.com/api/multiplayer/YgMsCvIqt7DMpx0rIB8UXV?role=editor&tracking_session_id=kYGUnr5WvLTHYLRc&version=151&recentReload=0&file-load-streaming-compression&user-id=1575501824906211853&client_release=71a654e3f7c84371a154bcee0380e86a4f6c3018
+vendor-core-ade2edecaf4781c7.min.js.br:54 [FullscreenApp] calling setEditorTheme and setting preference dark
+vendor-core-ade2edecaf4781c7.min.js.br:54 [MultiplayerSession] Joining file version 106 (initial load)
+vendor-core-ade2edecaf4781c7.min.js.br:54 Migration succeeded: context: fullscreen_migrate_SceneGraphManager, version: 106, duration: 0ms.
+vendor-core-ade2edecaf4781c7.min.js.br:54 [devtools] Initialized LS
+vendor-core-ade2edecaf4781c7.min.js.br:54 Autosave Found claimed autosave changes from 1 sessions undefined
+vendor-core-ade2edecaf4781c7.min.js.br:54 Autosave Restoring auto-saved data undefined
+vendor-core-ade2edecaf4781c7.min.js.br:54 Autosave Successfully applied auto-saved changes undefined
+vendor-core-ade2edecaf4781c7.min.js.br:54 Autosave Successfully synced auto-saved changes undefined
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Fullscreen] loadtime=27.12s maxmem=555239464
+/api/make/fetch_ds_code_gen_status:1  Failed to load resource: the server responded with a status of 400 ()Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 [devtools] Initialized LS
+vendor-core-ade2edecaf4781c7.min.js.br:54 Sentry event id: 2b608765e1f24b59b3e76becbc496a40
+/api/cortex/foundry/sync:1  Failed to load resource: the server responded with a status of 413 ()Understand this error
+/api/cortex/foundry/sync:1  Failed to load resource: the server responded with a status of 413 ()Understand this error
+/api/cortex/foundry/sync:1  Failed to load resource: the server responded with a status of 413 ()Understand this error
+3vendor-core-ade2edecaf4781c7.min.js.br:54 [devtools] Initialized LS
+devtools_worker-cb4b391887eb8867.min.js.br:1190 [esbuild-wasm] Initializing from URL: /webpack-artifacts/assets/2b68f2d3d5e8b3d6.wasm
+devtools_worker-cb4b391887eb8867.min.js.br:1190 [esbuild-wasm] Initialized
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [bundleCode] Found 1 CSS files in VFS
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [bundleCode] Total CSS size to be processed by lightningcss: 0.00MB
+devtools_worker-cb4b391887eb8867.min.js.br:1190 [lightningcss-wasm] Initialized
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Processing 0.16MB of CSS (environment: browser)
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Encoded size: 0.16MB
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Transform completed successfully
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [bundleCode] Found 1 CSS files in VFS
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [bundleCode] Total CSS size to be processed by lightningcss: 0.00MB
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Processing 0.16MB of CSS (environment: browser)
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Encoded size: 0.16MB
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Transform completed successfully
+vendor-core-ade2edecaf4781c7.min.js.br:54 Too many elapsed hits of react since last report
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+t @ figma_app-fb99c62a6754ab3a.min.js.br:41
+eB @ figma_app-fb99c62a6754ab3a.min.js.br:41
+g0 @ 3186-5d955a18ed0f9b29.min.js.br:191
+u @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this warning
+/api/rev/YgMsCvIqt7DMpx0rIB8UXV/code_snapshot/86191b34692741f4707ced4cbb3a67fa243fbd43348db82992e16a68d8b1f338:1  Failed to load resource: the server responded with a status of 404 ()Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 Failed to fetch snapshot files: E: XHR for "/api/rev/YgMsCvIqt7DMpx0rIB8UXV/code_snapshot/86191b34692741f4707ced4cbb3a67fa243fbd43348db82992e16a68d8b1f338" failed with status 404
+    at C (3186-5d955a18ed0f9b29.min.js.br:1135:13967)
+    at async Object.k [as get] (3186-5d955a18ed0f9b29.min.js.br:1135:14350)
+    at async 5531-b8e5f076817d173e.min.js.br:3:24675
+    at async 5531-b8e5f076817d173e.min.js.br:34:205801
+    at async 5531-b8e5f076817d173e.min.js.br:3:25105
+    at async k (5531-b8e5f076817d173e.min.js.br:34:205309)
+    at async 5531-b8e5f076817d173e.min.js.br:34:114835
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+(anonymous) @ 5531-b8e5f076817d173e.min.js.br:34Understand this warning
+vendor-core-ade2edecaf4781c7.min.js.br:54 Sentry event id: d339ea523fd144448ab07443463fe11f
+vendor-core-ade2edecaf4781c7.min.js.br:54 Sentry event id: cde2e0c256864a72868e8dae905fd07d
+vendor-core-ade2edecaf4781c7.min.js.br:54 Sentry event id: f7088c9525b54b6bb81273423337cf9d
+/api/rev/YgMsCvIqt7DMpx0rIB8UXV/code_snapshot/fca75fc86450735eca9aac2009fe72eac6ee4a0cec5e70a53a3c3a6c14e061ce:1  Failed to load resource: the server responded with a status of 404 ()Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 Failed to fetch snapshot files: E: XHR for "/api/rev/YgMsCvIqt7DMpx0rIB8UXV/code_snapshot/fca75fc86450735eca9aac2009fe72eac6ee4a0cec5e70a53a3c3a6c14e061ce" failed with status 404
+    at C (3186-5d955a18ed0f9b29.min.js.br:1135:13967)
+    at async Object.k [as get] (3186-5d955a18ed0f9b29.min.js.br:1135:14350)
+    at async 5531-b8e5f076817d173e.min.js.br:3:24675
+    at async 5531-b8e5f076817d173e.min.js.br:34:205801
+    at async 5531-b8e5f076817d173e.min.js.br:3:25105
+    at async k (5531-b8e5f076817d173e.min.js.br:34:205309)
+    at async 5531-b8e5f076817d173e.min.js.br:34:114835
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+(anonymous) @ 5531-b8e5f076817d173e.min.js.br:34Understand this warning
+vendor-core-ade2edecaf4781c7.min.js.br:54 Sentry event id: e67579b05dda4936ad4500e87db16495
+vendor-core-ade2edecaf4781c7.min.js.br:54 Sentry event id: 57ff483a6091452796a7c808b82bebf9
+vendor-core-ade2edecaf4781c7.min.js.br:54 Sentry event id: 73953abb336b4d9dbf512bb314b6db50
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [bundleCode] Found 1 CSS files in VFS
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [bundleCode] Total CSS size to be processed by lightningcss: 0.00MB
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Processing 0.16MB of CSS (environment: browser)
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Encoded size: 0.16MB
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Transform completed successfully
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [bundleCode] Found 1 CSS files in VFS
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [bundleCode] Total CSS size to be processed by lightningcss: 0.00MB
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Processing 0.16MB of CSS (environment: browser)
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Encoded size: 0.16MB
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Transform completed successfully
+logs:1  Failed to load resource: the server responded with a status of 504 ()Understand this error
+/api/rev/YgMsCvIqt7DMpx0rIB8UXV/code_snapshot/2781a240ba0661d78c7a131fe1fa5089874c7d60f4295c5cb3601399320ddfb2:1  Failed to load resource: the server responded with a status of 404 ()Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 Failed to fetch snapshot files: E: XHR for "/api/rev/YgMsCvIqt7DMpx0rIB8UXV/code_snapshot/2781a240ba0661d78c7a131fe1fa5089874c7d60f4295c5cb3601399320ddfb2" failed with status 404
+    at C (3186-5d955a18ed0f9b29.min.js.br:1135:13967)
+    at async Object.k [as get] (3186-5d955a18ed0f9b29.min.js.br:1135:14350)
+    at async 5531-b8e5f076817d173e.min.js.br:3:24675
+    at async 5531-b8e5f076817d173e.min.js.br:34:205801
+    at async 5531-b8e5f076817d173e.min.js.br:3:25105
+    at async k (5531-b8e5f076817d173e.min.js.br:34:205309)
+    at async 5531-b8e5f076817d173e.min.js.br:34:114835
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+(anonymous) @ 5531-b8e5f076817d173e.min.js.br:34Understand this warning
+2devtools_worker-cb4b391887eb8867.min.js.br:1973 [esbuild] Build error: Error: Build failed with 1 error:
+virtual-fs:file:///components/signup-screen.tsx:530:10: ERROR: Unexpected closing "motion.div" tag does not match opening "div" tag
+    at Z (devtools_worker-cb4b391887eb8867.min.js.br:8:5768)
+    at devtools_worker-cb4b391887eb8867.min.js.br:676:23008
+    at y (devtools_worker-cb4b391887eb8867.min.js.br:676:17720)
+    at G (devtools_worker-cb4b391887eb8867.min.js.br:676:22961)
+    at devtools_worker-cb4b391887eb8867.min.js.br:676:23116
+    at new Promise (<anonymous>)
+    at c.on-end (devtools_worker-cb4b391887eb8867.min.js.br:676:23100)
+    at devtools_worker-cb4b391887eb8867.min.js.br:676:10232
+    at Generator.next (<anonymous>)
+    at devtools_worker-cb4b391887eb8867.min.js.br:3:376
+(anonymous) @ devtools_worker-cb4b391887eb8867.min.js.br:1973Understand this error
+2devtools_worker-cb4b391887eb8867.min.js.br:3209 Error: Build failed with 1 error:
+virtual-fs:file:///components/signup-screen.tsx:530:10: ERROR: Unexpected closing "motion.div" tag does not match opening "div" tag
+    at Z (devtools_worker-cb4b391887eb8867.min.js.br:8:5768)
+    at devtools_worker-cb4b391887eb8867.min.js.br:676:23008
+    at y (devtools_worker-cb4b391887eb8867.min.js.br:676:17720)
+    at G (devtools_worker-cb4b391887eb8867.min.js.br:676:22961)
+    at devtools_worker-cb4b391887eb8867.min.js.br:676:23116
+    at new Promise (<anonymous>)
+    at c.on-end (devtools_worker-cb4b391887eb8867.min.js.br:676:23100)
+    at devtools_worker-cb4b391887eb8867.min.js.br:676:10232
+    at Generator.next (<anonymous>)
+    at devtools_worker-cb4b391887eb8867.min.js.br:3:376
+m5 @ devtools_worker-cb4b391887eb8867.min.js.br:3209Understand this error
+/make/YgMsCvIqt7DMpx0rIB8UXV/Airtel-Champions-App-Web?p=f&t=N6iJ0gkJGWxzlNwG-0:1 [Intervention] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://static.figma.com/webfont/1/Figma-Mono-Bold.woff2
+/make/YgMsCvIqt7DMpx0rIB8UXV/Airtel-Champions-App-Web?p=f&t=N6iJ0gkJGWxzlNwG-0:1 [Intervention] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://static.figma.com/webfont/1/Figma-Mono-Regular.woff2
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Livegraph] Connection closed. Code: 4001, reason: connection_lifetime
+/api/rev/YgMsCvIqt7DMpx0rIB8UXV/code_snapshot/8d46336eb7b4039074cb2e3783cc41931ddeb3b4590d9487bb9abd8410609138:1  Failed to load resource: the server responded with a status of 404 ()Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 Failed to fetch snapshot files: E: XHR for "/api/rev/YgMsCvIqt7DMpx0rIB8UXV/code_snapshot/8d46336eb7b4039074cb2e3783cc41931ddeb3b4590d9487bb9abd8410609138" failed with status 404
+    at C (3186-5d955a18ed0f9b29.min.js.br:1135:13967)
+    at async Object.k [as get] (3186-5d955a18ed0f9b29.min.js.br:1135:14350)
+    at async 5531-b8e5f076817d173e.min.js.br:3:24675
+    at async 5531-b8e5f076817d173e.min.js.br:34:205801
+    at async 5531-b8e5f076817d173e.min.js.br:3:25105
+    at async k (5531-b8e5f076817d173e.min.js.br:34:205309)
+    at async 5531-b8e5f076817d173e.min.js.br:34:114835
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+(anonymous) @ 5531-b8e5f076817d173e.min.js.br:34Understand this warning
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [bundleCode] Found 1 CSS files in VFS
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [bundleCode] Total CSS size to be processed by lightningcss: 0.00MB
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Processing 0.16MB of CSS (environment: browser)
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Encoded size: 0.16MB
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Transform completed successfully
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [bundleCode] Found 1 CSS files in VFS
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [bundleCode] Total CSS size to be processed by lightningcss: 0.00MB
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Processing 0.16MB of CSS (environment: browser)
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Encoded size: 0.16MB
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Transform completed successfully
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Platform] Detected: Object
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Supabase Direct] Using shared client: Object
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [bundleCode] Found 1 CSS files in VFS
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [bundleCode] Total CSS size to be processed by lightningcss: 0.00MB
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Processing 0.16MB of CSS (environment: browser)
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Encoded size: 0.16MB
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Transform completed successfully
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [bundleCode] Found 1 CSS files in VFS
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [bundleCode] Total CSS size to be processed by lightningcss: 0.00MB
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Processing 0.16MB of CSS (environment: browser)
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Encoded size: 0.16MB
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Transform completed successfully
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 ♻️ Reusing existing Supabase client (singleton)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Platform] Detected: Object
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Supabase Direct] Using shared client: Object
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+2code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+2code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 ♻️ Reusing existing Supabase client (singleton)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Platform] Detected: Object
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Supabase Direct] Using shared client: Object
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+/api/rev/YgMsCvIqt7DMpx0rIB8UXV/code_snapshot/fb7bcd0abe8c2026acd6389a4bae1e6b0a5807b87663ccacb39bdeaedd52bf2d:1  Failed to load resource: the server responded with a status of 404 ()Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 Failed to fetch snapshot files: E: XHR for "/api/rev/YgMsCvIqt7DMpx0rIB8UXV/code_snapshot/fb7bcd0abe8c2026acd6389a4bae1e6b0a5807b87663ccacb39bdeaedd52bf2d" failed with status 404
+    at C (3186-5d955a18ed0f9b29.min.js.br:1135:13967)
+    at async Object.k [as get] (3186-5d955a18ed0f9b29.min.js.br:1135:14350)
+    at async 5531-b8e5f076817d173e.min.js.br:3:24675
+    at async 5531-b8e5f076817d173e.min.js.br:34:205801
+    at async 5531-b8e5f076817d173e.min.js.br:3:25105
+    at async k (5531-b8e5f076817d173e.min.js.br:34:205309)
+    at async 5531-b8e5f076817d173e.min.js.br:34:114835
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+(anonymous) @ 5531-b8e5f076817d173e.min.js.br:34Understand this warning
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [bundleCode] Found 1 CSS files in VFS
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [bundleCode] Total CSS size to be processed by lightningcss: 0.00MB
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Processing 0.16MB of CSS (environment: browser)
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Encoded size: 0.16MB
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Transform completed successfully
+2code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+2code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+2code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+2code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [bundleCode] Found 1 CSS files in VFS
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [bundleCode] Total CSS size to be processed by lightningcss: 0.00MB
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Processing 0.16MB of CSS (environment: browser)
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Encoded size: 0.16MB
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Transform completed successfully
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 ♻️ Reusing existing Supabase client (singleton)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Platform] Detected: Object
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Supabase Direct] Using shared client: Object
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [App] Tour check: isAuthenticated= true shouldShow= true
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 ♻️ Reusing existing Supabase client (singleton)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Platform] Detected: Object
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Supabase Direct] Using shared client: Object
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 ✅ User loaded from localStorage: Tamanda hbb_agent
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ActivityTracker] Initialized for Tamanda (hbb_agent)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [App] Tour check: isAuthenticated= true shouldShow= true
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ActivityTracker] ✅ Logged: session_start 
+/api/rev/YgMsCvIqt7DMpx0rIB8UXV/code_snapshot/1ad54ae64abda7e1242e7bf3c28b1ef92e986f2b9a1535ba1dca4bafd4a0b216:1  Failed to load resource: the server responded with a status of 404 ()Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 Failed to fetch snapshot files: E: XHR for "/api/rev/YgMsCvIqt7DMpx0rIB8UXV/code_snapshot/1ad54ae64abda7e1242e7bf3c28b1ef92e986f2b9a1535ba1dca4bafd4a0b216" failed with status 404
+    at C (3186-5d955a18ed0f9b29.min.js.br:1135:13967)
+    at async Object.k [as get] (3186-5d955a18ed0f9b29.min.js.br:1135:14350)
+    at async 5531-b8e5f076817d173e.min.js.br:3:24675
+    at async 5531-b8e5f076817d173e.min.js.br:34:205801
+    at async 5531-b8e5f076817d173e.min.js.br:3:25105
+    at async k (5531-b8e5f076817d173e.min.js.br:34:205309)
+    at async 5531-b8e5f076817d173e.min.js.br:34:114835
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+(anonymous) @ 5531-b8e5f076817d173e.min.js.br:34Understand this warning
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ActivityTracker] ✅ Logged: heartbeat Object
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [bundleCode] Found 1 CSS files in VFS
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [bundleCode] Total CSS size to be processed by lightningcss: 0.00MB
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Processing 0.16MB of CSS (environment: browser)
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Encoded size: 0.16MB
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Transform completed successfully
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [bundleCode] Found 1 CSS files in VFS
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [bundleCode] Total CSS size to be processed by lightningcss: 0.00MB
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Processing 0.16MB of CSS (environment: browser)
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Encoded size: 0.16MB
+devtools_worker-cb4b391887eb8867.min.js.br:3176 [lightningCSS] Transform completed successfully
+2code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 ✅ [App] UserData refreshed from localStorage: Tamanda
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 ♻️ Reusing existing Supabase client (singleton)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Platform] Detected: Object
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Supabase Direct] Using shared client: Object
+10code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [OfflineManager] 🔄 Network type changed: 3g
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 ✅ User loaded from localStorage: Tamanda hbb_agent
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ActivityTracker] Initialized for Tamanda (hbb_agent)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ActivityTracker] ✅ Logged: session_start 
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [App] Tour check: isAuthenticated= true shouldShow= true
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ActivityTracker] ✅ Logged: logout 
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [App] Tour check: isAuthenticated= true shouldShow= true
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ActivityTracker] ✅ Logged: logout 
+2code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ActivityTracker] ✅ Logged: session_resume {reason: 'visibility_visible'}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ActivityTracker] ✅ Logged: session_resume {reason: 'visibility_visible'}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 📱 Normalized phone: 733584848
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 🔍 Searching for phone in formats: (4) ['733584848', '0733584848', '+254733584848', '254733584848']
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 ✅ Direct login successful: SALMA RAJAB
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 📝 User name: SALMA RAJAB
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Top Performers] 🔥 Loading top performers for TODAY...
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Top Performers] 📅 Today starts at: 2026-03-11T21:00:00.000Z
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [App] Tour check: isAuthenticated= true shouldShow= true
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [HomeScreen] ✅ Loading announcements from localStorage for role: sales_executive
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Top Performers] 👥 Found 731 Sales Executives
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 ✅ Updated user rank: 442 points: 80
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Top Performers] ✅ Loaded 991 SE submissions from today (filtered from 1000 total)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Top Performers] 📊 ALL users sorted by points: (10) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Top Performers] 🏆 Top 3 user IDs: (3) [{…}, {…}, {…}]
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Top Performers] ✅ Final top performers: (3) [{…}, {…}, {…}]
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [HomeScreen] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [HomeScreen] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [HomeScreen] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: {totalFolders: 0, totalStandalone: 3, folders: Array(0), standalonePrograms: Array(3)}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [App] 🎬 Rendering Programs tab with initialProgramId: undefined
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [AndroidBackButton] 🧹 Cleaning up back button listener
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [PageTracking] 📄 Viewing: Programs
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramsList] 🎬 Component mounted with initialProgramId: undefined
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramsList] ✅ User loaded: {id: '8aa38c0c-0723-49c2-ad45-3bbc6e421879', role: 'sales_executive', name: 'SALMA RAJAB', canSubmit: true}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramsList] 🔍 Checking auto-open: {initialProgramId: undefined, programsLoaded: 0, currentSelection: undefined}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramsList] ✅ Van Calendar enabled: true
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramsAPI] Fetching programs for role: sales_executive
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramsAPI] ✅ Merged checkin flags into SE programs
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramsAPI] Found 7 programs for role sales_executive
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramsAPI] Fetching all program form configs
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramsAPI] ✅ All form configs: 3
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramsList] 🔗 Linked checkout program: MINI ROAD SHOW -CHECK OUT  → 9f0d8fab-336b-40dc-b38e-746b81397fc2
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramsList] ✅ Merged linked checkin configs into programs
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramsList] 🔍 Checking auto-open: {initialProgramId: undefined, programsLoaded: 7, currentSelection: undefined}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramsList] 🔍 Checking initial program: {initialProgramId: undefined, programsCount: 7}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramsList] 🎯 Program clicked: {program: 'MINI ROAD SHOW -CHECK OUT ', viewMode: 'submit', isLinkedCheckout: true, linkedTo: '9f0d8fab-336b-40dc-b38e-746b81397fc2', willOpen: 'Linked Checkout Modal'}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramsList] 🎓 Will show program tour inside modal for: MINI ROAD SHOW -CHECK OUT 
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 0 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Shops] 🔄 Fetching ALL shops from database (paginated)...
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Shops] 📦 Fetching batch 1 (rows 0-999)...
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Loading fields for program: c6e6213c-0e9b-46f9-9183-5b7c64551247
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: false
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [GPS] Capacitor failed, trying browser API: Not implemented on web.
+program-submit-modal.tsx:694 [Violation] Permissions policy violation: Geolocation access has been blocked because of a permissions policy applied to the current document. See https://crbug.com/414348233 for more details.
+requestLocation @ program-submit-modal.tsx:694
+await in requestLocation
+(anonymous) @ program-submit-modal.tsx:719
+TN @ code_components_preview_iframe-7412fd47a5113f44.min.js.br:89
+T7 @ code_components_preview_iframe-7412fd47a5113f44.min.js.br:89
+T8 @ code_components_preview_iframe-7412fd47a5113f44.min.js.br:89
+T6 @ code_components_preview_iframe-7412fd47a5113f44.min.js.br:89
+T4 @ code_components_preview_iframe-7412fd47a5113f44.min.js.br:89
+S1 @ code_components_preview_iframe-7412fd47a5113f44.min.js.br:89
+SQ @ code_components_preview_iframe-7412fd47a5113f44.min.js.br:89
+SJ @ code_components_preview_iframe-7412fd47a5113f44.min.js.br:89
+SZ @ code_components_preview_iframe-7412fd47a5113f44.min.js.br:89
+SO @ code_components_preview_iframe-7412fd47a5113f44.min.js.br:89
+pC @ code_components_preview_iframe-7412fd47a5113f44.min.js.br:89
+(anonymous) @ code_components_preview_iframe-7412fd47a5113f44.min.js.br:89Understand this error
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 0 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: true
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [GPS] Browser geolocation error: Geolocation has been disabled in this document by permissions policy.
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 0 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] ✅ Loaded 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] 🔍 Fields data: [
+  {
+    "id": "bc4ac255-11df-493e-8598-ce3ade1f95a0",
+    "program_id": "c6e6213c-0e9b-46f9-9183-5b7c64551247",
+    "field_name": "number_plate_of_the_van_",
+    "field_label": "NUMBER PLATE OF THE VAN ",
+    "field_type": "dropdown",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "database_source": {
+        "table": "van_db",
+        "multi_select": true,
+        "display_field": "number_plate",
+        "metadata_fields": [
+          "zone"
+        ],
+        "repeatable_dropdown": false
+      },
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 0,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-11T17:45:24.274638+00:00"
+  },
+  {
+    "id": "67d91252-d82f-4dae-b0f8-537ecbcc2fa3",
+    "program_id": "c6e6213c-0e9b-46f9-9183-5b7c64551247",
+    "field_name": "odometer_reading_",
+    "field_label": "ODOMETER READING ",
+    "field_type": "number",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": null,
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 1,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-11T17:45:24.274638+00:00"
+  },
+  {
+    "id": "e0c35c7d-e57d-4499-9183-f03bfaf90074",
+    "program_id": "c6e6213c-0e9b-46f9-9183-5b7c64551247",
+    "field_name": "feedback_on_quality_of_network_(1_is_worst_5_is_best)",
+    "field_label": "FEEDBACK ON QUALITY OF NETWORK (1 is worst 5 is best)",
+    "field_type": "rating",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": null,
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 2,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-03-11T17:45:24.274638+00:00"
+  }
+]
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 0 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] 📍 User zone from DB: NAIROBI METROPOLITAN
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Shops] ✅ Batch 1: 1000 shops (Total so far: 1000)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Shops] 📦 Fetching batch 2 (rows 1000-1999)...
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] 🔍 Checking fields: (3) [{…}, {…}, {…}]
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] 🔄 Loading data for 1 database dropdown/multi-select field(s)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] 🔒 Zone filtering: DISABLED | User zone: NAIROBI METROPOLITAN
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Loading from table: van_db
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] 📦 "van_db" is small (≤500 rows) → loading all rows
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] 📦 Fetching batch 1 from van_db (rows 0-999)...
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Shops] ✅ Batch 2: 1000 shops (Total so far: 2000)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Shops] 📦 Fetching batch 3 (rows 2000-2999)...
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] ✅ Batch 1: 42 rows (Total so far: 42)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] ✅ Loaded all 42 rows from "van_db" (client-side search)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Shops] ✅ Batch 3: 674 shops (Total so far: 2674)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Shops] ✅ Total loaded from database: 2674 shops
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Shops] ✅ Lookup map created with 2651 entries
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Shops] ✅ shopsLoaded flag set to true - component should re-render
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 2674 shops | shopsLoaded: true | loadingShops: false
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] ✅ Component should now show search dropdown instead of radio buttons
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Dropdown] 🔍 Search input focused - opening dropdown
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: false)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Shop Dropdown] 🎯 Option clicked: KAW 747X
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] Setting field bc4ac255-11df-493e-8598-ce3ade1f95a0 to: KAW 747X (single)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] Auto-populating from: KAW 747X 
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [AutoPopulate] ��� Database dropdown selection: {field: 'NUMBER PLATE OF THE VAN ', value: 'KAW 747X', table: 'van_db', displayField: 'number_plate', metadataFields: Array(1)}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [AutoPopulate] ✅ Found selected row: {id: 8, created_at: '2026-02-07T10:19:44.147589+00:00', number_plate: 'KAW 747X', capacity: null, vendor: null, …}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [AutoPopulate] 📦 Stored metadata for display: {zone: 'COAST'}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [AutoPopulate] ℹ️ No matching fields found to auto-populate
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [LinkedCheckout] 🔍 Checking van check-in for plate="KAW747X", linked_program=9f0d8fab-336b-40dc-b38e-746b81397fc2
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] FormData after update: {bc4ac255-11df-493e-8598-ce3ade1f95a0: 'KAW 747X'}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [LinkedCheckout] Van lookup response: {"success":true,"has_checkin":true,"van_checked_in":true,"number_plate":"KAW747X","checkin_user_id":"dc990973-c0bb-40aa-82e7-09650dc164de","sites":[{"id":"0b48697b-6e23-47b0-95fc-8526a7e4bf1d","name":"VIPINGO_HIGHWAY"}],"promoters":[{"id":"sub-5a0f4d04-ae15-4a83-ab11-d080ee9f19d1-0","msisdn":"739383333","site_name":"VIPINGO_HIGHWAY"},{"id":"sub-5a0f4d04-ae15-4a83-ab11-d080ee9f19d1-1","msisdn":"107613739","site_name":"VIPINGO_HIGHWAY"},{"id":"sub-5a0f4d04-ae15-4a83-ab11-d080ee9f19d1-2","msisdn":"100228115","site_name":"VIPINGO_HIGHWAY"},{"id":"sub-5a0f4d04-ae15-4a83-ab11-d080ee9f19d1-3","msisdn":"751405906","site_name":"VIPINGO_HIGHWAY"},{"id":"sub-5a0f4d04-ae15-4a83-ab11-d080ee9f19d1-4","msisdn":"107363004","site_name":"VIPINGO_HIGHWAY"},{"id":"sub-5a0f4d04-ae15-4a83-ab11-d080ee9f19d1-5","msisdn":"783239152","site_name":"VIPINGO_HIGHWAY"},{"id":"sub-5a0f4d04-ae15-4a83-ab11-d080ee9f19d1-6","msisdn":"104890271","site_name":"VIPINGO_HIGHWAY"},{"id":"sub-5a0f4d04-ae15-4a83-ab11-d080ee9f19d1-7","msisdn":"794611412","site_name":"VIPINGO_HIGHWAY"},{"id":"sub-5a0f4d04-ae15-4a83-ab11-d080ee9f19d1-8","msisdn":"782721012","site_name":"VIPINGO_HIGHWAY"},{"id":"sub-5a0f4d04-ae15-4a83-ab11-d080ee9f19d1-9","msisdn":"787973656","site_name":"VIPINGO_HIGHWAY"},{"id":"sub-5a0f4d04-ae15-4a83-ab11-d080ee9f19d1-10","msisdn":"737373954","site_name":"VIPINGO_HIGHWAY"},{"id":"sub-5a0f4d04-ae15-4a83-ab11-d080ee9f19d1-11","msisdn":"752956473","site_name":"VIPINGO_HIGHWAY"},{"id":"sub-5a0f4d04-ae15-4a83-ab11-d080ee9f19d1-12","msisdn":"782428922","site_name":"VIPINGO_HIGHWAY"},{"id":"sub-5a0f4d04-ae15-4a83-ab11-d080ee9f19d1-13","msisdn":"756034161","site_name":"VIPINGO_HIGHWAY"},{"id":"sub-5a0f4d04-ae15-4a83-ab11-d080ee9f19d1-14","msisdn":"739191938","site_name":"VIPINGO_HIGHWAY"},{"id":"sub-5a0f4d04-ae15-4a83-ab11-d080ee9f19d1-15","msisdn":"733842067","site_name":"VIPINGO_HIGHWAY"}],"total_promoters":16,"morning_odometer":265898,"message":"Van checked in. 16 MSISDNs loaded from check-in submissions."}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [LinkedCheckout] Morning odometer: 265898
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [LinkedCheckout] Auto-populated 16 MSISDNs from check-in
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] Setting field 67d91252-d82f-4dae-b0f8-537ecbcc2fa3 to: 265920 (single)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] FormData after update: {bc4ac255-11df-493e-8598-ce3ade1f95a0: 'KAW 747X', 67d91252-d82f-4dae-b0f8-537ecbcc2fa3: 265920}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] Setting field 67d91252-d82f-4dae-b0f8-537ecbcc2fa3 to: 265920 (single)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] FormData after update: {bc4ac255-11df-493e-8598-ce3ade1f95a0: 'KAW 747X', 67d91252-d82f-4dae-b0f8-537ecbcc2fa3: 265920}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] Setting field 67d91252-d82f-4dae-b0f8-537ecbcc2fa3 to: 265920 (single)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] FormData after update: {bc4ac255-11df-493e-8598-ce3ade1f95a0: 'KAW 747X', 67d91252-d82f-4dae-b0f8-537ecbcc2fa3: 265920}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ActivityTracker] ✅ Logged: heartbeat {type: 'active_ping'}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] Setting field 67d91252-d82f-4dae-b0f8-537ecbcc2fa3 to: 265920 (single)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] FormData after update: {bc4ac255-11df-493e-8598-ce3ade1f95a0: 'KAW 747X', 67d91252-d82f-4dae-b0f8-537ecbcc2fa3: 265920}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] Setting field 67d91252-d82f-4dae-b0f8-537ecbcc2fa3 to: 265920 (single)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] FormData after update: {bc4ac255-11df-493e-8598-ce3ade1f95a0: 'KAW 747X', 67d91252-d82f-4dae-b0f8-537ecbcc2fa3: 265920}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] Setting field 67d91252-d82f-4dae-b0f8-537ecbcc2fa3 to: 265920 (single)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] FormData after update: {bc4ac255-11df-493e-8598-ce3ade1f95a0: 'KAW 747X', 67d91252-d82f-4dae-b0f8-537ecbcc2fa3: 265920}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] Setting field 67d91252-d82f-4dae-b0f8-537ecbcc2fa3 to: 265920 (single)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] FormData after update: {bc4ac255-11df-493e-8598-ce3ade1f95a0: 'KAW 747X', 67d91252-d82f-4dae-b0f8-537ecbcc2fa3: 265920}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] Setting field 67d91252-d82f-4dae-b0f8-537ecbcc2fa3 to: 265920 (single)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] FormData after update: {bc4ac255-11df-493e-8598-ce3ade1f95a0: 'KAW 747X', 67d91252-d82f-4dae-b0f8-537ecbcc2fa3: 265920}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] Setting field 67d91252-d82f-4dae-b0f8-537ecbcc2fa3 to: 265920 (single)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] FormData after update: {bc4ac255-11df-493e-8598-ce3ade1f95a0: 'KAW 747X', 67d91252-d82f-4dae-b0f8-537ecbcc2fa3: 265920}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] Setting field 67d91252-d82f-4dae-b0f8-537ecbcc2fa3 to: 265920 (single)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] FormData after update: {bc4ac255-11df-493e-8598-ce3ade1f95a0: 'KAW 747X', 67d91252-d82f-4dae-b0f8-537ecbcc2fa3: 265920}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] Setting field 67d91252-d82f-4dae-b0f8-537ecbcc2fa3 to: 265920 (single)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] FormData after update: {bc4ac255-11df-493e-8598-ce3ade1f95a0: 'KAW 747X', 67d91252-d82f-4dae-b0f8-537ecbcc2fa3: 265920}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] Setting field 67d91252-d82f-4dae-b0f8-537ecbcc2fa3 to:  (single)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] FormData after update: {bc4ac255-11df-493e-8598-ce3ade1f95a0: 'KAW 747X', 67d91252-d82f-4dae-b0f8-537ecbcc2fa3: ''}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] Setting field 67d91252-d82f-4dae-b0f8-537ecbcc2fa3 to:  (single)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] FormData after update: {bc4ac255-11df-493e-8598-ce3ade1f95a0: 'KAW 747X', 67d91252-d82f-4dae-b0f8-537ecbcc2fa3: ''}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] Setting field 67d91252-d82f-4dae-b0f8-537ecbcc2fa3 to:  (single)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] FormData after update: {bc4ac255-11df-493e-8598-ce3ade1f95a0: 'KAW 747X', 67d91252-d82f-4dae-b0f8-537ecbcc2fa3: ''}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] Setting field 67d91252-d82f-4dae-b0f8-537ecbcc2fa3 to:  (single)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] FormData after update: {bc4ac255-11df-493e-8598-ce3ade1f95a0: 'KAW 747X', 67d91252-d82f-4dae-b0f8-537ecbcc2fa3: ''}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] Setting field 67d91252-d82f-4dae-b0f8-537ecbcc2fa3 to:  (single)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] FormData after update: {bc4ac255-11df-493e-8598-ce3ade1f95a0: 'KAW 747X', 67d91252-d82f-4dae-b0f8-537ecbcc2fa3: ''}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] Setting field 67d91252-d82f-4dae-b0f8-537ecbcc2fa3 to:  (single)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] FormData after update: {bc4ac255-11df-493e-8598-ce3ade1f95a0: 'KAW 747X', 67d91252-d82f-4dae-b0f8-537ecbcc2fa3: ''}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ActivityTracker] ✅ Logged: heartbeat {type: 'active_ping'}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] Setting field 67d91252-d82f-4dae-b0f8-537ecbcc2fa3 to:  (single)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] FormData after update: {bc4ac255-11df-493e-8598-ce3ade1f95a0: 'KAW 747X', 67d91252-d82f-4dae-b0f8-537ecbcc2fa3: ''}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] Setting field 67d91252-d82f-4dae-b0f8-537ecbcc2fa3 to:  (single)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] FormData after update: {bc4ac255-11df-493e-8598-ce3ade1f95a0: 'KAW 747X', 67d91252-d82f-4dae-b0f8-537ecbcc2fa3: ''}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] Setting field 67d91252-d82f-4dae-b0f8-537ecbcc2fa3 to:  (single)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] FormData after update: {bc4ac255-11df-493e-8598-ce3ade1f95a0: 'KAW 747X', 67d91252-d82f-4dae-b0f8-537ecbcc2fa3: ''}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] Setting field 67d91252-d82f-4dae-b0f8-537ecbcc2fa3 to:  (single)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] FormData after update: {bc4ac255-11df-493e-8598-ce3ade1f95a0: 'KAW 747X', 67d91252-d82f-4dae-b0f8-537ecbcc2fa3: ''}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] Setting field 67d91252-d82f-4dae-b0f8-537ecbcc2fa3 to:  (single)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] FormData after update: {bc4ac255-11df-493e-8598-ce3ade1f95a0: 'KAW 747X', 67d91252-d82f-4dae-b0f8-537ecbcc2fa3: ''}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] Setting field 67d91252-d82f-4dae-b0f8-537ecbcc2fa3 to:  (single)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [FieldChange] FormData after update: {bc4ac255-11df-493e-8598-ce3ade1f95a0: 'KAW 747X', 67d91252-d82f-4dae-b0f8-537ecbcc2fa3: ''}
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramSubmitModal] Program: MINI ROAD SHOW -CHECK OUT  with 3 fields
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [DatabaseDropdown] Generated 42 options for NUMBER PLATE OF THE VAN  (serverSearch: undefined, hasTyped: true)
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: undefined
+code_components_preview_iframe-7412fd47a5113f44.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality

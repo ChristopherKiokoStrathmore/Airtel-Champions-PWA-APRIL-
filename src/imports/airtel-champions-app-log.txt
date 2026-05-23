@@ -1,0 +1,307 @@
+Airtel-Champions-App-Web?p=f&t=SUJBbbhtPRdDqoci-0:531 Running frontend commit 82c42d86322b38393b005d41d0e9a1f9d50d94c4
+vendor-core-ade2edecaf4781c7.min.js.br:54 Statsig is not ready to log exposures, will retry in 1 seconds
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+A.logExposureCallback @ 6005-316f94e648742cad.min.js.br:1101
+u @ vendor-core-ade2edecaf4781c7.min.js.br:54
+setTimeout
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+logExposureForFeatureGateCheck @ 6005-316f94e648742cad.min.js.br:1101
+getFeatureGateFromInitialOptions @ 6005-316f94e648742cad.min.js.br:1101
+getFeatureGate @ 6005-316f94e648742cad.min.js.br:1101
+getFeatureGate @ 6005-316f94e648742cad.min.js.br:1431
+932235 @ figma_app-617144028f0d9b4f.min.js.br:420
+i @ runtime~figma_app-013fecf86f032c33.min.js.br:3
+801936 @ figma_app-617144028f0d9b4f.min.js.br:41
+i @ runtime~figma_app-013fecf86f032c33.min.js.br:3
+781295 @ figma_app-617144028f0d9b4f.min.js.br:418
+i @ runtime~figma_app-013fecf86f032c33.min.js.br:3
+593464 @ figma_app-617144028f0d9b4f.min.js.br:4
+i @ runtime~figma_app-013fecf86f032c33.min.js.br:3
+816199 @ 6005-316f94e648742cad.min.js.br:85
+i @ runtime~figma_app-013fecf86f032c33.min.js.br:3
+881625 @ figma_app-617144028f0d9b4f.min.js.br:531
+i @ runtime~figma_app-013fecf86f032c33.min.js.br:3
+28285 @ 6066-fcf36ca34124bdd7.min.js.br:3
+i @ runtime~figma_app-013fecf86f032c33.min.js.br:3
+344653 @ figma_app-617144028f0d9b4f.min.js.br:420
+i @ runtime~figma_app-013fecf86f032c33.min.js.br:3
+912563 @ figma_app-617144028f0d9b4f.min.js.br:420
+i @ runtime~figma_app-013fecf86f032c33.min.js.br:3
+941181 @ figma_app-617144028f0d9b4f.min.js.br:4
+i @ runtime~figma_app-013fecf86f032c33.min.js.br:3
+577246 @ 5340-37939770a92d139c.min.js.br:3
+i @ runtime~figma_app-013fecf86f032c33.min.js.br:3
+483051 @ 8222-0204520dc0536e7f.min.js.br:3
+i @ runtime~figma_app-013fecf86f032c33.min.js.br:3
+856279 @ figma_app-617144028f0d9b4f.min.js.br:4
+i @ runtime~figma_app-013fecf86f032c33.min.js.br:3
+(anonymous) @ figma_app-617144028f0d9b4f.min.js.br:700
+i.O @ runtime~figma_app-013fecf86f032c33.min.js.br:3
+(anonymous) @ figma_app-617144028f0d9b4f.min.js.br:700
+r @ runtime~figma_app-013fecf86f032c33.min.js.br:3
+(anonymous) @ figma_app-617144028f0d9b4f.min.js.br:3Understand this warning
+vendor-core-ade2edecaf4781c7.min.js.br:54 Loaded 32 scripts (5990111b), 0 from cache (0b)
+vendor-core-ade2edecaf4781c7.min.js.br:54 [import] git: 48589f4cb70c6245ed05d8f4e8e56d36d6b05fb3, stamp: 594A0F27E5DEFE4C
+vendor-core-ade2edecaf4781c7.min.js.br:54 Statsig is not ready to log exposures, will retry in 1 seconds
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+A.logExposureCallback @ 6005-316f94e648742cad.min.js.br:1101
+u @ vendor-core-ade2edecaf4781c7.min.js.br:54
+setTimeout
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+A.logExposureCallback @ 6005-316f94e648742cad.min.js.br:1101
+u @ vendor-core-ade2edecaf4781c7.min.js.br:54
+setTimeout
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+logExposureForFeatureGateCheck @ 6005-316f94e648742cad.min.js.br:1101
+getFeatureGateFromInitialOptions @ 6005-316f94e648742cad.min.js.br:1101
+getFeatureGate @ 6005-316f94e648742cad.min.js.br:1101
+getFeatureGate @ 6005-316f94e648742cad.min.js.br:1431
+932235 @ figma_app-617144028f0d9b4f.min.js.br:420
+i @ runtime~figma_app-013fecf86f032c33.min.js.br:3
+801936 @ figma_app-617144028f0d9b4f.min.js.br:41
+i @ runtime~figma_app-013fecf86f032c33.min.js.br:3
+781295 @ figma_app-617144028f0d9b4f.min.js.br:418
+i @ runtime~figma_app-013fecf86f032c33.min.js.br:3
+593464 @ figma_app-617144028f0d9b4f.min.js.br:4
+i @ runtime~figma_app-013fecf86f032c33.min.js.br:3
+816199 @ 6005-316f94e648742cad.min.js.br:85
+i @ runtime~figma_app-013fecf86f032c33.min.js.br:3
+881625 @ figma_app-617144028f0d9b4f.min.js.br:531
+i @ runtime~figma_app-013fecf86f032c33.min.js.br:3
+28285 @ 6066-fcf36ca34124bdd7.min.js.br:3
+i @ runtime~figma_app-013fecf86f032c33.min.js.br:3
+344653 @ figma_app-617144028f0d9b4f.min.js.br:420
+i @ runtime~figma_app-013fecf86f032c33.min.js.br:3
+912563 @ figma_app-617144028f0d9b4f.min.js.br:420
+i @ runtime~figma_app-013fecf86f032c33.min.js.br:3
+941181 @ figma_app-617144028f0d9b4f.min.js.br:4
+i @ runtime~figma_app-013fecf86f032c33.min.js.br:3
+577246 @ 5340-37939770a92d139c.min.js.br:3
+i @ runtime~figma_app-013fecf86f032c33.min.js.br:3
+483051 @ 8222-0204520dc0536e7f.min.js.br:3
+i @ runtime~figma_app-013fecf86f032c33.min.js.br:3
+856279 @ figma_app-617144028f0d9b4f.min.js.br:4
+i @ runtime~figma_app-013fecf86f032c33.min.js.br:3
+(anonymous) @ figma_app-617144028f0d9b4f.min.js.br:700
+i.O @ runtime~figma_app-013fecf86f032c33.min.js.br:3
+(anonymous) @ figma_app-617144028f0d9b4f.min.js.br:700
+r @ runtime~figma_app-013fecf86f032c33.min.js.br:3
+(anonymous) @ figma_app-617144028f0d9b4f.min.js.br:3Understand this warning
+vendor-core-ade2edecaf4781c7.min.js.br:54 Autosave Changes not available or already claimed by another tab undefined
+chrome-extension://invalid/:1  GET chrome-extension://invalid/ net::ERR_FAILED
+Image
+(anonymous) @ figma_app-617144028f0d9b4f.min.js.br:6
+aB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oD @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oL @ vendor-core-ade2edecaf4781c7.min.js.br:11
+f5 @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oE @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+S @ vendor-core-ade2edecaf4781c7.min.js.br:54
+O @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this error
+6005-316f94e648742cad.min.js.br:358 The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127
+initialize @ 6005-316f94e648742cad.min.js.br:358
+f @ 6005-316f94e648742cad.min.js.br:358
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+await in (anonymous)
+i @ 6005-316f94e648742cad.min.js.br:1433
+gg @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+await in (anonymous)
+(anonymous) @ 6005-316f94e648742cad.min.js.br:1727
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+dispatch @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:1727
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+dispatch @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:1727
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+dispatch @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:175
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+dispatch @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ figma_app-617144028f0d9b4f.min.js.br:232
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:175
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+d @ 6005-316f94e648742cad.min.js.br:1103
+H @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+time @ 6005-316f94e648742cad.min.js.br:398
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+await in (anonymous)
+tW @ 6005-316f94e648742cad.min.js.br:175
+wJ @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ figma_app-617144028f0d9b4f.min.js.br:6
+n @ 6005-316f94e648742cad.min.js.br:1070
+856279 @ figma_app-617144028f0d9b4f.min.js.br:6
+i @ runtime~figma_app-013fecf86f032c33.min.js.br:3
+(anonymous) @ figma_app-617144028f0d9b4f.min.js.br:700
+i.O @ runtime~figma_app-013fecf86f032c33.min.js.br:3
+(anonymous) @ figma_app-617144028f0d9b4f.min.js.br:700
+r @ runtime~figma_app-013fecf86f032c33.min.js.br:3
+(anonymous) @ figma_app-617144028f0d9b4f.min.js.br:3Understand this warning
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Fullscreen] Booting... (emscripten version 4.0.21)
+vendor-core-ade2edecaf4781c7.min.js.br:54 [GPU] graphicsAPI:"WebGPU", vendor:"Google Inc. (Intel)" renderer:"ANGLE (Intel, Intel(R) UHD Graphics 620 (0x00003EA0) Direct3D11 vs_5_0 ps_5_0, D3D11)" deviceArchitecture:"gen-9" deviceDescription:"" webGPUDevice:"" webGPUVendor:"intel" bindings:"emdawnwebgpu"
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Fullscreen] Ready in 432.7ms
+vendor-core-ade2edecaf4781c7.min.js.br:54 [FullscreenApp] calling setEditorTheme and setting preference dark
+vendor-core-ade2edecaf4781c7.min.js.br:54 [MultiplayerSession] connecting to wss://www.figma.com/api/multiplayer/YgMsCvIqt7DMpx0rIB8UXV?role=editor&tracking_session_id=fabfhQy5sBv420YD&version=151&recentReload=0&file-load-streaming-compression&user-id=1575501824906211853&client_release=82c42d86322b38393b005d41d0e9a1f9d50d94c4
+vendor-core-ade2edecaf4781c7.min.js.br:54 [FullscreenApp] calling setEditorTheme and setting preference dark
+vendor-core-ade2edecaf4781c7.min.js.br:54 [MultiplayerSession] Joining file version 106 (initial load)
+vendor-core-ade2edecaf4781c7.min.js.br:54 Migration succeeded: context: fullscreen_migrate_SceneGraphManager, version: 106, duration: 0ms.
+vendor-core-ade2edecaf4781c7.min.js.br:63  GET https://www.figma.com/api/make/YgMsCvIqt7DMpx0rIB8UXV/cached_preview_urls?source_code_hash=34654f7dc271873b371249a4ffff5d3e034763a0 404 (Not Found)
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+h @ vendor-998f6c2559412105.min.js.br:3
+(anonymous) @ 6005-316f94e648742cad.min.js.br:1140
+T @ 6005-316f94e648742cad.min.js.br:1140
+await in T
+C @ 6005-316f94e648742cad.min.js.br:1140
+P @ 6005-316f94e648742cad.min.js.br:1140
+(anonymous) @ figma_app-617144028f0d9b4f.min.js.br:364
+validate @ figma_app-617144028f0d9b4f.min.js.br:420
+getCachedPreviewUrls @ figma_app-617144028f0d9b4f.min.js.br:364
+(anonymous) @ figma_app-617144028f0d9b4f.min.js.br:531
+preloadCachedPreviewUrls @ figma_app-617144028f0d9b4f.min.js.br:531
+initializeCode @ figma_app-617144028f0d9b4f.min.js.br:531
+(anonymous) @ 6066-fcf36ca34124bdd7.min.js.br:3
+(anonymous) @ 9241-ffea0f8aa47a62d2.min.js.br:290
+aB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oD @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oL @ vendor-core-ade2edecaf4781c7.min.js.br:11
+f5 @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oE @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+S @ vendor-core-ade2edecaf4781c7.min.js.br:54
+O @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Fullscreen] loadtime=23.63s maxmem=278780944
+2vendor-core-ade2edecaf4781c7.min.js.br:54 [devtools] Initialized LS
+vendor-core-ade2edecaf4781c7.min.js.br:63  POST https://www.figma.com/api/make/fetch_ds_code_gen_status 400 (Bad Request)
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+h @ vendor-998f6c2559412105.min.js.br:3
+(anonymous) @ 6005-316f94e648742cad.min.js.br:1140
+T @ 6005-316f94e648742cad.min.js.br:1140
+C @ 6005-316f94e648742cad.min.js.br:1140
+r @ 6005-316f94e648742cad.min.js.br:1140
+o @ figma_app-617144028f0d9b4f.min.js.br:413
+(anonymous) @ figma_app-617144028f0d9b4f.min.js.br:418
+(anonymous) @ figma_app-617144028f0d9b4f.min.js.br:418
+aB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oD @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oL @ vendor-core-ade2edecaf4781c7.min.js.br:11
+f5 @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:11
+requestAnimationFrame
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+g7 @ 6005-316f94e648742cad.min.js.br:196
+a @ 6005-316f94e648742cad.min.js.br:398
+requestAnimationFrame @ 6005-316f94e648742cad.min.js.br:199
+_Async_requestAnimationFrame @ compiled_wasm.js.br:2
+$wasm-function[3207] @ compiled_wasm.wasm.br:0x112583
+$wasm-function[38125] @ compiled_wasm.wasm.br:0x1f99ee2
+(anonymous) @ compiled_wasm.js.br:2
+(anonymous) @ compiled_wasm.js.br:2
+_wrapCppCall @ compiled_wasm.js.br:2
+(anonymous) @ compiled_wasm.js.br:2
+vX @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:46
+d @ vendor-998f6c2559412105.min.js.br:123
+(anonymous) @ vendor-998f6c2559412105.min.js.br:123
+g @ vendor-core-ade2edecaf4781c7.min.js.br:46
+dispatch @ 6005-316f94e648742cad.min.js.br:1100
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:807
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ figma_app-617144028f0d9b4f.min.js.br:232
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ 6005-316f94e648742cad.min.js.br:175
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+dispatch @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 6005-316f94e648742cad.min.js.br:175
+(anonymous) @ 6005-316f94e648742cad.min.js.br:1727
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:46
+(anonymous) @ 6005-316f94e648742cad.min.js.br:196
+dispatch @ 6005-316f94e648742cad.min.js.br:196
+_documentIsLoaded @ 6005-316f94e648742cad.min.js.br:196
+await in _documentIsLoaded
+documentIsLoaded @ 6005-316f94e648742cad.min.js.br:196
+_FigmaApp_documentIsLoaded @ compiled_wasm.js.br:2
+$wasm-function[27828] @ compiled_wasm.wasm.br:0x1a26aa1
+$wasm-function[26370] @ compiled_wasm.wasm.br:0x19138d8
+$wasm-function[23560] @ compiled_wasm.wasm.br:0x1616f31
+$wasm-function[40344] @ compiled_wasm.wasm.br:0x21e0ae3
+$wasm-function[17116] @ compiled_wasm.wasm.br:0xf3de24
+$wasm-function[38107] @ compiled_wasm.wasm.br:0x1f95ff2
+(anonymous) @ compiled_wasm.js.br:2
+(anonymous) @ compiled_wasm.js.br:2
+_wrapCppCall @ compiled_wasm.js.br:2
+(anonymous) @ compiled_wasm.js.br:2
+S @ 8987-69584f05a33f1850.min.js.br:3
+p.onmessage @ 8987-69584f05a33f1850.min.js.br:3Understand this error
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Platform] Detected: {platform: 'web', isMobile: false, isWeb: true, layoutMode: 'mobile'}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [Supabase Direct] Using shared client: {url: 'https://xspogpfohjmkykfjadhk.supabase.co', keyPrefix: 'eyJhbGciOiJIUzI1NiIs...'}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 📱 Normalized phone: 700100100
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 🔍 Searching for phone in formats: (4) ['700100100', '0700100100', '+254700100100', '254700100100']
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 ✅ Direct login successful: HBB Test Agent
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 📝 User name: HBB Test Agent
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 🔍 User Authentication Check: {userRole: 'hbb_agent', fullName: 'HBB Test Agent', employeeId: null, isDeveloper: false, isChristopher: false}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 📱 Normalized phone: 700100200
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 🔍 Searching for phone in formats: (4) ['700100200', '0700100200', '+254700100200', '254700100200']
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 ✅ Direct login successful: HBB Test Installer
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 📝 User name: HBB Test Installer
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 🔍 User Authentication Check: {userRole: 'hbb_installer', fullName: 'HBB Test Installer', employeeId: null, isDeveloper: false, isChristopher: false}
+code_components_preview_iframe-ab9bdbe29389ccb5.min.js.br:28 🔍 User Authentication Check: {userRole: 'hbb_installer', fullName: 'HBB Test Installer', employeeId: null, isDeveloper: false, isChristopher: false}

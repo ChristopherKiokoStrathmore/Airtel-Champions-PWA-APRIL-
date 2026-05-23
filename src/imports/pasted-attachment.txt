@@ -1,0 +1,56 @@
+[HomeScreen] ✅ Loading announcements from localStorage for role: sales_executive
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [HomeScreen] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [HomeScreen] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [HomeScreen] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [Top Performers] ✅ Loaded 987 SE submissions from today (filtered from 999 total)
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [Top Performers] 📊 ALL users sorted by points: Array(10)
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [Top Performers] 🏆 Top 3 user IDs: Array(3)
+2code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+5code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+4code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+4code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+4code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+4code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+4code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+3code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+3code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+4code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+4code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+4code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+2code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [Top Performers] ✅ Final top performers: Array(3)
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [HomeScreen] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [HomeScreen] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [HomeScreen] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [WebRTC] User denied permission request
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [AndroidBackButton] 🧹 Cleaning up back button listener
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [AndroidBackButton] 🧹 Cleaning up back button listener
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [AndroidBackButton] 🧹 Cleaning up back button listener
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [AndroidBackButton] 🧹 Cleaning up back button listener
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [Compare] Found 586 submissions for CECILIA MUIMI
+code_components_preview_iframe-e57eefd14ff1834e.min.js.br:28 [Compare] Found 304 submissions for Felix

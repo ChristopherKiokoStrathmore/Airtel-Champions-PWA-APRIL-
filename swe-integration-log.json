@@ -1,0 +1,169 @@
+{
+  "currentScript": "mcp-uat-super.js",
+  "improvements": [],
+  "codeChanges": [
+    {
+      "timestamp": 1775221773627,
+      "file": "mcp-uat-super.js",
+      "failures": [
+        {
+          "profile": "Sales Executive",
+          "error": "Login failed - still on login page"
+        },
+        {
+          "profile": "HBB Agent",
+          "error": "Login failed - still on login page"
+        }
+      ],
+      "success": false,
+      "error": "ENOENT: no such file or directory, open 'C:\\DEV\\PWA\\Airtel Champions App Web\\mcp-uat-super.js'"
+    },
+    {
+      "timestamp": 1775221809901,
+      "file": "mcp-uat-super.js",
+      "failures": [
+        {
+          "profile": "Sales Executive",
+          "error": "Login failed - still on login page"
+        },
+        {
+          "profile": "HBB Agent",
+          "error": "Login failed - still on login page"
+        }
+      ],
+      "success": false,
+      "error": "ENOENT: no such file or directory, open 'C:\\DEV\\PWA\\Airtel Champions App Web\\mcp-uat-super.js'"
+    },
+    {
+      "timestamp": 1775221844061,
+      "file": "mcp-uat-super.js",
+      "failures": [
+        {
+          "profile": "Sales Executive",
+          "error": "Login failed - still on login page"
+        },
+        {
+          "profile": "HBB Agent",
+          "error": "Login failed - still on login page"
+        }
+      ],
+      "success": false,
+      "error": "ENOENT: no such file or directory, open 'C:\\DEV\\PWA\\Airtel Champions App Web\\mcp-uat-super.js'"
+    },
+    {
+      "timestamp": 1775221884604,
+      "file": "mcp-uat-super.js",
+      "failures": [
+        {
+          "profile": "Sales Executive",
+          "error": "Login failed - still on login page"
+        },
+        {
+          "profile": "HBB Agent",
+          "error": "Login failed - still on login page"
+        }
+      ],
+      "success": false,
+      "error": "ENOENT: no such file or directory, open 'C:\\DEV\\PWA\\Airtel Champions App Web\\mcp-uat-super.js'"
+    },
+    {
+      "timestamp": 1775221925191,
+      "file": "mcp-uat-super.js",
+      "failures": [
+        {
+          "profile": "Sales Executive",
+          "error": "Login failed - still on login page"
+        },
+        {
+          "profile": "HBB Agent",
+          "error": "Login failed - still on login page"
+        }
+      ],
+      "success": false,
+      "error": "ENOENT: no such file or directory, open 'C:\\DEV\\PWA\\Airtel Champions App Web\\mcp-uat-super.js'"
+    },
+    {
+      "timestamp": 1775221958865,
+      "file": "mcp-uat-super.js",
+      "failures": [
+        {
+          "profile": "Sales Executive",
+          "error": "Login failed - still on login page"
+        },
+        {
+          "profile": "HBB Agent",
+          "error": "Login failed - still on login page"
+        }
+      ],
+      "success": false,
+      "error": "ENOENT: no such file or directory, open 'C:\\DEV\\PWA\\Airtel Champions App Web\\mcp-uat-super.js'"
+    },
+    {
+      "timestamp": 1775221994354,
+      "file": "mcp-uat-super.js",
+      "failures": [
+        {
+          "profile": "Sales Executive",
+          "error": "Login failed - still on login page"
+        },
+        {
+          "profile": "HBB Agent",
+          "error": "Login failed - still on login page"
+        }
+      ],
+      "success": false,
+      "error": "ENOENT: no such file or directory, open 'C:\\DEV\\PWA\\Airtel Champions App Web\\mcp-uat-super.js'"
+    },
+    {
+      "timestamp": 1775222031535,
+      "file": "mcp-uat-super.js",
+      "failures": [
+        {
+          "profile": "Sales Executive",
+          "error": "Login failed - still on login page"
+        },
+        {
+          "profile": "HBB Agent",
+          "error": "Login failed - still on login page"
+        }
+      ],
+      "success": false,
+      "error": "ENOENT: no such file or directory, open 'C:\\DEV\\PWA\\Airtel Champions App Web\\mcp-uat-super.js'"
+    },
+    {
+      "timestamp": 1775222064484,
+      "file": "mcp-uat-super.js",
+      "failures": [
+        {
+          "profile": "Sales Executive",
+          "error": "Login failed - still on login page"
+        },
+        {
+          "profile": "HBB Agent",
+          "error": "Login failed - still on login page"
+        }
+      ],
+      "success": false,
+      "error": "ENOENT: no such file or directory, open 'C:\\DEV\\PWA\\Airtel Champions App Web\\mcp-uat-super.js'"
+    },
+    {
+      "timestamp": 1775222104596,
+      "file": "mcp-uat-super.js",
+      "failures": [
+        {
+          "profile": "Sales Executive",
+          "error": "Login failed - still on login page"
+        },
+        {
+          "profile": "HBB Agent",
+          "error": "Login failed - still on login page"
+        }
+      ],
+      "success": false,
+      "error": "ENOENT: no such file or directory, open 'C:\\DEV\\PWA\\Airtel Champions App Web\\mcp-uat-super.js'"
+    }
+  ],
+  "lastSweCall": 1775222104595,
+  "successfulChanges": 0,
+  "failedChanges": 10
+}

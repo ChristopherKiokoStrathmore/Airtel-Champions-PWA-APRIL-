@@ -1,0 +1,558 @@
+Running frontend commit 1a279600f2ee56ba1bd4f8a230d1c84e52af87d6
+vendor-core-ade2edecaf4781c7.min.js.br:54 Statsig is not ready to log exposures, will retry in 1 seconds
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this warning
+3435-1e6f92413321c0ba.min.js.br:191 [Intervention] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://static.figma.com/webfont/1/SourceCodePro-Medium.woff2
+1709-a9e5b3918781030c.min.js.br:8 The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127
+initialize @ 1709-a9e5b3918781030c.min.js.br:8Understand this warning
+vendor-core-ade2edecaf4781c7.min.js.br:54 [import] git: 32316aad430e1702f36b927d849d2e88aab330ca, stamp: 9356B1DF1C1877B4
+(index):1  Failed to load resource: net::ERR_FAILEDUnderstand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Fullscreen] Booting... (emscripten version 4.0.21)
+compiled_wasm.js.br:2 [Intervention] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2
+vendor-core-ade2edecaf4781c7.min.js.br:54 [GPU] graphicsAPI:"WebGPU", vendor:"Google Inc. (Intel)" renderer:"ANGLE (Intel, Intel(R) UHD Graphics 620 (0x00003EA0) Direct3D11 vs_5_0 ps_5_0, D3D11)" deviceArchitecture:"gen-9" deviceDescription:"" webGPUDevice:"" webGPUVendor:"intel" bindings:"emdawnwebgpu"
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Fullscreen] Ready in 3277.7ms
+vendor-core-ade2edecaf4781c7.min.js.br:54 [FullscreenApp] calling setEditorTheme and setting preference dark
+vendor-core-ade2edecaf4781c7.min.js.br:54 [MultiplayerSession] connecting to wss://www.figma.com/api/multiplayer/YgMsCvIqt7DMpx0rIB8UXV?role=editor&tracking_session_id=guISMrQMWT3JWqZd&version=151&recentReload=0&file-load-streaming-compression&user-id=1575501824906211853&client_release=1a279600f2ee56ba1bd4f8a230d1c84e52af87d6
+vendor-core-ade2edecaf4781c7.min.js.br:54 [FullscreenApp] calling setEditorTheme and setting preference dark
+vendor-core-ade2edecaf4781c7.min.js.br:54 [MultiplayerSession] Joining file version 106 (initial load)
+vendor-core-ade2edecaf4781c7.min.js.br:54 Migration succeeded: context: fullscreen_migrate_SceneGraphManager, version: 106, duration: 0ms.
+vendor-core-ade2edecaf4781c7.min.js.br:54 Loaded 31 scripts (5926604b), 0 from cache (0b)
+vendor-core-ade2edecaf4781c7.min.js.br:54 [devtools] Initialized LS
+vendor-core-ade2edecaf4781c7.min.js.br:54 Autosave Found claimed autosave changes from 1 sessions undefined
+vendor-core-ade2edecaf4781c7.min.js.br:54 Autosave Restoring auto-saved data undefined
+vendor-core-ade2edecaf4781c7.min.js.br:54 Autosave Successfully applied auto-saved changes undefined
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Fullscreen] loadtime=27.66s maxmem=530350108
+/api/rev/YgMsCvIqt7DMpx0rIB8UXV/code_snapshot/f066590a8005a2ee87efb6781c0ec4ee30f7ebcb9d3704f787e0ed384c933a2b:1  Failed to load resource: the server responded with a status of 404 ()Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 Failed to fetch snapshot files: E: XHR for "/api/rev/YgMsCvIqt7DMpx0rIB8UXV/code_snapshot/f066590a8005a2ee87efb6781c0ec4ee30f7ebcb9d3704f787e0ed384c933a2b" failed with status 404
+    at C (3435-1e6f92413321c0ba.min.js.br:1135:13967)
+    at async Object.k [as get] (3435-1e6f92413321c0ba.min.js.br:1135:14350)
+    at async 627-9e369b8da0bb899d.min.js.br:3:24002
+    at async 627-9e369b8da0bb899d.min.js.br:12:272049
+    at async 627-9e369b8da0bb899d.min.js.br:3:24440
+    at async _ (627-9e369b8da0bb899d.min.js.br:12:271557)
+    at async 627-9e369b8da0bb899d.min.js.br:12:184255
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this warning
+/api/make/fetch_ds_code_gen_status:1  Failed to load resource: the server responded with a status of 400 ()Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 [devtools] Initialized LS
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Livegraph] Connection closed. Code: 1006, reason: 
+vendor-core-ade2edecaf4781c7.min.js.br:54 [MultiplayerSession] connecting to wss://www.figma.com/api/multiplayer/YgMsCvIqt7DMpx0rIB8UXV?role=editor&tracking_session_id=guISMrQMWT3JWqZd&version=151&recentReload=0&file-load-streaming-compression=&user-id=1575501824906211853&client_release=1a279600f2ee56ba1bd4f8a230d1c84e52af87d6&reconnect-key=6698c61578b884b79610620d7e188403ee459fd3&reconnect-sequence-number=7879&initialFileVersion=106&previousLoadMode=full&incremental-loading-validation=0
+/api/cortex/foundry/sync:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+2179-5414bc746bc7df54.min.js.br:70 WebSocket connection to 'wss://www.figma.com/api/livegraph?pv=1&pr=f0be18b5343b4edb&pt=1773143385&ph=-udwn-0XIlDADHpV6SZSCXfcePH40Ak-xWfgnd1RQ1M&userId=1575501824906211853&anonUserId=b6fc2af2-9dbc-46b3-943e-8c28446acf81&clientType=web&commitHash=1a279600f2ee56ba1bd4f8a230d1c84e52af87d6&clientUrl=https%3A%2F%2Fwww.figma.com%2Fmake%2FYgMsCvIqt7DMpx0rIB8UXV%2FAirtel-Champions-App-Web%3Fp%3Df%26t%3D8jAtGDngLc3Mqi6C-0&connectionType=reconnect&reconnect=1' failed: 
+r.Oh.isHidden @ 2179-5414bc746bc7df54.min.js.br:70Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Livegraph] Connection closed. Code: 1006, reason: 
+browser-intake-datadoghq.com/api/v2/rum?ddsource=browser&dd-api-key=pub3f6fa9c94d5ff85890f30fdc10b09c61&dd-evp-origin-version=6.25.2&dd-evp-origin=browser&dd-request-id=4745ecab-1b23-4125-abc9-e79ed2ecd558&dd-evp-encoding=deflate&batch_time=1773143625737&_dd.api=fetch:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+events.statsigapi.net/v1/rgstr:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+events.statsigapi.net/v1/rgstr:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+s3-alpha-sig.figma.com/img/1eb9/6df3/382352576c1285d99561412db34b4c4a?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=EQ6Ro9d0WT4tgGXyQtxdUtysKuYoQe0zkesnwp1cDKeQhBANxtss9IGiutyyQ3HnEznsV5AyoDChzNl4qOdJER35aXcqeuXxLyEjnzCbnxtodR9I1IxJb1X0p8wMZ2YTViIoyk3-29A6qrAOgvcp1h9oM5hLHPGSChgRxU0c7S9dMBl9FkXJWABUgZmVCx1zlLYryd0boNmgYJ7WPDn6L0~uqCeaIH~NCq~zRWI0mMndiGAI39BSJOLhdZaEc4N7u0iY60WP54T4AtVKS41YtZUGDEiZEkL2YJUAOdse7UXybCsUj~EGdGb1Ix5OgaESdbj3DdCo2hQcIXO5VVYTfA__:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/integrations/supabase/YgMsCvIqt7DMpx0rIB8UXV/existing_projects:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/web_logger/metrics/unsaved_changes_bell:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/cortex/foundry/keep-alive:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/cortex/foundry/keep-alive:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/web_logger/histogram_batched:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/web_logger/metrics_batched:1  Failed to load resource: net::ERR_NETWORK_CHANGEDUnderstand this error
+/api/web_logger/histogram_batched:1  Failed to load resource: net::ERR_NETWORK_CHANGEDUnderstand this error
+logs:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/resources?sort_by=all_time&resource_type=figmake_template&caller=make_templates_tooltip&team_id=1575501826901154020&page_size=1&include_content=true:1  Failed to load resource: net::ERR_NETWORK_CHANGEDUnderstand this error
+browser-intake-datadoghq.com/api/v2/rum?ddsource=browser&dd-api-key=pub3f6fa9c94d5ff85890f30fdc10b09c61&dd-evp-origin-version=6.25.2&dd-evp-origin=browser&dd-request-id=1e66d25c-63d2-46f3-94c2-aa879ada73ae&dd-evp-encoding=deflate&batch_time=1773143610478&_dd.api=fetch-keepalive:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+events.statsigapi.net/v1/rgstr:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+1709-a9e5b3918781030c.min.js.br:3 WebSocket connection to 'wss://www.figma.com/api/multiplayer/YgMsCvIqt7DMpx0rIB8UXV?role=editor&tracking_session_id=guISMrQMWT3JWqZd&version=151&recentReload=0&file-load-streaming-compression=&user-id=1575501824906211853&client_release=1a279600f2ee56ba1bd4f8a230d1c84e52af87d6&reconnect-key=6698c61578b884b79610620d7e188403ee459fd3&reconnect-sequence-number=7879&initialFileVersion=106&previousLoadMode=full&incremental-loading-validation=0' failed: 
+connect @ 1709-a9e5b3918781030c.min.js.br:3Understand this error
+2179-5414bc746bc7df54.min.js.br:70 WebSocket connection to 'wss://www.figma.com/api/livegraph?pv=1&pr=f0be18b5343b4edb&pt=1773143385&ph=-udwn-0XIlDADHpV6SZSCXfcePH40Ak-xWfgnd1RQ1M&userId=1575501824906211853&anonUserId=b6fc2af2-9dbc-46b3-943e-8c28446acf81&clientType=web&commitHash=1a279600f2ee56ba1bd4f8a230d1c84e52af87d6&clientUrl=https%3A%2F%2Fwww.figma.com%2Fmake%2FYgMsCvIqt7DMpx0rIB8UXV%2FAirtel-Champions-App-Web%3Fp%3Df%26t%3D8jAtGDngLc3Mqi6C-0&connectionType=reconnect&reconnect=2' failed: 
+r.Oh.isHidden @ 2179-5414bc746bc7df54.min.js.br:70Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Livegraph] Connection closed. Code: 1006, reason: 
+3435-1e6f92413321c0ba.min.js.br:1135 Uncaught (in promise) E: XHR for "https://www.figma.com/api/web_logger/metrics/unsaved_changes_bell" failed with status 0
+    at C (3435-1e6f92413321c0ba.min.js.br:1135:14273)
+    at async C.p [as crossOriginPost] (3435-1e6f92413321c0ba.min.js.br:1135:15291)
+    at async _ (3435-1e6f92413321c0ba.min.js.br:1096:85609)Understand this error
+/api/web_logger/metrics/web.cortex.error:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+3435-1e6f92413321c0ba.min.js.br:1135 Uncaught (in promise) E: XHR for "https://www.figma.com/api/web_logger/metrics/web.cortex.error" failed with status 0
+    at C (3435-1e6f92413321c0ba.min.js.br:1135:14273)
+    at async C.p [as crossOriginPost] (3435-1e6f92413321c0ba.min.js.br:1135:15291)
+    at async _ (3435-1e6f92413321c0ba.min.js.br:1096:85609)Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 [MultiplayerSession] connecting to wss://www.figma.com/api/multiplayer/YgMsCvIqt7DMpx0rIB8UXV?role=editor&tracking_session_id=guISMrQMWT3JWqZd&version=151&recentReload=0&file-load-streaming-compression=&user-id=1575501824906211853&client_release=1a279600f2ee56ba1bd4f8a230d1c84e52af87d6&reconnect-key=6698c61578b884b79610620d7e188403ee459fd3&reconnect-sequence-number=7879&initialFileVersion=106&previousLoadMode=full&incremental-loading-validation=0
+1709-a9e5b3918781030c.min.js.br:3 WebSocket connection to 'wss://www.figma.com/api/multiplayer/YgMsCvIqt7DMpx0rIB8UXV?role=editor&tracking_session_id=guISMrQMWT3JWqZd&version=151&recentReload=0&file-load-streaming-compression=&user-id=1575501824906211853&client_release=1a279600f2ee56ba1bd4f8a230d1c84e52af87d6&reconnect-key=6698c61578b884b79610620d7e188403ee459fd3&reconnect-sequence-number=7879&initialFileVersion=106&previousLoadMode=full&incremental-loading-validation=0' failed: WebSocket is closed before the connection is established.
+T @ 1709-a9e5b3918781030c.min.js.br:3Understand this warning
+/api/cortex/foundry/keep-alive:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 [MultiplayerSession] connecting to wss://www.figma.com/api/multiplayer/YgMsCvIqt7DMpx0rIB8UXV?role=editor&tracking_session_id=guISMrQMWT3JWqZd&version=151&recentReload=0&file-load-streaming-compression=&user-id=1575501824906211853&client_release=1a279600f2ee56ba1bd4f8a230d1c84e52af87d6&reconnect-key=6698c61578b884b79610620d7e188403ee459fd3&reconnect-sequence-number=7879&initialFileVersion=106&previousLoadMode=full&incremental-loading-validation=0
+browser-intake-datadoghq.com/api/v2/rum?ddsource=browser&dd-api-key=pub3f6fa9c94d5ff85890f30fdc10b09c61&dd-evp-origin-version=6.25.2&dd-evp-origin=browser&dd-request-id=9db752eb-f7ec-4b0b-9d8d-cf3a433ad925&dd-evp-encoding=deflate&batch_time=1773143653781&_dd.api=fetch:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+browser-intake-datadoghq.com/api/v2/rum?ddsource=browser&dd-api-key=pub3f6fa9c94d5ff85890f30fdc10b09c61&dd-evp-origin-version=6.25.2&dd-evp-origin=browser&dd-request-id=42dcc9b8-1099-46f8-9231-9f7fb203441c&dd-evp-encoding=deflate&batch_time=1773143655738&_dd.api=fetch-keepalive:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+events.statsigapi.net/v1/rgstr:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+s3-alpha-sig.figma.com/img/1eb9/6df3/382352576c1285d99561412db34b4c4a?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=EQ6Ro9d0WT4tgGXyQtxdUtysKuYoQe0zkesnwp1cDKeQhBANxtss9IGiutyyQ3HnEznsV5AyoDChzNl4qOdJER35aXcqeuXxLyEjnzCbnxtodR9I1IxJb1X0p8wMZ2YTViIoyk3-29A6qrAOgvcp1h9oM5hLHPGSChgRxU0c7S9dMBl9FkXJWABUgZmVCx1zlLYryd0boNmgYJ7WPDn6L0~uqCeaIH~NCq~zRWI0mMndiGAI39BSJOLhdZaEc4N7u0iY60WP54T4AtVKS41YtZUGDEiZEkL2YJUAOdse7UXybCsUj~EGdGb1Ix5OgaESdbj3DdCo2hQcIXO5VVYTfA__:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+events.statsigapi.net/v1/rgstr:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+events.statsigapi.net/v1/rgstr:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+2179-5414bc746bc7df54.min.js.br:70 WebSocket connection to 'wss://www.figma.com/api/livegraph?pv=1&pr=f0be18b5343b4edb&pt=1773143385&ph=-udwn-0XIlDADHpV6SZSCXfcePH40Ak-xWfgnd1RQ1M&userId=1575501824906211853&anonUserId=b6fc2af2-9dbc-46b3-943e-8c28446acf81&clientType=web&commitHash=1a279600f2ee56ba1bd4f8a230d1c84e52af87d6&clientUrl=https%3A%2F%2Fwww.figma.com%2Fmake%2FYgMsCvIqt7DMpx0rIB8UXV%2FAirtel-Champions-App-Web%3Fp%3Df%26t%3D8jAtGDngLc3Mqi6C-0&connectionType=reconnect&reconnect=3' failed: 
+r.Oh.isHidden @ 2179-5414bc746bc7df54.min.js.br:70Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Livegraph] Connection closed. Code: 1006, reason: 
+1709-a9e5b3918781030c.min.js.br:3 WebSocket connection to 'wss://www.figma.com/api/multiplayer/YgMsCvIqt7DMpx0rIB8UXV?role=editor&tracking_session_id=guISMrQMWT3JWqZd&version=151&recentReload=0&file-load-streaming-compression=&user-id=1575501824906211853&client_release=1a279600f2ee56ba1bd4f8a230d1c84e52af87d6&reconnect-key=6698c61578b884b79610620d7e188403ee459fd3&reconnect-sequence-number=7879&initialFileVersion=106&previousLoadMode=full&incremental-loading-validation=0' failed: 
+connect @ 1709-a9e5b3918781030c.min.js.br:3Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 [MultiplayerSession] connecting to wss://www.figma.com/api/multiplayer/YgMsCvIqt7DMpx0rIB8UXV?role=editor&tracking_session_id=guISMrQMWT3JWqZd&version=151&recentReload=0&file-load-streaming-compression=&user-id=1575501824906211853&client_release=1a279600f2ee56ba1bd4f8a230d1c84e52af87d6&reconnect-key=6698c61578b884b79610620d7e188403ee459fd3&reconnect-sequence-number=7879&initialFileVersion=106&previousLoadMode=full&incremental-loading-validation=0
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/web_logger/histogram_batched:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/cortex/foundry/keep-alive:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/web_logger/metrics/web.cortex.error:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+logs:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/web_logger/metrics/web.cortex.error:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/web_logger/histogram_batched:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+2179-5414bc746bc7df54.min.js.br:70 WebSocket connection to 'wss://www.figma.com/api/livegraph?pv=1&pr=f0be18b5343b4edb&pt=1773143385&ph=-udwn-0XIlDADHpV6SZSCXfcePH40Ak-xWfgnd1RQ1M&userId=1575501824906211853&anonUserId=b6fc2af2-9dbc-46b3-943e-8c28446acf81&clientType=web&commitHash=1a279600f2ee56ba1bd4f8a230d1c84e52af87d6&clientUrl=https%3A%2F%2Fwww.figma.com%2Fmake%2FYgMsCvIqt7DMpx0rIB8UXV%2FAirtel-Champions-App-Web%3Fp%3Df%26t%3D8jAtGDngLc3Mqi6C-0&connectionType=reconnect&reconnect=4' failed: 
+r.Oh.isHidden @ 2179-5414bc746bc7df54.min.js.br:70Understand this error
+1709-a9e5b3918781030c.min.js.br:3 WebSocket connection to 'wss://www.figma.com/api/multiplayer/YgMsCvIqt7DMpx0rIB8UXV?role=editor&tracking_session_id=guISMrQMWT3JWqZd&version=151&recentReload=0&file-load-streaming-compression=&user-id=1575501824906211853&client_release=1a279600f2ee56ba1bd4f8a230d1c84e52af87d6&reconnect-key=6698c61578b884b79610620d7e188403ee459fd3&reconnect-sequence-number=7879&initialFileVersion=106&previousLoadMode=full&incremental-loading-validation=0' failed: 
+connect @ 1709-a9e5b3918781030c.min.js.br:3Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 E: XHR for "https://www.figma.com/api/web_logger/histogram_batched" failed with status 0
+    at C (3435-1e6f92413321c0ba.min.js.br:1135:14273)
+    at async C.p [as crossOriginPost] (3435-1e6f92413321c0ba.min.js.br:1135:15291)
+    at async A (3435-1e6f92413321c0ba.min.js.br:1096:86767)
+    at async Promise.all (/make/YgMsCvIqt7DMpx0rIB8UXV/index 1)
+    at async sendBatchedEvents (3435-1e6f92413321c0ba.min.js.br:393:196095)
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Livegraph] Connection closed. Code: 1006, reason: 
+23435-1e6f92413321c0ba.min.js.br:1135 Uncaught (in promise) E: XHR for "https://www.figma.com/api/web_logger/metrics/web.cortex.error" failed with status 0
+    at C (3435-1e6f92413321c0ba.min.js.br:1135:14273)
+    at async C.p [as crossOriginPost] (3435-1e6f92413321c0ba.min.js.br:1135:15291)
+    at async _ (3435-1e6f92413321c0ba.min.js.br:1096:85609)Understand this error
+browser-intake-datadoghq.com/api/v2/rum?ddsource=browser&dd-api-key=pub3f6fa9c94d5ff85890f30fdc10b09c61&dd-evp-origin-version=6.25.2&dd-evp-origin=browser&dd-request-id=3ad2dd2f-f10e-4060-90f8-99857add9a32&dd-evp-encoding=deflate&batch_time=1773143667751&_dd.api=fetch:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+s3-alpha-sig.figma.com/img/1eb9/6df3/382352576c1285d99561412db34b4c4a?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=EQ6Ro9d0WT4tgGXyQtxdUtysKuYoQe0zkesnwp1cDKeQhBANxtss9IGiutyyQ3HnEznsV5AyoDChzNl4qOdJER35aXcqeuXxLyEjnzCbnxtodR9I1IxJb1X0p8wMZ2YTViIoyk3-29A6qrAOgvcp1h9oM5hLHPGSChgRxU0c7S9dMBl9FkXJWABUgZmVCx1zlLYryd0boNmgYJ7WPDn6L0~uqCeaIH~NCq~zRWI0mMndiGAI39BSJOLhdZaEc4N7u0iY60WP54T4AtVKS41YtZUGDEiZEkL2YJUAOdse7UXybCsUj~EGdGb1Ix5OgaESdbj3DdCo2hQcIXO5VVYTfA__:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+events.statsigapi.net/v1/rgstr:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+events.statsigapi.net/v1/rgstr:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+events.statsigapi.net/v1/rgstr:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 [MultiplayerSession] connecting to wss://www.figma.com/api/multiplayer/YgMsCvIqt7DMpx0rIB8UXV?role=editor&tracking_session_id=guISMrQMWT3JWqZd&version=151&recentReload=0&file-load-streaming-compression=&user-id=1575501824906211853&client_release=1a279600f2ee56ba1bd4f8a230d1c84e52af87d6&reconnect-key=6698c61578b884b79610620d7e188403ee459fd3&reconnect-sequence-number=7879&initialFileVersion=106&previousLoadMode=full&incremental-loading-validation=0
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/web_logger/metrics/web.cortex.error:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/web_logger/metrics_batched:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/resources?sort_by=all_time&resource_type=figmake_template&caller=make_templates_tooltip&team_id=1575501826901154020&page_size=1&include_content=true:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/integrations/supabase/YgMsCvIqt7DMpx0rIB8UXV/existing_projects:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/cortex/foundry/keep-alive:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+1709-a9e5b3918781030c.min.js.br:3 WebSocket connection to 'wss://www.figma.com/api/multiplayer/YgMsCvIqt7DMpx0rIB8UXV?role=editor&tracking_session_id=guISMrQMWT3JWqZd&version=151&recentReload=0&file-load-streaming-compression=&user-id=1575501824906211853&client_release=1a279600f2ee56ba1bd4f8a230d1c84e52af87d6&reconnect-key=6698c61578b884b79610620d7e188403ee459fd3&reconnect-sequence-number=7879&initialFileVersion=106&previousLoadMode=full&incremental-loading-validation=0' failed: 
+connect @ 1709-a9e5b3918781030c.min.js.br:3Understand this error
+2179-5414bc746bc7df54.min.js.br:70 WebSocket connection to 'wss://www.figma.com/api/livegraph?pv=1&pr=f0be18b5343b4edb&pt=1773143385&ph=-udwn-0XIlDADHpV6SZSCXfcePH40Ak-xWfgnd1RQ1M&userId=1575501824906211853&anonUserId=b6fc2af2-9dbc-46b3-943e-8c28446acf81&clientType=web&commitHash=1a279600f2ee56ba1bd4f8a230d1c84e52af87d6&clientUrl=https%3A%2F%2Fwww.figma.com%2Fmake%2FYgMsCvIqt7DMpx0rIB8UXV%2FAirtel-Champions-App-Web%3Fp%3Df%26t%3D8jAtGDngLc3Mqi6C-0&connectionType=reconnect&reconnect=5' failed: 
+r.Oh.isHidden @ 2179-5414bc746bc7df54.min.js.br:70Understand this error
+3435-1e6f92413321c0ba.min.js.br:1135 Uncaught (in promise) E: XHR for "https://www.figma.com/api/web_logger/metrics/web.cortex.error" failed with status 0
+    at C (3435-1e6f92413321c0ba.min.js.br:1135:14273)
+    at async C.p [as crossOriginPost] (3435-1e6f92413321c0ba.min.js.br:1135:15291)
+    at async _ (3435-1e6f92413321c0ba.min.js.br:1096:85609)Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Livegraph] Connection closed. Code: 1006, reason: 
+browser-intake-datadoghq.com/api/v2/rum?ddsource=browser&dd-api-key=pub3f6fa9c94d5ff85890f30fdc10b09c61&dd-evp-origin-version=6.25.2&dd-evp-origin=browser&dd-request-id=92e84dd9-7e5f-4bb5-bf41-60b95c7b665c&dd-evp-encoding=deflate&batch_time=1773143680883&_dd.api=fetch-keepalive&_dd.retry_count=1&_dd.retry_after=0:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+events.statsigapi.net/v1/rgstr:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+s3-alpha-sig.figma.com/img/1eb9/6df3/382352576c1285d99561412db34b4c4a?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=EQ6Ro9d0WT4tgGXyQtxdUtysKuYoQe0zkesnwp1cDKeQhBANxtss9IGiutyyQ3HnEznsV5AyoDChzNl4qOdJER35aXcqeuXxLyEjnzCbnxtodR9I1IxJb1X0p8wMZ2YTViIoyk3-29A6qrAOgvcp1h9oM5hLHPGSChgRxU0c7S9dMBl9FkXJWABUgZmVCx1zlLYryd0boNmgYJ7WPDn6L0~uqCeaIH~NCq~zRWI0mMndiGAI39BSJOLhdZaEc4N7u0iY60WP54T4AtVKS41YtZUGDEiZEkL2YJUAOdse7UXybCsUj~EGdGb1Ix5OgaESdbj3DdCo2hQcIXO5VVYTfA__:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+events.statsigapi.net/v1/rgstr:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+events.statsigapi.net/v1/rgstr:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 [MultiplayerSession] connecting to wss://www.figma.com/api/multiplayer/YgMsCvIqt7DMpx0rIB8UXV?role=editor&tracking_session_id=guISMrQMWT3JWqZd&version=151&recentReload=0&file-load-streaming-compression=&user-id=1575501824906211853&client_release=1a279600f2ee56ba1bd4f8a230d1c84e52af87d6&reconnect-key=6698c61578b884b79610620d7e188403ee459fd3&reconnect-sequence-number=7879&initialFileVersion=106&previousLoadMode=full&incremental-loading-validation=0
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/web_logger/histogram_batched:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/web_logger/metrics_batched:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/web_logger/histogram_batched:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/web_logger/metrics/web.cortex.error:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+logs:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/web_logger/metrics_batched:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+2179-5414bc746bc7df54.min.js.br:70 WebSocket connection to 'wss://www.figma.com/api/livegraph?pv=1&pr=f0be18b5343b4edb&pt=1773143385&ph=-udwn-0XIlDADHpV6SZSCXfcePH40Ak-xWfgnd1RQ1M&userId=1575501824906211853&anonUserId=b6fc2af2-9dbc-46b3-943e-8c28446acf81&clientType=web&commitHash=1a279600f2ee56ba1bd4f8a230d1c84e52af87d6&clientUrl=https%3A%2F%2Fwww.figma.com%2Fmake%2FYgMsCvIqt7DMpx0rIB8UXV%2FAirtel-Champions-App-Web%3Fp%3Df%26t%3D8jAtGDngLc3Mqi6C-0&connectionType=reconnect&reconnect=6' failed: 
+r.Oh.isHidden @ 2179-5414bc746bc7df54.min.js.br:70Understand this error
+1709-a9e5b3918781030c.min.js.br:3 WebSocket connection to 'wss://www.figma.com/api/multiplayer/YgMsCvIqt7DMpx0rIB8UXV?role=editor&tracking_session_id=guISMrQMWT3JWqZd&version=151&recentReload=0&file-load-streaming-compression=&user-id=1575501824906211853&client_release=1a279600f2ee56ba1bd4f8a230d1c84e52af87d6&reconnect-key=6698c61578b884b79610620d7e188403ee459fd3&reconnect-sequence-number=7879&initialFileVersion=106&previousLoadMode=full&incremental-loading-validation=0' failed: 
+connect @ 1709-a9e5b3918781030c.min.js.br:3Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Livegraph] Connection closed. Code: 1006, reason: 
+3435-1e6f92413321c0ba.min.js.br:1135 Uncaught (in promise) E: XHR for "https://www.figma.com/api/web_logger/metrics/web.cortex.error" failed with status 0
+    at C (3435-1e6f92413321c0ba.min.js.br:1135:14273)
+    at async C.p [as crossOriginPost] (3435-1e6f92413321c0ba.min.js.br:1135:15291)
+    at async _ (3435-1e6f92413321c0ba.min.js.br:1096:85609)Understand this error
+browser-intake-datadoghq.com/api/v2/rum?ddsource=browser&dd-api-key=pub3f6fa9c94d5ff85890f30fdc10b09c61&dd-evp-origin-version=6.25.2&dd-evp-origin=browser&dd-request-id=e6a970c7-5b29-4f09-9926-85f9988f882c&dd-evp-encoding=deflate&batch_time=1773143692025&_dd.api=fetch&_dd.retry_count=1&_dd.retry_after=0:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+statsigapi.net/v1/sdk_exception:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+s3-alpha-sig.figma.com/img/0078/3e36/0118346d458b5faef2c6d7fc769edd97?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=qKrtdeHPmVp5-Hmd0Yfms0b2Dl8XMMr6ruvuLC9QSgPgDVz67u38P1G5ahOLRBe6FJLUTgwoWCEN02nrVwGnCeD26JgIuq4L9yoxG3Ji2NE~peXt2eLP0Sdz8vYCA54~5b6mAcBmCtXmMQJ4zQzGc2Jd~RLXx3aH7e8VsmUcPZQ9gwrrAzlCXKxSq1C9hcE5WsG~voy86zXk9fNwBhz~5ywdw6ZNrkhouLeMRVqLlHfBeJx~3DxRxnvL2d4GB8xSC6QabIvfhKH82fYI6ro4GrUIYk7ter37-oPHLx4m7pnIV-y5aJdxmF3oN4M8e1AIQChx3L09q37xlKgobds0NQ__:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+s3-alpha-sig.figma.com/img/00d6/50c1/179049887ec497842a09e153ea34826b?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=MjWroPN6ZV6RobAjbyGaDtKZ~Z4pPLwAuW3tcYBsSFjqT1kvm1quLN-Kc1neXLvmxGwyG8RA8hkxcCIqnxTl7eQxMl67DlBDmjfL5Ff0~6wlVy0-rEKBs9oidBP6h39KZrpzTDeeyTDjf7LYWfgZx2MDjqHVzwaDkoy6MEvG80RlmL0m0PigwF8Ln6BgbwejWKdh4D6PFYawd5vsZG4IVdMq3zjfdlo8VCm9s3oAgOSjJUfezxN~SdTmQXMKRi3CFcUKAJ1arcIiwwzDKeZvPq1OjrafdFg-sLAG8xa8d0odlad8ywCRhv2Kn-WR07Ljzff6Wd~3Ji9mBdE5uKOY1w__:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+s3-alpha-sig.figma.com/img/0144/59ef/ec509aac2f334b6e62b3c0884297866b?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=gT6eqElqwssf1D4WG5oRu2csF4k96rctoWfzuLahXg6ffX9N4CfGIwCk06MIoaraI0ewjqGHJLImhJ7~KmCeMbfXwXrbzWmYspGvABvDdmqULTC6a74pJbIywz3x-L3n6~neuqoDpgowesMMSFIsz1NN5Xo2ArjEubdqT4yh-aTN5rM3z4vnARq1bu5SAtw7HrpROTA8i8y0lBVfcp-8yPvpfQKYqKQvDACL81QitG4gu5zUvY15LxdZsg76o0VDJxuCs7WC6n0XYjNCvGclTzE7vI8WjpAob8tICH41FbqUMv46QvP~aJdBwOoPApSnkSfWj8~JlhZxZIckuEHCtA__:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+s3-figma-force-client-reloads-production.figma.com/periodic_refresh.json:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/cortex/foundry/keep-alive:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/integrations/supabase/YgMsCvIqt7DMpx0rIB8UXV/existing_projects:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/resources?sort_by=all_time&resource_type=figmake_template&caller=make_templates_tooltip&team_id=1575501826901154020&page_size=1&include_content=true:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/web_logger/metrics/active_session:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/web_logger/metrics/web.cortex.error:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+2179-5414bc746bc7df54.min.js.br:70 WebSocket connection to 'wss://www.figma.com/api/livegraph?pv=1&pr=f0be18b5343b4edb&pt=1773143385&ph=-udwn-0XIlDADHpV6SZSCXfcePH40Ak-xWfgnd1RQ1M&userId=1575501824906211853&anonUserId=b6fc2af2-9dbc-46b3-943e-8c28446acf81&clientType=web&commitHash=1a279600f2ee56ba1bd4f8a230d1c84e52af87d6&clientUrl=https%3A%2F%2Fwww.figma.com%2Fmake%2FYgMsCvIqt7DMpx0rIB8UXV%2FAirtel-Champions-App-Web%3Fp%3Df%26t%3D8jAtGDngLc3Mqi6C-0&connectionType=reconnect&reconnect=7' failed: 
+r.Oh.isHidden @ 2179-5414bc746bc7df54.min.js.br:70Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Livegraph] Connection closed. Code: 1006, reason: 
+3435-1e6f92413321c0ba.min.js.br:1135 Uncaught (in promise) E: XHR for "https://www.figma.com/api/web_logger/metrics/active_session" failed with status 0
+    at C (3435-1e6f92413321c0ba.min.js.br:1135:14273)
+    at async C.p [as crossOriginPost] (3435-1e6f92413321c0ba.min.js.br:1135:15291)
+    at async _ (3435-1e6f92413321c0ba.min.js.br:1096:85609)Understand this error
+3435-1e6f92413321c0ba.min.js.br:1135 Uncaught (in promise) E: XHR for "https://www.figma.com/api/web_logger/metrics/web.cortex.error" failed with status 0
+    at C (3435-1e6f92413321c0ba.min.js.br:1135:14273)
+    at async C.p [as crossOriginPost] (3435-1e6f92413321c0ba.min.js.br:1135:15291)
+    at async _ (3435-1e6f92413321c0ba.min.js.br:1096:85609)Understand this error
+s3-alpha-sig.figma.com/img/0078/3e36/0118346d458b5faef2c6d7fc769edd97?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=qKrtdeHPmVp5-Hmd0Yfms0b2Dl8XMMr6ruvuLC9QSgPgDVz67u38P1G5ahOLRBe6FJLUTgwoWCEN02nrVwGnCeD26JgIuq4L9yoxG3Ji2NE~peXt2eLP0Sdz8vYCA54~5b6mAcBmCtXmMQJ4zQzGc2Jd~RLXx3aH7e8VsmUcPZQ9gwrrAzlCXKxSq1C9hcE5WsG~voy86zXk9fNwBhz~5ywdw6ZNrkhouLeMRVqLlHfBeJx~3DxRxnvL2d4GB8xSC6QabIvfhKH82fYI6ro4GrUIYk7ter37-oPHLx4m7pnIV-y5aJdxmF3oN4M8e1AIQChx3L09q37xlKgobds0NQ__:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+s3-alpha-sig.figma.com/img/0144/59ef/ec509aac2f334b6e62b3c0884297866b?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=gT6eqElqwssf1D4WG5oRu2csF4k96rctoWfzuLahXg6ffX9N4CfGIwCk06MIoaraI0ewjqGHJLImhJ7~KmCeMbfXwXrbzWmYspGvABvDdmqULTC6a74pJbIywz3x-L3n6~neuqoDpgowesMMSFIsz1NN5Xo2ArjEubdqT4yh-aTN5rM3z4vnARq1bu5SAtw7HrpROTA8i8y0lBVfcp-8yPvpfQKYqKQvDACL81QitG4gu5zUvY15LxdZsg76o0VDJxuCs7WC6n0XYjNCvGclTzE7vI8WjpAob8tICH41FbqUMv46QvP~aJdBwOoPApSnkSfWj8~JlhZxZIckuEHCtA__:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+s3-alpha-sig.figma.com/img/00d6/50c1/179049887ec497842a09e153ea34826b?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=MjWroPN6ZV6RobAjbyGaDtKZ~Z4pPLwAuW3tcYBsSFjqT1kvm1quLN-Kc1neXLvmxGwyG8RA8hkxcCIqnxTl7eQxMl67DlBDmjfL5Ff0~6wlVy0-rEKBs9oidBP6h39KZrpzTDeeyTDjf7LYWfgZx2MDjqHVzwaDkoy6MEvG80RlmL0m0PigwF8Ln6BgbwejWKdh4D6PFYawd5vsZG4IVdMq3zjfdlo8VCm9s3oAgOSjJUfezxN~SdTmQXMKRi3CFcUKAJ1arcIiwwzDKeZvPq1OjrafdFg-sLAG8xa8d0odlad8ywCRhv2Kn-WR07Ljzff6Wd~3Ji9mBdE5uKOY1w__:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+browser-intake-datadoghq.com/api/v2/rum?ddsource=browser&dd-api-key=pub3f6fa9c94d5ff85890f30fdc10b09c61&dd-evp-origin-version=6.25.2&dd-evp-origin=browser&dd-request-id=515dec98-03b8-4fe6-a499-21a71b9c3c2a&dd-evp-encoding=deflate&batch_time=1773143712080&_dd.api=fetch-keepalive&_dd.retry_count=2&_dd.retry_after=0:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+histogram_batched:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+histogram_batched:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/web_logger/metrics_batched:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/web_logger/metrics_batched:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+logs:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 E: XHR for "https://www.figma.com/api/web_logger/histogram_batched" failed with status 0
+    at C (3435-1e6f92413321c0ba.min.js.br:1135:14273)
+    at async C.p [as crossOriginPost] (3435-1e6f92413321c0ba.min.js.br:1135:15291)
+    at async A (3435-1e6f92413321c0ba.min.js.br:1096:86767)
+    at async Promise.all (/make/YgMsCvIqt7DMpx0rIB8UXV/index 1)
+    at async sendBatchedEvents (3435-1e6f92413321c0ba.min.js.br:393:196095)
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this error
+browser-intake-datadoghq.com/api/v2/rum?ddsource=browser&dd-api-key=pub3f6fa9c94d5ff85890f30fdc10b09c61&dd-evp-origin-version=6.25.2&dd-evp-origin=browser&dd-request-id=7fe47d3a-2991-48a3-b932-303692dfbd47&dd-evp-encoding=deflate&batch_time=1773143722342&_dd.api=fetch&_dd.retry_count=2&_dd.retry_after=0:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+s3-alpha-sig.figma.com/img/0144/59ef/ec509aac2f334b6e62b3c0884297866b?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=gT6eqElqwssf1D4WG5oRu2csF4k96rctoWfzuLahXg6ffX9N4CfGIwCk06MIoaraI0ewjqGHJLImhJ7~KmCeMbfXwXrbzWmYspGvABvDdmqULTC6a74pJbIywz3x-L3n6~neuqoDpgowesMMSFIsz1NN5Xo2ArjEubdqT4yh-aTN5rM3z4vnARq1bu5SAtw7HrpROTA8i8y0lBVfcp-8yPvpfQKYqKQvDACL81QitG4gu5zUvY15LxdZsg76o0VDJxuCs7WC6n0XYjNCvGclTzE7vI8WjpAob8tICH41FbqUMv46QvP~aJdBwOoPApSnkSfWj8~JlhZxZIckuEHCtA__:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+s3-alpha-sig.figma.com/img/0078/3e36/0118346d458b5faef2c6d7fc769edd97?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=qKrtdeHPmVp5-Hmd0Yfms0b2Dl8XMMr6ruvuLC9QSgPgDVz67u38P1G5ahOLRBe6FJLUTgwoWCEN02nrVwGnCeD26JgIuq4L9yoxG3Ji2NE~peXt2eLP0Sdz8vYCA54~5b6mAcBmCtXmMQJ4zQzGc2Jd~RLXx3aH7e8VsmUcPZQ9gwrrAzlCXKxSq1C9hcE5WsG~voy86zXk9fNwBhz~5ywdw6ZNrkhouLeMRVqLlHfBeJx~3DxRxnvL2d4GB8xSC6QabIvfhKH82fYI6ro4GrUIYk7ter37-oPHLx4m7pnIV-y5aJdxmF3oN4M8e1AIQChx3L09q37xlKgobds0NQ__:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+s3-alpha-sig.figma.com/img/00d6/50c1/179049887ec497842a09e153ea34826b?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=MjWroPN6ZV6RobAjbyGaDtKZ~Z4pPLwAuW3tcYBsSFjqT1kvm1quLN-Kc1neXLvmxGwyG8RA8hkxcCIqnxTl7eQxMl67DlBDmjfL5Ff0~6wlVy0-rEKBs9oidBP6h39KZrpzTDeeyTDjf7LYWfgZx2MDjqHVzwaDkoy6MEvG80RlmL0m0PigwF8Ln6BgbwejWKdh4D6PFYawd5vsZG4IVdMq3zjfdlo8VCm9s3oAgOSjJUfezxN~SdTmQXMKRi3CFcUKAJ1arcIiwwzDKeZvPq1OjrafdFg-sLAG8xa8d0odlad8ywCRhv2Kn-WR07Ljzff6Wd~3Ji9mBdE5uKOY1w__:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/web_logger/metrics/web.cortex.error:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/cortex/foundry/keep-alive:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/integrations/supabase/YgMsCvIqt7DMpx0rIB8UXV/existing_projects:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/resources?sort_by=all_time&resource_type=figmake_template&caller=make_templates_tooltip&team_id=1575501826901154020&page_size=1&include_content=true:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+2179-5414bc746bc7df54.min.js.br:70 WebSocket connection to 'wss://www.figma.com/api/livegraph?pv=1&pr=f0be18b5343b4edb&pt=1773143385&ph=-udwn-0XIlDADHpV6SZSCXfcePH40Ak-xWfgnd1RQ1M&userId=1575501824906211853&anonUserId=b6fc2af2-9dbc-46b3-943e-8c28446acf81&clientType=web&commitHash=1a279600f2ee56ba1bd4f8a230d1c84e52af87d6&clientUrl=https%3A%2F%2Fwww.figma.com%2Fmake%2FYgMsCvIqt7DMpx0rIB8UXV%2FAirtel-Champions-App-Web%3Fp%3Df%26t%3D8jAtGDngLc3Mqi6C-0&connectionType=reconnect&reconnect=8' failed: 
+r.Oh.isHidden @ 2179-5414bc746bc7df54.min.js.br:70Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Livegraph] Connection closed. Code: 1006, reason: 
+3435-1e6f92413321c0ba.min.js.br:1135 Uncaught (in promise) E: XHR for "https://www.figma.com/api/web_logger/metrics/web.cortex.error" failed with status 0
+    at C (3435-1e6f92413321c0ba.min.js.br:1135:14273)
+    at async C.p [as crossOriginPost] (3435-1e6f92413321c0ba.min.js.br:1135:15291)
+    at async _ (3435-1e6f92413321c0ba.min.js.br:1096:85609)Understand this error
+s3-alpha-sig.figma.com/img/0144/59ef/ec509aac2f334b6e62b3c0884297866b?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=gT6eqElqwssf1D4WG5oRu2csF4k96rctoWfzuLahXg6ffX9N4CfGIwCk06MIoaraI0ewjqGHJLImhJ7~KmCeMbfXwXrbzWmYspGvABvDdmqULTC6a74pJbIywz3x-L3n6~neuqoDpgowesMMSFIsz1NN5Xo2ArjEubdqT4yh-aTN5rM3z4vnARq1bu5SAtw7HrpROTA8i8y0lBVfcp-8yPvpfQKYqKQvDACL81QitG4gu5zUvY15LxdZsg76o0VDJxuCs7WC6n0XYjNCvGclTzE7vI8WjpAob8tICH41FbqUMv46QvP~aJdBwOoPApSnkSfWj8~JlhZxZIckuEHCtA__:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+s3-alpha-sig.figma.com/img/0078/3e36/0118346d458b5faef2c6d7fc769edd97?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=qKrtdeHPmVp5-Hmd0Yfms0b2Dl8XMMr6ruvuLC9QSgPgDVz67u38P1G5ahOLRBe6FJLUTgwoWCEN02nrVwGnCeD26JgIuq4L9yoxG3Ji2NE~peXt2eLP0Sdz8vYCA54~5b6mAcBmCtXmMQJ4zQzGc2Jd~RLXx3aH7e8VsmUcPZQ9gwrrAzlCXKxSq1C9hcE5WsG~voy86zXk9fNwBhz~5ywdw6ZNrkhouLeMRVqLlHfBeJx~3DxRxnvL2d4GB8xSC6QabIvfhKH82fYI6ro4GrUIYk7ter37-oPHLx4m7pnIV-y5aJdxmF3oN4M8e1AIQChx3L09q37xlKgobds0NQ__:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+s3-alpha-sig.figma.com/img/00d6/50c1/179049887ec497842a09e153ea34826b?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=MjWroPN6ZV6RobAjbyGaDtKZ~Z4pPLwAuW3tcYBsSFjqT1kvm1quLN-Kc1neXLvmxGwyG8RA8hkxcCIqnxTl7eQxMl67DlBDmjfL5Ff0~6wlVy0-rEKBs9oidBP6h39KZrpzTDeeyTDjf7LYWfgZx2MDjqHVzwaDkoy6MEvG80RlmL0m0PigwF8Ln6BgbwejWKdh4D6PFYawd5vsZG4IVdMq3zjfdlo8VCm9s3oAgOSjJUfezxN~SdTmQXMKRi3CFcUKAJ1arcIiwwzDKeZvPq1OjrafdFg-sLAG8xa8d0odlad8ywCRhv2Kn-WR07Ljzff6Wd~3Ji9mBdE5uKOY1w__:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+browser-intake-datadoghq.com/api/v2/rum?ddsource=browser&dd-api-key=pub3f6fa9c94d5ff85890f30fdc10b09c61&dd-evp-origin-version=6.25.2&dd-evp-origin=browser&dd-request-id=96bd44a9-5026-4a94-aa8d-d30fcc15dd84&dd-evp-encoding=deflate&batch_time=1773143738475&_dd.api=fetch-keepalive&_dd.retry_count=3&_dd.retry_after=0:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+histogram_batched:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/cortex/foundry/keep-alive:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/web_logger/metrics_batched:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+logs:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+browser-intake-datadoghq.com/api/v2/rum?ddsource=browser&dd-api-key=pub3f6fa9c94d5ff85890f30fdc10b09c61&dd-evp-origin-version=6.25.2&dd-evp-origin=browser&dd-request-id=f835250f-b342-439a-8644-101a4a3d20bc&dd-evp-encoding=deflate&batch_time=1773143746605&_dd.api=fetch&_dd.retry_count=3&_dd.retry_after=0:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+s3-alpha-sig.figma.com/img/1eb9/6df3/382352576c1285d99561412db34b4c4a?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=EQ6Ro9d0WT4tgGXyQtxdUtysKuYoQe0zkesnwp1cDKeQhBANxtss9IGiutyyQ3HnEznsV5AyoDChzNl4qOdJER35aXcqeuXxLyEjnzCbnxtodR9I1IxJb1X0p8wMZ2YTViIoyk3-29A6qrAOgvcp1h9oM5hLHPGSChgRxU0c7S9dMBl9FkXJWABUgZmVCx1zlLYryd0boNmgYJ7WPDn6L0~uqCeaIH~NCq~zRWI0mMndiGAI39BSJOLhdZaEc4N7u0iY60WP54T4AtVKS41YtZUGDEiZEkL2YJUAOdse7UXybCsUj~EGdGb1Ix5OgaESdbj3DdCo2hQcIXO5VVYTfA__:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/web_logger/metrics/web.cortex.error:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+3435-1e6f92413321c0ba.min.js.br:1135 Uncaught (in promise) E: XHR for "https://www.figma.com/api/web_logger/metrics/web.cortex.error" failed with status 0
+    at C (3435-1e6f92413321c0ba.min.js.br:1135:14273)
+    at async C.p [as crossOriginPost] (3435-1e6f92413321c0ba.min.js.br:1135:15291)
+    at async _ (3435-1e6f92413321c0ba.min.js.br:1096:85609)Understand this error
+s3-alpha-sig.figma.com/img/1eb9/6df3/382352576c1285d99561412db34b4c4a?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=EQ6Ro9d0WT4tgGXyQtxdUtysKuYoQe0zkesnwp1cDKeQhBANxtss9IGiutyyQ3HnEznsV5AyoDChzNl4qOdJER35aXcqeuXxLyEjnzCbnxtodR9I1IxJb1X0p8wMZ2YTViIoyk3-29A6qrAOgvcp1h9oM5hLHPGSChgRxU0c7S9dMBl9FkXJWABUgZmVCx1zlLYryd0boNmgYJ7WPDn6L0~uqCeaIH~NCq~zRWI0mMndiGAI39BSJOLhdZaEc4N7u0iY60WP54T4AtVKS41YtZUGDEiZEkL2YJUAOdse7UXybCsUj~EGdGb1Ix5OgaESdbj3DdCo2hQcIXO5VVYTfA__:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+histogram_batched:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/web_logger/metrics_batched:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/web_logger/metrics/web.cortex.error:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/cortex/foundry/keep-alive:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+logs:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+2179-5414bc746bc7df54.min.js.br:70 WebSocket connection to 'wss://www.figma.com/api/livegraph?pv=1&pr=f0be18b5343b4edb&pt=1773143385&ph=-udwn-0XIlDADHpV6SZSCXfcePH40Ak-xWfgnd1RQ1M&userId=1575501824906211853&anonUserId=b6fc2af2-9dbc-46b3-943e-8c28446acf81&clientType=web&commitHash=1a279600f2ee56ba1bd4f8a230d1c84e52af87d6&clientUrl=https%3A%2F%2Fwww.figma.com%2Fmake%2FYgMsCvIqt7DMpx0rIB8UXV%2FAirtel-Champions-App-Web%3Fp%3Df%26t%3D8jAtGDngLc3Mqi6C-0&connectionType=reconnect&reconnect=9' failed: 
+r.Oh.isHidden @ 2179-5414bc746bc7df54.min.js.br:70Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 E: XHR for "https://www.figma.com/api/web_logger/histogram_batched" failed with status 0
+    at C (3435-1e6f92413321c0ba.min.js.br:1135:14273)
+    at async C.p [as crossOriginPost] (3435-1e6f92413321c0ba.min.js.br:1135:15291)
+    at async A (3435-1e6f92413321c0ba.min.js.br:1096:86767)
+    at async Promise.all (/make/YgMsCvIqt7DMpx0rIB8UXV/index 1)
+    at async sendBatchedEvents (3435-1e6f92413321c0ba.min.js.br:393:196095)
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Livegraph] Connection closed. Code: 1006, reason: 
+3435-1e6f92413321c0ba.min.js.br:1135 Uncaught (in promise) E: XHR for "https://www.figma.com/api/web_logger/metrics/web.cortex.error" failed with status 0
+    at C (3435-1e6f92413321c0ba.min.js.br:1135:14273)
+    at async C.p [as crossOriginPost] (3435-1e6f92413321c0ba.min.js.br:1135:15291)
+    at async _ (3435-1e6f92413321c0ba.min.js.br:1096:85609)Understand this error
+browser-intake-datadoghq.com/api/v2/rum?ddsource=browser&dd-api-key=pub3f6fa9c94d5ff85890f30fdc10b09c61&dd-evp-origin-version=6.25.2&dd-evp-origin=browser&dd-request-id=05c1903d-b7ca-408f-b02f-bff3df2eaceb&dd-evp-encoding=deflate&batch_time=1773143766738&_dd.api=fetch-keepalive&_dd.retry_count=4&_dd.retry_after=0:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+s3-alpha-sig.figma.com/img/1eb9/6df3/382352576c1285d99561412db34b4c4a?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=EQ6Ro9d0WT4tgGXyQtxdUtysKuYoQe0zkesnwp1cDKeQhBANxtss9IGiutyyQ3HnEznsV5AyoDChzNl4qOdJER35aXcqeuXxLyEjnzCbnxtodR9I1IxJb1X0p8wMZ2YTViIoyk3-29A6qrAOgvcp1h9oM5hLHPGSChgRxU0c7S9dMBl9FkXJWABUgZmVCx1zlLYryd0boNmgYJ7WPDn6L0~uqCeaIH~NCq~zRWI0mMndiGAI39BSJOLhdZaEc4N7u0iY60WP54T4AtVKS41YtZUGDEiZEkL2YJUAOdse7UXybCsUj~EGdGb1Ix5OgaESdbj3DdCo2hQcIXO5VVYTfA__:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+browser-intake-datadoghq.com/api/v2/rum?ddsource=browser&dd-api-key=pub3f6fa9c94d5ff85890f30fdc10b09c61&dd-evp-origin-version=6.25.2&dd-evp-origin=browser&dd-request-id=71f75da5-cd9b-489c-854d-c5fb7bc66be2&dd-evp-encoding=deflate&batch_time=1773143776936&_dd.api=fetch&_dd.retry_count=4&_dd.retry_after=0:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/web_logger/metrics/web.cortex.error:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+keep-alive:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/web_logger/metrics_batched:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+histogram_batched:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/web_logger/metrics_batched:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+logs:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+3435-1e6f92413321c0ba.min.js.br:1135 Uncaught (in promise) E: XHR for "https://www.figma.com/api/web_logger/metrics/web.cortex.error" failed with status 0
+    at C (3435-1e6f92413321c0ba.min.js.br:1135:14273)
+    at async C.p [as crossOriginPost] (3435-1e6f92413321c0ba.min.js.br:1135:15291)
+    at async _ (3435-1e6f92413321c0ba.min.js.br:1096:85609)Understand this error
+s3-alpha-sig.figma.com/img/1eb9/6df3/382352576c1285d99561412db34b4c4a?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=EQ6Ro9d0WT4tgGXyQtxdUtysKuYoQe0zkesnwp1cDKeQhBANxtss9IGiutyyQ3HnEznsV5AyoDChzNl4qOdJER35aXcqeuXxLyEjnzCbnxtodR9I1IxJb1X0p8wMZ2YTViIoyk3-29A6qrAOgvcp1h9oM5hLHPGSChgRxU0c7S9dMBl9FkXJWABUgZmVCx1zlLYryd0boNmgYJ7WPDn6L0~uqCeaIH~NCq~zRWI0mMndiGAI39BSJOLhdZaEc4N7u0iY60WP54T4AtVKS41YtZUGDEiZEkL2YJUAOdse7UXybCsUj~EGdGb1Ix5OgaESdbj3DdCo2hQcIXO5VVYTfA__:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+s3-alpha-sig.figma.com/img/041c/0570/8e38ba2eb0c488a24d588075d3b35db3?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=R29NpgWHt~sES2qooJ1Dmy5rR6EF6LDMpwkKLbqBRWvdWapRn0GaoxYUMwTnuJDpvugEMvevOAyQhDpP3Dt0s1N60duYF4k0r7cxp~kV4NB8UN5EyfkcWKoKdNiJm5MgEFKYJuByuY1~ZRB1OYPmd3Pqahdu37VaXRYtWTZYacSBqSf~MaCiQehjzlTfhzdQwGu4rvm1jzxXX0XLqfwAoEa~WDMx~aiiqPMlFuoIvkQKUaApfY3BlChhO9NlC7ZLz1nKFLHER3730uTyQEEnrHTuDmByFILC8LqnSR2Gfv4VHK3F1OxcFm6pQChFVedW3rzqckv5Lb6sGcLfyUJ5pg__:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+s3-alpha-sig.figma.com/img/0477/142a/23977972e1988729ccd84127f5ff8b88?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=U07DpairmywSAkVa6lA0BAGo3BmLA6RYJn8olCypJRgJun7wH~jYINSqy64XKVlOCytsm0VogKuRmdB9KpKaPdocx1ajqhoaotQRGwtThnNIYnk0k5Y9ExMzmUdQSDZ0GGh-FchylZOO0T6IZ07HQm0RkS2PDNdnlwtkx7kkbI25z4m6b4Kqon5JLRzXM2eAMEMvqfIgviglyV~SzOdaZjmPzw0Tk0ZHZUacsON4n6L9zRo90F4NSa~yIlzAGrNCu9N04S8iHvyenNJ0z-hG3vgFRDJWr1zB3REm2yKlEZ7hEkJ4clBpfAf6B5uX6W-vMgoDt70npsm-ChKzuKHELg__:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+s3-alpha-sig.figma.com/img/03ce/f8c5/a73c2c022950409a49f16b771b80160b?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=EReLsyQhDjMI~PTTKfD7TA38-ZGinAAXOB3foEu02hKx7R2NN-uefxEVC3k4Esy4sR6mZm8zIrvI9xhYWiGcvs1yu9D-vRZhNfx8eQDpFHpYLlA3Cv6prFU3fbBqP0zf7l~B1wIfWwe5LH1pj0lFrGlW-o9CQdv-58XRxc5GJRLg3U8dlEewIus2xqID4VGFUlMpdSq3sH0eFUWTrz~5zR3pfPH8PI8vmp1QA42Ho6Ka9ouv1n1oJFsDc3OgyHglyB1lDvsFtujuJ6Mh4BXuyubpoinlSpcYNGT8WwJxPwTdVc-5Cx6UnZp6qafZZpvOoy6DHUlQMobaN8nHlh~0eA__:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+keep-alive:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/web_logger/metrics/web.cortex.error:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/web_logger/metrics_batched:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+logs:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+histogram_batched:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/web_logger/metrics_batched:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 E: XHR for "https://www.figma.com/api/web_logger/metrics_batched" failed with status 0
+    at C (3435-1e6f92413321c0ba.min.js.br:1135:14273)
+    at async C.p [as crossOriginPost] (3435-1e6f92413321c0ba.min.js.br:1135:15291)
+    at async y (3435-1e6f92413321c0ba.min.js.br:1096:86294)
+    at async Promise.all (/make/YgMsCvIqt7DMpx0rIB8UXV/index 0)
+    at async sendBatchedEvents (3435-1e6f92413321c0ba.min.js.br:393:196095)
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this error
+3435-1e6f92413321c0ba.min.js.br:1135 Uncaught (in promise) E: XHR for "https://www.figma.com/api/web_logger/metrics/web.cortex.error" failed with status 0
+    at C (3435-1e6f92413321c0ba.min.js.br:1135:14273)
+    at async C.p [as crossOriginPost] (3435-1e6f92413321c0ba.min.js.br:1135:15291)
+    at async _ (3435-1e6f92413321c0ba.min.js.br:1096:85609)Understand this error
+browser-intake-datadoghq.com/api/v2/rum?ddsource=browser&dd-api-key=pub3f6fa9c94d5ff85890f30fdc10b09c61&dd-evp-origin-version=6.25.2&dd-evp-origin=browser&dd-request-id=d363ef19-6e55-4458-8479-ea28bec822db&dd-evp-encoding=deflate&batch_time=1773143805070&_dd.api=fetch-keepalive&_dd.retry_count=5&_dd.retry_after=0:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 [MultiplayerSession] connecting to wss://www.figma.com/api/multiplayer/YgMsCvIqt7DMpx0rIB8UXV?role=editor&tracking_session_id=guISMrQMWT3JWqZd&version=151&recentReload=0&file-load-streaming-compression=&user-id=1575501824906211853&client_release=1a279600f2ee56ba1bd4f8a230d1c84e52af87d6&reconnect-key=6698c61578b884b79610620d7e188403ee459fd3&reconnect-sequence-number=7879&initialFileVersion=106&previousLoadMode=full&incremental-loading-validation=0
+s3-alpha-sig.figma.com/img/03ce/f8c5/a73c2c022950409a49f16b771b80160b?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=EReLsyQhDjMI~PTTKfD7TA38-ZGinAAXOB3foEu02hKx7R2NN-uefxEVC3k4Esy4sR6mZm8zIrvI9xhYWiGcvs1yu9D-vRZhNfx8eQDpFHpYLlA3Cv6prFU3fbBqP0zf7l~B1wIfWwe5LH1pj0lFrGlW-o9CQdv-58XRxc5GJRLg3U8dlEewIus2xqID4VGFUlMpdSq3sH0eFUWTrz~5zR3pfPH8PI8vmp1QA42Ho6Ka9ouv1n1oJFsDc3OgyHglyB1lDvsFtujuJ6Mh4BXuyubpoinlSpcYNGT8WwJxPwTdVc-5Cx6UnZp6qafZZpvOoy6DHUlQMobaN8nHlh~0eA__:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+s3-alpha-sig.figma.com/img/0477/142a/23977972e1988729ccd84127f5ff8b88?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=U07DpairmywSAkVa6lA0BAGo3BmLA6RYJn8olCypJRgJun7wH~jYINSqy64XKVlOCytsm0VogKuRmdB9KpKaPdocx1ajqhoaotQRGwtThnNIYnk0k5Y9ExMzmUdQSDZ0GGh-FchylZOO0T6IZ07HQm0RkS2PDNdnlwtkx7kkbI25z4m6b4Kqon5JLRzXM2eAMEMvqfIgviglyV~SzOdaZjmPzw0Tk0ZHZUacsON4n6L9zRo90F4NSa~yIlzAGrNCu9N04S8iHvyenNJ0z-hG3vgFRDJWr1zB3REm2yKlEZ7hEkJ4clBpfAf6B5uX6W-vMgoDt70npsm-ChKzuKHELg__:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+s3-alpha-sig.figma.com/img/041c/0570/8e38ba2eb0c488a24d588075d3b35db3?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=R29NpgWHt~sES2qooJ1Dmy5rR6EF6LDMpwkKLbqBRWvdWapRn0GaoxYUMwTnuJDpvugEMvevOAyQhDpP3Dt0s1N60duYF4k0r7cxp~kV4NB8UN5EyfkcWKoKdNiJm5MgEFKYJuByuY1~ZRB1OYPmd3Pqahdu37VaXRYtWTZYacSBqSf~MaCiQehjzlTfhzdQwGu4rvm1jzxXX0XLqfwAoEa~WDMx~aiiqPMlFuoIvkQKUaApfY3BlChhO9NlC7ZLz1nKFLHER3730uTyQEEnrHTuDmByFILC8LqnSR2Gfv4VHK3F1OxcFm6pQChFVedW3rzqckv5Lb6sGcLfyUJ5pg__:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+1709-a9e5b3918781030c.min.js.br:3 WebSocket connection to 'wss://www.figma.com/api/multiplayer/YgMsCvIqt7DMpx0rIB8UXV?role=editor&tracking_session_id=guISMrQMWT3JWqZd&version=151&recentReload=0&file-load-streaming-compression=&user-id=1575501824906211853&client_release=1a279600f2ee56ba1bd4f8a230d1c84e52af87d6&reconnect-key=6698c61578b884b79610620d7e188403ee459fd3&reconnect-sequence-number=7879&initialFileVersion=106&previousLoadMode=full&incremental-loading-validation=0' failed: 
+connect @ 1709-a9e5b3918781030c.min.js.br:3Understand this error
+browser-intake-datadoghq.com/api/v2/rum?ddsource=browser&dd-api-key=pub3f6fa9c94d5ff85890f30fdc10b09c61&dd-evp-origin-version=6.25.2&dd-evp-origin=browser&dd-request-id=52c446fe-02dd-4405-893b-0936dc159162&dd-evp-encoding=deflate&batch_time=1773143813333&_dd.api=fetch&_dd.retry_count=5&_dd.retry_after=0:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+s3-alpha-sig.figma.com/img/03ce/f8c5/a73c2c022950409a49f16b771b80160b?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=EReLsyQhDjMI~PTTKfD7TA38-ZGinAAXOB3foEu02hKx7R2NN-uefxEVC3k4Esy4sR6mZm8zIrvI9xhYWiGcvs1yu9D-vRZhNfx8eQDpFHpYLlA3Cv6prFU3fbBqP0zf7l~B1wIfWwe5LH1pj0lFrGlW-o9CQdv-58XRxc5GJRLg3U8dlEewIus2xqID4VGFUlMpdSq3sH0eFUWTrz~5zR3pfPH8PI8vmp1QA42Ho6Ka9ouv1n1oJFsDc3OgyHglyB1lDvsFtujuJ6Mh4BXuyubpoinlSpcYNGT8WwJxPwTdVc-5Cx6UnZp6qafZZpvOoy6DHUlQMobaN8nHlh~0eA__:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+s3-alpha-sig.figma.com/img/0477/142a/23977972e1988729ccd84127f5ff8b88?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=U07DpairmywSAkVa6lA0BAGo3BmLA6RYJn8olCypJRgJun7wH~jYINSqy64XKVlOCytsm0VogKuRmdB9KpKaPdocx1ajqhoaotQRGwtThnNIYnk0k5Y9ExMzmUdQSDZ0GGh-FchylZOO0T6IZ07HQm0RkS2PDNdnlwtkx7kkbI25z4m6b4Kqon5JLRzXM2eAMEMvqfIgviglyV~SzOdaZjmPzw0Tk0ZHZUacsON4n6L9zRo90F4NSa~yIlzAGrNCu9N04S8iHvyenNJ0z-hG3vgFRDJWr1zB3REm2yKlEZ7hEkJ4clBpfAf6B5uX6W-vMgoDt70npsm-ChKzuKHELg__:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+s3-alpha-sig.figma.com/img/041c/0570/8e38ba2eb0c488a24d588075d3b35db3?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=R29NpgWHt~sES2qooJ1Dmy5rR6EF6LDMpwkKLbqBRWvdWapRn0GaoxYUMwTnuJDpvugEMvevOAyQhDpP3Dt0s1N60duYF4k0r7cxp~kV4NB8UN5EyfkcWKoKdNiJm5MgEFKYJuByuY1~ZRB1OYPmd3Pqahdu37VaXRYtWTZYacSBqSf~MaCiQehjzlTfhzdQwGu4rvm1jzxXX0XLqfwAoEa~WDMx~aiiqPMlFuoIvkQKUaApfY3BlChhO9NlC7ZLz1nKFLHER3730uTyQEEnrHTuDmByFILC8LqnSR2Gfv4VHK3F1OxcFm6pQChFVedW3rzqckv5Lb6sGcLfyUJ5pg__:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/web_logger/metrics/web.cortex.error:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+keep-alive:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+histogram_batched:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+logs:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+3435-1e6f92413321c0ba.min.js.br:1135 Uncaught (in promise) E: XHR for "https://www.figma.com/api/web_logger/metrics/web.cortex.error" failed with status 0
+    at C (3435-1e6f92413321c0ba.min.js.br:1135:14273)
+    at async C.p [as crossOriginPost] (3435-1e6f92413321c0ba.min.js.br:1135:15291)
+    at async _ (3435-1e6f92413321c0ba.min.js.br:1096:85609)Understand this error
+s3-alpha-sig.figma.com/img/03ce/f8c5/a73c2c022950409a49f16b771b80160b?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=EReLsyQhDjMI~PTTKfD7TA38-ZGinAAXOB3foEu02hKx7R2NN-uefxEVC3k4Esy4sR6mZm8zIrvI9xhYWiGcvs1yu9D-vRZhNfx8eQDpFHpYLlA3Cv6prFU3fbBqP0zf7l~B1wIfWwe5LH1pj0lFrGlW-o9CQdv-58XRxc5GJRLg3U8dlEewIus2xqID4VGFUlMpdSq3sH0eFUWTrz~5zR3pfPH8PI8vmp1QA42Ho6Ka9ouv1n1oJFsDc3OgyHglyB1lDvsFtujuJ6Mh4BXuyubpoinlSpcYNGT8WwJxPwTdVc-5Cx6UnZp6qafZZpvOoy6DHUlQMobaN8nHlh~0eA__:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+s3-alpha-sig.figma.com/img/041c/0570/8e38ba2eb0c488a24d588075d3b35db3?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=R29NpgWHt~sES2qooJ1Dmy5rR6EF6LDMpwkKLbqBRWvdWapRn0GaoxYUMwTnuJDpvugEMvevOAyQhDpP3Dt0s1N60duYF4k0r7cxp~kV4NB8UN5EyfkcWKoKdNiJm5MgEFKYJuByuY1~ZRB1OYPmd3Pqahdu37VaXRYtWTZYacSBqSf~MaCiQehjzlTfhzdQwGu4rvm1jzxXX0XLqfwAoEa~WDMx~aiiqPMlFuoIvkQKUaApfY3BlChhO9NlC7ZLz1nKFLHER3730uTyQEEnrHTuDmByFILC8LqnSR2Gfv4VHK3F1OxcFm6pQChFVedW3rzqckv5Lb6sGcLfyUJ5pg__:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+s3-alpha-sig.figma.com/img/0477/142a/23977972e1988729ccd84127f5ff8b88?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=U07DpairmywSAkVa6lA0BAGo3BmLA6RYJn8olCypJRgJun7wH~jYINSqy64XKVlOCytsm0VogKuRmdB9KpKaPdocx1ajqhoaotQRGwtThnNIYnk0k5Y9ExMzmUdQSDZ0GGh-FchylZOO0T6IZ07HQm0RkS2PDNdnlwtkx7kkbI25z4m6b4Kqon5JLRzXM2eAMEMvqfIgviglyV~SzOdaZjmPzw0Tk0ZHZUacsON4n6L9zRo90F4NSa~yIlzAGrNCu9N04S8iHvyenNJ0z-hG3vgFRDJWr1zB3REm2yKlEZ7hEkJ4clBpfAf6B5uX6W-vMgoDt70npsm-ChKzuKHELg__:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+histogram_batched:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/web_logger/metrics/web.cortex.error:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+keep-alive:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+logs:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 E: XHR for "https://www.figma.com/api/web_logger/histogram_batched" failed with status 0
+    at C (3435-1e6f92413321c0ba.min.js.br:1135:14273)
+    at async C.p [as crossOriginPost] (3435-1e6f92413321c0ba.min.js.br:1135:15291)
+    at async A (3435-1e6f92413321c0ba.min.js.br:1096:86767)
+    at async Promise.all (/make/YgMsCvIqt7DMpx0rIB8UXV/index 1)
+    at async sendBatchedEvents (3435-1e6f92413321c0ba.min.js.br:393:196095)
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+3435-1e6f92413321c0ba.min.js.br:1135 Uncaught (in promise) E: XHR for "https://www.figma.com/api/web_logger/metrics/web.cortex.error" failed with status 0
+    at C (3435-1e6f92413321c0ba.min.js.br:1135:14273)
+    at async C.p [as crossOriginPost] (3435-1e6f92413321c0ba.min.js.br:1135:15291)
+    at async _ (3435-1e6f92413321c0ba.min.js.br:1096:85609)Understand this error
+s3-alpha-sig.figma.com/img/1eb9/6df3/382352576c1285d99561412db34b4c4a?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=EQ6Ro9d0WT4tgGXyQtxdUtysKuYoQe0zkesnwp1cDKeQhBANxtss9IGiutyyQ3HnEznsV5AyoDChzNl4qOdJER35aXcqeuXxLyEjnzCbnxtodR9I1IxJb1X0p8wMZ2YTViIoyk3-29A6qrAOgvcp1h9oM5hLHPGSChgRxU0c7S9dMBl9FkXJWABUgZmVCx1zlLYryd0boNmgYJ7WPDn6L0~uqCeaIH~NCq~zRWI0mMndiGAI39BSJOLhdZaEc4N7u0iY60WP54T4AtVKS41YtZUGDEiZEkL2YJUAOdse7UXybCsUj~EGdGb1Ix5OgaESdbj3DdCo2hQcIXO5VVYTfA__:1  Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this error
+2179-5414bc746bc7df54.min.js.br:70 WebSocket connection to 'wss://www.figma.com/api/livegraph?pv=1&pr=f0be18b5343b4edb&pt=1773143385&ph=-udwn-0XIlDADHpV6SZSCXfcePH40Ak-xWfgnd1RQ1M&userId=1575501824906211853&anonUserId=b6fc2af2-9dbc-46b3-943e-8c28446acf81&clientType=web&commitHash=1a279600f2ee56ba1bd4f8a230d1c84e52af87d6&clientUrl=https%3A%2F%2Fwww.figma.com%2Fmake%2FYgMsCvIqt7DMpx0rIB8UXV%2FAirtel-Champions-App-Web%3Fp%3Df%26t%3D8jAtGDngLc3Mqi6C-0&connectionType=reconnect&reconnect=10' failed: 
+r.Oh.isHidden @ 2179-5414bc746bc7df54.min.js.br:70Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 [Livegraph] Connection closed. Code: 1006, reason: 
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+browser-intake-datadoghq.com/api/v2/rum?ddsource=browser&dd-api-key=pub3f6fa9c94d5ff85890f30fdc10b09c61&dd-evp-origin-version=6.25.2&dd-evp-origin=browser&dd-request-id=dfbc2f64-0082-4b30-b61f-9bc0e9713059&dd-evp-encoding=deflate&batch_time=1773143857468&_dd.api=fetch-keepalive&_dd.retry_count=6&_dd.retry_after=0:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+s3-alpha-sig.figma.com/img/1eb9/6df3/382352576c1285d99561412db34b4c4a?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=EQ6Ro9d0WT4tgGXyQtxdUtysKuYoQe0zkesnwp1cDKeQhBANxtss9IGiutyyQ3HnEznsV5AyoDChzNl4qOdJER35aXcqeuXxLyEjnzCbnxtodR9I1IxJb1X0p8wMZ2YTViIoyk3-29A6qrAOgvcp1h9oM5hLHPGSChgRxU0c7S9dMBl9FkXJWABUgZmVCx1zlLYryd0boNmgYJ7WPDn6L0~uqCeaIH~NCq~zRWI0mMndiGAI39BSJOLhdZaEc4N7u0iY60WP54T4AtVKS41YtZUGDEiZEkL2YJUAOdse7UXybCsUj~EGdGb1Ix5OgaESdbj3DdCo2hQcIXO5VVYTfA__:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+keep-alive:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+/api/figment-proxy/monitor:1  Failed to load resource: net::ERR_NAME_NOT_RESOLVEDUnderstand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 [MultiplayerSession] connecting to wss://www.figma.com/api/multiplayer/YgMsCvIqt7DMpx0rIB8UXV?role=editor&tracking_session_id=guISMrQMWT3JWqZd&version=151&recentReload=0&file-load-streaming-compression=&user-id=1575501824906211853&client_release=1a279600f2ee56ba1bd4f8a230d1c84e52af87d6&reconnect-key=6698c61578b884b79610620d7e188403ee459fd3&reconnect-sequence-number=7879&initialFileVersion=106&previousLoadMode=full&incremental-loading-validation=0
+vendor-core-ade2edecaf4781c7.min.js.br:54 [MultiplayerSession] Joining file version 106 (skip_reload reconnect)
+vendor-core-ade2edecaf4781c7.min.js.br:54 Sentry event id: 3b522e6368604e97b4334408e099cebc
+vendor-core-ade2edecaf4781c7.min.js.br:54 Sentry event id: b60ea9a3b7d34a5b85449d7ad0e8ae47
+/api/web_logger/metrics_batched:1  Failed to load resource: the server responded with a status of 400 ()Understand this error
+/api/web_logger/metrics_batched:1  Failed to load resource: the server responded with a status of 400 ()Understand this error
+/api/web_logger/metrics_batched:1  Failed to load resource: the server responded with a status of 400 ()Understand this error
+/api/web_logger/metrics_batched:1  Failed to load resource: the server responded with a status of 400 ()Understand this error
+/api/web_logger/metrics_batched:1  Failed to load resource: the server responded with a status of 400 ()Understand this error
+/api/web_logger/metrics_batched:1  Failed to load resource: the server responded with a status of 400 ()Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 Too many elapsed hits of react since last report
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this warning
+/api/web_logger/metrics_batched:1  Failed to load resource: the server responded with a status of 400 ()Understand this error
+/api/web_logger/metrics_batched:1  Failed to load resource: the server responded with a status of 400 ()Understand this error
+/api/web_logger/metrics_batched:1  Failed to load resource: the server responded with a status of 400 ()Understand this error
+/api/web_logger/metrics_batched:1  Failed to load resource: the server responded with a status of 400 ()Understand this error
+ 🔵 Creating NEW Supabase client (singleton)
+ ✅ Using shared Supabase client from /utils/supabase/client
+ [Platform] Detected: Object
+ [Supabase Direct] Using shared client: Object
+ [SW] ℹ️ Skipped — preview/dev environment, SW not needed here
+ [SessionTracker] ✅ Initialized
+ [App] ✅ Offline manager initialized
+ [App] ✅ Database setup completed manually - skipping automatic check
+(index):1 Access to fetch at 'https://s3-figma-foundry-cached-previews-production-sig.figma.com/420a39fd-4fd9-4371-b57d-039dd2317991/index.css?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=hVXMpKTU3hzxJdRRddGpvWqXKkqzNrgCrxyPSi6oGpph1AkFXZZ03UzMs~qTloHBf0pHPlzDOrgIlJiEFv5QuKKJrPOjmKBAKhimk8EVJ6wAYMN5qSmhKiev3GyHEH83qe7WOJhmRdat3KfkazwfTps7Nf4565GqQn3M6Z1lvnyDSaCFpSK2kTRfmZYP4BwY70oMhCxRmy7BNC~YowiGP8M25ojM6AdMVmxzkIxIh2LVHTW4MpV9yGlVxjYmNjf7R3KxcQcEnfPNgGr6~VR1j~D~IPV6zpfc9PDYgrlItmOaDcnD42b6WCIlbc8xnggexRgppaLFBIpf2SLDYZfbGA__' from origin 'https://a959e4fe-d300-45e2-a820-dc6030497efc-v2-figmaiframepreview.figma.site' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+(index):1 Access to fetch at 'https://s3-figma-foundry-cached-previews-production-sig.figma.com/420a39fd-4fd9-4371-b57d-039dd2317991/index.css?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=hVXMpKTU3hzxJdRRddGpvWqXKkqzNrgCrxyPSi6oGpph1AkFXZZ03UzMs~qTloHBf0pHPlzDOrgIlJiEFv5QuKKJrPOjmKBAKhimk8EVJ6wAYMN5qSmhKiev3GyHEH83qe7WOJhmRdat3KfkazwfTps7Nf4565GqQn3M6Z1lvnyDSaCFpSK2kTRfmZYP4BwY70oMhCxRmy7BNC~YowiGP8M25ojM6AdMVmxzkIxIh2LVHTW4MpV9yGlVxjYmNjf7R3KxcQcEnfPNgGr6~VR1j~D~IPV6zpfc9PDYgrlItmOaDcnD42b6WCIlbc8xnggexRgppaLFBIpf2SLDYZfbGA__' from origin 'https://a959e4fe-d300-45e2-a820-dc6030497efc-v2-figmaiframepreview.figma.site' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+(index):1 Access to fetch at 'https://s3-figma-foundry-cached-previews-production-sig.figma.com/420a39fd-4fd9-4371-b57d-039dd2317991/index.css?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=hVXMpKTU3hzxJdRRddGpvWqXKkqzNrgCrxyPSi6oGpph1AkFXZZ03UzMs~qTloHBf0pHPlzDOrgIlJiEFv5QuKKJrPOjmKBAKhimk8EVJ6wAYMN5qSmhKiev3GyHEH83qe7WOJhmRdat3KfkazwfTps7Nf4565GqQn3M6Z1lvnyDSaCFpSK2kTRfmZYP4BwY70oMhCxRmy7BNC~YowiGP8M25ojM6AdMVmxzkIxIh2LVHTW4MpV9yGlVxjYmNjf7R3KxcQcEnfPNgGr6~VR1j~D~IPV6zpfc9PDYgrlItmOaDcnD42b6WCIlbc8xnggexRgppaLFBIpf2SLDYZfbGA__' from origin 'https://a959e4fe-d300-45e2-a820-dc6030497efc-v2-figmaiframepreview.figma.site' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+index.css?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=hVXMpKTU3hzxJdRRddGpvWqXKkq…:1  Failed to load resource: net::ERR_FAILEDUnderstand this error
+index.css?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=hVXMpKTU3hzxJdRRddGpvWqXKkq…:1  Failed to load resource: net::ERR_FAILEDUnderstand this error
+index.css?Expires=1774224000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=hVXMpKTU3hzxJdRRddGpvWqXKkq…:1  Failed to load resource: net::ERR_FAILEDUnderstand this error
+/api/web_logger/metrics_batched:1  Failed to load resource: the server responded with a status of 400 ()Understand this error
+/api/web_logger/metrics_batched:1  Failed to load resource: the server responded with a status of 400 ()Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 Autosave Successfully synced auto-saved changes undefined
+ 📱 Normalized phone: 756501568
+ 🔍 Searching for phone in formats: Array(4)
+ ✅ Direct login successful: EMILY OKIMARU
+ 📝 User name: EMILY OKIMARU
+ [Programs Widget Home] 🔍 Loading folders...
+ [Programs Widget Home] 📦 localStorage data: null
+ [Programs Widget Home] ⚠️ No data in localStorage
+ [Programs Widget Home] ℹ️ No folders in any storage
+ [Top Performers] 🔥 Loading top performers for TODAY...
+ [Top Performers] 📅 Today starts at: 2026-03-09T21:00:00.000Z
+ [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+ [AndroidBackButton] ✅ Listener setup complete
+ [AndroidBackButton] 🧹 Cleaning up back button listener
+ [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+ [AndroidBackButton] ✅ Listener setup complete
+ [HomeScreen] ✅ Loading announcements from localStorage for role: sales_executive
+ [Programs Widget Home] 📁 Organized Programs: Object
+ [Top Performers] 👥 Found 727 Sales Executives
+ ✅ Updated user rank: 84 points: 1047
+ [Programs Widget Home] 📁 Organized Programs: Object
+ [Top Performers] ✅ Loaded 871 SE submissions from today (filtered from 890 total)
+ [Top Performers] 📊 ALL users sorted by points: Array(10)
+ [Top Performers] 🏆 Top 3 user IDs: Array(3)
+ [Top Performers] ✅ Final top performers: Array(3)
+ [Programs Widget Home] 📁 Organized Programs: Object
+ [HomeScreen] ✅ Raw announcements loaded: 0
+ [HomeScreen] ✅ Filtered announcements for role: 0
+ [HomeScreen] ✅ Total announcements: 0 | Unread: 0
+ [Programs Widget Home] 📁 Organized Programs: Object
+ [WebRTC] User denied permission request
+ [Programs Widget Home] 📁 Organized Programs: Object
+ [AndroidBackButton] 🧹 Cleaning up back button listener
+ [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+ [AndroidBackButton] ✅ Listener setup complete
+ [Programs Widget Home] 🎯 Program clicked: NEW-SITE-CHECK-IN  67b91b34-81f9-416a-9462-843a51bc920d
+ [App] 🎯 Opening program from home widget: 67b91b34-81f9-416a-9462-843a51bc920d
+ [App] 📋 Setting programToOpen state to: 67b91b34-81f9-416a-9462-843a51bc920d
+ [App] 🔄 Switching to programs tab
+ [App] 🎬 Rendering Programs tab with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+ [ProgramsList] 🚀 Component render with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+ [AndroidBackButton] 🧹 Cleaning up back button listener
+ [PageTracking] 📄 Viewing: Programs
+ [ProgramsList] 🎬 Component mounted with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+ [ProgramsList] ✅ User loaded: Object
+ [ProgramsList] 🔍 Checking auto-open: Object
+ [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+ [AndroidBackButton] ✅ Listener setup complete
+ [ProgramsList] 🚀 Component render with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+ [ProgramsAPI] Fetching programs for role: sales_executive
+ [ProgramsList] ✅ Van Calendar enabled: true
+ [ProgramsList] 🚀 Component render with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+ [ProgramsAPI] ✅ Merged checkin flags into SE programs
+ [ProgramsAPI] Found 7 programs for role sales_executive
+ [ProgramsList] 🚀 Component render with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [ProgramsList] 🔍 Checking auto-open: Object
+ [ProgramsList] 🎯 Found program to open: NEW-SITE-CHECK-IN 
+ [ProgramsList] ✅ Opening program from prop: NEW-SITE-CHECK-IN 
+ [ProgramsList] 🚀 Component render with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [ProgramsList] 🔍 Checking initial program: Object
+ [ProgramsList] 🎯 Found initial program: NEW-SITE-CHECK-IN 
+ [ProgramsList] ✅ Auto-opening program in loadData: NEW-SITE-CHECK-IN 
+ [ProgramsList] 🚀 Component render with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [SessionCheckin] Loading session for program: 67b91b34-81f9-416a-9462-843a51bc920d
+ [SessionCheckin] Session loaded: Object
+ [ProgramsList] 🚀 Component render with initialProgramId: 67b91b34-81f9-416a-9462-843a51bc920d
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "MARKET OUTREACH -PARTNER VANS " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "NEW-SITE-CHECK-IN " | Category: "Network Experience" | Mapped to: Network Quality
+ [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+ [Folder Mapping] Program: "SSO CLASSIFICATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+2 [OfflineManager] 🔄 Network type changed: 4g

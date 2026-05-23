@@ -1,0 +1,47 @@
+{
+  "phoneSelectors": [
+    "input[data-testid=\"phone-input\"]",
+    "input[placeholder*=\"$phone$\" i]",
+    "input[type=\"tel\"]",
+    "input[name*=\"$contact$\" i]",
+    "input[aria-label*=\"$phone$\" i]",
+    "input[id*=\"$phone$\" i]",
+    "input[formcontrolname=\"phone\"]",
+    "input:is(input, [type=\"tel\"]):visible",
+    ".login-form input",
+    ".auth-form input",
+    "input[name*=\"$phonenumber$\" i]"
+  ],
+  "pinSelectors": [
+    "input[data-testid=\"pin-input\"]",
+    "input[placeholder*=\"$PIN$\" i]",
+    "input[type=\"password\"]"
+  ],
+  "submitSelectors": [
+    "button[data-testid=\"login-submit\"]",
+    "button:has-text(\"SIGN IN\")",
+    "button[type=\"submit\"]"
+  ],
+  "dashboardSelectors": [
+    "[data-testid*=\"sales\"]",
+    "[data-testid=\"hbb-dashboard\"]",
+    ".dashboard",
+    "text=Dashboard",
+    "main[role=\"main\"]",
+    "[data-testid=\"home\"]",
+    "[data-testid=\"main\"]",
+    ".main-content",
+    ".home-page",
+    "h1, h2",
+    "[class*=\"content\"]",
+    "[data-testid=\"overview\"]",
+    ".dashboard-content",
+    "main section",
+    "[role=\"main\"]"
+  ],
+  "tutorialSelectors": [
+    "button:has-text(\"Skip\")",
+    "button:has-text(\"Got it\")",
+    "button:has-text(\"Start\")"
+  ]
+}
