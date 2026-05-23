@@ -124,11 +124,11 @@ export function ProgramAnalyticsSimple({ program, onClose }: ProgramAnalyticsSim
         if (performers.length > 0) {
           const userIds = performers.map(p => p.user_id);
           const { data: usersData } = await supabase
-            .from('app_users')
-            .select('id, full_name')
+            .from('users')
+            .select('id, name')
             .in('id', userIds);
 
-          const usersMap = new Map(usersData?.map(u => [u.id, u.full_name]) || []);
+          const usersMap = new Map(usersData?.map(u => [u.id, u.name]) || []);
           
           const performersWithNames = performers.map(p => ({
             ...p,

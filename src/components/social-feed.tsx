@@ -5,7 +5,6 @@ import { UserProfileModal } from './user-profile-modal';
 import { GroupsList } from './groups-list';
 import { GroupChat } from './group-chat';
 import { GroupCreator } from './group-creator';
-import { logPWAAction, ACTION_TYPES } from '../lib/activity-tracker';
 
 // Hashtag Utilities
 const HASHTAG_REGEX = /#[a-zA-Z0-9_]+/g;
@@ -59,11 +58,6 @@ interface Post {
   liked_by: string[];
   comments: Comment[];
   created_at: string;
-  hashtags: string[];
-  hall_of_fame: boolean;
-  likes_count: number;
-  comments_count: number;
-  is_published: boolean;
 }
 
 interface Comment {
@@ -94,24 +88,16 @@ export function SocialFeed({ user, userData, onBack }: any) {
     return () => clearInterval(interval);
   }, []);
 
-  const loadPosts = async (retryCount = 0) => {
+  const loadPosts = async () => {
     try {
       const { data, error } = await supabase
         .from('social_posts')
-        .select('id, author_id, author_name, author_role, author_zone, content, image_url, video_url, likes, liked_by, comments, created_at, hashtags, hall_of_fame, likes_count, comments_count, is_published')
-        .eq('is_published', true)
+        .select('*')
         .order('created_at', { ascending: false })
         .limit(50);
 
       if (error) {
         console.error('Error loading posts:', error);
-        // On error, try to load from cache
-        const cached = localStorage.getItem('social_posts_cache');
-        if (cached && posts.length === 0) {
-          try {
-            setPosts(JSON.parse(cached));
-          } catch (e) { /* ignore parse errors */ }
-        }
         setLoading(false);
         return;
       }
@@ -124,27 +110,10 @@ export function SocialFeed({ user, userData, onBack }: any) {
           liked_by: Array.isArray(post.liked_by) ? post.liked_by : [],
         }));
         setPosts(validatedPosts);
-        // Cache for offline/error fallback
-        try {
-          localStorage.setItem('social_posts_cache', JSON.stringify(validatedPosts));
-        } catch (e) { /* ignore storage quota errors */ }
       }
       setLoading(false);
-    } catch (error: any) {
-      console.error('Error loading posts:', error?.message || error);
-      // Retry up to 2 times on network failures (TypeError: Failed to fetch)
-      if (retryCount < 2 && error?.message?.includes('Failed to fetch')) {
-        console.log(`[SocialFeed] Retrying loadPosts (attempt ${retryCount + 2}/3)...`);
-        setTimeout(() => loadPosts(retryCount + 1), 1500 * (retryCount + 1));
-        return;
-      }
-      // Fall back to cached data
-      const cached = localStorage.getItem('social_posts_cache');
-      if (cached && posts.length === 0) {
-        try {
-          setPosts(JSON.parse(cached));
-        } catch (e) { /* ignore parse errors */ }
-      }
+    } catch (error) {
+      console.error('Error loading posts:', error);
       setLoading(false);
     }
   };
@@ -175,7 +144,6 @@ export function SocialFeed({ user, userData, onBack }: any) {
         .eq('id', postId);
 
       console.log(`[Analytics] Post ${alreadyLiked ? 'Unliked' : 'Liked'} by ${userData?.full_name}`);
-      logPWAAction(ACTION_TYPES.POST_LIKE, { postId, liked: !alreadyLiked });
     } catch (error) {
       console.error('Error updating like:', error);
       loadPosts();
@@ -682,7 +650,6 @@ function PostDetailModal({ post, userData, onClose, onLike, formatTimeAgo, isDir
       post.comments = updatedComments;
       setNewComment('');
       console.log(`[Analytics] Comment added by ${authorName}`);
-      logPWAAction(ACTION_TYPES.POST_COMMENT, { postId: post.id });
     } catch (error) {
       console.error('Error adding comment:', error);
       alert('Error adding comment');
@@ -994,12 +961,7 @@ function CreatePostModal({ userData, onClose, onSuccess, onShowToast }: any) {
         likes: 0,
         liked_by: [],
         comments: [],
-        created_at: new Date().toISOString(),
-        hashtags: extractHashtags(content),
-        hall_of_fame: false,
-        likes_count: 0,
-        comments_count: 0,
-        is_published: true
+        created_at: new Date().toISOString()
       };
 
       const { error } = await supabase
@@ -1009,7 +971,6 @@ function CreatePostModal({ userData, onClose, onSuccess, onShowToast }: any) {
       if (error) throw error;
 
       console.log(`[Analytics] Post Created by ${authorName} (${userData?.role})`);
-      logPWAAction(ACTION_TYPES.POST_CREATE, { hasImage: !!imagePreview, hasHashtags: extractHashtags(content).length > 0 });
       
       // Directors don't earn points - just motivation message
       if (isDirector) {

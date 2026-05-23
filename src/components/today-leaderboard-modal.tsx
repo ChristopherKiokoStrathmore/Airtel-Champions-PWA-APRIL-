@@ -72,7 +72,7 @@ export function TodayLeaderboardModal({ onClose }: TodayLeaderboardModalProps) {
         throw sesError;
       }
       
-      console.log('[TodayLeaderboard] Loaded', allSEs?.length || 0, 'total SEs');
+      console.log('[TodayLeaderboard] 👥 Loaded', allSEs?.length || 0, 'total SEs');
       
       if (!allSEs || allSEs.length === 0) {
         console.log('[TodayLeaderboard] ⚠️ No SEs found in database');
@@ -178,7 +178,7 @@ export function TodayLeaderboardModal({ onClose }: TodayLeaderboardModalProps) {
       
       if (zsmError) throw zsmError;
       
-      console.log('[TodayLeaderboard] Loaded', allZSMs?.length || 0, 'ZSMs');
+      console.log('[TodayLeaderboard] 👥 Loaded', allZSMs?.length || 0, 'ZSMs');
       
       if (!allZSMs || allZSMs.length === 0) {
         setLeaderboard([]);
@@ -296,7 +296,7 @@ export function TodayLeaderboardModal({ onClose }: TodayLeaderboardModalProps) {
       
       if (zbmError) throw zbmError;
       
-      console.log('[TodayLeaderboard] Loaded', allZBMs?.length || 0, 'ZBMs');
+      console.log('[TodayLeaderboard] 👥 Loaded', allZBMs?.length || 0, 'ZBMs');
       
       if (!allZBMs || allZBMs.length === 0) {
         setLeaderboard([]);
@@ -436,7 +436,7 @@ export function TodayLeaderboardModal({ onClose }: TodayLeaderboardModalProps) {
             <div className="flex items-center space-x-3">
               <Trophy className="w-8 h-8" />
               <div>
-                <h2 className="text-2xl font-bold">Top Performers Today</h2>
+                <h2 className="text-2xl font-bold">🏆 Top Performers Today</h2>
                 <p className="text-sm text-red-100 mt-1">
                   {new Date().toLocaleDateString('en-US', { 
                     weekday: 'long', 
@@ -468,7 +468,7 @@ export function TodayLeaderboardModal({ onClose }: TodayLeaderboardModalProps) {
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
-              SEs
+              👤 SEs
             </button>
             <button
               onClick={() => setViewType('ZSM')}
@@ -478,7 +478,7 @@ export function TodayLeaderboardModal({ onClose }: TodayLeaderboardModalProps) {
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
-              ZSMs
+              👥 ZSMs
             </button>
             <button
               onClick={() => setViewType('ZBM')}
@@ -488,7 +488,7 @@ export function TodayLeaderboardModal({ onClose }: TodayLeaderboardModalProps) {
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
-              ZBMs
+              🏢 ZBMs
             </button>
           </div>
 
@@ -499,7 +499,7 @@ export function TodayLeaderboardModal({ onClose }: TodayLeaderboardModalProps) {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder={`Search ${viewType === 'SE' ? 'sales executives' : viewType === 'ZSM' ? 'zone sales managers' : 'zone business managers'}...`}
+              placeholder={`🔍 Search ${viewType === 'SE' ? 'sales executives' : viewType === 'ZSM' ? 'zone sales managers' : 'zone business managers'}...`}
               className="w-full pl-10 pr-4 py-2.5 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
               style={{ fontSize: '16px' }}
             />
@@ -555,7 +555,7 @@ export function TodayLeaderboardModal({ onClose }: TodayLeaderboardModalProps) {
           ) : error ? (
             <div className="flex items-center justify-center py-12">
               <div className="text-center">
-                <div className="text-red-600 text-4xl mb-4">Warning</div>
+                <div className="text-red-600 text-4xl mb-4">⚠️</div>
                 <p className="text-gray-900 font-semibold mb-2">Error Loading Leaderboard</p>
                 <p className="text-gray-600 text-sm">{error}</p>
                 <button
@@ -569,7 +569,7 @@ export function TodayLeaderboardModal({ onClose }: TodayLeaderboardModalProps) {
           ) : leaderboard.length === 0 ? (
             <div className="flex items-center justify-center py-12">
               <div className="text-center">
-                <div className="text-gray-400 text-3xl mb-4">No Data</div>
+                <div className="text-gray-400 text-6xl mb-4">🏆</div>
                 <p className="text-gray-900 font-semibold mb-2">No Submissions Yet Today</p>
                 <p className="text-gray-600 text-sm">Be the first to submit and top the leaderboard!</p>
               </div>
@@ -619,7 +619,7 @@ export function TodayLeaderboardModal({ onClose }: TodayLeaderboardModalProps) {
                           )}
                         </div>
                         <div className="flex items-center space-x-2 text-sm text-gray-600 mt-1">
-                          <span>Zone: {entry.zone || 'N/A'}</span>
+                          <span>📍 {entry.zone || 'N/A'}</span>
                           {entry.region && (
                             <>
                               <span>•</span>
@@ -629,7 +629,7 @@ export function TodayLeaderboardModal({ onClose }: TodayLeaderboardModalProps) {
                           {viewType !== 'SE' && entry.team_count !== undefined && (
                             <>
                               <span>•</span>
-                              <span>{entry.team_count} {viewType === 'ZSM' ? 'SEs' : 'ZSMs'}</span>
+                              <span>👥 {entry.team_count} {viewType === 'ZSM' ? 'SEs' : 'ZSMs'}</span>
                             </>
                           )}
                         </div>

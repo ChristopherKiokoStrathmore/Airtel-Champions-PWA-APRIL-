@@ -14,11 +14,7 @@ const supabase = createClient(
   Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!,
 );
 
-const JWT_SECRET = (() => {
-  const secret = Deno.env.get('JWT_SECRET');
-  if (!secret) throw new Error('JWT_SECRET environment variable is required but not set');
-  return secret;
-})();
+const JWT_SECRET = Deno.env.get('JWT_SECRET') || 'your-secret-key-change-in-production';
 
 // ============================================================================
 // INPUT SANITIZATION (XSS Protection)
@@ -220,8 +216,8 @@ export async function refreshJWT(oldToken: string): Promise<string> {
   
   // Get fresh user data
   const { data: user } = await supabase
-    .from('app_users')
-    .select('id, phone_number, role, is_active')
+    .from('users')
+    .select('id, phone, role, is_active')
     .eq('id', payload.sub)
     .single();
   

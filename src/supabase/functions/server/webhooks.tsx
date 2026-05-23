@@ -264,9 +264,9 @@ export async function handlePaymentWebhook(payload: any): Promise<void> {
     if (status === 'success') {
       // Find user by phone
       const { data: user, error } = await supabase
-        .from('app_users')
+        .from('users')
         .select('id')
-        .eq('phone_number', phone_number)
+        .eq('phone', phone_number)
         .single();
 
       if (error || !user) {

@@ -1,5 +1,5 @@
 // Van Calendar API - Weekly Route Planning System
-import { Hono } from "npm:hono@4.7.9";
+import { Hono } from "npm:hono@4";
 import { createClient } from "jsr:@supabase/supabase-js@2";
 
 const app = new Hono();
@@ -18,23 +18,41 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
 // HELPER FUNCTIONS
 // ============================================================================
 
-// Get authenticated user (Direct DB mode - uses X-User-Id header or body userId)
-async function getAuthUser(req: any, bodyUserId?: string) {
-  // Try X-User-Id header first
-  const headerUserId = req.header ? req.header('X-User-Id') : null;
-  const userId = headerUserId || bodyUserId;
+// Get authenticated user (supports both session tokens and direct user data)
+async function getAuthUser(authHeader: string | null, bodyUserId?: string) {
+  // Try to authenticate via token first
+  if (authHeader && authHeader.startsWith('Bearer ')) {
+    try {
+      const token = authHeader.substring(7);
+      const { data: { user }, error } = await supabase.auth.getUser(token);
 
-  if (userId) {
+      if (!error && user) {
+        // Get user details
+        const { data: userData } = await supabase
+          .from('app_users')
+          .select('*')
+          .eq('id', user.id)
+          .single();
+
+        if (userData) return userData;
+      }
+    } catch (e) {
+      console.error('Auth token validation failed:', e);
+    }
+  }
+
+  // Fallback: use user_id from request body
+  if (bodyUserId) {
     const { data: userData } = await supabase
       .from('app_users')
       .select('*')
-      .eq('id', userId)
+      .eq('id', bodyUserId)
       .single();
 
     if (userData) return userData;
   }
 
-  throw new Error('Authentication required - missing X-User-Id header or user_id in body');
+  throw new Error('Authentication required');
 }
 
 // Calculate week end date (always Saturday)
@@ -241,7 +259,7 @@ app.post('/create', async (c) => {
         .limit(10);
       
       console.log('✅ Available vans in database (first 10):', allVans);
-      console.log('�� Database being queried:', SUPABASE_URL);
+      console.log('🔍 Database being queried:', SUPABASE_URL);
       
       return c.json({ 
         success: false, 
@@ -314,7 +332,7 @@ app.post('/create', async (c) => {
 
 app.get('/week/:date', async (c) => {
   try {
-    const user = await getAuthUser(c.req);
+    const user = await getAuthUser(c.req.header('Authorization'));
     const weekStart = c.req.param('date');
 
     // Get all plans for this week
@@ -345,7 +363,7 @@ app.get('/week/:date', async (c) => {
 
 app.get('/van/:van_id/week/:date', async (c) => {
   try {
-    const user = await getAuthUser(c.req);
+    const user = await getAuthUser(c.req.header('Authorization'));
     const vanId = parseInt(c.req.param('van_id'));
     const weekStart = c.req.param('date');
 
@@ -445,7 +463,7 @@ app.get('/copy-last-week/:van_id', async (c) => {
 
 app.get('/zsm-checklist/:week_start', async (c) => {
   try {
-    const user = await getAuthUser(c.req);
+    const user = await getAuthUser(c.req.header('Authorization'));
     const weekStart = c.req.param('week_start');
 
     // Get all ZSMs
@@ -511,7 +529,7 @@ app.get('/zsm-checklist/:week_start', async (c) => {
 
 app.put('/:plan_id', async (c) => {
   try {
-    const user = await getAuthUser(c.req);
+    const user = await getAuthUser(c.req.header('Authorization'));
     const planId = c.req.param('plan_id');
     const body = await c.req.json();
 
@@ -565,7 +583,7 @@ app.put('/:plan_id', async (c) => {
 
 app.post('/calculate-compliance/:week_start', async (c) => {
   try {
-    const user = await getAuthUser(c.req);
+    const user = await getAuthUser(c.req.header('Authorization'));
     const weekStart = c.req.param('week_start');
 
     // Only HQ can trigger compliance calculation
@@ -729,7 +747,7 @@ app.get('/next-sunday', async (c) => {
 app.post('/feature/enable', async (c) => {
   try {
     const authHeader = c.req.header('Authorization');
-    const user = await getAuthUser(c.req);
+    const user = await getAuthUser(authHeader);
 
     // Only HQ and Directors can toggle features
     if (!['hq_command_center', 'director'].includes(user.role)) {
@@ -765,7 +783,7 @@ app.post('/feature/enable', async (c) => {
 app.post('/feature/disable', async (c) => {
   try {
     const authHeader = c.req.header('Authorization');
-    const user = await getAuthUser(c.req);
+    const user = await getAuthUser(authHeader);
 
     // Only HQ and Directors can toggle features
     if (!['hq_command_center', 'director'].includes(user.role)) {

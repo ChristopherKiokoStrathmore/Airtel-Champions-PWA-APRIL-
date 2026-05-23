@@ -1,5 +1,5 @@
-import { Hono } from "npm:hono@4.7.9";
-import { createClient } from "jsr:@supabase/supabase-js@2";
+import { Hono } from "npm:hono";
+import { createClient } from "npm:@supabase/supabase-js@2";
 import * as kv from "./kv_store.tsx";
 
 const app = new Hono();

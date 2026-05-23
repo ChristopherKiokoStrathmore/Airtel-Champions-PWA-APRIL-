@@ -19,14 +19,9 @@ import { SessionAnalytics } from './session-analytics';
 import { getLayoutMode } from '../lib/platform';
 import { DesktopLayout } from './desktop-layout';
 import { DeveloperToggle } from './developer-toggle';
-import { UserUploadManager } from './user-upload-manager';
-import { SitewiseMappingUpload } from './sitewise-mapping-upload';
-import { HQDirectorsManager } from './hq-directors-manager';
-import { ActivityDashboard } from './activity-dashboard';
 
 export function DeveloperDashboard({ user, userData, onLogout }: any) {
   const [activeTab, setActiveTab] = useState('home');
-  const [uploadSubTab, setUploadSubTab] = useState<'users' | 'mapping'>('users');
   const [analytics, setAnalytics] = useState<any>({
     totalUsers: 0,
     activeUsers: 0,
@@ -297,7 +292,7 @@ export function DeveloperDashboard({ user, userData, onLogout }: any) {
 
           {/* Role Breakdown */}
           <div className="bg-white rounded-2xl p-6 shadow-sm">
-            <h3 className="font-semibold text-gray-900 mb-4">👥 User Distribution by Role</h3>
+            <h3 className="font-semibold mb-4">👥 User Distribution by Role</h3>
             <div className="space-y-3">
               <button 
                 onClick={() => {
@@ -316,7 +311,7 @@ export function DeveloperDashboard({ user, userData, onLogout }: any) {
                     SE
                   </div>
                   <div className="text-left">
-                    <p className="text-sm font-semibold text-gray-900">Sales Executives</p>
+                    <p className="text-sm font-semibold">Sales Executives</p>
                     <p className="text-xs text-gray-600">Field team</p>
                   </div>
                 </div>
@@ -340,7 +335,7 @@ export function DeveloperDashboard({ user, userData, onLogout }: any) {
                     ZSM
                   </div>
                   <div className="text-left">
-                    <p className="text-sm font-semibold text-gray-900">Zonal Sales Managers</p>
+                    <p className="text-sm font-semibold">Zonal Sales Managers</p>
                     <p className="text-xs text-gray-600">Team leaders</p>
                   </div>
                 </div>
@@ -364,7 +359,7 @@ export function DeveloperDashboard({ user, userData, onLogout }: any) {
                     ZBM
                   </div>
                   <div className="text-left">
-                    <p className="text-sm font-semibold text-gray-900">Zonal Business Managers</p>
+                    <p className="text-sm font-semibold">Zonal Business Managers</p>
                     <p className="text-xs text-gray-600">Zone leaders</p>
                   </div>
                 </div>
@@ -388,7 +383,7 @@ export function DeveloperDashboard({ user, userData, onLogout }: any) {
                     HQ
                   </div>
                   <div className="text-left">
-                    <p className="text-sm font-semibold text-gray-900">HQ Command Center</p>
+                    <p className="text-sm font-semibold">HQ Command Center</p>
                     <p className="text-xs text-gray-600">Central operations</p>
                   </div>
                 </div>
@@ -412,7 +407,7 @@ export function DeveloperDashboard({ user, userData, onLogout }: any) {
                     DIR
                   </div>
                   <div className="text-left">
-                    <p className="text-sm font-semibold text-gray-900">Directors</p>
+                    <p className="text-sm font-semibold">Directors</p>
                     <p className="text-xs text-gray-600">Executive leadership</p>
                   </div>
                 </div>
@@ -436,7 +431,7 @@ export function DeveloperDashboard({ user, userData, onLogout }: any) {
                     💻
                   </div>
                   <div className="text-left">
-                    <p className="text-sm font-semibold text-gray-900">Developers</p>
+                    <p className="text-sm font-semibold">Developers</p>
                     <p className="text-xs text-gray-600">System admins</p>
                   </div>
                 </div>
@@ -447,7 +442,7 @@ export function DeveloperDashboard({ user, userData, onLogout }: any) {
 
           {/* System Health */}
           <div className="bg-white rounded-2xl p-6 shadow-sm">
-            <h3 className="font-semibold text-gray-900 mb-4">⚡ System Health</h3>
+            <h3 className="font-semibold mb-4">⚡ System Health</h3>
             <div className="space-y-3">
               <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg">
                 <span className="text-sm">Database</span>
@@ -469,7 +464,7 @@ export function DeveloperDashboard({ user, userData, onLogout }: any) {
 
           {/* App Usage Analytics */}
           <div className="bg-white rounded-2xl p-6 shadow-sm">
-            <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+            <h3 className="font-semibold mb-4 flex items-center gap-2">
               <span className="text-xl">📈</span>
               App Usage Analytics
             </h3>
@@ -478,7 +473,7 @@ export function DeveloperDashboard({ user, userData, onLogout }: any) {
 
           {/* Quick Actions */}
           <div className="bg-white rounded-2xl p-6 shadow-sm">
-            <h3 className="font-semibold text-gray-900 mb-4">🚀 Quick Actions</h3>
+            <h3 className="font-semibold mb-4">🚀 Quick Actions</h3>
             <div className="grid grid-cols-2 gap-3">
               <button 
                 onClick={() => setActiveTab('users')}
@@ -488,32 +483,11 @@ export function DeveloperDashboard({ user, userData, onLogout }: any) {
                 <p className="text-xs font-semibold">Manage Users</p>
               </button>
               <button 
-                onClick={() => setActiveTab('upload')}
-                className="p-4 bg-blue-50 hover:bg-blue-100 border-2 border-blue-200 rounded-xl transition-colors"
-              >
-                <p className="text-2xl mb-2">📤</p>
-                <p className="text-xs font-semibold">User Upload</p>
-              </button>
-              <button 
-                onClick={() => setActiveTab('hq')}
-                className="p-4 bg-yellow-50 hover:bg-yellow-100 border-2 border-yellow-200 rounded-xl transition-colors"
-              >
-                <p className="text-2xl mb-2">👔</p>
-                <p className="text-xs font-semibold">HQ/Directors</p>
-              </button>
-              <button 
                 onClick={() => setShowRoleChecker(true)}
                 className="p-4 bg-indigo-50 hover:bg-indigo-100 border-2 border-indigo-200 rounded-xl transition-colors"
               >
                 <p className="text-2xl mb-2">🔍</p>
                 <p className="text-xs font-semibold">Role Checker</p>
-              </button>
-              <button 
-                onClick={() => setActiveTab('activity')}
-                className="p-4 bg-emerald-50 hover:bg-emerald-100 border-2 border-emerald-200 rounded-xl transition-colors"
-              >
-                <p className="text-2xl mb-2">📊</p>
-                <p className="text-xs font-semibold">Activity</p>
               </button>
               <button 
                 onClick={loadAnalytics}
@@ -726,7 +700,7 @@ export function DeveloperDashboard({ user, userData, onLogout }: any) {
                     {user.full_name?.substring(0, 1)}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-semibold text-gray-900 truncate">{user.full_name}</p>
+                    <p className="text-sm font-semibold truncate">{user.full_name}</p>
                     <p className="text-xs text-gray-600 truncate">
                       {user.role?.replace(/_/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase())}
                       {user.employee_id && ` • ID: ${user.employee_id}`}
@@ -910,119 +884,6 @@ export function DeveloperDashboard({ user, userData, onLogout }: any) {
 
         <div className="flex-1 overflow-y-auto pb-20">
           <SessionAnalytics />
-        </div>
-
-        <BottomNav activeTab={activeTab} setActiveTab={setActiveTab} />
-      </div>
-    );
-  }
-
-  // User Upload Tab
-  if (activeTab === 'upload') {
-    return (
-      <div className="flex-1 flex flex-col bg-gray-50 overflow-hidden">
-        <div className="bg-gradient-to-r from-purple-600 to-purple-700 border-b border-purple-800 px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-2xl text-white">📤 Upload</h2>
-              <p className="text-sm text-purple-100 mt-1">Manage users and org structure updates</p>
-            </div>
-            <ProfileDropdown
-              userData={userData}
-              onLogout={onLogout}
-              onEditProfile={() => setShowProfileEdit(true)}
-              onViewSettings={() => setShowSettings(true)}
-              onViewHelp={() => setShowHelp(true)}
-              onViewAbout={() => setShowAbout(true)}
-            />
-          </div>
-          {/* Sub-tab switcher */}
-          <div className="flex gap-1 mt-4">
-            <button
-              onClick={() => setUploadSubTab('users')}
-              className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-colors ${
-                uploadSubTab === 'users'
-                  ? 'bg-white text-purple-700'
-                  : 'text-white/70 hover:text-white hover:bg-white/10'
-              }`}
-            >
-              User List Upload
-            </button>
-            <button
-              onClick={() => setUploadSubTab('mapping')}
-              className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-colors ${
-                uploadSubTab === 'mapping'
-                  ? 'bg-white text-purple-700'
-                  : 'text-white/70 hover:text-white hover:bg-white/10'
-              }`}
-            >
-              Sitewise Mapping Update
-            </button>
-          </div>
-        </div>
-
-        <div className="flex-1 overflow-y-auto pb-20">
-          {uploadSubTab === 'users' ? <UserUploadManager /> : <SitewiseMappingUpload />}
-        </div>
-
-        <BottomNav activeTab={activeTab} setActiveTab={setActiveTab} />
-      </div>
-    );
-  }
-
-  // HQ/Directors Management Tab
-  if (activeTab === 'hq') {
-    return (
-      <div className="flex-1 flex flex-col bg-gray-50 overflow-hidden">
-        <div className="bg-gradient-to-r from-purple-600 to-purple-700 border-b border-purple-800 px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-2xl text-white">👔 HQ & Directors</h2>
-              <p className="text-sm text-purple-100 mt-1">Permanent staff management</p>
-            </div>
-            <ProfileDropdown
-              userData={userData}
-              onLogout={onLogout}
-              onEditProfile={() => setShowProfileEdit(true)}
-              onViewSettings={() => setShowSettings(true)}
-              onViewHelp={() => setShowHelp(true)}
-              onViewAbout={() => setShowAbout(true)}
-            />
-          </div>
-        </div>
-
-        <div className="flex-1 overflow-y-auto pb-20">
-          <HQDirectorsManager />
-        </div>
-
-        <BottomNav activeTab={activeTab} setActiveTab={setActiveTab} />
-      </div>
-    );
-  }
-
-  // Activity Dashboard Tab
-  if (activeTab === 'activity') {
-    return (
-      <div className="flex-1 flex flex-col bg-gray-50 overflow-hidden">
-        <div className="bg-gradient-to-r from-purple-600 to-purple-700 border-b border-purple-800 px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-2xl text-white">📊 Activity Dashboard</h2>
-              <p className="text-sm text-purple-100 mt-1">User activity tracking & insights</p>
-            </div>
-            <ProfileDropdown
-              userData={userData}
-              onLogout={onLogout}
-              onEditProfile={() => setShowProfileEdit(true)}
-              onViewSettings={() => setShowSettings(true)}
-              onViewHelp={() => setShowHelp(true)}
-              onViewAbout={() => setShowAbout(true)}
-            />
-          </div>
-        </div>
-
-        <div className="flex-1 overflow-y-auto pb-20">
-          <ActivityDashboard />
         </div>
 
         <BottomNav activeTab={activeTab} setActiveTab={setActiveTab} />

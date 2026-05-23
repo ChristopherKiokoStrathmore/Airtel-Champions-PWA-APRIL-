@@ -1,472 +1,78 @@
-import { Hono } from 'npm:hono@4.7.9';
-import { cors } from 'npm:hono@4.7.9/cors';
+import { Hono } from 'npm:hono';
+import { cors } from 'npm:hono/cors';
 import { createClient } from 'jsr:@supabase/supabase-js@2';
-import * as kv from "./kv_store.tsx";
 
 const app = new Hono();
 
 // CORS configuration
 app.use('*', cors({
-  origin: (origin) => {
-    const allowed = [
-      'https://airtel-champions.vercel.app',
-      'https://airtel-champions-pwa-april-6gnsktent.vercel.app',
-      'http://localhost:5173',
-      'http://localhost:3000',
-    ];
-    return allowed.includes(origin) ? origin : null;
-  },
+  origin: '*',
   allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowHeaders: ['Content-Type', 'Authorization', 'X-User-Id'],
+  allowHeaders: ['Content-Type', 'Authorization'],
 }));
 
-// Initialize Supabase client (make-server project — for KV store only)
+// Initialize Supabase client
 const supabase = createClient(
   Deno.env.get('SUPABASE_URL') ?? '',
   Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
 );
-
-// Frontend Supabase client — connects to the PRODUCTION project (xspogpfohjmkykfjadhk)
-// where programs, submissions, app_users, van_db, and all actual data lives.
-// The make-server project (mcbbtrrhqweypfnlzwht) does NOT have these tables.
-const FRONTEND_SUPABASE_URL = Deno.env.get('FRONTEND_SUPABASE_URL')?.startsWith('https://') 
-  ? Deno.env.get('FRONTEND_SUPABASE_URL')! 
-  : 'https://xspogpfohjmkykfjadhk.supabase.co';
-// Use the anon key (same one the frontend app uses successfully for reads).
-// The old service_role key was rotated/invalidated, causing "Invalid API key" errors.
-// Anon key works because RLS on programs/submissions allows reads.
-const FRONTEND_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhzcG9ncGZvaGpta3lrZmphZGhrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU0MzcxNjMsImV4cCI6MjA4MTAxMzE2M30.C75SxALoWysJ6tHggNMC1fBvIXjzcQsfAGwAjrugGNg';
-const frontendSupabase = createClient(FRONTEND_SUPABASE_URL, FRONTEND_ANON_KEY);
-console.log('[Programs] 🔧 Frontend Supabase client initialized:', FRONTEND_SUPABASE_URL);
 
 // ============================================
 // HELPER FUNCTIONS
 // ============================================
 
 // Verify user has permission to create/manage programs (Director or HQ only)
-// Direct DB mode: Uses X-User-Id header instead of JWT auth
-async function verifyProgramCreator(req: any) {
-  const userId = req.header('X-User-Id');
-  if (!userId) {
+async function verifyProgramCreator(accessToken: string) {
+  const { data: { user }, error } = await supabase.auth.getUser(accessToken);
+  if (error || !user) {
     return { authorized: false, userId: null, role: null };
   }
 
   const { data: userData } = await supabase
     .from('app_users')
-    .select('id, role')
-    .eq('id', userId)
+    .select('role')
+    .eq('id', user.id)
     .single();
-
-  if (!userData) {
-    return { authorized: false, userId: null, role: null };
-  }
 
   const allowedRoles = ['director', 'hq_command_center'];
   const authorized = allowedRoles.includes(userData?.role);
 
-  return { authorized, userId: userData.id, role: userData?.role };
+  return { authorized, userId: user.id, role: userData?.role };
 }
 
-// Verify user is logged in (direct DB mode)
-async function verifyUser(req: any) {
-  const userId = req.header('X-User-Id');
-  if (!userId) {
+// Verify user is logged in
+async function verifyUser(accessToken: string) {
+  const { data: { user }, error } = await supabase.auth.getUser(accessToken);
+  if (error || !user) {
     return { authorized: false, userId: null };
   }
-
-  const { data: userData } = await supabase
-    .from('app_users')
-    .select('id')
-    .eq('id', userId)
-    .single();
-
-  if (!userData) {
-    return { authorized: false, userId: null };
-  }
-  return { authorized: true, userId: userData.id };
+  return { authorized: true, userId: user.id };
 }
 
 // Check if user can view analytics/submissions (Director, HQ, or Managers)
-async function canViewProgramData(req: any) {
-  const userId = req.header('X-User-Id');
-  if (!userId) {
+async function canViewProgramData(accessToken: string) {
+  const { data: { user }, error } = await supabase.auth.getUser(accessToken);
+  if (error || !user) {
     return { authorized: false, userId: null, role: null, region: null, zone: null };
   }
 
   const { data: userData } = await supabase
     .from('app_users')
-    .select('id, role, region, zone')
-    .eq('id', userId)
+    .select('role, region, zone')
+    .eq('id', user.id)
     .single();
-
-  if (!userData) {
-    return { authorized: false, userId: null, role: null, region: null, zone: null };
-  }
 
   const allowedRoles = ['director', 'hq_command_center', 'zonal_business_manager', 'zonal_sales_manager'];
   const authorized = allowedRoles.includes(userData?.role);
 
   return { 
     authorized, 
-    userId: userData.id, 
+    userId: user.id, 
     role: userData?.role, 
     region: userData?.region, 
     zone: userData?.zone 
   };
 }
-
-// ============================================
-// VAN CHECKOUT ENFORCEMENT HELPERS
-// ============================================
-
-// Safe KV get wrapper
-async function safeKvGet(key: string): Promise<any> {
-  try {
-    return await kv.get(key);
-  } catch (err: any) {
-    console.warn(`[Programs] KV get("${key}") failed: ${err.message}. Returning null.`);
-    return { value: null };
-  }
-}
-
-// Safe KV set wrapper
-async function safeKvSet(key: string, value: any): Promise<boolean> {
-  try {
-    await kv.set(key, value);
-    return true;
-  } catch (err: any) {
-    console.warn(`[Programs] KV set("${key}") failed: ${err.message}.`);
-    return false;
-  }
-}
-
-// Check if a program title indicates a "check-in" program
-function isCheckinProgram(title: string): boolean {
-  const t = (title || '').toLowerCase();
-  return t.includes('check in') || t.includes('check-in') || t.includes('checkin');
-}
-
-// Check if a program title indicates a "check-out" program
-function isCheckoutProgram(title: string): boolean {
-  const t = (title || '').toLowerCase();
-  return t.includes('check out') || t.includes('check-out') || t.includes('checkout');
-}
-
-// Extract van identifier from submission responses
-// Handles BOTH field-name-keyed responses AND UUID-keyed responses (from formData)
-function extractVanFromResponses(responses: Record<string, any>): string | null {
-  if (!responses || typeof responses !== 'object') return null;
-  
-  // Strategy 1: Look through keys for van-related field names
-  const vanKeys = ['van', 'van_selection', 'number_plate', 'numberplate', 'van_number_plate', 'plate', 'van_numberplate', 'vehicle', 'van number plate', 'van selection'];
-  for (const [key, value] of Object.entries(responses)) {
-    // Skip internal metadata fields
-    if (key.startsWith('_')) continue;
-    
-    const k = key.toLowerCase().replace(/[_\s-]+/g, '');
-    for (const vanKey of vanKeys) {
-      const normalizedVanKey = vanKey.toLowerCase().replace(/[_\s-]+/g, '');
-      if (k.includes(normalizedVanKey) && value && typeof value === 'string' && value.trim()) {
-        return value.trim();
-      }
-    }
-  }
-  
-  // Strategy 2: For UUID-keyed responses, look for values that match number plate patterns
-  // Kenyan plates: KAA-KDZ followed by 3 digits and optional letter (e.g., KDA 743F)
-  const platePattern = /^K[A-Z]{2}\s?\d{3}[A-Z]?$/i;
-  for (const [key, value] of Object.entries(responses)) {
-    if (key.startsWith('_')) continue;
-    if (value && typeof value === 'string' && platePattern.test(value.trim())) {
-      console.log(`[Programs] 🔍 Found plate-like value in UUID-keyed response: "${value.trim()}" (key: ${key})`);
-      return value.trim();
-    }
-  }
-  
-  return null;
-}
-
-// Check if a specific van identifier exists anywhere in submission responses
-function responseContainsVan(responses: Record<string, any>, vanIdentifier: string): boolean {
-  if (!responses || typeof responses !== 'object' || !vanIdentifier) return false;
-  const normalizedVan = vanIdentifier.toUpperCase().trim();
-  for (const [key, value] of Object.entries(responses)) {
-    if (key.startsWith('_')) continue;
-    if (value && typeof value === 'string' && value.toUpperCase().trim() === normalizedVan) {
-      return true;
-    }
-  }
-  return false;
-}
-
-// Check for unclosed van check-in (a check-in without a subsequent check-out)
-async function checkUnclosedVanCheckin(vanIdentifier: string): Promise<{ hasUnclosed: boolean, debug: { steps: string[] } }> {
-  const debug: any = { van: vanIdentifier.toUpperCase().trim(), steps: [], supabaseTarget: FRONTEND_SUPABASE_URL };
-  try {
-    const normalizedVan = vanIdentifier.toUpperCase().trim();
-    console.log(`[VanCheck] ========== ENFORCEMENT CHECK START ==========`);
-    console.log(`[VanCheck] 🔍 Checking van: "${normalizedVan}"`);
-    console.log(`[VanCheck] 🔧 Using FRONTEND Supabase: ${FRONTEND_SUPABASE_URL}`);
-
-    // Get all check-in and check-out programs
-    // NOTE: We fetch ALL programs and filter in code because the .or() ilike filter
-    // with spaces (e.g., "check in") fails silently in PostgREST
-    // CRITICAL: Use frontendSupabase — programs table lives on frontend project, NOT make-server
-    const { data: allPrograms, error: programsError } = await frontendSupabase
-      .from('programs')
-      .select('id, title');
-
-    if (programsError) {
-      debug.steps.push(`CRITICAL ERROR querying programs: ${programsError.message}`);
-      console.error(`[VanCheck] ❌ CRITICAL: Failed to query programs table: ${programsError.message}`);
-      // FAIL CLOSED — if we can't verify, block the check-in to be safe
-      return { hasUnclosed: true, debug };
-    }
-
-    // Filter to only check-in and check-out programs in code
-    const programs = (allPrograms || []).filter(p => isCheckinProgram(p.title) || isCheckoutProgram(p.title));
-
-    if (!programs || programs.length === 0) {
-      debug.steps.push(`No check-in/check-out programs found in DB (total programs: ${(allPrograms || []).length})`);
-      return { hasUnclosed: false, debug };
-    }
-
-    // Separate check-in and check-out programs
-    // IMPORTANT: "CHECK OUT" also contains "CHECK" but NOT "CHECK IN" as a substring
-    // However "MINI ROAD SHOW -CHECK IN " does NOT contain "check out" — so standard filtering works
-    // But to be safe, exclude checkout programs from check-in list
-    const checkinPrograms = programs.filter(p => isCheckinProgram(p.title) && !isCheckoutProgram(p.title));
-    const checkoutPrograms = programs.filter(p => isCheckoutProgram(p.title));
-    
-    const checkinProgramIds = checkinPrograms.map(p => p.id);
-    const checkoutProgramIds = checkoutPrograms.map(p => p.id);
-
-    debug.checkinPrograms = checkinPrograms.map(p => ({ id: p.id, title: p.title }));
-    debug.checkoutPrograms = checkoutPrograms.map(p => ({ id: p.id, title: p.title }));
-    debug.steps.push(`Found ${checkinPrograms.length} check-in programs, ${checkoutPrograms.length} check-out programs`);
-
-    console.log(`[VanCheck] Check-IN programs (${checkinPrograms.length}):`, checkinPrograms.map(p => `"${p.title}" [${p.id}]`).join(', '));
-    console.log(`[VanCheck] Check-OUT programs (${checkoutPrograms.length}):`, checkoutPrograms.map(p => `"${p.title}" [${p.id}]`).join(', '));
-
-    if (checkinProgramIds.length === 0) {
-      debug.steps.push('No check-in programs found after filtering');
-      console.log('[VanCheck] No check-in programs found');
-      return { hasUnclosed: false, debug };
-    }
-
-    // Query check-in submissions with a much higher limit
-    // The old limit(100) was way too low — with many agents submitting daily,
-    // a specific van's check-in could easily be beyond 100 entries
-    // NOTE: Column is created_at (NOT submitted_at — that column does NOT exist)
-    // CRITICAL: Use frontendSupabase — submissions table lives on frontend project, NOT make-server
-    const { data: lastCheckins, error: checkinError } = await frontendSupabase
-      .from('submissions')
-      .select('id, created_at, responses, program_id')
-      .in('program_id', checkinProgramIds)
-      .order('created_at', { ascending: false })
-      .limit(2000);
-
-    if (checkinError) {
-      console.error('[VanCheck] Error querying check-ins:', checkinError);
-      debug.steps.push(`CRITICAL ERROR querying check-ins: ${checkinError.message}`);
-      // FAIL CLOSED — if we can't verify, block the check-in
-      return { hasUnclosed: true, debug };
-    }
-
-    debug.totalCheckinSubmissionsFetched = (lastCheckins || []).length;
-    debug.steps.push(`Fetched ${(lastCheckins || []).length} total check-in submissions`);
-    console.log(`[VanCheck] Fetched ${(lastCheckins || []).length} total check-in submissions`);
-
-    // Filter check-ins for this specific van
-    const vanCheckins = (lastCheckins || []).filter(sub => {
-      return responseContainsVan(sub.responses, normalizedVan);
-    });
-
-    debug.vanCheckinCount = vanCheckins.length;
-    debug.steps.push(`Found ${vanCheckins.length} check-in submissions matching van "${normalizedVan}"`);
-    console.log(`[VanCheck] Found ${vanCheckins.length} check-in submissions for van "${normalizedVan}"`);
-
-    if (vanCheckins.length === 0) {
-      // No previous check-ins — first time checking in, allow it
-      debug.steps.push(`No previous check-ins for "${normalizedVan}" — first check-in, ALLOWING`);
-      console.log(`[VanCheck] No previous check-ins for "${normalizedVan}" — first check-in, ALLOWING`);
-      // Add sample submissions to debug so we can see what's actually stored
-      if ((lastCheckins || []).length > 0) {
-        debug.sampleSubmissions = lastCheckins!.slice(0, 5).map(sub => {
-          const vals = Object.entries(sub.responses || {})
-            .filter(([k]) => !k.startsWith('_'))
-            .map(([k, v]) => ({ key: k, value: v }));
-          return { id: sub.id, created_at: sub.created_at, program_id: sub.program_id, responseValues: vals };
-        });
-      }
-      return { hasUnclosed: false, debug };
-    }
-
-    const lastCheckin = vanCheckins[0]; // Most recent check-in
-    debug.lastCheckin = { id: lastCheckin.id, created_at: lastCheckin.created_at };
-    debug.steps.push(`Last check-in: ${lastCheckin.created_at} (id: ${lastCheckin.id})`);
-    console.log(`[VanCheck] Last check-in for "${normalizedVan}": ${lastCheckin.created_at} (submission ${lastCheckin.id})`);
-
-    // Check if there's a check-out after this check-in
-    if (checkoutProgramIds.length === 0) {
-      debug.steps.push('No check-out programs exist — check-in is unclosed by definition');
-      console.log('[VanCheck] No check-out programs exist — check-in is unclosed by definition');
-      return { hasUnclosed: true, debug };
-    }
-
-    const { data: checkoutsAfter, error: checkoutError } = await frontendSupabase
-      .from('submissions')
-      .select('id, created_at, responses, program_id')
-      .in('program_id', checkoutProgramIds)
-      .gte('created_at', lastCheckin.created_at)
-      .order('created_at', { ascending: false })
-      .limit(500);
-
-    if (checkoutError) {
-      console.error('[VanCheck] Error querying check-outs:', checkoutError);
-      debug.steps.push(`CRITICAL ERROR querying check-outs: ${checkoutError.message}`);
-      // FAIL CLOSED — if we can't verify checkout, block the check-in
-      return { hasUnclosed: true, debug };
-    }
-
-    debug.totalCheckoutSubmissionsFetched = (checkoutsAfter || []).length;
-    debug.steps.push(`Fetched ${(checkoutsAfter || []).length} check-out submissions since ${lastCheckin.created_at}`);
-    console.log(`[VanCheck] Fetched ${(checkoutsAfter || []).length} check-out submissions since ${lastCheckin.created_at}`);
-
-    // Filter check-outs for this specific van
-    const vanCheckouts = (checkoutsAfter || []).filter(sub => {
-      return responseContainsVan(sub.responses, normalizedVan);
-    });
-
-    debug.vanCheckoutCount = vanCheckouts.length;
-
-    if (vanCheckouts.length === 0) {
-      debug.steps.push(`BLOCKED: No checkout found for "${normalizedVan}" after check-in at ${lastCheckin.created_at}`);
-      console.log(`[VanCheck] BLOCKED: Van "${normalizedVan}" has unclosed check-in from ${lastCheckin.created_at} — NO checkout found after it`);
-      return { hasUnclosed: true, debug }; // Unclosed check-in!
-    }
-
-    debug.lastCheckout = { id: vanCheckouts[0].id, created_at: vanCheckouts[0].created_at };
-    debug.steps.push(`ALLOWED: Van checked out at ${vanCheckouts[0].created_at} (id: ${vanCheckouts[0].id})`);
-    console.log(`[VanCheck] ALLOWED: Van "${normalizedVan}" was checked out at ${vanCheckouts[0].created_at} (submission ${vanCheckouts[0].id})`);
-    console.log(`[VanCheck] ========== ENFORCEMENT CHECK END ==========`);
-    return { hasUnclosed: false, debug };
-  } catch (error) {
-    console.error('[VanCheck] Exception in checkUnclosedVanCheckin:', error);
-    debug.steps.push(`EXCEPTION: ${error?.message || error}`);
-    // FAIL CLOSED — don't let errors silently allow check-ins
-    return { hasUnclosed: true, debug };
-  }
-}
-
-// ============================================
-// VAN CHECKOUT ENFORCEMENT ROUTES
-// ============================================
-
-// GET /make-server-28f2f653/van-checkout-enforcement/status
-app.get('/make-server-28f2f653/van-checkout-enforcement/status', async (c) => {
-  try {
-    const result = await safeKvGet('van_checkout_enforcement_enabled');
-    const enabled = result?.value === true;
-    console.log('[Programs] Van checkout enforcement status:', enabled);
-    return c.json({ success: true, enabled });
-  } catch (error: any) {
-    console.error('[Programs] Error getting van checkout enforcement status:', error);
-    return c.json({ success: false, enabled: false, error: error.message }, 500);
-  }
-});
-
-// GET /make-server-28f2f653/van-checkout-enforcement/check?van=KDA743F
-// Real-time check when agent selects a van number plate in a check-in form
-app.get('/make-server-28f2f653/van-checkout-enforcement/check', async (c) => {
-  try {
-    const van = c.req.query('van');
-    if (!van) {
-      return c.json({ success: false, error: 'Missing van parameter' }, 400);
-    }
-
-    console.log(`[Programs] 🔍 Real-time van checkout check for: ${van}`);
-
-    // Check if this is a per-program enforcement call (skip global KV check)
-    const programEnforced = c.req.query('program_enforced');
-    
-    if (!programEnforced) {
-      // Legacy: check global KV setting only if not called from per-program enforcement
-      const enforcementResult = await safeKvGet('van_checkout_enforcement_enabled');
-      const enforcementEnabled = enforcementResult?.value === true;
-
-      if (!enforcementEnabled) {
-        console.log('[Programs] Van checkout enforcement is DISABLED globally — allowing check-in');
-        return c.json({ 
-          success: true, 
-          allowed: true, 
-          enforcement_enabled: false,
-          message: 'Van checkout enforcement is not enabled' 
-        });
-      }
-    }
-
-    // Check for unclosed check-in
-    const { hasUnclosed, debug } = await checkUnclosedVanCheckin(van);
-
-    if (hasUnclosed) {
-      console.log(`[Programs] ❌ Van ${van} has unclosed check-in — BLOCKED`);
-      return c.json({ 
-        success: true, 
-        allowed: false, 
-        enforcement_enabled: true,
-        message: 'Kindly check out previous trip before you can check in again',
-        debug
-      });
-    }
-
-    console.log(`[Programs] ✅ Van ${van} is clear — check-in allowed`);
-    return c.json({ 
-      success: true, 
-      allowed: true, 
-      enforcement_enabled: true,
-      message: 'Van was checked out — you can proceed with check-in',
-      debug
-    });
-  } catch (error: any) {
-    console.error('[Programs] Error checking van checkout status:', error);
-    return c.json({ success: false, error: error.message }, 500);
-  }
-});
-
-// POST /make-server-28f2f653/van-checkout-enforcement/toggle
-app.post('/make-server-28f2f653/van-checkout-enforcement/toggle', async (c) => {
-  try {
-    const body = await c.req.json();
-    const { enabled } = body;
-
-    // Verify caller is HQ or Director
-    const userId = c.req.header('X-User-Id');
-    if (userId) {
-      const { data: userData } = await supabase
-        .from('app_users')
-        .select('role')
-        .eq('id', userId)
-        .single();
-
-      if (userData && !['hq_command_center', 'director'].includes(userData.role)) {
-        return c.json({ success: false, error: 'Only HQ and Directors can toggle this setting' }, 403);
-      }
-    }
-
-    const saved = await safeKvSet('van_checkout_enforcement_enabled', enabled === true);
-    console.log(`[Programs] Van checkout enforcement toggled to: ${enabled}, saved: ${saved}`);
-
-    return c.json({
-      success: true,
-      enabled: enabled === true,
-      message: `Van checkout enforcement ${enabled ? 'ENABLED' : 'DISABLED'} successfully`
-    });
-  } catch (error: any) {
-    console.error('[Programs] Error toggling van checkout enforcement:', error);
-    return c.json({ success: false, error: error.message }, 500);
-  }
-});
 
 // ============================================
 // PROGRAMS ROUTES
@@ -491,14 +97,16 @@ app.get('/make-server-28f2f653/programs', async (c) => {
       userId = userIdParam;
       console.log('[Programs] Using query params - role:', userRole, 'userId:', userId);
     } else {
-      // Direct DB auth via X-User-Id header
-      const headerUserId = c.req.header('X-User-Id');
-      if (!headerUserId) {
-        console.log('[Programs] No user identification found');
-        return c.json({ error: 'Unauthorized - missing user identification' }, 401);
+      // Fallback to auth token (Supabase auth)
+      const accessToken = c.req.header('Authorization')?.split(' ')[1];
+      const { authorized, userId: authUserId } = await verifyUser(accessToken);
+
+      if (!authorized) {
+        console.log('[Programs] Not authorized via token');
+        return c.json({ error: 'Unauthorized' }, 401);
       }
 
-      userId = headerUserId;
+      userId = authUserId;
 
       // Get user's role from database
       const { data: userData } = await supabase
@@ -508,7 +116,7 @@ app.get('/make-server-28f2f653/programs', async (c) => {
         .single();
 
       userRole = userData?.role || 'sales_executive';
-      console.log('[Programs] Using X-User-Id header - role:', userRole, 'userId:', userId);
+      console.log('[Programs] Using auth token - role:', userRole, 'userId:', userId);
     }
 
     console.log('[Programs] Querying programs for role:', userRole);
@@ -600,7 +208,8 @@ app.get('/make-server-28f2f653/programs', async (c) => {
 // GET /make-server-28f2f653/programs/:id - Get program details with fields
 app.get('/make-server-28f2f653/programs/:id', async (c) => {
   try {
-    const { authorized, userId } = await verifyUser(c.req);
+    const accessToken = c.req.header('Authorization')?.split(' ')[1];
+    const { authorized, userId } = await verifyUser(accessToken);
 
     if (!authorized) {
       return c.json({ error: 'Unauthorized' }, 401);
@@ -746,7 +355,8 @@ app.post('/make-server-28f2f653/programs', async (c) => {
 // PUT /make-server-28f2f653/programs/:id - Update program
 app.put('/make-server-28f2f653/programs/:id', async (c) => {
   try {
-    const { authorized, userId } = await verifyProgramCreator(c.req);
+    const accessToken = c.req.header('Authorization')?.split(' ')[1];
+    const { authorized, userId } = await verifyProgramCreator(accessToken);
 
     if (!authorized) {
       return c.json({ error: 'Unauthorized - Only Director and HQ Team can update programs' }, 403);
@@ -800,7 +410,8 @@ app.delete('/make-server-28f2f653/programs/:id', async (c) => {
       console.log('[Programs] DELETE using TAI auth - userId:', userId, 'role:', userRole);
     } else {
       // Supabase auth
-      const authResult = await verifyProgramCreator(c.req);
+      const accessToken = c.req.header('Authorization')?.split(' ')[1];
+      const authResult = await verifyProgramCreator(accessToken);
       
       if (!authResult.authorized) {
         return c.json({ error: 'Unauthorized - Only Director and HQ Team can delete programs' }, 403);
@@ -838,7 +449,8 @@ app.delete('/make-server-28f2f653/programs/:id', async (c) => {
 // POST /make-server-28f2f653/programs/:id/submit - Submit program response
 app.post('/make-server-28f2f653/programs/:id/submit', async (c) => {
   try {
-    const { authorized, userId } = await verifyUser(c.req);
+    const accessToken = c.req.header('Authorization')?.split(' ')[1];
+    const { authorized, userId } = await verifyUser(accessToken);
 
     if (!authorized) {
       return c.json({ error: 'Unauthorized' }, 401);
@@ -848,158 +460,16 @@ app.post('/make-server-28f2f653/programs/:id/submit', async (c) => {
     const body = await c.req.json();
     const { responses, photos, location } = body;
 
-    const normalizeKey = (value: string) => value.toLowerCase().replace(/[^a-z0-9]+/g, '');
-
-    // Get program details (include title for check-in/check-out detection)
+    // Get program details
     const { data: program, error: programError } = await supabase
       .from('programs')
-      .select('points_value, title, van_checkout_enforcement_enabled, whitelist_enabled, whitelist_target, whitelist_fields')
+      .select('points_value')
       .eq('id', programId)
       .single();
 
     if (programError) throw programError;
 
-    const { data: programFields, error: programFieldsError } = await supabase
-      .from('program_fields')
-      .select('id, field_name, field_label, field_type, options')
-      .eq('program_id', programId);
-
-    if (programFieldsError) throw programFieldsError;
-
-    const findResponseValue = (label: string, dbColumn: string) => {
-      const wanted = normalizeKey(label || dbColumn || '');
-      const matchedField = (programFields || []).find((field: any) => {
-        const fieldLabel = normalizeKey(field.field_label || field.field_name || '');
-        const fieldName = normalizeKey(field.field_name || '');
-        return fieldLabel === wanted || fieldName === wanted;
-      });
-
-      const possibleKeys = [
-        matchedField?.field_name,
-        matchedField?.field_label,
-        matchedField?.id,
-        `__wl_${dbColumn}`,
-      ].filter(Boolean) as string[];
-
-      for (const key of possibleKeys) {
-        const value = responses?.[key];
-        if (value !== undefined && value !== null && `${value}`.trim() !== '') {
-          return value;
-        }
-      }
-
-      return null;
-    };
-
-    // ── Van Checkout Enforcement Check ──
-    if (isCheckinProgram(program.title)) {
-      console.log(`[Programs] 🚐 Detected check-in program: "${program.title}"`);
-
-      // Check per-program flag first; only fall back to global KV if the column hasn't been set (null/undefined)
-      // If the per-program flag is explicitly false, respect that — do NOT enforce
-      let enforcementEnabled: boolean;
-      
-      if (program.van_checkout_enforcement_enabled !== null && program.van_checkout_enforcement_enabled !== undefined) {
-        // Per-program flag is explicitly set — use it (true or false)
-        enforcementEnabled = program.van_checkout_enforcement_enabled === true;
-        console.log(`[Programs] 🚐 Van checkout enforcement: per-program=${enforcementEnabled} (explicitly set)`);
-      } else {
-        // Per-program flag not set — fall back to global KV for backward compatibility
-        const enforcementResult = await safeKvGet('van_checkout_enforcement_enabled');
-        enforcementEnabled = enforcementResult?.value === true;
-        console.log(`[Programs] 🚐 Van checkout enforcement: global KV=${enforcementEnabled} (per-program not set)`);
-      }
-
-      if (enforcementEnabled) {
-        console.log('[Programs] 🔒 Van checkout enforcement is ENABLED — checking for unclosed check-ins');
-
-        // Extract van identifier from responses
-        const vanIdentifier = extractVanFromResponses(responses);
-
-        if (vanIdentifier) {
-          const { hasUnclosed } = await checkUnclosedVanCheckin(vanIdentifier);
-
-          if (hasUnclosed) {
-            console.log(`[Programs] ❌ BLOCKED: Van ${vanIdentifier} has unclosed check-in`);
-            return c.json({
-              error: 'Kindly check out previous trip before you can check in again'
-            }, 400);
-          }
-        } else {
-          console.log('[Programs] ⚠️ Could not identify van in responses — skipping enforcement');
-        }
-      } else {
-        console.log('[Programs] Van checkout enforcement is DISABLED — allowing check-in');
-      }
-    }
-
-    const whitelistValues: Record<string, any> = {};
-    if (program.whitelist_enabled === true && program.whitelist_target === 'promoter_team_lead') {
-      whitelistValues.full_name = findResponseValue('Name', 'full_name') ?? findResponseValue('Full Name', 'full_name');
-      whitelistValues.msisdn = findResponseValue('MSISDN', 'msisdn') ?? findResponseValue('Phone Number', 'msisdn') ?? findResponseValue('Phone', 'msisdn');
-      whitelistValues.se_cluster = findResponseValue('Cluster', 'se_cluster') ?? findResponseValue('Cluster Name', 'se_cluster') ?? findResponseValue('SE Cluster', 'se_cluster');
-      whitelistValues.zone = findResponseValue('ZSM', 'zone') ?? findResponseValue('Zone', 'zone');
-
-      const fullName = (whitelistValues.full_name ?? '').toString().trim();
-      const msisdn = (whitelistValues.msisdn ?? '').toString().trim();
-      const zone = (whitelistValues.zone ?? '').toString().trim();
-      const seCluster = (whitelistValues.se_cluster ?? '').toString().trim();
-
-        if (!fullName || !msisdn || !zone || !seCluster) {
-          return c.json({ error: 'Whitelist fields are incomplete for Promoter Team Lead' }, 400);
-        }
-
-        const { error: signupError } = await frontendSupabase.rpc('tl_signup', {
-          p_full_name: fullName,
-          p_msisdn: msisdn,
-          p_zone: zone,
-          p_se_cluster: seCluster,
-          p_password: '1234',
-        });
-
-        if (signupError) {
-          if (signupError.message?.includes('MSISDN_EXISTS')) {
-            return c.json({ error: `MSISDN ${msisdn} is already whitelisted as a Promoter Team Lead` }, 409);
-          }
-          console.error('[Programs] Error creating promoter team lead from whitelist:', signupError);
-          return c.json({ error: 'Failed to create promoter team lead from whitelist data' }, 500);
-        }
-
-      try {
-        await frontendSupabase.from('activity_logs').insert({
-          user_id: userId,
-          action: 'program_whitelist_created',
-          metadata: {
-            program_id: programId,
-            program_title: program.title,
-            whitelist_target: program.whitelist_target || null,
-            submission_payload: responses,
-            whitelist_payload: {
-              target: program.whitelist_target || null,
-              mapped_values: whitelistValues,
-              source_fields: ['Name', 'MSISDN', 'Cluster', 'ZSM'],
-              submitted_at: new Date().toISOString(),
-            },
-          },
-        });
-      } catch (logError) {
-        console.warn('[Programs] Failed to record whitelist metadata:', logError);
-      }
-    }
-
     const pointsAwarded = program.points_value ?? 10;
-
-    const submissionResponses = program.whitelist_enabled === true && program.whitelist_target === 'promoter_team_lead'
-      ? {
-          ...responses,
-          _whitelist_metadata: {
-            target: program.whitelist_target || null,
-            mapped_values: whitelistValues,
-            source_fields: ['Name', 'MSISDN', 'Cluster', 'ZSM'],
-            submitted_at: new Date().toISOString(),
-          },
-        }
-      : responses;
 
     // Create submission
     const { data: submission, error: submissionError } = await supabase
@@ -1007,7 +477,7 @@ app.post('/make-server-28f2f653/programs/:id/submit', async (c) => {
       .insert({
         program_id: programId,
         user_id: userId,
-        responses: submissionResponses,
+        responses,
         photos,
         location,
         status: 'approved', // Auto-approve by default
@@ -1138,7 +608,13 @@ app.get('/make-server-28f2f653/programs/:id/submissions', async (c) => {
       console.log('[Programs] Using TAI auth - role:', userRole, 'userId:', userId);
     } else {
       // Supabase auth via token
-      const authResult = await canViewProgramData(c.req);
+      const accessToken = c.req.header('Authorization')?.split(' ')[1];
+      
+      if (!accessToken) {
+        return c.json({ error: 'Missing authorization token or query params' }, 401);
+      }
+      
+      const authResult = await canViewProgramData(accessToken);
       
       if (!authResult.authorized) {
         return c.json({ error: 'Unauthorized - Only Director, HQ Team, and Managers can view submissions' }, 403);
@@ -1198,7 +674,8 @@ app.get('/make-server-28f2f653/programs/:id/submissions', async (c) => {
 // PUT /make-server-28f2f653/submissions/:id/approve - Approve submission
 app.put('/make-server-28f2f653/submissions/:id/approve', async (c) => {
   try {
-    const { authorized, userId } = await verifyProgramCreator(c.req);
+    const accessToken = c.req.header('Authorization')?.split(' ')[1];
+    const { authorized, userId } = await verifyProgramCreator(accessToken);
 
     if (!authorized) {
       return c.json({ error: 'Unauthorized - Only Director and HQ Team can approve submissions' }, 403);
@@ -1226,7 +703,8 @@ app.put('/make-server-28f2f653/submissions/:id/approve', async (c) => {
 // PUT /make-server-28f2f653/submissions/:id/reject - Reject submission
 app.put('/make-server-28f2f653/submissions/:id/reject', async (c) => {
   try {
-    const { authorized, userId } = await verifyProgramCreator(c.req);
+    const accessToken = c.req.header('Authorization')?.split(' ')[1];
+    const { authorized, userId } = await verifyProgramCreator(accessToken);
 
     if (!authorized) {
       return c.json({ error: 'Unauthorized - Only Director and HQ Team can reject submissions' }, 403);
@@ -1306,7 +784,13 @@ app.get('/make-server-28f2f653/programs/:id/analytics', async (c) => {
       console.log('[Programs Analytics] Using TAI auth - role:', userRole, 'userId:', userId, 'view:', filterView);
     } else {
       // Supabase auth via token
-      const authResult = await canViewProgramData(c.req);
+      const accessToken = c.req.header('Authorization')?.split(' ')[1];
+      
+      if (!accessToken) {
+        return c.json({ error: 'Missing authorization token or query params' }, 401);
+      }
+      
+      const authResult = await canViewProgramData(accessToken);
       
       if (!authResult.authorized) {
         return c.json({ error: 'Unauthorized - Only Director, HQ Team, and Managers can view analytics' }, 403);
@@ -1599,40 +1083,5 @@ app.get('/make-server-28f2f653/programs/:id/analytics', async (c) => {
     return c.json({ error: 'Failed to fetch analytics' }, 500);
   }
 });
-
-// ─── Whitelist: schema introspection + dropdown options ──────────────────────
-
-app.get('/make-server-28f2f653/schema/tables', async (c) => {
-  const { authorized } = await verifyUser(c.req);
-  if (!authorized) return c.json({ error: 'Unauthorized' }, 401);
-  const { data, error } = await frontendSupabase.rpc('get_public_tables');
-  if (error) return c.json({ error: error.message }, 500);
-  return c.json({ tables: (data as { table_name: string }[]).map(r => r.table_name) });
-});
-
-app.get('/make-server-28f2f653/schema/tables/:tableName/columns', async (c) => {
-  const { authorized } = await verifyUser(c.req);
-  if (!authorized) return c.json({ error: 'Unauthorized' }, 401);
-  const tableName = c.req.param('tableName');
-  const { data, error } = await frontendSupabase.rpc('get_table_columns', { p_table_name: tableName });
-  if (error) return c.json({ error: error.message }, 500);
-  return c.json({ columns: (data as { column_name: string }[]).map(r => r.column_name) });
-});
-
-app.get('/make-server-28f2f653/whitelist/options', async (c) => {
-  const { authorized } = await verifyUser(c.req);
-  if (!authorized) return c.json({ error: 'Unauthorized' }, 401);
-  const table = c.req.query('table');
-  const column = c.req.query('column');
-  if (!table || !column) return c.json({ error: 'table and column are required' }, 400);
-  const { data, error } = await frontendSupabase.rpc('get_distinct_values', {
-    p_table: table,
-    p_column: column,
-  });
-  if (error) return c.json({ error: error.message }, 500);
-  return c.json({ options: (data as { value: string }[]).map(r => r.value) });
-});
-
-// ─────────────────────────────────────────────────────────────────────────────
 
 export default app;

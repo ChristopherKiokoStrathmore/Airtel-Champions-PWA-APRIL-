@@ -7,7 +7,7 @@ export interface User {
   id: string;
   employee_id: string;
   full_name: string;
-  role: 'director' | 'hq_command_center' | 'hq_staff' | 'zonal_business_manager' | 'zonal_sales_manager' | 'sales_executive' | 'field_agent';
+  role: 'director' | 'hq_command_center' | 'hq_staff' | 'zonal_business_manager' | 'zonal_sales_manager' | 'sales_executive' | 'field_agent' | 'network_team';
   zone: string;
   reporting_to?: string;
   profile_photo?: string | null;
@@ -116,6 +116,10 @@ export async function getVisibleUsers(currentUser: User): Promise<User[]> {
         u.zone === currentUser.zone
       );
     
+    case 'network_team':
+      // Network team can see all users (needs reporter contact details)
+      return allUsers;
+
     default:
       return allUsers.filter(u => u.id === currentUser.id);
   }

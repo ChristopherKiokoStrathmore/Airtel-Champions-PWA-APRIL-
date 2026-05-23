@@ -128,7 +128,7 @@ export function ProfileSetupScreen({ user, onComplete }: ProfileSetupProps) {
 
       // Insert user data into users table
       const { data, error: insertError } = await supabase
-        .from('app_users')
+        .from('users')
         .insert({
           id: user.id,
           email: user.email,
@@ -150,8 +150,10 @@ export function ProfileSetupScreen({ user, onComplete }: ProfileSetupProps) {
         throw insertError;
       }
 
-      // Profile setup complete — no Supabase Auth needed (direct DB mode)
-      console.log('[ProfileSetup] Profile setup complete for user');
+      // Mark profile as complete
+      await supabase.auth.updateUser({
+        data: { profile_complete: true }
+      });
 
       onComplete();
     } catch (err: any) {

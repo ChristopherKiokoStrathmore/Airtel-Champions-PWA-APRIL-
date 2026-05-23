@@ -58,7 +58,7 @@ export function AchievementSystem() {
 
       // Get total number of SEs
       const { count, error: countError } = await supabase
-        .from('app_users')
+        .from('users')
         .select('*', { count: 'exact', head: true })
         .eq('role', 'se')
         .eq('is_active', true);

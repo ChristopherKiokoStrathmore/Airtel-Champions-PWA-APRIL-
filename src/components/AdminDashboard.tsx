@@ -52,7 +52,7 @@ export function AdminDashboard({ adminUser, onLogout }: AdminDashboardProps) {
   };
 
   return (
-    <div data-testid="admin-panel" className="min-h-screen bg-gray-50 flex">
+    <div className="min-h-screen bg-gray-50 flex">
       <Sidebar
         currentScreen={currentScreen}
         onNavigate={setCurrentScreen}

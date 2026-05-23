@@ -13,10 +13,14 @@ export function VanDataViewer({ onClose }: { onClose: () => void }) {
     setLoading(true);
     setError(null);
     try {
-      // 1. Get current user zone from localStorage (direct DB mode)
-      const storedUser = localStorage.getItem('tai_user');
-      if (storedUser) {
-        const userData = JSON.parse(storedUser);
+      // 1. Get current user zone
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        const { data: userData } = await supabase
+          .from('users')
+          .select('region, team')
+          .eq('id', user.id)
+          .single();
         setUserZone(userData?.region || null);
       }
 

@@ -1,7 +1,6 @@
 import { useState, useRef } from 'react';
 import { supabase } from '../../utils/supabase/client';
-import { projectId, publicAnonKey } from '../../utils/supabase/info';
-import { getAuthHeaders } from '../../utils/api-helper';
+import { projectId } from '../../utils/supabase/info';
 import { Upload, FileSpreadsheet, X, CheckCircle, AlertCircle, Download } from 'lucide-react';
 
 interface ParsedField {
@@ -179,18 +178,16 @@ export function ProgramExcelImporter({ onClose, onSuccess }: ProgramExcelImporte
     setError('');
 
     try {
-      // Direct DB mode — get user from localStorage instead of Supabase Auth
-      const storedUser = localStorage.getItem('tai_user');
-      const currentUser = storedUser ? JSON.parse(storedUser) : null;
-      if (!currentUser?.id) {
-        throw new Error('Not authenticated. Please login again.');
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        throw new Error('Not authenticated');
       }
 
       const response = await fetch(`https://${projectId}.supabase.co/functions/v1/make-server-28f2f653/programs`, {
         method: 'POST',
         headers: {
-          ...getAuthHeaders(),
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session.access_token}`,
         },
         body: JSON.stringify({
           title: parsedData.title,

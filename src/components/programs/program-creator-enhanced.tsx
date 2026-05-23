@@ -10,7 +10,6 @@ import { ProgramGFormsImporter } from './program-gforms-importer';
 import { supabase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../../utils/supabase/client';
 import { notifyNewProgram } from '../../utils/notifications';
 import { projectId, publicAnonKey } from '../../utils/supabase/info';
-import { programsAPI } from './programs-api';
 
 // ============================================================================
 // FALLBACK TABLES (used only if dynamic loading fails)
@@ -82,14 +81,6 @@ interface ProgramCreatorEnhancedProps {
   editingProgram?: any; // Program to edit
 }
 
-interface WhitelistField {
-  label: string;
-  db_column: string;
-  input_type: 'text' | 'dropdown';
-  source_table?: string;
-  source_column?: string;
-}
-
 const FIELD_TYPES = [
   { value: 'text', label: 'Short Text', icon: Type, description: 'Single line text input', color: 'blue' },
   { value: 'long_text', label: 'Paragraph', icon: FileText, description: 'Multi-line text area', color: 'indigo' },
@@ -125,15 +116,7 @@ export function ProgramCreatorEnhanced({ onClose, onSuccess, editingProgram }: P
   const [gpsAutoDetectEnabled, setGpsAutoDetectEnabled] = useState(editingProgram?.gps_auto_detect_enabled !== undefined ? editingProgram.gps_auto_detect_enabled : true); // 🆕 GPS Auto-Detect toggle
   const [progressiveDisclosureEnabled, setProgressiveDisclosureEnabled] = useState(editingProgram?.progressive_disclosure_enabled !== undefined ? editingProgram.progressive_disclosure_enabled : false); // 🆕 Progressive Disclosure UI for multi-field patterns
   const [zoneFilteringEnabled, setZoneFilteringEnabled] = useState(editingProgram?.zone_filtering_enabled !== undefined ? editingProgram.zone_filtering_enabled : false); // 🆕 Zone-based filtering for dropdowns
-  const [vanCheckoutEnforcementEnabled, setVanCheckoutEnforcementEnabled] = useState(editingProgram?.van_checkout_enforcement_enabled !== undefined ? editingProgram.van_checkout_enforcement_enabled : false); // 🆕 Van checkout enforcement per-program
-  const [sessionCheckinEnabled, setSessionCheckinEnabled] = useState(false); // 📋 Session-based check-in (loaded from KV store)
-  const [whitelistEnabled, setWhitelistEnabled] = useState(false);
-  const [whitelistTarget, setWhitelistTarget] = useState<'promoter_team_lead' | 'airtel_champions' | ''>('');
-  const [whitelistFields, setWhitelistFields] = useState<WhitelistField[]>([]);
-  const [wlAvailableTables, setWlAvailableTables] = useState<string[]>([]);
-  const [wlAvailableColumns, setWlAvailableColumns] = useState<Record<number, string[]>>({});
-  const [linkedCheckinProgramId, setLinkedCheckinProgramId] = useState(''); // 🔗 Link to another program for checkout mode
-  const [allProgramsForLinking, setAllProgramsForLinking] = useState<{id: string; title: string}[]>([]); // Programs list for linking dropdown
+  const [programType, setProgramType] = useState<'standard' | 'network_issues'>(editingProgram?.program_type || 'standard');
   const [targetRoles, setTargetRoles] = useState<string[]>(editingProgram?.target_roles || ['sales_executive']);
   const [whoCanSubmit, setWhoCanSubmit] = useState<string[]>(editingProgram?.who_can_submit || ['sales_executive']); // 🆕 Who can submit
   const [startDate, setStartDate] = useState(editingProgram?.start_date || '');
@@ -463,51 +446,6 @@ export function ProgramCreatorEnhanced({ onClose, onSuccess, editingProgram }: P
     }
   };
 
-  const fetchColumnsForField = async (fieldIndex: number, tableName: string) => {
-    if (!tableName) return;
-    try {
-      const res = await fetch(`https://${projectId}.supabase.co/functions/v1/make-server-28f2f653/schema/tables/${encodeURIComponent(tableName)}/columns`);
-      const d = await res.json();
-      setWlAvailableColumns(prev => ({ ...prev, [fieldIndex]: d.columns ?? [] }));
-    } catch (err) {
-      console.error('[Whitelist] Failed to fetch columns for', tableName, err);
-    }
-  };
-
-  // Load session checkin flag from KV store when editing a program
-  useEffect(() => {
-    if (editingProgram?.id) {
-      programsAPI.getCheckinFlags().then(flags => {
-        const flag = flags[editingProgram.id] || false;
-        console.log('[ProgramCreator] Loaded session checkin flag from KV:', flag);
-        setSessionCheckinEnabled(flag);
-      }).catch(err => {
-        console.error('[ProgramCreator] Error loading checkin flag:', err);
-      });
-
-      // Load linked_checkin_program_id from form config
-      programsAPI.getProgramFormConfig(editingProgram.id).then(cfg => {
-        if (cfg?.linked_checkin_program_id) {
-          console.log('[ProgramCreator] Loaded linked checkin program:', cfg.linked_checkin_program_id);
-          setLinkedCheckinProgramId(cfg.linked_checkin_program_id);
-        }
-      }).catch(err => {
-        console.error('[ProgramCreator] Error loading form config:', err);
-      });
-    }
-
-    // Load all programs for the linking dropdown
-    const loadProgramsForLinking = async () => {
-      try {
-        const { data } = await supabase.from('programs').select('id, title').order('title');
-        if (data) setAllProgramsForLinking(data);
-      } catch (err) {
-        console.error('[ProgramCreator] Error loading programs for linking:', err);
-      }
-    };
-    loadProgramsForLinking();
-  }, [editingProgram?.id]);
-
   // Load existing fields when editing a program
   useEffect(() => {
     if (editingProgram && editingProgram.fields && editingProgram.fields.length > 0) {
@@ -535,29 +473,7 @@ export function ProgramCreatorEnhanced({ onClose, onSuccess, editingProgram }: P
         fields: loadedFields
       }]);
     }
-
-    if (editingProgram) {
-      setWhitelistEnabled(editingProgram.whitelist_enabled ?? false);
-      setWhitelistTarget((editingProgram.whitelist_target as 'promoter_team_lead' | 'airtel_champions' | '') ?? '');
-      setWhitelistFields((editingProgram.whitelist_fields as WhitelistField[]) ?? []);
-
-      if (editingProgram.whitelist_fields?.length) {
-        (editingProgram.whitelist_fields as WhitelistField[]).forEach((field: WhitelistField, idx: number) => {
-          if (field.input_type === 'dropdown' && field.source_table) {
-            fetchColumnsForField(idx, field.source_table);
-          }
-        });
-      }
-    }
   }, [editingProgram]);
-
-  useEffect(() => {
-    if (!whitelistEnabled || wlAvailableTables.length > 0) return;
-    fetch(`https://${projectId}.supabase.co/functions/v1/make-server-28f2f653/schema/tables`)
-      .then(r => r.json())
-      .then(d => setWlAvailableTables(d.tables ?? []))
-      .catch(console.error);
-  }, [whitelistEnabled]);
 
   // Add or update field
   const saveField = () => {
@@ -928,17 +844,13 @@ export function ProgramCreatorEnhanced({ onClose, onSuccess, editingProgram }: P
             icon,
             color,
             points_value: pointsValue,
-            points_enabled: pointsEnabled, // 🆕 Points toggle
-            gps_auto_detect_enabled: gpsAutoDetectEnabled, // 🆕 GPS Auto-Detect toggle
-            progressive_disclosure_enabled: progressiveDisclosureEnabled, // 🆕 Progressive Disclosure toggle
-            zone_filtering_enabled: zoneFilteringEnabled, // 🆕 Zone filtering toggle
-            van_checkout_enforcement_enabled: vanCheckoutEnforcementEnabled, // 🚐 Van checkout enforcement
-            whitelist_enabled: whitelistEnabled,
-            whitelist_target: whitelistTarget || null,
-            whitelist_fields: whitelistFields,
-            // session_checkin_enabled is stored in KV store, not programs table
+            points_enabled: pointsEnabled,
+            gps_auto_detect_enabled: gpsAutoDetectEnabled,
+            progressive_disclosure_enabled: progressiveDisclosureEnabled,
+            zone_filtering_enabled: zoneFilteringEnabled,
+            program_type: programType,
             target_roles: targetRoles,
-            who_can_submit: whoCanSubmit, // 🆕 Who can submit
+            who_can_submit: whoCanSubmit,
             status: 'active',
           })
           .eq('id', editingProgram.id)
@@ -952,27 +864,6 @@ export function ProgramCreatorEnhanced({ onClose, onSuccess, editingProgram }: P
 
         program = updatedProgram;
         console.log('[ProgramCreator] ✅ Program updated:', program.id);
-
-        // Save session checkin flag to KV store (separate from programs table)
-        try {
-          await programsAPI.setCheckinFlag(program.id, sessionCheckinEnabled);
-          console.log('[ProgramCreator] ✅ Session checkin flag saved to KV');
-        } catch (kvErr) {
-          console.error('[ProgramCreator] ⚠️ Failed to save session checkin flag:', kvErr);
-        }
-
-        // Save form config (linked program + session checkin) — always save
-        try {
-          const existingConfig = await programsAPI.getProgramFormConfig(program.id);
-          await programsAPI.saveProgramFormConfig(program.id, {
-            ...existingConfig,
-            session_checkin_enabled: sessionCheckinEnabled,
-            linked_checkin_program_id: linkedCheckinProgramId || '',
-          });
-          console.log('[ProgramCreator] ✅ Form config saved (linked:', linkedCheckinProgramId || 'none', ')');
-        } catch (linkErr) {
-          console.error('[ProgramCreator] ⚠️ Failed to save form config:', linkErr);
-        }
 
         // Delete existing fields and recreate them
         const { error: deleteError } = await supabase
@@ -996,17 +887,13 @@ export function ProgramCreatorEnhanced({ onClose, onSuccess, editingProgram }: P
             icon,
             color,
             points_value: pointsValue,
-            points_enabled: pointsEnabled, // 🆕 Points toggle
-            gps_auto_detect_enabled: gpsAutoDetectEnabled, // 🆕 GPS Auto-Detect toggle
-            progressive_disclosure_enabled: progressiveDisclosureEnabled, // 🆕 Progressive Disclosure toggle
-            zone_filtering_enabled: zoneFilteringEnabled, // 🆕 Zone filtering toggle
-            van_checkout_enforcement_enabled: vanCheckoutEnforcementEnabled, // 🚐 Van checkout enforcement
-            whitelist_enabled: whitelistEnabled,
-            whitelist_target: whitelistTarget || null,
-            whitelist_fields: whitelistFields,
-            // session_checkin_enabled is stored in KV store, not programs table
+            points_enabled: pointsEnabled,
+            gps_auto_detect_enabled: gpsAutoDetectEnabled,
+            progressive_disclosure_enabled: progressiveDisclosureEnabled,
+            zone_filtering_enabled: zoneFilteringEnabled,
+            program_type: programType,
             target_roles: targetRoles,
-            who_can_submit: whoCanSubmit, // 🆕 Who can submit
+            who_can_submit: whoCanSubmit,
             status: 'active',
           })
           .select()
@@ -1019,25 +906,6 @@ export function ProgramCreatorEnhanced({ onClose, onSuccess, editingProgram }: P
 
         program = newProgram;
         console.log('[ProgramCreator] ✅ Program created:', program.id);
-
-        // Save session checkin flag to KV store (separate from programs table)
-        try {
-          await programsAPI.setCheckinFlag(program.id, sessionCheckinEnabled);
-          console.log('[ProgramCreator] ✅ Session checkin flag saved to KV');
-        } catch (kvErr) {
-          console.error('[ProgramCreator] ⚠️ Failed to save session checkin flag:', kvErr);
-        }
-
-        // Save form config (for new programs) — always save
-        try {
-          await programsAPI.saveProgramFormConfig(program.id, {
-            session_checkin_enabled: sessionCheckinEnabled,
-            linked_checkin_program_id: linkedCheckinProgramId || '',
-          });
-          console.log('[ProgramCreator] ✅ Form config saved for new program');
-        } catch (linkErr) {
-          console.error('[ProgramCreator] ⚠️ Failed to save form config:', linkErr);
-        }
       }
 
       // Step 2: Create all fields (for both create and update)
@@ -1600,7 +1468,50 @@ export function ProgramCreatorEnhanced({ onClose, onSuccess, editingProgram }: P
                 </div>
               </div>
 
-              {/* 🆕 GPS Auto-Detect Toggle */}
+              {/* Network Issues Program Toggle */}
+              <div className={`border-2 rounded-xl p-6 transition-colors ${
+                programType === 'network_issues'
+                  ? 'bg-gradient-to-r from-red-50 to-rose-50 border-red-400'
+                  : 'bg-gradient-to-r from-gray-50 to-slate-50 border-gray-300'
+              }`}>
+                <div className="flex items-start gap-4">
+                  <input
+                    type="checkbox"
+                    id="networkIssuesType"
+                    checked={programType === 'network_issues'}
+                    onChange={(e) => setProgramType(e.target.checked ? 'network_issues' : 'standard')}
+                    className="w-6 h-6 text-red-600 rounded-lg focus:ring-2 focus:ring-red-500 mt-0.5 cursor-pointer"
+                  />
+                  <div className="flex-1">
+                    <label htmlFor="networkIssuesType" className="text-base font-bold text-gray-800 cursor-pointer flex items-center gap-2">
+                      <span>📡 Network Issues Program</span>
+                      {programType === 'network_issues' && (
+                        <span className="text-xs bg-red-600 text-white px-2 py-0.5 rounded-full font-semibold">Active</span>
+                      )}
+                    </label>
+                    <p className="text-sm text-gray-600 mt-1">
+                      {programType === 'network_issues'
+                        ? '✅ Submissions will be routed to the Networks Team dashboard. Issues will track Open → Acknowledged → Resolved status. Networks team can respond via thread.'
+                        : 'Enable this to make submissions visible to the Networks team with issue tracking and thread responses.'
+                      }
+                    </p>
+                    {programType === 'network_issues' && (
+                      <div className="mt-3 bg-white border border-red-200 rounded-lg p-3 space-y-1">
+                        <p className="text-xs font-semibold text-red-800">What this enables:</p>
+                        <ul className="text-xs text-red-700 space-y-1 ml-4">
+                          <li>• Networks team sees all submissions in their dashboard</li>
+                          <li>• Status tracking: Open → Acknowledged → Resolved</li>
+                          <li>• Thread-based communication between field staff and Networks team</li>
+                          <li>• HQ gets analytics + CSV export in the 📡 tab</li>
+                          <li>• Reporter contact details visible to Networks team</li>
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              {/* GPS Auto-Detect Toggle */}
               <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-300 rounded-xl p-6">
                 <div className="flex items-start gap-4">
                   <input
@@ -1720,203 +1631,6 @@ export function ProgramCreatorEnhanced({ onClose, onSuccess, editingProgram }: P
                           <li>• ZSMs can view (but shouldn't select) sites from other zones</li>
                         </ul>
                       </div>
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              {/* 🚐 Van Checkout Enforcement Toggle */}
-              <div className="bg-gradient-to-r from-red-50 to-orange-50 border-2 border-red-300 rounded-xl p-6">
-                <div className="flex items-start gap-4">
-                  <input
-                    type="checkbox"
-                    id="vanCheckoutEnforcementEnabled"
-                    checked={vanCheckoutEnforcementEnabled}
-                    onChange={(e) => setVanCheckoutEnforcementEnabled(e.target.checked)}
-                    className="w-6 h-6 text-red-600 rounded-lg focus:ring-2 focus:ring-red-500 mt-0.5 cursor-pointer"
-                  />
-                  <div className="flex-1">
-                    <label htmlFor="vanCheckoutEnforcementEnabled" className="text-base font-bold text-gray-800 cursor-pointer flex items-center gap-2">
-                      <span>🚐 Van Checkout Enforcement</span>
-                    </label>
-                    <p className="text-sm text-gray-600 mt-1">
-                      {vanCheckoutEnforcementEnabled 
-                        ? '✅ Agents must check out the van before they can check in again. When a number plate is selected, the system will verify that the van was previously checked out.'
-                        : '❌ No checkout verification. Agents can check in vans without checking out first.'
-                      }
-                    </p>
-                    {vanCheckoutEnforcementEnabled && (
-                      <div className="mt-3 bg-white border border-red-200 rounded-lg p-3">
-                        <p className="text-xs font-semibold text-red-800">🔒 How It Works:</p>
-                        <ul className="text-xs text-red-700 mt-1 space-y-1 ml-4">
-                          <li>• When agent selects a number plate, system checks checkout history</li>
-                          <li>• If van was NOT checked out → red banner, submit blocked</li>
-                          <li>• If van WAS checked out → green banner, submit allowed</li>
-                          <li>• Real-time check before form submission</li>
-                        </ul>
-                      </div>
-                    )}
-                    {!vanCheckoutEnforcementEnabled && (
-                      <div className="mt-3 bg-white border border-orange-200 rounded-lg p-3">
-                        <p className="text-xs font-semibold text-orange-800">💡 When to Enable:</p>
-                        <ul className="text-xs text-orange-700 mt-1 space-y-1 ml-4">
-                          <li>• For check-in programs that require prior van checkout</li>
-                          <li>• To prevent agents from checking in without checking out first</li>
-                          <li>• Enforces proper van usage workflow</li>
-                        </ul>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              {/* 📋 Session-Based Check-In Toggle */}
-              <div className="bg-gradient-to-r from-indigo-50 to-purple-50 border-2 border-indigo-200 rounded-xl p-4">
-                <div className="flex items-start gap-3">
-                  <input
-                    type="checkbox"
-                    id="sessionCheckinEnabled"
-                    checked={sessionCheckinEnabled}
-                    onChange={(e) => setSessionCheckinEnabled(e.target.checked)}
-                    className="w-6 h-6 text-indigo-600 rounded-lg focus:ring-2 focus:ring-indigo-500 mt-0.5 cursor-pointer"
-                  />
-                  <div className="flex-1">
-                    <label htmlFor="sessionCheckinEnabled" className="text-base font-bold text-gray-800 cursor-pointer flex items-center gap-2">
-                      <span>📋 Session-Based Check-In</span>
-                    </label>
-                    <p className="text-sm text-gray-600 mt-1">
-                      {sessionCheckinEnabled
-                        ? '✅ Day-long open session mode. Agents check in once, add sites and promoter MSISDNs throughout the day, enter GAs after 6 PM EAT, then close.'
-                        : '❌ Standard one-shot submission mode. Each submission is independent.'
-                      }
-                    </p>
-                    {sessionCheckinEnabled && (
-                      <div className="mt-3 bg-white border border-indigo-200 rounded-lg p-3">
-                        <p className="text-xs font-semibold text-indigo-800">📋 How Session Check-In Works:</p>
-                        <ul className="text-xs text-indigo-700 mt-1 space-y-1 ml-4">
-                          <li>• Agent opens program → a day-long session is created (or resumed)</li>
-                          <li>• Sites and promoter MSISDNs can be added/removed throughout the day</li>
-                          <li>• All changes auto-save instantly</li>
-                          <li>• After 6 PM EAT, a GA input column appears for each promoter</li>
-                          <li>• Agent manually closes the session when done → submission record created</li>
-                        </ul>
-                      </div>
-                    )}
-                    {!sessionCheckinEnabled && (
-                      <div className="mt-3 bg-white border border-purple-200 rounded-lg p-3">
-                        <p className="text-xs font-semibold text-purple-800">💡 When to Enable:</p>
-                        <ul className="text-xs text-purple-700 mt-1 space-y-1 ml-4">
-                          <li>• For check-in programs where agents visit multiple sites per day</li>
-                          <li>• When GA data needs to be collected at end-of-day</li>
-                          <li>• To allow flexible, incremental data entry throughout the day</li>
-                        </ul>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              {/* ── Auto Whitelist ─────────────────────────────────────────────────────── */}
-              <div className="bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-300 rounded-xl p-6">
-                <div className="flex items-start gap-4">
-                  <input
-                    type="checkbox"
-                    id="whitelistEnabled"
-                    checked={whitelistEnabled}
-                    onChange={(e) => {
-                      setWhitelistEnabled(e.target.checked);
-                      if (!e.target.checked) {
-                        setWhitelistTarget('');
-                        setWhitelistFields([]);
-                      }
-                    }}
-                    className="w-6 h-6 text-emerald-600 rounded-lg focus:ring-2 focus:ring-emerald-500 mt-0.5 cursor-pointer"
-                  />
-                  <div className="flex-1">
-                    <label htmlFor="whitelistEnabled" className="text-base font-bold text-gray-800 cursor-pointer flex items-center gap-2">
-                      <span>✅ Auto Whitelist on Submission</span>
-                    </label>
-                    <p className="text-sm text-gray-600 mt-1">
-                      {whitelistEnabled
-                        ? 'Submitting this form will automatically create a login account for the person whose details are collected.'
-                        : 'Disabled. Submissions do not create any login accounts.'}
-                    </p>
-
-                    {whitelistEnabled && (
-                      <div className="mt-4 space-y-4">
-                        {/* Target selector */}
-                        <div>
-                          <label className="text-sm font-semibold text-gray-700 block mb-1">Whitelist Target</label>
-                          <select
-                            value={whitelistTarget}
-                            onChange={(e) => {
-                              const t = e.target.value as typeof whitelistTarget;
-                              setWhitelistTarget(t);
-                                setWhitelistFields([]);
-                            }}
-                            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-emerald-500"
-                          >
-                            <option value="">— Select target —</option>
-                            <option value="promoter_team_lead">Promoter Team Lead</option>
-                          </select>
-                        </div>
-                        <div className="mt-4 bg-white border border-emerald-200 rounded-lg p-3 text-sm text-emerald-800">
-                          Promoter Team Lead whitelisting will use the values entered in the normal form fields.
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              {/* 🔗 Link Forms — works independently of session check-in */}
-              <div className="bg-gradient-to-r from-violet-50 to-purple-50 border-2 border-violet-200 rounded-xl p-4">
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-violet-100 flex items-center justify-center shrink-0 mt-0.5">
-                    <span className="text-base">🔗</span>
-                  </div>
-                  <div className="flex-1">
-                    <label className="text-base font-bold text-gray-800 flex items-center gap-2">
-                      Link Forms
-                      {linkedCheckinProgramId && (
-                        <span className="text-[10px] px-2 py-0.5 rounded-full font-bold uppercase bg-violet-100 text-violet-700">
-                          LINKED
-                        </span>
-                      )}
-                    </label>
-                    <p className="text-sm text-gray-600 mt-1">
-                      Link this form to a check-in program. When a user opens this form, MSISDNs from today's check-in will auto-populate with a GA input next to each. If no check-in exists, the form is blocked.
-                    </p>
-                    <div className="mt-3">
-                      <select
-                        value={linkedCheckinProgramId}
-                        onChange={(e) => setLinkedCheckinProgramId(e.target.value)}
-                        className="w-full px-3 py-2.5 rounded-lg text-sm border-2 border-violet-200 bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-violet-400 focus:border-violet-400"
-                      >
-                        <option value="">-- No linked form --</option>
-                        {allProgramsForLinking
-                          .filter(p => p.id !== editingProgram?.id)
-                          .map(p => (
-                            <option key={p.id} value={p.id}>{p.title}</option>
-                          ))
-                        }
-                      </select>
-                    </div>
-                    {linkedCheckinProgramId && (
-                      <div className="mt-3 bg-white border border-violet-200 rounded-lg p-3">
-                        <p className="text-xs font-semibold text-violet-800">🔗 Linked Checkout Mode:</p>
-                        <ul className="text-xs text-violet-700 mt-1 space-y-1 ml-4">
-                          <li>• User must complete the linked check-in first</li>
-                          <li>• MSISDNs from today's check-in auto-populate after selecting number plate</li>
-                          <li>• GA input appears next to each MSISDN</li>
-                          <li>• Users can still add new MSISDNs manually</li>
-                        </ul>
-                      </div>
-                    )}
-                    {!linkedCheckinProgramId && (
-                      <p className="text-xs text-gray-500 mt-2 italic">
-                        Leave empty for a standalone form with no linked check-in dependency.
-                      </p>
                     )}
                   </div>
                 </div>

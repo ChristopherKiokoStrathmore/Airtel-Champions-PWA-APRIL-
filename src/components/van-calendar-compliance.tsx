@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../utils/supabase/client';
 import { projectId, publicAnonKey } from '../utils/supabase/info';
-import { getAuthHeaders } from '../utils/api-helper';
 import { TrendingUp, TrendingDown, Calendar, RefreshCw } from 'lucide-react';
 
 interface ComplianceData {
@@ -56,10 +55,15 @@ export default function VanCalendarCompliance() {
     setLoading(true);
 
     try {
+      const { data: { session } } = await supabase.auth.getSession();
+      
       const response = await fetch(
         `https://${projectId}.supabase.co/functions/v1/make-server-28f2f653/van-calendar/week/${weekStart}`,
         {
-          headers: getAuthHeaders({ 'Content-Type': 'application/json' })
+          headers: {
+            'Authorization': `Bearer ${session?.access_token}`,
+            'Content-Type': 'application/json'
+          }
         }
       );
 
@@ -80,11 +84,16 @@ export default function VanCalendarCompliance() {
     setCalculating(true);
 
     try {
+      const { data: { session } } = await supabase.auth.getSession();
+      
       const response = await fetch(
         `https://${projectId}.supabase.co/functions/v1/make-server-28f2f653/van-calendar/calculate-compliance/${weekStart}`,
         {
           method: 'POST',
-          headers: getAuthHeaders({ 'Content-Type': 'application/json' })
+          headers: {
+            'Authorization': `Bearer ${session?.access_token}`,
+            'Content-Type': 'application/json'
+          }
         }
       );
 

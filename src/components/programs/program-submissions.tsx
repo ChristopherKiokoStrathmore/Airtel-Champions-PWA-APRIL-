@@ -347,26 +347,19 @@ export function ProgramSubmissions({ programId, programTitle, onClose }: Program
   };
 
   const exportToCSV = () => {
-    const headers = ['SE Name', 'Phone', 'Region', 'ZSM', 'ZBM', 'Submitted At', 'Points', 'GPS Lat', 'GPS Lng', 'Type', 'Sites Count', 'Promoters Count', 'Total GAs'];
-    const rows = submissions.map(sub => {
-      const isSession = sub.responses?._session_type === 'session_checkin';
-      return [
-        sub.user?.full_name || 'Unknown',
-        sub.user?.phone_number || '',
-        sub.user?.region || '',
-        sub.user?.zsm || '',
-        sub.user?.zbm || '',
-        new Date(sub.created_at).toLocaleString(),
-        sub.points_awarded,
-        sub.gps_location?.lat || '',
-        sub.gps_location?.lng || '',
-        isSession ? 'Session Check-In' : 'Standard',
-        isSession ? sub.responses?.sites_count || 0 : '',
-        isSession ? sub.responses?.promoters_count || 0 : '',
-        isSession ? sub.responses?.total_gas || 0 : '',
-        ...Object.entries(sub.responses || {}).filter(([k]) => !k.startsWith('_') && !['sites', 'promoters', 'total_gas', 'sites_count', 'promoters_count'].includes(k)).map(([, v]) => typeof v === 'object' ? JSON.stringify(v) : v),
-      ];
-    });
+    const headers = ['SE Name', 'Phone', 'Region', 'ZSM', 'ZBM', 'Submitted At', 'Points', 'GPS Lat', 'GPS Lng'];
+    const rows = submissions.map(sub => [
+      sub.user?.full_name || 'Unknown',
+      sub.user?.phone_number || '',
+      sub.user?.region || '',
+      sub.user?.zsm || '',
+      sub.user?.zbm || '',
+      new Date(sub.created_at).toLocaleString(),
+      sub.points_awarded,
+      sub.gps_location?.lat || '',
+      sub.gps_location?.lng || '',
+      ...Object.values(sub.responses),
+    ]);
 
     const csv = [headers, ...rows].map(row => row.join(',')).join('\\n');
     const blob = new Blob([csv], { type: 'text/csv' });
@@ -596,15 +589,6 @@ export function ProgramSubmissions({ programId, programTitle, onClose }: Program
                     </div>
 
                     <div className="flex flex-col items-end gap-2">
-                      {/* Session Check-In Badge */}
-                      {submission.responses?._session_type === 'session_checkin' && (
-                        <div className="bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-full text-xs font-bold flex items-center gap-1">
-                          📋 Session
-                          <span className="ml-1">
-                            {submission.responses?.sites_count || 0} sites · {submission.responses?.promoters_count || 0} promoters · {submission.responses?.total_gas || 0} GAs
-                          </span>
-                        </div>
-                      )}
                       {/* Only show points for non-Director roles */}
                       {submission.user?.role !== 'director' && (
                         <div className="bg-red-100 text-red-700 px-3 py-1 rounded-lg text-sm font-bold">

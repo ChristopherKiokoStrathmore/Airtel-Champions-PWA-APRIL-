@@ -9,6 +9,7 @@
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
       alias: {
         'zod@3': 'zod',
+        'web-push@3.6.7': 'web-push',
         'vaul@1.1.2': 'vaul',
         'sonner@2.0.3': 'sonner',
         'recharts@2.15.2': 'recharts',
@@ -22,12 +23,12 @@
         'hono@4': 'hono',
         'figma:asset/f9662d6ca89ec73e82f32c4c1cfcc7df0f4e8aaa.png': path.resolve(__dirname, './src/assets/f9662d6ca89ec73e82f32c4c1cfcc7df0f4e8aaa.png'),
         'figma:asset/f48ed4fba0af1189dfea6f65346a9e0aaa613e09.png': path.resolve(__dirname, './src/assets/f48ed4fba0af1189dfea6f65346a9e0aaa613e09.png'),
-        'figma:asset/5cefe3bd8a968e47f850ff725f15f7c1e5cc74bb.png': path.resolve(__dirname, './src/assets/5cefe3bd8a968e47f850ff725f15f7c1e5cc74bb.png'),
         'figma:asset/278c018c02387a7b630c9971b1a9e2245143943d.png': path.resolve(__dirname, './src/assets/278c018c02387a7b630c9971b1a9e2245143943d.png'),
         'embla-carousel-react@8.6.0': 'embla-carousel-react',
         'djwt@3': 'djwt',
         'cmdk@1.1.1': 'cmdk',
         'class-variance-authority@0.7.1': 'class-variance-authority',
+        '@supabase/supabase-js@2.39.3': '@supabase/supabase-js',
         '@supabase/supabase-js@2': '@supabase/supabase-js',
         '@radix-ui/react-tooltip@1.1.8': '@radix-ui/react-tooltip',
         '@radix-ui/react-toggle@1.1.2': '@radix-ui/react-toggle',
@@ -62,7 +63,7 @@
     },
     build: {
       target: 'esnext',
-      outDir: 'dist',
+      outDir: 'build',
     },
     server: {
       port: 3000,

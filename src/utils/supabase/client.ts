@@ -1,15 +1,8 @@
 import { createClient } from '@supabase/supabase-js';
 
 // Singleton Supabase client to prevent multiple instances
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
-const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
-
-if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
-  throw new Error(
-    'Missing required environment variables: VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY. ' +
-    'Please set these in your .env file.'
-  );
-}
+const SUPABASE_URL = 'https://xspogpfohjmkykfjadhk.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhzcG9ncGZvaGpta3lrZmphZGhrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU0MzcxNjMsImV4cCI6MjA4MTAxMzE2M30.C75SxALoWysJ6tHggNMC1fBvIXjzcQsfAGwAjrugGNg';
 
 // Check if client already exists in window to prevent duplicates
 declare global {
@@ -20,7 +13,7 @@ declare global {
 
 // Create or return existing singleton instance
 if (!window.__AIRTEL_CHAMPIONS_SUPABASE_CLIENT__) {
-  // Singleton client creation - logging removed for production
+  console.log('🔵 Creating NEW Supabase client (singleton)');
   window.__AIRTEL_CHAMPIONS_SUPABASE_CLIENT__ = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
     auth: {
       persistSession: false, // Disable session persistence to avoid conflicts
@@ -30,7 +23,7 @@ if (!window.__AIRTEL_CHAMPIONS_SUPABASE_CLIENT__) {
     },
   });
 } else {
-  // Reusing existing singleton client - logging removed for production
+  console.log('♻️ Reusing existing Supabase client (singleton)');
 }
 
 export const supabase = window.__AIRTEL_CHAMPIONS_SUPABASE_CLIENT__;

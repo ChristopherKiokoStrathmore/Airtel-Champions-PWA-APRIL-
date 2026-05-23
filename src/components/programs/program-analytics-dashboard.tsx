@@ -95,11 +95,11 @@ export function ProgramAnalyticsDashboard({ program, onClose }: ProgramAnalytics
         // Fetch user names
         const userIds = performersData.map(p => p.user_id);
         const { data: usersData } = await supabase
-          .from('app_users')
-          .select('id, full_name')
+          .from('users')
+          .select('id, name')
           .in('id', userIds);
 
-        const usersMap = new Map(usersData?.map(u => [u.id, u.full_name]) || []);
+        const usersMap = new Map(usersData?.map(u => [u.id, u.name]) || []);
         
         const performersWithNames = performersData.map(p => ({
           ...p,

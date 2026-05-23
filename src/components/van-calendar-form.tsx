@@ -34,7 +34,6 @@ export default function VanCalendarForm() {
   const [loading, setLoading] = useState(false);
   const [currentUser, setCurrentUser] = useState<any>(null);
   const [showSetupInstructions, setShowSetupInstructions] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   
   // Form state
   const [weekStart, setWeekStart] = useState('');
@@ -138,10 +137,28 @@ export default function VanCalendarForm() {
         return;
       }
 
-      // No localStorage user found — cannot proceed without login
-      console.error('[Van Calendar] No localStorage user found. Please login first.');
-      setError('Not authenticated. Please login again.');
-      return;
+      // Fallback to Supabase auth
+      console.log('[Van Calendar] 🔄 No localStorage user - trying Supabase auth...');
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        const { data: userData } = await supabase
+          .from('app_users')
+          .select('*')
+          .eq('id', user.id)
+          .single();
+        
+        console.log('[Van Calendar] 👤 Loaded from Supabase:', userData?.full_name, '| Zone:', userData?.zone);
+        setCurrentUser(userData);
+        
+        // Load vans filtered by user's zone
+        if (userData?.zone) {
+          loadVans(userData.zone);
+        } else {
+          console.error('[Van Calendar] ❌ Supabase user has NO ZONE field!');
+        }
+      } else {
+        console.error('[Van Calendar] ❌ No user found in Supabase auth');
+      }
     } catch (error) {
       console.error('[Van Calendar] ❌ Error loading current user:', error);
     }

@@ -1,5 +1,5 @@
 // Admin Utilities & Developer Routes
-import { Hono } from "npm:hono@4.7.9";
+import { Hono } from "npm:hono@4";
 import { createClient } from "jsr:@supabase/supabase-js@2";
 import * as kv from "./kv_store.tsx";
 import { initializeStorageBucket } from "./storage-setup.tsx";
@@ -26,31 +26,26 @@ const supabase = createClient(
 // AUTHENTICATION HELPERS
 // ============================================================================
 
-// Direct DB mode: Uses X-User-Id header instead of JWT auth
-async function authenticateUser(req: any) {
-  const userId = req.header ? req.header('X-User-Id') : null;
-  if (!userId) {
-    throw new Error('Missing X-User-Id header - not authenticated');
+async function authenticateUser(authHeader: string | null) {
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    throw new Error('Missing or invalid authorization header');
   }
 
-  const { data: userData, error } = await supabase
-    .from('app_users')
-    .select('id, role, full_name, email, region, zone')
-    .eq('id', userId)
-    .single();
+  const token = authHeader.substring(7);
+  const { data: { user }, error } = await supabase.auth.getUser(token);
 
-  if (error || !userData) {
-    throw new Error('User not found in app_users');
+  if (error || !user) {
+    throw new Error('Invalid or expired token');
   }
 
-  return { id: userData.id, user_metadata: { full_name: userData.full_name }, ...userData };
+  return user;
 }
 
-async function requireAdmin(req: any) {
-  const user = await authenticateUser(req);
+async function requireAdmin(authHeader: string | null) {
+  const user = await authenticateUser(authHeader);
 
   const { data: userData, error } = await supabase
-    .from('app_users')
+    .from('users')
     .select('role')
     .eq('id', user.id)
     .single();
@@ -59,17 +54,7 @@ async function requireAdmin(req: any) {
     throw new Error('User not found');
   }
 
-  const adminRoles = [
-    'admin',
-    'zsm',
-    'asm',
-    'rsm',
-    'director',
-    'hbb_hq_admin',
-    'hq_command_center',
-    'zonal_business_manager',
-    'zonal_sales_manager',
-  ];
+  const adminRoles = ['admin', 'zsm', 'asm', 'rsm'];
   if (!adminRoles.includes(userData.role)) {
     throw new Error('Insufficient permissions - admin access required');
   }
@@ -84,7 +69,7 @@ async function requireAdmin(req: any) {
 // Recalculate user points
 app.post("/make-server-28f2f653/admin/recalculate-points", async (c) => {
   try {
-    const { user } = await requireAdmin(c.req);
+    const { user } = await requireAdmin(c.req.header('Authorization'));
 
     const body = await c.req.json();
     const { userId } = body;
@@ -116,14 +101,14 @@ app.post("/make-server-28f2f653/admin/recalculate-points", async (c) => {
 
   } catch (error: any) {
     console.error('Error recalculating points:', error);
-    return c.json({ error: 'Internal server error' }, 500);
+    return c.json({ error: error.message || 'Internal server error' }, 500);
   }
 });
 
 // Refresh materialized views
 app.post("/make-server-28f2f653/admin/refresh-views", async (c) => {
   try {
-    const { user } = await requireAdmin(c.req);
+    const { user } = await requireAdmin(c.req.header('Authorization'));
     
     return c.json({ 
       success: true, 
@@ -138,7 +123,7 @@ app.post("/make-server-28f2f653/admin/refresh-views", async (c) => {
 
   } catch (error: any) {
     console.error('Error refreshing views:', error);
-    return c.json({ error: 'Internal server error' }, 500);
+    return c.json({ error: error.message || 'Internal server error' }, 500);
   }
 });
 
@@ -169,7 +154,7 @@ app.post("/make-server-28f2f653/webhooks", async (c) => {
 
   } catch (error: any) {
     console.error('Error processing webhook:', error);
-    return c.json({ error: 'Internal server error' }, 500);
+    return c.json({ error: error.message || 'Internal server error' }, 500);
   }
 });
 
@@ -239,7 +224,7 @@ app.post("/make-server-28f2f653/seed-posts", async (c) => {
 
   } catch (error: any) {
     console.error('[SeedPosts] Error:', error);
-    return c.json({ error: 'Internal server error' }, 500);
+    return c.json({ error: error.message || 'Failed to seed posts' }, 500);
   }
 });
 
@@ -268,9 +253,9 @@ app.post("/make-server-28f2f653/create-buckets", async (c) => {
     
   } catch (error: any) {
     console.error('[CreateBuckets] Error:', error);
-    return c.json({
+    return c.json({ 
       success: false,
-      error: 'Internal server error'
+      error: error.message || 'Failed to create buckets' 
     }, 500);
   }
 });
@@ -324,7 +309,7 @@ app.post("/make-server-28f2f653/upload-image", async (c) => {
     
     if (uploadError) {
       console.error('[UploadImage] Upload error:', uploadError);
-      return c.json({ error: 'Internal server error' }, 500);
+      return c.json({ error: uploadError.message || 'Failed to upload image' }, 500);
     }
     
     const { data: urlData } = supabase.storage
@@ -348,7 +333,7 @@ app.post("/make-server-28f2f653/upload-image", async (c) => {
     
   } catch (error: any) {
     console.error('[UploadImage] Error:', error);
-    return c.json({ error: 'Internal server error' }, 500);
+    return c.json({ error: error.message || 'Failed to upload image' }, 500);
   }
 });
 
@@ -365,7 +350,7 @@ app.get("/make-server-28f2f653/users/zsms", async (c) => {
 
     if (error) {
       console.error('[GetZSMs] Error fetching ZSMs:', error);
-      return c.json({ error: 'Internal server error' }, 500);
+      return c.json({ error: 'Failed to fetch ZSMs', details: error.message }, 500);
     }
 
     console.log(`[GetZSMs] ✅ Found ${zsms?.length || 0} ZSMs`);
@@ -378,7 +363,7 @@ app.get("/make-server-28f2f653/users/zsms", async (c) => {
 
   } catch (error: any) {
     console.error('[GetZSMs] Error:', error);
-    return c.json({ error: 'Internal server error' }, 500);
+    return c.json({ error: error.message || 'Internal server error' }, 500);
   }
 });
 
@@ -393,7 +378,7 @@ app.post("/make-server-28f2f653/reset-all-points", async (c) => {
 
     if (fetchError) {
       console.error('[ResetPoints] Error fetching users:', fetchError);
-      return c.json({ error: 'Internal server error' }, 500);
+      return c.json({ error: 'Failed to fetch users', details: fetchError.message }, 500);
     }
 
     console.log(`[ResetPoints] Found ${users?.length || 0} users to reset`);
@@ -410,7 +395,7 @@ app.post("/make-server-28f2f653/reset-all-points", async (c) => {
 
     if (updateError) {
       console.error('[ResetPoints] Error resetting points:', updateError);
-      return c.json({ error: 'Internal server error' }, 500);
+      return c.json({ error: 'Failed to reset points', details: updateError.message }, 500);
     }
 
     console.log(`[ResetPoints] ✅ Successfully reset points for all users`);
@@ -423,7 +408,10 @@ app.post("/make-server-28f2f653/reset-all-points", async (c) => {
     });
   } catch (error: any) {
     console.error('[ResetPoints] Unexpected error:', error);
-    return c.json({ error: 'Internal server error' }, 500);
+    return c.json({ 
+      error: 'Internal server error', 
+      details: error.message 
+    }, 500);
   }
 });
 
@@ -439,7 +427,9 @@ app.post("/make-server-28f2f653/groups/users-hierarchy", async (c) => {
     
   } catch (error: any) {
     console.error('[GetUsersHierarchy] ❌ Error:', error);
-    return c.json({ error: 'Internal server error' }, 500);
+    return c.json({ 
+      error: error.message || 'Internal server error',
+    }, 500);
   }
 });
 

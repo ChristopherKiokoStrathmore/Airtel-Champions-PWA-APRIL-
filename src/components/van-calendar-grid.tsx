@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../utils/supabase/client';
 import { projectId, publicAnonKey } from '../utils/supabase/info';
-import { getAuthHeaders } from '../utils/api-helper';
 import { ChevronLeft, ChevronRight, Calendar, Download } from 'lucide-react';
 import VanCalendarZSMChecklist from './van-calendar-zsm-checklist';
 
@@ -40,7 +39,10 @@ export default function VanCalendarGrid() {
       const response = await fetch(
         `https://${projectId}.supabase.co/functions/v1/make-server-28f2f653/van-calendar/next-sunday`,
         {
-          headers: getAuthHeaders({ 'Content-Type': 'application/json' })
+          headers: {
+            'Authorization': `Bearer ${publicAnonKey}`,
+            'Content-Type': 'application/json'
+          }
         }
       );
 
@@ -59,10 +61,15 @@ export default function VanCalendarGrid() {
     setLoading(true);
     
     try {
+      const { data: { session } } = await supabase.auth.getSession();
+      
       const response = await fetch(
         `https://${projectId}.supabase.co/functions/v1/make-server-28f2f653/van-calendar/week/${weekStart}`,
         {
-          headers: getAuthHeaders({ 'Content-Type': 'application/json' })
+          headers: {
+            'Authorization': `Bearer ${session?.access_token}`,
+            'Content-Type': 'application/json'
+          }
         }
       );
 

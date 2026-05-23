@@ -1,4 +1,4 @@
-import { createClient } from 'jsr:@supabase/supabase-js@2';
+import { createClient } from 'npm:@supabase/supabase-js@2';
 
 const supabase = createClient(
   Deno.env.get('SUPABASE_URL')!,
@@ -32,81 +32,57 @@ export async function initializeStorageBucket() {
 
 /**
  * Create a single bucket if it doesn't exist
- * Handles transient 502/503 errors with retry
  */
-async function createBucketIfNotExists(bucketName: string, retries = 2) {
-  for (let attempt = 0; attempt <= retries; attempt++) {
-    try {
-      if (attempt > 0) {
-        console.log(`[Storage] Retry attempt ${attempt} for bucket: ${bucketName}`);
-        await new Promise(r => setTimeout(r, 1000 * attempt)); // backoff
-      }
-      console.log('[Storage] Checking if bucket exists:', bucketName);
-      
-      // Check if bucket already exists
-      const { data: buckets, error: listError } = await supabase.storage.listBuckets();
-      
-      if (listError) {
-        const status = (listError as any).status || (listError as any).statusCode;
-        // Retry on transient server errors (502, 503, 504)
-        if ((status === 502 || status === 503 || status === 504) && attempt < retries) {
-          console.warn(`[Storage] Transient error (${status}) listing buckets, will retry...`);
-          continue;
-        }
-        console.error('[Storage] Error listing buckets:', listError);
-        return { success: false, error: listError.message };
-      }
-      
-      const bucketExists = buckets?.some(bucket => bucket.name === bucketName);
-      
-      if (bucketExists) {
-        console.log('[Storage] ✅ Bucket already exists:', bucketName);
-        return { success: true, message: 'Bucket already exists', bucket: bucketName };
-      }
-      
-      // Create the bucket as PRIVATE (with RLS policies)
-      console.log('[Storage] Creating new PRIVATE bucket:', bucketName);
-      const { data: newBucket, error: createError } = await supabase.storage.createBucket(
-        bucketName,
-        {
-          public: false,
-          fileSizeLimit: 10485760,
-          allowedMimeTypes: ['image/jpeg', 'image/png', 'image/jpg', 'image/webp'],
-        }
-      );
-      
-      if (createError) {
-        // If bucket was created by another concurrent request, treat as success
-        if (createError.message?.includes('already exists')) {
-          console.log('[Storage] ✅ Bucket already exists (race condition):', bucketName);
-          return { success: true, message: 'Bucket already exists', bucket: bucketName };
-        }
-        console.error('[Storage] Error creating bucket:', createError);
-        return { success: false, error: createError.message };
-      }
-      
-      console.log('[Storage] ✅ Bucket created successfully:', bucketName);
-      
-      return { 
-        success: true, 
-        message: 'Bucket created successfully',
-        bucket: bucketName 
-      };
-      
-    } catch (error: any) {
-      if (attempt < retries) {
-        console.warn(`[Storage] Transient error for ${bucketName}, will retry:`, error.message);
-        continue;
-      }
-      console.error('[Storage] Fatal error during bucket initialization:', error);
-      return { 
-        success: false, 
-        error: error.message || 'Unknown error during storage initialization' 
-      };
+async function createBucketIfNotExists(bucketName: string) {
+  try {
+    console.log('[Storage] Checking if bucket exists:', bucketName);
+    
+    // Check if bucket already exists
+    const { data: buckets, error: listError } = await supabase.storage.listBuckets();
+    
+    if (listError) {
+      console.error('[Storage] Error listing buckets:', listError);
+      return { success: false, error: listError.message };
     }
+    
+    const bucketExists = buckets?.some(bucket => bucket.name === bucketName);
+    
+    if (bucketExists) {
+      console.log('[Storage] ✅ Bucket already exists:', bucketName);
+      return { success: true, message: 'Bucket already exists', bucket: bucketName };
+    }
+    
+    // Create the bucket as PRIVATE (with RLS policies)
+    console.log('[Storage] Creating new PRIVATE bucket:', bucketName);
+    const { data: newBucket, error: createError } = await supabase.storage.createBucket(
+      bucketName,
+      {
+        public: false, // Private bucket - requires RLS policies
+        fileSizeLimit: 10485760, // 10MB limit
+        allowedMimeTypes: ['image/jpeg', 'image/png', 'image/jpg', 'image/webp'],
+      }
+    );
+    
+    if (createError) {
+      console.error('[Storage] Error creating bucket:', createError);
+      return { success: false, error: createError.message };
+    }
+    
+    console.log('[Storage] ✅ Bucket created successfully:', bucketName);
+    
+    return { 
+      success: true, 
+      message: 'Bucket created successfully',
+      bucket: bucketName 
+    };
+    
+  } catch (error: any) {
+    console.error('[Storage] Fatal error during bucket initialization:', error);
+    return { 
+      success: false, 
+      error: error.message || 'Unknown error during storage initialization' 
+    };
   }
-  // Should not reach here, but just in case
-  return { success: false, error: 'Max retries exhausted' };
 }
 
 /**

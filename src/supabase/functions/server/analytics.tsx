@@ -1,5 +1,5 @@
 // Analytics API - Leaderboards, Reports, Achievements, Challenges
-import { Hono } from "npm:hono@4.7.9";
+import { Hono } from "npm:hono@4";
 import { createClient } from "jsr:@supabase/supabase-js@2";
 import * as kv from "./kv_store.tsx";
 
@@ -34,31 +34,26 @@ const supabase = createClient(
 // AUTHENTICATION HELPERS
 // ============================================================================
 
-// Direct DB mode: Uses X-User-Id header instead of JWT auth
-async function authenticateUser(req: any) {
-  const userId = req.header ? req.header('X-User-Id') : null;
-  if (!userId) {
-    throw new Error('Missing X-User-Id header - not authenticated');
+async function authenticateUser(authHeader: string | null) {
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    throw new Error('Missing or invalid authorization header');
   }
 
-  const { data: userData, error } = await supabase
-    .from('app_users')
-    .select('id, role, full_name, email, region, zone')
-    .eq('id', userId)
-    .single();
+  const token = authHeader.substring(7);
+  const { data: { user }, error } = await supabase.auth.getUser(token);
 
-  if (error || !userData) {
-    throw new Error('User not found in app_users');
+  if (error || !user) {
+    throw new Error('Invalid or expired token');
   }
 
-  return { id: userData.id, user_metadata: { full_name: userData.full_name }, ...userData };
+  return user;
 }
 
-async function requireAdmin(req: any) {
-  const user = await authenticateUser(req);
+async function requireAdmin(authHeader: string | null) {
+  const user = await authenticateUser(authHeader);
 
   const { data: userData, error } = await supabase
-    .from('app_users')
+    .from('users')
     .select('role')
     .eq('id', user.id)
     .single();
@@ -81,7 +76,7 @@ async function requireAdmin(req: any) {
 
 app.post("/make-server-28f2f653/achievements/award", async (c) => {
   try {
-    const { user, role } = await requireAdmin(c.req);
+    const { user, role } = await requireAdmin(c.req.header('Authorization'));
 
     const body = await c.req.json();
     const { userId, achievementId } = body;
@@ -142,7 +137,7 @@ app.post("/make-server-28f2f653/achievements/award", async (c) => {
 
 app.get("/make-server-28f2f653/analytics/generate", async (c) => {
   try {
-    const { user } = await requireAdmin(c.req);
+    const { user } = await requireAdmin(c.req.header('Authorization'));
 
     const [
       submissionsResult,
@@ -151,7 +146,7 @@ app.get("/make-server-28f2f653/analytics/generate", async (c) => {
       leaderboardResult
     ] = await Promise.all([
       supabase.from('submissions').select('*', { count: 'exact' }),
-      supabase.from('app_users').select('*', { count: 'exact' }).eq('role', 'se'),
+      supabase.from('users').select('*', { count: 'exact' }).eq('role', 'se'),
       supabase.from('user_achievements').select('*', { count: 'exact' }),
       supabase.rpc('get_leaderboard', { p_timeframe: 'weekly' })
     ]);
@@ -212,7 +207,7 @@ app.get("/make-server-28f2f653/analytics/generate", async (c) => {
 
 app.get("/make-server-28f2f653/leaderboard", async (c) => {
   try {
-    const user = await authenticateUser(c.req);
+    const { user } = await authenticateUser(c.req.header('Authorization'));
 
     const timeframe = c.req.query('timeframe') || 'weekly';
     const region = c.req.query('region') || 'all';
@@ -311,7 +306,7 @@ app.get("/make-server-28f2f653/leaderboard", async (c) => {
 
 app.post("/make-server-28f2f653/challenges/check", async (c) => {
   try {
-    const user = await authenticateUser(c.req);
+    const { user } = await authenticateUser(c.req.header('Authorization'));
 
     const body = await c.req.json();
     const { userId, challengeId } = body;

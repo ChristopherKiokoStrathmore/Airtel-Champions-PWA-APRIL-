@@ -99,13 +99,8 @@ export function AdvancedCompare({ onClose, allSEs }: { onClose: () => void; allS
   const fetchAnalytics = async () => {
     setLoading(true);
     try {
-      // Fetch all programs once to map program_id -> title
-      const { data: programsData } = await supabase.from('programs').select('id, title');
-      const programNameMap: { [id: string]: string } = {};
-      (programsData || []).forEach((p: any) => { programNameMap[p.id] = p.title; });
-
-      const data1 = await getAnalyticsForEntity(entity1, programNameMap);
-      const data2 = await getAnalyticsForEntity(entity2, programNameMap);
+      const data1 = await getAnalyticsForEntity(entity1);
+      const data2 = await getAnalyticsForEntity(entity2);
       setAnalytics1(data1);
       setAnalytics2(data2);
     } catch (error) {
@@ -114,42 +109,23 @@ export function AdvancedCompare({ onClose, allSEs }: { onClose: () => void; allS
     setLoading(false);
   };
 
-  const getAnalyticsForEntity = async (entity: any, programNameMap: { [id: string]: string }): Promise<AnalyticsData> => {
+  const getAnalyticsForEntity = async (entity: any): Promise<AnalyticsData> => {
     let submissions: any[] = [];
     let totalPoints = 0;
     let seCount = 0;
     let topPerformer = '';
 
-    // Helper: fetch submissions in batches to avoid timeout on large IN lists
-    // Only select the columns we need (program_id, points_awarded) to keep queries fast
-    const fetchSubmissionsBatched = async (userIds: string[]): Promise<any[]> => {
-      const BATCH_SIZE = 50;
-      const results: any[] = [];
-      for (let i = 0; i < userIds.length; i += BATCH_SIZE) {
-        const batch = userIds.slice(i, i + BATCH_SIZE);
-        const { data, error } = await supabase
-          .from('submissions')
-          .select('program_id, points_awarded')
-          .in('user_id', batch);
-        if (error) {
-          console.error('[Compare] Error fetching submissions batch:', error);
-        } else {
-          results.push(...(data || []));
-        }
-      }
-      return results;
-    };
-
     if (comparisonType === 'se') {
       // For SE: get their submissions using user_id (the entity.id is the UUID)
       const { data, error } = await supabase
         .from('submissions')
-        .select('program_id, points_awarded')
+        .select('*')
         .eq('user_id', entity.id);
       
       if (error) {
         console.error('[Compare] Error fetching submissions for SE:', error);
         console.error('[Compare] SE details:', { id: entity.id, employee_id: entity.employee_id, name: entity.full_name });
+        // Return empty data instead of failing
         submissions = [];
       } else {
         submissions = data || [];
@@ -163,14 +139,24 @@ export function AdvancedCompare({ onClose, allSEs }: { onClose: () => void; allS
       totalPoints = sesUnderZSM.reduce((sum, se) => sum + (se.total_points || 0), 0);
       
       // Get top performer
-      const topSE = [...sesUnderZSM].sort((a, b) => (b.total_points || 0) - (a.total_points || 0))[0];
+      const topSE = sesUnderZSM.sort((a, b) => (b.total_points || 0) - (a.total_points || 0))[0];
       topPerformer = topSE?.full_name || '';
 
-      // Get all submissions from SEs under this ZSM (batched)
-      const employeeIds = sesUnderZSM.map(se => se.id);
+      // Get all submissions from SEs under this ZSM
+      const employeeIds = sesUnderZSM.map(se => se.id); // Use UUID id, not employee_id
       if (employeeIds.length > 0) {
-        submissions = await fetchSubmissionsBatched(employeeIds);
-        console.log(`[Compare] Found ${submissions.length} submissions for ZSM ${entity.name}`);
+        const { data, error } = await supabase
+          .from('submissions')
+          .select('*')
+          .in('user_id', employeeIds); // Use user_id, not employee_id
+        
+        if (error) {
+          console.error('[Compare] Error fetching submissions for ZSM:', error);
+          submissions = [];
+        } else {
+          submissions = data || [];
+          console.log(`[Compare] Found ${submissions.length} submissions for ZSM ${entity.name}`);
+        }
       }
     } else if (comparisonType === 'zone') {
       // For Zone: get all SEs in this zone and their submissions
@@ -179,21 +165,31 @@ export function AdvancedCompare({ onClose, allSEs }: { onClose: () => void; allS
       totalPoints = sesInZone.reduce((sum, se) => sum + (se.total_points || 0), 0);
       
       // Get top performer
-      const topSE = [...sesInZone].sort((a, b) => (b.total_points || 0) - (a.total_points || 0))[0];
+      const topSE = sesInZone.sort((a, b) => (b.total_points || 0) - (a.total_points || 0))[0];
       topPerformer = topSE?.full_name || '';
 
-      // Get all submissions from SEs in this zone (batched)
-      const employeeIds = sesInZone.map(se => se.id);
+      // Get all submissions from SEs in this zone
+      const employeeIds = sesInZone.map(se => se.id); // Use UUID id, not employee_id
       if (employeeIds.length > 0) {
-        submissions = await fetchSubmissionsBatched(employeeIds);
-        console.log(`[Compare] Found ${submissions.length} submissions for Zone ${entity.name}`);
+        const { data, error } = await supabase
+          .from('submissions')
+          .select('*')
+          .in('user_id', employeeIds); // Use user_id, not employee_id
+        
+        if (error) {
+          console.error('[Compare] Error fetching submissions for Zone:', error);
+          submissions = [];
+        } else {
+          submissions = data || [];
+          console.log(`[Compare] Found ${submissions.length} submissions for Zone ${entity.name}`);
+        }
       }
     }
 
     // Calculate program breakdown
     const programMap: { [key: string]: { count: number; points: number } } = {};
     submissions.forEach(sub => {
-      const program = (sub.program_id && programNameMap[sub.program_id]) || 'Unknown';
+      const program = sub.program_name || sub.program || 'Unknown';
       if (!programMap[program]) {
         programMap[program] = { count: 0, points: 0 };
       }

@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { programsAPI, initializeSampleProgram, supabase } from '../../utils/supabase-direct';
-import { ChevronRight, ChevronLeft, Truck } from 'lucide-react';
+import { ChevronRight, ChevronLeft, Truck, MessageSquare } from 'lucide-react';
 import { ProgramSubmitModal } from './program-submit-modal';
 import { SubmissionSuccessModal } from './submission-success-modal';
+import { NetworkIssueThreadModal } from '../network-issue-thread-modal';
 import { SetupInstructions } from '../setup-instructions';
 import { usePageTracking } from '../../hooks/usePageTracking';
 import { ANALYTICS_PAGES } from '../../utils/analytics';
@@ -20,6 +21,7 @@ interface Program {
   status: string;
   target_roles: string[];
   category?: string;
+  program_type?: string;
 }
 
 interface ProgramSubmission {
@@ -39,11 +41,13 @@ export function ProgramsList({ onBack, onPointsUpdated }: { onBack?: () => void;
   const [setupError, setSetupError] = useState<{ error: string; code?: string } | null>(null);
   const [attemptingAutoFix, setAttemptingAutoFix] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
-  const [successData, setSuccessData] = useState<{ points: number; newTotal: number; programTitle: string; submissionDetails?: any } | null>(null);
+  const [successData, setSuccessData] = useState<{ points: number; newTotal: number; programTitle: string } | null>(null);
   const [showVanCalendar, setShowVanCalendar] = useState(false);
   const [vanCalendarView, setVanCalendarView] = useState<'form' | 'grid' | 'compliance'>('form');
   const [vanCalendarEnabled, setVanCalendarEnabled] = useState(true);
   const [userRole, setUserRole] = useState<string>('');
+  const [showNetworkThreadModal, setShowNetworkThreadModal] = useState(false);
+  const [networkThreadUserId, setNetworkThreadUserId] = useState<string>('');
 
   useEffect(() => {
     loadData();
@@ -245,31 +249,47 @@ export function ProgramsList({ onBack, onPointsUpdated }: { onBack?: () => void;
             {programs.map((program) => {
             const count = getSubmissionCount(program.id);
             const colorClasses = getColorClasses(program.color);
+            const isNetworkProgram = program.program_type === 'network_issues';
 
             return (
-              <button
-                key={program.id}
-                onClick={() => setSelectedProgram(program)}
-                className={`w-full ${colorClasses} border rounded-xl p-4 hover:shadow-lg transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]`}
-              >
-                <div className="flex items-center gap-4">
-                  {/* Icon */}
-                  <div className="text-4xl flex-shrink-0">
-                    {program.icon}
-                  </div>
+              <div key={program.id} className="space-y-1">
+                <button
+                  onClick={() => setSelectedProgram(program)}
+                  className={`w-full ${colorClasses} border rounded-xl p-4 hover:shadow-lg transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]`}
+                >
+                  <div className="flex items-center gap-4">
+                    {/* Icon */}
+                    <div className="text-4xl flex-shrink-0">
+                      {program.icon}
+                    </div>
 
-                  {/* Content */}
-                  <div className="flex-1 text-left">
-                    <h4 className="font-semibold text-lg mb-1">{program.title}</h4>
-                    <p className="text-sm opacity-80">
-                      {count} submission{count !== 1 ? 's' : ''} made
-                    </p>
-                  </div>
+                    {/* Content */}
+                    <div className="flex-1 text-left">
+                      <h4 className="font-semibold text-lg mb-1">{program.title}</h4>
+                      <p className="text-sm opacity-80">
+                        {count} submission{count !== 1 ? 's' : ''} made
+                      </p>
+                    </div>
 
-                  {/* Arrow */}
-                  <ChevronRight className="w-6 h-6 flex-shrink-0 opacity-60" />
-                </div>
-              </button>
+                    {/* Arrow */}
+                    <ChevronRight className="w-6 h-6 flex-shrink-0 opacity-60" />
+                  </div>
+                </button>
+
+                {/* View Reports button for Network Issue programs */}
+                {isNetworkProgram && count > 0 && (
+                  <button
+                    onClick={() => {
+                      setNetworkThreadUserId(userId);
+                      setShowNetworkThreadModal(true);
+                    }}
+                    className="w-full flex items-center justify-center gap-2 py-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
+                  >
+                    <MessageSquare className="w-4 h-4" />
+                    View My Reports &amp; Updates
+                  </button>
+                )}
+              </div>
             );
           })}
           </>
@@ -283,17 +303,16 @@ export function ProgramsList({ onBack, onPointsUpdated }: { onBack?: () => void;
           program={selectedProgram}
           userId={userId}
           onClose={() => setSelectedProgram(null)}
-          onSuccess={(pointsAwarded, newTotal, submissionDetails) => {
+          onSuccess={(pointsAwarded, newTotal) => {
             setSuccessData({
               points: pointsAwarded,
               newTotal: newTotal,
-              programTitle: selectedProgram.title,
-              submissionDetails
+              programTitle: selectedProgram.title
             });
             setSelectedProgram(null);
             setShowSuccessModal(true);
-            loadData();
-            if (onPointsUpdated) onPointsUpdated();
+            loadData(); // Reload to update counts
+            if (onPointsUpdated) onPointsUpdated(); // Refresh leaderboard
           }}
         />
       )}
@@ -304,11 +323,18 @@ export function ProgramsList({ onBack, onPointsUpdated }: { onBack?: () => void;
           pointsEarned={successData.points}
           newTotalPoints={successData.newTotal}
           programTitle={successData.programTitle}
-          submissionDetails={successData.submissionDetails}
           onClose={() => {
             setShowSuccessModal(false);
             setSuccessData(null);
           }}
+        />
+      )}
+
+      {/* Network Issue Thread Modal */}
+      {showNetworkThreadModal && networkThreadUserId && (
+        <NetworkIssueThreadModal
+          userId={networkThreadUserId}
+          onClose={() => setShowNetworkThreadModal(false)}
         />
       )}
 

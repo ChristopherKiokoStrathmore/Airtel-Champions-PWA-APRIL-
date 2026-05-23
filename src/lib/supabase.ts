@@ -5,11 +5,13 @@ export { supabase } from '../utils/supabase/client';
 import { supabase } from '../utils/supabase/client';
 import { projectId, publicAnonKey } from '../utils/supabase/info';
 
-// Debug logging removed for production
+// Debug logging (remove in production)
+console.log('✅ Using shared Supabase client from /utils/supabase/client');
 
 // ============================================================================
 // API FUNCTIONS - Frontend to Backend Integration
 // ============================================================================
+
 // Helper function to handle API responses
 const handleResponse = async (response: Response) => {
   if (!response.ok) {
@@ -420,59 +422,41 @@ export async function updateMissionPoints(missionId: string, points: number) {
 // table does not exist; all persistence is in the KV store via the server.
 // ----------------------------------------------------------------------------
 
-import { localCache, CACHE_TTL } from './local-cache';
-
 export async function getAnnouncements(userRole?: string, userId?: string) {
   try {
-    const cacheKey = `announcements_${userRole || 'all'}_${userId || 'none'}`;
-    
-    // Try localStorage cache first (5 min TTL)
-    const cached = localCache.get<any[]>(cacheKey);
-    if (cached) {
-      // Stale-while-revalidate: return cached data, refresh in background
-      fetchAnnouncementsFromServer(userRole, userId, cacheKey).catch(() => {});
+    const params = new URLSearchParams();
+    if (userRole) params.set('user_role', userRole);
+    if (userId)   params.set('user_id', userId);
+
+    const response = await fetch(
+      `https://${projectId}.supabase.co/functions/v1/make-server-28f2f653/announcements?${params.toString()}`,
+      {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${publicAnonKey}`,
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+
+    if (!response.ok) {
+      console.warn('[getAnnouncements] Server responded', response.status);
+      const cached = JSON.parse(localStorage.getItem('tai_announcements') || '[]');
       return { data: cached, error: null };
     }
-    
-    return await fetchAnnouncementsFromServer(userRole, userId, cacheKey);
+
+    const result = await response.json();
+    const announcements = result.announcements || [];
+
+    // Cache locally for offline fallback
+    localStorage.setItem('tai_announcements', JSON.stringify(announcements));
+
+    return { data: announcements, error: null };
   } catch (err: any) {
+    // Offline / network error — return cached data silently
     const cached = JSON.parse(localStorage.getItem('tai_announcements') || '[]');
     return { data: cached, error: null };
   }
-}
-
-async function fetchAnnouncementsFromServer(userRole?: string, userId?: string, cacheKey?: string) {
-  const params = new URLSearchParams();
-  if (userRole) params.set('user_role', userRole);
-  if (userId)   params.set('user_id', userId);
-
-  const response = await fetch(
-    `https://${projectId}.supabase.co/functions/v1/make-server-28f2f653/announcements?${params.toString()}`,
-    {
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${publicAnonKey}`,
-        'Content-Type': 'application/json',
-      },
-    }
-  );
-
-  if (!response.ok) {
-    console.warn('[getAnnouncements] Server responded', response.status);
-    const cached = JSON.parse(localStorage.getItem('tai_announcements') || '[]');
-    return { data: cached, error: null };
-  }
-
-  const result = await response.json();
-  const announcements = result.announcements || [];
-
-  // Cache in both localStorage (legacy) and localCache (TTL-aware)
-  localStorage.setItem('tai_announcements', JSON.stringify(announcements));
-  if (cacheKey) {
-    localCache.set(cacheKey, announcements, CACHE_TTL.ANNOUNCEMENTS);
-  }
-
-  return { data: announcements, error: null };
 }
 
 export async function createAnnouncement(announcement: {
@@ -517,10 +501,6 @@ export async function createAnnouncement(announcement: {
 
     const result = await response.json();
     console.log('[createAnnouncement] ✅ Created via server KV:', result.announcement?.id);
-    
-    // Invalidate announcements cache so next load shows the new one
-    localCache.deleteByPrefix('announcements_');
-    
     return { data: [result.announcement], error: null };
   } catch (err: any) {
     console.error('[createAnnouncement] ❌ Network error:', err.message);
@@ -890,54 +870,5 @@ export async function getCompetitorActivity() {
       data: [],
       error: error.message || 'Failed to fetch competitor activity',
     };
-  }
-}
-
-// ----------------------------------------------------------------------------
-// INSTALLER LIVE LOCATION API
-// ----------------------------------------------------------------------------
-
-/**
- * Upsert the installer's live location in the installer_live_locations table.
- * @param installerId - The installer's ID (from INHOUSE_INSTALLER_6TOWNS_MARCH)
- * @param latitude - Latitude
- * @param longitude - Longitude
- */
-export async function upsertInstallerLiveLocation(installerId: number, latitude: number, longitude: number) {
-  try {
-    const { data, error } = await supabase
-      .from('installer_live_locations')
-      .upsert([
-        {
-          installer_id: installerId,
-          latitude,
-          longitude,
-          updated_at: new Date().toISOString(),
-        },
-      ], { onConflict: ['installer_id'] });
-    return { data, error };
-  } catch (error: any) {
-    return { data: null, error: error.message };
-  }
-}
-
-/**
- * Fetch all installer live locations (with join to installer details).
- */
-export async function getInstallerLiveLocations() {
-  try {
-    const { data, error } = await supabase
-      .from('installer_live_locations')
-      .select(`
-        id,
-        installer_id,
-        latitude,
-        longitude,
-        updated_at,
-        installer:INHOUSE_INSTALLER_6TOWNS_MARCH!installer_id(ID, "Installer name", "Installer contact", "Supervisor", "Supervisor number", "Zone", "Town")
-      `);
-    return { data, error };
-  } catch (error: any) {
-    return { data: null, error: error.message };
   }
 }

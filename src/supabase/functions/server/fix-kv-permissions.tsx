@@ -4,10 +4,7 @@
 // Runs on startup via direct PostgreSQL connection (SUPABASE_DB_URL)
 // ============================================================================
 
-// NOTE: `npm:pg@8` is imported DYNAMICALLY inside the function to prevent
-// a top-level import crash from taking down the entire edge function.
-// If `pg` fails to load (missing Node compat, etc.), only the permission
-// fix is skipped — the rest of the server keeps running.
+import { Pool } from "npm:pg@8";
 
 /**
  * Attempts to GRANT ALL permissions on kv_store_28f2f653 to all roles.
@@ -29,21 +26,7 @@ export async function fixKvPermissions(): Promise<{
     };
   }
 
-  // Dynamic import so a load failure doesn't crash the entire server
-  let Pool: any;
-  try {
-    const pg = await import("npm:pg@8");
-    Pool = pg.Pool ?? pg.default?.Pool;
-    if (!Pool) throw new Error("Pool constructor not found in pg module");
-  } catch (importErr: any) {
-    console.warn("[KV-Permissions] npm:pg@8 import failed:", importErr.message);
-    return {
-      success: false,
-      message: `pg module unavailable: ${importErr.message}`,
-    };
-  }
-
-  let pool: any = null;
+  let pool: Pool | null = null;
 
   try {
     pool = new Pool({

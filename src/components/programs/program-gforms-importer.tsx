@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { supabase } from '../../utils/supabase/client';
-import { projectId, publicAnonKey } from '../../utils/supabase/info';
-import { getAuthHeaders } from '../../utils/api-helper';
+import { projectId } from '../../utils/supabase/info';
 import { Link2, X, CheckCircle, AlertCircle, ExternalLink } from 'lucide-react';
 
 interface GoogleFormField {
@@ -124,17 +123,16 @@ export function ProgramGFormsImporter({ onClose, onSuccess }: ProgramGFormsImpor
     setError('');
 
     try {
-      // Direct DB mode — use publicAnonKey instead of auth session
-      const storedUser = localStorage.getItem('tai_user');
-      if (!storedUser) {
-        throw new Error('Not authenticated. Please login again.');
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        throw new Error('Not authenticated');
       }
 
       const response = await fetch(`https://${projectId}.supabase.co/functions/v1/make-server-28f2f653/programs`, {
         method: 'POST',
         headers: {
-          ...getAuthHeaders(),
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session.access_token}`,
         },
         body: JSON.stringify({
           title: parsedData.title,

@@ -98,7 +98,7 @@ export function SubmissionsAnalytics({
         console.log('[SubmissionsAnalytics] 📊 Attempting to get total count...');
         let countQuery = supabase
           .from('submissions')
-          .select('id', { count: 'exact', head: true });
+          .select('*', { count: 'exact', head: true });
         
         if (dateFilter) {
           countQuery = countQuery.gte('created_at', dateFilter);
@@ -106,31 +106,14 @@ export function SubmissionsAnalytics({
 
         const { count, error: countErr } = await countQuery;
         if (countErr) {
-          console.warn('[SubmissionsAnalytics] ⚠️ Count query returned error:', JSON.stringify(countErr));
-          // Fallback: try without head to just get data length
-          try {
-            let fallbackQuery = supabase
-              .from('submissions')
-              .select('id')
-              .limit(1000);
-            if (dateFilter) {
-              fallbackQuery = fallbackQuery.gte('created_at', dateFilter);
-            }
-            const { data: fallbackData, error: fallbackErr } = await fallbackQuery;
-            if (!fallbackErr && fallbackData) {
-              totalSubmissions = fallbackData.length;
-              console.log('[SubmissionsAnalytics] ✅ Fallback count from data length:', totalSubmissions);
-            }
-          } catch (fbErr) {
-            console.warn('[SubmissionsAnalytics] ⚠️ Fallback count also failed');
-          }
+          console.warn('[SubmissionsAnalytics] ⚠️ Count query returned error:', countErr.message);
         } else {
           totalSubmissions = count || 0;
         }
         console.log('[SubmissionsAnalytics] ✅ Total submissions:', totalSubmissions);
         setLoadingProgress(20);
       } catch (countError: any) {
-        console.warn('[SubmissionsAnalytics] ⚠️ Count query failed:', countError?.message || countError, '- will estimate from sample');
+        console.warn('[SubmissionsAnalytics] ⚠️ Count query failed, will estimate from sample');
         setLoadingProgress(20);
       }
 

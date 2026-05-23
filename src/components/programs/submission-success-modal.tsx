@@ -1,13 +1,10 @@
-import { Trophy, TrendingUp, CheckCircle, FileText } from 'lucide-react';
+import { Trophy, TrendingUp, CheckCircle, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import type { SubmissionDetails } from './submit-handler';
-import { SubmissionReport } from './submission-report';
 
 interface SubmissionSuccessModalProps {
   pointsEarned: number;
   newTotalPoints: number;
   programTitle: string;
-  submissionDetails?: SubmissionDetails;
   onClose: () => void;
 }
 
@@ -15,28 +12,14 @@ export function SubmissionSuccessModal({
   pointsEarned,
   newTotalPoints,
   programTitle,
-  submissionDetails,
   onClose,
 }: SubmissionSuccessModalProps) {
   const [show, setShow] = useState(false);
-  const [showReport, setShowReport] = useState(false);
 
   useEffect(() => {
     // Trigger animation after mount
     setTimeout(() => setShow(true), 10);
   }, []);
-
-  // If viewing the report, render it full screen
-  if (showReport && submissionDetails) {
-    return (
-      <SubmissionReport
-        details={submissionDetails}
-        pointsEarned={pointsEarned}
-        newTotalPoints={newTotalPoints}
-        onClose={() => setShowReport(false)}
-      />
-    );
-  }
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
@@ -61,7 +44,7 @@ export function SubmissionSuccessModal({
 
         {/* Success Message */}
         <h2 className="text-3xl font-bold text-center text-gray-900 mb-2">
-          Success!
+          🎉 Success!
         </h2>
         <p className="text-center text-gray-600 mb-2">
           Your submission for <span className="font-semibold">{programTitle}</span> has been recorded
@@ -74,7 +57,7 @@ export function SubmissionSuccessModal({
               day: 'numeric', 
               month: 'short', 
               year: 'numeric' 
-            })} &bull; {new Date().toLocaleTimeString('en-US', { 
+            })} • {new Date().toLocaleTimeString('en-US', { 
               hour: '2-digit', 
               minute: '2-digit' 
             })}
@@ -107,20 +90,9 @@ export function SubmissionSuccessModal({
         {/* Motivational Message */}
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
           <p className="text-sm text-blue-800 text-center">
-            Keep it up! Your field intelligence is helping Airtel Kenya dominate the market!
+            🚀 Keep it up! Your field intelligence is helping Airtel Kenya dominate the market!
           </p>
         </div>
-
-        {/* View Report Button */}
-        {submissionDetails && (
-          <button
-            onClick={() => setShowReport(true)}
-            className="w-full mb-3 bg-white border-2 border-red-200 text-red-600 py-3.5 px-6 rounded-xl font-bold text-base hover:bg-red-50 hover:border-red-300 transition-all flex items-center justify-center gap-2.5 group"
-          >
-            <FileText className="w-5 h-5 group-hover:scale-110 transition-transform" />
-            View Report
-          </button>
-        )}
 
         {/* Close Button */}
         <button

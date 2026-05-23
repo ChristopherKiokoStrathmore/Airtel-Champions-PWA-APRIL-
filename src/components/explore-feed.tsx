@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Heart, MessageCircle, Share2, MoreVertical, Send, X, Flag, Trash2, Award, Camera, Image as ImageIcon } from 'lucide-react';
 import { projectId, publicAnonKey } from '../utils/supabase/info';
-import { getAuthHeaders } from '../utils/api-helper';
 import { UserProfileModalEnhanced } from './user-profile-modal-enhanced';
 import { GroupsListScreen } from './groups-list-screen';
 import { GroupChat } from './group-chat';

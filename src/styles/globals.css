@@ -4,33 +4,18 @@
 html, body {
   width: 100%;
   height: 100%;
-  overflow: auto;
+  overflow: hidden;
   margin: 0;
   padding: 0;
   -webkit-overflow-scrolling: touch;
-  background: var(--theme-bg-page, #f3f4f6);
-  color: var(--theme-text-primary, #111827);
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Theme CSS Custom Properties — defaults (Airtel Classic) */
-:root {
-  --theme-primary: #E60000;
-  --theme-primary-hover: #CC0000;
-  --theme-primary-light: #FEF2F2;
-  --theme-bg-page: #F9FAFB;
-  --theme-bg-card: #FFFFFF;
-  --theme-text-primary: #111827;
-  --theme-text-secondary: #4B5563;
-  --theme-border: #E5E7EB;
-  --theme-shadow: rgba(0,0,0,0.08);
+  background: #f3f4f6; /* Light gray fallback instead of black */
 }
 
 #root {
   width: 100%;
   height: 100%;
   min-height: 100vh;
-  overflow: auto;
+  overflow: hidden;
   position: relative;
 }
 
@@ -38,7 +23,7 @@ html, body {
 /* Force dark text on all inputs — Android WebView/Chrome can default to white text */
 input, textarea, select {
   font-size: 16px !important;
-  color: var(--theme-text-primary, #111827) !important;
+  color: #111827 !important; /* gray-900 — ensures visibility on all Android browsers */
 }
 
 /* Safe area for notched devices - Apply to #root instead of body */

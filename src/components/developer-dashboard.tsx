@@ -25,7 +25,7 @@ export function DeveloperDashboard({ user, userData, onLogout }: any) {
     try {
       // Load all users
       const { data: users } = await supabase
-        .from('app_users')
+        .from('users')
         .select('*')
         .order('total_points', { ascending: false });
 
@@ -148,7 +148,7 @@ export function DeveloperDashboard({ user, userData, onLogout }: any) {
                     SE
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-gray-900">Sales Executives</p>
+                    <p className="text-sm font-semibold">Sales Executives</p>
                     <p className="text-xs text-gray-600">Field team</p>
                   </div>
                 </div>
@@ -161,7 +161,7 @@ export function DeveloperDashboard({ user, userData, onLogout }: any) {
                     ZSM
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-gray-900">Zonal Sales Managers</p>
+                    <p className="text-sm font-semibold">Zonal Sales Managers</p>
                     <p className="text-xs text-gray-600">Team leaders</p>
                   </div>
                 </div>
@@ -174,7 +174,7 @@ export function DeveloperDashboard({ user, userData, onLogout }: any) {
                     ZBM
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-gray-900">Zonal Business Managers</p>
+                    <p className="text-sm font-semibold">Zonal Business Managers</p>
                     <p className="text-xs text-gray-600">Zone leaders</p>
                   </div>
                 </div>
@@ -187,7 +187,7 @@ export function DeveloperDashboard({ user, userData, onLogout }: any) {
                     HQ
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-gray-900">HQ Command Center</p>
+                    <p className="text-sm font-semibold">HQ Command Center</p>
                     <p className="text-xs text-gray-600">Central operations</p>
                   </div>
                 </div>
@@ -200,7 +200,7 @@ export function DeveloperDashboard({ user, userData, onLogout }: any) {
                     DIR
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-gray-900">Directors</p>
+                    <p className="text-sm font-semibold">Directors</p>
                     <p className="text-xs text-gray-600">Executive leadership</p>
                   </div>
                 </div>
@@ -281,7 +281,7 @@ export function DeveloperDashboard({ user, userData, onLogout }: any) {
                     {user.full_name?.substring(0, 1)}
                   </div>
                   <div className="flex-1">
-                    <p className="text-sm font-semibold text-gray-900">{user.full_name}</p>
+                    <p className="text-sm font-semibold">{user.full_name}</p>
                     <p className="text-xs text-gray-600">
                       {user.role?.replace(/_/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase())}
                       {user.employee_id && ` • ID: ${user.employee_id}`}

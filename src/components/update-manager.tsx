@@ -102,9 +102,6 @@ export function UpdateManager() {
   }, []);
 
   const checkForUpdates = async () => {
-    // Double-check: skip on web — OTA updates only matter inside Capacitor APK
-    if (!isCapacitorAvailable) return;
-
     try {
       // 1. Check Supabase for the latest version
       // Use .maybeSingle() instead of .single() to avoid 406 when table is empty or missing
@@ -119,10 +116,9 @@ export function UpdateManager() {
         // Ignore "no rows found" (PGRST116) AND "relation does not exist" (42P01)
         // 42P01 happens when the table hasn't been created yet
         if (error.code !== 'PGRST116' && error.code !== '42P01' && !error.message?.includes('app_versions')) {
-          // Only log non-network errors — network drops are expected on mobile
-          if (!/failed to fetch|network/i.test(error.message || '')) {
-            console.warn('Update check skipped:', error.code || error.message);
-          }
+          console.error('Error checking for updates:', error);
+        } else {
+          console.log('Update check skipped: app_versions table not ready or empty');
         }
         return;
       }
@@ -146,10 +142,10 @@ export function UpdateManager() {
         }
       }
     } catch (err: any) {
-      // Silently swallow ALL errors — update check is non-critical
-      // Only log non-network errors to reduce console noise on flaky connections
-      if (!/failed to fetch|network/i.test(err?.message || '')) {
-        console.warn('Update check skipped:', err?.message || 'unknown error');
+      if (err.message?.includes('Failed to fetch') || err.message?.includes('Network request failed')) {
+        console.warn('Update check skipped (backend unavailable)');
+      } else {
+        console.error('Failed to check for updates:', err);
       }
     }
   };

@@ -1,20 +1,17 @@
-// Airtel Champions v4.0.0 - Theme System + Premium UI [Build: 2026-03-09-003]
-import React, { useState, useEffect, useCallback, useRef } from 'react';
-import airtelChampionsIcon from './assets/5cefe3bd8a968e47f850ff725f15f7c1e5cc74bb.png';
+// Airtel Champions v3.2.1 - Direct Program Opening [Build: 2025-02-04-001]
+import { useState, useEffect } from 'react';
+import airtelChampionsIcon from 'figma:asset/f48ed4fba0af1189dfea6f65346a9e0aaa613e09.png';
 import { supabase } from './utils/supabase/client';
-// import { Toaster } from 'sonner@2.0.3'; // Disabled due to missing module
-import { SupervisorLogin } from './components/SupervisorLogin';
-import { SupervisorDashboard } from './components/SupervisorDashboard';
-import { SupervisorPinChange } from './components/SupervisorPinChange';
+import { Toaster } from 'sonner@2.0.3';
 import { trackUserLogin, trackUserLogout, updateUserActivity, initSessionTracker } from './lib/session-tracker';
 import { trackLogin, trackLogout } from './utils/analytics'; // New analytics tracking
-import { initActivityTracking, logPWAAction, clearActivityUser, ACTION_TYPES } from './lib/activity-tracker';
-// Capacitor App â€” loaded dynamically to avoid crash on web/PWA
+// Capacitor App — loaded dynamically to avoid crash on web/PWA
 let CapacitorApp: any = null;
 if (typeof window !== 'undefined' && (window as any).Capacitor) {
   import('@capacitor/app').then(mod => { CapacitorApp = mod.App; }).catch(() => {});
 }
 import { ZoneCommanderDashboard, ZoneBusinessLeadDashboard, HQDashboard, DirectorDashboard } from './components/role-dashboards';
+import { NetworkTeamDashboard } from './components/network-team-dashboard';
 import { DeveloperDashboard } from './components/developer-dashboard-enhanced';
 import { DirectorDashboardV2 } from './components/director-dashboard-v2';
 import { SettingsScreen } from './components/settings-screen';
@@ -25,6 +22,7 @@ import { SubmissionsList } from './components/submissions-list';
 import { DailyMissions } from './components/daily-missions';
 import { BadgesAchievements } from './components/badges-achievements';
 import { TodayLeaderboardModal } from './components/today-leaderboard-modal';
+import { DebugUsersPanel } from './components/debug-users';
 import { ReportingStructure } from './components/reporting-structure-new';
 import { DirectorLine } from './components/director-line';
 import { SocialFeed } from './components/social-feed';
@@ -35,10 +33,13 @@ import { AdvancedCompare } from './components/advanced-compare';
 import { ProgramsList } from './components/programs/programs-list';
 import { ProgramsListFoldersApp } from './components/programs/programs-list-folders-app';
 import { ProgramsWidgetHome } from './components/programs/programs-widget-home';
+import { DebugDataCheck } from './components/programs/debug-data-check';
 import { ExploreFeed } from './components/explore-feed-local';
 import { AnnouncementCard } from './components/announcement-card';
 import { CreateAnnouncementModalV2 as CreateAnnouncementModal } from './components/create-announcement-modal-v2';
+import { PhoneDiagnosticTool } from './components/phone-diagnostic-tool';
 import { DatabaseSetupInstructions } from './components/database-setup-instructions';
+import { DatabaseSchemaChecker } from './components/database-schema-checker';
 import { NetworkStatus } from './components/network-status';
 import { ResearchPaperPlanner } from './components/research-paper-planner';
 import { SubmissionsHistoryModal } from './components/submissions-history-modal';
@@ -52,53 +53,9 @@ import { useBadge } from './hooks/useBadge';
 import { WakeLockButton } from './components/wake-lock-button';
 import { PushNotificationBell } from './components/push-notification-bell';
 import { VanDataViewer } from './components/van-data-viewer';
-import { HBBAgentDashboard } from './components/hbb/hbb-agent-dashboard';
-import { HBBInstallerDashboard } from './components/hbb/hbb-installer-dashboard';
-import { HBBInstallerSupervisorDashboard } from './components/hbb/hbb-installer-supervisor-dashboard';
-import { DSEDashboard } from './components/hbb/hbb-dse-dashboard';
-import { HBBHQDashboard } from './components/hbb/hbb-hq-dashboard';
-import { hbbLogin, clearSession as clearHBBSession } from './components/hbb/hbb-api';
-import { AMAgentDashboard } from './components/airtel-money/am-agent-dashboard';
-import { AMHQDashboard } from './components/airtel-money/am-hq-dashboard';
-import { ThemeProvider } from './components/theme-provider';
-import { PWAInstallPrompt } from './components/pwa-install-prompt';
-import { GuidedTour, shouldShowAppTour } from './components/guided-tour';
-import { SignupScreen } from './components/signup-screen';
-import { ClientOrderTracker } from './components/hbb/ClientOrderTracker';
-import { LoginPage } from './components/LoginPage';
-import { PromoterTeamLeadDashboard } from './components/promoter-team-lead/PromoterTeamLeadDashboard';
-import { getTLSession, clearTLSession } from './components/promoter-team-lead/promoter-tl-api';
-// TEMPORARILY DISABLED - Causing blank screen - see BLANK_SCREEN_DIAGNOSTIC_GUIDE.md
-// import { HBBGADashboardPage } from './pages/hbb-ga-dashboard';
-import { LogOut, Package, Plus, Phone, ChevronRight } from 'lucide-react';
 
 // Safe fields to select from app_users (never select * to avoid leaking sensitive data)
-const SAFE_USER_FIELDS = 'id, employee_id, full_name, phone_number, role, zone, zsm, region, rank, total_points, avatar_url, profile_photo, two_factor_enabled, gps_tracking_consent' as const;
-
-function normalizePhoneForRoleCheck(v: any): string {
-  if (!v) return '';
-  const s = String(v).trim().replace(/[\s\-\(\)\+]/g, '');
-  if (s.startsWith('254')) return s.substring(3);
-  if (s.startsWith('0')) return s.substring(1);
-  return s;
-}
-
-const DEVELOPER_EMPLOYEE_IDS = ['DEV001'];
-
-function isDeveloperIdentity(user: any, userData: any, userRole: any): boolean {
-  // Only treat a user as a developer when there's an explicit developer flag
-  // (role === 'developer') or a known developer employee_id. Avoid loose
-  // matching (by name or phone) to prevent accidental mapping when the
-  // developer's phone appears elsewhere in the data.
-  const role = String(userRole || '').toLowerCase();
-  const employeeId = String(userData?.employee_id || user?.employee_id || '').toUpperCase();
-
-  if (role === 'developer') return true;
-  if (DEVELOPER_EMPLOYEE_IDS.includes(employeeId)) return true;
-
-  // Future: add explicit user-id whitelist here if needed
-  return false;
-}
+const SAFE_USER_FIELDS = 'id, employee_id, full_name, phone_number, role, zone, zsm, region, team, rank, total_points, avatar_url, profile_photo, pin, two_factor_enabled, gps_tracking_consent' as const;
 
 // Strip sensitive fields before persisting user to localStorage
 function sanitizeUserForStorage(user: any): any {
@@ -115,149 +72,25 @@ import { UserDirectory } from './components/calling/user-directory';
 import { CallHistory } from './components/calling/call-history';
 import { PermissionRequestModal } from './components/calling/permission-request-modal';
 
-// Import TAI Eagle logo (now using universal LOGO.png)
-import taiLogo from './assets/LOGO.png';
+// Import TAI Eagle logo (original with Airtel branding)
+import taiLogo from 'figma:asset/f9662d6ca89ec73e82f32c4c1cfcc7df0f4e8aaa.png';
 
-// Import Airtel Champions logo (now using universal LOGO.png)
-import airtelChampionsLogo from './assets/LOGO.png';
+// Import Airtel Champions logo (new branding)
+import airtelChampionsLogo from 'figma:asset/278c018c02387a7b630c9971b1a9e2245143943d.png';
 
 // User roles
-type UserRole = 'sales_executive' | 'zonal_sales_manager' | 'zonal_business_manager' | 'hq_command_center' | 'director' | 'hbb_agent' | 'hbb_installer' | 'hbb_installer_supervisor' | 'hbb_dse' | 'hbb_hq' | 'hbb_hq_admin' | 'airtel_money_agent' | 'airtel_money_admin';
-
-// â”€â”€â”€ STABLE MobileContainer â€” defined OUTSIDE App to prevent unmount/remount â”€â”€
-// When defined inside App's render, React sees a NEW component type on every
-// re-render, which tears down and recreates the entire child tree (all state,
-// effects, API calls restart). Moving it here keeps the reference stable.
-function MobileContainer({ children }: { children: React.ReactNode }) {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const touchStartYRef = useRef<number | null>(null);
-  const [pullDistance, setPullDistance] = useState(0);
-  const [isRefreshing, setIsRefreshing] = useState(false);
-
-  // Theme-aware container â€” reads CSS custom properties set by ThemeProvider
-  const bgPage = 'var(--theme-bg-page, #F3F4F6)';
-  const bgCard = 'var(--theme-bg-card, #FFFFFF)';
-  const shadow = 'var(--theme-shadow, rgba(0,0,0,0.08))';
-
-  const refreshPage = useCallback(() => {
-    if (isRefreshing) return;
-    setIsRefreshing(true);
-    window.location.reload();
-  }, [isRefreshing]);
-
-  const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
-    if (event.touches.length !== 1) return;
-    const scrollEl = scrollRef.current;
-    if (!scrollEl || scrollEl.scrollTop > 0 || isRefreshing) return;
-    touchStartYRef.current = event.touches[0].clientY;
-    setPullDistance(0);
-  };
-
-  const handleTouchMove = (event: React.TouchEvent<HTMLDivElement>) => {
-    if (touchStartYRef.current === null || isRefreshing) return;
-    const scrollEl = scrollRef.current;
-    if (!scrollEl || scrollEl.scrollTop > 0) return;
-
-    const deltaY = event.touches[0].clientY - touchStartYRef.current;
-    if (deltaY <= 0) {
-      setPullDistance(0);
-      return;
-    }
-
-    event.preventDefault();
-    setPullDistance(Math.min(deltaY * 0.6, 120));
-  };
-
-  const handleTouchEnd = () => {
-    if (isRefreshing) return;
-    if (pullDistance >= 88) {
-      refreshPage();
-      return;
-    }
-    touchStartYRef.current = null;
-    setPullDistance(0);
-  };
-
-  return (
-    <div
-      className="h-[100dvh] flex items-center justify-center p-0 md:p-4 overflow-hidden transition-colors duration-300"
-      style={{ backgroundColor: bgPage }}
-    >
-      <div
-        ref={scrollRef}
-        className="w-full h-full md:max-w-[428px] md:rounded-3xl md:h-[95vh] overflow-y-auto md:overflow-hidden flex flex-col transition-colors duration-300 relative"
-        style={{
-          backgroundColor: bgCard,
-          boxShadow: `0 25px 50px ${shadow}`,
-          touchAction: 'pan-y',
-          WebkitOverflowScrolling: 'touch',
-        }}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-        onTouchCancel={handleTouchEnd}
-      >
-        <div
-          className="absolute left-1/2 top-2 z-30 -translate-x-1/2 pointer-events-none transition-all duration-150"
-          style={{
-            opacity: pullDistance > 0 || isRefreshing ? 1 : 0,
-            transform: `translateX(-50%) translateY(${Math.min(pullDistance, 80)}px)`,
-          }}
-        >
-          <div className="flex items-center gap-2 rounded-full bg-white/95 px-3 py-2 shadow-lg border border-gray-200">
-            <div
-              className={`h-4 w-4 rounded-full border-2 border-gray-300 border-t-transparent ${isRefreshing ? 'animate-spin' : ''}`}
-              style={isRefreshing ? { borderTopColor: 'transparent' } : {}}
-            />
-            <span className="text-xs font-semibold text-gray-700">
-              {isRefreshing ? 'Refreshing...' : 'Pull to refresh'}
-            </span>
-          </div>
-        </div>
-        <NetworkStatus />
-        <UpdateManager />
-        {children}
-        <PWAInstallPrompt />
-      </div>
-      {/* <Toaster position="top-center" richColors /> */}
-    </div>
-  );
-}
+type UserRole = 'sales_executive' | 'zonal_sales_manager' | 'zonal_business_manager' | 'hq_command_center' | 'director' | 'network_team';
 
 function App() {
-
-  // Supervisor state (must be before any return)
-  const [showSupervisorLogin, setShowSupervisorLogin] = useState(false);
-  const [supervisor, setSupervisor] = useState<any>(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [isTLAuthenticated, setIsTLAuthenticated] = useState<boolean>(() => getTLSession() !== null);
   const [user, setUser] = useState<any>(null);
   const [userData, setUserData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [showSignup, setShowSignup] = useState(false);
-  const [showClientTracker, setShowClientTracker] = useState(false);
-  const [showHBBGADashboard, setShowHBBGADashboard] = useState(false);
-  const [clientTrackerData, setClientTrackerData] = useState<{ jobId: string; customerName: string; customerPhone: string } | null>(null);
-  const [showClientHome, setShowClientHome] = useState(false);
   const [showSplash, setShowSplash] = useState(true);
   const [databaseError, setDatabaseError] = useState<string | null>(null);
   const [showDatabaseSetup, setShowDatabaseSetup] = useState(false);
-
-  // Guided App Tour â€” shows on login until user skips 3 times
-  const [showAppTour, setShowAppTour] = useState(false);
-
-  // Trigger app tour after successful authentication
-  useEffect(() => {
-    if (isAuthenticated && !showSplash) {
-      const shouldShow = shouldShowAppTour();
-      console.log('[App] Tour check: isAuthenticated=', isAuthenticated, 'shouldShow=', shouldShow);
-      if (shouldShow) {
-        // Small delay to let the home screen render first
-        const t = setTimeout(() => setShowAppTour(true), 800);
-        return () => clearTimeout(t);
-      }
-    }
-  }, [isAuthenticated, showSplash]);
+  const [showSchemaChecker, setShowSchemaChecker] = useState(false);
 
   // GPS tracking consent: only track if user has explicitly opted in
   const gpsConsentGranted = userData?.gps_tracking_consent === true || user?.gps_tracking_consent === true;
@@ -269,17 +102,14 @@ function App() {
       name: user?.full_name || userData?.full_name,
       role: user?.role || userData?.role,
       region: user?.region || userData?.region,
-      zone: user?.zone || userData?.zone,
+      team: user?.team || userData?.team,
       avatar: user?.avatar_url || userData?.avatar_url
     },
     enabled: isAuthenticated && !!(user?.id || userData?.id) && gpsConsentGranted
   });
 
-  // â”€â”€ URL-param tab routing â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // NOTE: `setActiveTab` lives inside HomeScreen, not here in App.
-  // We store the desired tab in a ref so HomeScreen can read it on mount.
-  const initialTabRef = React.useRef<string | null>(null);
   useEffect(() => {
+    // Check URL parameters for direct navigation — supports PWA app shortcuts & protocol handlers
     const urlParams = new URLSearchParams(window.location.search);
     const tabParam = urlParams.get('tab');
     const validTabs = [
@@ -287,21 +117,14 @@ function App() {
       'programs', 'profile', 'submissions', 'settings', 'research'
     ];
     if (tabParam && validTabs.includes(tabParam)) {
-      initialTabRef.current = tabParam;
+      setActiveTab(tabParam);
     }
-    // TEMPORARILY DISABLED - Causing blank screen
-    // // Check for HBB GA Dashboard route
-    // const hbbGAParam = urlParams.get('view');
-    // if (hbbGAParam === 'hbb-ga') {
-    //   setShowHBBGADashboard(true);
-    // }
-
     // Protocol handler: web+airtelac:tab/leaderboard
     const actionParam = urlParams.get('action');
     if (actionParam) {
       const parts = actionParam.split('/');
       if (parts[0] === 'tab' && parts[1] && validTabs.includes(parts[1])) {
-        initialTabRef.current = parts[1];
+        setActiveTab(parts[1]);
       }
     }
   }, []);
@@ -316,7 +139,7 @@ function App() {
     }
     viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover');
     
-    // â”€â”€ Favicon â€” real PNG for crisp rendering everywhere â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    // ── Favicon — real PNG for crisp rendering everywhere ─────────────────────
     let favicon = document.querySelector('link[rel="icon"]') as HTMLLinkElement;
     if (!favicon) {
       favicon = document.createElement('link');
@@ -324,10 +147,10 @@ function App() {
       document.head.appendChild(favicon);
     }
     favicon.type = 'image/png';
-    favicon.href = taiLogo;
+    favicon.href = airtelChampionsIcon;
 
-    // â”€â”€ Apple Touch Icon â€” iOS uses this for home-screen icon â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-    // Must be a real PNG â€” iOS Safari silently ignores SVGs.
+    // ── Apple Touch Icon — iOS uses this for home-screen icon ─────────────────
+    // Must be a real PNG — iOS Safari silently ignores SVGs.
     let appleTouchIcon = document.querySelector('link[rel="apple-touch-icon"]') as HTMLLinkElement;
     if (!appleTouchIcon) {
       appleTouchIcon = document.createElement('link');
@@ -335,7 +158,7 @@ function App() {
       document.head.appendChild(appleTouchIcon);
     }
     appleTouchIcon.setAttribute('sizes', '180x180');
-    appleTouchIcon.href = taiLogo;
+    appleTouchIcon.href = airtelChampionsIcon;
     
     // Set page title
     document.title = 'Airtel Champions - Sales Intelligence Network';
@@ -347,7 +170,7 @@ function App() {
       { name: 'apple-mobile-web-app-title', content: 'AC Champions' },
       { name: 'mobile-web-app-capable', content: 'yes' },
       { name: 'application-name', content: 'Airtel Champions' },
-      { name: 'theme-color', content: '#E60000' }, // Airtel red â€” matches the brand icon
+      { name: 'theme-color', content: '#E60000' }, // Airtel red — matches the brand icon
     ];
     
     metaTags.forEach(({ name, content }) => {
@@ -360,7 +183,7 @@ function App() {
       meta.setAttribute('content', content);
     });
     
-    // â”€â”€ Dynamic PWA manifest using the real PNG icon URL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    // ── Dynamic PWA manifest using the real PNG icon URL ─────────────────────
     // Vite resolves `airtelChampionsIcon` to a hashed asset path at build time
     // (e.g. /assets/f48ed4f-abc123.png) so it is always fetchable.
     const dynamicManifest = {
@@ -378,9 +201,9 @@ function App() {
       lang: 'en',
       categories: ['business', 'productivity'],
       icons: [
-        { src: taiLogo, sizes: '192x192', type: 'image/png', purpose: 'any' },
-        { src: taiLogo, sizes: '512x512', type: 'image/png', purpose: 'any' },
-        { src: taiLogo, sizes: 'any',     type: 'image/png', purpose: 'maskable' },
+        { src: airtelChampionsIcon, sizes: '192x192', type: 'image/png', purpose: 'any' },
+        { src: airtelChampionsIcon, sizes: '512x512', type: 'image/png', purpose: 'any' },
+        { src: airtelChampionsIcon, sizes: 'any',     type: 'image/png', purpose: 'maskable' },
       ],
       shortcuts: [
         {
@@ -423,18 +246,16 @@ function App() {
       document.head.appendChild(manifestLink);
     }
     manifestLink.href = manifestBlobUrl;
-    // NOTE: manifestBlobUrl is revoked in the single cleanup return below â†“
+    // NOTE: manifestBlobUrl is revoked in the single cleanup return below ↓
 
-    // â”€â”€â”€ SERVICE WORKER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-    // Only register on real deployed hosts â€” Figma preview iframes and localhost
+    // ─── SERVICE WORKER ───────────────────────────────────────────────────────
+    // Only register on real deployed hosts — Figma preview iframes and localhost
     // dev servers return HTML for /sw.js (wrong MIME type), causing a
     // SecurityError. Safe to skip in those environments.
     const swHost = window.location.hostname;
-    // Only skip SW in Figma iframe previews & local dev â€” NOT on real deployed
-    // *.figma.site domains like airtelchampionsapp.figma.site
     const isPreviewEnv =
+      swHost.includes('figma.site') ||
       swHost.includes('figmaiframepreview') ||
-      (swHost.includes('figma.site') && window.self !== window.top) || // only iframed previews
       swHost === 'localhost' ||
       swHost === '127.0.0.1';
 
@@ -442,10 +263,10 @@ function App() {
       navigator.serviceWorker
         .register('/sw.js', { scope: '/' })
         .then((reg) => {
-          console.log('[SW] ✅ Registered - scope:', reg.scope);
+          console.log('[SW] ✅ Registered — scope:', reg.scope);
           reg.update();
 
-          // â”€â”€ #6 PERIODIC BACKGROUND SYNC â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+          // ── #6 PERIODIC BACKGROUND SYNC ──────────────────────────────────
           // Registers hourly/30-min wake-ups so leaderboard & announcements
           // stay fresh even when the app is closed.
           if ('periodicSync' in reg) {
@@ -462,23 +283,23 @@ function App() {
         })
         .catch((err) => console.warn('[SW] ❌ Registration failed:', err));
 
-      // â”€â”€ #5 BACKGROUND SYNC â€” message listener â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+      // ── #5 BACKGROUND SYNC — message listener ────────────────────────────
       // The SW sends PROCESS_OFFLINE_QUEUE when connectivity is restored.
       // The SW sends PERIODIC_REFRESH when a periodic sync fires.
       navigator.serviceWorker.addEventListener('message', (event) => {
         const { type, data } = event.data || {};
 
         if (type === 'PROCESS_OFFLINE_QUEUE') {
-          console.log('[SW->App] 🔄 Processing offline queue after reconnect...');
+          console.log('[SW→App] 🔄 Processing offline queue after reconnect...');
           OfflineManager.syncQueue()
             .then(({ success, failed }) =>
-              console.log(`[SW->App] ✅ Queue flushed - success:${success} failed:${failed}`)
+              console.log(`[SW→App] ✅ Queue flushed — success:${success} failed:${failed}`)
             )
-            .catch((err) => console.error('[SW->App] Queue flush error:', err));
+            .catch((err) => console.error('[SW→App] Queue flush error:', err));
         }
 
         if (type === 'PERIODIC_REFRESH') {
-          console.log('[SW->App] ⏱️ Periodic refresh for:', data);
+          console.log('[SW→App] ⏱️ Periodic refresh for:', data);
           window.dispatchEvent(
             new CustomEvent('pwa-periodic-refresh', { detail: { scope: data } })
           );
@@ -486,10 +307,10 @@ function App() {
       });
 
     } else if (isPreviewEnv) {
-      console.log('[SW] ℹ️ Skipped - preview/dev environment, SW not needed here');
+      console.log('[SW] ℹ️ Skipped — preview/dev environment, SW not needed here');
     }
 
-    // Periodic sync consumer
+    // ── PERIODIC SYNC CONSUMER ──────────────────────────────────────────────
     // Listen for the CustomEvent dispatched when periodic sync fires
     const handlePeriodicRefresh = (e: any) => {
       const scope = e.detail?.scope;
@@ -521,32 +342,16 @@ function App() {
     if (storedUser) {
       try {
         const parsedUserData = JSON.parse(storedUser);
+        setIsAuthenticated(true);
+        setUser(parsedUserData);
+        setUserData(parsedUserData);
         
-        // Session expiry check for HBB and Airtel Money users (24 hour TTL)
-        const isHBBUser = ['hbb_agent','hbb_installer','hbb_installer_supervisor','hbb_dse','hbb_hq','hbb_hq_admin'].includes(parsedUserData.role);
-        const isAMUser  = ['airtel_money_agent','airtel_money_admin'].includes(parsedUserData.role);
-        const loginTimestamp = parsedUserData._loginAt || 0;
-        const SESSION_TTL = 24 * 60 * 60 * 1000; // 24 hours
-
-        if ((isHBBUser || isAMUser) && loginTimestamp && (Date.now() - loginTimestamp > SESSION_TTL)) {
-          console.log('â° HBB/AM session expired, logging out');
-          localStorage.removeItem('tai_user');
-          clearHBBSession();
-        } else {
-          setIsAuthenticated(true);
-          setUser(parsedUserData);
-          setUserData(parsedUserData);
-          
-          // Update activity timestamp for existing session
-          if (parsedUserData.id) {
-            updateUserActivity(parsedUserData.id);
-          }
-          
-          console.log('✅ User loaded from localStorage:', parsedUserData.full_name, parsedUserData.role);
-          
-          // Initialize PWA activity tracking
-          initActivityTracking(parsedUserData.id, parsedUserData.full_name, parsedUserData.role);
+        // Update activity timestamp for existing session
+        if (parsedUserData.id) {
+          updateUserActivity(parsedUserData.id);
         }
+        
+        console.log('✅ User loaded from localStorage:', parsedUserData.full_name, parsedUserData.role);
       } catch (err) {
         console.error('Failed to parse stored user:', err);
         localStorage.removeItem('tai_user');
@@ -609,48 +414,29 @@ function App() {
       window.removeEventListener('storage', handleStorageChange);
       window.removeEventListener('profilePictureUpdated', handleProfilePictureUpdate);
     };
-  }, []); // â† was [userData], causing re-render cascade
+  }, [userData]);
 
-  const handleLogout = useCallback(async () => {
+  const handleLogout = async () => {
     // Track user logout (OLD + NEW systems)
     if (userData?.id) {
       trackUserLogout(userData.id, false); // Keep session for analytics (old system)
       await trackLogout(); // Track in new analytics system
-      logPWAAction(ACTION_TYPES.LOGOUT);
-      clearActivityUser();
     }
-    
-    // Clear HBB session
-    clearHBBSession();
     
     localStorage.removeItem('tai_user');
     setIsAuthenticated(false);
     setUser(null);
     setUserData(null);
-  }, [userData?.id]);
+  };
 
   // Splash Screen - Full screen on mobile
   if (showSplash) {
     return (
-      <div className="fixed inset-0 w-screen h-screen flex items-center justify-center relative overflow-hidden" style={{ backgroundColor: '#ED1C24' }}>
+      <div className="fixed inset-0 w-screen h-screen bg-[#E60000] flex items-center justify-center relative overflow-hidden">
         <div className="text-center animate-fade-in relative px-4">
-          <img src={airtelChampionsLogo} alt="Airtel Champions" className="w-64 h-64 mx-auto relative object-contain" style={{ clipPath: 'inset(4px)' }} />
+          <img src={airtelChampionsLogo} alt="Airtel Champions" className="w-64 h-64 mx-auto relative object-contain" />
         </div>
       </div>
-    );
-  }
-
-  // â”€â”€ Promoter Team Lead session â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  if (isTLAuthenticated) {
-    return (
-      <MobileContainer>
-        <PromoterTeamLeadDashboard
-          onLogout={() => {
-            clearTLSession();
-            setIsTLAuthenticated(false);
-          }}
-        />
-      </MobileContainer>
     );
   }
 
@@ -678,243 +464,30 @@ function App() {
     );
   }
 
-  // MobileContainer is now defined OUTSIDE App (see above) for stable identity
-
-  if (isAuthenticated) {
-    // Role-based routing
-    const userRole = user?.role || userData?.role;
-    
-    // Debug logging moved to useEffect to avoid running on every render
-
-    // Route to appropriate dashboard based on role
-    if (userRole === 'zonal_sales_manager') {
-      return (
-        <MobileContainer>
-          <ZoneCommanderDashboard user={user} userData={userData} onLogout={handleLogout} />
-        </MobileContainer>
-      );
-    }
-
-    if (userRole === 'zonal_business_manager') {
-      return (
-        <MobileContainer>
-          <ZoneBusinessLeadDashboard user={user} userData={userData} onLogout={handleLogout} />
-        </MobileContainer>
-      );
-    }
-
-    if (userRole === 'hq_staff' || userRole === 'hq_command_center') {
-      return (
-        <MobileContainer>
-          <HQDashboard user={user} userData={userData} onLogout={handleLogout} />
-        </MobileContainer>
-      );
-    }
-
-    // Developer Dashboard
-    if (isDeveloperIdentity(user, userData, userRole)) {
-      return (
-        <MobileContainer>
-          <DeveloperDashboard user={user} userData={userData} onLogout={handleLogout} />
-        </MobileContainer>
-      );
-    }
-
-    if (userRole === 'director') {
-      return (
-        <MobileContainer>
-          <DirectorDashboardV2 user={user} userData={userData} onLogout={handleLogout} />
-        </MobileContainer>
-      );
-    }
-
-    // HBB CRM Roles
-    if (userRole === 'hbb_agent') {
-      // Only whitelisted agents (from agents_HBB table) get full CRM; self-signup customers get limited view
-      const isWhitelistedAgent = userData?.source_table === 'agents_HBB';
-      return (
-        <MobileContainer>
-          <HBBAgentDashboard
-            user={user}
-            userData={isWhitelistedAgent ? userData : { ...userData, _customerOnly: true }}
-            onLogout={handleLogout}
-            onBackToMainMenu={() => {
-              // Clear HBB session and return to main app
-              clearHBBSession();
-              // Force a re-render to go back to role selection/main menu
-              setUser(null);
-              setUserData(null);
-              localStorage.removeItem('tai_user');
-              localStorage.removeItem('tai_userData');
-            }}
-          />
-        </MobileContainer>
-      );
-    }
-
-    if (userRole === 'hbb_installer') {
-      return (
-        <MobileContainer>
-          <HBBInstallerDashboard user={user} userData={userData} onLogout={handleLogout} />
-        </MobileContainer>
-      );
-    }
-
-    if (userRole === 'hbb_installer_supervisor') {
-      return (
-        <MobileContainer>
-          <HBBInstallerSupervisorDashboard user={user} userData={userData} onLogout={handleLogout} />
-        </MobileContainer>
-      );
-    }
-
-    if (userRole === 'hbb_dse') {
-      return (
-        <MobileContainer>
-          <DSEDashboard 
-            user={user} 
-            userData={userData} 
-            onLogout={handleLogout}
-            onBackToMainMenu={() => {
-              // Clear HBB session and return to main app
-              clearHBBSession();
-              // Force a re-render to go back to role selection/main menu
-              setUser(null);
-              setUserData(null);
-              localStorage.removeItem('tai_user');
-              localStorage.removeItem('tai_userData');
-            }}
-          />
-        </MobileContainer>
-      );
-    }
-
-    if (userRole === 'hbb_hq' || userRole === 'hbb_hq_admin') {
-      // HQ dashboard is full-width (laptop-optimized), no MobileContainer
-      return (
-        <HBBHQDashboard
-          user={user}
-          userData={userData}
-          onLogout={() => {
-            clearHBBSession();
-            setUser(null);
-            setUserData(null);
-            localStorage.removeItem('tai_user');
-            localStorage.removeItem('tai_userData');
-          }}
-        />
-      );
-    }
-
-    // â”€â”€ Airtel Money roles â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-    if (userRole === 'airtel_money_agent') {
-      return (
-        <MobileContainer>
-          <AMAgentDashboard
-            user={user}
-            userData={userData}
-            onLogout={handleLogout}
-          />
-        </MobileContainer>
-      );
-    }
-
-    if (userRole === 'airtel_money_admin') {
-      return (
-        <MobileContainer>
-          <AMHQDashboard
-            user={user}
-            userData={userData}
-            onLogout={handleLogout}
-          />
-        </MobileContainer>
-      );
-    }
-
-    // â"€â"€ HBB GA Dashboard â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
-    // TEMPORARILY DISABLED - Causing blank screen
-    // if (showHBBGADashboard) {
-    //   return (
-    //     <MobileContainer>
-    //       <HBBGADashboardPage />
-    //     </MobileContainer>
-    //   );
-    // }
-
-    // Default: SE view
-    return (
-      <MobileContainer>
-        <HomeScreen user={user} onLogout={handleLogout} initialTab={initialTabRef.current} />
-        {showAppTour && (
-          <GuidedTour
-            type="app"
-            onComplete={() => setShowAppTour(false)}
-            onSkipAll={() => setShowAppTour(false)}
-          />
-        )}
-      </MobileContainer>
-    );
-  }
-
-  // Supervisor state
-  // (already declared at the top of App)
-
-  // Supervisor login flow
-  if (showSupervisorLogin && !supervisor) {
-    return (
-      <MobileContainer>
-        <SupervisorLogin onLogin={sup => { setSupervisor(sup); }} />
-        <button
-          className="mt-4 text-blue-600 underline text-sm"
-          onClick={() => setShowSupervisorLogin(false)}
-        >Back to Login</button>
-      </MobileContainer>
-    );
-  }
-  if (supervisor) {
-    return (
-      <MobileContainer>
-        <SupervisorDashboard supervisorNumber={supervisor['Supervisor number']} />
-        <SupervisorPinChange supervisorId={supervisor.ID} currentPin={String(supervisor['Supervisor PIN'])} onPinChanged={() => {}} />
-        <button
-          className="mt-4 text-blue-600 underline text-sm"
-          onClick={() => { setSupervisor(null); setShowSupervisorLogin(false); }}
-        >Log out</button>
-      </MobileContainer>
-    );
-  }
-
-  // Show database setup instructions if there's a database error
-  if (showDatabaseSetup && databaseError) {
-    return (
-      <DatabaseSetupInstructions 
-        error={databaseError}
-        onDismiss={() => setShowDatabaseSetup(false)}
-      />
-    );
-  }
-
-  if (loading) {
-    return (
-      <div className="fixed inset-0 w-screen h-screen bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center p-0 md:p-4 overflow-hidden">
-        <div className="w-full h-auto md:max-w-[428px] bg-white md:rounded-3xl md:shadow-2xl p-8">
-          <div className="text-center">
-            <img src={airtelChampionsLogo} alt="Airtel Champions" className="w-32 h-32 mx-auto mb-4 object-contain" />
-            <div className="w-16 h-16 border-4 border-[#E60000] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-            <p className="text-gray-600">Loading Airtel Champions...</p>
-          </div>
-        </div>
+  // Mobile app container wrapper - Optimized for mobile-first
+  const MobileContainer = ({ children }: { children: React.ReactNode }) => (
+    <div className="h-screen bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center p-0 md:p-4 overflow-hidden">
+      <div className="w-full h-full md:max-w-[428px] bg-white md:rounded-3xl md:shadow-2xl md:h-[95vh] overflow-hidden flex flex-col">
+        <NetworkStatus />
+        <UpdateManager />
+        {children}
       </div>
-    );
-  }
-
-  // MobileContainer is now defined OUTSIDE App (see above) for stable identity
+      <Toaster position="top-center" richColors />
+    </div>
+  );
 
   if (isAuthenticated) {
     // Role-based routing
     const userRole = user?.role || userData?.role;
     
-    // Debug logging moved to useEffect to avoid running on every render
+    // Debug logging for Christopher
+    console.log('🔍 User Authentication Check:', {
+      userRole,
+      fullName: userData?.full_name || user?.full_name,
+      employeeId: userData?.employee_id || user?.employee_id,
+      isDeveloper: userRole === 'developer',
+      isChristopher: (userData?.full_name || user?.full_name || '').toLowerCase().includes('christopher')
+    });
 
     // Route to appropriate dashboard based on role
     if (userRole === 'zonal_sales_manager') {
@@ -941,9 +514,19 @@ function App() {
       );
     }
 
-    // Christopher profile behaves like a standard SE profile
-    // Developer Dashboard
-    if (isDeveloperIdentity(user, userData, userRole)) {
+    if (userRole === 'network_team') {
+      return (
+        <MobileContainer>
+          <NetworkTeamDashboard user={user} userData={userData} onLogout={handleLogout} />
+        </MobileContainer>
+      );
+    }
+
+    // Developer Dashboard - Check for Christopher or developer role
+    if (userRole === 'developer' || 
+        userData?.full_name?.toLowerCase().includes('christopher') ||
+        userData?.employee_id === 'DEV001' ||
+        user?.full_name?.toLowerCase().includes('christopher')) {
       return (
         <MobileContainer>
           <DeveloperDashboard user={user} userData={userData} onLogout={handleLogout} />
@@ -959,314 +542,20 @@ function App() {
       );
     }
 
-    // HBB CRM Roles
-    if (userRole === 'hbb_agent') {
-      // Only whitelisted agents (from agents_HBB table) get full CRM; self-signup customers get limited view
-      const isWhitelistedAgent = userData?.source_table === 'agents_HBB';
-      return (
-        <MobileContainer>
-          <HBBAgentDashboard
-            user={user}
-            userData={isWhitelistedAgent ? userData : { ...userData, _customerOnly: true }}
-            onLogout={handleLogout}
-            onBackToMainMenu={() => {
-              // Clear HBB session and return to main app
-              clearHBBSession();
-              // Force a re-render to go back to role selection/main menu
-              setUser(null);
-              setUserData(null);
-              localStorage.removeItem('tai_user');
-              localStorage.removeItem('tai_userData');
-            }}
-          />
-        </MobileContainer>
-      );
-    }
-
-    if (userRole === 'hbb_installer') {
-      return (
-        <MobileContainer>
-          <HBBInstallerDashboard user={user} userData={userData} onLogout={handleLogout} />
-        </MobileContainer>
-      );
-    }
-
-    if (userRole === 'hbb_installer_supervisor') {
-      return (
-        <MobileContainer>
-          <HBBInstallerSupervisorDashboard user={user} userData={userData} onLogout={handleLogout} />
-        </MobileContainer>
-      );
-    }
-
-    if (userRole === 'hbb_dse') {
-      return (
-        <MobileContainer>
-          <DSEDashboard 
-            user={user} 
-            userData={userData} 
-            onLogout={handleLogout}
-            onBackToMainMenu={() => {
-              // Clear HBB session and return to main app
-              clearHBBSession();
-              // Force a re-render to go back to role selection/main menu
-              setUser(null);
-              setUserData(null);
-              localStorage.removeItem('tai_user');
-              localStorage.removeItem('tai_userData');
-            }}
-          />
-        </MobileContainer>
-      );
-    }
-
-    if (userRole === 'hbb_hq' || userRole === 'hbb_hq_admin') {
-      // HQ dashboard is full-width (laptop-optimized), no MobileContainer
-      return (
-        <HBBHQDashboard
-          user={user}
-          userData={userData}
-          onLogout={() => {
-            clearHBBSession();
-            setUser(null);
-            setUserData(null);
-            localStorage.removeItem('tai_user');
-            localStorage.removeItem('tai_userData');
-          }}
-        />
-      );
-    }
-
-    // â”€â”€ Airtel Money roles â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-    if (userRole === 'airtel_money_agent') {
-      return (
-        <MobileContainer>
-          <AMAgentDashboard
-            user={user}
-            userData={userData}
-            onLogout={handleLogout}
-          />
-        </MobileContainer>
-      );
-    }
-
-    if (userRole === 'airtel_money_admin') {
-      return (
-        <MobileContainer>
-          <AMHQDashboard
-            user={user}
-            userData={userData}
-            onLogout={handleLogout}
-          />
-        </MobileContainer>
-      );
-    }
-
-    // Developer Dashboard
-    if (isDeveloperIdentity(user, userData, userRole)) {
-      return (
-        <MobileContainer>
-          <DeveloperDashboard user={user} userData={userData} onLogout={handleLogout} />
-        </MobileContainer>
-      );
-    }
-
     // Default: SE view
     return (
       <MobileContainer>
-        <HomeScreen user={user} onLogout={handleLogout} initialTab={initialTabRef.current} />
-        {showAppTour && (
-          <GuidedTour
-            type="app"
-            onComplete={() => setShowAppTour(false)}
-            onSkipAll={() => setShowAppTour(false)}
-          />
-        )}
+        <HomeScreen user={user} onLogout={handleLogout} />
       </MobileContainer>
     );
   }
 
   return (
     <MobileContainer>
-      {showClientTracker && clientTrackerData ? (
-        <ClientOrderTracker
-          jobId={clientTrackerData.jobId}
-          customerName={clientTrackerData.customerName}
-          customerPhone={clientTrackerData.customerPhone}
-          onBackToHome={() => {
-            setShowClientTracker(false);
-            setShowClientHome(true);
-          }}
-          onLogout={() => {
-            setShowClientTracker(false);
-            setClientTrackerData(null);
-            setShowClientHome(false);
-            setShowSignup(false);
-          }}
-        />
-      ) : showSignup ? (
-        <SignupScreen
-          onBackToLogin={() => setShowSignup(false)}
-          onBackToHome={() => {
-            setShowSignup(false);
-          }}
-          isFromClientHome={showClientHome}
-          onSignupSuccess={(newUser) => {
-            // Check if this is a client signup (not an agent)
-            if (newUser?.role === 'hbb_client' || !newUser?.role) {
-              // Client signup - show client order tracker
-              setClientTrackerData({
-                jobId: newUser.jobId || newUser.id,
-                customerName: newUser.customer_name || newUser.full_name,
-                customerPhone: newUser.customer_phone || newUser.phone_number
-              });
-              setShowClientTracker(true);
-              setShowSignup(false);
-            } else {
-              // Agent signup - route to HBB agent dashboard
-              setUser(newUser);
-              setUserData(newUser);
-              setIsAuthenticated(true);
-              setShowSignup(false);
-              window.history.replaceState({}, '', '/?tab=hbb-my-order');
-            }
-          }}
-        />
-      ) : showSignup ? (
-        <SignupScreen
-          onBackToLogin={() => setShowSignup(false)}
-          onBackToHome={() => {
-            setShowSignup(false);
-          }}
-          isFromClientHome={showClientHome}
-          onSignupSuccess={(newUser) => {
-            // Check if this is a client signup (not an agent)
-            if (newUser?.role === 'hbb_client' || !newUser?.role) {
-              // Client signup - show client order tracker
-              setClientTrackerData({
-                jobId: newUser.jobId || newUser.id,
-                customerName: newUser.customer_name || newUser.full_name,
-                customerPhone: newUser.customer_phone || newUser.phone_number
-              });
-              setShowClientTracker(true);
-              setShowSignup(false);
-            } else {
-              // Agent signup - route to HBB agent dashboard
-              setUser(newUser);
-              setUserData(newUser);
-              setIsAuthenticated(true);
-              setShowSignup(false);
-              window.history.replaceState({}, '', '/?tab=hbb-my-order');
-            }
-          }}
-        />
-      ) : showClientHome && clientTrackerData ? (
-        <div className="w-full max-w-md mx-auto h-full bg-gray-50 flex flex-col">
-          {/* Header */}
-          <div className="bg-white shadow-sm px-4 py-4">
-            <div className="flex items-center justify-between">
-              <h1 className="text-xl font-bold text-gray-900">Home</h1>
-              <button
-                onClick={() => {
-                  setShowClientHome(false);
-                  setClientTrackerData(null);
-                  setShowSignup(false);
-                }}
-                className="p-2 rounded-full hover:bg-gray-100"
-              >
-                <LogOut className="w-5 h-5 text-gray-600" />
-              </button>
-            </div>
-          </div>
-          
-          {/* Welcome Section */}
-          <div className="px-4 py-6">
-            <div className="bg-gradient-to-r from-red-500 to-red-600 rounded-2xl p-6 text-white">
-              <h2 className="text-2xl font-bold mb-1">Welcome, {clientTrackerData.customerName}</h2>
-              <p className="text-red-100">Manage your Airtel Home Broadband</p>
-            </div>
-          </div>
-          
-          {/* Quick Actions */}
-          <div className="px-4 space-y-3">
-            <button
-              onClick={() => {
-                setShowClientHome(false);
-                setShowClientTracker(true);
-              }}
-              className="w-full bg-white rounded-xl p-4 shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow"
-            >
-              <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
-                <Package className="w-6 h-6 text-red-600" />
-              </div>
-              <div className="flex-1 text-left">
-                <h3 className="font-semibold text-gray-900">Track My Order</h3>
-                <p className="text-sm text-gray-500">View your installation progress</p>
-              </div>
-              <ChevronRight className="w-5 h-5 text-gray-400" />
-            </button>
-            
-            <button
-              onClick={() => {
-                setShowSignup(true);
-              }}
-              className="w-full bg-white rounded-xl p-4 shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow"
-            >
-              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                <Plus className="w-6 h-6 text-blue-600" />
-              </div>
-              <div className="flex-1 text-left">
-                <h3 className="font-semibold text-gray-900">Book New Installation</h3>
-                <p className="text-sm text-gray-500">Schedule a new broadband setup</p>
-              </div>
-              <ChevronRight className="w-5 h-5 text-gray-400" />
-            </button>
-          </div>
-          
-          {/* Support Section */}
-          <div className="px-4 mt-6">
-            <div className="bg-white rounded-xl p-4 shadow-sm">
-              <h3 className="font-semibold text-gray-900 mb-3">Need Help?</h3>
-              <a 
-                href="tel:0733100100" 
-                className="flex items-center gap-3 text-gray-600 hover:text-red-600"
-              >
-                <Phone className="w-5 h-5" />
-                <span>Call Support: 0733 100 100</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      ) : showSignup ? (
-        <SignupScreen
-          onBackToLogin={() => setShowSignup(false)}
-          onBackToHome={() => {
-            setShowSignup(false);
-          }}
-          isFromClientHome={showClientHome}
-          onSignupSuccess={(newUser) => {
-            // Check if this is a client signup (not an agent)
-            if (newUser?.role === 'hbb_client' || !newUser?.role) {
-              // Client signup - show client order tracker
-              setClientTrackerData({
-                jobId: newUser.jobId || newUser.id,
-                customerName: newUser.customer_name || newUser.full_name,
-                customerPhone: newUser.customer_phone || newUser.phone_number
-              });
-              setShowClientTracker(true);
-              setShowSignup(false);
-            } else {
-              // Agent signup - route to HBB agent dashboard
-              setUser(newUser);
-              setUserData(newUser);
-              setIsAuthenticated(true);
-              setShowSignup(false);
-              window.history.replaceState({}, '', '/?tab=hbb-my-order');
-            }
-          }}
-        />
+      {showSignup ? (
+        <SignupScreen onBackToLogin={() => setShowSignup(false)} />
       ) : (
-        <LoginPage
+        <LoginScreen 
           onShowSignup={() => setShowSignup(true)}
           setUser={setUser}
           setUserData={setUserData}
@@ -1282,7 +571,24 @@ function LoginScreen({ onShowSignup, setUser, setUserData, setIsAuthenticated }:
   const [pin, setPin] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
-  const [showHelpContact, setShowHelpContact] = useState(false);
+  const [showDiagnosticTool, setShowDiagnosticTool] = useState(false);
+  const [showSchemaChecker, setShowSchemaChecker] = useState(false);
+
+  // Check if there's a developer user logged in
+  const isDeveloperMode = (() => {
+    try {
+      const storedUser = localStorage.getItem('tai_user');
+      if (storedUser) {
+        const userData = JSON.parse(storedUser);
+        return userData.role === 'developer' || 
+               userData?.full_name?.toLowerCase().includes('christopher') ||
+               userData?.employee_id === 'DEV001';
+      }
+    } catch (err) {
+      console.error('Failed to parse stored user:', err);
+    }
+    return false;
+  })();
 
   // 🛡️ Error Boundary for UpdateManager to prevent crashes if DB table missing
   // This ensures the app still works even if the SQL migration hasn't been run
@@ -1335,10 +641,6 @@ function LoginScreen({ onShowSignup, setUser, setUserData, setIsAuthenticated }:
           // Track login in NEW analytics system
           await trackLogin(data.user.id);
           
-          // Initialize PWA activity tracking
-          initActivityTracking(data.user.id, data.user.full_name, data.user.role);
-          logPWAAction(ACTION_TYPES.LOGIN, { method: 'phone_pin' });
-          
           // Update last_login_at in app_users
           try {
             await supabase
@@ -1357,7 +659,7 @@ function LoginScreen({ onShowSignup, setUser, setUserData, setIsAuthenticated }:
         console.log('⚠️ RPC login failed, trying direct query...');
       }
 
-      // Fallback: Direct database query â€” exact match only (no fuzzy)
+      // Fallback: Direct database query — exact match only (no fuzzy)
       // Try the 4 deterministic phone formats derived from user input
       const possibleFormats = [
         normalizedPhone,                    // 762555550
@@ -1405,10 +707,6 @@ function LoginScreen({ onShowSignup, setUser, setUserData, setIsAuthenticated }:
           trackUserLogin(foundUser.id, foundUser.full_name, foundUser.role);
           await trackLogin(foundUser.id);
           
-          // Initialize PWA activity tracking
-          initActivityTracking(foundUser.id, foundUser.full_name, foundUser.role);
-          logPWAAction(ACTION_TYPES.LOGIN, { method: 'employee_id' });
-          
           try {
             await supabase
               .from('app_users')
@@ -1421,38 +719,6 @@ function LoginScreen({ onShowSignup, setUser, setUserData, setIsAuthenticated }:
           setIsAuthenticated(true);
           setIsLoading(false);
           return;
-        }
-        
-        // 3. Not in app_users â€” try HBB tables (agents_HBB / installers_HBB)
-        console.log('🔄 Not found in app_users, trying HBB login (agents_HBB / installers_HBB)...');
-        try {
-          const hbbUser = await hbbLogin(phoneNumber.trim(), pin || '');
-          if (hbbUser && hbbUser.role) {
-            console.log(`✅ HBB login successful: ${hbbUser.full_name} (${hbbUser.role}) from ${hbbUser.source_table}`);
-            
-            // Store HBB user in localStorage with consistent shape
-            const hbbUserData = {
-              id: hbbUser.id,
-              full_name: hbbUser.full_name,
-              phone_number: hbbUser.phone_number,
-              role: hbbUser.role,
-              town_id: hbbUser.town_id,
-              status: hbbUser.status,
-              source_table: hbbUser.source_table,
-              max_jobs_per_day: hbbUser.max_jobs_per_day,
-              _loginAt: Date.now(), // Session expiry tracking
-            };
-            
-            localStorage.setItem('tai_user', JSON.stringify(hbbUserData));
-            
-            setUser(hbbUserData);
-            setUserData(hbbUserData);
-            setIsAuthenticated(true);
-            setIsLoading(false);
-            return;
-          }
-        } catch (hbbErr: any) {
-          console.log('⚠️ HBB login also failed:', hbbErr.message);
         }
         
         throw new Error('Phone number not found. Please check and try again.');
@@ -1487,26 +753,26 @@ function LoginScreen({ onShowSignup, setUser, setUserData, setIsAuthenticated }:
   };
 
   return (
-    <div className="flex-1 flex flex-col justify-center px-6 py-4">
-      <div className="w-full max-w-md mx-auto">
+    <div className="flex-1 flex items-center justify-center p-6">
+      <div className="w-full max-w-md">
         {/* Logo */}
-        <div className="text-center mb-6">
-          <div className="w-44 h-44 bg-gradient-to-br from-red-900 via-red-800 to-red-950 rounded-3xl flex items-center justify-center mx-auto shadow-lg overflow-hidden">
+        <div className="text-center mb-12">
+          <div className="w-40 h-40 bg-gradient-to-br from-red-900 via-red-800 to-red-950 rounded-2xl flex items-center justify-center mx-auto shadow-md overflow-hidden">
             <img src={airtelChampionsLogo} alt="Airtel Champions" className="w-full h-full object-cover" />
           </div>
         </div>
 
         {/* Form - SIMPLIFIED per board feedback */}
-        <form onSubmit={handleLogin} className="space-y-3">
+        <form onSubmit={handleLogin} className="space-y-6">
           {error && (
-            <div className="bg-red-50 border border-red-200 text-red-700 px-3 py-2 rounded-xl text-sm">
+            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl text-sm">
               <p className="font-semibold">{error}</p>
             </div>
           )}
 
           <div className="relative">
-            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-              <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
+              <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
             </div>
@@ -1515,7 +781,7 @@ function LoginScreen({ onShowSignup, setUser, setUserData, setIsAuthenticated }:
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
               placeholder="Enter your phone number"
-              className="w-full pl-12 pr-4 py-3.5 text-sm text-gray-900 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition-all placeholder-gray-400"
+              className="w-full pl-14 pr-4 py-5 text-lg text-gray-900 bg-gray-50 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition-all placeholder-gray-400"
               style={{ color: '#111827' }}
               required
               autoFocus
@@ -1523,8 +789,8 @@ function LoginScreen({ onShowSignup, setUser, setUserData, setIsAuthenticated }:
           </div>
 
           <div className="relative">
-            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-              <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
+              <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
               </svg>
             </div>
@@ -1534,7 +800,7 @@ function LoginScreen({ onShowSignup, setUser, setUserData, setIsAuthenticated }:
               onChange={(e) => setPin(e.target.value)}
               placeholder="Enter your PIN"
               maxLength={4}
-              className="w-full pl-12 pr-4 py-3.5 text-sm text-gray-900 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition-all placeholder-gray-400"
+              className="w-full pl-14 pr-4 py-5 text-lg text-gray-900 bg-gray-50 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition-all placeholder-gray-400"
               style={{ color: '#111827' }}
             />
           </div>
@@ -1542,11 +808,11 @@ function LoginScreen({ onShowSignup, setUser, setUserData, setIsAuthenticated }:
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full py-3.5 text-sm bg-red-600 hover:bg-red-700 active:scale-[0.98] text-white rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed font-semibold tracking-wide"
+            className="w-full py-5 text-lg bg-red-600 hover:bg-red-700 active:scale-95 text-white rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md font-medium"
           >
             {isLoading ? (
               <div className="flex items-center justify-center">
-                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
                 Signing in...
               </div>
             ) : (
@@ -1555,104 +821,326 @@ function LoginScreen({ onShowSignup, setUser, setUserData, setIsAuthenticated }:
           </button>
         </form>
 
-        {/* Sign Up â€” immediately after Sign In */}
-        <div className="mt-3">
-          <div className="relative">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-gray-200"></div>
-            </div>
-            <div className="relative flex justify-center text-[10px]">
-              <span className="px-3 text-gray-400 uppercase tracking-widest font-medium" style={{ background: 'var(--theme-bg-page, #F3F4F6)' }}>Want to submit HBB leads?</span>
-            </div>
-          </div>
+        {/* Help link - SUBTLE per Jony Ive */}
+        <div className="mt-8 text-center">
           <button
-            onClick={onShowSignup}
-            className="mt-3 w-full py-3.5 text-sm border-2 border-red-600 text-red-600 rounded-xl hover:bg-red-50 active:scale-[0.98] transition-all font-semibold tracking-wide"
-          >
-            SIGN UP
-          </button>
-        </div>
-
-        {/* Help link */}
-        <div className="mt-4 text-center">
-          <button
-            onClick={() => setShowHelpContact(true)}
-            className="text-xs text-gray-400 hover:text-gray-600 transition-colors tracking-wide"
+            onClick={() => alert('Contact your ZSM for login assistance\n\nYour PIN was provided during onboarding.\nOr call support: 0700 000 000')}
+            className="text-sm text-gray-500 hover:text-gray-700 transition-colors"
           >
             Need help signing in?
           </button>
         </div>
 
-        {/* Help Contact Modal â€” Steve Jobs inspired */}
-        {showHelpContact && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-md" onClick={() => setShowHelpContact(false)}>
-            <div 
-              className="relative bg-white/95 w-[calc(100%-3rem)] max-w-sm rounded-3xl p-8 shadow-2xl backdrop-blur-xl"
-              onClick={(e) => e.stopPropagation()}
-              style={{ boxShadow: '0 25px 60px -12px rgba(0,0,0,0.25)' }}
-            >
-              {/* Minimal close */}
-              <button 
-                onClick={() => setShowHelpContact(false)} 
-                className="absolute top-5 right-5 w-7 h-7 rounded-full bg-gray-100 flex items-center justify-center text-gray-400 hover:text-gray-600 hover:bg-gray-200 transition-all"
-              >
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
-              </button>
-
-              {/* Icon */}
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center mx-auto mb-5 shadow-lg" style={{ boxShadow: '0 8px 24px -4px rgba(220,38,38,0.4)' }}>
-                <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
-                </svg>
+        {/* Sign Up Button - Only visible in developer mode */}
+        {isDeveloperMode && (
+          <div className="mt-6">
+            <div className="relative">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-gray-300"></div>
               </div>
-
-              {/* Title */}
-              <h3 className="text-center text-lg font-semibold text-gray-900 tracking-tight">We're here to help</h3>
-              <p className="text-center text-xs text-gray-400 mt-1.5 mb-6 leading-relaxed">Get assistance with signing in or<br/>creating your account</p>
-
-              {/* Action buttons */}
-              <div className="space-y-2.5">
-                <a
-                  href="tel:0785638462"
-                  className="flex items-center gap-3 w-full py-3.5 px-5 bg-gray-900 text-white rounded-2xl hover:bg-gray-800 active:scale-[0.98] transition-all font-medium text-sm"
-                >
-                  <div className="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center shrink-0">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-sm">Call Support</div>
-                    <div className="text-[11px] text-white/60">0785 638 462</div>
-                  </div>
-                </a>
-                <a
-                  href="https://wa.me/254785638462?text=Hello%2C%20I%20am%20reaching%20out%20for%20assistance%20with%20signing%20in%20or%20registering%20on%20the%20Airtel%20Champions%20platform.%20Kindly%20assist.%20Thank%20you."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 w-full py-3.5 px-5 bg-green-600 text-white rounded-2xl hover:bg-green-700 active:scale-[0.98] transition-all font-medium text-sm"
-                >
-                  <div className="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center shrink-0">
-                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-sm">WhatsApp</div>
-                    <div className="text-[11px] text-white/60">Send a message</div>
-                  </div>
-                </a>
+              <div className="relative flex justify-center text-sm">
+                <span className="px-2 bg-white text-gray-500">New to Airtel Champions?</span>
               </div>
             </div>
+            <button
+              onClick={onShowSignup}
+              className="mt-4 w-full py-5 text-lg border-2 border-red-600 text-red-600 rounded-xl hover:bg-red-50 active:scale-95 transition-all font-medium"
+            >
+              CREATE ACCOUNT
+            </button>
           </div>
         )}
       </div>
 
-      {/* Debug panels removed for production */}
+      {/* Debug Users Panel - Only visible in developer mode */}
+      {isDeveloperMode && (
+        <DebugUsersPanel 
+          onSelectUser={(phone, name) => {
+            setPhoneNumber(phone);
+            setPin('1234');
+          }} 
+        />
+      )}
+
+      {/* Database Schema Checker Button - Only visible in developer mode */}
+      {isDeveloperMode && (
+        <button
+          onClick={() => setShowSchemaChecker(true)}
+          className="fixed bottom-24 right-6 px-4 py-3 bg-green-600 text-white rounded-full shadow-lg hover:bg-green-700 transition-all flex items-center gap-2 text-sm font-medium z-50"
+          title="Database Schema Checker"
+        >
+          🔍 DB Check
+        </button>
+      )}
+
+      {/* Phone Diagnostic Tool Button - Only visible in developer mode */}
+      {isDeveloperMode && (
+        <button
+          onClick={() => setShowDiagnosticTool(true)}
+          className="fixed bottom-6 right-6 px-4 py-3 bg-purple-600 text-white rounded-full shadow-lg hover:bg-purple-700 transition-all flex items-center gap-2 text-sm font-medium z-50"
+          title="Phone Number Diagnostic Tool"
+        >
+          🔧 Phone Debug
+        </button>
+      )}
+
+      {/* Schema Checker Modal */}
+      {showSchemaChecker && (
+        <DatabaseSchemaChecker onClose={() => setShowSchemaChecker(false)} />
+      )}
+
+      {/* Diagnostic Tool Modal */}
+      {showDiagnosticTool && (
+        <PhoneDiagnosticTool onClose={() => setShowDiagnosticTool(false)} />
+      )}
     </div>
   );
 }
 
-// SignupScreen is now imported from './components/signup-screen'
+function SignupScreen({ onBackToLogin }: { onBackToLogin: () => void }) {
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
 
-function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () => void; initialTab?: string | null }) {
-  const [activeTab, setActiveTab] = useState(initialTab || 'home');
+  const handleSignup = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError('');
+    setIsLoading(true);
+
+    try {
+      // Clean phone number (remove spaces, dashes, etc.)
+      const cleanPhone = phoneNumber.trim().replace(/[\s\-\(\)]/g, '');
+      
+      // First, check if the phone number is already registered
+      const { data: userData, error: userError } = await supabase
+        .from('app_users')
+        .select('id, employee_id, full_name')
+        .eq('phone_number', cleanPhone)
+        .maybeSingle();
+
+      if (userData) {
+        setError('Phone number already registered. Please login.');
+        setIsLoading(false);
+        return;
+      }
+
+      // Now create a new user in auth
+      const { data: authData, error: authError } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          data: {
+            full_name: fullName,
+            phone: cleanPhone,
+          },
+          emailRedirectTo: undefined, // Disable email confirmation redirect
+        },
+      });
+
+      if (authError) {
+        console.error('Auth signup error:', authError);
+        setError(authError.message);
+        setIsLoading(false);
+        return;
+      }
+
+      console.log('Auth user created:', authData);
+
+      // If auth signup succeeded, create profile in public.users
+      if (authData?.user) {
+        // Get next employee ID
+        const { data: existingUsers } = await supabase
+          .from('app_users')
+          .select('employee_id')
+          .like('employee_id', 'SE%')
+          .order('employee_id', { ascending: false })
+          .limit(1);
+
+        let nextEmployeeId = 'SE001';
+        if (existingUsers && existingUsers.length > 0) {
+          const lastId = existingUsers[0].employee_id;
+          const lastNum = parseInt(lastId.substring(2));
+          nextEmployeeId = 'SE' + String(lastNum + 1).padStart(3, '0');
+        }
+
+        // Get next rank
+        const { data: rankData } = await supabase
+          .from('app_users')
+          .select('rank')
+          .order('rank', { ascending: false })
+          .limit(1);
+
+        const nextRank = rankData && rankData.length > 0 ? rankData[0].rank + 1 : 1;
+
+        // Insert into app_users (the table that login actually reads from)
+        const { error: profileError } = await supabase
+          .from('app_users')
+          .insert({
+            id: authData.user.id,
+            employee_id: nextEmployeeId,
+            full_name: fullName,
+            phone_number: cleanPhone,
+            role: 'sales_executive',
+            region: 'Nairobi',
+            zone: 'Unassigned',
+            rank: nextRank,
+            total_points: 0,
+            pin: '1234',
+          });
+
+        if (profileError) {
+          console.error('Profile creation error:', profileError);
+          setError('Account created but profile setup failed. Please contact support.');
+          setIsLoading(false);
+          return;
+        }
+
+        // Success! Redirect to login
+        alert('✅ Account created successfully! Please login with your credentials.');
+        onBackToLogin();
+      }
+    } catch (err: any) {
+      console.error('Signup error:', err);
+      setError(err.message || 'Signup failed. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  return (
+    <div className="flex-1 flex items-center justify-center p-6">
+      <div className="w-full max-w-md">
+        {/* Logo */}
+        <div className="text-center mb-8">
+          <div className="w-32 h-32 bg-gradient-to-br from-red-900 via-red-800 to-red-950 rounded-3xl flex items-center justify-center mx-auto shadow-lg overflow-hidden">
+            <img src={airtelChampionsLogo} alt="Airtel Champions" className="w-full h-full object-cover" />
+          </div>
+        </div>
+
+        {/* Form */}
+        <form onSubmit={handleSignup} className="space-y-4">
+          {error && (
+            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl">
+              {error}
+            </div>
+          )}
+
+          <div>
+            <label className="block text-sm mb-2 text-gray-700">Full Name</label>
+            <input
+              type="text"
+              value={fullName}
+              onChange={(e) => setFullName(e.target.value)}
+              placeholder="Enter your full name"
+              className="w-full pl-4 pr-4 py-4 bg-gray-50 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm mb-2 text-gray-700">Email</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email"
+              className="w-full pl-4 pr-4 py-4 bg-gray-50 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm mb-2 text-gray-700">Phone Number</label>
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+              </div>
+              <input
+                type="tel"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+                placeholder="0712345678 or 254712345678"
+                className="w-full pl-12 pr-4 py-4 bg-gray-50 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
+                required
+              />
+            </div>
+            <p className="text-xs text-gray-500 mt-1">Enter your registered phone number</p>
+          </div>
+
+          <div>
+            <label className="block text-sm mb-2 text-gray-700">Password</label>
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+              </div>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Enter your password"
+                className="w-full pl-12 pr-4 py-4 bg-gray-50 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
+                required
+              />
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            disabled={isLoading}
+            className="w-full py-4 bg-red-600 hover:bg-red-700 text-white rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
+          >
+            {isLoading ? (
+              <div className="flex items-center justify-center">
+                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                Signing up...
+              </div>
+            ) : (
+              'SIGN UP'
+            )}
+          </button>
+        </form>
+
+        {/* Demo credentials hint */}
+        <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-xl">
+          <p className="text-sm text-blue-800 mb-2">
+            <strong>🧪 Test the app:</strong>
+          </p>
+          <p className="text-xs text-blue-700">
+            Enter your phone number (as registered in the system) and your password to login.
+          </p>
+        </div>
+
+        {/* Connection status */}
+        <div className="mt-4 text-center">
+          <div className="inline-flex items-center text-sm text-green-600">
+            <div className="w-2 h-2 bg-green-600 rounded-full mr-2 animate-pulse"></div>
+            Connected to Supabase
+          </div>
+        </div>
+
+        {/* Login link */}
+        <div className="mt-4 text-center">
+          <button
+            onClick={onBackToLogin}
+            className="text-sm text-blue-600 hover:text-blue-800 transition-colors"
+          >
+            Already have an account? Login here.
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function HomeScreen({ user, onLogout }: { user: any; onLogout: () => void }) {
+  const [activeTab, setActiveTab] = useState('home');
   const [programToOpen, setProgramToOpen] = useState<string | undefined>(undefined);
   const [userData, setUserData] = useState<any>(null);
   const [topPerformers, setTopPerformers] = useState<any[]>([]);
@@ -1661,7 +1149,6 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
   const [announcement, setAnnouncement] = useState<any>(null);
   const [showFullAnnouncement, setShowFullAnnouncement] = useState(false);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
-  const profileButtonRef = useRef<HTMLButtonElement>(null);
   const [showAnnouncementsModal, setShowAnnouncementsModal] = useState(false);
   const [showCreateAnnouncementModal, setShowCreateAnnouncementModal] = useState(false);
   const [showDailyMissions, setShowDailyMissions] = useState(false);
@@ -1677,15 +1164,13 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
   // Van Debugger state
   const [showVanDebugger, setShowVanDebugger] = useState(false);
 
-  // PWA Badging API â€” show unread count on app icon
+  // PWA Badging API — show unread count on app icon
   const { setBadge, clearBadge } = useBadge();
 
   // WebRTC Calling states
   const [showUserDirectory, setShowUserDirectory] = useState(false);
   const [showCallHistory, setShowCallHistory] = useState(false);
   const [showPermissionRequest, setShowPermissionRequest] = useState(false);
-  // Track what action to perform after mic permission is granted
-  const pendingCallActionRef = React.useRef<'directory' | 'history' | null>(null);
   const [programs, setPrograms] = useState([
     { 
       id: 1, 
@@ -1723,25 +1208,18 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
 
   // Initialize WebRTC calling system
   const webrtc = useWebRTC({
-    userId: user?.id || '',
-    userName: user?.full_name || '',
+    userId: user.id,
+    userName: user.full_name,
   });
 
-  // Load data once when user mounts (stable reference via user.id)
-  const userIdRef = React.useRef<string | null>(null);
   useEffect(() => {
-    if (!user?.id) return;
-    userIdRef.current = user.id;
     loadUserData();
     loadTopPerformers();
     loadUserPointsAndRank();
-  }, [user?.id]);
+  }, [user]);
 
-  // Load announcements once userData is available (use a ref to run only once)
-  const announcementsLoadedRef = React.useRef(false);
   useEffect(() => {
-    if (userData && !announcementsLoadedRef.current) {
-      announcementsLoadedRef.current = true;
+    if (userData) {
       loadAnnouncements();
     }
   }, [userData]);
@@ -1877,28 +1355,20 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
   ]);
 
   // Set user online when component mounts - but request permissions first
-  // Use refs to avoid re-running cleanup (goOffline) on every permission change
-  const webrtcInitializedRef = React.useRef(false);
   useEffect(() => {
-    if (!user?.id) return;
-    
-    // Don't auto-prompt for microphone on load â€” only request when user initiates a call
-    if (webrtc.permissionStatus === 'granted' && !webrtcInitializedRef.current) {
-      webrtcInitializedRef.current = true;
+    if (user?.id && webrtc.permissionStatus === 'unknown') {
+      // Show permission request modal on first load
+      setShowPermissionRequest(true);
+    } else if (user?.id && webrtc.permissionStatus === 'granted') {
+      // If permissions already granted, go online immediately
       webrtc.goOnline();
       console.log('[WebRTC] User set to online:', user.full_name);
-    } else if (webrtc.permissionStatus === 'denied') {
-      webrtcInitializedRef.current = true; // Don't keep prompting
-      console.log('[WebRTC] User denied permission request');
     }
-
     return () => {
-      if (webrtcInitializedRef.current) {
-        webrtc.goOffline();
-        console.log('[WebRTC] User set to offline');
-      }
+      webrtc.goOffline();
+      console.log('[WebRTC] User set to offline');
     };
-  }, [user?.id, webrtc.permissionStatus]);
+  }, [user, webrtc.permissionStatus]);
 
   const loadUserData = async () => {
     try {
@@ -2184,7 +1654,7 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
   };
 
   const handleViewAllLeaderboard = () => {
-    setActiveTab('leaderboard');
+    setShowTodayLeaderboard(true);
   };
 
   const handleTopPerformerClick = (performer: any) => {
@@ -2236,7 +1706,7 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
 
   if (activeTab === 'profile') {
     return (
-      <div className="flex-1 flex flex-col overflow-hidden" style={{ backgroundColor: 'var(--theme-bg-page, #F9FAFB)' }}>
+      <div className="flex-1 flex flex-col bg-gray-50 overflow-hidden">
         <UserProfileModal
           userId={userData?.id}
           currentUser={userData}
@@ -2254,7 +1724,7 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
   if (activeTab === 'programs') {
     console.log('[App] 🎬 Rendering Programs tab with initialProgramId:', programToOpen);
     return (
-      <div className="flex-1 flex flex-col overflow-hidden" style={{ backgroundColor: 'var(--theme-bg-page, #F9FAFB)' }}>
+      <div className="flex-1 flex flex-col bg-gray-50 overflow-hidden">
         <ProgramsListFoldersApp 
           onBack={() => {
             console.log('[App] ⬅️ Going back, clearing programToOpen');
@@ -2266,7 +1736,7 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
         />
         
         {/* Bottom Navigation - 5 Tabs */}
-        <div className="px-2 py-3 flex-shrink-0 transition-colors duration-300" style={{ backgroundColor: 'var(--theme-nav-bg, #FFFFFF)', borderTop: '1px solid var(--theme-border, #E5E7EB)' }}>
+        <div className="bg-white border-t border-gray-200 px-2 py-3 flex-shrink-0">
           <div className="flex items-center justify-around">
             <NavButton
               icon={
@@ -2280,7 +1750,7 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
             <NavButton
               icon={
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
               }
               active={false}
@@ -2337,10 +1807,10 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
 
   if (activeTab === 'explore') {
     return (
-      <div className="flex-1 flex flex-col overflow-hidden" style={{ backgroundColor: 'var(--theme-bg-page, #F9FAFB)' }}>
+      <div className="flex-1 flex flex-col bg-gray-50 overflow-hidden">
         <ExploreFeed currentUser={userData} onUserClick={handleTopPerformerClick} />
         {/* Bottom Navigation */}
-        <div className="px-6 py-3 flex-shrink-0 transition-colors duration-300" style={{ backgroundColor: 'var(--theme-nav-bg, #FFFFFF)', borderTop: '1px solid var(--theme-border, #E5E7EB)' }}>
+        <div className="bg-white border-t border-gray-200 px-6 py-3 flex-shrink-0">
           <div className="flex items-center justify-around">
             <NavButton
               icon={
@@ -2376,13 +1846,13 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
   }
 
   return (
-    <div className="flex-1 flex flex-col overflow-visible transition-colors duration-300" style={{ backgroundColor: 'var(--theme-bg-page, #F9FAFB)' }}>
+    <div className="flex-1 flex flex-col bg-gray-50 overflow-hidden">
       {/* Header - Hello John */}
-      <div className="px-6 py-5 flex-shrink-0 transition-colors duration-300" style={{ backgroundColor: 'var(--theme-bg-card, #FFFFFF)', borderBottom: '1px solid var(--theme-border, #E5E7EB)' }}>
+      <div className="bg-white border-b border-gray-200 px-6 py-5">
         <div className="flex items-center justify-between">
           <div className="flex-1">
             {/* Animated greeting */}
-            <h2 className="text-3xl mb-2 animate-slide-in-left" style={{ color: 'var(--theme-text-primary, #111827)' }}>
+            <h2 className="text-3xl mb-2 animate-slide-in-left text-gray-800">
               {getGreeting()}, {firstName} {getTimeEmoji()}
             </h2>
             {/* Animated rank and points badge */}
@@ -2390,22 +1860,20 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
               {/* Rank Badge - Click to view leaderboard */}
               <button
                 onClick={() => setActiveTab('leaderboard')}
-                className="inline-flex items-center px-4 py-2 rounded-full shadow-sm hover:shadow-md transition-all active:scale-95"
-                style={{ backgroundColor: 'var(--theme-primary-light, #FEF2F2)', border: '1px solid var(--theme-border, #E5E7EB)' }}
+                className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-red-50 to-red-100 border border-red-200 rounded-full shadow-sm hover:shadow-md hover:from-red-100 hover:to-red-200 transition-all active:scale-95"
               >
-                  <span className="text-sm font-semibold" style={{ color: 'var(--theme-primary, #E60000)' }}>SE #{userRank}</span>
+                <span className="text-sm font-semibold text-red-800">🦅 SE #{userRank}</span>
               </button>
               {/* Points Badge - Click to view submissions history */}
               <button
                 onClick={() => setShowSubmissionsHistory(true)}
-                className="inline-flex items-center px-4 py-2 rounded-full shadow-sm hover:shadow-md transition-all active:scale-95"
-                style={{ backgroundColor: 'var(--theme-accent-light, #FEF3C7)', border: '1px solid var(--theme-border, #E5E7EB)' }}
+                className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-yellow-50 to-yellow-100 border border-yellow-200 rounded-full shadow-sm hover:shadow-md hover:from-yellow-100 hover:to-yellow-200 transition-all active:scale-95"
               >
-                  <span className="text-sm font-semibold" style={{ color: 'var(--theme-accent, #F59E0B)' }}>⭐ {userData?.total_points || 0} pts</span>
+                <span className="text-sm font-semibold text-yellow-800">⭐ {userData?.total_points || 0} pts</span>
               </button>
             </div>
           </div>
-          <div className="flex items-center gap-2" data-tour="comms-bar">
+          <div className="flex items-center gap-2">
             {/* Director Messages Icon - ONLY for SEs */}
             {userData?.role === 'sales_executive' && (
               <button
@@ -2421,14 +1889,7 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
 
             {/* Call Icon - Open User Directory */}
             <button
-              onClick={() => {
-                if (webrtc.permissionStatus === 'unknown') {
-                  pendingCallActionRef.current = 'directory';
-                  setShowPermissionRequest(true);
-                } else {
-                  setShowUserDirectory(true);
-                }
-              }}
+              onClick={() => setShowUserDirectory(true)}
               className="relative w-11 h-11 bg-green-100 rounded-full flex items-center justify-center text-green-600 hover:bg-green-200 transition-colors"
               title="Make a Call"
             >
@@ -2447,14 +1908,7 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
 
             {/* Call History Icon */}
             <button
-              onClick={() => {
-                if (webrtc.permissionStatus === 'unknown') {
-                  pendingCallActionRef.current = 'history';
-                  setShowPermissionRequest(true);
-                } else {
-                  setShowCallHistory(true);
-                }
-              }}
+              onClick={() => setShowCallHistory(true)}
               className="relative w-11 h-11 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 hover:bg-purple-200 transition-colors"
               title="Call History"
             >
@@ -2481,10 +1935,8 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
             {/* Profile Icon with Dropdown */}
             <div className="relative">
               <button
-                ref={profileButtonRef}
                 onClick={() => setShowProfileMenu(!showProfileMenu)}
-                className="w-12 h-12 rounded-full flex items-center justify-center text-xl shadow-lg transition-colors"
-                style={{ backgroundColor: 'var(--theme-primary, #E60000)', color: 'var(--theme-text-on-primary, #FFFFFF)' }}
+                className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white text-xl shadow-lg hover:bg-red-700 transition-colors"
               >
                 {userInitial}
               </button>
@@ -2496,7 +1948,6 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
                   userInitial={userInitial}
                   userZone={userZone}
                   userData={userData}
-                  anchorRef={profileButtonRef as React.RefObject<HTMLElement>}
                   onProfileClick={() => {
                     setShowProfileMenu(false);
                     setActiveTab('profile');
@@ -2515,15 +1966,14 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
       </div>
 
       {/* Scrollable Content */}
-      <div className="flex-1 overflow-y-auto pb-16 md:pb-20">
+      <div className="flex-1 overflow-y-auto pb-20">
         {/* Top 3 SEs Section */}
-        <div data-tour="top-performers" className="px-6 py-6 transition-colors duration-300" style={{ backgroundColor: 'var(--theme-bg-card, #FFFFFF)', borderBottom: '1px solid var(--theme-border, #E5E7EB)' }}>
+        <div className="bg-white border-b border-gray-200 px-6 py-6">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg" style={{ color: 'var(--theme-text-primary, #111827)' }}>🏆 Top Performers Today</h3>
+            <h3 className="text-lg">🏆 Top Performers Today</h3>
             <button
               onClick={handleViewAllLeaderboard}
-              className="text-sm transition-colors flex items-center"
-              style={{ color: 'var(--theme-primary, #E60000)' }}
+              className="text-sm text-blue-600 hover:text-blue-800 transition-colors flex items-center"
             >
               View All
               <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -2545,9 +1995,9 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
                   }`}>
                     {performer?.full_name?.substring(0, 1) || 'U'}
                   </div>
-                  <p className="text-sm font-semibold truncate" style={{ color: 'var(--theme-text-primary, #111827)' }}>{performer?.full_name?.split(' ')[0] || 'User'}</p>
-                  <p className="text-xs" style={{ color: 'var(--theme-text-secondary, #4B5563)' }}>Rank #{performer?.rank || '--'}</p>
-                  <p className="text-xs font-bold" style={{ color: 'var(--theme-success, #059669)' }}>{performer?.points_today || 0} pts today</p>
+                  <p className="text-sm font-semibold truncate">{performer?.full_name?.split(' ')[0] || 'User'}</p>
+                  <p className="text-xs text-gray-600">Rank #{performer?.rank || '--'}</p>
+                  <p className="text-xs font-bold text-green-600">{performer?.points_today || 0} pts today</p>
                   {index === 0 && <p className="text-xs text-yellow-600">👑 #1</p>}
                 </button>
               ))
@@ -2585,7 +2035,7 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
         )}
 
         {/* Programs Section */}
-        <div data-tour="programs-activity" className="px-6 py-6">
+        <div className="px-6 py-6">
           <ProgramsWidgetHome 
             onViewAll={() => {
               setProgramToOpen(undefined);
@@ -2684,24 +2134,17 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
         <PermissionRequestModal
           onGrant={async () => {
             const granted = await webrtc.requestPermissions();
-            setShowPermissionRequest(false);
             if (granted) {
+              setShowPermissionRequest(false);
               await webrtc.goOnline();
               console.log('[WebRTC] ✅ Permissions granted, user is now online');
-              // Proceed with the action that triggered the permission request
-              if (pendingCallActionRef.current === 'directory') {
-                setShowUserDirectory(true);
-              } else if (pendingCallActionRef.current === 'history') {
-                setShowCallHistory(true);
-              }
             } else {
+              setShowPermissionRequest(false);
               console.log('[WebRTC] ❌ Permissions denied');
             }
-            pendingCallActionRef.current = null;
           }}
           onDeny={() => {
             setShowPermissionRequest(false);
-            pendingCallActionRef.current = null;
             console.log('[WebRTC] User denied permission request');
           }}
         />
@@ -2768,7 +2211,7 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
       )}
 
       {/* Bottom Navigation - 5 Tabs */}
-      <div data-tour="bottom-nav" className="px-2 py-3 flex-shrink-0 transition-colors duration-300" style={{ backgroundColor: 'var(--theme-nav-bg, #FFFFFF)', borderTop: '1px solid var(--theme-border, #E5E7EB)' }}>
+      <div className="bg-white border-t border-gray-200 px-2 py-3 flex-shrink-0">
         <div className="flex items-center justify-around">
           <NavButton
             icon={
@@ -2818,7 +2261,10 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
         </div>
       </div>
 
-      {/* Debug panel removed for production */}
+      {/* Debug Panel - Only for developers */}
+      {userData && (userData.phone_number === '+254789274454' || userData.phone_number === '0789274454' || userData.phone_number === '789274454') && (
+        <DebugDataCheck />
+      )}
     </div>
   );
 }
@@ -2837,12 +2283,9 @@ function NavButton({ icon, label, active, onClick }: { icon: React.ReactNode; la
   return (
     <button
       onClick={onClick}
-      className="flex flex-col items-center justify-center py-2 transition-colors"
-      style={{
-        color: active
-          ? 'var(--theme-nav-active, #E60000)'
-          : 'var(--theme-nav-text, #9CA3AF)',
-      }}
+      className={`flex flex-col items-center justify-center py-2 transition-colors ${
+        active ? 'text-red-600' : 'text-gray-400 hover:text-gray-600'
+      }`}
     >
       {icon}
     </button>
@@ -2919,86 +2362,32 @@ function LeaderboardScreen({ onBack, onLogout, userData, onUserClick }: { onBack
 
   const loadLeaderboard = async () => {
     try {
-      // Get all SEs from app_users table with all needed columns
+      // Get all SEs from app_users table - only select columns that exist
       const { data, error } = await supabase
         .from('app_users')
-        .select('id, employee_id, full_name, zone, region, zsm, total_points')
+        .select('id, employee_id, full_name, zone, region')
         .eq('role', 'sales_executive')
         .order('full_name', { ascending: true });
 
-      if (error) {
-        console.error('[LeaderboardScreen] Error loading SEs:', error);
-        setLoading(false);
-        return;
-      }
-
-      if (!data || data.length === 0) {
-        setLeaderboard([]);
-        setFilteredLeaderboard([]);
-        setLoading(false);
-        return;
-      }
-
-      // Get today's date range
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
-      const todayStart = today.toISOString();
-
-      // Get all submissions from today
-      const { data: todaySubmissions, error: submissionsError } = await supabase
-        .from('submissions')
-        .select('user_id, points_awarded')
-        .gte('created_at', todayStart);
-
-      if (submissionsError) {
-        console.error('[LeaderboardScreen] Error loading submissions:', submissionsError);
-      }
-
-      // Calculate today's points per user
-      const userPointsMap: Record<string, { points: number; count: number }> = {};
-      if (todaySubmissions && todaySubmissions.length > 0) {
-        todaySubmissions.forEach((sub: any) => {
-          if (!userPointsMap[sub.user_id]) {
-            userPointsMap[sub.user_id] = { points: 0, count: 0 };
-          }
-          userPointsMap[sub.user_id].points += sub.points_awarded || 0;
-          userPointsMap[sub.user_id].count += 1;
-        });
-      }
-
-      // Combine SE data with today's points
-      const dataWithPoints = data.map((user: any) => ({
-        ...user,
-        points_today: userPointsMap[user.id]?.points || 0,
-        submissions_today: userPointsMap[user.id]?.count || 0,
-        total_points: user.total_points || 0,
-        rank: 0
-      }));
-
-      // Sort by today's points (descending), then by name for ties
-      dataWithPoints.sort((a: any, b: any) => {
-        if (b.points_today !== a.points_today) {
-          return b.points_today - a.points_today;
-        }
-        return a.full_name.localeCompare(b.full_name);
-      });
-
-      // Assign ranks
-      dataWithPoints.forEach((user: any, index: number) => {
-        user.rank = index + 1;
-      });
-
-      setLeaderboard(dataWithPoints);
-      setFilteredLeaderboard(dataWithPoints);
+      if (data) {
+        // Add placeholder rank and points
+        const dataWithRank = data.map((user, index) => ({
+          ...user,
+          rank: index + 1,
+          total_points: 0, // Placeholder
+          zsm: '' // Placeholder
+        }));
+        setLeaderboard(dataWithRank);
+        setFilteredLeaderboard(dataWithRank);
         
-      // Extract unique zones
-      const uniqueZones = [...new Set(data.map((u: any) => u.zone).filter(Boolean))].sort();
-      setZones(uniqueZones as string[]);
+        // Extract unique zones
+        const uniqueZones = [...new Set(data.map(u => u.zone).filter(Boolean))].sort();
+        setZones(uniqueZones);
         
-      // Extract all unique ZSMs
-      const uniqueZSMs = [...new Set(data.map((u: any) => u.zsm).filter(Boolean))].sort();
-      setZSMs(uniqueZSMs as string[]);
-
+        // Extract all unique ZSMs initially
+        const uniqueZSMs = [...new Set(data.map(u => u.zsm).filter(Boolean))].sort();
+        setZSMs(uniqueZSMs);
+      }
       setLoading(false);
     } catch (error) {
       console.error('Error loading leaderboard:', error);
@@ -3051,14 +2440,46 @@ function LeaderboardScreen({ onBack, onLogout, userData, onUserClick }: { onBack
     <div className="flex-1 flex flex-col bg-gray-50 overflow-hidden">
       {/* Header */}
       <div className="bg-white border-b border-gray-200 px-6 py-4">
-        <div className="flex items-center mb-4">
-          <button onClick={onBack} className="mr-3">
-            <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-          <div className="flex-1">
-            <h2 className="text-2xl">🏆 Top Performers Today</h2>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center">
+            <button onClick={onBack} className="mr-3">
+              <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <h2 className="text-2xl">��� Leaderboard</h2>
+          </div>
+          <div className="flex items-center gap-2">
+            {/* Keep screen on during presentations */}
+            <WakeLockButton />
+            {/* Push notifications toggle */}
+            <PushNotificationBell userId={user?.id || userData?.id} />
+            {/* Share my rank button */}
+            <button
+              onClick={handleShareRank}
+              title={canShare ? 'Share my rank' : 'Copy rank link'}
+              className="px-3 py-2 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white rounded-lg transition-all shadow-md flex items-center gap-2"
+            >
+              {shareCopied ? (
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+              ) : (
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                </svg>
+              )}
+              <span className="hidden sm:inline">{shareCopied ? 'Copied!' : 'Share'}</span>
+            </button>
+            <button 
+              onClick={() => setShowCompare(true)} 
+              className="px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-lg transition-all shadow-md flex items-center gap-2"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+              Compare
+            </button>
           </div>
         </div>
 
@@ -3184,7 +2605,6 @@ function LeaderboardScreen({ onBack, onLogout, userData, onUserClick }: { onBack
         {/* Results Count */}
         <div className="mt-3 text-sm text-gray-600">
           Showing {filteredLeaderboard.length} of {leaderboard.length} SEs
-          {' '}({filteredLeaderboard.filter((u: any) => u.points_today > 0).length} active today)
         </div>
       </div>
 
@@ -3207,29 +2627,24 @@ function LeaderboardScreen({ onBack, onLogout, userData, onUserClick }: { onBack
           </div>
         ) : filteredLeaderboard.length > 0 ? (
           <div className="p-6 space-y-3">
-            {filteredLeaderboard.map((user, index) => {
-              const isInactive = user.points_today === 0;
-              const isTopThree = !isInactive && index < 3;
-              return (
+            {filteredLeaderboard.map((user, index) => (
               <div
                 key={user.id}
                 onClick={() => onUserClick && onUserClick(user)}
                 className={`bg-white rounded-xl p-4 shadow-sm cursor-pointer hover:shadow-md transition-shadow ${
-                  isTopThree ? 'border-2 border-yellow-400' : ''
-                } ${isInactive ? 'opacity-60' : ''}`}
+                  index < 3 ? 'border-2 border-yellow-400' : ''
+                }`}
               >
                 <div className="flex items-center">
                   <div
                     className={`w-12 h-12 rounded-full flex items-center justify-center text-white text-lg mr-3 ${
-                      isInactive
-                        ? 'bg-gray-300'
-                        : index === 0
+                      index === 0
                         ? 'bg-yellow-500'
                         : index === 1
                         ? 'bg-gray-400'
                         : index === 2
                         ? 'bg-orange-600'
-                        : 'bg-blue-500'
+                        : 'bg-gray-300'
                     }`}
                   >
                     {user.full_name.substring(0, 1)}
@@ -3237,22 +2652,18 @@ function LeaderboardScreen({ onBack, onLogout, userData, onUserClick }: { onBack
                   <div className="flex-1">
                     <h4 className="font-semibold">{user.full_name}</h4>
                     <p className="text-xs text-gray-600">
-                      {user.zone || 'No Zone'} {user.zsm && `â€¢ ${user.zsm}`}
+                      {user.zone || 'No Zone'} {user.zsm && `• ${user.zsm}`}
                     </p>
                   </div>
                   <div className="text-right">
-                    <p className="text-2xl font-bold text-gray-900">#{user.rank}</p>
-                    <p className={`text-lg font-bold ${user.points_today > 0 ? 'text-green-600' : 'text-gray-400'}`}>
-                      {user.points_today || 0}
-                    </p>
-                    <p className="text-xs text-gray-500">
-                      {user.submissions_today || 0} today
-                    </p>
+                    <p className="text-2xl">#{user.rank}</p>
+                    {user.total_points > 0 && (
+                      <p className="text-xs text-gray-600">{user.total_points} pts</p>
+                    )}
                   </div>
                 </div>
               </div>
-              );
-            })}
+            ))}
           </div>
         ) : (
           <div className="flex-1 flex items-center justify-center p-6">
@@ -3303,7 +2714,7 @@ function LeaderboardScreen({ onBack, onLogout, userData, onUserClick }: { onBack
                   className="text-white hover:text-gray-200"
                 >
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </button>
               </div>
@@ -3340,7 +2751,7 @@ function LeaderboardScreen({ onBack, onLogout, userData, onUserClick }: { onBack
                               </button>
                             </div>
                             <h4 className="font-semibold">{compareUser1.full_name}</h4>
-                            <p className="text-xs text-gray-600 mt-1">Rank #{compareUser1.rank} â€¢ {compareUser1.zone}</p>
+                            <p className="text-xs text-gray-600 mt-1">Rank #{compareUser1.rank} • {compareUser1.zone}</p>
                           </div>
                         ) : (
                           <div className="text-center py-4">
@@ -3363,7 +2774,7 @@ function LeaderboardScreen({ onBack, onLogout, userData, onUserClick }: { onBack
                               </button>
                             </div>
                             <h4 className="font-semibold">{compareUser2.full_name}</h4>
-                            <p className="text-xs text-gray-600 mt-1">Rank #{compareUser2.rank} â€¢ {compareUser2.zone}</p>
+                            <p className="text-xs text-gray-600 mt-1">Rank #{compareUser2.rank} • {compareUser2.zone}</p>
                           </div>
                         ) : (
                           <div className="text-center py-4">
@@ -3411,7 +2822,7 @@ function LeaderboardScreen({ onBack, onLogout, userData, onUserClick }: { onBack
                             </div>
                             <div className="flex-1">
                               <h4 className="font-semibold">{user.full_name}</h4>
-                              <p className="text-xs text-gray-600">{user.zone} â€¢ {user.zsm}</p>
+                              <p className="text-xs text-gray-600">{user.zone} • {user.zsm}</p>
                             </div>
                             <div className="text-right">
                               <p className="text-lg font-bold text-blue-600">#{user.rank}</p>
@@ -3537,7 +2948,7 @@ function LeaderboardScreen({ onBack, onLogout, userData, onUserClick }: { onBack
                           <p className="text-sm text-gray-600 mb-2">More Points</p>
                           <div className={`p-4 rounded-lg ${(compareUser1.total_points || 0) > (compareUser2.total_points || 0) ? 'bg-blue-100 border-2 border-blue-500' : 'bg-green-100 border-2 border-green-500'}`}>
                             <p className="font-bold">{(compareUser1.total_points || 0) > (compareUser2.total_points || 0) ? compareUser1.full_name.split(' ')[0] : compareUser2.full_name.split(' ')[0]}</p>
-                            <p className="text-2xl">â­</p>
+                            <p className="text-2xl">⭐</p>
                           </div>
                         </div>
                       </div>
@@ -4177,13 +3588,15 @@ function AppWithErrorBoundary() {
   return (
     <ErrorBoundary
       onError={(error, errorInfo) => {
-        // Error logging - in production, send to error tracking service
+        // Log to console for debugging
+        console.error('[App] Error caught by boundary:', error);
+        console.error('[App] Error info:', errorInfo);
+        
+        // In production, send to error tracking service
         // Example: Sentry.captureException(error, { contexts: { react: { componentStack: errorInfo.componentStack } } });
       }}
     >
-      <ThemeProvider>
-        <App />
-      </ThemeProvider>
+      <App />
     </ErrorBoundary>
   );
 }

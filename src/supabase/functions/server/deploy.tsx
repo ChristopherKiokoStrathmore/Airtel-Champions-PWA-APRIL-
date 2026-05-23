@@ -1,5 +1,5 @@
 import { Hono } from 'npm:hono';
-import { createClient } from 'jsr:@supabase/supabase-js@2';
+import { createClient } from 'npm:@supabase/supabase-js@2.39.3';
 
 const app = new Hono();
 
@@ -50,7 +50,7 @@ function getMimeType(filepath: string): string {
  */
 app.post('/', async (c) => {
   try {
-    console.log('[Deploy] �� Deployment request received');
+    console.log('[Deploy] 📦 Deployment request received');
 
     const supabase = createClient(
       Deno.env.get('SUPABASE_URL') ?? '',
@@ -58,10 +58,7 @@ app.post('/', async (c) => {
     );
 
     // Step 1: Ensure bucket exists
-    const { data: buckets, error: listErr } = await supabase.storage.listBuckets();
-    if (listErr) {
-      console.warn('[Deploy] ⚠️ Could not list buckets (may be transient):', listErr.message);
-    }
+    const { data: buckets } = await supabase.storage.listBuckets();
     const bucketExists = buckets?.some(b => b.name === BUCKET_NAME);
 
     if (!bucketExists) {
@@ -90,7 +87,7 @@ app.post('/', async (c) => {
       return c.json({ error: 'Invalid request: files array required' }, 400);
     }
 
-    console.log(`[Deploy] �� Uploading ${files.length} files...`);
+    console.log(`[Deploy] 📁 Uploading ${files.length} files...`);
 
     // Step 3: Upload each file
     const results = [];

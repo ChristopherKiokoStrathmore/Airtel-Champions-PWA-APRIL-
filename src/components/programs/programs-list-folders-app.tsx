@@ -1,11 +1,9 @@
 // Programs List Folders App v2.1 - With Enhanced Debug Logging for Direct Program Opening
 import { useState, useEffect } from 'react';
 import { programsAPI, initializeSampleProgram } from '../../utils/supabase-direct';
-import { programsAPI as programsKVAPI } from './programs-api';
 import { ChevronRight, ChevronLeft, Folder, FolderOpen, BarChart3, Plus, Settings, Truck } from 'lucide-react';
 import { getSupabaseClient } from '../../utils/supabase/client';
 import { ProgramSubmitModal } from './program-submit-modal';
-import { LinkedCheckoutModal } from './linked-checkout-modal';
 import { SubmissionSuccessModal } from './submission-success-modal';
 import { ProgramAnalyticsSimple } from './program-analytics-simple';
 import { usePageTracking } from '../../hooks/usePageTracking';
@@ -14,7 +12,6 @@ import { FOLDER_CONFIG, groupProgramsByFolder, getFolderColorClasses } from './f
 import VanCalendarForm from '../van-calendar-form';
 import VanCalendarGrid from '../van-calendar-grid';
 import VanCalendarCompliance from '../van-calendar-compliance';
-import { GuidedTour, shouldShowProgramTour, markProgramTourDone } from '../guided-tour';
 
 interface Program {
   id: string;
@@ -26,7 +23,6 @@ interface Program {
   status: string;
   target_roles: string[];
   category?: string;
-  linked_checkin_program_id?: string;
 }
 
 interface ProgramSubmission {
@@ -54,7 +50,7 @@ export function ProgramsListFoldersApp({
   const [analyticsProgram, setAnalyticsProgram] = useState<Program | null>(null);
   const [userId, setUserId] = useState<string>('');
   const [showSuccessModal, setShowSuccessModal] = useState(false);
-  const [successData, setSuccessData] = useState<{ points: number; newTotal: number; programTitle: string; submissionDetails?: any } | null>(null);
+  const [successData, setSuccessData] = useState<{ points: number; newTotal: number; programTitle: string } | null>(null);
   const [expandedFolders, setExpandedFolders] = useState<Set<string>>(new Set());
   const [viewMode, setViewMode] = useState<'submit' | 'analytics'>('submit');
   const [showFolderConfig, setShowFolderConfig] = useState(false);
@@ -62,7 +58,6 @@ export function ProgramsListFoldersApp({
   const [vanCalendarView, setVanCalendarView] = useState<'form' | 'grid' | 'compliance'>('form');
   const [userRole, setUserRole] = useState<string>('');
   const [vanCalendarEnabled, setVanCalendarEnabled] = useState(true); // Default: enabled
-  const [tourProgram, setTourProgram] = useState<Program | null>(null); // Program tour state
 
   useEffect(() => {
     console.log('[ProgramsList] 🎬 Component mounted with initialProgramId:', initialProgramId);
@@ -152,21 +147,6 @@ export function ProgramsListFoldersApp({
       
       // Fetch programs
       const activePrograms = await programsAPI.getPrograms(user.role);
-      
-      // Merge linked_checkin_program_id from form configs into programs
-      try {
-        const allConfigs = await programsKVAPI.getAllProgramFormConfigs();
-        activePrograms.forEach((prog: any) => {
-          if (allConfigs[prog.id]?.linked_checkin_program_id) {
-            prog.linked_checkin_program_id = allConfigs[prog.id].linked_checkin_program_id;
-            console.log('[ProgramsList] 🔗 Linked checkout program:', prog.title, '→', prog.linked_checkin_program_id);
-          }
-        });
-        console.log('[ProgramsList] ✅ Merged linked checkin configs into programs');
-      } catch (cfgErr) {
-        console.warn('[ProgramsList] ⚠️ Could not load form configs for linked checkout:', cfgErr);
-      }
-      
       setPrograms(activePrograms);
 
       // Auto-expand all folders initially
@@ -244,26 +224,16 @@ export function ProgramsListFoldersApp({
   };
 
   const handleProgramClick = (program: Program) => {
-    const isLinkedCheckout = !!(program as any).linked_checkin_program_id;
     console.log('[ProgramsList] 🎯 Program clicked:', {
       program: program.title,
       viewMode,
-      isLinkedCheckout,
-      linkedTo: (program as any).linked_checkin_program_id || null,
-      willOpen: viewMode === 'analytics' ? 'Analytics Modal' : isLinkedCheckout ? 'Linked Checkout Modal' : 'Submit Modal'
+      willOpen: viewMode === 'analytics' ? 'Analytics Modal' : 'Submit Modal'
     });
     
     if (viewMode === 'analytics') {
       setAnalyticsProgram(program);
     } else {
-      // Always open the program modal first
       setSelectedProgram(program);
-      // Then check if we should show the tour INSIDE the opened modal
-      if (shouldShowProgramTour(program.id)) {
-        console.log('[ProgramsList] 🎓 Will show program tour inside modal for:', program.title);
-        // Delay slightly to let the modal render its data-tour elements
-        setTimeout(() => setTourProgram(program), 600);
-      }
     }
   };
 
@@ -500,45 +470,24 @@ export function ProgramsListFoldersApp({
         </div>
       </div>
 
-      {/* Submit Modal - Route to LinkedCheckoutModal or ProgramSubmitModal */}
+      {/* Submit Modal */}
       {selectedProgram && (
-        (selectedProgram as any).linked_checkin_program_id ? (
-          <LinkedCheckoutModal
-            program={selectedProgram}
-            userId={userId}
-            onClose={() => { setSelectedProgram(null); setTourProgram(null); }}
-            onSuccess={(pointsAwarded, newTotal, submissionDetails) => {
-              setSuccessData({
-                points: pointsAwarded,
-                newTotal: newTotal,
-                programTitle: selectedProgram.title,
-                submissionDetails
-              });
-              setSelectedProgram(null);
-              setShowSuccessModal(true);
-              loadData();
-              if (onPointsUpdated) onPointsUpdated();
-            }}
-          />
-        ) : (
-          <ProgramSubmitModal
-            program={selectedProgram}
-            userId={userId}
-            onClose={() => { setSelectedProgram(null); setTourProgram(null); }}
-            onSuccess={(pointsAwarded, newTotal, submissionDetails) => {
-              setSuccessData({
-                points: pointsAwarded,
-                newTotal: newTotal,
-                programTitle: selectedProgram.title,
-                submissionDetails
-              });
-              setSelectedProgram(null);
-              setShowSuccessModal(true);
-              loadData();
-              if (onPointsUpdated) onPointsUpdated();
-            }}
-          />
-        )
+        <ProgramSubmitModal
+          program={selectedProgram}
+          userId={userId}
+          onClose={() => setSelectedProgram(null)}
+          onSuccess={(pointsAwarded, newTotal) => {
+            setSuccessData({
+              points: pointsAwarded,
+              newTotal: newTotal,
+              programTitle: selectedProgram.title
+            });
+            setSelectedProgram(null);
+            setShowSuccessModal(true);
+            loadData();
+            if (onPointsUpdated) onPointsUpdated();
+          }}
+        />
       )}
 
       {/* Analytics Dashboard */}
@@ -555,7 +504,6 @@ export function ProgramsListFoldersApp({
           pointsEarned={successData.points}
           newTotalPoints={successData.newTotal}
           programTitle={successData.programTitle}
-          submissionDetails={successData.submissionDetails}
           onClose={() => {
             setShowSuccessModal(false);
             setSuccessData(null);
@@ -706,19 +654,6 @@ export function ProgramsListFoldersApp({
             {vanCalendarView === 'compliance' && <VanCalendarCompliance />}
           </div>
         </div>
-      )}
-
-      {/* Program Tour — shows inside the opened program modal */}
-      {tourProgram && (
-        <GuidedTour
-          type="program"
-          programId={tourProgram.id}
-          programTitle={tourProgram.title}
-          onComplete={() => {
-            // Tour done — modal is already open, just dismiss the tour overlay
-            setTourProgram(null);
-          }}
-        />
       )}
     </>
   );

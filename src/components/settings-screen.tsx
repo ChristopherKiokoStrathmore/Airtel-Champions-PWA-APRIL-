@@ -1,18 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Toast } from './toast';
 import { PushNotificationBell } from './push-notification-bell';
-import { Bell, BarChart3, Camera, Globe, Smartphone, Lock, Upload, User, Settings as SettingsIcon, Truck, ClipboardList } from 'lucide-react';
+import { Bell, BarChart3, Camera, Globe, Smartphone, Lock, Upload, User, Settings as SettingsIcon } from 'lucide-react';
 import { PasswordChangeModal } from './password-change-modal';
 import { TwoFactorModal } from './two-factor-modal';
 import VanCalendarFeatureToggle from './van-calendar-feature-toggle';
-import { ProgramFormConfigPanel } from './program-form-config';
 import { getSupabaseClient } from '../utils/supabase/client';
-import { projectId, publicAnonKey } from '../utils/supabase/info';
 import { usePageTracking } from '../hooks/usePageTracking';
 import { ANALYTICS_PAGES } from '../utils/analytics';
-import { useTheme } from './theme-provider';
-import { ThemeSelector } from './theme-selector';
-import { Palette } from 'lucide-react';
 
 export function SettingsScreen({ onBack, user, userData, onOpenDebugger }: { onBack: () => void; user?: any; userData?: any; onOpenDebugger?: () => void }) {
   // Track page view automatically
@@ -43,76 +38,14 @@ export function SettingsScreen({ onBack, user, userData, onOpenDebugger }: { onB
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [show2FAModal, setShow2FAModal] = useState(false);
   const [showFeatureToggle, setShowFeatureToggle] = useState(false);
-  const [showCheckoutEnforcement, setShowCheckoutEnforcement] = useState(false);
-  const [checkoutEnforcementEnabled, setCheckoutEnforcementEnabled] = useState(false);
-  const [checkoutEnforcementLoading, setCheckoutEnforcementLoading] = useState(false);
   const [profilePhoto, setProfilePhoto] = useState(userData?.profile_photo || '');
   const [uploadingPhoto, setUploadingPhoto] = useState(false);
-  const [showThemeSelector, setShowThemeSelector] = useState(false);
-  const [showFormConfig, setShowFormConfig] = useState(false);
-
-  const { theme } = useTheme();
 
   const userId = user?.id || userData?.id;
   const userName = userData?.full_name || user?.full_name || 'User';
   const userRole = user?.role || userData?.role || '';
   const twoFactorEnabled = userData?.two_factor_enabled || false;
   const isHQOrDirector = ['hq_command_center', 'director'].includes(userRole);
-
-  // Load van checkout enforcement status on mount (HQ/Director only)
-  useEffect(() => {
-    if (isHQOrDirector) {
-      loadCheckoutEnforcementStatus();
-    }
-  }, [isHQOrDirector]);
-
-  const loadCheckoutEnforcementStatus = async () => {
-    try {
-      const response = await fetch(
-        `https://${projectId}.supabase.co/functions/v1/make-server-28f2f653/van-checkout-enforcement/status`,
-        { headers: { 'Content-Type': 'application/json' } }
-      );
-      const result = await response.json();
-      if (result.success) {
-        setCheckoutEnforcementEnabled(result.enabled);
-      }
-    } catch (err) {
-      console.error('[Settings] Error loading checkout enforcement status:', err);
-    }
-  };
-
-  const toggleCheckoutEnforcement = async (enable: boolean) => {
-    try {
-      setCheckoutEnforcementLoading(true);
-      const response = await fetch(
-        `https://${projectId}.supabase.co/functions/v1/make-server-28f2f653/van-checkout-enforcement/toggle`,
-        {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${publicAnonKey}`,
-            'Content-Type': 'application/json',
-            'X-User-Id': userId || '',
-          },
-          body: JSON.stringify({ enabled: enable }),
-        }
-      );
-      const result = await response.json();
-      if (result.success) {
-        setCheckoutEnforcementEnabled(enable);
-        setToastMessage(`Van checkout enforcement ${enable ? 'ENABLED' : 'DISABLED'}`);
-        setShowToast(true);
-      } else {
-        setToastMessage(`Error: ${result.error}`);
-        setShowToast(true);
-      }
-    } catch (err: any) {
-      console.error('[Settings] Error toggling checkout enforcement:', err);
-      setToastMessage(`Error: ${err.message}`);
-      setShowToast(true);
-    } finally {
-      setCheckoutEnforcementLoading(false);
-    }
-  };
 
   // Handle profile photo upload
   const handlePhotoUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -305,22 +238,22 @@ export function SettingsScreen({ onBack, user, userData, onOpenDebugger }: { onB
   );
 
   return (
-    <div className="flex-1 flex flex-col overflow-hidden transition-colors duration-300" style={{ backgroundColor: theme.colors.bgPage }}>
+    <div className="flex-1 flex flex-col bg-gray-50 overflow-hidden">
       {/* Header - with gradient per board feedback */}
-      <div className="px-6 py-4 transition-colors duration-300" style={{ backgroundColor: theme.colors.bgCard, borderBottom: `1px solid ${theme.colors.border}` }}>
+      <div className="bg-gradient-to-b from-white to-gray-50 border-b border-gray-200 px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <button 
               onClick={onBack} 
               className="mr-3 hover:scale-110 active:scale-95 transition-transform"
             >
-              <svg className="w-6 h-6" style={{ color: theme.colors.textSecondary }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
             <div>
-              <h2 className="text-2xl" style={{ color: theme.colors.textPrimary }}>Settings</h2>
-              <p className="text-sm" style={{ color: theme.colors.textMuted }}>Customize your Airtel Champions experience</p>
+              <h2 className="text-2xl text-gray-900">Settings</h2>
+              <p className="text-sm text-gray-500">Customize your Airtel Champions experience</p>
             </div>
           </div>
         </div>
@@ -330,14 +263,14 @@ export function SettingsScreen({ onBack, user, userData, onOpenDebugger }: { onB
       <div className="flex-1 overflow-y-auto p-6 space-y-6">
         
         {/* Profile Photo Section */}
-        <div className="rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow" style={{ background: `linear-gradient(135deg, ${theme.colors.primaryLight}, ${theme.colors.bgCard})`, border: `1px solid ${theme.colors.border}` }}>
+        <div className="bg-gradient-to-br from-red-50 to-orange-50 rounded-xl p-6 shadow-sm border border-red-200 hover:shadow-md transition-shadow">
           <div className="flex items-center mb-5">
-            <div className="w-10 h-10 rounded-xl flex items-center justify-center mr-3" style={{ background: `linear-gradient(135deg, ${theme.colors.primaryGradientFrom}, ${theme.colors.primaryGradientTo})` }}>
+            <div className="w-10 h-10 bg-red-600 rounded-xl flex items-center justify-center mr-3">
               <User className="w-5 h-5 text-white" strokeWidth={2} />
             </div>
             <div>
-              <h3 className="text-sm uppercase tracking-wide font-semibold" style={{ color: theme.colors.textPrimary }}>Profile Photo</h3>
-              <p className="text-xs" style={{ color: theme.colors.textMuted }}>Update your profile picture</p>
+              <h3 className="text-sm uppercase tracking-wide text-red-800 font-semibold">Profile Photo</h3>
+              <p className="text-xs text-red-700">Update your profile picture</p>
             </div>
           </div>
           
@@ -352,7 +285,7 @@ export function SettingsScreen({ onBack, user, userData, onOpenDebugger }: { onB
                     className="w-full h-full object-cover"
                   />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center" style={{ background: `linear-gradient(135deg, ${theme.colors.primaryGradientFrom}, ${theme.colors.primaryGradientTo})` }}>
+                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-red-500 to-orange-500">
                     <span className="text-3xl text-white font-bold">
                       {userName.charAt(0).toUpperCase()}
                     </span>
@@ -376,14 +309,14 @@ export function SettingsScreen({ onBack, user, userData, onOpenDebugger }: { onB
                   disabled={uploadingPhoto}
                   className="hidden"
                 />
-                <div className={`px-6 py-3 text-white rounded-xl transition-all font-medium text-sm flex items-center justify-center gap-2 ${
+                <div className={`px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-xl transition-all font-medium text-sm flex items-center justify-center gap-2 ${
                   uploadingPhoto ? 'opacity-50 cursor-not-allowed' : 'active:scale-95'
-                }`} style={{ background: `linear-gradient(135deg, ${theme.colors.primaryGradientFrom}, ${theme.colors.primaryGradientTo})` }}>
+                }`}>
                   <Upload className="w-4 h-4" />
                   {uploadingPhoto ? 'Uploading...' : 'Upload New Photo'}
                 </div>
               </label>
-              <p className="text-xs mt-2" style={{ color: theme.colors.textMuted }}>
+              <p className="text-xs text-red-700 mt-2">
                 Max 5MB • JPG, PNG, or GIF • Optimized for 2G/3G
               </p>
             </div>
@@ -391,22 +324,22 @@ export function SettingsScreen({ onBack, user, userData, onOpenDebugger }: { onB
         </div>
         
         {/* Notifications Section */}
-        <div className="rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow" style={{ backgroundColor: theme.colors.bgCard, border: `1px solid ${theme.colors.border}` }}>
+        <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
           <div className="flex items-center mb-5">
-            <div className="w-10 h-10 rounded-xl flex items-center justify-center mr-3" style={{ backgroundColor: theme.colors.primaryLight }}>
-              <Bell className="w-5 h-5" style={{ color: theme.colors.primary }} strokeWidth={2} />
+            <div className="w-10 h-10 bg-red-50 rounded-xl flex items-center justify-center mr-3">
+              <Bell className="w-5 h-5 text-red-600" strokeWidth={2} />
             </div>
             <div>
-              <h3 className="text-sm uppercase tracking-wide font-semibold" style={{ color: theme.colors.textSecondary }}>Notifications</h3>
-              <p className="text-xs" style={{ color: theme.colors.textMuted }}>Stay updated on missions and rewards</p>
+              <h3 className="text-sm uppercase tracking-wide text-gray-600 font-semibold">Notifications</h3>
+              <p className="text-xs text-gray-500">Stay updated on missions and rewards</p>
             </div>
           </div>
           
           <div className="space-y-5">
             <div className="flex items-center justify-between">
               <div className="flex-1 mr-4">
-                <p className="text-sm font-medium" style={{ color: theme.colors.textPrimary }}>Push Notifications</p>
-                <p className="text-xs mt-1 line-clamp-2" style={{ color: theme.colors.textMuted }}>Get alerts for approvals, rank changes, challenges & announcements</p>
+                <p className="text-sm font-medium text-gray-900">Push Notifications</p>
+                <p className="text-xs text-gray-500 mt-1 line-clamp-2">Get alerts for approvals, rank changes, challenges & announcements</p>
               </div>
               {/* Real Web Push toggle — connects to browser PushManager */}
               <PushNotificationBell userId={user?.id || userData?.id} showLabel />
@@ -414,16 +347,16 @@ export function SettingsScreen({ onBack, user, userData, onOpenDebugger }: { onB
             
             <div className="flex items-center justify-between">
               <div className="flex-1 mr-4">
-                <p className="text-sm font-medium" style={{ color: theme.colors.textPrimary }}>Email Notifications</p>
-                <p className="text-xs mt-1 line-clamp-2" style={{ color: theme.colors.textMuted }}>Weekly summary and important updates</p>
+                <p className="text-sm font-medium text-gray-900">Email Notifications</p>
+                <p className="text-xs text-gray-500 mt-1 line-clamp-2">Weekly summary and important updates</p>
               </div>
               <Toggle enabled={emailNotif} onToggle={() => handleToggle(setEmailNotif, emailNotif)} />
             </div>
             
             <div className="flex items-center justify-between">
               <div className="flex-1 mr-4">
-                <p className="text-sm font-medium" style={{ color: theme.colors.textPrimary }}>SMS Notifications</p>
-                <p className="text-xs mt-1 line-clamp-2" style={{ color: theme.colors.textMuted }}>Critical announcements via SMS</p>
+                <p className="text-sm font-medium text-gray-900">SMS Notifications</p>
+                <p className="text-xs text-gray-500 mt-1 line-clamp-2">Critical announcements via SMS</p>
               </div>
               <Toggle enabled={smsNotif} onToggle={() => handleToggle(setSmsNotif, smsNotif)} />
             </div>
@@ -431,20 +364,20 @@ export function SettingsScreen({ onBack, user, userData, onOpenDebugger }: { onB
         </div>
 
         {/* Camera & GPS Section */}
-        <div className="rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow" style={{ backgroundColor: theme.colors.bgCard, border: `1px solid ${theme.colors.border}` }}>
+        <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
           <div className="flex items-center mb-5">
-            <div className="w-10 h-10 rounded-xl flex items-center justify-center mr-3" style={{ backgroundColor: theme.colors.primaryLight }}>
-              <Camera className="w-5 h-5" style={{ color: theme.colors.primary }} strokeWidth={2} />
+            <div className="w-10 h-10 bg-purple-50 rounded-xl flex items-center justify-center mr-3">
+              <Camera className="w-5 h-5 text-purple-600" strokeWidth={2} />
             </div>
             <div>
-              <h3 className="text-sm uppercase tracking-wide font-semibold" style={{ color: theme.colors.textSecondary }}>Camera & Location</h3>
-              <p className="text-xs" style={{ color: theme.colors.textMuted }}>Field capture settings</p>
+              <h3 className="text-sm uppercase tracking-wide text-gray-600 font-semibold">Camera & Location</h3>
+              <p className="text-xs text-gray-500">Field capture settings</p>
             </div>
           </div>
           
           <div className="space-y-5">
             <div>
-              <label className="block text-sm font-medium mb-3" style={{ color: theme.colors.textPrimary }}>Camera Quality</label>
+              <label className="block text-sm font-medium text-gray-900 mb-3">Camera Quality</label>
               <div className="flex gap-2">
                 {['low', 'medium', 'high'].map((quality) => (
                   <button
@@ -455,26 +388,21 @@ export function SettingsScreen({ onBack, user, userData, onOpenDebugger }: { onB
                     }}
                     className={`flex-1 py-3 rounded-xl border-2 transition-all font-medium text-sm capitalize ${
                       cameraQuality === quality
-                        ? 'text-white scale-105 shadow-lg'
-                        : ''
+                        ? 'bg-purple-600 border-purple-600 text-white scale-105 shadow-lg'
+                        : 'bg-white border-gray-300 text-gray-700 hover:border-purple-300'
                     }`}
-                    style={
-                      cameraQuality === quality
-                        ? { backgroundColor: theme.colors.primary, borderColor: theme.colors.primary, color: theme.colors.textOnPrimary }
-                        : { backgroundColor: theme.colors.bgCard, borderColor: theme.colors.border, color: theme.colors.textSecondary }
-                    }
                   >
                     {quality}
                   </button>
                 ))}
               </div>
-              <p className="text-xs mt-2" style={{ color: theme.colors.textMuted }}>Higher quality = larger file size</p>
+              <p className="text-xs text-gray-500 mt-2">Higher quality = larger file size</p>
             </div>
 
-            <div className="flex items-center justify-between pt-2" style={{ borderTop: `1px solid ${theme.colors.borderLight}` }}>
+            <div className="flex items-center justify-between pt-2 border-t border-gray-100">
               <div className="flex-1 mr-4">
-                <p className="text-sm font-medium" style={{ color: theme.colors.textPrimary }}>Live Location Tracking</p>
-                <p className="text-xs mt-1 line-clamp-2" style={{ color: theme.colors.textMuted }}>Allow Mission Control to see your live location for route optimization</p>
+                <p className="text-sm font-medium text-gray-900">Live Location Tracking</p>
+                <p className="text-xs text-gray-500 mt-1 line-clamp-2">Allow Mission Control to see your live location for route optimization</p>
               </div>
               <Toggle enabled={gpsTrackingConsent} onToggle={() => { setGpsTrackingConsent(!gpsTrackingConsent); setHasChanges(true); }} />
             </div>
@@ -482,32 +410,26 @@ export function SettingsScreen({ onBack, user, userData, onOpenDebugger }: { onB
         </div>
 
         {/* Language & Region Section */}
-        <div className="rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow" style={{ backgroundColor: theme.colors.bgCard, border: `1px solid ${theme.colors.border}` }}>
+        <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
           <div className="flex items-center mb-5">
-            <div className="w-10 h-10 rounded-xl flex items-center justify-center mr-3" style={{ backgroundColor: theme.colors.primaryLight }}>
-              <Globe className="w-5 h-5" style={{ color: theme.colors.primary }} strokeWidth={2} />
+            <div className="w-10 h-10 bg-green-50 rounded-xl flex items-center justify-center mr-3">
+              <Globe className="w-5 h-5 text-green-600" strokeWidth={2} />
             </div>
             <div>
-              <h3 className="text-sm uppercase tracking-wide font-semibold" style={{ color: theme.colors.textSecondary }}>Language & Region</h3>
-              <p className="text-xs" style={{ color: theme.colors.textMuted }}>Localization preferences</p>
+              <h3 className="text-sm uppercase tracking-wide text-gray-600 font-semibold">Language & Region</h3>
+              <p className="text-xs text-gray-500">Localization preferences</p>
             </div>
           </div>
           
           <div>
-            <label className="block text-sm font-medium mb-3" style={{ color: theme.colors.textPrimary }}>Language</label>
+            <label className="block text-sm font-medium text-gray-900 mb-3">Language</label>
             <select
               value={language}
               onChange={(e) => {
                 setLanguage(e.target.value);
                 setHasChanges(true);
               }}
-              className="w-full px-4 py-3 rounded-xl focus:outline-none focus:ring-2 text-sm"
-              style={{
-                backgroundColor: theme.colors.bgInput,
-                border: `2px solid ${theme.colors.border}`,
-                color: theme.colors.textPrimary,
-                '--tw-ring-color': theme.colors.primary,
-              } as React.CSSProperties}
+              className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent text-sm"
             >
               <option value="english">English</option>
               <option value="swahili">Kiswahili</option>
@@ -516,72 +438,35 @@ export function SettingsScreen({ onBack, user, userData, onOpenDebugger }: { onB
           </div>
         </div>
 
-        {/* Theme Selector Section — Available to all roles */}
-        <div className="rounded-2xl p-6 shadow-sm hover:shadow-md transition-all" style={{ background: `linear-gradient(135deg, ${theme.colors.primaryLight}, ${theme.colors.bgCard})`, border: `1px solid ${theme.colors.border}` }}>
-          <div className="flex items-center mb-5">
-            <div className="w-10 h-10 rounded-xl flex items-center justify-center mr-3" style={{ background: `linear-gradient(135deg, ${theme.colors.primaryGradientFrom}, ${theme.colors.primaryGradientTo})` }}>
-              <Palette className="w-5 h-5 text-white" strokeWidth={2} />
-            </div>
-            <div>
-              <h3 className="text-sm uppercase tracking-wide font-semibold" style={{ color: theme.colors.textPrimary }}>App Theme</h3>
-              <p className="text-xs" style={{ color: theme.colors.textMuted }}>Choose your visual experience</p>
-            </div>
-          </div>
-
-          <button
-            onClick={() => setShowThemeSelector(true)}
-            className="w-full py-3.5 px-4 rounded-2xl transition-all text-sm text-left flex items-center justify-between font-semibold active:scale-[0.98]"
-            style={{
-              background: `linear-gradient(135deg, ${theme.colors.primaryGradientFrom}, ${theme.colors.primaryGradientTo})`,
-              color: theme.colors.textOnPrimary,
-              boxShadow: `0 4px 14px ${theme.colors.primary}30`,
-            }}
-          >
-            <span className="flex items-center gap-3">
-              <span className="text-lg">{theme.icon}</span>
-              <span>{theme.name} Theme</span>
-            </span>
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-
-          <p className="text-[11px] mt-3 text-center italic" style={{ color: theme.colors.textMuted }}>
-            "Simplicity is the ultimate sophistication." — Leonardo da Vinci
-          </p>
-        </div>
-
         {/* Privacy & Security Section */}
-        <div className="rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow" style={{ backgroundColor: theme.colors.bgCard, border: `1px solid ${theme.colors.border}` }}>
+        <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
           <div className="flex items-center mb-5">
-            <div className="w-10 h-10 rounded-xl flex items-center justify-center mr-3" style={{ backgroundColor: theme.colors.primaryLight }}>
-              <Lock className="w-5 h-5" style={{ color: theme.colors.primary }} strokeWidth={2} />
+            <div className="w-10 h-10 bg-yellow-50 rounded-xl flex items-center justify-center mr-3">
+              <Lock className="w-5 h-5 text-yellow-600" strokeWidth={2} />
             </div>
             <div>
-              <h3 className="text-sm uppercase tracking-wide font-semibold" style={{ color: theme.colors.textSecondary }}>Privacy & Security</h3>
-              <p className="text-xs" style={{ color: theme.colors.textMuted }}>Protect your account</p>
+              <h3 className="text-sm uppercase tracking-wide text-gray-600 font-semibold">Privacy & Security</h3>
+              <p className="text-xs text-gray-500">Protect your account</p>
             </div>
           </div>
           
           <div className="space-y-3">
             <button
               onClick={() => setShowPasswordModal(true)}
-              className="w-full py-3 px-4 rounded-xl transition-colors text-sm text-left flex items-center justify-between"
-              style={{ backgroundColor: theme.colors.bgSubtle, color: theme.colors.textPrimary }}
+              className="w-full py-3 px-4 bg-gray-50 hover:bg-gray-100 text-gray-700 rounded-xl transition-colors text-sm text-left flex items-center justify-between"
             >
               <span>Change Password</span>
-              <svg className="w-5 h-5" style={{ color: theme.colors.textMuted }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </button>
             
             <button
               onClick={() => setShow2FAModal(true)}
-              className="w-full py-3 px-4 rounded-xl transition-colors text-sm text-left flex items-center justify-between"
-              style={{ backgroundColor: theme.colors.bgSubtle, color: theme.colors.textPrimary }}
+              className="w-full py-3 px-4 bg-gray-50 hover:bg-gray-100 text-gray-700 rounded-xl transition-colors text-sm text-left flex items-center justify-between"
             >
               <span>Two-Factor Authentication</span>
-              <svg className="w-5 h-5" style={{ color: theme.colors.textMuted }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </button>
@@ -613,18 +498,6 @@ export function SettingsScreen({ onBack, user, userData, onOpenDebugger }: { onB
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </button>
-
-              <button
-                onClick={() => setShowFormConfig(true)}
-                className="w-full py-3 px-4 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white rounded-xl transition-all shadow-sm hover:shadow-md text-sm text-left flex items-center justify-between font-semibold"
-              >
-                <span className="flex items-center gap-2">
-                  <ClipboardList className="w-4 h-4" /> Program Form Configuration
-                </span>
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
             </div>
 
             <div className="mt-4 p-3 bg-blue-100 border border-blue-300 rounded-lg">
@@ -635,70 +508,34 @@ export function SettingsScreen({ onBack, user, userData, onOpenDebugger }: { onB
           </div>
         )}
 
-        {/* Checkout Enforcement - HQ/Director Only */}
-        {isHQOrDirector && (
-          <div className="bg-gradient-to-br from-red-50 to-orange-50 rounded-xl p-6 shadow-sm border border-red-200 hover:shadow-md transition-shadow">
-            <div className="flex items-center mb-5">
-              <div className="w-10 h-10 bg-red-600 rounded-xl flex items-center justify-center mr-3">
-                <Truck className="w-5 h-5 text-white" strokeWidth={2} />
-              </div>
-              <div>
-                <h3 className="text-sm uppercase tracking-wide text-red-800 font-semibold">Checkout Enforcement</h3>
-                <p className="text-xs text-red-700">Control van checkout behavior</p>
-              </div>
-            </div>
-            
-            <div className="space-y-2">
-              <button
-                onClick={() => setShowCheckoutEnforcement(true)}
-                className="w-full py-3 px-4 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white rounded-xl transition-all shadow-sm hover:shadow-md text-sm text-left flex items-center justify-between font-semibold"
-              >
-                <span className="flex items-center gap-2">
-                  🚚 Van Checkout Enforcement
-                </span>
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
-
-            <div className="mt-4 p-3 bg-red-100 border border-red-300 rounded-lg">
-              <p className="text-xs text-red-800">
-                💡 <strong>No APK update required:</strong> Enable or disable checkout enforcement instantly for all 662 users
-              </p>
-            </div>
-          </div>
-        )}
-
         {/* App Info */}
-        <div className="rounded-xl p-6 shadow-sm" style={{ background: `linear-gradient(135deg, ${theme.colors.primaryLight}, ${theme.colors.bgCard})`, border: `1px solid ${theme.colors.border}` }}>
+        <div className="bg-gradient-to-br from-red-50 to-orange-50 rounded-xl p-6 border border-red-200">
           <div className="flex items-center mb-3">
-            <Smartphone className="w-5 h-5 mr-2" style={{ color: theme.colors.primary }} strokeWidth={2} />
-            <h3 className="text-sm uppercase tracking-wide font-semibold" style={{ color: theme.colors.textSecondary }}>App Information</h3>
+            <Smartphone className="w-5 h-5 text-red-600 mr-2" strokeWidth={2} />
+            <h3 className="text-sm uppercase tracking-wide text-red-800 font-semibold">App Information</h3>
           </div>
           <div className="space-y-2 text-sm">
             <div className="flex justify-between">
-              <span style={{ color: theme.colors.textMuted }}>Version</span>
-              <span className="font-semibold" style={{ color: theme.colors.textPrimary }}>4.0.0</span>
+              <span className="text-gray-600">Version</span>
+              <span className="font-semibold text-gray-900">1.0.0 (MVP)</span>
             </div>
             <div className="flex justify-between">
-              <span style={{ color: theme.colors.textMuted }}>Build</span>
-              <span className="font-semibold" style={{ color: theme.colors.textPrimary }}>2026-03-09-003</span>
+              <span className="text-gray-600">Build</span>
+              <span className="font-semibold text-gray-900">2024.12.29</span>
             </div>
             <div className="flex justify-between">
-              <span style={{ color: theme.colors.textMuted }}>Status</span>
-              <span className="font-semibold flex items-center" style={{ color: theme.colors.success }}>
-                <div className="w-2 h-2 rounded-full mr-2 animate-pulse" style={{ backgroundColor: theme.colors.success }}></div>
+              <span className="text-gray-600">Status</span>
+              <span className="text-green-600 font-semibold flex items-center">
+                <div className="w-2 h-2 bg-green-600 rounded-full mr-2 animate-pulse"></div>
                 Online
               </span>
             </div>
             
             {onOpenDebugger && (
-              <div className="pt-2 mt-2" style={{ borderTop: `1px solid ${theme.colors.borderLight}` }}>
+              <div className="pt-2 mt-2 border-t border-red-100">
                 <button 
                   onClick={onOpenDebugger}
-                  className="w-full py-2 rounded-lg text-xs font-medium flex items-center justify-center gap-2"
-                  style={{ backgroundColor: theme.colors.bgCard, border: `1px solid ${theme.colors.border}`, color: theme.colors.primary }}
+                  className="w-full py-2 bg-white border border-red-200 text-red-600 rounded-lg text-xs font-medium hover:bg-red-50 flex items-center justify-center gap-2"
                 >
                   <BarChart3 className="w-3 h-3" />
                   Debug Van Database
@@ -742,128 +579,6 @@ export function SettingsScreen({ onBack, user, userData, onOpenDebugger }: { onB
         <VanCalendarFeatureToggle
           onClose={() => setShowFeatureToggle(false)}
         />
-      )}
-
-      {/* Theme Selector Modal */}
-      {showThemeSelector && (
-        <ThemeSelector onClose={() => setShowThemeSelector(false)} />
-      )}
-
-      {/* Program Form Configuration - HQ/Director Only */}
-      {showFormConfig && isHQOrDirector && (
-        <ProgramFormConfigPanel onClose={() => setShowFormConfig(false)} />
-      )}
-
-      {/* Van Checkout Enforcement Toggle - HQ/Director Only */}
-      {showCheckoutEnforcement && isHQOrDirector && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg">
-            {/* Header */}
-            <div className="bg-gradient-to-r from-red-600 to-red-700 text-white p-6 rounded-t-2xl flex items-center justify-between">
-              <div>
-                <h2 className="text-2xl font-bold mb-1">🚚 Van Checkout Enforcement</h2>
-                <p className="text-sm text-red-100">Require van checkout before next check-in</p>
-              </div>
-              <button
-                onClick={() => setShowCheckoutEnforcement(false)}
-                className="p-2 hover:bg-white/20 rounded-lg transition-colors"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-
-            {/* Content */}
-            <div className="p-6">
-              {/* Current Status */}
-              <div className="mb-6">
-                <div className={`p-4 rounded-xl border-2 ${
-                  checkoutEnforcementEnabled 
-                    ? 'bg-green-50 border-green-500' 
-                    : 'bg-red-50 border-red-500'
-                }`}>
-                  <div className="flex items-center gap-3">
-                    <Truck className={`w-8 h-8 ${checkoutEnforcementEnabled ? 'text-green-600' : 'text-red-600'}`} />
-                    <div className="flex-1">
-                      <h3 className={`font-bold text-lg ${
-                        checkoutEnforcementEnabled ? 'text-green-900' : 'text-red-900'
-                      }`}>
-                        {checkoutEnforcementEnabled ? 'Enforcement is ENABLED' : 'Enforcement is DISABLED'}
-                      </h3>
-                      <p className={`text-sm ${
-                        checkoutEnforcementEnabled ? 'text-green-700' : 'text-red-700'
-                      }`}>
-                        {checkoutEnforcementEnabled 
-                          ? 'Vans must be checked out before they can be checked in again'
-                          : 'Vans can be checked in without prior checkout'
-                        }
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Info Box */}
-              <div className="bg-orange-50 border-2 border-orange-200 rounded-xl p-4 mb-6">
-                <div className="flex gap-3">
-                  <span className="text-xl flex-shrink-0 mt-0.5">⚠️</span>
-                  <div>
-                    <h4 className="font-bold text-orange-900 mb-1">How it works</h4>
-                    <p className="text-sm text-orange-700">
-                      When enabled, if a van was checked in but not checked out, attempting to check it in again will show: 
-                      <span className="font-semibold italic"> "Kindly check out previous trip before you can check in again"</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="grid grid-cols-2 gap-4">
-                <button
-                  onClick={() => toggleCheckoutEnforcement(true)}
-                  disabled={checkoutEnforcementLoading || checkoutEnforcementEnabled}
-                  className={`py-4 px-6 rounded-xl font-bold transition-all flex items-center justify-center gap-2 ${
-                    checkoutEnforcementEnabled
-                      ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                      : 'bg-gradient-to-r from-green-500 to-green-600 text-white hover:shadow-lg hover:scale-105'
-                  }`}
-                >
-                  ENABLE
-                </button>
-
-                <button
-                  onClick={() => toggleCheckoutEnforcement(false)}
-                  disabled={checkoutEnforcementLoading || !checkoutEnforcementEnabled}
-                  className={`py-4 px-6 rounded-xl font-bold transition-all flex items-center justify-center gap-2 ${
-                    !checkoutEnforcementEnabled
-                      ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                      : 'bg-gradient-to-r from-red-500 to-red-600 text-white hover:shadow-lg hover:scale-105'
-                  }`}
-                >
-                  DISABLE
-                </button>
-              </div>
-
-              {/* Loading Overlay */}
-              {checkoutEnforcementLoading && (
-                <div className="absolute inset-0 bg-white/80 backdrop-blur-sm flex items-center justify-center rounded-2xl">
-                  <div className="text-center">
-                    <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mb-4"></div>
-                    <p className="text-gray-600 font-semibold">Processing...</p>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Footer */}
-            <div className="bg-gray-50 p-4 rounded-b-2xl border-t-2 border-gray-200">
-              <p className="text-xs text-gray-500 text-center">
-                This applies to all programs with "Check In" in the title
-              </p>
-            </div>
-          </div>
-        </div>
       )}
     </div>
   );

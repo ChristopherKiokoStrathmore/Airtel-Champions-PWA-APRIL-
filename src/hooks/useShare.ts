@@ -25,12 +25,9 @@ export function useShare() {
         await navigator.share(data);
         return true;
       } catch (err: any) {
-        // User cancelled or permission denied — not actionable errors, fall through to clipboard
-        if (err?.name === 'AbortError' || err?.name === 'NotAllowedError') {
-          // silent fallback
-        } else {
-          console.warn('[Share] Web Share API failed, falling back to clipboard:', err);
-        }
+        // User cancelled — not an error
+        if (err?.name === 'AbortError') return false;
+        console.warn('[Share] Web Share API failed, falling back to clipboard:', err);
       }
     }
 

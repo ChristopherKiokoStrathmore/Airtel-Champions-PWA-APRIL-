@@ -86,9 +86,9 @@ export function SEProfileViewer() {
     );
   });
 
-  // Extract unique regions and zones
+  // Extract unique regions and teams
   const regions = Array.from(new Set(seList.map(se => se.region))).filter(Boolean);
-  const teams = Array.from(new Set(seList.map(se => se.zone))).filter(Boolean);
+  const teams = Array.from(new Set(seList.map(se => se.team))).filter(Boolean);
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);

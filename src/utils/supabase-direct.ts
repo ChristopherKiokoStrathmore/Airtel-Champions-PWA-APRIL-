@@ -3,7 +3,6 @@
 
 import { createClient } from '@supabase/supabase-js';
 import { SUPABASE_URL, SUPABASE_ANON_KEY, supabase as sharedSupabase } from './supabase/client';
-import { projectId, publicAnonKey } from './supabase/info';
 
 // Re-export the shared supabase client to avoid multiple instances
 export const supabase = sharedSupabase;
@@ -93,77 +92,27 @@ const PROGRAMS_PREFIX = 'programs:';
 const PROGRAM_FIELDS_PREFIX = 'program_fields:';
 const SUBMISSIONS_PREFIX = 'submissions:';
 
-import { localCache, CACHE_TTL } from '../lib/local-cache';
-
-const ROLE_ALIASES: Record<string, string[]> = {
-  se: ['se', 'sales_executive', 'Sales Executive', 'Sales Executives'],
-  zsm: ['zsm', 'zonal_sales_manager', 'Zonal Sales Manager'],
-  zbm: ['zbm', 'zone_business_lead', 'zonal_business_manager', 'Zone Business Lead', 'Zonal Business Manager'],
-  director: ['director'],
-  hq: ['hq', 'hq_staff', 'hq_command_center'],
-};
-
-export function getProgramRoleAliases(userRole: string) {
-  const normalized = (userRole || '').trim().toLowerCase();
-  return ROLE_ALIASES[normalized] || [userRole];
-}
-
-export function canSubmitPrograms(userRole: string) {
-  const normalized = (userRole || '').trim().toLowerCase();
-  return ['se', 'sales_executive', 'zsm', 'zonal_sales_manager', 'zbm', 'zone_business_lead', 'zonal_business_manager'].includes(normalized);
-}
-
 export const programsAPI = {
   // Get all programs
   async getPrograms(userRole: string = 'sales_executive') {
     try {
       console.log('[ProgramsAPI] Fetching programs for role:', userRole);
-      const roleAliases = getProgramRoleAliases(userRole);
       
-      const cacheKey = `programs_list_${roleAliases[0]}`;
+      // ✅ FIXED: Use database tables instead of KV store
+      const { data: programs, error } = await supabase
+        .from('programs')
+        .select('*')
+        .eq('status', 'active');
       
-      const programs = await localCache.fetchWithCache(
-        cacheKey,
-        async () => {
-          const { data: programs, error } = await supabase
-            .from('programs')
-            .select('*')
-            .eq('status', 'active');
-          
-          if (error) {
-            console.error('[ProgramsAPI] Error fetching programs:', error);
-            throw error;
-          }
-          
-          return programs || [];
-        },
-        CACHE_TTL.PROGRAMS_LIST
-      );
-      
-      // Filter programs for this role (done client-side so cache is shared)
-      const filteredPrograms = programs.filter((p: any) => 
-        roleAliases.some(role => p.target_roles?.includes(role))
-      );
-      
-      // Merge session checkin flags from make-server KV store
-      try {
-        const flagsRes = await fetch(
-          `https://${projectId}.supabase.co/functions/v1/make-server-28f2f653/checkin/flags`,
-          { headers: { 'Authorization': `Bearer ${publicAnonKey}`, 'Content-Type': 'application/json' } }
-        );
-        if (flagsRes.ok) {
-          const flagsData = await flagsRes.json();
-          const flags = flagsData.flags || {};
-          filteredPrograms.forEach((prog: any) => {
-            if (flags[prog.id]) {
-              prog.session_checkin_enabled = true;
-            }
-          });
-          console.log('[ProgramsAPI] ✅ Merged checkin flags into SE programs');
-        }
-      } catch (flagErr) {
-        console.error('[ProgramsAPI] ⚠️ Could not load checkin flags:', flagErr);
+      if (error) {
+        console.error('[ProgramsAPI] Error fetching programs:', error);
+        throw error;
       }
+      
+      // Filter programs for this role
+      const filteredPrograms = (programs || []).filter(p => 
+        p.target_roles?.includes(userRole)
+      );
       
       console.log('[ProgramsAPI] Found', filteredPrograms.length, 'programs for role', userRole);
       return filteredPrograms;
@@ -178,50 +127,42 @@ export const programsAPI = {
     try {
       console.log('[ProgramsAPI] Fetching program:', programId);
       
-      const cacheKey = `program_detail_${programId}`;
+      // ✅ FIXED: Use database tables instead of KV store
+      const { data: program, error: programError } = await supabase
+        .from('programs')
+        .select('*')
+        .eq('id', programId)
+        .single();
       
-      const result = await localCache.fetchWithCache(
-        cacheKey,
-        async () => {
-          const { data: program, error: programError } = await supabase
-            .from('programs')
-            .select('*')
-            .eq('id', programId)
-            .single();
-          
-          if (programError) {
-            console.error('[ProgramsAPI] Error fetching program:', programError);
-            throw programError;
-          }
-          
-          if (!program) {
-            throw new Error(`Program not found: ${programId}`);
-          }
-          
-          // Get fields for this program
-          const { data: fields, error: fieldsError } = await supabase
-            .from('program_fields')
-            .select('*')
-            .eq('program_id', programId)
-            .order('order_index', { ascending: true });
-          
-          if (fieldsError) {
-            console.error('[ProgramsAPI] Error fetching fields:', fieldsError);
-            throw fieldsError;
-          }
-          
-          console.log('[ProgramsAPI] Fields found:', fields?.length || 0);
-          
-          return {
-            ...program,
-            fields: fields || [],
-          };
-        },
-        CACHE_TTL.PROGRAM_FIELDS
-      );
+      if (programError) {
+        console.error('[ProgramsAPI] Error fetching program:', programError);
+        throw programError;
+      }
       
-      console.log('[ProgramsAPI] Program found:', result);
-      return result;
+      if (!program) {
+        throw new Error(`Program not found: ${programId}`);
+      }
+      
+      console.log('[ProgramsAPI] Program found:', program);
+      
+      // Get fields for this program
+      const { data: fields, error: fieldsError } = await supabase
+        .from('program_fields')
+        .select('*')
+        .eq('program_id', programId)
+        .order('order_index', { ascending: true });
+      
+      if (fieldsError) {
+        console.error('[ProgramsAPI] Error fetching fields:', fieldsError);
+        throw fieldsError;
+      }
+      
+      console.log('[ProgramsAPI] Fields found:', fields?.length || 0);
+      
+      return {
+        ...program,
+        fields: fields || [],
+      };
     } catch (error: any) {
       console.error('[ProgramsAPI] Error fetching program:', error);
       console.error('[ProgramsAPI] Error stack:', error.stack);

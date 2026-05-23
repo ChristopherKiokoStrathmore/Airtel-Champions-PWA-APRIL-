@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { Wifi, WifiOff, Signal, CloudOff, RefreshCw } from 'lucide-react';
 import { OfflineManager } from '../utils/offline-manager';
 
@@ -9,60 +9,46 @@ export function NetworkStatus() {
   const [syncing, setSyncing] = useState(false);
   const [syncResult, setSyncResult] = useState<{ success: number; failed: number } | null>(null);
   const [showDetails, setShowDetails] = useState(false);
-  const [visible, setVisible] = useState(true);
-  const [fading, setFading] = useState(false);
-  const dismissTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const prevQuality = useRef('unknown');
-  const prevOnline = useRef(true);
-
-  const scheduleDismiss = (online: boolean, queue: number) => {
-    if (dismissTimer.current) clearTimeout(dismissTimer.current);
-    // Keep banner visible permanently if offline or has queued items
-    if (!online || queue > 0) return;
-    // Auto-dismiss informational banners after 3 seconds
-    dismissTimer.current = setTimeout(() => {
-      setFading(true);
-      setTimeout(() => {
-        setVisible(false);
-        setFading(false);
-      }, 500);
-    }, 3000);
-  };
 
   useEffect(() => {
     const updateStatus = () => {
-      const nowOnline = navigator.onLine;
-      const nowQuality = OfflineManager.getNetworkQuality();
-      const nowQueue = OfflineManager.getQueue().length;
-      setIsOnline(nowOnline);
-      setNetworkQuality(nowQuality);
-      setQueuedCount(nowQueue);
-
-      // Re-show banner when network state changes
-      if (nowQuality !== prevQuality.current || nowOnline !== prevOnline.current) {
-        setVisible(true);
-        setFading(false);
-        scheduleDismiss(nowOnline, nowQueue);
-      }
-      prevQuality.current = nowQuality;
-      prevOnline.current = nowOnline;
+      setIsOnline(navigator.onLine);
+      setNetworkQuality(OfflineManager.getNetworkQuality());
+      setQueuedCount(OfflineManager.getQueue().length);
     };
 
     updateStatus();
 
+    // Setup offline manager listeners
     OfflineManager.setupListeners(
-      () => { setIsOnline(true); setVisible(true); setFading(false); updateStatus(); },
-      () => { setIsOnline(false); setVisible(true); setFading(false); updateStatus(); }
+      () => {
+        setIsOnline(true);
+        updateStatus();
+      },
+      () => {
+        setIsOnline(false);
+        updateStatus();
+      }
     );
 
+    // Listen for queue updates
     const handleQueueUpdate = (e: any) => {
       setQueuedCount(e.detail.count);
-      if (e.detail.count > 0) { setVisible(true); setFading(false); }
     };
-    const handleSyncStarted = () => { setSyncing(true); setSyncResult(null); setVisible(true); setFading(false); };
+
+    const handleSyncStarted = () => {
+      setSyncing(true);
+      setSyncResult(null);
+    };
+
     const handleSyncCompleted = (e: any) => {
       setSyncing(false);
-      setSyncResult({ success: e.detail.success, failed: e.detail.failed });
+      setSyncResult({
+        success: e.detail.success,
+        failed: e.detail.failed,
+      });
+      
+      // Clear sync result after 3 seconds
       setTimeout(() => setSyncResult(null), 3000);
     };
 
@@ -70,14 +56,11 @@ export function NetworkStatus() {
     window.addEventListener('offline-sync-started', handleSyncStarted);
     window.addEventListener('offline-sync-completed', handleSyncCompleted);
 
-    // Initial dismiss timer
-    scheduleDismiss(navigator.onLine, OfflineManager.getQueue().length);
-
+    // Update periodically
     const interval = setInterval(updateStatus, 10000);
 
     return () => {
       clearInterval(interval);
-      if (dismissTimer.current) clearTimeout(dismissTimer.current);
       window.removeEventListener('offline-queue-updated', handleQueueUpdate);
       window.removeEventListener('offline-sync-started', handleSyncStarted);
       window.removeEventListener('offline-sync-completed', handleSyncCompleted);
@@ -91,7 +74,9 @@ export function NetworkStatus() {
 
   const getNetworkIcon = () => {
     if (!isOnline) return <WifiOff className="w-4 h-4" />;
-    if (networkQuality === '2g' || networkQuality === '3g') return <Signal className="w-4 h-4" />;
+    if (networkQuality === '2g' || networkQuality === '3g') {
+      return <Signal className="w-4 h-4" />;
+    }
     return <Wifi className="w-4 h-4" />;
   };
 
@@ -111,16 +96,15 @@ export function NetworkStatus() {
     return 'Online';
   };
 
-  // Don't render if good connection with no queue, or if auto-dismissed
-  const shouldShow = !isOnline || queuedCount > 0 || networkQuality === '2g' || networkQuality === '3g';
-  if (!shouldShow || !visible) return null;
+  // Don't show if online with good connection and no queue
+  if (isOnline && queuedCount === 0 && networkQuality !== '2g' && networkQuality !== '3g') {
+    return null;
+  }
 
   return (
     <div className="fixed top-0 left-0 right-0 z-50">
       <div
-        className={`${getNetworkColor()} text-white px-4 py-2.5 shadow-lg transition-all duration-500 ${
-          fading ? 'opacity-0 -translate-y-full' : 'opacity-100 translate-y-0'
-        }`}
+        className={`${getNetworkColor()} text-white px-4 py-2.5 shadow-lg transition-all`}
         onClick={() => setShowDetails(!showDetails)}
       >
         <div className="flex items-center justify-between max-w-7xl mx-auto">
@@ -130,6 +114,7 @@ export function NetworkStatus() {
           </div>
 
           <div className="flex items-center gap-3">
+            {/* Sync Status */}
             {syncing && (
               <div className="flex items-center gap-1.5">
                 <RefreshCw className="w-3.5 h-3.5 animate-spin" />
@@ -137,13 +122,15 @@ export function NetworkStatus() {
               </div>
             )}
 
+            {/* Sync Result */}
             {syncResult && (
               <div className="text-xs bg-white/20 px-2 py-1 rounded">
-                {syncResult.success} synced
-                {syncResult.failed > 0 && ` · ${syncResult.failed} failed`}
+                ✅ {syncResult.success} synced
+                {syncResult.failed > 0 && ` · ❌ ${syncResult.failed} failed`}
               </div>
             )}
 
+            {/* Queue Count */}
             {queuedCount > 0 && (
               <div className="flex items-center gap-2">
                 <div className="flex items-center gap-1.5 bg-white/20 px-2.5 py-1 rounded-full">
@@ -153,7 +140,10 @@ export function NetworkStatus() {
 
                 {isOnline && !syncing && (
                   <button
-                    onClick={(e) => { e.stopPropagation(); handleManualSync(); }}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleManualSync();
+                    }}
                     className="text-xs bg-white/30 hover:bg-white/40 px-3 py-1 rounded-full font-semibold transition-colors flex items-center gap-1"
                   >
                     <RefreshCw className="w-3 h-3" />
@@ -165,6 +155,7 @@ export function NetworkStatus() {
           </div>
         </div>
 
+        {/* Expanded Details */}
         {showDetails && queuedCount > 0 && (
           <div className="mt-3 pt-3 border-t border-white/20 max-w-7xl mx-auto">
             <div className="text-xs space-y-1.5">
@@ -193,10 +184,12 @@ export function NetworkStatus() {
                   </>
                 );
               })()}
+              
               <div className="mt-2 pt-2 border-t border-white/20 text-white/80">
-                {isOnline
-                  ? 'Will sync automatically when connection improves'
-                  : 'Submissions will sync when you\'re back online'}
+                {isOnline 
+                  ? '✅ Will sync automatically when connection improves'
+                  : '⚠️ Submissions will sync when you\'re back online'
+                }
               </div>
             </div>
           </div>

@@ -5,35 +5,13 @@
 // Without proper encryption, push services (FCM/Mozilla) reject with 400.
 // Subscriptions are stored in the KV store keyed by userId.
 // VAPID keys come from environment secrets.
-//
-// NOTE: `npm:web-push` is imported DYNAMICALLY so that a failure to load
-// this Node-native module doesn't crash the entire edge function at startup.
 // ============================================================================
 
-import { Hono } from 'npm:hono@4.7.9';
+import { Hono } from 'npm:hono@4';
+import webpush from 'npm:web-push@3.6.7';
 import * as kv from './kv_store.tsx';
 
 const app = new Hono();
-
-// ── Lazy-loaded web-push module ─────────────────────────────────────────────
-let _webpush: any = null;
-let _webpushLoadAttempted = false;
-
-async function getWebPush(): Promise<any> {
-  if (_webpush) return _webpush;
-  if (_webpushLoadAttempted) return null; // already tried and failed
-  _webpushLoadAttempted = true;
-  try {
-    const mod = await import('npm:web-push@3.6.7');
-    _webpush = mod.default ?? mod;
-    // Configure VAPID once on first successful load
-    configureVapid(_webpush);
-    return _webpush;
-  } catch (err: any) {
-    console.warn('[WebPush] npm:web-push import failed:', err.message);
-    return null;
-  }
-}
 
 // ── KV helpers: wraps kv calls so permission-denied (42501) never crashes routes ──
 async function safeKvGet(key: string): Promise<{ value: any }> {
@@ -100,30 +78,22 @@ let VAPID_PRIVATE_KEY = (Deno.env.get('VAPID_PRIVATE_KEY') ?? '').trim();
 // Auto-detect and fix swapped keys
 const privBytes = base64urlByteLength(VAPID_PRIVATE_KEY);
 if (privBytes !== 32) {
-  console.warn(`[WebPush] VAPID_PRIVATE_KEY from env is ${privBytes} bytes (expected 32). Using known correct key pair.`);
+  console.warn(`[WebPush] ⚠️ VAPID_PRIVATE_KEY from env is ${privBytes} bytes (expected 32). Using known correct key pair.`);
   VAPID_PUBLIC_KEY  = KNOWN_VAPID_PUBLIC;
   VAPID_PRIVATE_KEY = KNOWN_VAPID_PRIVATE;
 }
 
-let _vapidConfigured = false;
-
-function configureVapid(webpush: any) {
-  if (_vapidConfigured || !webpush) return;
-  if (VAPID_PUBLIC_KEY && VAPID_PRIVATE_KEY) {
-    try {
-      webpush.setVapidDetails(VAPID_SUBJECT, VAPID_PUBLIC_KEY, VAPID_PRIVATE_KEY);
-      _vapidConfigured = true;
-      console.log('[WebPush] VAPID configured successfully');
-    } catch (err: any) {
-      console.error('[WebPush] Failed to set VAPID details:', err.message);
-    }
-  } else {
-    console.warn('[WebPush] VAPID keys not configured — push will not work');
+// Configure web-push with VAPID details
+if (VAPID_PUBLIC_KEY && VAPID_PRIVATE_KEY) {
+  try {
+    webpush.setVapidDetails(VAPID_SUBJECT, VAPID_PUBLIC_KEY, VAPID_PRIVATE_KEY);
+    console.log('[WebPush] ✅ VAPID configured successfully');
+  } catch (err: any) {
+    console.error('[WebPush] Failed to set VAPID details:', err.message);
   }
+} else {
+  console.warn('[WebPush] VAPID keys not configured — push will not work');
 }
-
-// Eagerly start loading web-push in the background (non-blocking)
-getWebPush().catch(() => {});
 
 // ── KV key helpers ───────────────────────────────────────────────────────────
 const subKey = (userId: string) => `push:sub:${userId}`;
@@ -161,10 +131,6 @@ export async function sendWebPush(
   payload: PushPayload
 ): Promise<{ ok: boolean; error?: string }> {
   try {
-    const webpush = await getWebPush();
-    if (!webpush) {
-      return { ok: false, error: 'web-push module not available' };
-    }
     if (!VAPID_PUBLIC_KEY || !VAPID_PRIVATE_KEY) {
       return { ok: false, error: 'VAPID keys not configured on server' };
     }

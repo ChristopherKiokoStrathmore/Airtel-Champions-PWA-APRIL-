@@ -1,7 +1,6 @@
-import { Hono } from 'npm:hono@4.7.9';
-import { createClient } from 'jsr:@supabase/supabase-js@2';
-// NOTE: deno.land/x/postgres is imported DYNAMICALLY inside the routes that need it,
-// so a module resolution failure won't crash the entire edge function.
+import { Hono } from 'npm:hono';
+import { createClient } from 'npm:@supabase/supabase-js@2.39.3';
+import { Client } from "https://deno.land/x/postgres@v0.17.0/mod.ts";
 
 const app = new Hono();
 
@@ -390,15 +389,14 @@ app.get('/columns/:table', async (c) => {
     console.log('[Database Dropdown Columns] 📋 Getting columns for table:', table);
 
     // METHOD 1: Try direct Postgres connection to bypass PostgREST cache entirely
-    console.log('[Database Dropdown Columns] Using direct Postgres query to bypass PostgREST cache');
+    console.log('[Database Dropdown Columns] 🔧 Using direct Postgres query to bypass PostgREST cache');
     
     try {
       const dbUrl = Deno.env.get('SUPABASE_DB_URL');
       
       if (dbUrl) {
-        console.log('[Database Dropdown Columns] Using direct Postgres connection');
+        console.log('[Database Dropdown Columns] ✅ Using direct Postgres connection');
         
-        const { Client } = await import("https://deno.land/x/postgres@v0.17.0/mod.ts");
         const client = new Client(dbUrl);
         await client.connect();
         

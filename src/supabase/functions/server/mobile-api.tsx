@@ -20,24 +20,19 @@ const supabase = createClient(
 // HELPERS
 // ============================================================================
 
-// Direct DB mode: Uses X-User-Id header instead of JWT auth
-async function authenticateUser(req: any) {
-  const userId = req.header ? req.header('X-User-Id') : null;
-  if (!userId) {
-    throw new Error('Missing X-User-Id header - not authenticated');
+async function authenticateUser(authHeader: string | null) {
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    throw new Error('Missing or invalid authorization header');
   }
 
-  const { data: userData, error } = await supabase
-    .from('app_users')
-    .select('id, role, full_name, email, region, zone')
-    .eq('id', userId)
-    .single();
+  const token = authHeader.substring(7);
+  const { data: { user }, error } = await supabase.auth.getUser(token);
 
-  if (error || !userData) {
-    throw new Error('User not found in app_users');
+  if (error || !user) {
+    throw new Error('Invalid or expired token');
   }
 
-  return { id: userData.id, user_metadata: { full_name: userData.full_name }, ...userData };
+  return user;
 }
 
 function parsePagination(limit?: string, offset?: string) {
@@ -80,9 +75,9 @@ export async function requestOTP(phone: string): Promise<{success: boolean; mess
 
     // Check if user exists
     const { data: user } = await supabase
-      .from('app_users')
+      .from('users')
       .select('id, is_active')
-      .eq('phone_number', phone)
+      .eq('phone', phone)
       .single();
 
     if (!user) {
@@ -156,9 +151,9 @@ export async function verifyOTP(phone: string, code: string): Promise<any> {
 
     // Get user details
     const { data: user, error: userError } = await supabase
-      .from('app_users')
-      .select('id, phone_number, full_name, email, role, region, employee_id')
-      .eq('phone_number', phone)
+      .from('users')
+      .select('id, phone, full_name, email, role, region, employee_id, team_id')
+      .eq('phone', phone)
       .single();
 
     if (userError || !user) {
@@ -169,7 +164,7 @@ export async function verifyOTP(phone: string, code: string): Promise<any> {
     // In production, use proper Supabase auth
     const sessionToken = Buffer.from(JSON.stringify({
       userId: user.id,
-      phone: user.phone_number,
+      phone: user.phone,
       role: user.role,
       exp: Date.now() + (30 * 24 * 60 * 60 * 1000) // 30 days
     })).toString('base64');
@@ -181,12 +176,13 @@ export async function verifyOTP(phone: string, code: string): Promise<any> {
         refreshToken: sessionToken, // Simplified for now
         user: {
           id: user.id,
-          phone: user.phone_number,
+          phone: user.phone,
           fullName: user.full_name,
           email: user.email,
           role: user.role,
           region: user.region,
-          employeeId: user.employee_id
+          employeeId: user.employee_id,
+          teamId: user.team_id
         }
       }
     };
@@ -204,9 +200,9 @@ export async function loginWithPIN(phone: string, pin: string): Promise<any> {
   try {
     // Get user
     const { data: user, error: userError } = await supabase
-      .from('app_users')
-      .select('id, phone_number, full_name, email, role, region, employee_id, pin_hash, is_active')
-      .eq('phone_number', phone)
+      .from('users')
+      .select('id, phone, full_name, email, role, region, employee_id, team_id, pin_hash, is_active')
+      .eq('phone', phone)
       .single();
 
     if (userError || !user) {
@@ -225,7 +221,7 @@ export async function loginWithPIN(phone: string, pin: string): Promise<any> {
     // Create session token
     const sessionToken = Buffer.from(JSON.stringify({
       userId: user.id,
-      phone: user.phone_number,
+      phone: user.phone,
       role: user.role,
       exp: Date.now() + (30 * 24 * 60 * 60 * 1000)
     })).toString('base64');
@@ -237,12 +233,13 @@ export async function loginWithPIN(phone: string, pin: string): Promise<any> {
         refreshToken: sessionToken,
         user: {
           id: user.id,
-          phone: user.phone_number,
+          phone: user.phone,
           fullName: user.full_name,
           email: user.email,
           role: user.role,
           region: user.region,
-          employeeId: user.employee_id
+          employeeId: user.employee_id,
+          teamId: user.team_id
         }
       }
     };
@@ -448,15 +445,16 @@ export async function getMySubmissions(userId: string, params: any): Promise<any
 export async function getCurrentUser(userId: string): Promise<any> {
   try {
     const { data: user, error } = await supabase
-      .from('app_users')
+      .from('users')
       .select(`
         id,
-        phone_number,
+        phone,
         full_name,
         email,
         role,
         region,
         employee_id,
+        team_id,
         created_at
       `)
       .eq('id', userId)

@@ -1,6 +1,6 @@
 import { Hono } from 'npm:hono';
 import { cors } from 'npm:hono/cors';
-import { createClient } from 'jsr:@supabase/supabase-js@2';
+import { createClient } from 'npm:@supabase/supabase-js@2.39.3';
 import { initializeStorageBucket, uploadPhoto } from './storage-setup.tsx';
 
 const app = new Hono();
@@ -76,28 +76,18 @@ const kvStore = {
 
 // CORS configuration
 app.use('*', cors({
-  origin: (origin) => {
-    const allowed = [
-      'https://airtel-champions.vercel.app',
-      'https://airtel-champions-pwa-april-6gnsktent.vercel.app',
-      'http://localhost:5173',
-      'http://localhost:3000',
-    ];
-    return allowed.includes(origin) ? origin : null;
-  },
+  origin: '*',
   allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowHeaders: ['Content-Type', 'Authorization', 'apikey'], // Added apikey for Supabase Edge Functions
 }));
 
-// Initialize storage bucket on startup (non-blocking, with error resilience)
+// Initialize storage bucket on startup
 initializeStorageBucket().then(result => {
   if (result.success) {
     console.log('[ProgramsKV] Storage bucket ready');
   } else {
-    console.warn('[ProgramsKV] Storage bucket initialization had issues (non-fatal):', result);
+    console.error('[ProgramsKV] Storage bucket initialization failed:', result.error);
   }
-}).catch(err => {
-  console.warn('[ProgramsKV] Storage init error (non-fatal):', err.message);
 });
 
 // ============================================

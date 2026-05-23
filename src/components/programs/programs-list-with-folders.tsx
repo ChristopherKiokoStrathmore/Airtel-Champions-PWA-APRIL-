@@ -47,7 +47,7 @@ export function ProgramsListWithFolders({ onBack, onPointsUpdated }: { onBack?: 
   const [analyticsProgram, setAnalyticsProgram] = useState<Program | null>(null);
   const [userId, setUserId] = useState<string>('');
   const [showSuccessModal, setShowSuccessModal] = useState(false);
-  const [successData, setSuccessData] = useState<{ points: number; newTotal: number; programTitle: string; submissionDetails?: any } | null>(null);
+  const [successData, setSuccessData] = useState<{ points: number; newTotal: number; programTitle: string } | null>(null);
   const [expandedFolders, setExpandedFolders] = useState<Set<string>>(new Set());
   const [showFolderManagement, setShowFolderManagement] = useState(false);
   const [viewMode, setViewMode] = useState<'submit' | 'analytics'>('submit');
@@ -402,12 +402,11 @@ export function ProgramsListWithFolders({ onBack, onPointsUpdated }: { onBack?: 
           program={selectedProgram}
           userId={userId}
           onClose={() => setSelectedProgram(null)}
-          onSuccess={(pointsAwarded, newTotal, submissionDetails) => {
+          onSuccess={(pointsAwarded, newTotal) => {
             setSuccessData({
               points: pointsAwarded,
               newTotal: newTotal,
-              programTitle: selectedProgram.title,
-              submissionDetails
+              programTitle: selectedProgram.title
             });
             setSelectedProgram(null);
             setShowSuccessModal(true);
@@ -431,7 +430,6 @@ export function ProgramsListWithFolders({ onBack, onPointsUpdated }: { onBack?: 
           pointsEarned={successData.points}
           newTotalPoints={successData.newTotal}
           programTitle={successData.programTitle}
-          submissionDetails={successData.submissionDetails}
           onClose={() => {
             setShowSuccessModal(false);
             setSuccessData(null);

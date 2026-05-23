@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../utils/supabase/client';
-import { localCache, CACHE_TTL } from '../lib/local-cache';
 
 interface TopPerformersGridProps {
   currentUserId?: string;
@@ -20,46 +19,27 @@ export function TopPerformersGrid({
   useEffect(() => {
     loadTopPerformers();
     
-    // Poll every 5 minutes instead of 30 seconds — localStorage cache handles freshness
-    const interval = setInterval(loadTopPerformers, 5 * 60 * 1000);
+    const interval = setInterval(loadTopPerformers, 30000);
     return () => clearInterval(interval);
   }, [limit]);
 
   const loadTopPerformers = async () => {
     try {
-      const cacheKey = `top_performers_${limit}`;
-      
-      const data = await localCache.fetchWithCache(
-        cacheKey,
-        async () => {
-          const { data } = await supabase
-            .from('app_users')
-            .select('id, employee_id, full_name, rank, zone, region, zsm, zbm, total_points, phone_number')
-            .eq('role', 'sales_executive')
-            .order('total_points', { ascending: false })
-            .limit(limit);
-          return data || [];
-        },
-        CACHE_TTL.TOP_PERFORMERS,
-        {
-          staleWhileRevalidate: true,
-          onRevalidated: (freshData) => {
-            // Silently update state when fresh data arrives
-            const dataWithRank = freshData.map((user: any, index: number) => ({
-              ...user,
-              rank: index + 1
-            }));
-            setTopPerformers(dataWithRank);
-          }
-        }
-      );
+      const { data } = await supabase
+        .from('app_users')
+        .select('id, employee_id, full_name, rank, zone, region, zsm, zbm, total_points, phone_number')
+        .eq('role', 'sales_executive')
+        .order('total_points', { ascending: false })
+        .limit(limit);
 
-      // Assign dynamic rank based on points order
-      const dataWithRank = data.map((user: any, index: number) => ({
-        ...user,
-        rank: index + 1
-      }));
-      setTopPerformers(dataWithRank);
+      if (data) {
+        // Assign dynamic rank based on points order
+        const dataWithRank = data.map((user, index) => ({
+          ...user,
+          rank: index + 1
+        }));
+        setTopPerformers(dataWithRank);
+      }
       setLoading(false);
     } catch (error) {
       console.error('Error loading top performers:', error);

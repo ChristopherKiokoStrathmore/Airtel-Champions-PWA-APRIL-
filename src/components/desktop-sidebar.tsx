@@ -1,4 +1,4 @@
-import { Home, Users, BarChart3, Timer, Compass, LogOut, Settings, HelpCircle, User, Activity } from 'lucide-react';
+import { Home, Users, BarChart3, Timer, Compass, LogOut, Settings, HelpCircle, User } from 'lucide-react';
 
 interface DesktopSidebarProps {
   activeTab: string;
@@ -20,7 +20,6 @@ export function DesktopSidebar({
     { id: 'home', label: 'Dashboard', icon: Home, badge: null },
     { id: 'users', label: 'Users', icon: Users, badge: null },
     { id: 'sessions', label: 'Sessions', icon: Timer, badge: null },
-    { id: 'activity', label: 'Activity', icon: Activity, badge: null },
     { id: 'programs', label: 'Programs', icon: BarChart3, badge: null },
     { id: 'explore', label: 'Explore', icon: Compass, badge: unreadAnnouncementsCount > 0 ? unreadAnnouncementsCount : null },
   ];

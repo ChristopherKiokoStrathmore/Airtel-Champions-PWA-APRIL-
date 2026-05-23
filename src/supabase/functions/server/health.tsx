@@ -53,7 +53,7 @@ async function checkDatabase(): Promise<HealthCheck> {
   
   try {
     const { error } = await supabase
-      .from('app_users')
+      .from('users')
       .select('count')
       .limit(1)
       .single();
@@ -406,7 +406,7 @@ export async function checkReadiness(): Promise<{
   try {
     // Check only critical services
     const { error: dbError } = await supabase
-      .from('app_users')
+      .from('users')
       .select('count')
       .limit(1);
     
@@ -479,7 +479,7 @@ export async function performStartupCheck(): Promise<boolean> {
     
     // Check database
     const { error: dbError } = await supabase
-      .from('app_users')
+      .from('users')
       .select('count')
       .limit(1);
     

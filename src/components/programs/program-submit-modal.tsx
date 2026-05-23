@@ -1,10 +1,8 @@
-import { useState, useEffect, useRef, useCallback, useLayoutEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { X, Star, MapPin, Upload, CheckCircle } from 'lucide-react';
 import { projectId, publicAnonKey } from '../../utils/supabase/info';
 import { getSupabaseClient } from '../../utils/supabase/client';
-import { getAuthHeaders } from '../../utils/api-helper';
 import { trackAction, ANALYTICS_ACTIONS } from '../../utils/analytics';
-import { getProgramRoleAliases } from '../../utils/supabase-direct';
 // Capacitor Geolocation — dynamically imported to avoid crashes on web
 // Falls back to navigator.geolocation when Capacitor is not available
 let CapacitorGeolocation: any = null;
@@ -22,12 +20,6 @@ try {
 }
 import { VanCalendarSiteSelector } from './van-calendar-site-selector';
 import { ProgressiveSiteSelector } from './progressive-site-selector';
-import { SessionCheckinModal } from './session-checkin-modal';
-import { handleFormSubmit } from './submit-handler';
-import type { SubmissionDetails } from './submit-handler';
-import { LinkedCheckoutBlock, LinkedCheckoutSection } from './linked-checkout-section';
-import type { LinkedMSISDN } from './linked-checkout-section';
-
 
 interface Program {
   id: string;
@@ -38,42 +30,18 @@ interface Program {
   gps_auto_detect_enabled?: boolean; // 🆕 GPS Auto-Detect toggle
   progressive_disclosure_enabled?: boolean; // 🆕 Progressive Disclosure toggle
   zone_filtering_enabled?: boolean; // 🆕 Zone filtering toggle
-  van_checkout_enforcement_enabled?: boolean; // 🚐 Van checkout enforcement toggle
-  session_checkin_enabled?: boolean; // 🆕 Session-based check-in mode
-  linked_checkin_program_id?: string; // 🆕 Checkout mode: linked check-in program
   fields?: any[];
   who_can_submit?: string[]; // 🆕 Roles that can submit this form
-  whitelist_enabled?: boolean;
-  whitelist_target?: string;
-  whitelist_fields?: {
-    label: string;
-    db_column: string;
-    input_type: 'text' | 'dropdown';
-    source_table?: string;
-    source_column?: string;
-  }[];
 }
 
 interface ProgramSubmitModalProps {
   program: Program;
   userId: string;
   onClose: () => void;
-  onSuccess: (pointsAwarded: number, newTotal: number, submissionDetails?: SubmissionDetails) => void;
+  onSuccess: (pointsAwarded: number, newTotal: number) => void;
 }
 
 export function ProgramSubmitModal({ program, userId, onClose, onSuccess }: ProgramSubmitModalProps) {
-  // 📋 If session_checkin_enabled, render the session-based check-in modal instead
-  if (program.session_checkin_enabled) {
-    return (
-      <SessionCheckinModal
-        program={program}
-        userId={userId}
-        onClose={onClose}
-        onSuccess={onSuccess}
-      />
-    );
-  }
-
   // 🆕 Helper to check if a field should be skipped due to progressive disclosure
   const shouldSkipField = (field: any): boolean => {
     const fieldName = field?.field_name || '';
@@ -108,6 +76,15 @@ export function ProgramSubmitModal({ program, userId, onClose, onSuccess }: Prog
       const storedUser = localStorage.getItem('tai_user');
       if (storedUser) {
         const user = JSON.parse(storedUser);
+        console.log('[ProgramSubmitModal] ✅ Modal opened for user:', {
+          userId,
+          role: user.role,
+          name: user.full_name,
+          zone: user.zone,
+          program: program.title,
+          points: program.points_value
+        });
+        
         // Set user zone from localStorage first (null = no zone, not undefined)
         setUserZone(user.zone || null);
         
@@ -191,40 +168,8 @@ export function ProgramSubmitModal({ program, userId, onClose, onSuccess }: Prog
   // 🆕 Auto-populate notification state
   const [autoPopulateMessage, setAutoPopulateMessage] = useState<string>('');
   
-  // 🚐 Van checkout enforcement state
-  const [vanCheckStatus, setVanCheckStatus] = useState<{ checking: boolean; allowed: boolean | null; message: string }>({
-    checking: false, allowed: null, message: ''
-  });
-  
   // 🆕 Metadata display state - stores the selected item's metadata for each database dropdown field
   const [fieldMetadata, setFieldMetadata] = useState<Record<string, { label: string; data: Record<string, any> }>>({});
-  
-  // 🔗 Linked checkout: van check-in verification state
-  const isLinkedCheckout = !!program.linked_checkin_program_id;
-  const [linkedCheckInStatus, setLinkedCheckInStatus] = useState<{
-    checking: boolean;
-    vanCheckedIn: boolean | null;
-    numberPlate: string;
-    message: string;
-  }>({ checking: false, vanCheckedIn: null, numberPlate: '', message: '' });
-  const [linkedMSISDNs, setLinkedMSISDNs] = useState<LinkedMSISDN[]>([]);
-  const [linkedCheckInData, setLinkedCheckInData] = useState<any>(null);
-  const [showCheckInRequired, setShowCheckInRequired] = useState(false);
-  const [morningOdometer, setMorningOdometer] = useState<number | null>(null);
-  // 🏎️ Inline odometer: ref (not state) to avoid re-renders on every keystroke
-  const inlineOdometerRef = useRef<number | null>(null);
-
-  // 🔒 Scroll preservation: prevent scroll-to-top on re-renders
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const scrollPositionRef = useRef<number>(0);
-  
-  // Restore scroll position after every render (fires synchronously before paint)
-  useLayoutEffect(() => {
-    if (scrollContainerRef.current && scrollPositionRef.current > 0) {
-      scrollContainerRef.current.scrollTop = scrollPositionRef.current;
-    }
-  });
-
 
   // Load all shops from amb_shops table
   useEffect(() => {
@@ -388,107 +333,38 @@ export function ProgramSubmitModal({ program, userId, onClose, onSuccess }: Prog
       return;
     }
 
-    // 📱 PHONE NUMBER NORMALIZATION — only for numeric-looking queries
-    // Don't normalize text searches (site names, partner names, etc.)
-    let normalizedQuery = query.trim();
-    const isNumericQuery = /^[\d\s\-+().]+$/.test(normalizedQuery);
-    
-    if (isNumericQuery) {
-      // Strip spaces, dashes, brackets for phone numbers
-      normalizedQuery = normalizedQuery.replace(/[\s\-().]/g, '');
-      // Strip Kenyan country code prefixes
-      if (normalizedQuery.startsWith('+254') && normalizedQuery.length > 4) {
-        normalizedQuery = normalizedQuery.slice(4);          // "+254762349445" → "762349445"
-      } else if (normalizedQuery.startsWith('254') && normalizedQuery.length > 10) {
-        normalizedQuery = normalizedQuery.slice(3);          // "254762349445"  → "762349445"
-      } else if (normalizedQuery.startsWith('0') && normalizedQuery.length > 9) {
-        normalizedQuery = normalizedQuery.slice(1);          // "0762349445"    → "762349445"
-      }
+    // 📱 PHONE NUMBER NORMALIZATION
+    // Strips spaces, dashes, brackets — then strips Kenyan country code prefixes.
+    // Handles: "762 349 445", "0762349445", "+254762349445", "254 762 349 445"
+    let normalizedQuery = query.replace(/[\s\-().]/g, '');
+    if (normalizedQuery.startsWith('+254') && normalizedQuery.length > 4) {
+      normalizedQuery = normalizedQuery.slice(4);          // "+254762349445" → "762349445"
+    } else if (normalizedQuery.startsWith('254') && normalizedQuery.length > 10) {
+      normalizedQuery = normalizedQuery.slice(3);          // "254762349445"  → "762349445"
+    } else if (normalizedQuery.startsWith('0') && normalizedQuery.length > 9) {
+      normalizedQuery = normalizedQuery.slice(1);          // "0762349445"    → "762349445"
     }
 
-    console.log(`[ServerSearch] 🔍 Raw: "${query}" → Normalized: "${normalizedQuery}" (isNumeric: ${isNumericQuery})`);
+    console.log(`[ServerSearch] 🔍 Raw: "${query}" → Normalized: "${normalizedQuery}"`);
 
     setServerSearchLoading(prev => ({ ...prev, [fieldId]: true }));
     try {
       const supabase = getSupabaseClient();
-      
-      // 🔥 Build OR condition across display_field + metadata_fields
-      // This allows searching by name, MSISDN, ID, site name, etc. — not just display_field
-      const searchFields = [dbSource.display_field];
-      if (dbSource.metadata_fields && Array.isArray(dbSource.metadata_fields)) {
-        searchFields.push(...dbSource.metadata_fields);
-      }
-      // Deduplicate and build PostgREST OR filter
-      const uniqueFields = [...new Set(searchFields)];
-      // Quote column names that contain special characters for PostgREST compatibility
-      // Covers: spaces, hyphens, slashes, parentheses, dots, etc.
-      const needsQuoting = (col: string) => /[^a-zA-Z0-9_]/.test(col);
-      const orConditions = uniqueFields.map(f => {
-        const quoted = needsQuoting(f) ? `"${f}"` : f;
-        return `${quoted}.ilike.%${normalizedQuery}%`;
-      }).join(',');
-      
-      console.log(`[ServerSearch] 🔎 Searching ${uniqueFields.length} fields: ${uniqueFields.join(', ')}`);
-      
-      let searchQuery = supabase
+      const { data, error } = await supabase
         .from(dbSource.table)
         .select('*')
-        .or(orConditions)
+        .ilike(dbSource.display_field, `%${normalizedQuery}%`)
         .limit(60);
-      
-      // 🔒 Apply zone filter if enabled
-      const zoneFilterEnabled = program.zone_filtering_enabled === true;
-      if (zoneFilterEnabled && userZone) {
-        const zoneCol = dbSource.zone_column || 
-          (dbSource.metadata_fields || []).find((c: string) => c.toUpperCase().includes('ZONE')) || 
-          'ZONE';
-        searchQuery = searchQuery.eq(zoneCol, userZone);
-      }
-      
-      const { data, error } = await searchQuery;
       if (!error && data) {
         setServerSearchResults(prev => ({ ...prev, [fieldId]: data }));
         console.log(`[ServerSearch] ✅ "${normalizedQuery}" → ${data.length} results from ${dbSource.table}`);
-      } else if (error) {
-        // OR across all fields failed (maybe non-text columns) — fall back to display_field only
-        console.warn(`[ServerSearch] ⚠️ OR query error, falling back to display_field only:`, error.message);
-        let fallbackQuery = supabase
-          .from(dbSource.table)
-          .select('*')
-          .ilike(dbSource.display_field, `%${normalizedQuery}%`)
-          .limit(60);
-        
-        if (zoneFilterEnabled && userZone) {
-          const zoneCol = dbSource.zone_column || 
-            (dbSource.metadata_fields || []).find((c: string) => c.toUpperCase().includes('ZONE')) || 
-            'ZONE';
-          fallbackQuery = fallbackQuery.eq(zoneCol, userZone);
-        }
-        
-        const { data: fallbackData, error: fallbackError } = await fallbackQuery;
-        if (!fallbackError && fallbackData) {
-          setServerSearchResults(prev => ({ ...prev, [fieldId]: fallbackData }));
-          console.log(`[ServerSearch] ✅ Fallback "${normalizedQuery}" → ${fallbackData.length} results`);
-        } else if (fallbackError) {
-          // Zone column issue — retry without zone
-          console.warn(`[ServerSearch] ⚠️ Fallback also failed, retrying without zone:`, fallbackError.message);
-          const { data: retryData } = await supabase
-            .from(dbSource.table)
-            .select('*')
-            .ilike(dbSource.display_field, `%${normalizedQuery}%`)
-            .limit(60);
-          if (retryData) {
-            setServerSearchResults(prev => ({ ...prev, [fieldId]: retryData }));
-            console.log(`[ServerSearch] ✅ No-zone retry "${normalizedQuery}" → ${retryData.length} results`);
-          }
-        }
       }
     } catch (err) {
       console.error('[ServerSearch] Error:', err);
     } finally {
       setServerSearchLoading(prev => ({ ...prev, [fieldId]: false }));
     }
-  }, [program.zone_filtering_enabled, userZone]);
+  }, []);
 
   // 🆕 Load database dropdown data when fields are loaded
   useEffect(() => {
@@ -539,44 +415,13 @@ export function ProgramSubmitModal({ program, userId, onClose, onSuccess }: Prog
           setLoadingDatabaseDropdowns(prev => ({ ...prev, [field.id]: true }));
 
           try {
-            // 🚀 OPTIMIZATION: Check table size first. For large tables (>500 rows),
-            // skip bulk download entirely and use server-side search only.
-            // This prevents 1000+ concurrent users from each downloading 4000+ rows.
-            const LARGE_TABLE_THRESHOLD = 500;
-            
-            // Known large tables — skip count query entirely for these
-            const KNOWN_LARGE_TABLES = ['retailer_dump', 'retailer_dump_full', 'amb_shops', 'app_users', 'sd_dashboard', 'sitewise_lat_long'];
-            const tableLower = dbSource.table.toLowerCase();
-            const isKnownLarge = KNOWN_LARGE_TABLES.some(t => tableLower === t || tableLower.startsWith(t));
-            
-            let tableIsLarge = isKnownLarge;
-            if (!isKnownLarge) {
-              // Quick probe: fetch just enough IDs to see if table exceeds threshold
-              const { data: sizeProbe } = await supabase
-                .from(dbSource.table)
-                .select(dbSource.display_field)
-                .limit(LARGE_TABLE_THRESHOLD + 1);
-              
-              tableIsLarge = (sizeProbe?.length || 0) > LARGE_TABLE_THRESHOLD;
-            }
-            
-            if (tableIsLarge) {
-              // 🚀 Large table — enable server-side search, skip bulk download
-              console.log(`[DatabaseDropdown] 🚀 "${dbSource.table}" is large (>${LARGE_TABLE_THRESHOLD} rows) → server-side search ENABLED, skipping bulk download`);
-              setServerSearchRequired(prev => ({ ...prev, [field.id]: true }));
-              setDatabaseDropdownData(prev => ({ ...prev, [field.id]: [] }));
-              setLoadingDatabaseDropdowns(prev => ({ ...prev, [field.id]: false }));
-              continue; // Skip to next field — no bulk download needed
-            }
-            
-            // Small table — load all rows (existing paginated approach)
-            console.log(`[DatabaseDropdown] 📦 "${dbSource.table}" is small (≤${LARGE_TABLE_THRESHOLD} rows) → loading all rows`);
+            // 🚀 OPTIMIZED: Load ONLY the first 1000 rows. If the table is larger,
+            // switch to server-side search so we never download 100K+ rows upfront.
             const BATCH_SIZE = 1000;
 
             // 🔒 Detect zone column name with smart fallbacks
             let detectedZoneColumn: string | null = null;
-            let useZoneFilter = zoneFilterEnabled && !!userZone;
-            if (useZoneFilter) {
+            if (zoneFilterEnabled && userZone) {
               if (dbSource.zone_column) {
                 detectedZoneColumn = dbSource.zone_column;
               } else {
@@ -591,62 +436,49 @@ export function ProgramSubmitModal({ program, userId, onClose, onSuccess }: Prog
               console.log(`[DatabaseDropdown] 🔒 Will filter "${dbSource.table}" by "${detectedZoneColumn}" = "${userZone}"`);
             }
 
-            // Paginated loading — fetch batches until all rows loaded or MAX exceeded
-            let allRows: any[] = [];
-            let batchNum = 0;
-            let hasMore = true;
+            console.log(`[DatabaseDropdown] 📦 Fetching first batch from ${dbSource.table} (max ${BATCH_SIZE} rows)...`);
 
-            while (hasMore) {
-              const from = batchNum * BATCH_SIZE;
-              const to = from + BATCH_SIZE - 1;
-              batchNum++;
-              console.log(`[DatabaseDropdown] 📦 Fetching batch ${batchNum} from ${dbSource.table} (rows ${from}-${to})...`);
+            let query = supabase
+              .from(dbSource.table)
+              .select('*')
+              .order(dbSource.display_field, { ascending: true })
+              .range(0, BATCH_SIZE - 1);
 
-              let query = supabase
-                .from(dbSource.table)
-                .select('*')
-                .order(dbSource.display_field, { ascending: true })
-                .range(from, to);
+            if (zoneFilterEnabled && userZone && detectedZoneColumn) {
+              query = query.eq(detectedZoneColumn, userZone);
+            }
 
-              if (useZoneFilter && detectedZoneColumn) {
-                query = query.eq(detectedZoneColumn, userZone);
+            let { data, error } = await query;
+
+            if (error) {
+              // If zone column doesn't exist, retry without zone filter
+              const isColumnError = error.message?.includes('column') || error.code === '42703' || error.code === 'PGRST116';
+              if (zoneFilterEnabled && detectedZoneColumn && isColumnError) {
+                console.warn(`[DatabaseDropdown] ⚠️ Zone column "${detectedZoneColumn}" not found — retrying without zone filter`);
+                const fallback = await supabase
+                  .from(dbSource.table)
+                  .select('*')
+                  .order(dbSource.display_field, { ascending: true })
+                  .range(0, BATCH_SIZE - 1);
+                data = fallback.data;
+                error = fallback.error;
               }
-
-              let { data, error } = await query;
-
               if (error) {
-                // If zone column doesn't exist, retry without zone filter
-                const isColumnError = error.message?.includes('column') || error.code === '42703' || error.code === 'PGRST116';
-                if (useZoneFilter && detectedZoneColumn && isColumnError) {
-                  console.warn(`[DatabaseDropdown] ⚠️ Zone column "${detectedZoneColumn}" not found — retrying without zone filter`);
-                  useZoneFilter = false;
-                  const fallback = await supabase
-                    .from(dbSource.table)
-                    .select('*')
-                    .order(dbSource.display_field, { ascending: true })
-                    .range(from, to);
-                  data = fallback.data;
-                  error = fallback.error;
-                }
-                if (error) {
-                  console.error(`[DatabaseDropdown] Error loading ${dbSource.table}:`, error);
-                  throw error;
-                }
-              }
-
-              const batchRows = data || [];
-              allRows = [...allRows, ...batchRows];
-              console.log(`[DatabaseDropdown] ✅ Batch ${batchNum}: ${batchRows.length} rows (Total so far: ${allRows.length})`);
-
-              // Update state progressively so user sees data as it loads
-              setDatabaseDropdownData(prev => ({ ...prev, [field.id]: [...allRows] }));
-
-              if (batchRows.length < BATCH_SIZE) {
-                hasMore = false; // No more data
+                console.error(`[DatabaseDropdown] Error loading ${dbSource.table}:`, error);
+                throw error;
               }
             }
 
-            console.log(`[DatabaseDropdown] ✅ Loaded all ${allRows.length} rows from "${dbSource.table}" (client-side search)`);
+            const rows = data || [];
+            setDatabaseDropdownData(prev => ({ ...prev, [field.id]: rows }));
+
+            if (rows.length >= BATCH_SIZE) {
+              // Table is large — enable server-side search, stop downloading
+              console.log(`[DatabaseDropdown] 🚀 "${dbSource.table}" has ${rows.length}+ rows → server-side search enabled`);
+              setServerSearchRequired(prev => ({ ...prev, [field.id]: true }));
+            } else {
+              console.log(`[DatabaseDropdown] ✅ Loaded all ${rows.length} rows from "${dbSource.table}" (client-side search)`);
+            }
           } catch (err: any) {
             console.error(`[DatabaseDropdown] Failed to load data for field ${field.field_label}:`, err);
           } finally {
@@ -750,154 +582,14 @@ export function ProgramSubmitModal({ program, userId, onClose, onSuccess }: Prog
     console.log(`[Photo] Removed photo ${index} from field ${fieldId}`);
   };
 
-  // 🚐 Check van checkout enforcement when number plate is selected (per-program setting)
-  // 🆕 Uses direct Supabase RPC (database function) — no APK deployment needed
-  const checkVanCheckoutEnforcement = async (vanPlate: string) => {
-    // Check the per-program flag instead of global setting
-    if (!program.van_checkout_enforcement_enabled || !vanPlate) return;
-
-    console.log(`[VanEnforcement] 🔍 Checking van checkout status for: "${vanPlate}" | program.van_checkout_enforcement_enabled=${program.van_checkout_enforcement_enabled}`);
-    setVanCheckStatus({ checking: true, allowed: null, message: 'Checking van checkout status...' });
-
-    try {
-      const supabaseClient = getSupabaseClient();
-      const { data, error } = await supabaseClient.rpc('check_van_checkout_enforcement', {
-        van_plate: vanPlate
-      });
-
-      console.log(`[VanEnforcement] RPC response for "${vanPlate}":`, JSON.stringify(data), error ? `Error: ${error.message}` : '');
-
-      if (error) {
-        // RPC error — fail closed (block check-in to be safe)
-        console.error('[VanEnforcement] RPC error, failing closed:', error.message);
-        setVanCheckStatus({
-          checking: false,
-          allowed: false,
-          message: 'Kindly check out previous trip before you can check in again'
-        });
-        return;
-      }
-
-      if (data) {
-        setVanCheckStatus({
-          checking: false,
-          allowed: data.allowed,
-          message: data.message || (data.allowed ? 'Van is clear for check-in' : 'Kindly check out previous trip before you can check in again')
-        });
-      } else {
-        // No data returned — fail closed
-        console.warn('[VanEnforcement] No data returned from RPC, failing closed');
-        setVanCheckStatus({
-          checking: false,
-          allowed: false,
-          message: 'Kindly check out previous trip before you can check in again'
-        });
-      }
-    } catch (err) {
-      console.error('[VanEnforcement] Exception:', err);
-      // Network/exception error — fail closed
-      setVanCheckStatus({
-        checking: false,
-        allowed: false,
-        message: 'Kindly check out previous trip before you can check in again'
-      });
-    }
-  };
-
-  // 🔗 Linked checkout: check if van was checked in today via van-lookup endpoint
-  const checkLinkedCheckIn = async (vanPlate: string) => {
-    if (!isLinkedCheckout || !vanPlate) return;
-
-    const plateNormalized = vanPlate.trim().toUpperCase().replace(/\s+/g, '');
-    console.log(`[LinkedCheckout] 🔍 Checking van check-in for plate="${plateNormalized}", linked_program=${program.linked_checkin_program_id}`);
-    
-    setLinkedCheckInStatus({ checking: true, vanCheckedIn: null, numberPlate: plateNormalized, message: 'Checking van check-in status...' });
-    setShowCheckInRequired(false);
-
-    try {
-      const headers = getAuthHeaders();
-      const resp = await fetch(
-        `https://${projectId}.supabase.co/functions/v1/make-server-28f2f653/programs/${program.id}/checkin/van-lookup?number_plate=${encodeURIComponent(plateNormalized)}&linked_program_id=${program.linked_checkin_program_id}`,
-        { headers }
-      );
-      const data = await resp.json();
-
-      console.log(`[LinkedCheckout] Van lookup response:`, JSON.stringify(data));
-
-      if (data.success && data.van_checked_in) {
-        // Van was checked in — populate MSISDNs
-        const siteNames = (data.sites || []).map((s: any) => s.name).filter(Boolean).join(', ');
-        const siteInfo = siteNames ? ` | Site: ${siteNames}` : '';
-        setLinkedCheckInStatus({
-          checking: false,
-          vanCheckedIn: true,
-          numberPlate: plateNormalized,
-          message: `✅ Van ${plateNormalized} is checked in. ${data.total_promoters || 0} MSISDNs loaded.${siteInfo}`
-        });
-        setLinkedCheckInData(data);
-        setShowCheckInRequired(false);
-
-        // Store morning odometer reading from check-in
-        if (data.morning_odometer !== undefined && data.morning_odometer !== null) {
-          setMorningOdometer(data.morning_odometer);
-          console.log(`[LinkedCheckout] Morning odometer: ${data.morning_odometer}`);
-        } else {
-          setMorningOdometer(null);
-        }
-
-        // Auto-populate linked MSISDNs from check-in data
-        if (data.promoters && data.promoters.length > 0) {
-          const msisdns: LinkedMSISDN[] = data.promoters.map((p: any) => ({
-            id: p.id || `ci-${Date.now()}-${Math.random()}`,
-            msisdn: p.msisdn,
-            site_name: p.site_name,
-            ga_done: '',
-            fromCheckIn: true,
-          }));
-          setLinkedMSISDNs(msisdns);
-          console.log(`[LinkedCheckout] Auto-populated ${msisdns.length} MSISDNs from check-in`);
-        } else {
-          setLinkedMSISDNs([]);
-          console.log('[LinkedCheckout] No MSISDNs found in check-in data');
-        }
-      } else {
-        // Van was NOT checked in — show block
-        console.log(`[LinkedCheckout] Van "${plateNormalized}" was NOT checked in today`);
-        setLinkedCheckInStatus({
-          checking: false,
-          vanCheckedIn: false,
-          numberPlate: plateNormalized,
-          message: data.message || `Van ${plateNormalized} was not checked in today.`
-        });
-        setLinkedCheckInData(null);
-        setLinkedMSISDNs([]);
-        setShowCheckInRequired(true);
-      }
-    } catch (err) {
-      console.error('[LinkedCheckout] Exception during van lookup:', err);
-      setLinkedCheckInStatus({
-        checking: false,
-        vanCheckedIn: false,
-        numberPlate: plateNormalized,
-        message: 'Error checking van check-in status. Please try again.'
-      });
-      setShowCheckInRequired(true);
-    }
-  };
-
   const handleFieldChange = (fieldId: string, value: any) => {
     console.log(`[FieldChange] Setting field ${fieldId} to:`, value, Array.isArray(value) ? '(array)' : '(single)');
-    // 🔒 Save scroll position before state update triggers re-render
-    if (scrollContainerRef.current) {
-      scrollPositionRef.current = scrollContainerRef.current.scrollTop;
-    }
     setFormData(prev => {
       const updated = { ...prev, [fieldId]: value };
       console.log('[FieldChange] FormData after update:', updated);
       return updated;
     });
     
-    // 🔗 Detect number plate selection for linked checkout (first field = order_index 0)
     // Check if this is a shop selection (format: "partner_name / usdm_name")
     if (typeof value === 'string' && value.includes(' / ')) {
       handleShopDropdownSelection(fieldId, value);
@@ -911,31 +603,6 @@ export function ProgramSubmitModal({ program, userId, onClose, onSuccess }: Prog
       if (valueForAutoPopulate) {
         console.log(`[FieldChange] Auto-populating from:`, valueForAutoPopulate, Array.isArray(value) ? `(first of ${value.length} sites)` : '');
         handleDatabaseDropdownSelection(fieldId, valueForAutoPopulate, field);
-      }
-    }
-    
-    // 🚐 Van checkout enforcement: check when number plate field is selected in a check-in program
-    if (field) {
-      const fieldLabel = (field.field_label || field.field_name || '').toLowerCase().replace(/[_\s-]+/g, '');
-      const isNumberPlateField = fieldLabel.includes('numberplate') || fieldLabel.includes('vanselection') || fieldLabel.includes('van');
-      if (isNumberPlateField) {
-        if (typeof value === 'string' && value.trim()) {
-          checkVanCheckoutEnforcement(value.trim());
-          // 🔗 Linked checkout: also check van check-in status
-          if (isLinkedCheckout) {
-            checkLinkedCheckIn(value.trim());
-          }
-        } else {
-          // Clear status when field is emptied
-          setVanCheckStatus({ checking: false, allowed: null, message: '' });
-          if (isLinkedCheckout) {
-            setLinkedCheckInStatus({ checking: false, vanCheckedIn: null, numberPlate: '', message: '' });
-            setShowCheckInRequired(false);
-            setLinkedMSISDNs([]);
-            setLinkedCheckInData(null);
-            setMorningOdometer(null);
-          }
-        }
       }
     }
   };
@@ -1129,25 +796,334 @@ export function ProgramSubmitModal({ program, userId, onClose, onSuccess }: Prog
     }
   };
 
-  const handleSubmit = () => handleFormSubmit(
-    {
-      program,
-      userId,
-      fields,
-      formData,
-      photos,
-      location,
-      shopName,
-      submissionDate,
-      submissionTime,
-      linkedMSISDNs,
-      linkedCheckInData,
-      morningOdometer,
-      inlineOdometer: inlineOdometerRef.current,
-      fieldMetadata,
-    },
-    { setSubmitting, setError, setValidationErrors, onSuccess }
-  );
+  const handleSubmit = async () => {
+    try {
+      setSubmitting(true);
+      setError('');
+
+      // Validate required fields
+      const validationErrors: Record<string, boolean> = {};
+      console.log('[Submit] Starting validation...', { 
+        totalFields: fields.length, 
+        formData,
+        photos: Object.keys(photos).map(k => ({ fieldId: k, count: photos[k].length }))
+      });
+      
+      for (const field of fields) {
+        if (field.is_required) {
+          // Special handling for photo upload fields
+          if (field.field_type === 'photo' || field.field_type === 'photo_upload') {
+            // Check if at least one photo has been uploaded for this field
+            if (!photos[field.id] || photos[field.id].length === 0) {
+              console.log(`[Submit] ❌ Validation failed for photo field: "${field.label}" (${field.id}) - no photos uploaded`);
+              validationErrors[field.id] = true;
+            } else {
+              console.log(`[Submit] ✅ Photo field valid: "${field.label}" has ${photos[field.id].length} photo(s)`);
+            }
+          } 
+          // 🆕 Special handling for repeatable_number fields
+          else if (field.field_type === 'repeatable_number') {
+            const entries = formData[field.id];
+            const minEntries = field.options?.min_entries || 1;
+            const digitLength = field.options?.digit_length;
+            const preventDuplicates = field.options?.prevent_duplicates;
+            const checkDatabase = field.options?.check_database;
+            
+            // Check if minimum entries are provided
+            if (!entries || !Array.isArray(entries) || entries.length < minEntries) {
+              console.log(`[Submit] ❌ Validation failed for repeatable_number field: "${field.label}" (${field.id}) - need ${minEntries}, have ${entries?.length || 0}`);
+              validationErrors[field.id] = true;
+            } else {
+              // Check if all entries have values
+              const hasEmptyEntries = entries.some((entry: any) => entry === '' || entry === null || entry === undefined);
+              if (hasEmptyEntries) {
+                console.log(`[Submit] ❌ Validation failed for repeatable_number field: "${field.label}" (${field.id}) - has empty entries`);
+                validationErrors[field.id] = true;
+              } else if (digitLength) {
+                // 🆕 Check if all entries match the exact digit length requirement
+                const invalidEntries = entries.filter((entry: any) => {
+                  const entryStr = entry.toString();
+                  return entryStr.length !== digitLength;
+                });
+                
+                if (invalidEntries.length > 0) {
+                  console.log(`[Submit] ❌ Validation failed for repeatable_number field: "${field.label}" (${field.id}) - ${invalidEntries.length} entries don't match required ${digitLength} digits`);
+                  validationErrors[field.id] = true;
+                } else if (preventDuplicates) {
+                  // 🆕 Check for duplicate values within the same submission
+                  const uniqueValues = new Set(entries.map((e: any) => e.toString()));
+                  if (uniqueValues.size < entries.length) {
+                    const duplicateCount = entries.length - uniqueValues.size;
+                    console.log(`[Submit] ❌ Validation failed for repeatable_number field: "${field.label}" (${field.id}) - contains ${duplicateCount} duplicate value(s)`);
+                    validationErrors[field.id] = true;
+                    validationErrors[`${field.id}_duplicate`] = true; // Special flag for duplicate error
+                  } else {
+                    console.log(`[Submit] ✅ Repeatable field valid: "${field.label}" has ${entries.length} unique entries with exactly ${digitLength} digits each`);
+                  }
+                } else {
+                  console.log(`[Submit] ✅ Repeatable field valid: "${field.label}" has ${entries.length} entries with exactly ${digitLength} digits each`);
+                }
+              } else if (preventDuplicates) {
+                // Check for duplicates even without digit length requirement
+                const uniqueValues = new Set(entries.map((e: any) => e.toString()));
+                if (uniqueValues.size < entries.length) {
+                  const duplicateCount = entries.length - uniqueValues.size;
+                  console.log(`[Submit] ❌ Validation failed for repeatable_number field: "${field.label}" (${field.id}) - contains ${duplicateCount} duplicate value(s)`);
+                  validationErrors[field.id] = true;
+                  validationErrors[`${field.id}_duplicate`] = true;
+                } else {
+                  console.log(`[Submit] ✅ Repeatable field valid: "${field.label}" has ${entries.length} unique entries`);
+                }
+              } else {
+                console.log(`[Submit] ✅ Repeatable field valid: "${field.label}" has ${entries.length} entries`);
+              }
+            }
+          } 
+          else {
+            // For all other field types, check formData
+            const value = formData[field.id];
+            // Allow 0 and false as valid values, but reject null, undefined, and empty strings
+            if (value === '' || value === null || value === undefined) {
+              console.log(`[Submit] ❌ Validation failed for field: "${field.label}" (${field.id}, type: ${field.field_type}) - value is empty:`, value);
+              validationErrors[field.id] = true;
+            } else {
+              console.log(`[Submit] ✅ Field valid: "${field.label}" = "${value}"`);
+            }
+          }
+        }
+      }
+      
+      if (Object.keys(validationErrors).length > 0) {
+        console.log('[Submit] ❌ VALIDATION FAILED - Errors:', validationErrors);
+        console.log('[Submit] Failed fields:', fields.filter(f => validationErrors[f.id]).map(f => ({ label: f.label, id: f.id, type: f.field_type })));
+        setValidationErrors(validationErrors);
+        setError('❌ Please fill in all required fields (marked with *)');
+        setSubmitting(false);
+        return;
+      }
+      
+      // 🆕 Check database for same-day duplicates if configured
+      console.log('[Submit] 🔍 Checking for database duplicate protection...');
+      for (const field of fields) {
+        if (field.field_type === 'repeatable_number' && field.options?.check_database) {
+          const entries = formData[field.id];
+          if (entries && Array.isArray(entries) && entries.length > 0) {
+            console.log(`[Submit] 🔍 Checking database for duplicates in field: "${field.label}"`);
+            
+            // Get today's date range (start and end of day in local timezone)
+            const today = new Date();
+            const startOfDay = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 0, 0, 0);
+            const endOfDay = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 23, 59, 59);
+            
+            try {
+              // Query submissions for this program submitted today
+              // NOTE: Using 'responses' column (not 'form_data')
+              console.log(`[Submit] 🔍 Querying database using 'responses' column for program ${program.id}`);
+              const supabase = getSupabaseClient();
+              const { data: todaySubmissions, error: dbError } = await supabase
+                .from('submissions')
+                .select('responses')
+                .eq('program_id', program.id)
+                .gte('created_at', startOfDay.toISOString())
+                .lte('created_at', endOfDay.toISOString());
+              
+              if (dbError) {
+                console.error(`[Submit] ❌ Database check error for field "${field.label}":`, dbError);
+                throw new Error(`Failed to check for duplicate entries: ${dbError.message}`);
+              }
+              
+              console.log(`[Submit] 📊 Found ${todaySubmissions?.length || 0} submissions today for this program`);
+              
+              // Extract all values for this field from today's submissions
+              const existingValues = new Set<string>();
+              todaySubmissions?.forEach((submission: any) => {
+                const fieldData = submission.responses?.[field.id];
+                if (fieldData && Array.isArray(fieldData)) {
+                  fieldData.forEach((value: any) => {
+                    existingValues.add(value.toString());
+                  });
+                }
+              });
+              
+              console.log(`[Submit] 📊 Found ${existingValues.size} existing values in database for field "${field.label}"`);
+              
+              // Check if any of the current entries already exist
+              const duplicateEntries = entries.filter((entry: any) => 
+                existingValues.has(entry.toString())
+              );
+              
+              if (duplicateEntries.length > 0) {
+                console.log(`[Submit] ❌ Database duplicate detected for field "${field.label}":`, duplicateEntries);
+                validationErrors[field.id] = true;
+                validationErrors[`${field.id}_database_duplicate`] = duplicateEntries; // Store the duplicate values
+                setValidationErrors(validationErrors);
+                setError(`❌ The following ${field.options.entry_label || 'number'}(s) were already submitted today: ${duplicateEntries.join(', ')}`);
+                setSubmitting(false);
+                return;
+              }
+              
+              console.log(`[Submit] ✅ No database duplicates found for field "${field.label}"`);
+            } catch (err: any) {
+              console.error(`[Submit] ❌ Error checking database duplicates:`, err);
+              setError(`❌ ${err.message}`);
+              setSubmitting(false);
+              return;
+            }
+          }
+        }
+      }
+      
+      console.log('[Submit] ✅ All validations passed!');
+
+      // 🆕 Combine all photos from all fields into a single array
+      const allPhotos: File[] = [];
+      Object.values(photos).forEach(fieldPhotos => {
+        allPhotos.push(...fieldPhotos);
+      });
+
+      console.log('[Submit] Starting submission...', {
+        programId: program.id,
+        userId,
+        formData,
+        totalPhotos: allPhotos.length,
+        photosByField: Object.keys(photos).reduce((acc, fieldId) => {
+          acc[fieldId] = photos[fieldId].length;
+          return acc;
+        }, {} as Record<string, number>),
+        location,
+        shopName,
+        submissionDate,
+        submissionTime,
+      });
+
+      // Convert photos to base64 for storage
+      const photoData = [];
+      for (const photo of allPhotos) {
+        const reader = new FileReader();
+        const base64 = await new Promise<string>((resolve) => {
+          reader.onloadend = () => resolve(reader.result as string);
+          reader.readAsDataURL(photo);
+        });
+        photoData.push({
+          name: photo.name,
+          type: photo.type,
+          size: photo.size,
+          data: base64,
+          timestamp: new Date().toISOString(),
+        });
+      }
+
+      console.log('[Submit] Photos converted to base64:', photoData.length);
+
+      // ✅ BYPASS EDGE FUNCTION - Write directly to Supabase database
+      console.log('[Submit] Writing directly to database (bypassing Edge Function)...');
+      
+      const supabase = getSupabaseClient();
+      
+      // Award points based on program's points_enabled setting
+      // Use nullish coalescing (??) so that 0 is treated as a valid value, not falsy
+      const pointsToAward = (program.points_enabled !== false) ? (program.points_value ?? 10) : 0;
+      console.log('[Submit] Points to award:', pointsToAward, '(points_enabled:', program.points_enabled, ')');
+
+      const { data: submission, error: dbError } = await supabase
+        .from('submissions')
+        .insert({
+          program_id: program.id,
+          user_id: userId,
+          responses: {
+            ...formData,
+            // Include auto-captured metadata in responses
+            _shop_name: shopName,
+            _submission_date: submissionDate,
+            _submission_time: submissionTime,
+          },
+          photos: photoData.map(p => p.data), // Store base64 strings
+          gps_location: location ? { lat: location.lat, lng: location.lng } : null,
+          status: 'submitted', // All submissions are automatically collected
+          points_awarded: pointsToAward, // Automatically award points
+          // submitted_at will be auto-set by database DEFAULT NOW()
+        })
+        .select()
+        .single();
+
+      if (dbError) {
+        console.error('[Submit] Database error:', dbError);
+        throw new Error(dbError.message || 'Failed to save submission to database');
+      }
+
+      console.log('[Submit] ✅ Submission saved' + (pointsToAward > 0 ? ` and ${pointsToAward} points awarded!` : ' (no points - tracking only)'), submission);
+
+      // Update user's total points only if points were awarded
+      if (pointsToAward > 0) {
+        const { data: currentUser } = await supabase
+          .from('app_users')
+          .select('total_points')
+          .eq('id', userId)
+          .single();
+
+        const newTotal = (currentUser?.total_points || 0) + pointsToAward;
+
+        const { error: pointsError } = await supabase
+          .from('app_users')
+          .update({ 
+            total_points: newTotal
+          })
+          .eq('id', userId);
+
+        if (pointsError) {
+          console.error('[Submit] Error updating user points:', pointsError);
+          // Don't throw - submission is already saved
+        } else {
+          console.log('[Submit] ✅ User points updated (+', pointsToAward, 'points). New total:', newTotal);
+        }
+
+        // Update localStorage with new points
+        const storedUser = localStorage.getItem('tai_user');
+        if (storedUser) {
+          const user = JSON.parse(storedUser);
+          user.total_points = newTotal;
+          localStorage.setItem('tai_user', JSON.stringify(user));
+        }
+
+        // ✅ Track the submission in analytics
+        await trackAction(ANALYTICS_ACTIONS.SUBMIT_PROGRAM, {
+          program_id: program.id,
+          program_title: program.title,
+          points_awarded: pointsToAward,
+          photos_count: photos.length,
+          has_gps: !!location,
+          submission_id: submission.id,
+        });
+
+        onSuccess(pointsToAward, newTotal);
+      } else {
+        console.log('[Submit] ℹ️ No points awarded (points_enabled = false)');
+        // Get current total for success callback
+        const { data: currentUser } = await supabase
+          .from('app_users')
+          .select('total_points')
+          .eq('id', userId)
+          .single();
+        
+        // ✅ Track the submission in analytics (even though no points)
+        await trackAction(ANALYTICS_ACTIONS.SUBMIT_PROGRAM, {
+          program_id: program.id,
+          program_title: program.title,
+          points_awarded: 0,
+          photos_count: photos.length,
+          has_gps: !!location,
+          submission_id: submission.id,
+        });
+
+        onSuccess(0, currentUser?.total_points || 0);
+      }
+    } catch (err: any) {
+      console.error('[Submit] Error:', err);
+      setError(err.message || 'Submission failed');
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   if (loadingFields) {
     return (
@@ -1180,16 +1156,12 @@ export function ProgramSubmitModal({ program, userId, onClose, onSuccess }: Prog
   };
 
   const userInfo = getUserInfo();
-  const roleDisplay = userInfo.role === 'zonal_sales_manager' || userInfo.role === 'zsm' ? 'ZSM' :
-                      userInfo.role === 'zone_business_lead' || userInfo.role === 'zbm' || userInfo.role === 'zonal_business_manager' ? 'ZBM' :
-                      userInfo.role === 'sales_executive' || userInfo.role === 'se' ? 'SE' : '';
+  const roleDisplay = userInfo.role === 'zonal_sales_manager' ? 'ZSM' :
+                      userInfo.role === 'zone_business_lead' ? 'ZBM' :
+                      userInfo.role === 'sales_executive' ? 'SE' : '';
 
   // 🆕 Check if user's role is allowed to submit this program
-  const currentRoleAliases = getProgramRoleAliases(userInfo.role);
-  const canSubmit = !program.who_can_submit || program.who_can_submit.length === 0 || program.who_can_submit.some((allowedRole) => {
-    const allowedAliases = getProgramRoleAliases(allowedRole);
-    return allowedAliases.some(alias => currentRoleAliases.includes(alias));
-  });
+  const canSubmit = !program.who_can_submit || program.who_can_submit.length === 0 || program.who_can_submit.includes(userInfo.role);
   
   // If user cannot submit, show a different modal
   if (!canSubmit) {
@@ -1224,59 +1196,28 @@ export function ProgramSubmitModal({ program, userId, onClose, onSuccess }: Prog
   }
 
   return (
-    <div className={`fixed inset-0 ${isLinkedCheckout ? 'bg-black/30 backdrop-blur-[2px]' : 'bg-black/50'} flex items-center justify-center z-50 p-4 overflow-y-auto`}>
-      {/* 🔗 Full-screen "Check-In Required" overlay for linked checkout */}
-      {showCheckInRequired && isLinkedCheckout && (
-        <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-[60] p-4">
-          <div className="bg-white rounded-3xl max-w-sm w-full overflow-hidden shadow-[0_24px_80px_rgba(0,0,0,0.15)]">
-            <LinkedCheckoutBlock onClose={onClose} />
-          </div>
-        </div>
-      )}
-      <div
-        ref={scrollContainerRef}
-        onScroll={() => {
-          if (scrollContainerRef.current) {
-            scrollPositionRef.current = scrollContainerRef.current.scrollTop;
-          }
-        }}
-        className={`${isLinkedCheckout ? 'bg-[#FAFAFA] rounded-2xl shadow-[0_24px_80px_rgba(0,0,0,0.12)]' : 'bg-white rounded-lg'} p-6 max-w-2xl w-full my-8 max-h-[90vh] overflow-y-auto`}>
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4 overflow-y-auto">
+      <div className="bg-white rounded-lg p-6 max-w-2xl w-full my-8 max-h-[90vh] overflow-y-auto">
         {/* Header */}
-        <div className={`flex items-start justify-between ${isLinkedCheckout ? 'mb-8' : 'mb-6'}`} data-tour="program-header">
+        <div className="flex items-start justify-between mb-6">
           <div>
-            {isLinkedCheckout && (
-              <div className="text-[11px] font-semibold text-gray-400 uppercase tracking-[0.1em] mb-1.5">Check Out</div>
-            )}
-            <h2 className={`${isLinkedCheckout ? 'text-xl font-bold text-gray-900 tracking-tight' : 'text-2xl'} mb-2`}>{program.title}</h2>
-            <p className={isLinkedCheckout ? 'text-sm text-gray-400' : 'text-gray-600'}>{program.description}</p>
+            <h2 className="text-2xl mb-2">{program.title}</h2>
+            <p className="text-gray-600">{program.description}</p>
             <div className="flex items-center gap-4 mt-3 flex-wrap">
               {program.points_enabled !== false && (program.points_value > 0) ? (
-                isLinkedCheckout ? (
-                  <div className="flex items-center gap-1.5 text-sm text-gray-500">
-                    <Star className="w-4 h-4 text-amber-400" />
-                    <span className="font-medium">{program.points_value} pts</span>
-                  </div>
-                ) : (
-                  <div className="flex items-center gap-2 text-yellow-600">
-                    <Star className="w-5 h-5" />
-                    <span>{program.points_value} points</span>
-                  </div>
-                )
+                <div className="flex items-center gap-2 text-yellow-600">
+                  <Star className="w-5 h-5" />
+                  <span>{program.points_value} points</span>
+                </div>
               ) : (
-                <div className={`${isLinkedCheckout ? 'text-[11px] px-2.5 py-1 bg-gray-100 text-gray-500 rounded-lg font-medium' : 'px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-semibold border border-gray-300'}`}>
-                  {isLinkedCheckout ? 'Tracking Only' : '📋 Tracking Only (No Points)'}
+                <div className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-semibold border border-gray-300">
+                  📋 Tracking Only (No Points)
                 </div>
               )}
               {roleDisplay && (
-                isLinkedCheckout ? (
-                  <div className="text-[11px] px-2.5 py-1 bg-gray-100 text-gray-500 rounded-lg font-medium">
-                    {roleDisplay}
-                  </div>
-                ) : (
-                  <div className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm font-semibold border border-blue-200">
-                    ✅ Submitting as: {roleDisplay}
-                  </div>
-                )
+                <div className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm font-semibold border border-blue-200">
+                  ✅ Submitting as: {roleDisplay}
+                </div>
               )}
               {/* GPS Status Indicator */}
               {capturingGPS && (
@@ -1299,17 +1240,14 @@ export function ProgramSubmitModal({ program, userId, onClose, onSuccess }: Prog
               )}
             </div>
           </div>
-          <button onClick={onClose} className={isLinkedCheckout ? 'w-8 h-8 rounded-xl bg-gray-100 flex items-center justify-center text-gray-400 hover:text-gray-600 hover:bg-gray-200 transition-all' : 'text-gray-400 hover:text-gray-600'}>
-            <X className={isLinkedCheckout ? 'w-4 h-4' : 'w-6 h-6'} />
+          <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
+            <X className="w-6 h-6" />
           </button>
         </div>
 
         {/* Drop Pin Button - At the top (only if GPS auto-detect is enabled) */}
         {(program.gps_auto_detect_enabled !== false) && (
-        <div className={isLinkedCheckout
-          ? 'mb-6 bg-white border border-gray-200 rounded-2xl p-5 shadow-[0_1px_8px_rgba(0,0,0,0.04)]'
-          : 'mb-6 bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-300 rounded-xl p-5'
-        } data-tour="program-gps">
+        <div className="mb-6 bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-300 rounded-xl p-5">
           <div className="flex items-center gap-2 mb-3">
             <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
               <MapPin className="w-5 h-5 text-white" />
@@ -1433,107 +1371,17 @@ export function ProgramSubmitModal({ program, userId, onClose, onSuccess }: Prog
 
         {/* 🆕 Auto-populate Success Toast */}
         {autoPopulateMessage && (
-          <div className={`mb-6 p-4 ${isLinkedCheckout ? 'bg-white border border-green-200 rounded-2xl shadow-sm' : 'bg-green-50 border-2 border-green-400 rounded-lg shadow-lg'} text-green-800 animate-pulse`}>
-            <div className={`font-semibold flex items-center gap-2 ${isLinkedCheckout ? 'text-sm text-green-700' : ''}`}>
-              {isLinkedCheckout ? (
-                <div className="w-5 h-5 rounded-md bg-green-500 flex items-center justify-center flex-shrink-0">
-                  <CheckCircle className="w-3 h-3 text-white" />
-                </div>
-              ) : (
-                <span className="text-2xl">✨</span>
-              )}
+          <div className="mb-6 p-4 bg-green-50 border-2 border-green-400 rounded-lg text-green-800 animate-pulse shadow-lg">
+            <div className="font-semibold flex items-center gap-2">
+              <span className="text-2xl">✨</span>
               {autoPopulateMessage}
             </div>
           </div>
         )}
 
-        {/* 🚐 Van Checkout Enforcement Status Banner */}
-        {vanCheckStatus.message && (
-          <div className={`mb-6 p-4 rounded-lg border-2 flex items-center gap-3 ${
-            vanCheckStatus.checking
-              ? 'bg-blue-50 border-blue-300 text-blue-800'
-              : vanCheckStatus.allowed
-              ? 'bg-green-50 border-green-400 text-green-800'
-              : 'bg-red-50 border-red-400 text-red-800'
-          }`}>
-            {vanCheckStatus.checking ? (
-              <div className="w-5 h-5 border-2 border-blue-500 border-t-transparent rounded-full animate-spin flex-shrink-0" />
-            ) : vanCheckStatus.allowed ? (
-              <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-            ) : (
-              <span className="text-xl flex-shrink-0">🚫</span>
-            )}
-            <div className="font-semibold text-sm">{vanCheckStatus.message}</div>
-          </div>
-        )}
-
-        {/* 🔗 Linked Checkout: Van Check-In Status Banner — Jobs-style minimal */}
-        {isLinkedCheckout && linkedCheckInStatus.message && !showCheckInRequired && (
-          <div className={`mb-6 px-4 py-3.5 rounded-2xl flex items-center gap-3 ${
-            linkedCheckInStatus.checking
-              ? 'bg-white border border-gray-200 shadow-sm'
-              : linkedCheckInStatus.vanCheckedIn
-              ? 'bg-white border border-gray-200 shadow-sm'
-              : 'bg-red-50 border border-red-200'
-          }`}>
-            {linkedCheckInStatus.checking ? (
-              <div className="w-4 h-4 border-2 border-gray-400 border-t-transparent rounded-full animate-spin flex-shrink-0" />
-            ) : linkedCheckInStatus.vanCheckedIn ? (
-              <div className="w-6 h-6 rounded-lg bg-green-500 flex items-center justify-center flex-shrink-0">
-                <CheckCircle className="w-3.5 h-3.5 text-white" />
-              </div>
-            ) : (
-              <div className="w-6 h-6 rounded-lg bg-red-500 flex items-center justify-center flex-shrink-0">
-                <X className="w-3.5 h-3.5 text-white" />
-              </div>
-            )}
-            <div className={`text-sm font-medium ${
-              linkedCheckInStatus.checking ? 'text-gray-500' : linkedCheckInStatus.vanCheckedIn ? 'text-gray-700' : 'text-red-700'
-            }`}>{linkedCheckInStatus.message}</div>
-          </div>
-        )}
-
-        {/* 🔗 Linked Checkout: MSISDN Section (shown when van is checked in) */}
-        {isLinkedCheckout && linkedCheckInStatus.vanCheckedIn && linkedMSISDNs.length >= 0 && (
-          <LinkedCheckoutSection
-            linkedMSISDNs={linkedMSISDNs}
-            setLinkedMSISDNs={setLinkedMSISDNs}
-            morningOdometer={morningOdometer}
-            currentOdometer={(() => {
-              // Find the odometer field in checkout form by field_name or label
-              const odoField = fields.find((f: any) => {
-                const name = (f.field_name || '').toLowerCase();
-                const label = (f.field_label || '').toLowerCase();
-                return (name.includes('odometer') || label.includes('odometer')) && f.field_type === 'number';
-              });
-              if (odoField) {
-                const val = formData[odoField.id];
-                return val !== undefined && val !== null && val !== '' ? Number(val) : null;
-              }
-              return null;
-            })()}
-            onOdometerChange={(value) => {
-              // Store in ref (not state) — avoids re-render cascade on every keystroke
-              inlineOdometerRef.current = value;
-            }}
-            onOdometerBlur={() => {
-              // Sync to formData only on blur (user finished typing)
-              const value = inlineOdometerRef.current;
-              const odoField = fields.find((f: any) => {
-                const name = (f.field_name || '').toLowerCase();
-                const label = (f.field_label || '').toLowerCase();
-                return (name.includes('odometer') || label.includes('odometer')) && f.field_type === 'number';
-              });
-              if (odoField) {
-                handleFieldChange(odoField.id, value !== null ? value : '');
-              }
-            }}
-          />
-        )}
-
         {error && (
-          <div className={`mb-6 p-4 ${isLinkedCheckout ? 'bg-white border border-red-200 rounded-2xl shadow-sm' : 'bg-red-50 border border-red-200 rounded-lg'} text-red-800`}>
-            <div className={`font-semibold mb-2 ${isLinkedCheckout ? 'text-sm' : ''}`}>{error}</div>
+          <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-800">
+            <div className="font-semibold mb-2">{error}</div>
             {error.includes('permission denied') && (
               <div className="mt-3 p-3 bg-white border border-red-300 rounded text-sm">
                 <div className="font-semibold text-red-900 mb-2">🔧 Quick Fix:</div>
@@ -1551,21 +1399,12 @@ export function ProgramSubmitModal({ program, userId, onClose, onSuccess }: Prog
         )}
 
         {/* Form Fields */}
-        <div className={`${isLinkedCheckout ? 'space-y-5 mb-8' : 'space-y-4 mb-6'}`} data-tour="program-fields" key={`fields-${shops.length}-${shopsLoaded}`}>
-          {fields.map((field, fieldIndex) => {
+        <div className="space-y-4 mb-6" key={`fields-${shops.length}-${shopsLoaded}`}>
+          {fields.map((field) => {
             // 🆕 SKIP Van Calendar site fields ONLY if progressive disclosure is enabled
             const isSiteField = /^(monday|tuesday|wednesday|thursday|friday|saturday)_site_\d+$/.test(field.field_name);
             if (shouldSkipField(field)) {
               return null;
-            }
-            
-            // 🆕 SKIP odometer field in linked checkout — it's filled inline in the Odometer Tracker card
-            if (isLinkedCheckout && morningOdometer !== null) {
-              const fn = (field.field_name || '').toLowerCase();
-              const fl = (field.field_label || '').toLowerCase();
-              if ((fn.includes('odometer') || fl.includes('odometer')) && (field.field_type || field.type) === 'number') {
-                return null;
-              }
             }
             
             // Support both field_label and label, field_type and type
@@ -1611,18 +1450,13 @@ export function ProgramSubmitModal({ program, userId, onClose, onSuccess }: Prog
             }
             
             const hasError = validationErrors[field.id];
-            const errorClass = hasError
-              ? (isLinkedCheckout ? 'border-red-300 bg-red-50/50 rounded-xl focus:border-red-400 focus:ring-1 focus:ring-red-200 focus:outline-none' : 'border-red-500 bg-red-50')
-              : (isLinkedCheckout ? 'border-gray-200 bg-gray-50 rounded-xl focus:bg-white focus:border-gray-900 focus:ring-1 focus:ring-gray-900/10 focus:outline-none transition-all' : 'border-gray-300');
+            const errorClass = hasError ? 'border-red-500 bg-red-50' : 'border-gray-300';
 
             return (
-              <div key={field.id} className={isLinkedCheckout ? 'bg-white rounded-2xl p-4 shadow-[0_1px_8px_rgba(0,0,0,0.04)] border border-gray-100' : ''}>
-                <label className={isLinkedCheckout
-                  ? 'block mb-2.5 text-[13px] font-semibold text-gray-900 tracking-tight'
-                  : 'block mb-2 text-gray-800 font-medium text-sm'
-                }>
+              <div key={field.id}>
+                <label className="block mb-2 text-gray-800 font-medium text-sm">
                   {label}
-                  {required && <span className={`ml-1 ${isLinkedCheckout ? 'text-red-400' : 'text-red-500'}`}>*</span>}
+                  {required && <span className="text-red-500 ml-1">*</span>}
                 </label>
                 
                 {/* 🔥 Show loading indicator for shop fields while shops are loading */}
@@ -1660,22 +1494,13 @@ export function ProgramSubmitModal({ program, userId, onClose, onSuccess }: Prog
 
                 {/* Number */}
                 {fieldType === 'number' && (
-                  <div>
-                    <input
-                      type="number"
-                      value={formData[field.id] || ''}
-                      onChange={(e) => handleFieldChange(field.id, e.target.value ? parseFloat(e.target.value) : '')}
-                      placeholder={field.placeholder}
-                      min={field.validation?.min !== undefined ? field.validation.min : undefined}
-                      max={field.validation?.max !== undefined ? field.validation.max : undefined}
-                      className={`w-full px-4 py-2 border rounded-lg ${errorClass}`}
-                    />
-                    {field.validation?.min !== undefined && field.validation?.max !== undefined && (
-                      <p className="text-xs text-gray-600 mt-1">
-                        Range: {field.validation.min} - {field.validation.max}
-                      </p>
-                    )}
-                  </div>
+                  <input
+                    type="number"
+                    value={formData[field.id] || ''}
+                    onChange={(e) => handleFieldChange(field.id, e.target.value ? parseFloat(e.target.value) : '')}
+                    placeholder={field.placeholder}
+                    className={`w-full px-4 py-2 border rounded-lg ${errorClass}`}
+                  />
                 )}
 
                 {/* 🆕 Repeatable Number */}
@@ -1881,20 +1706,15 @@ export function ProgramSubmitModal({ program, userId, onClose, onSuccess }: Prog
                     {(!isDatabaseDropdown || !loadingDatabaseDropdowns[field.id]) && (() => {
                       // 🚀 Server-search mode: use server results; otherwise use pre-loaded data
                       const isServerSearch = isDatabaseDropdown && serverSearchRequired[field.id];
-                      const currentSearchQuery = fieldSearchQueries[field.id] || '';
-                      const hasTypedSearch = currentSearchQuery.length >= 2;
                       let dropdownOptions = options;
                       if (isDatabaseDropdown) {
-                        let sourceData: any[];
-                        if (isServerSearch && hasTypedSearch) {
-                          // User has typed 2+ chars → use server search results
-                          sourceData = serverSearchResults[field.id] || [];
-                        } else {
-                          // No search query OR client-side mode → show pre-loaded data (first 1000 rows)
-                          sourceData = databaseDropdownData[field.id] || [];
-                        }
+                        const sourceData = isServerSearch
+                          ? (serverSearchResults[field.id] || [])
+                          : (databaseDropdownData[field.id] || []);
                         dropdownOptions = sourceData.map((row: any) => row[dbSource!.display_field]);
-                        console.log(`[DatabaseDropdown] Generated ${dropdownOptions.length} options for ${label} (serverSearch: ${isServerSearch}, hasTyped: ${hasTypedSearch})`);
+                        if (!isServerSearch) {
+                          console.log(`[DatabaseDropdown] Generated ${dropdownOptions.length} options for ${label}`);
+                        }
                       }
                       
                       // 🔥 SAFETY CHECK: Ensure dropdownOptions is always an array
@@ -1940,7 +1760,9 @@ export function ProgramSubmitModal({ program, userId, onClose, onSuccess }: Prog
                             console.log('[Dropdown] 🖱️ Click detected on search input');
                             setFieldDropdownOpen({ ...fieldDropdownOpen, [field.id]: true });
                           }}
-                          placeholder={`🔍 Search ${itemsLabel}...`}
+                          placeholder={isServerSearch
+                            ? `🔍 Type to search ${itemsLabel}...`
+                            : `🔍 Search ${itemsLabel}...`}
                           className={`w-full pl-4 pr-10 py-3 border-2 rounded-lg text-base focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all active:border-blue-500 ${errorClass}`}
                           style={{ 
                             fontSize: '16px', // Prevents iOS zoom on focus
@@ -1957,14 +1779,10 @@ export function ProgramSubmitModal({ program, userId, onClose, onSuccess }: Prog
                       {/* Helper text for mobile */}
                       {!fieldDropdownOpen[field.id] && !formData[field.id] && (
                         <p className="text-xs text-gray-500 mt-1">
-                          {isServerSearch ? `💡 Type at least 2 characters to search ${itemsLabel}` : `💡 Tap to search ${itemsLabel}`}
+                          {isServerSearch
+                            ? `💡 Type to search ${itemsLabel}`
+                            : `💡 Tap to search ${itemsLabel}`}
                         </p>
-                      )}
-                      {/* Server search: prompt to type when dropdown open but no query yet */}
-                      {isServerSearch && fieldDropdownOpen[field.id] && !serverSearchLoading[field.id] && !hasTypedSearch && dropdownOptions.length === 0 && (
-                        <div className="absolute z-[10000] w-full mt-1 bg-white border-2 border-blue-300 rounded-lg shadow-lg p-4 text-center text-sm text-blue-600">
-                          ⌨️ Type at least 2 characters to search
-                        </div>
                       )}
                       {/* Server search loading indicator */}
                       {isServerSearch && serverSearchLoading[field.id] && (
@@ -1973,21 +1791,22 @@ export function ProgramSubmitModal({ program, userId, onClose, onSuccess }: Prog
                           <span className="text-xs text-blue-600">Searching...</span>
                         </div>
                       )}
-                      {/* Server search: prompt when user typed 1 char (not enough) or no results */}
-                      {isServerSearch && fieldDropdownOpen[field.id] && !serverSearchLoading[field.id] && hasTypedSearch && dropdownOptions.length === 0 && (
+                      {/* Server search: prompt to type when open but no results yet */}
+                      {isServerSearch && fieldDropdownOpen[field.id] && !serverSearchLoading[field.id] && dropdownOptions.length === 0 && (
                         <div className="absolute z-[10000] w-full mt-1 bg-white border-2 border-blue-300 rounded-lg shadow-lg p-4 text-center text-sm text-gray-500">
-                          No results found. Try a different search term.
+                          {(fieldSearchQueries[field.id] || '').length < 2
+                            ? '🔍 Type at least 2 characters to search...'
+                            : 'No results found. Try a different search term.'}
                         </div>
                       )}
                       
                       {/* 📱 MOBILE-FIRST ANDROID-ROBUST DROPDOWN */}
                       {fieldDropdownOpen[field.id] && !serverSearchLoading[field.id] && dropdownOptions.length > 0 && (() => {
-                        // For server-search with typed query: results already filtered by DB
-                        // For pre-loaded data (no query yet) or client-side mode: filter locally
-                        const filteredOptions = (isServerSearch && hasTypedSearch)
+                        // For server-search: results already filtered by DB; for client-search: filter locally
+                        const filteredOptions = isServerSearch
                           ? dropdownOptions
                           : dropdownOptions.filter((option: string) =>
-                              option?.toLowerCase().includes((fieldSearchQueries[field.id] || '').toLowerCase())
+                              option.toLowerCase().includes((fieldSearchQueries[field.id] || '').toLowerCase())
                             );
                         const preventDuplicates = field.options?.prevent_duplicates || field.validation?.prevent_duplicates;
                         const submittedCount = preventDuplicates ? filteredOptions.filter(opt => submittedValues[field.id]?.includes(opt)).length : 0;
@@ -2027,7 +1846,7 @@ export function ProgramSubmitModal({ program, userId, onClose, onSuccess }: Prog
                                     <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
                                     <div className="absolute inset-0 w-2 h-2 bg-green-400 rounded-full animate-ping opacity-75"></div>
                                   </div>
-                                  <span className="text-white font-bold text-sm tracking-wide">SELECT {(field.field_label || label || 'OPTION').toUpperCase()}</span>
+                                  <span className="text-white font-bold text-sm tracking-wide">SELECT SHOP</span>
                                   <span className="text-blue-200 text-xs font-medium">
                                     ({filteredOptions.length})
                                   </span>
@@ -2124,7 +1943,7 @@ export function ProgramSubmitModal({ program, userId, onClose, onSuccess }: Prog
                                 {filteredOptions.length === 0 && (
                                   <div className="px-4 py-8 text-center">
                                     <div className="text-4xl mb-2">🔍</div>
-                                    <div className="text-sm font-semibold text-gray-700 mb-1">No results found</div>
+                                    <div className="text-sm font-semibold text-gray-700 mb-1">No shops found</div>
                                     <div className="text-xs text-gray-500">Try a different search term</div>
                                   </div>
                                 )}
@@ -2552,38 +2371,31 @@ export function ProgramSubmitModal({ program, userId, onClose, onSuccess }: Prog
           })()}
         </div>
 
+
+
         {/* Actions */}
-        <div className={`flex gap-3 ${isLinkedCheckout ? 'mt-8' : ''}`} data-tour="program-submit">
+        <div className="flex gap-3">
           <button
             onClick={onClose}
             disabled={submitting}
-            className={isLinkedCheckout
-              ? 'flex-1 px-6 py-3.5 text-gray-500 font-medium rounded-xl hover:bg-gray-100 disabled:opacity-50 transition-all'
-              : 'flex-1 px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50'
-            }
+            className="flex-1 px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50"
           >
             Cancel
           </button>
           <button
             onClick={handleSubmit}
-            disabled={submitting || vanCheckStatus.checking || vanCheckStatus.allowed === false || (isLinkedCheckout && linkedCheckInStatus.vanCheckedIn === false) || linkedCheckInStatus.checking}
-            className={isLinkedCheckout
-              ? 'flex-[2] px-6 py-3.5 bg-gray-900 text-white rounded-xl font-semibold hover:bg-gray-800 disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center gap-2 transition-all active:scale-[0.98] shadow-lg shadow-gray-900/20'
-              : 'flex-1 px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 disabled:opacity-50 flex items-center justify-center gap-2'
-            }
+            disabled={submitting}
+            className="flex-1 px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 disabled:opacity-50 flex items-center justify-center gap-2"
           >
             {submitting ? (
               <>
-                <div className={`animate-spin rounded-full h-4 w-4 border-2 border-white/30 ${isLinkedCheckout ? 'border-t-white' : 'border-b-white'}`}></div>
-                {isLinkedCheckout ? 'Submitting...' : 'Submitting...'}
+                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                Submitting...
               </>
             ) : (
               <>
-                {!isLinkedCheckout && <CheckCircle className="w-5 h-5" />}
-                {isLinkedCheckout
-                  ? `Submit Check Out${program.points_enabled !== false && program.points_value > 0 ? ` · ${program.points_value} pts` : ''}`
-                  : `Submit (${program.points_value} pts)`
-                }
+                <CheckCircle className="w-5 h-5" />
+                Submit ({program.points_value} pts)
               </>
             )}
           </button>

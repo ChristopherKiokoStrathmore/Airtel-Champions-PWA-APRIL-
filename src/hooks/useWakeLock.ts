@@ -17,7 +17,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 
 export function useWakeLock() {
   const [isActive, setIsActive] = useState(false);
-  const [isSupported, setIsSupported] = useState(
+  const [isSupported] = useState(
     typeof navigator !== 'undefined' && 'wakeLock' in navigator
   );
   const wakeLockRef = useRef<any>(null);
@@ -58,11 +58,8 @@ export function useWakeLock() {
         setIsActive(false);
         console.log('[WakeLock] 🔓 Released');
       });
-    } catch (err: any) {
-      // Permission denied by policy — mark as unsupported so the button hides
-      if (err?.name === 'NotAllowedError') {
-        setIsSupported(false);
-      }
+    } catch (err) {
+      console.warn('[WakeLock] ❌ Could not acquire:', err);
       setIsActive(false);
     }
   }, [isSupported]);

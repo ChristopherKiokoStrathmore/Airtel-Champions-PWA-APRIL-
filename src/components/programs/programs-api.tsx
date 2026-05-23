@@ -12,21 +12,16 @@
  */
 
 import { projectId, publicAnonKey } from '../../utils/supabase/info';
-import { logPWAAction, ACTION_TYPES } from '../../lib/activity-tracker';
 
 const API_BASE = `https://${projectId}.supabase.co/functions/v1/make-server-28f2f653`;
 
 // Helper for API calls
 async function apiCall(endpoint: string, options?: RequestInit) {
-  const storedUser = localStorage.getItem('tai_user');
-  const userId = storedUser ? JSON.parse(storedUser)?.id : null;
-
   const response = await fetch(`${API_BASE}${endpoint}`, {
     ...options,
     headers: {
       'Authorization': `Bearer ${publicAnonKey}`,
       'Content-Type': 'application/json',
-      ...(userId ? { 'X-User-Id': userId } : {}),
       ...options?.headers,
     },
   });
@@ -157,13 +152,6 @@ export const programsAPI = {
     }
     
     console.log('[ProgramsAPI] ✅ Submission created:', data.submission?.id, 'Points pending:', data.points_pending);
-    
-    // Track submission activity
-    logPWAAction(ACTION_TYPES.SUBMISSION_CREATE, {
-      programId,
-      submissionId: data.submission?.id,
-      pointsPending: data.points_pending,
-    });
     
     return data;
   },
@@ -350,142 +338,9 @@ export const programsAPI = {
     // This logic needs to be enhanced based on your hierarchy
     // For now, return all (implement filtering in backend for better performance)
     
-    console.log('[ProgramsAPI] ⚠ Hierarchical filtering not yet implemented, returning all');
+    console.log('[ProgramsAPI] ⚠️ Hierarchical filtering not yet implemented, returning all');
     
     return { success: true, submissions };
-  },
-
-  // ============================================
-  // SESSION CHECK-IN API
-  // ============================================
-
-  /**
-   * Get or create today's check-in session for a program
-   */
-  async getCheckinSession(programId: string) {
-    console.log('[ProgramsAPI] Getting check-in session for program:', programId);
-    const data = await apiCall(`/programs/${programId}/checkin/open`);
-    return data;
-  },
-
-  /**
-   * Save session data (sites, promoters, GAs)
-   */
-  async saveCheckinSession(programId: string, sessionData: {
-    session_id: string;
-    sites: any[];
-    promoters: any[];
-    total_gas: number;
-  }) {
-    console.log('[ProgramsAPI] Saving check-in session:', sessionData.session_id);
-    const data = await apiCall(`/programs/${programId}/checkin/save`, {
-      method: 'POST',
-      body: JSON.stringify(sessionData),
-    });
-    return data;
-  },
-
-  /**
-   * Close a check-in session (after 6 PM EAT)
-   */
-  async closeCheckinSession(programId: string, sessionData: {
-    session_id: string;
-    sites: any[];
-    promoters: any[];
-    total_gas: number;
-  }) {
-    console.log('[ProgramsAPI] Closing check-in session:', sessionData.session_id);
-    const data = await apiCall(`/programs/${programId}/checkin/close`, {
-      method: 'POST',
-      body: JSON.stringify(sessionData),
-    });
-    return data;
-  },
-
-  /**
-   * List all check-in sessions for a program (HQ/Director reporting)
-   */
-  async listCheckinSessions(programId: string, status?: 'open' | 'closed') {
-    console.log('[ProgramsAPI] Listing check-in sessions for program:', programId);
-    const endpoint = status
-      ? `/programs/${programId}/checkin/sessions?status=${status}`
-      : `/programs/${programId}/checkin/sessions`;
-    const data = await apiCall(endpoint);
-    return data;
-  },
-
-  /**
-   * Get all session checkin flags (which programs have session_checkin_enabled)
-   * Stored in the make-server KV store (not a DB column)
-   */
-  async getCheckinFlags(): Promise<Record<string, boolean>> {
-    try {
-      console.log('[ProgramsAPI] Fetching session checkin flags');
-      const data = await apiCall('/checkin/flags');
-      console.log('[ProgramsAPI] ✅ Checkin flags:', data.flags);
-      return data.flags || {};
-    } catch (err: any) {
-      console.error('[ProgramsAPI] Error fetching checkin flags:', err);
-      return {};
-    }
-  },
-
-  /**
-   * Set the session_checkin_enabled flag for a program
-   * @param programId - Program ID
-   * @param enabled - Whether session checkin is enabled
-   */
-  async setCheckinFlag(programId: string, enabled: boolean) {
-    console.log('[ProgramsAPI] Setting checkin flag for program:', programId, '→', enabled);
-    const data = await apiCall(`/checkin/flag/${programId}`, {
-      method: 'POST',
-      body: JSON.stringify({ enabled }),
-    });
-    console.log('[ProgramsAPI] ✅ Checkin flag saved:', data);
-    return data;
-  },
-
-  /**
-   * Get the full form config for a specific program
-   */
-  async getProgramFormConfig(programId: string): Promise<Record<string, any>> {
-    try {
-      console.log('[ProgramsAPI] Fetching form config for program:', programId);
-      const data = await apiCall(`/checkin/config/${programId}`);
-      console.log('[ProgramsAPI] ✅ Form config:', data.config);
-      return data.config || {};
-    } catch (err: any) {
-      console.error('[ProgramsAPI] Error fetching form config:', err);
-      return {};
-    }
-  },
-
-  /**
-   * Save the full form config for a program
-   */
-  async saveProgramFormConfig(programId: string, config: Record<string, any>) {
-    console.log('[ProgramsAPI] Saving form config for program:', programId, '→', config);
-    const data = await apiCall(`/checkin/config/${programId}`, {
-      method: 'POST',
-      body: JSON.stringify({ config }),
-    });
-    console.log('[ProgramsAPI] ✅ Form config saved:', data);
-    return data;
-  },
-
-  /**
-   * Get all program form configs (for HQ settings overview)
-   */
-  async getAllProgramFormConfigs(): Promise<Record<string, any>> {
-    try {
-      console.log('[ProgramsAPI] Fetching all program form configs');
-      const data = await apiCall('/checkin/configs');
-      console.log('[ProgramsAPI] ✅ All form configs:', Object.keys(data.configs || {}).length);
-      return data.configs || {};
-    } catch (err: any) {
-      console.error('[ProgramsAPI] Error fetching all form configs:', err);
-      return {};
-    }
   },
 };
 

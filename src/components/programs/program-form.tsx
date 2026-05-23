@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../../utils/supabase/client';
 import { projectId, publicAnonKey } from '../../utils/supabase/info';
-import { getAuthHeaders } from '../../utils/api-helper';
 import { compressImage, formatFileSize } from '../../utils/imageCompression';
 import { ArrowLeft, Camera, MapPin, CheckCircle, Star } from 'lucide-react';
 import { NativeCamera } from '../native-camera';
@@ -89,15 +88,16 @@ export function ProgramForm({ programId, onBack, onSuccess }: ProgramFormProps) 
 
   const loadProgram = async () => {
     try {
-      // Direct DB mode — use publicAnonKey instead of auth session
-      const storedUser = localStorage.getItem('tai_user');
-      if (!storedUser) {
-        throw new Error('Not authenticated. Please login again.');
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        throw new Error('Not authenticated');
       }
 
       const response = await fetch(`https://${projectId}.supabase.co/functions/v1/make-server-28f2f653/programs/${programId}`, {
         method: 'GET',
-        headers: getAuthHeaders(),
+        headers: {
+          'Authorization': `Bearer ${session.access_token}`,
+        },
       });
 
       const data = await response.json();
@@ -123,9 +123,8 @@ export function ProgramForm({ programId, onBack, onSuccess }: ProgramFormProps) 
     if (!program?.fields) return;
 
     try {
-      // Direct DB mode — no auth session needed for dropdown data
-      const storedUser = localStorage.getItem('tai_user');
-      if (!storedUser) {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
         console.error('[Programs] Not authenticated - cannot load database dropdowns');
         return;
       }
@@ -190,7 +189,9 @@ export function ProgramForm({ programId, onBack, onSuccess }: ProgramFormProps) 
             `https://${projectId}.supabase.co/functions/v1/make-server-28f2f653/database-dropdown?${params}`,
             {
               method: 'GET',
-              headers: getAuthHeaders(),
+              headers: {
+                'Authorization': `Bearer ${session.access_token}`,
+              },
             }
           );
 
@@ -387,17 +388,16 @@ export function ProgramForm({ programId, onBack, onSuccess }: ProgramFormProps) 
     setSubmitting(true);
 
     try {
-      // Direct DB mode — use publicAnonKey instead of auth session
-      const storedUser = localStorage.getItem('tai_user');
-      if (!storedUser) {
-        throw new Error('Not authenticated. Please login again.');
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        throw new Error('Not authenticated');
       }
 
       const response = await fetch(`https://${projectId}.supabase.co/functions/v1/make-server-28f2f653/programs/${programId}/submit`, {
         method: 'POST',
         headers: {
-          ...getAuthHeaders(),
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session.access_token}`,
         },
         body: JSON.stringify({
           responses,
