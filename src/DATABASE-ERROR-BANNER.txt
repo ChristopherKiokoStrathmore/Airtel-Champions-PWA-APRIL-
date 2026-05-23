@@ -1,0 +1,32 @@
+================================================================================
+    🚀 TAI - SALES INTELLIGENCE NETWORK - DATABASE ERROR FIX 🚀
+================================================================================
+
+✅ YOU'RE SEEING THIS BECAUSE: Database table needs one-time permission setup
+
+📋 QUICK FIX (2 minutes):
+
+1️⃣  Open: https://supabase.com/dashboard
+2️⃣  Click: SQL Editor → New Query
+3️⃣  Copy & Paste this SQL:
+
+    ALTER TABLE kv_store_28f2f653 DISABLE ROW LEVEL SECURITY;
+    GRANT ALL ON kv_store_28f2f653 TO anon, authenticated, service_role;
+
+4️⃣  Click: RUN
+5️⃣  Refresh TAI app → ✅ DONE!
+
+================================================================================
+
+📄 ALTERNATIVE: Use complete setup file
+   → Open file explorer → /DATABASE-SETUP.sql
+   → Copy entire file → Paste in SQL Editor → Run
+
+🔍 WHY: Supabase enables Row Level Security by default. TAI uses custom auth
+   (localStorage), so we disable RLS and grant direct permissions.
+
+💡 TIP: This is a ONE-TIME setup. Once done, never needed again.
+
+📚 DOCS: /QUICK-FIX-README.txt (full troubleshooting guide)
+
+================================================================================

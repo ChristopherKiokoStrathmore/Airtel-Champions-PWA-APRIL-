@@ -1,0 +1,737 @@
+Running frontend commit 93a62d3c6e0bdc4ec3ca734e33e2b9aeafbc43d8
+vendor-core-4ad04edb85d11631.min.js.br:54 Statsig is not ready to log exposures, will retry in 1 seconds
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:54Understand this warning
+vendor-core-4ad04edb85d11631.min.js.br:54 [import] git: d8b90192eac75cb4aa704abca3b9e1b62a62eb9b, stamp: 4A9A3243F1C2AD74
+2892-ac9b856904f183f2.min.js.br:779 The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127
+initialize @ 2892-ac9b856904f183f2.min.js.br:779Understand this warning
+vendor-core-4ad04edb85d11631.min.js.br:54 Autosave Changes not available or already claimed by another tab undefined
+vendor-core-4ad04edb85d11631.min.js.br:54 [Fullscreen] Booting... (emscripten version 4.0.21)
+vendor-core-4ad04edb85d11631.min.js.br:54 [GPU] graphicsAPI:"WebGPU", vendor:"Google Inc. (Intel)" renderer:"ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)" deviceArchitecture:"gen-12lp" deviceDescription:"" webGPUDevice:"" webGPUVendor:"intel" bindings:"emdawnwebgpu"
+vendor-core-4ad04edb85d11631.min.js.br:54 [Fullscreen] Ready in 1512.5ms
+vendor-core-4ad04edb85d11631.min.js.br:54 [FullscreenApp] calling setEditorTheme and setting preference dark
+vendor-core-4ad04edb85d11631.min.js.br:54 [MultiplayerSession] connecting to wss://www.figma.com/api/multiplayer/YgMsCvIqt7DMpx0rIB8UXV?role=editor&tracking_session_id=65hlwCizjobDDW6V&version=151&recentReload=0&file-load-streaming-compression&user-id=1575501824906211853&client_release=93a62d3c6e0bdc4ec3ca734e33e2b9aeafbc43d8
+vendor-core-4ad04edb85d11631.min.js.br:54 [FullscreenApp] calling setEditorTheme and setting preference dark
+vendor-core-4ad04edb85d11631.min.js.br:54 Loaded 35 scripts (5968159b), 35 from cache (5968159b)
+vendor-core-4ad04edb85d11631.min.js.br:54 [MultiplayerSession] Joining file version 106 (initial load)
+vendor-core-4ad04edb85d11631.min.js.br:54 Migration succeeded: context: fullscreen_migrate_SceneGraphManager, version: 106, duration: 0ms.
+2vendor-core-4ad04edb85d11631.min.js.br:54 [devtools] Initialized LS
+devtools_worker-49fd8f0bd2ce7ffe.min.js.br:1190 [esbuild-wasm] Initializing from URL: /webpack-artifacts/assets/2b68f2d3d5e8b3d6.wasm
+devtools_worker-49fd8f0bd2ce7ffe.min.js.br:1190 [esbuild-wasm] Initialized
+vendor-core-4ad04edb85d11631.min.js.br:54 [Fullscreen] loadtime=19.57s maxmem=240162872
+/api/make/fetch_ds_code_gen_status:1  Failed to load resource: the server responded with a status of 400 ()Understand this error
+devtools_worker-49fd8f0bd2ce7ffe.min.js.br:3079 [bundleCode] Found 1 CSS files in VFS
+devtools_worker-49fd8f0bd2ce7ffe.min.js.br:3079 [bundleCode] Total CSS size to be processed by lightningcss: 0.00MB
+devtools_worker-49fd8f0bd2ce7ffe.min.js.br:1190 [lightningcss-wasm] Initialized
+devtools_worker-49fd8f0bd2ce7ffe.min.js.br:3079 [lightningCSS] Processing 0.13MB of CSS (environment: browser)
+devtools_worker-49fd8f0bd2ce7ffe.min.js.br:3079 [lightningCSS] Encoded size: 0.13MB
+devtools_worker-49fd8f0bd2ce7ffe.min.js.br:3079 [lightningCSS] Transform completed successfully
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 🔵 Creating NEW Supabase client (singleton)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 ✅ Using shared Supabase client from /utils/supabase/client
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Platform] Detected: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Supabase Direct] Using shared client: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [SessionTracker] ✅ Initialized
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [App] ✅ Offline manager initialized
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [App] ✅ Database setup completed manually - skipping automatic check
+xspogpfohjmkykfjadhk.supabase.co/rest/v1/app_versions?select=*&order=created_at.desc&limit=1:1  Failed to load resource: the server responded with a status of 406 ()Understand this error
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 Update check skipped: app_versions table not ready or empty
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 📱 Normalized phone: 101482921 from: 0101482921
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 ✅ RPC Login successful: Object
+xspogpfohjmkykfjadhk.supabase.co/rest/v1/user_sessions:1  Failed to load resource: the server responded with a status of 401 ()Understand this error
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Analytics] ℹ️ Session tracking unavailable (table not configured)
+xspogpfohjmkykfjadhk.supabase.co/rest/v1/user_sessions?select=*:1  Failed to load resource: the server responded with a status of 400 ()Understand this error
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [SessionTracker] ℹ️ Database tracking unavailable (table not configured)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [SessionTracker] ✅ Tracked login for CECILIA MUIMI (sales_executive)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 🔍 User Authentication Check: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Top Performers] 🔥 Loading top performers for TODAY...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Top Performers] 📅 Today starts at: 2026-02-26T21:00:00.000Z
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AndroidBackButton] 🧹 Cleaning up back button listener
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+xspogpfohjmkykfjadhk.supabase.co/rest/v1/app_versions?select=*&order=created_at.desc&limit=1:1  Failed to load resource: the server responded with a status of 406 ()Understand this error
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 Update check skipped: app_versions table not ready or empty
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [HomeScreen] ✅ Loading announcements from localStorage for role: sales_executive
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [getAnnouncements] ✅ Reading from Supabase database
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Top Performers] 👥 Found 667 Sales Executives
+xspogpfohjmkykfjadhk.supabase.co/rest/v1/announcements?select=*&is_active=eq.true&order=created_at.desc:1  Failed to load resource: the server responded with a status of 404 ()Understand this error
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 ✅ Updated user rank: 133 points: 20
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [HomeScreen] ✅ Loading announcements from localStorage for role: sales_executive
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [getAnnouncements] ✅ Reading from Supabase database
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Top Performers] ✅ Loaded 136 SE submissions from today (filtered from 136 total)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Top Performers] 📊 ALL users sorted by points: Array(10)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Top Performers] 🏆 Top 3 user IDs: Array(3)
+xspogpfohjmkykfjadhk.supabase.co/rest/v1/announcements?select=*&is_active=eq.true&order=created_at.desc:1  Failed to load resource: the server responded with a status of 404 ()Understand this error
+xspogpfohjmkykfjadhk.supabase.co/rest/v1/kv_store_28f2f653?select=value&key=eq.announcements_data:1  Failed to load resource: the server responded with a status of 406 ()Understand this error
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [HomeScreen] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [HomeScreen] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [HomeScreen] ✅ Total announcements: 0 | Unread: 0
+xspogpfohjmkykfjadhk.supabase.co/rest/v1/kv_store_28f2f653?select=value&key=eq.announcements_data:1  Failed to load resource: the server responded with a status of 406 ()Understand this error
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [HomeScreen] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [HomeScreen] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [HomeScreen] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [WebRTC] User denied permission request
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AndroidBackButton] 🧹 Cleaning up back button listener
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Top Performers] ✅ Final top performers: Array(3)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 🎯 Program clicked: NEW SITE CHECK IN  cc5d6473-7a3a-444a-b1cf-8ab16616eab3
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [App] 🎯 Opening program from home widget: cc5d6473-7a3a-444a-b1cf-8ab16616eab3
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [App] 📋 Setting programToOpen state to: cc5d6473-7a3a-444a-b1cf-8ab16616eab3
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [App] 🔄 Switching to programs tab
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [App] 🎬 Rendering Programs tab with initialProgramId: cc5d6473-7a3a-444a-b1cf-8ab16616eab3
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: cc5d6473-7a3a-444a-b1cf-8ab16616eab3
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AndroidBackButton] 🧹 Cleaning up back button listener
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [PageTracking] 📄 Viewing: Programs
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🎬 Component mounted with initialProgramId: cc5d6473-7a3a-444a-b1cf-8ab16616eab3
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] ✅ User loaded: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🔍 Checking auto-open: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: cc5d6473-7a3a-444a-b1cf-8ab16616eab3
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] ✅ Van Calendar enabled: true
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: cc5d6473-7a3a-444a-b1cf-8ab16616eab3
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsAPI] Fetching programs for role: sales_executive
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AndroidBackButton] 🧹 Cleaning up back button listener
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsAPI] Found 6 programs for role sales_executive
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🔍 Checking initial program: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🎯 Found initial program: NEW SITE CHECK IN 
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] ✅ Auto-opening program in loadData: NEW SITE CHECK IN 
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 🎯 Program clicked:  Activator Classification  Program 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [App] 🎯 Opening program from home widget: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [App] 📋 Setting programToOpen state to: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [App] 🔄 Switching to programs tab
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [App] 🎬 Rendering Programs tab with initialProgramId: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AndroidBackButton] 🧹 Cleaning up back button listener
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [PageTracking] 📄 Viewing: Programs
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🎬 Component mounted with initialProgramId: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] ✅ User loaded: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🔍 Checking auto-open: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsAPI] Fetching programs for role: sales_executive
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] ✅ Van Calendar enabled: true
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsAPI] Found 6 programs for role sales_executive
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: " Activator Classification  Program" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "NEW SITE CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🔍 Checking auto-open: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🎯 Found program to open:  Activator Classification  Program
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] ✅ Opening program from prop:  Activator Classification  Program
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: " Activator Classification  Program" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "NEW SITE CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🔍 Checking initial program: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🎯 Found initial program:  Activator Classification  Program
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] ✅ Auto-opening program in loadData:  Activator Classification  Program
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: " Activator Classification  Program" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "NEW SITE CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 0 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] ✅ Modal opened for user: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Shops] 🔄 Fetching ALL shops from database (paginated)...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Shops] 📦 Fetching batch 1 (rows 0-999)...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Loading fields for program: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: false
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 0 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: true
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [GPS] ℹ️ Location error: Not implemented on web.
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 0 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] 📍 User zone from DB: EASTERN
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 0 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] ✅ Loaded 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] 🔍 Fields data: [
+  {
+    "id": "2cb3d833-bea7-454d-830e-58515416f5e9",
+    "program_id": "9ae93739-a58e-4c60-8d18-3ef7e15e6f87",
+    "field_name": "retailer_msisdn",
+    "field_label": "RETAILER MSISDN",
+    "field_type": "dropdown",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "database_source": {
+        "table": "retailer_dump_full",
+        "multi_select": false,
+        "display_field": "RETAILER_MSISDN",
+        "metadata_fields": [
+          "Jan-26",
+          "Dec-25",
+          "MTD_GA"
+        ],
+        "repeatable_dropdown": false
+      },
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 0,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-02-26T14:31:05.877067+00:00"
+  },
+  {
+    "id": "5a88da2f-0f9f-4041-adb4-5ae311bf7e56",
+    "program_id": "9ae93739-a58e-4c60-8d18-3ef7e15e6f87",
+    "field_name": "msisdn_category_",
+    "field_label": "MSISDN CATEGORY ",
+    "field_type": "radio",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "options": [
+        "Mobile Promoter",
+        "Fixed/Resident Promoter (Parasol Promoter)",
+        "Brick & Mortar Outlet"
+      ],
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 1,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-02-26T14:31:05.877067+00:00"
+  }
+]
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [DatabaseDropdown] Generated 0 options for RETAILER MSISDN
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [DatabaseDropdown] 🔍 Checking fields: Array(2)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [DatabaseDropdown] 🔄 Loading data for 1 database dropdown/multi-select field(s)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [DatabaseDropdown] 🔒 Zone filtering: DISABLED | User zone: EASTERN
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [DatabaseDropdown] Loading from table: retailer_dump_full
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [DatabaseDropdown] 📦 Fetching first batch from retailer_dump_full (max 1000 rows)...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Shops] ✅ Batch 1: 1000 shops (Total so far: 1000)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Shops] 📦 Fetching batch 2 (rows 1000-1999)...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [DatabaseDropdown] 🚀 "retailer_dump_full" has 1000+ rows → server-side search enabled
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Shops] ✅ Batch 2: 1000 shops (Total so far: 2000)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Shops] 📦 Fetching batch 3 (rows 2000-2999)...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Shops] ✅ Batch 3: 674 shops (Total so far: 2674)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Shops] ✅ Total loaded from database: 2674 shops
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Shops] ✅ Lookup map created with 2651 entries
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Shops] ✅ shopsLoaded flag set to true - component should re-render
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 2674 shops | shopsLoaded: true | loadingShops: false
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] ✅ Component should now show search dropdown instead of radio buttons
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Dropdown] 🔍 Search input focused - opening dropdown
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Dropdown] 🖱️ Click detected on search input
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Dropdown] ⌨️ Input changed: 254 101 482921
+2code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ServerSearch] ✅ "254 101 482921" → 0 results from retailer_dump_full
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+Airtel-Champions-App-Web?p=f&t=BgwHOqWNSHRUzBvj-0:1 Access to fetch at 'https://browser-intake-datadoghq.com/api/v2/rum?ddsource=browser&dd-api-key=pub3f6fa9c94d5ff85890f30fdc10b09c61&dd-evp-origin-version=6.25.2&dd-evp-origin=browser&dd-request-id=8c5707ab-4099-43d4-b492-b07643bae3ce&dd-evp-encoding=deflate&batch_time=1772195299649&_dd.api=fetch-keepalive' from origin 'https://www.figma.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+browser-intake-datadoghq.com/api/v2/rum?ddsource=browser&dd-api-key=pub3f6fa9c94d5ff85890f30fdc10b09c61&dd-evp-origin-version=6.25.2&dd-evp-origin=browser&dd-request-id=8c5707ab-4099-43d4-b492-b07643bae3ce&dd-evp-encoding=deflate&batch_time=1772195299649&_dd.api=fetch-keepalive:1  Failed to load resource: net::ERR_FAILEDUnderstand this error
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Dropdown] ⌨️ Input changed: 
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [FieldChange] Setting field 2cb3d833-bea7-454d-830e-58515416f5e9 to:  (single)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [FieldChange] FormData after update: Object
+2code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [WebRTC] 👁️ Tab visibility changed: HIDDEN
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [App] 🎬 Rendering Programs tab with initialProgramId: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: " Activator Classification  Program" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "NEW SITE CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Dropdown] 🔍 Search input focused - opening dropdown
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [WebRTC] 👁️ Tab visibility changed: VISIBLE
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [App] 🎬 Rendering Programs tab with initialProgramId: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: " Activator Classification  Program" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "NEW SITE CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Dropdown] ⌨️ Input changed: 750683898
+2code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ServerSearch] ✅ "750683898" → 1 results from retailer_dump_full
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Shop Dropdown] 🎯 Option clicked: 750683898
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [FieldChange] Setting field 2cb3d833-bea7-454d-830e-58515416f5e9 to: 750683898 (single)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [FieldChange] Auto-populating from: 750683898 
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AutoPopulate] ��� Database dropdown selection: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AutoPopulate] ✅ Found selected row: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AutoPopulate] 📦 Stored metadata for display: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AutoPopulate] ℹ️ No matching fields found to auto-populate
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [FieldChange] FormData after update: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Dropdown] 🔍 Search input focused - opening dropdown
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Shop Dropdown] 🎯 Option clicked: 750683898
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [FieldChange] Setting field 2cb3d833-bea7-454d-830e-58515416f5e9 to: 750683898 (single)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [FieldChange] Auto-populating from: 750683898 
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AutoPopulate] ��� Database dropdown selection: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AutoPopulate] ✅ Found selected row: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AutoPopulate] 📦 Stored metadata for display: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AutoPopulate] ℹ️ No matching fields found to auto-populate
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [FieldChange] FormData after update: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: " Activator Classification  Program" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "NEW SITE CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [App] ⬅️ Going back, clearing programToOpen
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AndroidBackButton] 🧹 Cleaning up back button listener
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AndroidBackButton] 🧹 Cleaning up back button listener
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [SessionTracker] ✅ Updated logout time for user c5403d8a-2f02-4414-985a-f97df2eb0f01
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Analytics] ✅ Logout tracked
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AndroidBackButton] 🧹 Cleaning up back button listener
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [WebRTC] Setting user status to offline: c5403d8a-2f02-4414-985a-f97df2eb0f01
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [WebRTC] User set to offline
+xspogpfohjmkykfjadhk.supabase.co/rest/v1/app_versions?select=*&order=created_at.desc&limit=1:1  Failed to load resource: the server responded with a status of 406 ()Understand this error
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [WebRTC] ✅ User is now offline
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 Update check skipped: app_versions table not ready or empty
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 📱 Normalized phone: 706874314 from: 0706874314
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 ✅ RPC Login successful: Object
+xspogpfohjmkykfjadhk.supabase.co/rest/v1/user_sessions:1  Failed to load resource: the server responded with a status of 401 ()Understand this error
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Analytics] ℹ️ Session tracking unavailable (table not configured)
+xspogpfohjmkykfjadhk.supabase.co/rest/v1/user_sessions?select=*:1  Failed to load resource: the server responded with a status of 400 ()Understand this error
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [SessionTracker] ℹ️ Database tracking unavailable (table not configured)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [SessionTracker] ✅ Tracked login for Christopher Kioko (hq_staff)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 🔍 User Authentication Check: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Van Calendar Widget] 🔍 Loading stats for HQ...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [PageTracking] 📄 Viewing: Dashboard
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Role Dashboard] ✅ Loading announcements from localStorage for role: hq_staff
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [getAnnouncements] ✅ Reading from Supabase database
+xspogpfohjmkykfjadhk.supabase.co/rest/v1/app_versions?select=*&order=created_at.desc&limit=1:1  Failed to load resource: the server responded with a status of 406 ()Understand this error
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 Update check skipped: app_versions table not ready or empty
+xspogpfohjmkykfjadhk.supabase.co/rest/v1/announcements?select=*&is_active=eq.true&order=created_at.desc:1  Failed to load resource: the server responded with a status of 404 ()Understand this error
+xspogpfohjmkykfjadhk.supabase.co/rest/v1/kv_store_28f2f653?select=value&key=eq.announcements_data:1  Failed to load resource: the server responded with a status of 406 ()Understand this error
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Role Dashboard] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Role Dashboard] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Van Calendar Widget] ✅ Stats loaded: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 🎯 Program clicked:  Activator Classification  Program 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs] Loading programs for user: hq_staff
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Dashboard] 🔍 Loading folders from localStorage...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Dashboard] 📦 Raw localStorage data: null
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Dashboard] ℹ️ No folders found in localStorage
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Dashboard] ✅ Van Calendar enabled: true
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs] ✅ Loaded all programs for admin: 7
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramCreator] Loading fields for editing: Array(2)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Database Dropdown] 🔄 Loading columns for table: retailer_dump_full
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Database Dropdown] 📊 Using direct Supabase client query
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Database Dropdown] 🔄 Discovering tables from user project...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Database Dropdown] ✅ Loaded tables via OpenAPI spec: 51
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Database Dropdown] ✅ Loaded columns for retailer_dump_full : 17 Array(17)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramCreator] 💾 Saving database dropdown: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramCreator] 🔄 Updating field: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramCreator] Updating program: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87  Activator Classification  Program
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramCreator] ✅ Program updated: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramCreator] 💾 Saving fields to database: Array(2)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramCreator] ✅ Created 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramCreator] ✅ Program updated successfully:  Activator Classification  Program
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs] Loading programs for user: hq_staff
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs] ✅ Loaded all programs for admin: 7
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramCreator] Loading fields for editing: Array(2)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Van Calendar Widget] 🔍 Loading stats for HQ...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Van Calendar Widget] ✅ Stats loaded: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [SessionTracker] ✅ Updated logout time for user 82a1e892-9517-4d62-86c5-9a6dcdf09919
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Analytics] ✅ Logout tracked
+xspogpfohjmkykfjadhk.supabase.co/rest/v1/app_versions?select=*&order=created_at.desc&limit=1:1  Failed to load resource: the server responded with a status of 406 ()Understand this error
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 Update check skipped: app_versions table not ready or empty
+6code_components_preview_iframe-3246846161237bc8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g
+vendor-core-4ad04edb85d11631.min.js.br:54 [MultiplayerSession] connecting to wss://www.figma.com/api/multiplayer/YgMsCvIqt7DMpx0rIB8UXV?role=editor&tracking_session_id=65hlwCizjobDDW6V&version=151&recentReload=0&file-load-streaming-compression=&user-id=1575501824906211853&client_release=93a62d3c6e0bdc4ec3ca734e33e2b9aeafbc43d8&reconnect-key=b5133a7d337e12fd505dc1328da405de5a1b3cc8&reconnect-sequence-number=6967&initialFileVersion=106&previousLoadMode=full&incremental-loading-validation=0
+vendor-core-4ad04edb85d11631.min.js.br:54 [MultiplayerSession] Joining file version 106 (skip_reload reconnect)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 📱 Normalized phone: 706874314 from: 0706874314
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 ✅ RPC Login successful: Object
+xspogpfohjmkykfjadhk.supabase.co/rest/v1/user_sessions:1  Failed to load resource: the server responded with a status of 401 ()Understand this error
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Analytics] ℹ️ Session tracking unavailable (table not configured)
+xspogpfohjmkykfjadhk.supabase.co/rest/v1/user_sessions?select=*:1  Failed to load resource: the server responded with a status of 400 ()Understand this error
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [SessionTracker] ℹ️ Database tracking unavailable (table not configured)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [SessionTracker] ✅ Tracked login for Christopher Kioko (hq_staff)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 🔍 User Authentication Check: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Van Calendar Widget] 🔍 Loading stats for HQ...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [PageTracking] 📄 Viewing: Dashboard
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Role Dashboard] ✅ Loading announcements from localStorage for role: hq_staff
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [getAnnouncements] ✅ Reading from Supabase database
+xspogpfohjmkykfjadhk.supabase.co/rest/v1/announcements?select=*&is_active=eq.true&order=created_at.desc:1  Failed to load resource: the server responded with a status of 404 ()Understand this error
+xspogpfohjmkykfjadhk.supabase.co/rest/v1/app_versions?select=*&order=created_at.desc&limit=1:1  Failed to load resource: the server responded with a status of 406 ()Understand this error
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 Update check skipped: app_versions table not ready or empty
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Van Calendar Widget] ✅ Stats loaded: Object
+xspogpfohjmkykfjadhk.supabase.co/rest/v1/kv_store_28f2f653?select=value&key=eq.announcements_data:1  Failed to load resource: the server responded with a status of 406 ()Understand this error
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Role Dashboard] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Role Dashboard] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Role Dashboard] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 🎯 Program clicked:  Activator Classification  Program 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs] Loading programs for user: hq_staff
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Dashboard] 🔍 Loading folders from localStorage...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Dashboard] 📦 Raw localStorage data: null
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Dashboard] ℹ️ No folders found in localStorage
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Dashboard] ✅ Van Calendar enabled: true
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs] ✅ Loaded all programs for admin: 7
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramCreator] Loading fields for editing: Array(2)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Database Dropdown] 🔄 Loading columns for table: retailer_dump_full
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Database Dropdown] 📊 Using direct Supabase client query
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Database Dropdown] 🔄 Discovering tables from user project...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Database Dropdown] ✅ Loaded columns for retailer_dump_full : 17 Array(17)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Database Dropdown] ✅ Loaded tables via OpenAPI spec: 51
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramCreator] 💾 Saving database dropdown: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramCreator] 🔄 Updating field: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramCreator] Updating program: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87  Activator Classification  Program
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramCreator] ✅ Program updated: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramCreator] 💾 Saving fields to database: Array(2)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramCreator] ✅ Created 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramCreator] ✅ Program updated successfully:  Activator Classification  Program
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs] Loading programs for user: hq_staff
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs] ✅ Loaded all programs for admin: 7
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Van Calendar Widget] 🔍 Loading stats for HQ...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Van Calendar Widget] ✅ Stats loaded: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+vendor-core-4ad04edb85d11631.min.js.br:54 [MultiplayerSession] connecting to wss://www.figma.com/api/multiplayer/YgMsCvIqt7DMpx0rIB8UXV?role=editor&tracking_session_id=65hlwCizjobDDW6V&version=151&recentReload=0&file-load-streaming-compression=&user-id=1575501824906211853&client_release=93a62d3c6e0bdc4ec3ca734e33e2b9aeafbc43d8&reconnect-key=b5133a7d337e12fd505dc1328da405de5a1b3cc8&reconnect-sequence-number=6967&initialFileVersion=106&previousLoadMode=full&incremental-loading-validation=0
+vendor-core-4ad04edb85d11631.min.js.br:54 [MultiplayerSession] Joining file version 106 (skip_reload reconnect)
+4vendor-32a0d53e586eea24.min.js.br:3 Datadog Browser SDK: The data provided has been discarded as it is over the limit of 225280 characters: IMG[src="data:image/png;base64,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
+g @ vendor-32a0d53e586eea24.min.js.br:3Understand this warning
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [SessionTracker] ✅ Updated logout time for user 82a1e892-9517-4d62-86c5-9a6dcdf09919
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Analytics] ✅ Logout tracked
+xspogpfohjmkykfjadhk.supabase.co/rest/v1/app_versions?select=*&order=created_at.desc&limit=1:1  Failed to load resource: the server responded with a status of 406 ()Understand this error
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 Update check skipped: app_versions table not ready or empty
+vendor-core-4ad04edb85d11631.min.js.br:54 Too many elapsed hits of react since last report
+(anonymous) @ vendor-core-4ad04edb85d11631.min.js.br:54Understand this warning
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 📱 Normalized phone: 101482921 from: 0101482921
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 ✅ RPC Login successful: Object
+xspogpfohjmkykfjadhk.supabase.co/rest/v1/user_sessions:1  Failed to load resource: the server responded with a status of 401 ()Understand this error
+xspogpfohjmkykfjadhk.supabase.co/rest/v1/user_sessions?select=*:1  Failed to load resource: the server responded with a status of 400 ()Understand this error
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Analytics] ℹ️ Session tracking unavailable (table not configured)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [SessionTracker] ℹ️ Database tracking unavailable (table not configured)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [SessionTracker] ✅ Tracked login for CECILIA MUIMI (sales_executive)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 🔍 User Authentication Check: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 🔍 Loading folders...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 📦 localStorage data: null
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] ⚠️ No data in localStorage
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] ℹ️ No folders in any storage
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Top Performers] 🔥 Loading top performers for TODAY...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Top Performers] 📅 Today starts at: 2026-02-26T21:00:00.000Z
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AndroidBackButton] 🧹 Cleaning up back button listener
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+xspogpfohjmkykfjadhk.supabase.co/rest/v1/app_versions?select=*&order=created_at.desc&limit=1:1  Failed to load resource: the server responded with a status of 406 ()Understand this error
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 Update check skipped: app_versions table not ready or empty
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [HomeScreen] ✅ Loading announcements from localStorage for role: sales_executive
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [getAnnouncements] ✅ Reading from Supabase database
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Top Performers] 👥 Found 667 Sales Executives
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+xspogpfohjmkykfjadhk.supabase.co/rest/v1/announcements?select=*&is_active=eq.true&order=created_at.desc:1  Failed to load resource: the server responded with a status of 404 ()Understand this error
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Top Performers] ✅ Loaded 153 SE submissions from today (filtered from 155 total)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Top Performers] 📊 ALL users sorted by points: Array(10)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Top Performers] 🏆 Top 3 user IDs: Array(3)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 ✅ Updated user rank: 88 points: 40
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [HomeScreen] ✅ Loading announcements from localStorage for role: sales_executive
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [getAnnouncements] ✅ Reading from Supabase database
+xspogpfohjmkykfjadhk.supabase.co/rest/v1/kv_store_28f2f653?select=value&key=eq.announcements_data:1  Failed to load resource: the server responded with a status of 406 ()Understand this error
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [HomeScreen] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [HomeScreen] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [HomeScreen] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+xspogpfohjmkykfjadhk.supabase.co/rest/v1/announcements?select=*&is_active=eq.true&order=created_at.desc:1  Failed to load resource: the server responded with a status of 404 ()Understand this error
+xspogpfohjmkykfjadhk.supabase.co/rest/v1/kv_store_28f2f653?select=value&key=eq.announcements_data:1  Failed to load resource: the server responded with a status of 406 ()Understand this error
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [HomeScreen] ✅ Raw announcements loaded: 0
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [HomeScreen] ✅ Filtered announcements for role: 0
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [HomeScreen] ✅ Total announcements: 0 | Unread: 0
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Top Performers] ✅ Final top performers: Array(3)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [WebRTC] User denied permission request
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 📁 Organized Programs: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AndroidBackButton] 🧹 Cleaning up back button listener
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Programs Widget Home] 🎯 Program clicked:  Activator Classification  Program 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [App] 🎯 Opening program from home widget: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [App] 📋 Setting programToOpen state to: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [App] 🔄 Switching to programs tab
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [App] 🎬 Rendering Programs tab with initialProgramId: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AndroidBackButton] 🧹 Cleaning up back button listener
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [PageTracking] 📄 Viewing: Programs
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🎬 Component mounted with initialProgramId: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] ✅ User loaded: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🔍 Checking auto-open: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AndroidBackButton] 📱 Setting up Android back button listener in HomeScreen...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AndroidBackButton] ✅ Listener setup complete
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] ✅ Van Calendar enabled: true
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsAPI] Fetching programs for role: sales_executive
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsAPI] Found 6 programs for role sales_executive
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: " Activator Classification  Program" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "NEW SITE CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🔍 Checking auto-open: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🎯 Found program to open:  Activator Classification  Program
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] ✅ Opening program from prop:  Activator Classification  Program
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: " Activator Classification  Program" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "NEW SITE CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🔍 Checking initial program: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🎯 Found initial program:  Activator Classification  Program
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] ✅ Auto-opening program in loadData:  Activator Classification  Program
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: " Activator Classification  Program" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "NEW SITE CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 0 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] ✅ Modal opened for user: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Shops] 🔄 Fetching ALL shops from database (paginated)...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Shops] 📦 Fetching batch 1 (rows 0-999)...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Loading fields for program: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: false
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 0 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 0 shops | shopsLoaded: false | loadingShops: true
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [GPS] ℹ️ Location error: Not implemented on web.
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 0 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] ✅ Loaded 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] 🔍 Fields data: [
+  {
+    "id": "24dc7dfe-8ffa-4b48-a52d-85b6f12b8853",
+    "program_id": "9ae93739-a58e-4c60-8d18-3ef7e15e6f87",
+    "field_name": "retailer_msisdn",
+    "field_label": "RETAILER MSISDN",
+    "field_type": "dropdown",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "database_source": {
+        "table": "retailer_dump_full",
+        "multi_select": false,
+        "display_field": "RETAILER_MSISDN",
+        "metadata_fields": [
+          "Jan-26",
+          "Dec-25",
+          "MTD_GA",
+          "RETAILER_FIRST_NAME",
+          "RETAILER_LAST_NAME",
+          "TSE/SE",
+          "ZSM",
+          "ZONE"
+        ],
+        "repeatable_dropdown": false
+      },
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 0,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-02-27T12:46:18.829849+00:00"
+  },
+  {
+    "id": "81de0caf-97d6-471b-a74d-c69896f0dca4",
+    "program_id": "9ae93739-a58e-4c60-8d18-3ef7e15e6f87",
+    "field_name": "msisdn_category_",
+    "field_label": "MSISDN CATEGORY ",
+    "field_type": "radio",
+    "is_required": true,
+    "placeholder": null,
+    "help_text": null,
+    "options": {
+      "options": [
+        "Mobile Promoter",
+        "Fixed/Resident Promoter (Parasol Promoter)",
+        "Brick & Mortar Outlet"
+      ],
+      "prevent_duplicates": false
+    },
+    "validation": null,
+    "conditional_logic": null,
+    "order_index": 1,
+    "section_id": null,
+    "section_title": null,
+    "section_index": 0,
+    "created_at": "2026-02-27T12:46:18.829849+00:00"
+  }
+]
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [DatabaseDropdown] Generated 0 options for RETAILER MSISDN
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [DatabaseDropdown] 🔍 Checking fields: Array(2)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [DatabaseDropdown] 🔄 Loading data for 1 database dropdown/multi-select field(s)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [DatabaseDropdown] 🔒 Zone filtering: DISABLED | User zone: EASTERN
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [DatabaseDropdown] Loading from table: retailer_dump_full
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [DatabaseDropdown] 📦 Fetching first batch from retailer_dump_full (max 1000 rows)...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Shops] ✅ Batch 1: 1000 shops (Total so far: 1000)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Shops] 📦 Fetching batch 2 (rows 1000-1999)...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [DatabaseDropdown] 🚀 "retailer_dump_full" has 1000+ rows → server-side search enabled
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Shops] ✅ Batch 2: 1000 shops (Total so far: 2000)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Shops] 📦 Fetching batch 3 (rows 2000-2999)...
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Shops] ✅ Batch 3: 674 shops (Total so far: 2674)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Shops] ✅ Total loaded from database: 2674 shops
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Shops] ✅ Lookup map created with 2651 entries
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Shops] ✅ shopsLoaded flag set to true - component should re-render
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] 🔄 Shops state updated: 2674 shops | shopsLoaded: true | loadingShops: false
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] ✅ Component should now show search dropdown instead of radio buttons
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] 📍 User zone from DB: EASTERN
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Dropdown] 🔍 Search input focused - opening dropdown
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Dropdown] 🖱️ Click detected on search input
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Dropdown] ⌨️ Input changed: 254 101 482921
+2code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ServerSearch] ✅ "254 101 482921" → 0 results from retailer_dump_full
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Dropdown] ⌨️ Input changed: 254 101 48292
+2code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Dropdown] ⌨️ Input changed: 254 101 4829
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Dropdown] ⌨️ Input changed: 254 101 482
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Dropdown] ⌨️ Input changed: 254 101 48
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Dropdown] ⌨️ Input changed: 254 101 4
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Dropdown] ⌨️ Input changed: 254 101 
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Dropdown] ⌨️ Input changed: 254 101
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Dropdown] ⌨️ Input changed: 254 10
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Dropdown] ⌨️ Input changed: 254 1
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Dropdown] ⌨️ Input changed: 254 
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Dropdown] ⌨️ Input changed: 254
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Dropdown] ⌨️ Input changed: 25
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Dropdown] ⌨️ Input changed: 2
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Dropdown] ⌨️ Input changed: 
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [FieldChange] Setting field 24dc7dfe-8ffa-4b48-a52d-85b6f12b8853 to:  (single)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [FieldChange] FormData after update: Object
+2code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ServerSearch] ✅ "254 101 48292" → 0 results from retailer_dump_full
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [WebRTC] 👁️ Tab visibility changed: HIDDEN
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [App] 🎬 Rendering Programs tab with initialProgramId: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: " Activator Classification  Program" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "NEW SITE CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Dropdown] 🔍 Search input focused - opening dropdown
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [WebRTC] 👁️ Tab visibility changed: VISIBLE
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [App] 🎬 Rendering Programs tab with initialProgramId: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramsList] 🚀 Component render with initialProgramId: 9ae93739-a58e-4c60-8d18-3ef7e15e6f87
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: " Activator Classification  Program" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "MINI ROAD SHOW -CHECK OUT " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "AMB REVALIDATION" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "🚐 Van Weekly Calendar" | Category: "Market Intelligence" | Mapped to: Unfoldered
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Folder Mapping] Program: "NEW SITE CHECK IN " | Category: "Network Experience" | Mapped to: Network Quality
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Dropdown] ⌨️ Input changed: 762349445
+2code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ServerSearch] ✅ "762349445" → 1 results from retailer_dump_full
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [Shop Dropdown] 🎯 Option clicked: 762349445
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [FieldChange] Setting field 24dc7dfe-8ffa-4b48-a52d-85b6f12b8853 to: 762349445 (single)
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [FieldChange] Auto-populating from: 762349445 
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AutoPopulate] ��� Database dropdown selection: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AutoPopulate] ✅ Found selected row: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AutoPopulate] 📦 Stored metadata for display: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [AutoPopulate] ℹ️ No matching fields found to auto-populate
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [FieldChange] FormData after update: Object
+code_components_preview_iframe-3246846161237bc8.min.js.br:28 [ProgramSubmitModal] Program:  Activator Classification  Program with 2 fields
+9code_components_preview_iframe-3246846161237bc8.min.js.br:28 [OfflineManager] 🔄 Network type changed: 4g

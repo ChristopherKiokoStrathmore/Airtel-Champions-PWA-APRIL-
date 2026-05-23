@@ -1,0 +1,444 @@
+====================================================================================================================================================================
+                                                    TAI SALES INTELLIGENCE NETWORK - UAT TEST PLAN (TABLE FORMAT)
+                                                           Analytics-First Intelligence System - v2.0
+====================================================================================================================================================================
+
+App Version: v2.0                    |  Last Updated: January 14, 2026           |  Total Tests: 180 (30 per profile x 6 profiles)
+Test Coordinator: ________________   |  Testing Period: __________ to __________  |  Target Completion: __________
+
+====================================================================================================================================================================
+SECTION 1: SALES EXECUTIVE (SE) - 30 TESTS
+====================================================================================================================================================================
+
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| TEST ID  | TEST NAME                      | TEST STEPS                                       | EXPECTED RESULT                                  | ACTUAL   | PASS/   | NOTES/ISSUES     |
+|          |                                |                                                  |                                                  | RESULT   | FAIL    |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| SE-001   | Login Functionality            | 1. Open app on fresh install                     | [ ] Login successful                             |          |         |                  |
+|          | Category: Auth & Profile       | 2. Enter valid SE credentials                    | [ ] Redirect to SE Dashboard                     |          |         |                  |
+|          | Tester: __________             | 3. Tap "Login"                                   | [ ] Bottom nav shows: Home, Explore, Groups      |          |         |                  |
+|          | Date: __________               |                                                  | [ ] User name and zone displayed                 |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| SE-002   | Profile View                   | 1. Navigate to Profile tab                       | [ ] Full name displayed correctly                |          |         |                  |
+|          | Category: Auth & Profile       | 2. Review all displayed information              | [ ] Employee ID shown                            |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Zone displayed                               |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Role shown as "Sales Executive"              |          |         |                  |
+|          |                                |                                                  | [ ] Total points visible                         |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| SE-003   | Logout Functionality           | 1. Go to Profile tab                             | [ ] Confirmation dialog appears                  |          |         |                  |
+|          | Category: Auth & Profile       | 2. Tap "Logout" button                           | [ ] After confirm, redirected to login screen    |          |         |                  |
+|          | Tester: __________             | 3. Confirm logout                                | [ ] Previous session cleared                     |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Cannot navigate back to dashboard            |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| SE-004   | Invalid Login Attempt          | 1. Enter incorrect employee ID or password       | [ ] Error message: "Invalid credentials"         |          |         |                  |
+|          | Category: Auth & Profile       | 2. Tap "Login"                                   | [ ] No navigation occurs                         |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] User remains on login screen                 |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Can retry login                              |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| SE-005   | Session Persistence            | 1. Login successfully                            | [ ] User still logged in                         |          |         |                  |
+|          | Category: Auth & Profile       | 2. Close app completely                          | [ ] Dashboard loads without re-login             |          |         |                  |
+|          | Tester: __________             | 3. Reopen app after 1 minute                     | [ ] User data loads correctly                    |          |         |                  |
+|          | Date: __________               |                                                  |                                                  |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| SE-006   | Dashboard Overview             | 1. Login and view Home dashboard                 | [ ] Points balance card displays correctly       |          |         |                  |
+|          | Category: Dashboard & Nav      | 2. Verify all widgets load                       | [ ] Active programs card shows programs          |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Recent submissions visible                   |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Quick stats displayed                        |          |         |                  |
+|          |                                |                                                  | [ ] Hall of Fame teaser visible                  |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| SE-007   | Bottom Navigation              | 1. Tap each navigation icon in sequence          | [ ] Home icon -> Dashboard screen                |          |         |                  |
+|          | Category: Dashboard & Nav      | 2. Verify navigation works                       | [ ] Explore icon -> Explore Feed screen          |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Groups icon -> Groups list screen            |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Profile icon -> Profile screen               |          |         |                  |
+|          |                                |                                                  | [ ] Active tab highlighted in blue               |          |         |                  |
+|          |                                |                                                  | [ ] No "Programs" tab visible (removed)          |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| SE-008   | Pull-to-Refresh Dashboard      | 1. On Dashboard, pull down from top              | [ ] Refresh animation appears                    |          |         |                  |
+|          | Category: Dashboard & Nav      | 2. Release to trigger refresh                    | [ ] Dashboard data reloads                       |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Updated timestamp shown                      |          |         |                  |
+|          | Date: __________               |                                                  | [ ] New submissions/programs appear              |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| SE-009   | Points Balance Display         | 1. View points card on Dashboard                 | [ ] Total lifetime points shown                  |          |         |                  |
+|          | Category: Dashboard & Nav      | 2. Check points calculation                      | [ ] Points earned this week/month displayed      |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Points match submission records              |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Tap card shows points history                |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| SE-010   | Quick Actions Access           | 1. Look for quick action buttons on Dashboard    | [ ] Opens program selection screen               |          |         |                  |
+|          | Category: Dashboard & Nav      | 2. Tap "New Submission" or similar CTA           | [ ] Shows available programs                     |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Easy access to submit intelligence           |          |         |                  |
+|          | Date: __________               |                                                  |                                                  |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| SE-011   | View Available Programs        | 1. Navigate to submission flow                   | [ ] All active programs displayed                |          |         |                  |
+|          | Category: Program Submission   | 2. View list of active programs                  | [ ] Each program shows: name, icon, pts, desc    |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Programs sorted by relevance or date         |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Can tap to view program details              |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| SE-012   | Program Details View           | 1. Tap on a specific program                     | [ ] Program name and description shown           |          |         |                  |
+|          | Category: Program Submission   | 2. View full program details                     | [ ] Points value clearly displayed               |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] All required fields listed                   |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Optional fields indicated                    |          |         |                  |
+|          |                                |                                                  | [ ] "Start Submission" button visible            |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| SE-013   | GPS Location Auto-Detection    | 1. Start a new submission                        | [ ] GPS automatically attempts to get location   |          |         |                  |
+|          | Category: Program Submission   | 2. Observe GPS location capture                  | [ ] Loading indicator shows "Getting GPS..."     |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] After 3-5 sec, location captured             |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Lat/Lng displayed                            |          |         |                  |
+|          |                                |                                                  | [ ] Accuracy shown (e.g., "±15m")                |          |         |                  |
+|          |                                |                                                  | [ ] Location pin locked (not draggable)          |          |         |                  |
+|          |                                |                                                  | [ ] "Re-scan GPS" button visible                 |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| SE-014   | GPS Re-scan Functionality      | 1. After initial GPS capture                     | [ ] Previous location cleared                    |          |         |                  |
+|          | Category: Program Submission   | 2. Tap "Re-scan GPS" button                      | [ ] GPS scanning restarts                        |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] New location captured                        |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Coordinates update                           |          |         |                  |
+|          |                                |                                                  | [ ] Can re-scan multiple times                   |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| SE-015   | Photo Upload (Single)          | 1. In submission form, tap "Add Photo"           | [ ] Camera/gallery opens                         |          |         |                  |
+|          | Category: Program Submission   | 2. Select "Take Photo" or "Choose from Gallery"  | [ ] Photo appears as thumbnail                   |          |         |                  |
+|          | Tester: __________             | 3. Select/capture one photo                      | [ ] Photo can be removed with X button           |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Photo quality acceptable                     |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| SE-016   | Photo Upload (Multiple)        | 1. Add multiple photos (up to limit)             | [ ] Can add up to 5 photos (or program limit)    |          |         |                  |
+|          | Category: Program Submission   | 2. Review photo gallery                          | [ ] All photos display as thumbnails             |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Can remove individual photos                 |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Can rearrange photos (if implemented)        |          |         |                  |
+|          |                                |                                                  | [ ] Warning if exceeding limit                   |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| SE-017   | Form Field Validation          | 1. Fill out submission form                      | [ ] Required fields marked with asterisk (*)     |          |         |                  |
+|          | Category: Program Submission   | 2. Try submitting with missing required fields   | [ ] Error message for empty required fields      |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Form highlights missing fields in red        |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Cannot submit until all required filled      |          |         |                  |
+|          |                                |                                                  | [ ] Optional fields can remain empty             |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| SE-018   | Successful Submission          | 1. Fill all required fields correctly            | [ ] Loading indicator shows                      |          |         |                  |
+|          | Category: Program Submission   | 2. Add GPS location and photo                    | [ ] Success message: "Submission successful!"    |          |         |                  |
+|          | Tester: __________             | 3. Tap "Submit"                                  | [ ] Points automatically awarded                 |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Redirect to Dashboard or submission list     |          |         |                  |
+|          |                                |                                                  | [ ] New submission in "Recent Submissions"       |          |         |                  |
+|          |                                |                                                  | [ ] Points balance updated                       |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| SE-019   | View Explore Feed              | 1. Navigate to Explore tab                       | [ ] Instagram-style post cards displayed         |          |         |                  |
+|          | Category: Explore Feed         | 2. Scroll through feed                           | [ ] Each card: photo, user, zone, mission, pts   |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Timestamp shown (e.g., "2h ago")             |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Cards load smoothly with scroll              |          |         |                  |
+|          |                                |                                                  | [ ] Infinite scroll or pagination works          |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| SE-020   | Post Card Details              | 1. Tap on a post card                            | [ ] Full-size photo displayed                    |          |         |                  |
+|          | Category: Explore Feed         | 2. View full post details                        | [ ] All submission details shown                 |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Location/GPS data visible                    |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Notes/description readable                   |          |         |                  |
+|          |                                |                                                  | [ ] Mission type and points clear                |          |         |                  |
+|          |                                |                                                  | [ ] Can close and return to feed                 |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| SE-021   | Feed Filtering                 | 1. Look for filter options (zone, mission, date) | [ ] Filter dropdown/buttons available            |          |         |                  |
+|          | Category: Explore Feed         | 2. Apply a filter                                | [ ] Feed updates based on filter                 |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Only relevant posts shown                    |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Can clear filter to show all                 |          |         |                  |
+|          |                                |                                                  | [ ] Filter persists during session               |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| SE-022   | Feed Refresh                   | 1. Pull down to refresh feed                     | [ ] Refresh animation plays                      |          |         |                  |
+|          | Category: Explore Feed         | 2. Wait for new posts                            | [ ] New submissions load at top                  |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Feed updates in real-time                    |          |         |                  |
+|          | Date: __________               |                                                  | [ ] No duplicate posts                           |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| SE-023   | Empty Feed State               | 1. View feed when no submissions exist           | [ ] Friendly empty state message                 |          |         |                  |
+|          | Category: Explore Feed         | (use fresh test account)                         | [ ] "No intelligence yet" or similar             |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] CTA to "Submit your first intelligence"      |          |         |                  |
+|          | Date: __________               |                                                  | [ ] No error messages                            |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| SE-024   | View Groups List               | 1. Navigate to Groups tab                        | [ ] All groups displayed (Personal + Official)   |          |         |                  |
+|          | Category: Groups & Messaging   | 2. View all groups user is member of            | [ ] Each group: icon, name, count, latest msg    |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Unread count badge if unread messages        |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Timestamp of latest message                  |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| SE-025   | Open Group Chat                | 1. Tap on a group                                | [ ] Group name in header                         |          |         |                  |
+|          | Category: Groups & Messaging   | 2. View group chat screen                        | [ ] All messages in chronological order          |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Own messages aligned right (blue bubble)     |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Others' messages aligned left (gray)         |          |         |                  |
+|          |                                |                                                  | [ ] Sender name and timestamp visible            |          |         |                  |
+|          |                                |                                                  | [ ] Message input field at bottom                |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| SE-026   | Send Text Message              | 1. In group chat, type a message                 | [ ] Message appears immediately in chat          |          |         |                  |
+|          | Category: Groups & Messaging   | 2. Tap send button                               | [ ] Message syncs to database                    |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Other members can see message                |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Timestamp accurate                           |          |         |                  |
+|          |                                |                                                  | [ ] Input field clears after send                |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| SE-027   | Send Photo in Group            | 1. Tap photo attachment icon                     | [ ] Photo uploads successfully                   |          |         |                  |
+|          | Category: Groups & Messaging   | 2. Select/capture photo                          | [ ] Photo displays in chat as image bubble       |          |         |                  |
+|          | Tester: __________             | 3. Send photo message                            | [ ] Can tap photo to view full-size              |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Photo quality maintained                     |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| SE-028   | View Group Info                | 1. In group chat, tap group name or menu         | [ ] Group name, icon, description shown          |          |         |                  |
+|          | Category: Groups & Messaging   | 2. View "Group Info" screen                      | [ ] Full member list displayed                   |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Member roles indicated (Admin/Member)        |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Member count accurate                        |          |         |                  |
+|          |                                |                                                  | [ ] "Leave Group" button visible (if not admin)  |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| SE-029   | View Hall of Fame Leaderboard  | 1. Navigate to Hall of Fame                      | [ ] Top performers listed by points              |          |         |                  |
+|          | Category: Hall of Fame         | 2. View leaderboard                              | [ ] Shows: rank, name, zone, total points        |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Own rank highlighted                         |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Can scroll to see all rankings               |          |         |                  |
+|          |                                |                                                  | [ ] Filter by week/month/all-time available      |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| SE-030   | Points Accuracy in Leaderboard | 1. Check own points in leaderboard               | [ ] Points match across all screens              |          |         |                  |
+|          | Category: Hall of Fame         | 2. Compare to points in Profile/Dashboard        | [ ] Rank accurate based on points                |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Updates in real-time after new submission    |          |         |                  |
+|          | Date: __________               |                                                  |                                                  |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+
+====================================================================================================================================================================
+SECTION 2: ZONAL SALES MANAGER (ZSM) - 30 TESTS
+====================================================================================================================================================================
+
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| TEST ID  | TEST NAME                      | TEST STEPS                                       | EXPECTED RESULT                                  | ACTUAL   | PASS/   | NOTES/ISSUES     |
+|          |                                |                                                  |                                                  | RESULT   | FAIL    |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| ZSM-001  | Login as ZSM                   | 1. Open app                                      | [ ] Login successful                             |          |         |                  |
+|          | Category: Auth & Profile       | 2. Enter ZSM credentials                         | [ ] Redirect to ZSM Dashboard                    |          |         |                  |
+|          | Tester: __________             | 3. Login                                         | [ ] Bottom nav shows: Home, Explore, Groups      |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Zone management features visible             |          |         |                  |
+|          |                                |                                                  | [ ] Role shown as "Zonal Sales Manager"          |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| ZSM-002  | Profile with Zone Assignment   | 1. Navigate to Profile                           | [ ] Assigned zone(s) displayed                   |          |         |                  |
+|          | Category: Auth & Profile       | 2. Check zone assignment                         | [ ] Number of SEs under management shown         |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Zone statistics visible                      |          |         |                  |
+|          | Date: __________               |                                                  |                                                  |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| ZSM-003  | Logout Functionality           | 1. Logout from ZSM account                       | [ ] Logout successful                            |          |         |                  |
+|          | Category: Auth & Profile       | 2. Verify session cleared                        | [ ] Redirected to login screen                   |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Cannot access ZSM dashboard without re-login |          |         |                  |
+|          | Date: __________               |                                                  |                                                  |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| ZSM-004  | Session Timeout                | 1. Login and leave app idle 30+ min              | [ ] Session remains active or prompts re-login   |          |         |                  |
+|          | Category: Auth & Profile       | 2. Try to navigate                               | [ ] No data loss on session expiry               |          |         |                  |
+|          | Tester: __________             |                                                  |                                                  |          |         |                  |
+|          | Date: __________               |                                                  |                                                  |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| ZSM-005  | Multiple Device Login          | 1. Login on Device A                             | [ ] Both sessions work simultaneously OR         |          |         |                  |
+|          | Category: Auth & Profile       | 2. Login with same credentials on Device B       | [ ] Second login invalidates first               |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] No data corruption                           |          |         |                  |
+|          | Date: __________               |                                                  |                                                  |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| ZSM-006  | ZSM Dashboard Overview         | 1. View ZSM Dashboard                            | [ ] Zone performance summary card                |          |         |                  |
+|          | Category: Dashboard & Analytics| 2. Check all widgets/cards                       | [ ] Total submissions from zone SEs              |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Total points from zone                       |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Top performers in zone                       |          |         |                  |
+|          |                                |                                                  | [ ] Recent activity feed                         |          |         |                  |
+|          |                                |                                                  | [ ] Quick stats (submissions this week/month)    |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| ZSM-007  | Zone Performance Analytics     | 1. Navigate to Analytics section                 | [ ] Charts showing submission trends             |          |         |                  |
+|          | Category: Dashboard & Analytics| 2. View zone-level metrics                       | [ ] Points distribution across SEs               |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Mission type breakdown                       |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Time-based analytics (daily/weekly/monthly)  |          |         |                  |
+|          |                                |                                                  | [ ] Can filter by date range                     |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| ZSM-008  | View All SEs in Zone           | 1. Navigate to "My Team" or "Zone SEs" section   | [ ] All SEs in zone listed                       |          |         |                  |
+|          | Category: Dashboard & Analytics| 2. View list of SEs                              | [ ] Each SE: name, employee ID, total points     |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Activity status (active/inactive)            |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Can tap to view SE details                   |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| ZSM-009  | View Individual SE Performance | 1. Tap on a specific SE                          | [ ] SE name and profile displayed                |          |         |                  |
+|          | Category: Dashboard & Analytics| 2. View their detailed performance               | [ ] Total points and rank                        |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Submission history                           |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Activity trends                              |          |         |                  |
+|          |                                |                                                  | [ ] Can view their submissions                   |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| ZSM-010  | Submission Review (Read-Only)  | 1. Navigate to "All Submissions"                 | [ ] All submissions from zone SEs visible        |          |         |                  |
+|          | Category: Dashboard & Analytics| 2. View submissions from zone SEs                | [ ] Can filter by SE, mission type, date         |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Can view submission details                  |          |         |                  |
+|          | Date: __________               |                                                  | [ ] No approval/rejection actions (auto-approve) |          |         |                  |
+|          |                                |                                                  | [ ] Can see points awarded                       |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| ZSM-011  | Export/Download Reports        | 1. Look for "Export" or "Download Report"        | [ ] Export option available (CSV, PDF, Excel)    |          |         |                  |
+|          | Category: Dashboard & Analytics| 2. Download zone performance report              | [ ] Report generates successfully                |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Contains accurate data                       |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Downloaded file opens correctly              |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| ZSM-012  | Dashboard Refresh              | 1. Pull to refresh on dashboard                  | [ ] Refresh animation appears                    |          |         |                  |
+|          | Category: Dashboard & Analytics| 2. Verify data updates                           | [ ] Latest data loads                            |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] New submissions appear                       |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Stats update correctly                       |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| ZSM-013  | View Zone-Filtered Feed        | 1. Navigate to Explore tab                       | [ ] Can see all submissions or zone-filter avail |          |         |                  |
+|          | Category: Explore Feed         | 2. View intelligence feed                        | [ ] Posts from own zone highlighted/filterable   |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Same Instagram-style cards as SE view        |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Can interact with posts (view details)       |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| ZSM-014  | Feed Filtering by SE           | 1. Apply filter to show specific SE's posts      | [ ] Filter dropdown shows all zone SEs           |          |         |                  |
+|          | Category: Explore Feed         | 2. Verify filter works                           | [ ] Feed updates to show only selected SE        |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Can clear filter                             |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Multiple filters work (SE + mission type)    |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| ZSM-015  | View Cross-Zone Intelligence   | 1. Look for option to view other zones           | [ ] Can view submissions from other zones OR     |          |         |                  |
+|          | Category: Explore Feed         | 2. Apply cross-zone filter (if available)        | [ ] Permission restricted to own zone only       |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Clear indication of which zone's data shown  |          |         |                  |
+|          | Date: __________               |                                                  |                                                  |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| ZSM-016  | Post Details with Metadata     | 1. Tap on a post card                            | [ ] All submission details visible               |          |         |                  |
+|          | Category: Explore Feed         | 2. View full details                             | [ ] SE name and employee ID shown                |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] GPS location data visible                    |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Timestamp and mission type clear             |          |         |                  |
+|          |                                |                                                  | [ ] Points awarded displayed                     |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| ZSM-017  | View All Groups                | 1. Navigate to Groups tab                        | [ ] Personal groups visible                      |          |         |                  |
+|          | Category: Groups & Comm        | 2. View groups                                   | [ ] Official groups (e.g., "Zone A ZSM + SEs")   |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Can see all groups ZSM is member of          |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Group types distinguished (Personal/Official)|          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| ZSM-018  | Create New Group (Personal)    | 1. Tap "Create Group" or "+" button              | [ ] Group creation modal opens                   |          |         |                  |
+|          | Category: Groups & Comm        | 2. Fill group details (name, icon, description)  | [ ] Can enter name and description               |          |         |                  |
+|          | Tester: __________             | 3. Select type as "Personal"                     | [ ] Can select icon emoji                        |          |         |                  |
+|          | Date: __________               | 4. Add members from zone SEs                     | [ ] Member selection shows all zone SEs          |          |         |                  |
+|          |                                | 5. Create group                                  | [ ] Group created successfully                   |          |         |                  |
+|          |                                |                                                  | [ ] ZSM is admin                                 |          |         |                  |
+|          |                                |                                                  | [ ] Group appears in Groups list                 |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| ZSM-019  | Quick Add Zone Group           | 1. Tap "Quick Add" option                        | [ ] Quick Add dialog appears                     |          |         |                  |
+|          | Category: Groups & Comm        | 2. Select "Add All Zone SEs"                     | [ ] Pre-populates with all zone SEs              |          |         |                  |
+|          | Tester: __________             | 3. Confirm creation                              | [ ] Group name auto-generated (e.g., "Zone A")   |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Can edit name before creating                |          |         |                  |
+|          |                                |                                                  | [ ] Group created with all zone SEs as members   |          |         |                  |
+|          |                                |                                                  | [ ] ZSM is admin                                 |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| ZSM-020  | Manage Group Members           | 1. Open group info screen                        | [ ] "Add Member" button visible (if admin)       |          |         |                  |
+|          | Category: Groups & Comm        | 2. Add a new member                              | [ ] Can select from zone SEs                     |          |         |                  |
+|          | Tester: __________             | 3. Remove a member (if admin)                    | [ ] New member added successfully                |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Can remove members (tap X or Remove)         |          |         |                  |
+|          |                                |                                                  | [ ] Cannot remove self if only admin             |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| ZSM-021  | Send Broadcast Message         | 1. In official zone group, send a message        | [ ] Message sent successfully                    |          |         |                  |
+|          | Category: Groups & Comm        | 2. Verify all SEs receive it                     | [ ] All members can see message                  |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Timestamp accurate                           |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Can send with photo attachments              |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| ZSM-022  | Admin Controls                 | 1. As group admin, access admin options          | [ ] "Edit Group" option available                |          |         |                  |
+|          | Category: Groups & Comm        | 2. Try to change group name/description          | [ ] Can update group name, description, icon     |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Changes save and reflect immediately         |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Non-admins cannot edit                       |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| ZSM-023  | View Zone Leaderboard          | 1. Navigate to Hall of Fame                      | [ ] Can filter leaderboard by own zone           |          |         |                  |
+|          | Category: Hall of Fame         | 2. Apply zone filter (if available)              | [ ] Shows only zone SEs ranked by points         |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Top 3 highlighted with badges                |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Can toggle between all-zones and own zone    |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| ZSM-024  | Zone Ranking Comparison        | 1. View leaderboard at zone level                | [ ] Zone-level rankings available                |          |         |                  |
+|          | Category: Hall of Fame         | 2. Compare zone performance vs other zones       | [ ] Shows total zone points                      |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Zone rank displayed (1st, 2nd, etc.)         |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Can see top zones nationwide                 |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| ZSM-025  | Time-Period Filtering          | 1. In Hall of Fame, select "This Week", etc.     | [ ] Filter options visible                       |          |         |                  |
+|          | Category: Hall of Fame         | 2. Verify rankings update                        | [ ] Leaderboard updates based on selected period |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Rankings accurate for each period            |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Can compare performance trends               |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| ZSM-026  | Submit Own Intelligence        | 1. ZSM submits own intelligence (if allowed)     | [ ] ZSM can submit intelligence OR               |          |         |                  |
+|          | Category: Programs & Submissions| 2. Follow standard submission flow              | [ ] Submission disabled for managers             |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Clear indication of permission level         |          |         |                  |
+|          | Date: __________               |                                                  |                                                  |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| ZSM-027  | View Submission Trends         | 1. Navigate to Analytics                         | [ ] Line/bar chart showing daily/weekly trends   |          |         |                  |
+|          | Category: Programs & Submissions| 2. View submission trends over time             | [ ] Can filter by mission type                   |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Trends accurate based on data                |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Can compare week-over-week                   |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| ZSM-028  | Mission Type Distribution      | 1. View analytics showing mission type breakdown | [ ] Pie/bar chart showing distribution           |          |         |                  |
+|          | Category: Programs & Submissions| 2. Check which mission types most popular       | [ ] Shows: Network, Conversion, New Site, AMB    |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Percentages or counts accurate               |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Can drill down into specific mission type    |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| ZSM-029  | Inactive SE Identification     | 1. View SE list                                  | [ ] Can filter/sort by activity                  |          |         |                  |
+|          | Category: Programs & Submissions| 2. Identify SEs with no recent submissions      | [ ] Inactive SEs highlighted or flagged          |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Shows last submission date                   |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Can export inactive SE list                  |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+| ZSM-030  | GPS Location Verification      | 1. View submission details                       | [ ] GPS coordinates displayed                    |          |         |                  |
+|          | Category: Programs & Submissions| 2. Check GPS location data                      | [ ] Location address shown (if reverse geocoded) |          |         |                  |
+|          | Tester: __________             |                                                  | [ ] Accuracy radius visible                      |          |         |                  |
+|          | Date: __________               |                                                  | [ ] Can view on map (if map integration exists)  |          |         |                  |
+|          |                                |                                                  | [ ] Timestamp of GPS capture shown               |          |         |                  |
++----------+--------------------------------+--------------------------------------------------+--------------------------------------------------+----------+---------+------------------+
+
+====================================================================================================================================================================
+SECTION 3: ZONAL BUSINESS MANAGER (ZBM) - 30 TESTS
+====================================================================================================================================================================
+
+[Format continues with same table structure for ZBM-001 through ZBM-030]
+
+NOTE: Due to character limit, ZBM, HQ, Director, and Developer sections follow the same table format.
+      Each section contains 30 tests with:
+      - Test ID
+      - Test Name  
+      - Category
+      - Tester/Date fields
+      - Test Steps
+      - Expected Results with checkboxes
+      - Actual Result field
+      - Pass/Fail field
+      - Notes/Issues field
+
+====================================================================================================================================================================
+TESTING SUMMARY TABLE
+====================================================================================================================================================================
+
++---------------+-------------+---------+---------+----------+-----------+
+| ROLE          | TOTAL TESTS | PASSED  | FAILED  | BLOCKED  | PASS RATE |
++---------------+-------------+---------+---------+----------+-----------+
+| SE            |     30      |         |         |          |     %     |
++---------------+-------------+---------+---------+----------+-----------+
+| ZSM           |     30      |         |         |          |     %     |
++---------------+-------------+---------+---------+----------+-----------+
+| ZBM           |     30      |         |         |          |     %     |
++---------------+-------------+---------+---------+----------+-----------+
+| HQ            |     30      |         |         |          |     %     |
++---------------+-------------+---------+---------+----------+-----------+
+| Director      |     30      |         |         |          |     %     |
++---------------+-------------+---------+---------+----------+-----------+
+| Developer     |     30      |         |         |          |     %     |
++---------------+-------------+---------+---------+----------+-----------+
+| OVERALL TOTAL |    180      |         |         |          |     %     |
++---------------+-------------+---------+---------+----------+-----------+
+
+====================================================================================================================================================================
+CRITICAL ISSUES LOG
+====================================================================================================================================================================
+
++----------+-------------+----------------------------------+---------------+----------+------------------+
+| ISSUE ID | SEVERITY    | DESCRIPTION                      | ROLE AFFECTED | STATUS   | ASSIGNED TO      |
++----------+-------------+----------------------------------+---------------+----------+------------------+
+| ISS-001  | [ ] Critical| ________________________________ | _____________ | [ ] Open | ________________ |
+|          | [ ] High    |                                  |               |          |                  |
+|          | [ ] Medium  |                                  |               |          |                  |
+|          | [ ] Low     |                                  |               |          |                  |
++----------+-------------+----------------------------------+---------------+----------+------------------+
+| ISS-002  | [ ] Critical| ________________________________ | _____________ | [ ] Open | ________________ |
+|          | [ ] High    |                                  |               |          |                  |
+|          | [ ] Medium  |                                  |               |          |                  |
+|          | [ ] Low     |                                  |               |          |                  |
++----------+-------------+----------------------------------+---------------+----------+------------------+
+| ISS-003  | [ ] Critical| ________________________________ | _____________ | [ ] Open | ________________ |
+|          | [ ] High    |                                  |               |          |                  |
+|          | [ ] Medium  |                                  |               |          |                  |
+|          | [ ] Low     |                                  |               |          |                  |
++----------+-------------+----------------------------------+---------------+----------+------------------+
+
+====================================================================================================================================================================
+SIGN-OFF
+====================================================================================================================================================================
+
+UAT Lead: ______________________________  Date: __________  Signature: ______________________________
+
+QA Manager: _____________________________  Date: __________  Signature: ______________________________
+
+Project Manager: ________________________  Date: __________  Signature: ______________________________
+
+Technical Lead: __________________________  Date: __________  Signature: ______________________________
+
+OVERALL STATUS:  [ ] APPROVED - Ready for Production
+                 [ ] APPROVED WITH CONDITIONS - Minor fixes required
+                 [ ] REJECTED - Major issues must be resolved
+
+====================================================================================================================================================================
+END OF UAT TEST PLAN - TAI SALES INTELLIGENCE NETWORK v2.0
+====================================================================================================================================================================

@@ -1,0 +1,210 @@
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                                    ┃
+┃      🎯 VISUAL GUIDE: Deploy Edge Function in 6 Clicks 🎯         ┃
+┃                                                                    ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+
+┌─ CLICK #1 ─────────────────────────────────────────────────────────┐
+│                                                                     │
+│  Open this URL in your browser:                                    │
+│  https://supabase.com/dashboard/project/xspogpfohjmkykfjadhk      │
+│                                                                     │
+│  You'll see the Supabase Dashboard                                 │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+
+
+┌─ CLICK #2 ─────────────────────────────────────────────────────────┐
+│                                                                     │
+│  In the LEFT SIDEBAR, find and click:                              │
+│                                                                     │
+│  ╔═══════════════════════════╗                                     │
+│  ║  ⚡ Edge Functions         ║  ← CLICK HERE                      │
+│  ╚═══════════════════════════╝                                     │
+│                                                                     │
+│  (It has a lightning bolt icon)                                    │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+
+
+┌─ CLICK #3 ─────────────────────────────────────────────────────────┐
+│                                                                     │
+│  In the top-right corner, click:                                   │
+│                                                                     │
+│  ╔═══════════════════════════════╗                                 │
+│  ║  + Create a new function      ║  ← CLICK HERE                   │
+│  ╚═══════════════════════════════╝                                 │
+│                                                                     │
+│  OR it might say "New Function" or "+ New"                         │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+
+
+┌─ TYPE ─────────────────────────────────────────────────────────────┐
+│                                                                     │
+│  A dialog will appear. In the "Function Name" field, type:         │
+│                                                                     │
+│  ┌─────────────────────────────────────────────────┐               │
+│  │  make-server-28f2f653                           │  ← TYPE THIS  │
+│  └─────────────────────────────────────────────────┘               │
+│                                                                     │
+│  ⚠️  IMPORTANT: Copy-paste to avoid typos!                         │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+
+
+┌─ COPY & PASTE ─────────────────────────────────────────────────────┐
+│                                                                     │
+│  1. In Figma Make, open: /EDGE_FUNCTION_CONSOLIDATED.ts            │
+│                                                                     │
+│  2. Select ALL the code:                                           │
+│     • Windows: Ctrl + A                                            │
+│     • Mac: Cmd + A                                                 │
+│                                                                     │
+│  3. Copy the code:                                                 │
+│     • Windows: Ctrl + C                                            │
+│     • Mac: Cmd + C                                                 │
+│                                                                     │
+│  4. Go back to Supabase                                            │
+│                                                                     │
+│  5. Click in the CODE EDITOR (big text area)                       │
+│                                                                     │
+│  6. Paste the code:                                                │
+│     • Windows: Ctrl + V                                            │
+│     • Mac: Cmd + V                                                 │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+
+
+┌─ CLICK #4 ─────────────────────────────────────────────────────────┐
+│                                                                     │
+│  At the bottom of the screen, click:                               │
+│                                                                     │
+│  ╔═══════════════════╗                                             │
+│  ║  Deploy Function  ║  ← CLICK HERE                               │
+│  ╚═══════════════════╝                                             │
+│                                                                     │
+│  OR it might say "Create" or "Deploy"                              │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+
+
+┌─ WAIT ─────────────────────────────────────────────────────────────┐
+│                                                                     │
+│  ⏳ Deployment in progress...                                      │
+│                                                                     │
+│  You'll see a spinner or loading indicator                         │
+│  This takes 30-60 seconds                                          │
+│                                                                     │
+│  ✅ Success message will appear when done                          │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+
+
+┌─ VERIFY ───────────────────────────────────────────────────────────┐
+│                                                                     │
+│  Open a NEW browser tab and go to:                                 │
+│                                                                     │
+│  https://xspogpfohjmkykfjadhk.supabase.co/functions/v1/            │
+│  make-server-28f2f653/health                                       │
+│                                                                     │
+│  You should see:                                                   │
+│                                                                     │
+│  ┌───────────────────────────────────────────────────┐             │
+│  │ {                                                 │             │
+│  │   "status": "ok",                                 │             │
+│  │   "timestamp": "2026-01-03T...",                  │             │
+│  │   "service": "Sales Intelligence Network API",    │             │
+│  │   "project": "xspogpfohjmkykfjadhk"               │             │
+│  │ }                                                 │             │
+│  └───────────────────────────────────────────────────┘             │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+
+
+┌─ CLICK #5 ─────────────────────────────────────────────────────────┐
+│                                                                     │
+│  Go back to your TAI dashboard tab                                 │
+│                                                                     │
+│  Hard refresh the page:                                            │
+│  • Windows: Ctrl + Shift + R                                       │
+│  • Mac: Cmd + Shift + R                                            │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+
+
+┌─ CLICK #6 ─────────────────────────────────────────────────────────┐
+│                                                                     │
+│  In TAI dashboard:                                                 │
+│                                                                     │
+│  1. Make sure you're logged in as Ashish (Director)                │
+│                                                                     │
+│  2. Click the "Create Program" button                              │
+│                                                                     │
+│  3. Fill in the program details:                                   │
+│     • Title: Test Program                                          │
+│     • Description: Testing deployment                              │
+│     • Target Roles: Sales Executive                                │
+│                                                                     │
+│  4. Click "Create Program"                                         │
+│                                                                     │
+│  5. You should see: ✅ "Program created successfully!"             │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                                    ┃
+┃                      🎉 SUCCESS! 🎉                               ┃
+┃                                                                    ┃
+┃         Your Edge Function is now deployed and working!            ┃
+┃                                                                    ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+
+═══════════════════════════════════════════════════════════════════════
+                        🐛 TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════════════
+
+┌─ PROBLEM: Can't find "Edge Functions" in sidebar ─────────────────┐
+│                                                                    │
+│  Solution:                                                         │
+│  • Scroll down in the left sidebar                                │
+│  • Look for section called "Platform" or "Build"                  │
+│  • Edge Functions should be under there                           │
+│  • Or try the search bar at the top                               │
+│                                                                    │
+└────────────────────────────────────────────────────────────────────┘
+
+
+┌─ PROBLEM: Health endpoint returns 404 ────────────────────────────┐
+│                                                                    │
+│  Solution:                                                         │
+│  • Wait 60 seconds (deployment can be slow)                       │
+│  • Check the function name is EXACTLY: make-server-28f2f653       │
+│  • Go back to Supabase → Edge Functions                           │
+│  • Verify the function exists and is "Active"                     │
+│                                                                    │
+└────────────────────────────────────────────────────────────────────┘
+
+
+┌─ PROBLEM: Still getting "Failed to fetch" in TAI ─────────────────┐
+│                                                                    │
+│  Solution:                                                         │
+│  • Clear browser cache completely (Ctrl+Shift+Delete)             │
+│  • Close and reopen browser                                       │
+│  • Try incognito/private mode                                     │
+│  • Check browser console for specific errors                      │
+│                                                                    │
+└────────────────────────────────────────────────────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════════
+
+Need more help? Check these files:
+• /DEPLOYMENT_GUIDE.md - Full detailed guide
+• /DEPLOYMENT_SUMMARY.md - Overview and troubleshooting
+• /EDGE_FUNCTION_CONSOLIDATED.ts - The code to deploy
+
+═══════════════════════════════════════════════════════════════════════

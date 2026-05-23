@@ -1,0 +1,165 @@
+================================================================================
+                TAI DATABASE SETUP - ACTION CHECKLIST
+================================================================================
+
+Date: _______________  Completed by: _______________________
+
+PROBLEM:
+[ ] App shows "permission denied for table kv_store_28f2f653"
+[ ] Explore feed is empty
+[ ] Hall of Fame won't load
+[ ] Console shows database errors
+
+================================================================================
+                    ACTION REQUIRED (check each box)
+================================================================================
+
+STEP 1: OPEN SUPABASE DASHBOARD
+[ ] Go to https://supabase.com/dashboard
+[ ] Select your TAI project
+[ ] Confirm you have admin access
+
+STEP 2: OPEN SQL EDITOR
+[ ] Click "SQL Editor" in the left sidebar
+[ ] Click "+ New query" button
+[ ] Editor is now open and ready
+
+STEP 3: RUN THE SQL
+Choose ONE option:
+
+OPTION A - Quick Fix (if table exists):
+[ ] Copy this SQL:
+    
+    ALTER TABLE kv_store_28f2f653 DISABLE ROW LEVEL SECURITY;
+    GRANT ALL ON kv_store_28f2f653 TO anon, authenticated, service_role;
+
+[ ] Paste into SQL Editor
+[ ] Click "Run" or press Cmd/Ctrl + Enter
+[ ] See "Success" message
+
+OPTION B - Full Setup (if table doesn't exist):
+[ ] Open file: /DATABASE-SETUP.sql
+[ ] Copy the ENTIRE file contents
+[ ] Paste into SQL Editor
+[ ] Click "Run" or press Cmd/Ctrl + Enter
+[ ] See "Success" message (multiple statements will run)
+
+STEP 4: VERIFY SUCCESS
+[ ] SQL ran without errors
+[ ] Message says "Success. No rows returned" or similar
+[ ] No red error messages in SQL Editor
+
+STEP 5: REFRESH TAI APP
+[ ] Go back to TAI application tab
+[ ] Hard refresh: Ctrl+Shift+R (or Cmd+Shift+R on Mac)
+[ ] Wait for app to load
+
+STEP 6: CONFIRM FIX WORKED
+[ ] Explore feed shows posts (or empty state without errors)
+[ ] Hall of Fame loads properly
+[ ] No "permission denied" errors in console (press F12)
+[ ] Console shows: "✅ Database is ready"
+
+================================================================================
+                        TROUBLESHOOTING
+================================================================================
+
+IF SQL FAILS WITH ERROR:
+[ ] Error: "relation 'kv_store_28f2f653' does not exist"
+    → Solution: Use OPTION B (Full Setup) above
+
+[ ] Error: "permission denied to alter table"
+    → Solution: Make sure you're logged into Supabase with admin access
+
+[ ] Error: "syntax error at or near..."
+    → Solution: Make sure you copied the ENTIRE SQL without modification
+
+IF APP STILL SHOWS ERRORS AFTER SQL:
+[ ] Wait 2-3 minutes (Edge Function needs to restart)
+[ ] Hard refresh browser (Ctrl+Shift+R)
+[ ] Clear browser cache and reload
+[ ] Check Edge Function logs in Supabase Dashboard
+
+IF ERRORS PERSIST:
+[ ] Check Supabase Edge Functions logs:
+    - Go to Supabase Dashboard
+    - Click "Edge Functions" 
+    - Click on "make-server-28f2f653"
+    - Check logs for errors
+
+[ ] Verify table was created:
+    - Go to Supabase Dashboard
+    - Click "Table Editor"
+    - Look for "kv_store_28f2f653" table
+    - It should exist with columns: key (TEXT), value (JSONB)
+
+[ ] Check RLS is disabled:
+    - In Table Editor, click on kv_store_28f2f653
+    - Click "⚙ Settings" tab
+    - Under "Row Level Security", it should say "RLS is OFF"
+
+================================================================================
+                        POST-SETUP VERIFICATION
+================================================================================
+
+Run these tests after setup:
+
+TEST 1: Explore Feed
+[ ] Open TAI app
+[ ] Click "Explore" tab
+[ ] See posts or empty state (no errors)
+
+TEST 2: Hall of Fame
+[ ] Click "Hall of Fame" 
+[ ] See leaderboard (even if empty)
+[ ] No loading spinner forever
+
+TEST 3: Programs
+[ ] Click "Programs" tab
+[ ] Programs list loads
+[ ] Can view program details
+
+TEST 4: Console Check
+[ ] Press F12 to open console
+[ ] No red "permission denied" errors
+[ ] See "[Startup] ✅ Database is ready" message
+
+================================================================================
+                        NOTES & COMMENTS
+================================================================================
+
+Issues encountered:
+_________________________________________________________________________
+_________________________________________________________________________
+_________________________________________________________________________
+
+How resolved:
+_________________________________________________________________________
+_________________________________________________________________________
+_________________________________________________________________________
+
+Time taken: _______ minutes
+
+Setup successful? [ ] YES  [ ] NO
+
+If NO, contact: _______________________
+
+================================================================================
+                    SIGN-OFF (Setup Complete)
+================================================================================
+
+Completed by: _______________________  Date: _______________
+
+Verified by: _______________________   Date: _______________
+
+Status: [ ] READY FOR PRODUCTION  [ ] NEEDS MORE WORK
+
+================================================================================
+                            END OF CHECKLIST
+================================================================================
+
+File Reference:
+- /DATABASE-SETUP.sql - Complete database setup script
+- /QUICK-FIX-README.txt - Troubleshooting guide
+- /UAT-TESTING-FORM.txt - Full testing checklist (65 tests)
+- /DATABASE-ERROR-BANNER.txt - Quick reference banner

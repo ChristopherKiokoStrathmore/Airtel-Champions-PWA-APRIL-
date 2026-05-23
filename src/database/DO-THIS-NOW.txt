@@ -1,0 +1,85 @@
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║  🚨 YOUR TAI APP HAS AN ERROR - FIX IT IN 30 SECONDS 🚨     ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+ERROR YOU'RE SEEING:
+┌──────────────────────────────────────────────────────────────┐
+│ ❌ Could not find the table 'public.programs'               │
+│ ❌ programs table does not exist!                           │
+└──────────────────────────────────────────────────────────────┘
+
+WHY:
+→ The database tables haven't been created yet
+→ You need to run SQL to create them
+→ This is a ONE-TIME setup (30 seconds)
+
+═══════════════════════════════════════════════════════════════
+
+📋 FOLLOW THESE 5 STEPS:
+
+┌─ STEP 1 ─────────────────────────────────────────────────────┐
+│ Open file: /database/CREATE-TABLES-NOW.sql                  │
+│ (In the file list on the left side)                         │
+└──────────────────────────────────────────────────────────────┘
+
+┌─ STEP 2 ─────────────────────────────────────────────────────┐
+│ Copy everything:                                             │
+│   • Press Ctrl+A (or Cmd+A on Mac)                          │
+│   • Press Ctrl+C (or Cmd+C on Mac)                          │
+└──────────────────────────────────────────────────────────────┘
+
+┌─ STEP 3 ─────────────────────────────────────────────────────┐
+│ Open Supabase Dashboard:                                     │
+│   • Go to: https://supabase.com/dashboard                   │
+│   • Click your project (TAI)                                 │
+│   • Click "SQL Editor" (left sidebar)                        │
+│   • Click "New Query" button                                 │
+└──────────────────────────────────────────────────────────────┘
+
+┌─ STEP 4 ─────────────────────────────────────────────────────┐
+│ Paste and Run:                                               │
+│   • Click in the text box                                    │
+│   • Press Ctrl+V (or Cmd+V on Mac)                          │
+│   • Click the "Run" button                                   │
+│   • Wait 3 seconds                                           │
+└──────────────────────────────────────────────────────────────┘
+
+┌─ STEP 5 ─────────────────────────────────────────────────────┐
+│ Refresh TAI app:                                             │
+│   • Go back to your TAI app                                  │
+│   • Press Ctrl+Shift+R (or Cmd+Shift+R on Mac)              │
+│   • Error is GONE! ✅                                        │
+└──────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════
+
+✅ WHAT YOU'LL SEE AFTER:
+
+• ✅ No more red error modal
+• ✅ Programs tab works
+• ✅ "Competitor Intel" sample program appears
+• ✅ "Create New Program" button works
+• ✅ Everything works perfectly!
+
+═══════════════════════════════════════════════════════════════
+
+⏱️ TIME REQUIRED: 30 seconds
+🔁 HOW MANY TIMES: Once (never again)
+📁 FILE TO USE: /database/CREATE-TABLES-NOW.sql
+
+═══════════════════════════════════════════════════════════════
+
+🆘 NEED HELP?
+
+• Can't find SQL Editor? → Look for </> icon on left sidebar
+• Run button grayed out? → Make sure you pasted the SQL first
+• Still see error after running? → Hard refresh (Ctrl+Shift+R)
+• Want more details? → Read /database/STEP-BY-STEP.md
+
+═══════════════════════════════════════════════════════════════
+
+💪 STOP READING. GO DO IT NOW. 30 SECONDS AND YOU'RE DONE! 💪
+
+═══════════════════════════════════════════════════════════════

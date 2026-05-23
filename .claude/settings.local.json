@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -E \"\\\\.\\(ts|tsx\\)$\")",
+      "Bash(xargs grep *)",
+      "Bash(npx vite *)",
+      "Bash(node_modules/.bin/tsc --noEmit)",
+      "Bash(node_modules/vite/bin/vite.js build *)"
+    ]
+  }
+}

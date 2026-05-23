@@ -1,0 +1,129 @@
+╔════════════════════════════════════════════════════════════════════╗
+║                                                                    ║
+║     🚀 TAI EDGE FUNCTION - QUICK DEPLOYMENT CHECKLIST 🚀          ║
+║                                                                    ║
+╚════════════════════════════════════════════════════════════════════╝
+
+┌────────────────────────────────────────────────────────────────────┐
+│  STEP 1: GO TO SUPABASE DASHBOARD                                  │
+└────────────────────────────────────────────────────────────────────┘
+
+   [ ] Open: https://supabase.com/dashboard/project/xspogpfohjmkykfjadhk
+   [ ] Click "Edge Functions" in the left sidebar
+   
+
+┌────────────────────────────────────────────────────────────────────┐
+│  STEP 2: CREATE NEW FUNCTION                                       │
+└────────────────────────────────────────────────────────────────────┘
+
+   [ ] Click "Create a new function" button
+   [ ] Function Name: make-server-28f2f653
+       ⚠️  MUST BE EXACT (copy-paste recommended)
+   
+
+┌────────────────────────────────────────────────────────────────────┐
+│  STEP 3: COPY THE CODE                                             │
+└────────────────────────────────────────────────────────────────────┘
+
+   [ ] Open file: /EDGE_FUNCTION_CONSOLIDATED.ts (in Figma Make)
+   [ ] Select ALL code (Ctrl+A / Cmd+A)
+   [ ] Copy (Ctrl+C / Cmd+C)
+   [ ] Paste into Supabase editor (Ctrl+V / Cmd+V)
+   
+
+┌────────────────────────────────────────────────────────────────────┐
+│  STEP 4: DEPLOY                                                    │
+└────────────────────────────────────────────────────────────────────┘
+
+   [ ] Click "Deploy" or "Create Function" button
+   [ ] Wait 30-60 seconds for deployment
+   [ ] Look for success message
+   
+
+┌────────────────────────────────────────────────────────────────────┐
+│  STEP 5: VERIFY                                                    │
+└────────────────────────────────────────────────────────────────────┘
+
+   [ ] Open in browser:
+       https://xspogpfohjmkykfjadhk.supabase.co/functions/v1/make-server-28f2f653/health
+   
+   [ ] Should see:
+       {
+         "status": "ok",
+         "timestamp": "...",
+         "service": "Sales Intelligence Network API",
+         "project": "xspogpfohjmkykfjadhk"
+       }
+   
+
+┌────────────────────────────────────────────────────────────────────┐
+│  STEP 6: TEST IN TAI APP                                          │
+└────────────────────────────────────────────────────────────────────┘
+
+   [ ] Go back to TAI dashboard
+   [ ] Hard refresh: Ctrl+Shift+R (Windows) or Cmd+Shift+R (Mac)
+   [ ] Login as Ashish (Director)
+   [ ] Click "Create Program"
+   [ ] Fill in program details
+   [ ] Click "Create Program" button
+   [ ] Should see: ✅ "Program created successfully!"
+   
+
+╔════════════════════════════════════════════════════════════════════╗
+║                         ✅ SUCCESS!                               ║
+║                                                                    ║
+║  If all steps passed, your Edge Function is deployed and working!  ║
+╚════════════════════════════════════════════════════════════════════╝
+
+
+╔════════════════════════════════════════════════════════════════════╗
+║                    🐛 TROUBLESHOOTING                             ║
+╚════════════════════════════════════════════════════════════════════╝
+
+┌────────────────────────────────────────────────────────────────────┐
+│  ERROR: "Failed to fetch" or CORS Error                           │
+└────────────────────────────────────────────────────────────────────┘
+
+   ➜ Wait 60 seconds (deployment can take time)
+   ➜ Hard refresh browser (Ctrl+Shift+R or Cmd+Shift+R)
+   ➜ Check function name is EXACTLY: make-server-28f2f653
+   
+
+┌────────────────────────────────────────────────────────────────────┐
+│  ERROR: "Could not find the table 'programs'"                     │
+└────────────────────────────────────────────────────────────────────┘
+
+   ➜ The programs table doesn't exist yet
+   ➜ You need to create it in Supabase
+   ➜ Check your SQL schema file and run it
+   
+
+┌────────────────────────────────────────────────────────────────────┐
+│  ERROR: Health endpoint returns 404                                │
+└────────────────────────────────────────────────────────────────────┘
+
+   ➜ Function name is wrong
+   ➜ Go back to Supabase Dashboard
+   ➜ Check the function name is: make-server-28f2f653
+   ➜ If wrong, delete and recreate with correct name
+   
+
+┌────────────────────────────────────────────────────────────────────┐
+│  NEED HELP?                                                        │
+└────────────────────────────────────────────────────────────────────┘
+
+   1. Go to Supabase Dashboard → Edge Functions → Your Function
+   2. Click "Logs" tab
+   3. Copy any error messages
+   4. Share them with me for debugging
+
+
+═══════════════════════════════════════════════════════════════════════
+
+                    FILES YOU NEED:
+
+   📄 /EDGE_FUNCTION_CONSOLIDATED.ts  ← The code to deploy
+   📄 /DEPLOYMENT_GUIDE.md            ← Detailed instructions
+   📄 /DEPLOYMENT_CHECKLIST.txt       ← This file
+
+═══════════════════════════════════════════════════════════════════════

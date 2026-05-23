@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <!-- Safe zone inner 80% circle: radius 76.8px, centre 96,96. Content kept in x:[19,173] y:[19,173] -->
+  <rect width="192" height="192" fill="#0A0A0A"/>
+  <defs>
+    <radialGradient id="gm" cx="50%" cy="46%" r="38%">
+      <stop offset="0%" stop-color="#E60000" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#0A0A0A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="192" height="192" fill="url(#gm)"/>
+  <!-- Lightning bolt scaled (y: 33–146) -->
+  <polygon
+    points="106,33 72,100 94,100 81,146 121,89 97,89 111,33"
+    fill="#E60000"
+  />
+  <polygon
+    points="102,42 79,96 93,96 84,137 113,93 97,93 104,42"
+    fill="#FF3333"
+    opacity="0.35"
+  />
+  <text
+    x="96" y="157"
+    font-family="'Helvetica Neue', 'Arial Black', Arial, sans-serif"
+    font-size="13"
+    font-weight="800"
+    fill="#E60000"
+    text-anchor="middle"
+    letter-spacing="3.5"
+  >AIRTEL</text>
+  <text
+    x="96" y="172"
+    font-family="'Helvetica Neue', 'Arial Black', Arial, sans-serif"
+    font-size="16"
+    font-weight="900"
+    fill="#FFFFFF"
+    text-anchor="middle"
+    letter-spacing="0.5"
+  >CHAMPIONS</text>
+</svg>
