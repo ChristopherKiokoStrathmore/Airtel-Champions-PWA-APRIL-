@@ -7,7 +7,7 @@ export interface User {
   id: string;
   employee_id: string;
   full_name: string;
-  role: 'director' | 'hq_command_center' | 'hq_staff' | 'zonal_business_manager' | 'zonal_sales_manager' | 'sales_executive' | 'field_agent';
+  role: 'director' | 'hq_command_center' | 'hq_staff' | 'zonal_business_manager' | 'zonal_sales_manager' | 'sales_executive' | 'field_agent' | 'networks_team';
   zone: string;
   reporting_to?: string;
   profile_photo?: string | null;
@@ -111,11 +111,15 @@ export async function getVisibleUsers(currentUser: User): Promise<User[]> {
     case 'sales_executive':
     case 'field_agent':
       // SEs can only see other SEs in their zone
-      return allUsers.filter(u => 
-        (u.role === 'sales_executive' || u.role === 'field_agent') && 
+      return allUsers.filter(u =>
+        (u.role === 'sales_executive' || u.role === 'field_agent') &&
         u.zone === currentUser.zone
       );
-    
+
+    case 'networks_team':
+      // Networks team can see all users (to view reporter details)
+      return allUsers;
+
     default:
       return allUsers.filter(u => u.id === currentUser.id);
   }

@@ -126,6 +126,7 @@ export function ProgramCreatorEnhanced({ onClose, onSuccess, editingProgram }: P
   const [progressiveDisclosureEnabled, setProgressiveDisclosureEnabled] = useState(editingProgram?.progressive_disclosure_enabled !== undefined ? editingProgram.progressive_disclosure_enabled : false); // 🆕 Progressive Disclosure UI for multi-field patterns
   const [zoneFilteringEnabled, setZoneFilteringEnabled] = useState(editingProgram?.zone_filtering_enabled !== undefined ? editingProgram.zone_filtering_enabled : false); // 🆕 Zone-based filtering for dropdowns
   const [vanCheckoutEnforcementEnabled, setVanCheckoutEnforcementEnabled] = useState(editingProgram?.van_checkout_enforcement_enabled !== undefined ? editingProgram.van_checkout_enforcement_enabled : false); // 🆕 Van checkout enforcement per-program
+  const [networkIssuesModeEnabled, setNetworkIssuesModeEnabled] = useState(editingProgram?.program_type === 'network_issues'); // 📡 Network issues response mode
   const [sessionCheckinEnabled, setSessionCheckinEnabled] = useState(false); // 📋 Session-based check-in (loaded from KV store)
   const [whitelistEnabled, setWhitelistEnabled] = useState(false);
   const [whitelistTarget, setWhitelistTarget] = useState<'promoter_team_lead' | 'airtel_champions' | ''>('');
@@ -933,6 +934,7 @@ export function ProgramCreatorEnhanced({ onClose, onSuccess, editingProgram }: P
             progressive_disclosure_enabled: progressiveDisclosureEnabled, // 🆕 Progressive Disclosure toggle
             zone_filtering_enabled: zoneFilteringEnabled, // 🆕 Zone filtering toggle
             van_checkout_enforcement_enabled: vanCheckoutEnforcementEnabled, // 🚐 Van checkout enforcement
+            program_type: networkIssuesModeEnabled ? 'network_issues' : 'standard', // 📡 Network issues mode
             whitelist_enabled: whitelistEnabled,
             whitelist_target: whitelistTarget || null,
             whitelist_fields: whitelistFields,
@@ -1001,6 +1003,7 @@ export function ProgramCreatorEnhanced({ onClose, onSuccess, editingProgram }: P
             progressive_disclosure_enabled: progressiveDisclosureEnabled, // 🆕 Progressive Disclosure toggle
             zone_filtering_enabled: zoneFilteringEnabled, // 🆕 Zone filtering toggle
             van_checkout_enforcement_enabled: vanCheckoutEnforcementEnabled, // 🚐 Van checkout enforcement
+            program_type: networkIssuesModeEnabled ? 'network_issues' : 'standard', // 📡 Network issues mode
             whitelist_enabled: whitelistEnabled,
             whitelist_target: whitelistTarget || null,
             whitelist_fields: whitelistFields,
@@ -1725,6 +1728,40 @@ export function ProgramCreatorEnhanced({ onClose, onSuccess, editingProgram }: P
                 </div>
               </div>
 
+              {/* 📡 Network Issues Mode Toggle */}
+              <div className="bg-gradient-to-r from-cyan-50 to-sky-50 border-2 border-cyan-300 rounded-xl p-6">
+                <div className="flex items-start gap-4">
+                  <input
+                    type="checkbox"
+                    id="networkIssuesModeEnabled"
+                    checked={networkIssuesModeEnabled}
+                    onChange={(e) => setNetworkIssuesModeEnabled(e.target.checked)}
+                    className="w-6 h-6 text-cyan-600 rounded-lg focus:ring-2 focus:ring-cyan-500 mt-0.5 cursor-pointer"
+                  />
+                  <div className="flex-1">
+                    <label htmlFor="networkIssuesModeEnabled" className="text-base font-bold text-gray-800 cursor-pointer flex items-center gap-2">
+                      <span>📡 Network Issues Mode</span>
+                    </label>
+                    <p className="text-sm text-gray-600 mt-1">
+                      {networkIssuesModeEnabled
+                        ? '✅ Submissions become trackable network issues. The Networks Team can view, respond, and update status (Open → In Progress → Resolved). HQ has full visibility. Reporters are notified when resolved.'
+                        : '❌ Standard form mode. Submissions are collected normally with no issue-tracking workflow.'}
+                    </p>
+                    {networkIssuesModeEnabled && (
+                      <div className="mt-3 bg-white border border-cyan-200 rounded-lg p-3 space-y-1">
+                        <p className="text-xs font-semibold text-cyan-800">📡 How It Works:</p>
+                        <ul className="text-xs text-cyan-700 space-y-1 ml-3">
+                          <li>• Each submission gets an issue status: Open → In Progress → Resolved</li>
+                          <li>• Networks Team users see a dedicated issue queue with response threads</li>
+                          <li>• HQ Dashboard shows all network issues with status filters</li>
+                          <li>• The reporter (SE/ZSM/ZBM) receives an in-app alert when their issue is resolved</li>
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+
               {/* 🚐 Van Checkout Enforcement Toggle */}
               <div className="bg-gradient-to-r from-red-50 to-orange-50 border-2 border-red-300 rounded-xl p-6">
                 <div className="flex items-start gap-4">
@@ -1858,10 +1895,11 @@ export function ProgramCreatorEnhanced({ onClose, onSuccess, editingProgram }: P
                           >
                             <option value="">— Select target —</option>
                             <option value="promoter_team_lead">Promoter Team Lead</option>
+                            <option value="shujaa">Shujaa</option>
                           </select>
                         </div>
                         <div className="mt-4 bg-white border border-emerald-200 rounded-lg p-3 text-sm text-emerald-800">
-                          Promoter Team Lead whitelisting will use the values entered in the normal form fields.
+                          {whitelistTarget === 'shujaa' ? 'Shujaa whitelisting will use the values entered in the normal form fields.' : 'Promoter Team Lead whitelisting will use the values entered in the normal form fields.'}
                         </div>
                       </div>
                     )}

@@ -147,7 +147,7 @@ export async function handleFormSubmit(params: SubmitParams, callbacks: SubmitCa
     }
 
     const whitelistMap: Record<string, any> = {};
-    if (program.whitelist_enabled && program.whitelist_target === 'promoter_team_lead') {
+    if (program.whitelist_enabled) {
       const nameField = findSourceField(['name', 'full name', 'full_name']);
       const msisdnField = findSourceField(['msisdn', 'phone number', 'phone', 'mobile']);
       const clusterField = findSourceField(['cluster', 'cluster name', 'cluster_name', 'se cluster', 'se_cluster']);
@@ -174,29 +174,32 @@ export async function handleFormSubmit(params: SubmitParams, callbacks: SubmitCa
         }
       : null;
 
-    if (program.whitelist_enabled && program.whitelist_target === 'promoter_team_lead') {
+    if (program.whitelist_enabled && (program.whitelist_target === 'promoter_team_lead' || program.whitelist_target === 'shujaa')) {
       const fullName = (whitelistMap.full_name ?? '').toString().trim();
       const msisdn = (whitelistMap.msisdn ?? '').toString().trim();
       const zone = (whitelistMap.zone ?? '').toString().trim();
       const seCluster = (whitelistMap.se_cluster ?? '').toString().trim();
 
-      if (!fullName || !msisdn || !zone || !seCluster) {
-        throw new Error('Whitelist source fields are incomplete. Please make sure Name, MSISDN, Cluster, and ZSM are filled in the regular form fields.');
+      if (!fullName || !msisdn || !zone || (!seCluster && program.whitelist_target !== 'shujaa')) {
+        throw new Error('Whitelist source fields are incomplete. Please make sure Name, MSISDN, and ZSM are filled in the regular form fields.');
       }
 
-      const { error: whitelistError } = await supabase.rpc('tl_signup', {
+      const rpcName = program.whitelist_target === 'shujaa' ? 'shujaa_signup' : 'tl_signup';
+      const effectiveCluster = seCluster || zone;
+
+      const { error: whitelistError } = await supabase.rpc(rpcName, {
         p_full_name: fullName,
         p_msisdn: msisdn,
         p_zone: zone,
-        p_se_cluster: seCluster,
+        p_se_cluster: effectiveCluster,
         p_password: '1234',
       });
 
       if (whitelistError) {
         if (whitelistError.message.includes('MSISDN_EXISTS')) {
-          throw new Error(`MSISDN ${msisdn} is already whitelisted as a Promoter Team Lead`);
+          throw new Error(`MSISDN ${msisdn} is already whitelisted as a ${program.whitelist_target === 'shujaa' ? 'Shujaa' : 'Promoter Team Lead'}`);
         }
-        throw new Error('Failed to create promoter team lead from the submitted form data');
+        throw new Error(`Failed to create ${program.whitelist_target === 'shujaa' ? 'Shujaa' : 'promoter team lead'} from the submitted form data`);
       }
 
       try {
@@ -365,11 +368,35 @@ export async function handleFormSubmit(params: SubmitParams, callbacks: SubmitCa
         gps_location: location ? { lat: location.lat, lng: location.lng } : null,
         status: 'submitted',
         points_awarded: pointsToAward,
+        ...(program.program_type === 'network_issues' ? { network_issue_status: 'open' } : {}),
       })
       .select()
       .single();
 
     if (dbError) throw new Error(dbError.message || 'Failed to save submission to database');
+
+    // Notify networks_team users when a network issue is submitted
+    if (program.program_type === 'network_issues') {
+      try {
+        const { data: networkUsers } = await supabase
+          .from('app_users')
+          .select('id')
+          .eq('role', 'networks_team');
+        if (networkUsers && networkUsers.length > 0) {
+          await supabase.from('notifications').insert(
+            networkUsers.map((u: any) => ({
+              user_id: u.id,
+              type: 'new_network_issue',
+              title: 'New Network Issue Reported',
+              message: `A new issue was submitted for ${program.title}. Tap to review.`,
+              data: { submission_id: submission.id, program_id: program.id, program_title: program.title },
+            }))
+          );
+        }
+      } catch {
+        // Non-critical — don't fail the submission
+      }
+    }
 
     // Calculate odometer details for the report
     const odoField = fields.find((f: any) => {

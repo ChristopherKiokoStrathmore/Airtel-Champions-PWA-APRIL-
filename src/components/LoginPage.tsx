@@ -58,6 +58,8 @@ import { initActivityTracking, logPWAAction, ACTION_TYPES } from '../lib/activit
 
 import { DatabaseSchemaChecker } from './database-schema-checker';
 import { PhoneDiagnosticTool } from './phone-diagnostic-tool';
+import { ShujaaEntryPage } from './shujaa/ShujaaEntryPage';
+import { saveShujaaSession } from './shujaa/shujaa-api';
 
 import airtelChampionsLogo from '../assets/LOGO.png';
 
@@ -148,6 +150,7 @@ export function LoginPage({
   const [showSchemaCheck, setShowSchemaCheck] = useState(false);
   const [showHelp,        setShowHelp]        = useState(false);
   const [showAMSignUp,    setShowAMSignUp]    = useState(false);
+  const [showShujaaEntry, setShowShujaaEntry] = useState(false);
 
   // First-login PIN change interception
   const [requiresPinChange, setRequiresPinChange] = useState(false);
@@ -952,7 +955,7 @@ export function LoginPage({
           </div>
         )}
 
-        {/* Sales: Promoter Team Lead */}
+        {/* Sales: Shujaa entry */}
         {mode === 'sales' && (
           <div className="mt-3">
             <div className="relative my-3">
@@ -962,18 +965,44 @@ export function LoginPage({
               <div className="relative flex justify-center text-[10px]">
                 <span className="px-3 text-gray-400 uppercase tracking-widest font-medium"
                   style={{ background: 'var(--theme-bg-card, #ffffff)' }}>
-                  Are you a Promoter Team Lead?
+                  Are you a Shujaa?
                 </span>
               </div>
             </div>
             <button
               type="button"
-              onClick={() => setError('Promoter Team Lead section has migrated to Sales app')}
+              onClick={() => setShowShujaaEntry(true)}
               className="w-full py-3.5 text-sm border-2 rounded-xl hover:bg-red-50 active:scale-[0.98] transition-all font-semibold tracking-wide"
               style={{ borderColor: '#E60000', color: '#E60000' }}
             >
-              PROMOTER TEAM LEAD
+              SHUJAA
             </button>
+          </div>
+        )}
+
+        {showShujaaEntry && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-md"
+               onClick={() => setShowShujaaEntry(false)}>
+            <div className="relative bg-white/95 w-[calc(100%-3rem)] max-w-sm rounded-3xl p-0 shadow-2xl"
+                 onClick={e => e.stopPropagation()}>
+              <ShujaaEntryPage
+                onBack={() => setShowShujaaEntry(false)}
+                onSuccess={(user) => {
+                  const appUser = {
+                    ...user,
+                    role: 'shujaa',
+                    _loginAt: Date.now(),
+                  };
+
+                  saveShujaaSession(user);
+                  localStorage.setItem('tai_user', JSON.stringify(appUser));
+                  setUser(appUser);
+                  setUserData(appUser);
+                  setIsAuthenticated(true);
+                  setShowShujaaEntry(false);
+                }}
+              />
+            </div>
           </div>
         )}
 
