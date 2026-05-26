@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { X, Calendar, Star, MapPin, Eye } from 'lucide-react';
+import { X, Calendar, Star, MapPin, Eye, Wifi, AlertCircle, Clock, CheckCircle } from 'lucide-react';
 import { getSupabaseClient } from '../utils/supabase/client';
 
 interface Submission {
@@ -12,11 +12,31 @@ interface Submission {
   status: string;
   points_awarded: number;
   created_at: string;
+  network_issue_status: string | null;
   program: {
     title: string;
     icon: string;
     color: string;
+    program_type?: string;
   };
+}
+
+function NetworkIssueStatusBadge({ status }: { status: string | null }) {
+  if (!status || status === 'open') return (
+    <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-red-100 text-red-700 text-xs font-semibold rounded-full">
+      <AlertCircle className="w-3 h-3" /> Open
+    </span>
+  );
+  if (status === 'acknowledged') return (
+    <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-amber-100 text-amber-700 text-xs font-semibold rounded-full">
+      <Clock className="w-3 h-3" /> In Progress
+    </span>
+  );
+  return (
+    <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-green-100 text-green-700 text-xs font-semibold rounded-full">
+      <CheckCircle className="w-3 h-3" /> Resolved
+    </span>
+  );
 }
 
 interface SubmissionsHistoryModalProps {
@@ -68,7 +88,7 @@ export function SubmissionsHistoryModal({ userId, userName, totalPoints, onClose
       // Load programs
       const { data: programsData, error: programsError } = await supabase
         .from('programs')
-        .select('id, title, icon, color')
+        .select('id, title, icon, color, program_type')
         .in('id', programIds);
 
       if (programsError) {
@@ -188,7 +208,7 @@ export function SubmissionsHistoryModal({ userId, userName, totalPoints, onClose
                         )}
                       </div>
 
-                      <div className="mt-2">
+                      <div className="mt-2 flex items-center gap-2 flex-wrap">
                         <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold ${
                           submission.status === 'approved' ? 'bg-green-100 text-green-800' :
                           submission.status === 'rejected' ? 'bg-red-100 text-red-800' :
@@ -198,6 +218,12 @@ export function SubmissionsHistoryModal({ userId, userName, totalPoints, onClose
                            submission.status === 'rejected' ? '❌ Rejected' :
                            '📥 Submitted'}
                         </span>
+                        {submission.program.program_type === 'network_issues' && (
+                          <div className="flex items-center gap-1">
+                            <Wifi className="w-3 h-3 text-cyan-500" />
+                            <NetworkIssueStatusBadge status={submission.network_issue_status} />
+                          </div>
+                        )}
                       </div>
                     </div>
 

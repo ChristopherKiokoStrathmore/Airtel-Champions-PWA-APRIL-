@@ -44,11 +44,17 @@ export function RoleBadge({ role, size = 'md' }: RoleBadgeProps) {
         color: 'text-purple-700',
         icon: '👑' 
       },
-      'developer': { 
-        text: 'Developer', 
-        bg: 'bg-pink-100', 
+      'developer': {
+        text: 'Developer',
+        bg: 'bg-pink-100',
         color: 'text-pink-700',
-        icon: '💻' 
+        icon: '💻'
+      },
+      'networks_team': {
+        text: 'Networks Team',
+        bg: 'bg-cyan-100',
+        color: 'text-cyan-700',
+        icon: '📡'
       }
     };
     return roleMap[role] || { text: role, bg: 'bg-gray-100', color: 'text-gray-700', icon: '👤' };

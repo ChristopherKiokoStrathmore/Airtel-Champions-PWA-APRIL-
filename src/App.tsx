@@ -60,6 +60,8 @@ import { HBBHQDashboard } from './components/hbb/hbb-hq-dashboard';
 import { hbbLogin, clearSession as clearHBBSession } from './components/hbb/hbb-api';
 import { AMAgentDashboard } from './components/airtel-money/am-agent-dashboard';
 import { AMHQDashboard } from './components/airtel-money/am-hq-dashboard';
+import { ShujaaDashboard } from './components/shujaa/ShujaaDashboard';
+import { getShujaaSession, clearShujaaSession } from './components/shujaa/shujaa-api';
 import { ThemeProvider } from './components/theme-provider';
 import { PWAInstallPrompt } from './components/pwa-install-prompt';
 import { GuidedTour, shouldShowAppTour } from './components/guided-tour';
@@ -67,6 +69,7 @@ import { SignupScreen } from './components/signup-screen';
 import { ClientOrderTracker } from './components/hbb/ClientOrderTracker';
 import { LoginPage } from './components/LoginPage';
 import { PromoterTeamLeadDashboard } from './components/promoter-team-lead/PromoterTeamLeadDashboard';
+import { NetworksTeamDashboard } from './components/programs/network-issues-dashboard';
 import { getTLSession, clearTLSession } from './components/promoter-team-lead/promoter-tl-api';
 // TEMPORARILY DISABLED - Causing blank screen - see BLANK_SCREEN_DIAGNOSTIC_GUIDE.md
 // import { HBBGADashboardPage } from './pages/hbb-ga-dashboard';
@@ -100,6 +103,10 @@ function isDeveloperIdentity(user: any, userData: any, userRole: any): boolean {
   return false;
 }
 
+function isShujaaRole(userRole: any): boolean {
+  return String(userRole || '').toLowerCase() === 'shujaa';
+}
+
 // Strip sensitive fields before persisting user to localStorage
 function sanitizeUserForStorage(user: any): any {
   if (!user) return user;
@@ -122,7 +129,7 @@ import taiLogo from './assets/LOGO.png';
 import airtelChampionsLogo from './assets/LOGO.png';
 
 // User roles
-type UserRole = 'sales_executive' | 'zonal_sales_manager' | 'zonal_business_manager' | 'hq_command_center' | 'director' | 'hbb_agent' | 'hbb_installer' | 'hbb_installer_supervisor' | 'hbb_dse' | 'hbb_hq' | 'hbb_hq_admin' | 'airtel_money_agent' | 'airtel_money_admin';
+type UserRole = 'sales_executive' | 'zonal_sales_manager' | 'zonal_business_manager' | 'hq_command_center' | 'director' | 'hbb_agent' | 'hbb_installer' | 'hbb_installer_supervisor' | 'hbb_dse' | 'hbb_hq' | 'hbb_hq_admin' | 'airtel_money_agent' | 'airtel_money_admin' | 'networks_team';
 
 // â”€â”€â”€ STABLE MobileContainer â€” defined OUTSIDE App to prevent unmount/remount â”€â”€
 // When defined inside App's render, React sees a NEW component type on every
@@ -518,6 +525,7 @@ function App() {
 
     // Check if user is already logged in (from localStorage)
     const storedUser = localStorage.getItem('tai_user');
+    const storedShujaaUser = getShujaaSession();
     if (storedUser) {
       try {
         const parsedUserData = JSON.parse(storedUser);
@@ -551,6 +559,19 @@ function App() {
         console.error('Failed to parse stored user:', err);
         localStorage.removeItem('tai_user');
       }
+    } else if (storedShujaaUser) {
+      const shujaaUser = {
+        ...storedShujaaUser,
+        role: 'shujaa',
+        _loginAt: Date.now(),
+      };
+
+      localStorage.setItem('tai_user', JSON.stringify(shujaaUser));
+      setIsAuthenticated(true);
+      setUser(shujaaUser);
+      setUserData(shujaaUser);
+      initActivityTracking(shujaaUser.id, shujaaUser.full_name, shujaaUser.role);
+      console.log('✅ Shujaa user loaded from localStorage:', shujaaUser.full_name);
     }
     setLoading(false);
 
@@ -622,6 +643,7 @@ function App() {
     
     // Clear HBB session
     clearHBBSession();
+    clearShujaaSession();
     
     localStorage.removeItem('tai_user');
     setIsAuthenticated(false);
@@ -687,6 +709,14 @@ function App() {
     // Debug logging moved to useEffect to avoid running on every render
 
     // Route to appropriate dashboard based on role
+    if (isShujaaRole(userRole)) {
+      return (
+        <MobileContainer>
+          <ShujaaDashboard onLogout={handleLogout} />
+        </MobileContainer>
+      );
+    }
+
     if (userRole === 'zonal_sales_manager') {
       return (
         <MobileContainer>
@@ -707,6 +737,14 @@ function App() {
       return (
         <MobileContainer>
           <HQDashboard user={user} userData={userData} onLogout={handleLogout} />
+        </MobileContainer>
+      );
+    }
+
+    if (userRole === 'networks_team') {
+      return (
+        <MobileContainer>
+          <NetworksTeamDashboard user={user} userData={userData} onLogout={handleLogout} />
         </MobileContainer>
       );
     }
@@ -2126,14 +2164,47 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
         };
       });
 
-      setAnnouncements(announcementsWithReadStatus);
-      
+      // Also fetch personal network issue notifications from the notifications table
+      let networkNotifications: any[] = [];
+      try {
+        const { data: notifData } = await supabase
+          .from('notifications')
+          .select('id, title, message, type, is_read, read, data, created_at')
+          .eq('user_id', userData.id)
+          .in('type', ['network_issue_resolved', 'new_network_issue'])
+          .order('created_at', { ascending: false })
+          .limit(50);
+
+        networkNotifications = (notifData || []).map((n: any) => ({
+          id: n.id,
+          title: n.title || 'Network Issue Update',
+          message: n.message || '',
+          priority: n.type === 'network_issue_resolved' ? 'high' : 'normal',
+          created_by: 'system',
+          created_by_name: 'Networks Team',
+          created_by_role: 'networks_team',
+          target_roles: [userData.role],
+          created_at: n.created_at,
+          is_read: n.is_read || n.read || false,
+          read_by: (n.is_read || n.read) ? [userData.id] : [],
+          _is_notification: true,
+        }));
+      } catch {
+        // Non-critical
+      }
+
+      const merged = [...announcementsWithReadStatus, ...networkNotifications].sort(
+        (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+      );
+
+      setAnnouncements(merged);
+
       // Count unread and update PWA badge
-      const unread = announcementsWithReadStatus.filter((a: any) => !a.is_read).length;
+      const unread = merged.filter((a: any) => !a.is_read).length;
       setUnreadAnnouncementsCount(unread);
       if (unread > 0) { setBadge(unread); } else { clearBadge(); }
-      
-      console.log('[HomeScreen] ✅ Total announcements:', announcementsWithReadStatus.length, '| Unread:', unread);
+
+      console.log('[HomeScreen] ✅ Total announcements:', merged.length, '| Unread:', unread);
     } catch (error) {
       console.error('[HomeScreen] ❌ Error loading announcements:', error);
     }
@@ -2165,8 +2236,14 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
       // Save back to localStorage
       localStorage.setItem('tai_announcements', JSON.stringify(updatedAnnouncements));
 
+      // If this is a notification-type entry, mark it read in the DB too
+      const notifEntry = announcements.find((a: any) => a.id === announcementId && a._is_notification);
+      if (notifEntry) {
+        await supabase.from('notifications').update({ is_read: true, read: true }).eq('id', announcementId);
+      }
+
       // Update local state
-      setAnnouncements(announcements.map(a => 
+      setAnnouncements(announcements.map(a =>
         a.id === announcementId ? { ...a, is_read: true } : a
       ));
       setUnreadAnnouncementsCount(prev => Math.max(0, prev - 1));

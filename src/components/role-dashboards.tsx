@@ -10,6 +10,7 @@ import { ProgramsWidgetHome } from './programs/programs-widget-home';
 import { ProgramsList } from './programs/programs-list';
 import { AllSubmissionsView } from './programs/all-submissions-view';
 import { SubmissionsAnalytics } from './programs/submissions-analytics';
+import { ShujaaDashboard } from './shujaa/ShujaaDashboard';
 import { SocialFeed } from './social-feed';
 import { AnnouncementCard } from './announcement-card';
 import { UrgentAnnouncementCard } from './urgent-announcement-card';
@@ -2572,7 +2573,7 @@ export function HQDashboard({ user, userData, onLogout }: any) {
         <div className="flex-1 overflow-y-auto pb-20 p-6">
           <LeaderboardWidget 
             currentUserId={userData?.id} 
-            onViewAll={() => setActiveTab('users')} 
+            onViewAll={() => setActiveTab('leaderboard')} 
           />
 
           {/* Van Calendar Widget for HQ */}
@@ -2630,6 +2631,18 @@ export function HQDashboard({ user, userData, onLogout }: any) {
           currentUserData={userData}
           showBackButton={false}
         />
+        <BottomNav activeTab={activeTab} setActiveTab={setActiveTab} role="hq" />
+      </div>
+    );
+  }
+
+  // Shujaa Tab
+  if (activeTab === 'shujaa') {
+    return (
+      <div className="flex-1 flex flex-col bg-gray-50 overflow-hidden">
+        <div className="flex-1 overflow-y-auto pb-20">
+          <ShujaaDashboard />
+        </div>
         <BottomNav activeTab={activeTab} setActiveTab={setActiveTab} role="hq" />
       </div>
     );
@@ -2981,7 +2994,7 @@ function BottomNav({ activeTab, setActiveTab, role }: { activeTab: string; setAc
       { id: 'explore', icon: 'E' },
       { id: 'submissions', icon: 'S' },
       { id: 'leaderboard', icon: 'L' },
-      { id: 'users', icon: 'U' }
+      { id: 'shujaa', icon: 'C' }
     ],
     director: [
       { id: 'home', icon: 'H' },
