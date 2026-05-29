@@ -1309,6 +1309,7 @@ function App() {
           setUser={setUser}
           setUserData={setUserData}
           setIsAuthenticated={setIsAuthenticated}
+          setIsTLAuthenticated={setIsTLAuthenticated}
         />
       )}
     </MobileContainer>
