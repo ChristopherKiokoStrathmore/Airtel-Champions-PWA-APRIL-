@@ -58,6 +58,7 @@ import { initActivityTracking, logPWAAction, ACTION_TYPES } from '../lib/activit
 
 import { DatabaseSchemaChecker } from './database-schema-checker';
 import { PhoneDiagnosticTool } from './phone-diagnostic-tool';
+import { PromoterTeamLeadEntryPage } from './promoter-team-lead/PromoterTeamLeadEntryPage';
 import { ShujaaEntryPage } from './shujaa/ShujaaEntryPage';
 import { saveShujaaSession } from './shujaa/shujaa-api';
 
@@ -127,6 +128,7 @@ interface LoginPageProps {
   setUser: (user: any) => void;
   setUserData: (data: any) => void;
   setIsAuthenticated: (v: boolean) => void;
+  setIsTLAuthenticated?: (v: boolean) => void;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -138,6 +140,7 @@ export function LoginPage({
   setUser,
   setUserData,
   setIsAuthenticated,
+  setIsTLAuthenticated,
 }: LoginPageProps) {
 
   const [mode, setMode]         = useState<AppMode>(readStoredMode);
@@ -151,6 +154,7 @@ export function LoginPage({
   const [showHelp,        setShowHelp]        = useState(false);
   const [showAMSignUp,    setShowAMSignUp]    = useState(false);
   const [showShujaaEntry, setShowShujaaEntry] = useState(false);
+  const [showTLEntry,     setShowTLEntry]     = useState(false);
 
   // First-login PIN change interception
   const [requiresPinChange, setRequiresPinChange] = useState(false);
@@ -955,8 +959,8 @@ export function LoginPage({
           </div>
         )}
 
-        {/* Sales: Shujaa entry */}
-        {mode === 'sales' && (
+        {/* Airtel Money: Shujaa entry */}
+        {isAirtelMoney && (
           <div className="mt-3">
             <div className="relative my-3">
               <div className="absolute inset-0 flex items-center">
@@ -1000,6 +1004,49 @@ export function LoginPage({
                   setUserData(appUser);
                   setIsAuthenticated(true);
                   setShowShujaaEntry(false);
+                }}
+              />
+            </div>
+          </div>
+        )}
+
+        {/* Sales: Promoter Team Lead entry */}
+        {mode === 'sales' && (
+          <div className="mt-3">
+            <div className="relative my-3">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-gray-200" />
+              </div>
+              <div className="relative flex justify-center text-[10px]">
+                <span
+                  className="px-3 text-gray-400 uppercase tracking-widest font-medium"
+                  style={{ background: 'var(--theme-bg-card, #ffffff)' }}
+                >
+                  Are you a Promoter Team Lead?
+                </span>
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={() => setShowTLEntry(true)}
+              className="w-full py-3.5 text-sm border-2 rounded-xl hover:bg-red-50 active:scale-[0.98] transition-all font-semibold tracking-wide"
+              style={{ borderColor: '#E60000', color: '#E60000' }}
+            >
+              PROMOTER TEAM LEAD
+            </button>
+          </div>
+        )}
+
+        {showTLEntry && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-md"
+               onClick={() => setShowTLEntry(false)}>
+            <div className="relative bg-white/95 w-[calc(100%-3rem)] max-w-sm rounded-3xl p-0 shadow-2xl"
+                 onClick={e => e.stopPropagation()}>
+              <PromoterTeamLeadEntryPage
+                onBack={() => setShowTLEntry(false)}
+                onSuccess={() => {
+                  setShowTLEntry(false);
+                  setIsTLAuthenticated?.(true);
                 }}
               />
             </div>
