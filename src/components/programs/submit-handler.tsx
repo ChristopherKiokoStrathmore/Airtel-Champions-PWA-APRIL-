@@ -146,8 +146,19 @@ export async function handleFormSubmit(params: SubmitParams, callbacks: SubmitCa
       return;
     }
 
+    // Always re-fetch whitelist settings from DB before the RPC call so a stale
+    // in-memory program object (e.g. loaded before an admin changed the target)
+    // never routes to the wrong signup function.
+    const { data: freshProgram } = await supabase
+      .from('programs')
+      .select('whitelist_enabled, whitelist_target')
+      .eq('id', program.id)
+      .single();
+    const whitelistEnabled  = freshProgram?.whitelist_enabled  ?? program.whitelist_enabled;
+    const whitelistTarget   = freshProgram?.whitelist_target   ?? program.whitelist_target;
+
     const whitelistMap: Record<string, any> = {};
-    if (program.whitelist_enabled) {
+    if (whitelistEnabled) {
       const nameField = findSourceField(['name', 'full name', 'full_name']);
       const msisdnField = findSourceField(['msisdn', 'phone number', 'phone', 'mobile']);
       const clusterField = findSourceField(['cluster', 'cluster name', 'cluster_name', 'se cluster', 'se_cluster']);
@@ -164,9 +175,9 @@ export async function handleFormSubmit(params: SubmitParams, callbacks: SubmitCa
       whitelistMap.zone = readValue(zsmField);
     }
 
-    const whitelistPayload = program.whitelist_enabled
+    const whitelistPayload = whitelistEnabled
       ? {
-          target: program.whitelist_target || null,
+          target: whitelistTarget || null,
           mapped_values: whitelistMap,
           source_field_metadata: fieldMetadata || {},
           raw_form_payload: formData,
@@ -174,18 +185,20 @@ export async function handleFormSubmit(params: SubmitParams, callbacks: SubmitCa
         }
       : null;
 
-    if (program.whitelist_enabled && (program.whitelist_target === 'promoter_team_lead' || program.whitelist_target === 'shujaa')) {
+    if (whitelistEnabled && (whitelistTarget === 'promoter_team_lead' || whitelistTarget === 'shujaa')) {
       const fullName = (whitelistMap.full_name ?? '').toString().trim();
       const msisdn = (whitelistMap.msisdn ?? '').toString().trim();
       const zone = (whitelistMap.zone ?? '').toString().trim();
       const seCluster = (whitelistMap.se_cluster ?? '').toString().trim();
 
-      if (!fullName || !msisdn || !zone || (!seCluster && program.whitelist_target !== 'shujaa')) {
+      if (!fullName || !msisdn || !zone || (!seCluster && whitelistTarget !== 'shujaa')) {
         throw new Error('Whitelist source fields are incomplete. Please make sure Name, MSISDN, and ZSM are filled in the regular form fields.');
       }
 
-      const rpcName = program.whitelist_target === 'shujaa' ? 'shujaa_signup' : 'tl_signup';
+      const rpcName = whitelistTarget === 'shujaa' ? 'shujaa_signup' : 'tl_signup';
       const effectiveCluster = seCluster || zone;
+
+      console.log(`[Whitelist] Using target="${whitelistTarget}" → calling ${rpcName}`);
 
       const { error: whitelistError } = await supabase.rpc(rpcName, {
         p_full_name: fullName,
@@ -197,9 +210,9 @@ export async function handleFormSubmit(params: SubmitParams, callbacks: SubmitCa
 
       if (whitelistError) {
         if (whitelistError.message.includes('MSISDN_EXISTS')) {
-          throw new Error(`MSISDN ${msisdn} is already whitelisted as a ${program.whitelist_target === 'shujaa' ? 'Shujaa' : 'Promoter Team Lead'}`);
+          throw new Error(`MSISDN ${msisdn} is already whitelisted as a ${whitelistTarget === 'shujaa' ? 'Shujaa' : 'Promoter Team Lead'}`);
         }
-        throw new Error(`Failed to create ${program.whitelist_target === 'shujaa' ? 'Shujaa' : 'promoter team lead'} from the submitted form data`);
+        throw new Error(`Failed to create ${whitelistTarget === 'shujaa' ? 'Shujaa' : 'promoter team lead'} from the submitted form data`);
       }
 
       try {
@@ -209,7 +222,7 @@ export async function handleFormSubmit(params: SubmitParams, callbacks: SubmitCa
           metadata: {
             program_id: program.id,
             program_title: program.title,
-            whitelist_target: program.whitelist_target || null,
+            whitelist_target: whitelistTarget || null,
             submission_date: submissionDate,
             submission_time: submissionTime,
             submission_payload: formData,
