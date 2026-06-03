@@ -408,6 +408,36 @@ export async function getReportHistory(
   }));
 }
 
+// ── Feature flag helpers ──────────────────────────────────────────────────────
+
+const TL_FLAG_KEY = 'promoter_tl_active';
+
+/** Returns true if the TL portal is active. Fails open — never blocks TLs due to network errors. */
+export async function getTLFeatureActive(): Promise<boolean> {
+  try {
+    const { data, error } = await supabase
+      .from('app_feature_flags')
+      .select('value')
+      .eq('key', TL_FLAG_KEY)
+      .single();
+    if (error || !data) return true;
+    return (data as { value: boolean }).value;
+  } catch {
+    return true;
+  }
+}
+
+/** Toggle the TL portal on/off. Calls a SECURITY DEFINER RPC so it works even
+ *  without a Supabase Auth session (app uses custom phone/PIN auth). The RPC
+ *  validates that userId belongs to an HQ/director/developer role internally. */
+export async function setTLFeatureActive(userId: string, active: boolean): Promise<{ error: string | null }> {
+  const { error } = await supabase.rpc('set_tl_feature_active', {
+    p_user_id: userId,
+    p_active:  active,
+  });
+  return { error: error?.message ?? null };
+}
+
 /** Total GAs for the TL in the current calendar month. */
 export async function getMonthTotalGas(teamLeadId: string): Promise<number> {
   const now = new Date();
