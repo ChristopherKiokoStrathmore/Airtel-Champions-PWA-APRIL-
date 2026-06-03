@@ -21,6 +21,7 @@ import { projectId, publicAnonKey } from '../utils/supabase/info';
 import { getAnnouncements } from '../lib/supabase';
 import { UserProfileModal } from './user-profile-modal';
 import { SettingsScreen } from './settings-screen';
+import { getTLFeatureActive, setTLFeatureActive } from './promoter-team-lead/promoter-tl-api';
 
 // Helper function to get role display name
 const getRoleDisplayName = (role: string): string => {
@@ -2466,16 +2467,36 @@ export function ZoneBusinessLeadDashboard({ user, userData, onLogout }: any) {
 export function HQDashboard({ user, userData, onLogout }: any) {
   // Track page view automatically
   usePageTracking(ANALYTICS_PAGES.DASHBOARD);
-  
+
   const [activeTab, setActiveTab] = useState('home');
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const [announcements, setAnnouncements] = useState<any[]>([]);
   const [unreadAnnouncementsCount, setUnreadAnnouncementsCount] = useState(0);
+  const [tlActive, setTlActive] = useState<boolean | null>(null);
+  const [tlToggling, setTlToggling] = useState(false);
 
   // Load announcements
   useEffect(() => {
     loadAnnouncementsForUser(userData, setAnnouncements, setUnreadAnnouncementsCount);
   }, [userData]);
+
+  useEffect(() => {
+    getTLFeatureActive().then(setTlActive);
+  }, []);
+
+  const handleTLToggle = async () => {
+    if (tlToggling || tlActive === null) return;
+    setTlToggling(true);
+    const next = !tlActive;
+    const { error } = await setTLFeatureActive(userData?.id, next);
+    if (error) {
+      console.error('[TL Toggle] Failed to save:', error);
+      alert('Could not save change: ' + error);
+    } else {
+      setTlActive(next);
+    }
+    setTlToggling(false);
+  };
 
   if (activeTab === 'home') {
     return (
@@ -2571,9 +2592,47 @@ export function HQDashboard({ user, userData, onLogout }: any) {
         </div>
 
         <div className="flex-1 overflow-y-auto pb-20 p-6">
-          <LeaderboardWidget 
-            currentUserId={userData?.id} 
-            onViewAll={() => setActiveTab('leaderboard')} 
+
+          {/* Promoter TL Portal Toggle — HQ admin control */}
+          <div className="mb-6 bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100">
+            <div className="px-5 py-4 flex items-center justify-between gap-4">
+              <div className="flex-1 min-w-0">
+                <p className="font-bold text-gray-800 text-sm">Promoter Team Lead Portal</p>
+                <p className="text-xs text-gray-400 mt-0.5 truncate">
+                  {tlActive === null
+                    ? 'Checking status…'
+                    : tlActive
+                    ? 'Active — TLs can access their dashboard'
+                    : 'Migrated — TLs see migration notice'}
+                </p>
+              </div>
+              <button
+                onClick={handleTLToggle}
+                disabled={tlToggling || tlActive === null}
+                aria-label="Toggle Promoter Team Lead portal"
+                className={`relative flex-shrink-0 w-12 h-6 rounded-full transition-colors duration-200 focus:outline-none ${
+                  tlActive ? 'bg-green-500' : 'bg-gray-300'
+                } ${tlToggling || tlActive === null ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+              >
+                <span
+                  className={`absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow-sm transition-transform duration-200 ${
+                    tlActive ? 'translate-x-6' : 'translate-x-0'
+                  }`}
+                />
+              </button>
+            </div>
+            {tlActive === false && (
+              <div className="px-5 py-2.5 bg-amber-50 border-t border-amber-100">
+                <p className="text-xs text-amber-700 font-medium">
+                  TLs logging in will see "Promoter Team Lead has migrated to the Sales App"
+                </p>
+              </div>
+            )}
+          </div>
+
+          <LeaderboardWidget
+            currentUserId={userData?.id}
+            onViewAll={() => setActiveTab('leaderboard')}
           />
 
           {/* Van Calendar Widget for HQ */}

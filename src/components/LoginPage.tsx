@@ -59,6 +59,7 @@ import { initActivityTracking, logPWAAction, ACTION_TYPES } from '../lib/activit
 import { DatabaseSchemaChecker } from './database-schema-checker';
 import { PhoneDiagnosticTool } from './phone-diagnostic-tool';
 import { PromoterTeamLeadEntryPage } from './promoter-team-lead/PromoterTeamLeadEntryPage';
+import { getTLFeatureActive } from './promoter-team-lead/promoter-tl-api';
 import { ShujaaEntryPage } from './shujaa/ShujaaEntryPage';
 import { saveShujaaSession } from './shujaa/shujaa-api';
 
@@ -154,7 +155,9 @@ export function LoginPage({
   const [showHelp,        setShowHelp]        = useState(false);
   const [showAMSignUp,    setShowAMSignUp]    = useState(false);
   const [showShujaaEntry, setShowShujaaEntry] = useState(false);
-  const [showTLEntry,     setShowTLEntry]     = useState(false);
+  const [showTLEntry,        setShowTLEntry]        = useState(false);
+  const [tlFeatureActive,    setTlFeatureActive]    = useState(true);
+  const [showTLMigrated,     setShowTLMigrated]     = useState(false);
 
   // First-login PIN change interception
   const [requiresPinChange, setRequiresPinChange] = useState(false);
@@ -170,6 +173,11 @@ export function LoginPage({
       return u.role === 'developer' || u?.employee_id === 'DEV001';
     } catch { return false; }
   })();
+
+  // Load TL feature flag so we can show migration notice if OFF
+  useEffect(() => {
+    getTLFeatureActive().then(setTlFeatureActive);
+  }, []);
 
   // Suppress UpdateManager crash when app_versions table is missing.
   useEffect(() => {
@@ -1028,7 +1036,7 @@ export function LoginPage({
             </div>
             <button
               type="button"
-              onClick={() => setShowTLEntry(true)}
+              onClick={() => tlFeatureActive ? setShowTLEntry(true) : setShowTLMigrated(true)}
               className="w-full py-3.5 text-sm border-2 rounded-xl hover:bg-red-50 active:scale-[0.98] transition-all font-semibold tracking-wide"
               style={{ borderColor: '#E60000', color: '#E60000' }}
             >
@@ -1049,6 +1057,39 @@ export function LoginPage({
                   setIsTLAuthenticated?.(true);
                 }}
               />
+            </div>
+          </div>
+        )}
+
+        {showTLMigrated && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-md"
+            onClick={() => setShowTLMigrated(false)}
+          >
+            <div
+              className="w-[calc(100%-3rem)] max-w-sm rounded-3xl overflow-hidden shadow-2xl flex flex-col items-center text-center px-8 py-10"
+              style={{ background: 'linear-gradient(155deg, #E60000 0%, #C8102E 70%, #A80C23 100%)' }}
+              onClick={e => e.stopPropagation()}
+            >
+              <div className="w-16 h-16 rounded-full bg-white/15 flex items-center justify-center mb-5">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
+                    d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                </svg>
+              </div>
+              <p className="text-white/70 text-[10px] uppercase tracking-widest mb-2">Promoter Team Lead</p>
+              <p className="text-white text-2xl font-black leading-tight mb-1">has migrated to</p>
+              <p className="text-white text-2xl font-black leading-tight mb-5">the Sales App</p>
+              <p className="text-white/55 text-sm leading-relaxed max-w-[230px] mb-8">
+                The Promoter Team Lead portal has moved to the Sales App.
+              </p>
+              <button
+                onClick={() => setShowTLMigrated(false)}
+                className="px-8 py-3 rounded-2xl text-white font-semibold text-sm active:scale-95 transition-transform"
+                style={{ background: 'rgba(255,255,255,0.18)', border: '1px solid rgba(255,255,255,0.35)' }}
+              >
+                Close
+              </button>
             </div>
           </div>
         )}
