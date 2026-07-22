@@ -12,6 +12,8 @@ import { InstallerCalendar } from './hbb-installer-calendar';
 import { recordRejectionAndReassign } from './hbb-auto-assign';
 import { InstallerLocationSender } from '../InstallerLocationSender';
 import { HBBInstallerGADashboard } from './hbb-installer-ga-dashboard';
+import { Package } from 'lucide-react';
+import { ODUInstallerTasks } from '../odu/odu-installer-tasks';
 
 const ACCENT = '#E60000';
 const ACCENT_DARK = '#CC0000';
@@ -254,6 +256,7 @@ export const HBBInstallerDashboard = React.memo(function HBBInstallerDashboard({
     { id: 'calendar', label: 'Calendar', icon: Calendar },
     { id: 'history',  label: 'History',  icon: Clock },
     { id: 'ga',       label: 'GA',       icon: TrendingUp },
+    { id: 'odu',      label: 'Retrieval', icon: Package },
     { id: 'profile',  label: 'Profile',  icon: User },
   ];
 
@@ -285,6 +288,8 @@ export const HBBInstallerDashboard = React.memo(function HBBInstallerDashboard({
         );
       case 'ga':
         return <HBBInstallerGADashboard userPhone={userPhone} userName={installer?.name || userName} />;
+      case 'odu':
+        return <div className="p-4"><ODUInstallerTasks userData={userData || user} /></div>;
       case 'calendar':
         return (
           <InstallerCalendar

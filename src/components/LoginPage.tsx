@@ -400,6 +400,57 @@ export function LoginPage({
   };
 
   // ─────────────────────────────────────────────────────────────────────────────
+  // STEP 2c-2 — HBB HQ team table check
+  // HBB_HQ_TEAM.ROLE is stored as a display string (e.g. "HBB HQ"); normalise it
+  // to the canonical role the app routes on ("hbb_hq" / "hbb_hq_admin").
+  // ─────────────────────────────────────────────────────────────────────────────
+  const checkHQTeamTable = async (
+    normalised: string,
+    enteredPin: string,
+  ): Promise<any | null> => {
+    const formats = phoneFormats(normalised);
+    // PHONE is a bigint column — compare against digits-only variants.
+    const numeric = Array.from(new Set(
+      formats.map(f => String(f).replace(/\D/g, '')).filter(Boolean),
+    ));
+
+    try {
+      const { data, error: qErr } = await supabase
+        .from('HBB_HQ_TEAM')
+        .select('ID, NAME, PHONE, ROLE, pin')
+        .in('PHONE', numeric)
+        .limit(1);
+
+      if (qErr) {
+        console.log('[Auth] HBB_HQ_TEAM not accessible:', qErr.message);
+        return null;
+      }
+      if (!data || data.length === 0) return null;
+
+      const row = data[0];
+      const storedPin = String(row.pin ?? '1234').trim();
+      if (enteredPin !== storedPin) throw new Error(ERR_GENERIC);
+
+      // "HBB HQ" → "hbb_hq", "HBB HQ ADMIN" → "hbb_hq_admin"
+      let role = String(row.ROLE || '').trim().toLowerCase().replace(/\s+/g, '_');
+      if (!role.startsWith('hbb_')) role = 'hbb_hq';
+
+      return {
+        id:           row.ID,
+        full_name:    row.NAME,
+        phone_number: String(row.PHONE),
+        role,
+        source_table: 'HBB_HQ_TEAM',
+        _loginAt:     Date.now(),
+      };
+    } catch (err: any) {
+      if (err.message === ERR_GENERIC) throw err;
+      console.log('[Auth] HQ team check error (non-fatal):', err.message);
+      return null;
+    }
+  };
+
+  // ─────────────────────────────────────────────────────────────────────────────
   // STEP 2d — Unified installers table check
   // Covers installers added after the monthly INHOUSE snapshot (e.g. April+)
   // ─────────────────────────────────────────────────────────────────────────────
@@ -698,6 +749,16 @@ export function LoginPage({
         }
       }
 
+      // ── STEP 2c-2: HBB HQ team table check ───────────────────────────────
+      if (mode === 'hbb') {
+        const hqUser = await checkHQTeamTable(normalised, pin || '');
+        if (hqUser) {
+          console.log('✅ HBB HQ login:', hqUser.full_name, '→', hqUser.role);
+          if (!interceptDefaultPin(hqUser, pin || '')) completeLogin(hqUser);
+          return;
+        }
+      }
+
       // ── STEP 2d: Unified installers table check ──────────────────────────
       if (mode === 'hbb') {
         const unifiedInstaller = await checkUnifiedInstallersTable(normalised, pin || '');
@@ -721,8 +782,10 @@ export function LoginPage({
       if (mode === 'sales') {
         await runSalesLogin(normalised);
       } else if (mode === 'hbb') {
-        // All direct table checks exhausted — fail fast without edge function
-        throw new Error(ERR_GENERIC);
+        // Direct table checks exhausted — try the edge login chain, which covers
+        // HBB HQ (HBB_HQ_TEAM), agents_HBB, and ODU staff (odu_staff, CX/warehouse).
+        // These live behind RLS / service-role and can't be read client-side.
+        await runHbbLogin();
       } else if (mode === 'airtel-money') {
         await runAMLogin();
       }

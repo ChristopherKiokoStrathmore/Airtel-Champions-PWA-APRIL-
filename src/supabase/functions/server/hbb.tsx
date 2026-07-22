@@ -1259,19 +1259,51 @@ hbbApp.post('/login', async (c) => {
       if (pin !== (hqUser.pin || '1234')) {
         return c.json({ error: 'Invalid PIN' }, 401);
       }
-      const sessionToken = createSession(hqUser.phone, 'hbb_hq');
-      console.log(`[HBB] HQ login: ${hqUser.name}`);
+      // HBB_HQ_TEAM.role is a display string (e.g. "HBB HQ") — normalise to the
+      // canonical role the app routes on ("hbb_hq" / "hbb_hq_admin").
+      let hqRole = String(hqUser.role || '').trim().toLowerCase().replace(/\s+/g, '_');
+      if (!hqRole.startsWith('hbb_')) hqRole = 'hbb_hq';
+      const sessionToken = createSession(hqUser.phone, hqRole);
+      console.log(`[HBB] HQ login: ${hqUser.name} → ${hqRole}`);
       return c.json({
         id: hqUser.id,
         full_name: hqUser.name,
         phone_number: hqUser.phone,
-        role: hqUser.role || 'hbb_hq',
+        role: hqRole,
         source_table: 'HBB_HQ_TEAM',
         session_token: sessionToken,
       });
     }
 
-    // 4. Not found in any table
+    // 4. Check odu_staff (CX agents + warehouse operators)
+    const { data: oduStaff, error: oduErr } = await supabase
+      .from('odu_staff')
+      .select('*')
+      .in('msisdn', formats.text)
+      .eq('is_active', true)
+      .limit(1);
+
+    if (oduErr) console.log('[HBB] ODU staff login query error:', oduErr.message);
+
+    if (oduStaff && oduStaff.length > 0) {
+      const staff = oduStaff[0];
+      if (pin !== (staff.pin || '1234')) {
+        return c.json({ error: 'Invalid PIN' }, 401);
+      }
+      const sessionToken = createSession(staff.msisdn, staff.role);
+      console.log(`[HBB] ODU staff login: ${staff.name} (${staff.role})`);
+      return c.json({
+        id: staff.id,
+        full_name: staff.name,
+        phone_number: staff.msisdn,
+        role: staff.role,                 // 'hbb_cx' | 'hbb_warehouse'
+        warehouse_id: staff.warehouse_id, // used by the warehouse dashboard
+        source_table: 'odu_staff',
+        session_token: sessionToken,
+      });
+    }
+
+    // 5. Not found in any table
     console.log(`[HBB] Login failed: phone ${phone} not found`);
     return c.json({ error: 'Phone number not found. Are you an HBB agent or installer?' }, 401);
   } catch (err: any) {
