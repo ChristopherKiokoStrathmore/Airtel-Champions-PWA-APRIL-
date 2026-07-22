@@ -17,8 +17,10 @@ import {
   MapPin,
   User,
 } from 'lucide-react';
+import { Package } from 'lucide-react';
 import { getServiceRequests, getDashboardStats, getAnalytics } from './hbb-api';
 import { NotificationBell } from './hbb-notifications';
+import { ODUHQTab } from '../odu/odu-hq-tab';
 
 const ACCENT = '#E60000';
 
@@ -28,7 +30,7 @@ interface Props {
   onLogout: () => void;
 }
 
-type Tab = 'overview' | 'leads' | 'analytics';
+type Tab = 'overview' | 'leads' | 'analytics' | 'odu';
 
 export const HBBHQDashboard = React.memo(function HBBHQDashboard({ user, userData, onLogout }: Props) {
   const [activeTab, setActiveTab] = useState<Tab>('overview');
@@ -107,6 +109,7 @@ export const HBBHQDashboard = React.memo(function HBBHQDashboard({ user, userDat
     { id: 'overview', label: 'Overview', icon: TrendingUp },
     { id: 'leads', label: 'All Leads', icon: List },
     { id: 'analytics', label: 'Analytics', icon: BarChart3 },
+    { id: 'odu', label: 'ODU Retrieval', icon: Package },
   ];
 
   return (
@@ -201,6 +204,11 @@ export const HBBHQDashboard = React.memo(function HBBHQDashboard({ user, userDat
         )}
         {activeTab === 'analytics' && (
           <AnalyticsTab analytics={analytics} stats={stats} />
+        )}
+        {activeTab === 'odu' && (
+          <div className="-mx-6 -my-6">
+            <ODUHQTab currentUser={{ name: hqName, phone: hqPhone }} />
+          </div>
         )}
       </main>
     </div>

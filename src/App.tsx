@@ -57,6 +57,8 @@ import { HBBInstallerDashboard } from './components/hbb/hbb-installer-dashboard'
 import { HBBInstallerSupervisorDashboard } from './components/hbb/hbb-installer-supervisor-dashboard';
 import { DSEDashboard } from './components/hbb/hbb-dse-dashboard';
 import { HBBHQDashboard } from './components/hbb/hbb-hq-dashboard';
+import { ODUCXDashboard } from './components/odu/odu-cx-dashboard';
+import { ODUWarehouseDashboard } from './components/odu/odu-warehouse-dashboard';
 import { hbbLogin, clearSession as clearHBBSession } from './components/hbb/hbb-api';
 import { AMAgentDashboard } from './components/airtel-money/am-agent-dashboard';
 import { AMHQDashboard } from './components/airtel-money/am-hq-dashboard';
@@ -129,7 +131,7 @@ import taiLogo from './assets/LOGO.png';
 import airtelChampionsLogo from './assets/LOGO.png';
 
 // User roles
-type UserRole = 'sales_executive' | 'zonal_sales_manager' | 'zonal_business_manager' | 'hq_command_center' | 'director' | 'hbb_agent' | 'hbb_installer' | 'hbb_installer_supervisor' | 'hbb_dse' | 'hbb_hq' | 'hbb_hq_admin' | 'airtel_money_agent' | 'airtel_money_admin' | 'networks_team';
+type UserRole = 'sales_executive' | 'zonal_sales_manager' | 'zonal_business_manager' | 'hq_command_center' | 'director' | 'hbb_agent' | 'hbb_installer' | 'hbb_installer_supervisor' | 'hbb_dse' | 'hbb_hq' | 'hbb_hq_admin' | 'hbb_cx' | 'hbb_warehouse' | 'airtel_money_agent' | 'airtel_money_admin' | 'networks_team';
 
 // â”€â”€â”€ STABLE MobileContainer â€” defined OUTSIDE App to prevent unmount/remount â”€â”€
 // When defined inside App's render, React sees a NEW component type on every
@@ -531,7 +533,7 @@ function App() {
         const parsedUserData = JSON.parse(storedUser);
         
         // Session expiry check for HBB and Airtel Money users (24 hour TTL)
-        const isHBBUser = ['hbb_agent','hbb_installer','hbb_installer_supervisor','hbb_dse','hbb_hq','hbb_hq_admin'].includes(parsedUserData.role);
+        const isHBBUser = ['hbb_agent','hbb_installer','hbb_installer_supervisor','hbb_dse','hbb_hq','hbb_hq_admin','hbb_cx','hbb_warehouse'].includes(parsedUserData.role);
         const isAMUser  = ['airtel_money_agent','airtel_money_admin'].includes(parsedUserData.role);
         const loginTimestamp = parsedUserData._loginAt || 0;
         const SESSION_TTL = 24 * 60 * 60 * 1000; // 24 hours
@@ -844,6 +846,21 @@ function App() {
       );
     }
 
+    // ODU Retrieval roles
+    if (userRole === 'hbb_cx') {
+      return (
+        <MobileContainer>
+          <ODUCXDashboard user={user} userData={userData} onLogout={handleLogout} />
+        </MobileContainer>
+      );
+    }
+
+    if (userRole === 'hbb_warehouse') {
+      return (
+        <ODUWarehouseDashboard userData={userData} onLogout={handleLogout} />
+      );
+    }
+
     // â”€â”€ Airtel Money roles â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     if (userRole === 'airtel_money_agent') {
       return (
@@ -1072,6 +1089,21 @@ function App() {
             localStorage.removeItem('tai_userData');
           }}
         />
+      );
+    }
+
+    // ODU Retrieval roles
+    if (userRole === 'hbb_cx') {
+      return (
+        <MobileContainer>
+          <ODUCXDashboard user={user} userData={userData} onLogout={handleLogout} />
+        </MobileContainer>
+      );
+    }
+
+    if (userRole === 'hbb_warehouse') {
+      return (
+        <ODUWarehouseDashboard userData={userData} onLogout={handleLogout} />
       );
     }
 
