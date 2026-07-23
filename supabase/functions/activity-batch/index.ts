@@ -9,8 +9,18 @@ serve(async (req) => {
   }
 
   try {
-    const body = await req.json();
-    const { events } = body;
+    // Guard: an empty or non-JSON body would otherwise throw
+    // "Unexpected end of JSON input" and surface as a 500.
+    const raw = await req.text();
+    const body = raw ? JSON.parse(raw) : {};
+    const events = Array.isArray(body?.events) ? body.events : [];
+
+    if (events.length === 0) {
+      return new Response(
+        JSON.stringify({ success: true, inserted: 0 }),
+        { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
 
     const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
     const supabaseKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;

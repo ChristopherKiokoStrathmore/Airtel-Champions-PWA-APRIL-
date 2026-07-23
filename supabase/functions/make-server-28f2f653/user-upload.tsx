@@ -1,6 +1,15 @@
 import { Hono } from "npm:hono@4.7.9";
 import { createClient } from "jsr:@supabase/supabase-js@2";
-import * as XLSX from "npm:xlsx@0.18.5";
+
+// Lazy-load xlsx so SheetJS is NOT part of the module-eval graph.
+// SheetJS does dynamic require() of Node builtins at import time, which can
+// crash the Supabase edge runtime on boot (BOOT_ERROR). Loading it only when
+// a file is actually uploaded keeps the function bootable.
+let _xlsx: any = null;
+async function getXLSX(): Promise<any> {
+  if (!_xlsx) _xlsx = await import("npm:xlsx@0.18.5");
+  return _xlsx;
+}
 
 const app = new Hono();
 
@@ -360,7 +369,7 @@ function getCol(row: any, ...candidates: string[]): string {
   return "";
 }
 
-function detectContactSheet(workbook: any): { rows: any[]; sheetName: string } {
+function detectContactSheet(workbook: any, XLSX: any): { rows: any[]; sheetName: string } {
   for (const sheetName of workbook.SheetNames) {
     const ws = workbook.Sheets[sheetName];
     const rows = XLSX.utils.sheet_to_json(ws) as any[];
@@ -392,8 +401,9 @@ app.post("/upload-sitewise-mapping", async (c) => {
       return c.json({ success: false, error: "File must be .xlsx or .xlsb format" }, 400);
     }
 
+    const XLSX = await getXLSX();
     const workbook = XLSX.read(arrayBuffer, { type: "array" });
-    const { rows: contactRows, sheetName } = detectContactSheet(workbook);
+    const { rows: contactRows, sheetName } = detectContactSheet(workbook, XLSX);
 
     if (contactRows.length === 0) {
       return c.json({ success: false, error: `Sheet "${sheetName}" has no rows` }, 400);

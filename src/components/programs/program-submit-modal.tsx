@@ -345,11 +345,23 @@ export function ProgramSubmitModal({ program, userId, onClose, onSuccess }: Prog
         if (fieldsWithPreventDuplicates.length > 0) {
           console.log('[ProgramSubmitModal] Loading already-submitted values for', fieldsWithPreventDuplicates.length, 'fields');
           
-          // Fetch all existing submissions for this program
+          // Fetch existing submissions for this program from TODAY only.
+          // Scoping to today mirrors the authoritative submit-time check in
+          // submit-handler.tsx. Without it, dropdown options were marked (and
+          // blocked) as "already submitted" based on ALL-TIME history — which
+          // permanently removes them from daily programs (e.g. a van's site can
+          // legitimately be visited again the next day). The .limit() is a
+          // safety cap; today's volume for one program is tiny.
+          const now = new Date();
+          const startOfDayUTC = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 0, 0, 0));
+          const endOfDayUTC = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 23, 59, 59, 999));
           const { data: submissions, error: submissionsError } = await supabase
             .from('submissions')
             .select('responses')
-            .eq('program_id', program.id);
+            .eq('program_id', program.id)
+            .gte('created_at', startOfDayUTC.toISOString())
+            .lte('created_at', endOfDayUTC.toISOString())
+            .limit(2000);
           
           if (!submissionsError && submissions) {
             const alreadySubmitted: Record<string, string[]> = {};
