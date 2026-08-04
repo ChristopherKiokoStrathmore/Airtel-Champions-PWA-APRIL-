@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import airtelChampionsIcon from './assets/5cefe3bd8a968e47f850ff725f15f7c1e5cc74bb.png';
 import { supabase } from './utils/supabase/client';
+import { withResolvedNames } from './lib/privacy/auth-client';
 // import { Toaster } from 'sonner@2.0.3'; // Disabled due to missing module
 import { SupervisorLogin } from './components/SupervisorLogin';
 import { SupervisorDashboard } from './components/SupervisorDashboard';
@@ -2073,8 +2074,12 @@ function HomeScreen({ user, onLogout, initialTab }: { user: any; onLogout: () =>
         return;
       }
       
-      // Validate users data
-      const validUsers = Array.isArray(users) ? users : [];
+      // app_users.full_name holds a pseudonymous handle - the real name is only
+      // stored encrypted. Resolve the display names through the Edge Function,
+      // which decrypts them for an authenticated caller. If that call fails the
+      // handle is kept, so the UI degrades to "SALESE-4BVR8" rather than a
+      // meaningless digest.
+      const validUsers = await withResolvedNames(Array.isArray(users) ? users : []);
       
       // Combine user data with points and rank
       const performersWithRank = topUserIds.map((topUser, index) => {
