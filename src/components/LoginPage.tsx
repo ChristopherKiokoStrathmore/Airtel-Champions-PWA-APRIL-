@@ -564,18 +564,57 @@ export function LoginPage({
   const runSalesLogin = async (normalised: string): Promise<void> => {
     const formats = phoneFormats(normalised);
 
+    // Server-side authentication.
+    //
+    // The phone number and PIN go to an Edge Function, which converts the phone
+    // to a blind index and verifies the PIN against a peppered hash. The pepper
+    // lives only in the function environment, so Postgres never receives either
+    // value - it sees a 64-character opaque index and nothing else.
+    //
+    // This replaces the previous client-side PIN comparison, which required the
+    // browser to be able to read credentials and therefore forced RLS to stay
+    // open across the whole database.
+    let lockoutMessage: string | null = null;
     try {
-      const { data, error: rpcErr } = await supabase.rpc('se_login', {
-        input_phone: normalised,
-        input_pin:   pin || '',
-      });
-      if (!rpcErr && data?.success) {
-        await finaliseSalesLogin(data.user, 'rpc_se_login');
+      const res = await fetch(
+        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/se-login`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            apikey: import.meta.env.VITE_SUPABASE_ANON_KEY,
+            Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+          },
+          body: JSON.stringify({ input_phone: normalised, input_pin: pin || '' }),
+        },
+      );
+      const data = await res.json();
+
+      if (data?.success) {
+        if (data.access_token) {
+          sessionStorage.setItem('acp.session', JSON.stringify({
+            accessToken: data.access_token,
+            expiresAt:   Date.now() + (data.expires_in ?? 0) * 1000,
+            identity: {
+              id:                 data.user?.identity_id,
+              handle:             data.user?.handle,
+              role:               data.user?.role,
+              must_change_secret: data.must_change_secret,
+            },
+          }));
+        }
+        await finaliseSalesLogin(data.user, 'edge_se_login');
         return;
       }
+
+      // Surface lockout distinctly - it is the one case where a generic
+      // "invalid credentials" message would leave the user stuck with no
+      // explanation of why a correct PIN is being refused.
+      if (data?.locked) lockoutMessage = data.error ?? null;
     } catch {
-      // fall through
+      // Network or function failure: fall through to the legacy paths below.
     }
+    if (lockoutMessage) throw new Error(lockoutMessage);
 
     const { data: users, error: qErr } = await supabase
       .from('app_users')

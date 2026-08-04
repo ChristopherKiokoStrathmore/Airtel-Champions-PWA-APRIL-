@@ -1,0 +1,28 @@
+{
+  "executedAt": "2026-08-04T21:11:26.166Z",
+  "target": "https://xspogpfohjmkykfjadhk.supabase.co",
+  "identity": "public anon key",
+  "results": [
+    {
+      "control": "Public key cannot read personal data",
+      "detail": "17 of 35 tables returned rows (170269 rows total)",
+      "pass": false
+    },
+    {
+      "control": "Public key cannot modify personal data",
+      "detail": "15 write paths remained open",
+      "pass": false
+    },
+    {
+      "control": "Personal-data buckets are not anonymously enumerable",
+      "detail": "0 buckets still listed content",
+      "pass": true
+    },
+    {
+      "control": "Identity store contains no personal data",
+      "detail": "schema and sample inspection",
+      "pass": true
+    }
+  ],
+  "passed": false
+}
