@@ -13,9 +13,23 @@
 --
 -- Applying this before step 4 logs everyone out of their data.
 --
--- 23 tables are scoped to the row owner.
--- 80 tables are readable by any signed-in user.
--- anon loses access to all of them. No data is deleted.
+-- SCOPE: the sales programme only. Home Broadband, Airtel Money and ODU tables
+-- are deliberately untouched and keep their current access, because they are
+-- separate programmes on their own timelines.
+--
+-- 22 tables are scoped to the row owner.
+-- 47 tables are readable by any signed-in user.
+-- 34 tables are deferred and unchanged:
+--   DSE_14TOWNS, HBB_DSE_APRIL, HBB_DSE_GA_MONTHLY, HBB_HQ_TEAM, HBB_INSTALLER_GA_MONTHLY,
+--   INHOUSE_INSTALLER_6TOWNS_MARCH, agents_HBB, airtelmoney_agents, airtelmoney_hq,
+--   am_complaint_ratings, am_complaint_responses, am_complaints, am_video_sessions,
+--   am_video_targets, am_videos, hbb_dse_ga_daily, hbb_dse_ga_monthly, hbb_ga_performance,
+--   hbb_ga_upload_batches, hbb_installer_ga_daily, hbb_installer_ga_monthly,
+--   hbb_installer_morning_checkins, hbb_installer_team_lead, hbb_teams, hbb_users,
+--   installers_HBB, odu_config, odu_devices, odu_payment_batches, odu_requests,
+--   odu_staff, odu_upload_batches, odu_warehouses, shujaa_customers
+--
+-- anon loses access to the in-scope tables only. No data is deleted.
 -- ============================================================================
 
 begin;
@@ -33,16 +47,6 @@ create policy "activity_logs_own_read" on public."activity_logs"
 drop policy if exists "activity_logs_own_write" on public."activity_logs";
 create policy "activity_logs_own_write" on public."activity_logs"
   for insert to authenticated with check ("user_id"::text = auth.uid()::text);
-
-revoke all on public."am_videos" from anon;
-grant select, insert, update on public."am_videos" to authenticated;
-alter table public."am_videos" enable row level security;
-drop policy if exists "am_videos_own_read" on public."am_videos";
-create policy "am_videos_own_read" on public."am_videos"
-  for select to authenticated using ("created_by"::text = auth.uid()::text);
-drop policy if exists "am_videos_own_write" on public."am_videos";
-create policy "am_videos_own_write" on public."am_videos"
-  for insert to authenticated with check ("created_by"::text = auth.uid()::text);
 
 revoke all on public."group_members" from anon;
 grant select, insert, update on public."group_members" to authenticated;
@@ -259,48 +263,6 @@ create policy "verification_codes_own_write" on public."verification_codes"
 -- the browser. Service role (Edge Functions) bypasses RLS and still writes.
 -- ---------------------------------------------------------------------------
 
-revoke all on public."DSE_14TOWNS" from anon;
-grant select on public."DSE_14TOWNS" to authenticated;
-alter table public."DSE_14TOWNS" enable row level security;
-drop policy if exists "DSE_14TOWNS_auth_read" on public."DSE_14TOWNS";
-create policy "DSE_14TOWNS_auth_read" on public."DSE_14TOWNS"
-  for select to authenticated using (true);
-
-revoke all on public."HBB_DSE_APRIL" from anon;
-grant select on public."HBB_DSE_APRIL" to authenticated;
-alter table public."HBB_DSE_APRIL" enable row level security;
-drop policy if exists "HBB_DSE_APRIL_auth_read" on public."HBB_DSE_APRIL";
-create policy "HBB_DSE_APRIL_auth_read" on public."HBB_DSE_APRIL"
-  for select to authenticated using (true);
-
-revoke all on public."HBB_DSE_GA_MONTHLY" from anon;
-grant select on public."HBB_DSE_GA_MONTHLY" to authenticated;
-alter table public."HBB_DSE_GA_MONTHLY" enable row level security;
-drop policy if exists "HBB_DSE_GA_MONTHLY_auth_read" on public."HBB_DSE_GA_MONTHLY";
-create policy "HBB_DSE_GA_MONTHLY_auth_read" on public."HBB_DSE_GA_MONTHLY"
-  for select to authenticated using (true);
-
-revoke all on public."HBB_HQ_TEAM" from anon;
-grant select on public."HBB_HQ_TEAM" to authenticated;
-alter table public."HBB_HQ_TEAM" enable row level security;
-drop policy if exists "HBB_HQ_TEAM_auth_read" on public."HBB_HQ_TEAM";
-create policy "HBB_HQ_TEAM_auth_read" on public."HBB_HQ_TEAM"
-  for select to authenticated using (true);
-
-revoke all on public."HBB_INSTALLER_GA_MONTHLY" from anon;
-grant select on public."HBB_INSTALLER_GA_MONTHLY" to authenticated;
-alter table public."HBB_INSTALLER_GA_MONTHLY" enable row level security;
-drop policy if exists "HBB_INSTALLER_GA_MONTHLY_auth_read" on public."HBB_INSTALLER_GA_MONTHLY";
-create policy "HBB_INSTALLER_GA_MONTHLY_auth_read" on public."HBB_INSTALLER_GA_MONTHLY"
-  for select to authenticated using (true);
-
-revoke all on public."INHOUSE_INSTALLER_6TOWNS_MARCH" from anon;
-grant select on public."INHOUSE_INSTALLER_6TOWNS_MARCH" to authenticated;
-alter table public."INHOUSE_INSTALLER_6TOWNS_MARCH" enable row level security;
-drop policy if exists "INHOUSE_INSTALLER_6TOWNS_MARCH_auth_read" on public."INHOUSE_INSTALLER_6TOWNS_MARCH";
-create policy "INHOUSE_INSTALLER_6TOWNS_MARCH_auth_read" on public."INHOUSE_INSTALLER_6TOWNS_MARCH"
-  for select to authenticated using (true);
-
 revoke all on public."NEW_SITES_JULY" from anon;
 grant select on public."NEW_SITES_JULY" to authenticated;
 alter table public."NEW_SITES_JULY" enable row level security;
@@ -341,62 +303,6 @@ grant select on public."achievements" to authenticated;
 alter table public."achievements" enable row level security;
 drop policy if exists "achievements_auth_read" on public."achievements";
 create policy "achievements_auth_read" on public."achievements"
-  for select to authenticated using (true);
-
-revoke all on public."agents_HBB" from anon;
-grant select on public."agents_HBB" to authenticated;
-alter table public."agents_HBB" enable row level security;
-drop policy if exists "agents_HBB_auth_read" on public."agents_HBB";
-create policy "agents_HBB_auth_read" on public."agents_HBB"
-  for select to authenticated using (true);
-
-revoke all on public."airtelmoney_agents" from anon;
-grant select on public."airtelmoney_agents" to authenticated;
-alter table public."airtelmoney_agents" enable row level security;
-drop policy if exists "airtelmoney_agents_auth_read" on public."airtelmoney_agents";
-create policy "airtelmoney_agents_auth_read" on public."airtelmoney_agents"
-  for select to authenticated using (true);
-
-revoke all on public."airtelmoney_hq" from anon;
-grant select on public."airtelmoney_hq" to authenticated;
-alter table public."airtelmoney_hq" enable row level security;
-drop policy if exists "airtelmoney_hq_auth_read" on public."airtelmoney_hq";
-create policy "airtelmoney_hq_auth_read" on public."airtelmoney_hq"
-  for select to authenticated using (true);
-
-revoke all on public."am_complaint_ratings" from anon;
-grant select on public."am_complaint_ratings" to authenticated;
-alter table public."am_complaint_ratings" enable row level security;
-drop policy if exists "am_complaint_ratings_auth_read" on public."am_complaint_ratings";
-create policy "am_complaint_ratings_auth_read" on public."am_complaint_ratings"
-  for select to authenticated using (true);
-
-revoke all on public."am_complaint_responses" from anon;
-grant select on public."am_complaint_responses" to authenticated;
-alter table public."am_complaint_responses" enable row level security;
-drop policy if exists "am_complaint_responses_auth_read" on public."am_complaint_responses";
-create policy "am_complaint_responses_auth_read" on public."am_complaint_responses"
-  for select to authenticated using (true);
-
-revoke all on public."am_complaints" from anon;
-grant select on public."am_complaints" to authenticated;
-alter table public."am_complaints" enable row level security;
-drop policy if exists "am_complaints_auth_read" on public."am_complaints";
-create policy "am_complaints_auth_read" on public."am_complaints"
-  for select to authenticated using (true);
-
-revoke all on public."am_video_sessions" from anon;
-grant select on public."am_video_sessions" to authenticated;
-alter table public."am_video_sessions" enable row level security;
-drop policy if exists "am_video_sessions_auth_read" on public."am_video_sessions";
-create policy "am_video_sessions_auth_read" on public."am_video_sessions"
-  for select to authenticated using (true);
-
-revoke all on public."am_video_targets" from anon;
-grant select on public."am_video_targets" to authenticated;
-alter table public."am_video_targets" enable row level security;
-drop policy if exists "am_video_targets_auth_read" on public."am_video_targets";
-create policy "am_video_targets_auth_read" on public."am_video_targets"
   for select to authenticated using (true);
 
 revoke all on public."amb_shops" from anon;
@@ -469,76 +375,6 @@ drop policy if exists "director_messages_auth_read" on public."director_messages
 create policy "director_messages_auth_read" on public."director_messages"
   for select to authenticated using (true);
 
-revoke all on public."hbb_dse_ga_daily" from anon;
-grant select on public."hbb_dse_ga_daily" to authenticated;
-alter table public."hbb_dse_ga_daily" enable row level security;
-drop policy if exists "hbb_dse_ga_daily_auth_read" on public."hbb_dse_ga_daily";
-create policy "hbb_dse_ga_daily_auth_read" on public."hbb_dse_ga_daily"
-  for select to authenticated using (true);
-
-revoke all on public."hbb_dse_ga_monthly" from anon;
-grant select on public."hbb_dse_ga_monthly" to authenticated;
-alter table public."hbb_dse_ga_monthly" enable row level security;
-drop policy if exists "hbb_dse_ga_monthly_auth_read" on public."hbb_dse_ga_monthly";
-create policy "hbb_dse_ga_monthly_auth_read" on public."hbb_dse_ga_monthly"
-  for select to authenticated using (true);
-
-revoke all on public."hbb_ga_performance" from anon;
-grant select on public."hbb_ga_performance" to authenticated;
-alter table public."hbb_ga_performance" enable row level security;
-drop policy if exists "hbb_ga_performance_auth_read" on public."hbb_ga_performance";
-create policy "hbb_ga_performance_auth_read" on public."hbb_ga_performance"
-  for select to authenticated using (true);
-
-revoke all on public."hbb_ga_upload_batches" from anon;
-grant select on public."hbb_ga_upload_batches" to authenticated;
-alter table public."hbb_ga_upload_batches" enable row level security;
-drop policy if exists "hbb_ga_upload_batches_auth_read" on public."hbb_ga_upload_batches";
-create policy "hbb_ga_upload_batches_auth_read" on public."hbb_ga_upload_batches"
-  for select to authenticated using (true);
-
-revoke all on public."hbb_installer_ga_daily" from anon;
-grant select on public."hbb_installer_ga_daily" to authenticated;
-alter table public."hbb_installer_ga_daily" enable row level security;
-drop policy if exists "hbb_installer_ga_daily_auth_read" on public."hbb_installer_ga_daily";
-create policy "hbb_installer_ga_daily_auth_read" on public."hbb_installer_ga_daily"
-  for select to authenticated using (true);
-
-revoke all on public."hbb_installer_ga_monthly" from anon;
-grant select on public."hbb_installer_ga_monthly" to authenticated;
-alter table public."hbb_installer_ga_monthly" enable row level security;
-drop policy if exists "hbb_installer_ga_monthly_auth_read" on public."hbb_installer_ga_monthly";
-create policy "hbb_installer_ga_monthly_auth_read" on public."hbb_installer_ga_monthly"
-  for select to authenticated using (true);
-
-revoke all on public."hbb_installer_morning_checkins" from anon;
-grant select on public."hbb_installer_morning_checkins" to authenticated;
-alter table public."hbb_installer_morning_checkins" enable row level security;
-drop policy if exists "hbb_installer_morning_checkins_auth_read" on public."hbb_installer_morning_checkins";
-create policy "hbb_installer_morning_checkins_auth_read" on public."hbb_installer_morning_checkins"
-  for select to authenticated using (true);
-
-revoke all on public."hbb_installer_team_lead" from anon;
-grant select on public."hbb_installer_team_lead" to authenticated;
-alter table public."hbb_installer_team_lead" enable row level security;
-drop policy if exists "hbb_installer_team_lead_auth_read" on public."hbb_installer_team_lead";
-create policy "hbb_installer_team_lead_auth_read" on public."hbb_installer_team_lead"
-  for select to authenticated using (true);
-
-revoke all on public."hbb_teams" from anon;
-grant select on public."hbb_teams" to authenticated;
-alter table public."hbb_teams" enable row level security;
-drop policy if exists "hbb_teams_auth_read" on public."hbb_teams";
-create policy "hbb_teams_auth_read" on public."hbb_teams"
-  for select to authenticated using (true);
-
-revoke all on public."hbb_users" from anon;
-grant select on public."hbb_users" to authenticated;
-alter table public."hbb_users" enable row level security;
-drop policy if exists "hbb_users_auth_read" on public."hbb_users";
-create policy "hbb_users_auth_read" on public."hbb_users"
-  for select to authenticated using (true);
-
 revoke all on public."hq_directors" from anon;
 grant select on public."hq_directors" to authenticated;
 alter table public."hq_directors" enable row level security;
@@ -572,13 +408,6 @@ grant select on public."installers" to authenticated;
 alter table public."installers" enable row level security;
 drop policy if exists "installers_auth_read" on public."installers";
 create policy "installers_auth_read" on public."installers"
-  for select to authenticated using (true);
-
-revoke all on public."installers_HBB" from anon;
-grant select on public."installers_HBB" to authenticated;
-alter table public."installers_HBB" enable row level security;
-drop policy if exists "installers_HBB_auth_read" on public."installers_HBB";
-create policy "installers_HBB_auth_read" on public."installers_HBB"
   for select to authenticated using (true);
 
 revoke all on public."job_issues" from anon;
@@ -621,55 +450,6 @@ grant select on public."mission_types" to authenticated;
 alter table public."mission_types" enable row level security;
 drop policy if exists "mission_types_auth_read" on public."mission_types";
 create policy "mission_types_auth_read" on public."mission_types"
-  for select to authenticated using (true);
-
-revoke all on public."odu_config" from anon;
-grant select on public."odu_config" to authenticated;
-alter table public."odu_config" enable row level security;
-drop policy if exists "odu_config_auth_read" on public."odu_config";
-create policy "odu_config_auth_read" on public."odu_config"
-  for select to authenticated using (true);
-
-revoke all on public."odu_devices" from anon;
-grant select on public."odu_devices" to authenticated;
-alter table public."odu_devices" enable row level security;
-drop policy if exists "odu_devices_auth_read" on public."odu_devices";
-create policy "odu_devices_auth_read" on public."odu_devices"
-  for select to authenticated using (true);
-
-revoke all on public."odu_payment_batches" from anon;
-grant select on public."odu_payment_batches" to authenticated;
-alter table public."odu_payment_batches" enable row level security;
-drop policy if exists "odu_payment_batches_auth_read" on public."odu_payment_batches";
-create policy "odu_payment_batches_auth_read" on public."odu_payment_batches"
-  for select to authenticated using (true);
-
-revoke all on public."odu_requests" from anon;
-grant select on public."odu_requests" to authenticated;
-alter table public."odu_requests" enable row level security;
-drop policy if exists "odu_requests_auth_read" on public."odu_requests";
-create policy "odu_requests_auth_read" on public."odu_requests"
-  for select to authenticated using (true);
-
-revoke all on public."odu_staff" from anon;
-grant select on public."odu_staff" to authenticated;
-alter table public."odu_staff" enable row level security;
-drop policy if exists "odu_staff_auth_read" on public."odu_staff";
-create policy "odu_staff_auth_read" on public."odu_staff"
-  for select to authenticated using (true);
-
-revoke all on public."odu_upload_batches" from anon;
-grant select on public."odu_upload_batches" to authenticated;
-alter table public."odu_upload_batches" enable row level security;
-drop policy if exists "odu_upload_batches_auth_read" on public."odu_upload_batches";
-create policy "odu_upload_batches_auth_read" on public."odu_upload_batches"
-  for select to authenticated using (true);
-
-revoke all on public."odu_warehouses" from anon;
-grant select on public."odu_warehouses" to authenticated;
-alter table public."odu_warehouses" enable row level security;
-drop policy if exists "odu_warehouses_auth_read" on public."odu_warehouses";
-create policy "odu_warehouses_auth_read" on public."odu_warehouses"
   for select to authenticated using (true);
 
 revoke all on public."org_change_log" from anon;
@@ -761,13 +541,6 @@ grant select on public."service_request" to authenticated;
 alter table public."service_request" enable row level security;
 drop policy if exists "service_request_auth_read" on public."service_request";
 create policy "service_request_auth_read" on public."service_request"
-  for select to authenticated using (true);
-
-revoke all on public."shujaa_customers" from anon;
-grant select on public."shujaa_customers" to authenticated;
-alter table public."shujaa_customers" enable row level security;
-drop policy if exists "shujaa_customers_auth_read" on public."shujaa_customers";
-create policy "shujaa_customers_auth_read" on public."shujaa_customers"
   for select to authenticated using (true);
 
 revoke all on public."sitewise" from anon;
