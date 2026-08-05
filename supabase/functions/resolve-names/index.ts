@@ -54,7 +54,9 @@ Deno.serve(async (req) => {
   if (req.method !== 'POST') return json({ error: 'Method not allowed' }, 405);
 
   const pepper = Deno.env.get('PRIVACY_PEPPER');
-  const signingSecret = Deno.env.get('SESSION_SIGNING_SECRET');
+  // Must match whatever se-login signed with. The SUPABASE_ prefix is reserved
+  // by the platform, hence PROJECT_JWT_SECRET.
+  const signingSecret = Deno.env.get('PROJECT_JWT_SECRET') || Deno.env.get('SESSION_SIGNING_SECRET');
   if (!pepper || !signingSecret) return json({ error: 'Service unavailable' }, 503);
 
   const auth = req.headers.get('authorization') ?? '';
