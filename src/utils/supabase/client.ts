@@ -18,6 +18,55 @@ declare global {
   }
 }
 
+/**
+ * Sends the signed-in user's session token on every database request.
+ *
+ * Without this, every query reaches Postgres as the anonymous public role with
+ * no identity attached, so row level security has nobody to authorise and the
+ * only workable policy is "allow everyone". That is why the tables had to stay
+ * open.
+ *
+ * The token is minted at sign-in by the se-login Edge Function and signed with
+ * the project JWT secret, so PostgREST accepts it as `authenticated` and
+ * `auth.uid()` resolves to the caller. `apikey` is left untouched because
+ * Supabase still requires it for routing.
+ *
+ * Signed-out callers fall through unchanged and remain anonymous, which is the
+ * correct posture once anon grants are revoked.
+ */
+function authedFetch(input: RequestInfo | URL, init?: RequestInit): Promise<Response> {
+  let token: string | null = null;
+  try {
+    const raw = sessionStorage.getItem('acp.session');
+    if (raw) {
+      const s = JSON.parse(raw);
+      if (s && s.accessToken && (!s.expiresAt || s.expiresAt > Date.now())) token = s.accessToken;
+    }
+  } catch {
+    // Storage unavailable or malformed: stay anonymous rather than fail the call.
+  }
+  if (!token) return fetch(input, init);
+
+  const headers = new Headers(init?.headers || {});
+  headers.set('Authorization', `Bearer ${token}`);
+  if (!headers.has('apikey')) headers.set('apikey', SUPABASE_ANON_KEY);
+
+  return fetch(input, { ...init, headers }).then((res) => {
+    // A token signed with a retired secret is rejected outright, which would
+    // otherwise break every request until the user happened to sign in again.
+    // Drop the stale session and retry as an anonymous caller so the app keeps
+    // working; the next sign-in issues a valid token.
+    if (res.status === 401) {
+      try { sessionStorage.removeItem('acp.session'); } catch { /* ignore */ }
+      const retry = new Headers(init?.headers || {});
+      if (!retry.has('apikey')) retry.set('apikey', SUPABASE_ANON_KEY);
+      retry.set('Authorization', `Bearer ${SUPABASE_ANON_KEY}`);
+      return fetch(input, { ...init, headers: retry });
+    }
+    return res;
+  });
+}
+
 // Create or return existing singleton instance
 if (!window.__AIRTEL_CHAMPIONS_SUPABASE_CLIENT__) {
   // Singleton client creation - logging removed for production
@@ -28,6 +77,7 @@ if (!window.__AIRTEL_CHAMPIONS_SUPABASE_CLIENT__) {
       autoRefreshToken: false, // Disable auto-refresh since we're not using auth sessions
       detectSessionInUrl: false, // Don't look for auth tokens in URL
     },
+    global: { fetch: authedFetch },
   });
 } else {
   // Reusing existing singleton client - logging removed for production

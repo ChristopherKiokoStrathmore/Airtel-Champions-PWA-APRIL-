@@ -43,7 +43,14 @@ Deno.serve(async (req) => {
   if (req.method !== 'POST') return json({ success: false, error: 'Method not allowed' }, 405);
 
   const pepper = Deno.env.get('PRIVACY_PEPPER');
-  const signingSecret = Deno.env.get('SESSION_SIGNING_SECRET');
+  // Sign with the project JWT secret so PostgREST accepts the token as an
+  // authenticated caller, which is what lets row level security work against
+  // auth.uid() instead of every request arriving anonymous.
+  //
+  // The secret is named PROJECT_JWT_SECRET, not SUPABASE_JWT_SECRET: the
+  // platform reserves the SUPABASE_ prefix and silently drops custom secrets
+  // that use it. SESSION_SIGNING_SECRET stays as a fallback.
+  const signingSecret = Deno.env.get('PROJECT_JWT_SECRET') || Deno.env.get('SESSION_SIGNING_SECRET');
   if (!pepper || pepper.length < 32 || !signingSecret) {
     console.error('se-login misconfigured: PRIVACY_PEPPER or SESSION_SIGNING_SECRET missing');
     return json({ success: false, error: 'Login is temporarily unavailable' }, 503);
