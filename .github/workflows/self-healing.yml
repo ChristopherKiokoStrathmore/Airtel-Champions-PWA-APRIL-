@@ -1,8 +1,28 @@
 name: Self-Healing Loop
 
 on:
-  schedule:
-    - cron: '*/30 * * * *'
+  # DISABLED 2026-08-07. Do not re-enable without a documented approval.
+  #
+  # This ran every 30 minutes, unsupervised, holding SUPABASE_ACCESS_TOKEN
+  # (management-API authority). scripts/self-heal.js pulled production Edge
+  # Function logs, POSTed them to api.groq.com, and deployed the returned code
+  # to production via `supabase functions deploy activity-log`.
+  #
+  # Two problems the FORBIDDEN-pattern guardrails in that script do not address:
+  #
+  #   1. Data protection. Groq is a third-party processor in the United States.
+  #      Supabase function logs can carry request data. That is a cross-border
+  #      transfer with no processing agreement, absent from the ROPA, with no
+  #      lawful basis assessed.
+  #   2. Change control. Deploying generated code to production with no human
+  #      review is the inverse of what the Shadow IT Policy section 6 requires,
+  #      and section 5(f) names absence of code review explicitly.
+  #
+  # If this capability is wanted back, it must open a pull request for review.
+  # It must never deploy directly.
+  #
+  # schedule:
+  #   - cron: '*/30 * * * *'
   workflow_dispatch:
 
 jobs:
