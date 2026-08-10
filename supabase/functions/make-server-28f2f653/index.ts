@@ -4,10 +4,15 @@ import { Hono } from "npm:hono@4.7.9";
 import { cors } from "npm:hono@4.7.9/cors";
 import { createClient } from "jsr:@supabase/supabase-js@2";
 
-import announcementsApp from "../../../src/supabase/functions/server/announcements.tsx";
+// Route modules live inside this function directory. They previously sat in
+// src/supabase/functions/server/ and were imported via ../../../, a path that
+// escapes the supabase/functions/ root. The Supabase CLI bundles only what is
+// reachable inside that root, which is the most likely cause of the BOOT_ERROR
+// this function has been returning. Do not move them back out.
+import announcementsApp from "./announcements.tsx";
 import userUploadApp from "./user-upload.tsx";
-import programsApp from "../../../src/supabase/functions/server/programs.tsx";
-import checkinApp from "../../../src/supabase/functions/server/checkin.tsx";
+import programsApp from "./programs.tsx";
+import checkinApp from "./checkin.tsx";
 
 const app = new Hono();
 
