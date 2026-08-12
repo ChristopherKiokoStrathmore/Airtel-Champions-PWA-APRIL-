@@ -22,8 +22,16 @@ console.log('[CheckIn] Session Check-In routes initialized (KV-backed)');
 // HELPERS
 // ============================================
 
+/**
+ * Returns the authenticated caller's identity id, or null.
+ *
+ * Reads only what the authentication middleware in index.ts placed on the
+ * context after verifying the token signature. Until 2026-08-10 this read the
+ * client-supplied `X-User-Id` header, which meant any caller could act as any
+ * user by changing one header value. Do not reintroduce a header read here.
+ */
 function getUserId(c: any): string | null {
-  return c.req.header('X-User-Id') || null;
+  return c.get('userId') ?? null;
 }
 
 // Get today's date string in EAT (UTC+3) → "YYYY-MM-DD"

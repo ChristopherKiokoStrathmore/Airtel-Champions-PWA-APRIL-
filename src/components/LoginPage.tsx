@@ -562,8 +562,6 @@ export function LoginPage({
   // STEP 3a — Sales login chain
   // ─────────────────────────────────────────────────────────────────────────────
   const runSalesLogin = async (normalised: string): Promise<void> => {
-    const formats = phoneFormats(normalised);
-
     // Server-side authentication.
     //
     // The phone number and PIN go to an Edge Function, which converts the phone
@@ -616,54 +614,10 @@ export function LoginPage({
     }
     if (lockoutMessage) throw new Error(lockoutMessage);
 
-    const { data: users, error: qErr } = await supabase
-      .from('app_users')
-      .select(SAFE_USER_FIELDS)
-      .in('phone_number', formats)
-      .limit(1);
-
-    if (qErr) throw new Error(ERR_GENERIC);
-
-    if (users && users.length > 0) {
-      const found = users[0];
-      if ((pin || '') !== (found.pin || '1234')) throw new Error(ERR_GENERIC);
-      await finaliseSalesLogin(found, 'direct_app_users');
-      return;
-    }
-
-    const { data: empRows } = await supabase
-      .from('app_users')
-      .select(SAFE_USER_FIELDS)
-      .eq('employee_id', phoneNumber.trim())
-      .limit(1);
-
-    if (empRows && empRows.length > 0) {
-      const found = empRows[0];
-      if ((pin || '') !== (found.pin || '1234')) throw new Error(ERR_GENERIC);
-      await finaliseSalesLogin(found, 'employee_id');
-      return;
-    }
-
-    const AUX_SALES: Array<{ table: string; col: string }> = [
-      { table: 'SE_MARCH',  col: 'phone_number' },
-      { table: 'ZSM_MARCH', col: 'phone_number' },
-    ];
-
-    for (const { table, col } of AUX_SALES) {
-      try {
-        const { data: auxRows, error: auxErr } = await supabase
-          .from(table)
-          .select('*')
-          .in(col, formats)
-          .limit(1);
-
-        if (auxErr) continue;
-        if (auxRows && auxRows.length > 0) throw new Error(ERR_GENERIC);
-      } catch (e: any) {
-        if (e.message === ERR_GENERIC) throw e;
-      }
-    }
-
+    // se-login (above) now authenticates both migrated identities and the
+    // transitional app_users fallback entirely on the server. The browser no
+    // longer reads app_users or compares PINs, so a miss here is simply an
+    // authentication failure - there is nothing left to fall back to.
     throw new Error(ERR_GENERIC);
   };
 

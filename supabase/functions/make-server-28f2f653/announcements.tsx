@@ -30,6 +30,31 @@ const supabase = createClient(
   Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!,
 );
 
+// ── Identity ────────────────────────────────────────────────────────────────
+//
+// Comes from the authentication middleware in index.ts, which sets it only
+// after verifying the token signature. Until 2026-08-10 these routes read
+// user_id and user_role from query parameters, and the create route read
+// author_id, author_name and author_role from the request body. Both let a
+// caller name their own role, so anyone could post an announcement as a
+// director. Never read identity from a query parameter or a request body.
+
+function callerId(c: any): string | null {
+  return c.get('userId') ?? null;
+}
+
+/** Resolves the authenticated caller's app_users record, or null. */
+async function caller(c: any): Promise<{ id: string; role: string; full_name: string | null } | null> {
+  const userId = callerId(c);
+  if (!userId) return null;
+  const { data } = await supabase
+    .from('app_users')
+    .select('id, role, full_name')
+    .eq('id', userId)
+    .single();
+  return data ?? null;
+}
+
 // ============================================================================
 // CREATE ANNOUNCEMENT (HQ/Director Only)
 // ============================================================================
@@ -37,14 +62,23 @@ const supabase = createClient(
 app.post("/announcements", async (c) => {
   try {
     const body = await c.req.json();
-    const { author_id, author_name, author_role, title, message, priority, target_roles } = body;
+    const { title, message, priority, target_roles } = body;
 
-    // Validate required fields
-    if (!author_id || !author_name || !message) {
-      return c.json({ error: 'author_id, author_name, and message are required' }, 400);
+    // Authorship is the authenticated caller, never what the body claims. The
+    // body used to supply author_id, author_name and author_role, and the role
+    // check below validated the caller's own assertion, which is not a check.
+    const author = await caller(c);
+    if (!author) return c.json({ error: 'Unauthorized' }, 401);
+
+    const author_id = author.id;
+    const author_name = author.full_name ?? 'Unknown';
+    const author_role = author.role;
+
+    if (!message) {
+      return c.json({ error: 'message is required' }, 400);
     }
 
-    // Validate author role (only HQ and Director can create announcements)
+    // Only HQ and Director can create announcements
     if (author_role !== 'director' && author_role !== 'hq_staff' && author_role !== 'hq_command_center') {
       return c.json({ error: 'Only Directors and HQ Team can create announcements' }, 403);
     }
@@ -95,8 +129,10 @@ app.post("/announcements", async (c) => {
 
 app.get("/announcements", async (c) => {
   try {
-    const user_role = c.req.query('user_role');
-    const user_id = c.req.query('user_id');
+    const me = await caller(c);
+    if (!me) return c.json({ error: 'Unauthorized' }, 401);
+    const user_role = me.role;
+    const user_id = me.id;
     const unread_only = c.req.query('unread_only') === 'true';
 
     console.log(`[Announcements] GET request - user_role: ${user_role}, user_id: ${user_id}, unread_only: ${unread_only}`);
@@ -254,12 +290,10 @@ app.delete("/announcements/:id", async (c) => {
 
 app.get("/announcements/unread-count", async (c) => {
   try {
-    const user_role = c.req.query('user_role');
-    const user_id = c.req.query('user_id');
-
-    if (!user_role || !user_id) {
-      return c.json({ error: 'user_role and user_id are required' }, 400);
-    }
+    const me = await caller(c);
+    if (!me) return c.json({ error: 'Unauthorized' }, 401);
+    const user_role = me.role;
+    const user_id = me.id;
 
     // Get all active announcements for this role — silently return 0 on any KV error
     let allAnnouncementsKeys: any[] = [];

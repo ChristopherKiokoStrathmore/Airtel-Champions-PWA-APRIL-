@@ -38,6 +38,14 @@ const json = (b: unknown, s = 200) =>
 const fail = (extra: Record<string, unknown> = {}) =>
   json({ success: false, error: GENERIC, ...extra });
 
+/** Phone shapes stored across the legacy sales tables (last 9 digits, with the
+ *  various country-code / leading-zero prefixes). Used only by the transitional
+ *  app_users fallback below. */
+const phoneFormats = (msisdn: string): string[] => {
+  const last9 = String(msisdn).replace(/\D/g, '').slice(-9);
+  return [last9, '0' + last9, '+254' + last9, '254' + last9];
+};
+
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') return new Response('ok', { headers: CORS });
   if (req.method !== 'POST') return json({ success: false, error: 'Method not allowed' }, 405);
@@ -98,13 +106,58 @@ Deno.serve(async (req) => {
     return json({ success: false, error: 'Login is temporarily unavailable' }, 503);
   }
 
+  // Legacy app_users fallback (duplicate-phone safe). Returns a success Response,
+  // or null when no active app_users row on this phone / employee id matches the
+  // entered PIN. Phone numbers are NOT unique in app_users (duplicate and
+  // synthetic rows exist), and the single blind-index identity for a shared
+  // number may belong to a different account - so this is consulted whenever the
+  // identity path does not itself authenticate. Delete once every active
+  // app_user has a correct identity and phone numbers are de-duplicated.
+  const tryLegacyAppUsers = async (): Promise<Response | null> => {
+    const formats = phoneFormats(norm.msisdn);
+    const cols = 'id, full_name, role, zone, region, employee_id, rank, total_points, pin, is_active';
+    let rows: Array<Record<string, any>> = [];
+    const { data: byPhone } = await db.from('app_users').select(cols).in('phone_number', formats).limit(50);
+    rows = byPhone ?? [];
+    if (rows.length === 0) {
+      const { data: byEmp } = await db.from('app_users').select(cols).eq('employee_id', String(phone).trim()).limit(50);
+      rows = byEmp ?? [];
+    }
+    const u = rows.find((r) => r.is_active !== false && pin === String(r.pin ?? '1234')) ?? null;
+    if (!u) return null;
+    const legacyToken = await signJwt(
+      { sub: String(u.id), handle: u.employee_id ?? String(u.id), app_role: u.role },
+      signingSecret, SESSION_TTL,
+    );
+    await audit(null, true, 'legacy_app_users');
+    return json({
+      success: true,
+      message: 'Login successful',
+      access_token: legacyToken,
+      expires_in: SESSION_TTL,
+      must_change_secret: false,
+      user: {
+        id: u.id, identity_id: null, full_name: u.full_name, handle: u.employee_id ?? null,
+        phone: null, role: u.role, zone: u.zone ?? null, region: u.region ?? null,
+        employee_id: u.employee_id ?? null, rank: u.rank ?? null,
+        total_points: u.total_points ?? 0, must_change_secret: false,
+      },
+    });
+  };
+
   if (!identity) {
+    const legacyRes = await tryLegacyAppUsers();
+    if (legacyRes) return legacyRes;
     await hashSecret(pin, pepper);              // equalise timing for unknown accounts
     await audit(null, false, 'unknown_identity');
     return fail();
   }
 
   if (identity.locked_until && new Date(identity.locked_until) > new Date()) {
+    // A different active account may share this phone, so still try the legacy
+    // PIN match before reporting the (other account's) lockout.
+    const legacyRes = await tryLegacyAppUsers();
+    if (legacyRes) return legacyRes;
     await audit(identity.id, false, 'locked_out');
     return json({
       success: false,
@@ -114,12 +167,19 @@ Deno.serve(async (req) => {
   }
 
   if (!identity.is_active) {
+    const legacyRes = await tryLegacyAppUsers();
+    if (legacyRes) return legacyRes;
     await hashSecret(pin, pepper);
     await audit(identity.id, false, 'inactive');
     return fail();
   }
 
   if (!(await verifySecret(pin, identity.secret_hash, pepper))) {
+    // The identity's PIN did not match. Because a phone number can map to several
+    // accounts, the entered PIN may belong to a different active app_users row on
+    // the same number - accept that before recording a failed attempt.
+    const legacyRes = await tryLegacyAppUsers();
+    if (legacyRes) return legacyRes;
     const attempts = (identity.failed_attempts ?? 0) + 1;
     const lock = attempts >= MAX_FAILED
       ? new Date(Date.now() + LOCKOUT_MIN * 60_000).toISOString() : null;
