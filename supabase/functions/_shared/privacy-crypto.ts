@@ -170,3 +170,72 @@ export async function signJwt(
   const sigB64 = b64(sig).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
   return `${data}.${sigB64}`;
 }
+
+/** Claims carried by a token minted by signJwt via se-login. */
+export interface SessionClaims {
+  /** identities.id of the authenticated caller. */
+  sub: string;
+  /** Pseudonymous handle. Never a phone number or a name. */
+  handle?: string;
+  /** Application role, for example 'sales_executive'. */
+  app_role?: string;
+  exp: number;
+  iat: number;
+  aud: string;
+  role: string;
+}
+
+/**
+ * Verifies an HS256 token minted by signJwt and returns its claims, or null.
+ *
+ * Counterpart to signJwt. Use this, never a decode-without-verify: splitting a
+ * JWT on '.' and JSON-parsing the middle segment reads attacker-controlled data
+ * and is not authentication.
+ *
+ * Returns null on any failure, deliberately without saying which. Callers must
+ * treat null as 401 and must not surface the reason, so that the endpoint
+ * cannot be used to distinguish an expired token from a forged one.
+ *
+ * Signature comparison uses crypto.subtle.verify, which is constant time.
+ */
+export async function verifyJwt(
+  token: string,
+  secret: string,
+): Promise<SessionClaims | null> {
+  try {
+    const parts = token.split('.');
+    if (parts.length !== 3) return null;
+    const [head64, body64, sig64] = parts;
+
+    const fromB64url = (s: string) => {
+      const pad = s.replace(/-/g, '+').replace(/_/g, '/');
+      return pad + '='.repeat((4 - (pad.length % 4)) % 4);
+    };
+
+    const header = JSON.parse(atob(fromB64url(head64)));
+    // Reject anything that is not HS256. Without this check a token with
+    // {"alg":"none"} and no signature would reach the comparison below.
+    if (header?.alg !== 'HS256') return null;
+
+    const key = await crypto.subtle.importKey(
+      'raw', ENC.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['verify'],
+    );
+    const sigBytes = Uint8Array.from(atob(fromB64url(sig64)), (ch) => ch.charCodeAt(0));
+    const ok = await crypto.subtle.verify(
+      'HMAC', key, sigBytes, ENC.encode(`${head64}.${body64}`),
+    );
+    if (!ok) return null;
+
+    const claims = JSON.parse(atob(fromB64url(body64))) as SessionClaims;
+
+    // Signature valid does not mean usable. Check expiry and audience too.
+    const now = Math.floor(Date.now() / 1000);
+    if (typeof claims.exp !== 'number' || claims.exp <= now) return null;
+    if (claims.aud !== 'authenticated' || claims.role !== 'authenticated') return null;
+    if (typeof claims.sub !== 'string' || claims.sub.length === 0) return null;
+
+    return claims;
+  } catch {
+    return null;
+  }
+}

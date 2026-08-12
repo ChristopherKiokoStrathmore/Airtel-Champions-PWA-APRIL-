@@ -43,10 +43,18 @@ console.log('[Programs] 🔧 Frontend Supabase client initialized:', FRONTEND_SU
 // HELPER FUNCTIONS
 // ============================================
 
+// Identity for every helper below comes from the authentication middleware in
+// index.ts, which sets it only after verifying the token signature. Until
+// 2026-08-10 these read the client-supplied `X-User-Id` header, so any caller
+// could act as any user, including a director, by changing one header value.
+// Never read identity from a header or a query parameter here.
+function callerId(c: any): string | null {
+  return c.get('userId') ?? null;
+}
+
 // Verify user has permission to create/manage programs (Director or HQ only)
-// Direct DB mode: Uses X-User-Id header instead of JWT auth
-async function verifyProgramCreator(req: any) {
-  const userId = req.header('X-User-Id');
+async function verifyProgramCreator(c: any) {
+  const userId = callerId(c);
   if (!userId) {
     return { authorized: false, userId: null, role: null };
   }
@@ -67,9 +75,9 @@ async function verifyProgramCreator(req: any) {
   return { authorized, userId: userData.id, role: userData?.role };
 }
 
-// Verify user is logged in (direct DB mode)
-async function verifyUser(req: any) {
-  const userId = req.header('X-User-Id');
+// Verify user is logged in
+async function verifyUser(c: any) {
+  const userId = callerId(c);
   if (!userId) {
     return { authorized: false, userId: null };
   }
@@ -87,8 +95,8 @@ async function verifyUser(req: any) {
 }
 
 // Check if user can view analytics/submissions (Director, HQ, or Managers)
-async function canViewProgramData(req: any) {
-  const userId = req.header('X-User-Id');
+async function canViewProgramData(c: any) {
+  const userId = callerId(c);
   if (!userId) {
     return { authorized: false, userId: null, role: null, region: null, zone: null };
   }
@@ -440,18 +448,15 @@ app.post('/make-server-28f2f653/van-checkout-enforcement/toggle', async (c) => {
     const body = await c.req.json();
     const { enabled } = body;
 
-    // Verify caller is HQ or Director
-    const userId = c.req.header('X-User-Id');
-    if (userId) {
-      const { data: userData } = await supabase
-        .from('app_users')
-        .select('role')
-        .eq('id', userId)
-        .single();
-
-      if (userData && !['hq_command_center', 'director'].includes(userData.role)) {
-        return c.json({ success: false, error: 'Only HQ and Directors can toggle this setting' }, 403);
-      }
+    // Verify caller is HQ or Director.
+    //
+    // This check used to be wrapped in `if (userId)`, reading the X-User-Id
+    // header. Omitting the header skipped the whole block and the toggle went
+    // through unchecked, so the guard protected only callers who volunteered
+    // an identity. It now fails closed.
+    const { authorized } = await verifyProgramCreator(c);
+    if (!authorized) {
+      return c.json({ success: false, error: 'Only HQ and Directors can toggle this setting' }, 403);
     }
 
     const saved = await safeKvSet('van_checkout_enforcement_enabled', enabled === true);
@@ -477,39 +482,25 @@ app.get('/make-server-28f2f653/programs', async (c) => {
   try {
     console.log('[Programs] === NEW REQUEST ===');
     
-    // Support both auth token and query parameters (for TAI's custom auth)
-    let userRole = 'sales_executive';
-    let userId = '';
-
-    // Try getting role and user_id from query params first (TAI custom auth)
-    const roleParam = c.req.query('role');
-    const userIdParam = c.req.query('user_id');
-
-    if (roleParam && userIdParam) {
-      // Using query parameters (TAI custom auth)
-      userRole = roleParam;
-      userId = userIdParam;
-      console.log('[Programs] Using query params - role:', userRole, 'userId:', userId);
-    } else {
-      // Direct DB auth via X-User-Id header
-      const headerUserId = c.req.header('X-User-Id');
-      if (!headerUserId) {
-        console.log('[Programs] No user identification found');
-        return c.json({ error: 'Unauthorized - missing user identification' }, 401);
-      }
-
-      userId = headerUserId;
-
-      // Get user's role from database
-      const { data: userData } = await supabase
-        .from('app_users')
-        .select('role')
-        .eq('id', userId)
-        .single();
-
-      userRole = userData?.role || 'sales_executive';
-      console.log('[Programs] Using X-User-Id header - role:', userRole, 'userId:', userId);
+    // Identity and role come from the verified token, then from the database.
+    //
+    // This route previously accepted `role` and `user_id` as query parameters
+    // ("TAI custom auth"), falling back to the X-User-Id header. Either path let
+    // a caller name their own role: ?role=director returned every director's
+    // programme. Both are removed. The role is now read from app_users for the
+    // authenticated caller and cannot be asserted by the request.
+    const userId = callerId(c);
+    if (!userId) {
+      return c.json({ error: 'Unauthorized' }, 401);
     }
+
+    const { data: userData } = await supabase
+      .from('app_users')
+      .select('role')
+      .eq('id', userId)
+      .single();
+
+    const userRole = userData?.role || 'sales_executive';
 
     console.log('[Programs] Querying programs for role:', userRole);
 
@@ -600,7 +591,7 @@ app.get('/make-server-28f2f653/programs', async (c) => {
 // GET /make-server-28f2f653/programs/:id - Get program details with fields
 app.get('/make-server-28f2f653/programs/:id', async (c) => {
   try {
-    const { authorized, userId } = await verifyUser(c.req);
+    const { authorized, userId } = await verifyUser(c);
 
     if (!authorized) {
       return c.json({ error: 'Unauthorized' }, 401);
@@ -636,9 +627,13 @@ app.get('/make-server-28f2f653/programs/:id', async (c) => {
 // POST /make-server-28f2f653/programs - Create program
 app.post('/make-server-28f2f653/programs', async (c) => {
   try {
-    // Get user info from query params (TAI authentication)
-    const userId = c.req.query('user_id');
-    const userRole = c.req.query('role');
+    // Creating a programme is a director/HQ action. This route previously read
+    // user_id and role from query params and never verified either, so any
+    // caller could create a programme by appending ?role=director to the URL.
+    const { authorized, userId, role: userRole } = await verifyProgramCreator(c);
+    if (!authorized) {
+      return c.json({ error: 'Unauthorized - Only Director and HQ Team can create programs' }, 403);
+    }
 
     console.log('[Programs] ========================================');
     console.log('[Programs] CREATE PROGRAM REQUEST');
@@ -746,7 +741,7 @@ app.post('/make-server-28f2f653/programs', async (c) => {
 // PUT /make-server-28f2f653/programs/:id - Update program
 app.put('/make-server-28f2f653/programs/:id', async (c) => {
   try {
-    const { authorized, userId } = await verifyProgramCreator(c.req);
+    const { authorized, userId } = await verifyProgramCreator(c);
 
     if (!authorized) {
       return c.json({ error: 'Unauthorized - Only Director and HQ Team can update programs' }, 403);
@@ -790,26 +785,16 @@ app.delete('/make-server-28f2f653/programs/:id', async (c) => {
     let userId = '';
     let userRole = '';
     
-    const userIdParam = c.req.query('user_id');
-    const roleParam = c.req.query('role');
-    
-    if (userIdParam && roleParam) {
-      // TAI custom auth
-      userId = userIdParam;
-      userRole = roleParam;
-      console.log('[Programs] DELETE using TAI auth - userId:', userId, 'role:', userRole);
-    } else {
-      // Supabase auth
-      const authResult = await verifyProgramCreator(c.req);
-      
-      if (!authResult.authorized) {
-        return c.json({ error: 'Unauthorized - Only Director and HQ Team can delete programs' }, 403);
-      }
-      
-      userId = authResult.userId;
-      userRole = authResult.role;
+    // The "TAI custom auth" branch that took user_id and role from query params
+    // is removed. It ran before the real check and skipped it entirely, so
+    // ?user_id=anything&role=director deleted any programme.
+    const authResult = await verifyProgramCreator(c);
+    if (!authResult.authorized) {
+      return c.json({ error: 'Unauthorized - Only Director and HQ Team can delete programs' }, 403);
     }
-    
+    userId = authResult.userId;
+    userRole = authResult.role;
+
     // Verify user has permission
     const allowedRoles = ['director', 'hq_command_center'];
     if (!allowedRoles.includes(userRole)) {
@@ -838,7 +823,7 @@ app.delete('/make-server-28f2f653/programs/:id', async (c) => {
 // POST /make-server-28f2f653/programs/:id/submit - Submit program response
 app.post('/make-server-28f2f653/programs/:id/submit', async (c) => {
   try {
-    const { authorized, userId } = await verifyUser(c.req);
+    const { authorized, userId } = await verifyUser(c);
 
     if (!authorized) {
       return c.json({ error: 'Unauthorized' }, 401);
@@ -1138,7 +1123,7 @@ app.get('/make-server-28f2f653/programs/:id/submissions', async (c) => {
       console.log('[Programs] Using TAI auth - role:', userRole, 'userId:', userId);
     } else {
       // Supabase auth via token
-      const authResult = await canViewProgramData(c.req);
+      const authResult = await canViewProgramData(c);
       
       if (!authResult.authorized) {
         return c.json({ error: 'Unauthorized - Only Director, HQ Team, and Managers can view submissions' }, 403);
@@ -1198,7 +1183,7 @@ app.get('/make-server-28f2f653/programs/:id/submissions', async (c) => {
 // PUT /make-server-28f2f653/submissions/:id/approve - Approve submission
 app.put('/make-server-28f2f653/submissions/:id/approve', async (c) => {
   try {
-    const { authorized, userId } = await verifyProgramCreator(c.req);
+    const { authorized, userId } = await verifyProgramCreator(c);
 
     if (!authorized) {
       return c.json({ error: 'Unauthorized - Only Director and HQ Team can approve submissions' }, 403);
@@ -1226,7 +1211,7 @@ app.put('/make-server-28f2f653/submissions/:id/approve', async (c) => {
 // PUT /make-server-28f2f653/submissions/:id/reject - Reject submission
 app.put('/make-server-28f2f653/submissions/:id/reject', async (c) => {
   try {
-    const { authorized, userId } = await verifyProgramCreator(c.req);
+    const { authorized, userId } = await verifyProgramCreator(c);
 
     if (!authorized) {
       return c.json({ error: 'Unauthorized - Only Director and HQ Team can reject submissions' }, 403);
@@ -1306,7 +1291,7 @@ app.get('/make-server-28f2f653/programs/:id/analytics', async (c) => {
       console.log('[Programs Analytics] Using TAI auth - role:', userRole, 'userId:', userId, 'view:', filterView);
     } else {
       // Supabase auth via token
-      const authResult = await canViewProgramData(c.req);
+      const authResult = await canViewProgramData(c);
       
       if (!authResult.authorized) {
         return c.json({ error: 'Unauthorized - Only Director, HQ Team, and Managers can view analytics' }, 403);
@@ -1603,7 +1588,7 @@ app.get('/make-server-28f2f653/programs/:id/analytics', async (c) => {
 // ─── Whitelist: schema introspection + dropdown options ──────────────────────
 
 app.get('/make-server-28f2f653/schema/tables', async (c) => {
-  const { authorized } = await verifyUser(c.req);
+  const { authorized } = await verifyUser(c);
   if (!authorized) return c.json({ error: 'Unauthorized' }, 401);
   const { data, error } = await frontendSupabase.rpc('get_public_tables');
   if (error) return c.json({ error: error.message }, 500);
@@ -1611,7 +1596,7 @@ app.get('/make-server-28f2f653/schema/tables', async (c) => {
 });
 
 app.get('/make-server-28f2f653/schema/tables/:tableName/columns', async (c) => {
-  const { authorized } = await verifyUser(c.req);
+  const { authorized } = await verifyUser(c);
   if (!authorized) return c.json({ error: 'Unauthorized' }, 401);
   const tableName = c.req.param('tableName');
   const { data, error } = await frontendSupabase.rpc('get_table_columns', { p_table_name: tableName });
@@ -1620,7 +1605,7 @@ app.get('/make-server-28f2f653/schema/tables/:tableName/columns', async (c) => {
 });
 
 app.get('/make-server-28f2f653/whitelist/options', async (c) => {
-  const { authorized } = await verifyUser(c.req);
+  const { authorized } = await verifyUser(c);
   if (!authorized) return c.json({ error: 'Unauthorized' }, 401);
   const table = c.req.query('table');
   const column = c.req.query('column');
