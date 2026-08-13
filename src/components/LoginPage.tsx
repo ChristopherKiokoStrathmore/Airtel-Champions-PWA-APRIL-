@@ -629,17 +629,18 @@ export function LoginPage({
       const result = await hbbLogin(phoneNumber.trim(), pin || '');
 
       if (result?.role) {
-        const hbbData = {
-          id:               result.id,
-          full_name:        result.full_name,
-          phone_number:     result.phone_number,
-          role:             result.role,
-          town_id:          result.town_id,
-          status:           result.status,
-          source_table:     result.source_table,
-          max_jobs_per_day: result.max_jobs_per_day,
-          _loginAt:         Date.now(),
-        };
+        // Store the authenticated session token so the shared Supabase client
+        // (authedFetch) runs every subsequent read as `authenticated`, not anon.
+        // This is what lets app_users and friends be closed to the public key
+        // while HBB dashboards keep working.
+        if (result.access_token) {
+          sessionStorage.setItem('acp.session', JSON.stringify({
+            accessToken: result.access_token,
+            expiresAt:   Date.now() + (result.expires_in ?? 0) * 1000,
+            identity:    { id: result.id, handle: result.full_name, role: result.role },
+          }));
+        }
+        const hbbData = { ...result, town_id: result.town_id ?? result.town, _loginAt: Date.now() };
         if (!interceptDefaultPin(hbbData, pin || '')) completeLogin(hbbData);
         return;
       }
@@ -673,20 +674,34 @@ export function LoginPage({
   // STEP 3c — Airtel Money login chain (agent → admin)
   // ─────────────────────────────────────────────────────────────────────────────
   const runAMLogin = async (): Promise<void> => {
-    // Try agent login first
-    const agent = await amAgentLogin(phoneNumber.trim(), (pin || '').trim());
-    if (agent) {
-      console.log('✅ Airtel Money agent login successful:', agent.full_name);
-      const userData = { ...agent, _loginAt: Date.now() };
-      if (!interceptDefaultPin(userData, pin || '')) completeLogin(userData);
-      return;
+    // Server-side: the am-login function verifies the PIN against
+    // airtelmoney_agents / airtelmoney_hq and mints an authenticated token.
+    // The browser no longer reads those tables or compares a PIN.
+    let data: any = {};
+    try {
+      const res = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/am-login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          apikey: import.meta.env.VITE_SUPABASE_ANON_KEY,
+          Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+        },
+        body: JSON.stringify({ phone: phoneNumber.trim(), pin: (pin || '').trim() }),
+      });
+      data = await res.json().catch(() => ({}));
+    } catch {
+      throw new Error(ERR_GENERIC);
     }
 
-    // Try admin login
-    const admin = await amAdminLogin(phoneNumber.trim(), (pin || '').trim());
-    if (admin) {
-      console.log('✅ Airtel Money admin login successful:', admin.full_name);
-      const userData = { ...admin, _loginAt: Date.now() };
+    if (data?.success && data?.role) {
+      if (data.access_token) {
+        sessionStorage.setItem('acp.session', JSON.stringify({
+          accessToken: data.access_token,
+          expiresAt:   Date.now() + (data.expires_in ?? 0) * 1000,
+          identity:    { id: data.id, handle: data.full_name, role: data.role },
+        }));
+      }
+      const userData = { ...data, _loginAt: Date.now() };
       if (!interceptDefaultPin(userData, pin || '')) completeLogin(userData);
       return;
     }
@@ -706,71 +721,10 @@ export function LoginPage({
       const normalised = normalisePhone(phoneNumber);
       console.log(`📱 [${mode.toUpperCase()}] Login attempt, normalised:`, normalised);
 
-      // ── STEP 2: Installer table ──────────────────────────────────────────
-      const installerUser = await checkInstallerTable(normalised, pin || '');
-
-      if (installerUser) {
-        if (mode === 'hbb') {
-          console.log('✅ Installer login (INHOUSE table):', installerUser.full_name);
-          if (!interceptDefaultPin(installerUser, pin || '')) completeLogin(installerUser);
-        } else {
-          throw new Error(ERR_GENERIC);
-        }
-        return;
-      }
-
-      // ── STEP 2b: DSE table check ─────────────────────────────────────────
-      const dseUser = await checkDSETable(normalised, pin || '');
-
-      if (dseUser) {
-        if (mode === 'hbb') {
-          console.log('✅ DSE login (DSE_14TOWNS table):', dseUser.full_name);
-          if (!interceptDefaultPin(dseUser, pin || '')) completeLogin(dseUser);
-        } else {
-          throw new Error(ERR_GENERIC);
-        }
-        return;
-      }
-
-      // ── STEP 2c: Installer Supervisor table check ────────────────────────
-      if (mode === 'hbb') {
-        const supervisorUser = await checkInstallerSupervisorTable(normalised, pin || '');
-        if (supervisorUser) {
-          console.log('✅ Supervisor login:', supervisorUser.full_name);
-          if (!interceptDefaultPin(supervisorUser, pin || '')) completeLogin(supervisorUser);
-          return;
-        }
-      }
-
-      // ── STEP 2c-2: HBB HQ team table check ───────────────────────────────
-      if (mode === 'hbb') {
-        const hqUser = await checkHQTeamTable(normalised, pin || '');
-        if (hqUser) {
-          console.log('✅ HBB HQ login:', hqUser.full_name, '→', hqUser.role);
-          if (!interceptDefaultPin(hqUser, pin || '')) completeLogin(hqUser);
-          return;
-        }
-      }
-
-      // ── STEP 2d: Unified installers table check ──────────────────────────
-      if (mode === 'hbb') {
-        const unifiedInstaller = await checkUnifiedInstallersTable(normalised, pin || '');
-        if (unifiedInstaller) {
-          console.log('✅ Installer login (unified table):', unifiedInstaller.full_name);
-          if (!interceptDefaultPin(unifiedInstaller, pin || '')) completeLogin(unifiedInstaller);
-          return;
-        }
-      }
-
-      // ── STEP 2e: GA monthly table check (no edge function needed) ─────────
-      if (mode === 'hbb') {
-        const gaInstaller = await checkGAMonthlyTable(normalised, pin || '');
-        if (gaInstaller) {
-          console.log('✅ Installer login (GA monthly table):', gaInstaller.full_name);
-          if (!interceptDefaultPin(gaInstaller, pin || '')) completeLogin(gaInstaller);
-          return;
-        }
-      }
+      // HBB and Airtel Money credential checks now run entirely server-side
+      // (the login / AM edge functions verify the PIN and mint an authenticated
+      // session token). Sales runs through se-login. The browser no longer reads
+      // any credential table or compares a PIN.
 
       if (mode === 'sales') {
         await runSalesLogin(normalised);
