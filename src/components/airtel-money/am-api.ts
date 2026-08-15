@@ -180,6 +180,13 @@ export async function amSignUp(fields: {
   zone: string;
   pin: string;
 }): Promise<AMAgent> {
+  // AM self-registration retired 2026-08-15. airtelmoney_agents is now locked
+  // down (RLS + anon revoke), so the anon key can no longer read or insert here,
+  // and a client-side insert of a plaintext PIN is exactly the exposure being
+  // closed. Onboarding is admin-managed. Re-enable only behind a service-role
+  // Edge Function that assigns the role server-side.
+  throw new Error('Self sign-up is no longer available. Please ask your Airtel Money administrator to create your agent account.');
+
   const normalised = normalisePhone(fields.phone);
   const formats = phoneFormats(normalised);
 

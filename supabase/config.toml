@@ -31,5 +31,10 @@ verify_jwt = false
 [functions.auto-allocate]
 verify_jwt = false
 
+# supervisor-auth: pre-auth (supervisor login), so the platform must not require
+# a JWT. Authorisation is the server-side PIN check + minted authenticated token.
+[functions.supervisor-auth]
+verify_jwt = false
+
 [api]
 enabled = true
