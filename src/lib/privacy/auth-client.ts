@@ -67,12 +67,17 @@ export async function login(msisdn: string, pin: string): Promise<LoginResult> {
   return { ok: true, session, mustChangeSecret: body.identity?.must_change_secret };
 }
 
+// The token is persisted in localStorage, NOT sessionStorage: the signed-in user
+// (tai_user) lives in localStorage and survives a tab/PWA reopen, so the token
+// must too. If it lived in sessionStorage it would be dropped on reopen, leaving
+// the user "logged in" with no token and every read silently falling back to
+// anon - which breaks the moment anon access to the tables is revoked.
 export function saveSession(s: Session): void {
-  sessionStorage.setItem(SESSION_KEY, JSON.stringify(s));
+  localStorage.setItem(SESSION_KEY, JSON.stringify(s));
 }
 
 export function getSession(): Session | null {
-  const raw = sessionStorage.getItem(SESSION_KEY);
+  const raw = localStorage.getItem(SESSION_KEY);
   if (!raw) return null;
   try {
     const s = JSON.parse(raw) as Session;
@@ -82,7 +87,7 @@ export function getSession(): Session | null {
 }
 
 export function clearSession(): void {
-  sessionStorage.removeItem(SESSION_KEY);
+  localStorage.removeItem(SESSION_KEY);
 }
 
 /** Authorization header for any request that must run as the signed-in identity. */

@@ -590,7 +590,7 @@ export function LoginPage({
 
       if (data?.success) {
         if (data.access_token) {
-          sessionStorage.setItem('acp.session', JSON.stringify({
+          localStorage.setItem('acp.session', JSON.stringify({
             accessToken: data.access_token,
             expiresAt:   Date.now() + (data.expires_in ?? 0) * 1000,
             identity: {
@@ -634,7 +634,7 @@ export function LoginPage({
         // This is what lets app_users and friends be closed to the public key
         // while HBB dashboards keep working.
         if (result.access_token) {
-          sessionStorage.setItem('acp.session', JSON.stringify({
+          localStorage.setItem('acp.session', JSON.stringify({
             accessToken: result.access_token,
             expiresAt:   Date.now() + (result.expires_in ?? 0) * 1000,
             identity:    { id: result.id, handle: result.full_name, role: result.role },
@@ -695,7 +695,7 @@ export function LoginPage({
 
     if (data?.success && data?.role) {
       if (data.access_token) {
-        sessionStorage.setItem('acp.session', JSON.stringify({
+        localStorage.setItem('acp.session', JSON.stringify({
           accessToken: data.access_token,
           expiresAt:   Date.now() + (data.expires_in ?? 0) * 1000,
           identity:    { id: data.id, handle: data.full_name, role: data.role },

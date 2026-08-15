@@ -539,9 +539,24 @@ function App() {
         const loginTimestamp = parsedUserData._loginAt || 0;
         const SESSION_TTL = 24 * 60 * 60 * 1000; // 24 hours
 
-        if ((isHBBUser || isAMUser) && loginTimestamp && (Date.now() - loginTimestamp > SESSION_TTL)) {
+        // Token gate: once anon access to the tables is revoked, every DB read
+        // must run authenticated. If the session token is missing or expired we
+        // force a fresh login instead of operating as anon (which would 401 every
+        // read). Shujaa is exempt: its login path does not issue a token.
+        const isShujaa = parsedUserData.role === 'shujaa';
+        let tokenValid = false;
+        try {
+          const rawTok = localStorage.getItem('acp.session');
+          if (rawTok) {
+            const st = JSON.parse(rawTok);
+            tokenValid = !!(st?.accessToken && (!st.expiresAt || st.expiresAt > Date.now()));
+          }
+        } catch { tokenValid = false; }
+
+        if (((isHBBUser || isAMUser) && loginTimestamp && (Date.now() - loginTimestamp > SESSION_TTL)) || (!isShujaa && !tokenValid)) {
           console.log('â° HBB/AM session expired, logging out');
           localStorage.removeItem('tai_user');
+          localStorage.removeItem('acp.session');
           clearHBBSession();
         } else {
           setIsAuthenticated(true);
