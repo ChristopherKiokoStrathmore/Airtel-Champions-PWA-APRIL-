@@ -953,8 +953,11 @@ export function LoginPage({
 
         {/* ⑤ Mode-specific sections ──────────────────────────────────────── */}
 
-        {/* HBB: submit leads */}
-        {isHBB && (
+        {/* HBB self sign-up retired 2026-08-15: app_users lockdown removed the anon
+            write path, so this flow can no longer create accounts client-side.
+            Onboarding is admin-managed. Hidden via `false &&` (kept for easy
+            restore behind a future server-side signup Edge Function). */}
+        {false && isHBB && (
           <div className="mt-3">
             <div className="relative my-3">
               <div className="absolute inset-0 flex items-center">

@@ -842,6 +842,15 @@ export function SignupScreen({ onBackToLogin, onBackToHome, onSignupSuccess, isF
   };
 
   const createAccount = async (): Promise<any | null> => {
+    // Self sign-up retired 2026-08-15. app_users is now locked down (RLS + anon
+    // revoke), so the anon key can no longer read or insert here; this flow would
+    // fail at the database. Onboarding is admin-managed via developer user
+    // management. Stop cleanly with guidance instead of a raw permission error.
+    // The legacy client-side creation below is intentionally unreachable; restore
+    // it only behind a server-side (service-role) signup Edge Function.
+    setError('Self sign-up is no longer available. Please ask your Airtel HBB administrator to create your agent account.');
+    return null;
+
     const normalizedPhone = normalizePhone(phone);
     const { data: existingHBB } = await supabase.from('app_users').select('employee_id').like('employee_id', 'HBB%').order('employee_id', { ascending: false }).limit(1);
     let nextId = 'HBB001';
