@@ -48,11 +48,23 @@ $$;
 
 ALTER TABLE public.app_users ENABLE ROW LEVEL SECURITY;
 
+-- Drop the legacy permissive policies. These were roles=PUBLIC with USING/CHECK
+-- (true), so they OR ahead of every restrictive policy below and would let any
+-- authenticated caller read/write/delete any row - making the role-scoped
+-- policies theatre. The worst offender is misnamed "service role full access":
+-- it is PUBLIC + ALL + true, not scoped to service_role (which bypasses RLS
+-- anyway). Remove them so only the four scoped policies govern the table.
+DROP POLICY IF EXISTS "Allow public read access to app_users" ON public.app_users;
+DROP POLICY IF EXISTS "Allow service role full access to app_users" ON public.app_users;
+DROP POLICY IF EXISTS "Public Insert Users" ON public.app_users;
+DROP POLICY IF EXISTS "Public Read Users" ON public.app_users;
+DROP POLICY IF EXISTS "Public Update Users" ON public.app_users;
+
 -- Public anon key: nothing.
 REVOKE ALL ON public.app_users FROM anon;
 
 -- authenticated: table privileges gated further by the policies below.
-GRANT SELECT, INSERT, UPDATE ON public.app_users TO authenticated;
+GRANT SELECT, INSERT, UPDATE, DELETE ON public.app_users TO authenticated;
 
 -- Read: any authenticated caller may read (leaderboards, directories, dashboards).
 -- Names are still sealed; the caller sees handles unless resolve-names unseals.
@@ -67,11 +79,20 @@ CREATE POLICY app_users_update ON public.app_users
   USING (id = public.current_app_user_id() OR public.current_is_admin())
   WITH CHECK (id = public.current_app_user_id() OR public.current_is_admin());
 
--- Insert: admins only (self-signup should move server-side; see header).
+-- Insert: admins only. Self-signup was dropped (2026-08-15): the anon self-signup
+-- path is gone with the anon revoke, and the signup button is being disabled
+-- client-side. Admin onboarding via developer-user-management runs authenticated.
 DROP POLICY IF EXISTS app_users_insert ON public.app_users;
 CREATE POLICY app_users_insert ON public.app_users
   FOR INSERT TO authenticated
   WITH CHECK (public.current_is_admin());
+
+-- Delete: admins only (developer-user-management user removal). Without this the
+-- admin delete path would hit "permission denied" once anon is revoked.
+DROP POLICY IF EXISTS app_users_delete ON public.app_users;
+CREATE POLICY app_users_delete ON public.app_users
+  FOR DELETE TO authenticated
+  USING (public.current_is_admin());
 
 -- service_role (edge functions, backfills) bypasses RLS entirely; no grant change.
 
