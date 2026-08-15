@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { supabase } from '../lib/supabase';
 
-export function SupervisorPinChange({ supervisorId, currentPin, onPinChanged }: { supervisorId: number, currentPin: string, onPinChanged?: () => void }) {
+// currentPin is no longer used for verification (the old PIN is checked
+// server-side by the supervisor-auth Edge Function); kept for prop compatibility.
+export function SupervisorPinChange({ supervisorId, onPinChanged }: { supervisorId: number, currentPin?: string, onPinChanged?: () => void }) {
   const [oldPin, setOldPin] = useState('');
   const [newPin, setNewPin] = useState('');
   const [confirmPin, setConfirmPin] = useState('');
@@ -13,10 +14,6 @@ export function SupervisorPinChange({ supervisorId, currentPin, onPinChanged }: 
     e.preventDefault();
     setError('');
     setSuccess('');
-    if (oldPin !== currentPin) {
-      setError('Old PIN is incorrect');
-      return;
-    }
     if (newPin.length < 4) {
       setError('PIN must be at least 4 digits');
       return;
@@ -26,17 +23,26 @@ export function SupervisorPinChange({ supervisorId, currentPin, onPinChanged }: 
       return;
     }
     setLoading(true);
-    const { error } = await supabase
-      .from('INHOUSE_INSTALLER_6TOWNS_MARCH')
-      .update({ "Supervisor PIN": newPin })
-      .eq('ID', supervisorId);
-    setLoading(false);
-    if (error) {
-      setError('Failed to update PIN');
-    } else {
+    try {
+      const base = import.meta.env.VITE_SUPABASE_URL;
+      const anon = import.meta.env.VITE_SUPABASE_ANON_KEY;
+      const res = await fetch(`${base}/functions/v1/supervisor-auth`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', apikey: anon, Authorization: `Bearer ${anon}` },
+        body: JSON.stringify({ action: 'change-pin', supervisorId, oldPin, newPin }),
+      });
+      const j = await res.json().catch(() => ({} as any));
+      setLoading(false);
+      if (!res.ok || !j.ok) {
+        setError(j.error || 'Failed to update PIN');
+        return;
+      }
       setSuccess('PIN updated successfully');
       setOldPin(''); setNewPin(''); setConfirmPin('');
       onPinChanged?.();
+    } catch {
+      setLoading(false);
+      setError('Could not reach the server. Check your connection.');
     }
   }
 

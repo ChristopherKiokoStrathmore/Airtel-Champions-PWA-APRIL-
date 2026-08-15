@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { supabase } from '../lib/supabase';
 
 export function SupervisorLogin({ onLogin }: { onLogin: (supervisor: any) => void }) {
   const [number, setNumber] = useState('');
@@ -11,24 +10,36 @@ export function SupervisorLogin({ onLogin }: { onLogin: (supervisor: any) => voi
     e.preventDefault();
     setLoading(true);
     setError('');
-    // Query supervisor by number
-    const { data, error } = await supabase
-      .from('INHOUSE_INSTALLER_6TOWNS_MARCH')
-      .select('*')
-      .eq('Supervisor number', Number(number))
-      .single();
-    if (error || !data) {
-      setError('Supervisor not found');
+    // Authenticate server-side: the supervisor-auth Edge Function reads
+    // INHOUSE_INSTALLER_6TOWNS_MARCH with the service role and checks the PIN, so
+    // the table is no longer anon-readable. It returns the supervisor record
+    // (without the PIN) and an authenticated token for the dashboard reads.
+    try {
+      const base = import.meta.env.VITE_SUPABASE_URL;
+      const anon = import.meta.env.VITE_SUPABASE_ANON_KEY;
+      const res = await fetch(`${base}/functions/v1/supervisor-auth`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', apikey: anon, Authorization: `Bearer ${anon}` },
+        body: JSON.stringify({ action: 'login', number, pin }),
+      });
+      const j = await res.json().catch(() => ({} as any));
+      if (!res.ok || !j.success) {
+        setError(j.error || 'Supervisor not found or incorrect PIN');
+        setLoading(false);
+        return;
+      }
+      if (j.access_token) {
+        localStorage.setItem('acp.session', JSON.stringify({
+          accessToken: j.access_token,
+          expiresAt: Date.now() + (j.expires_in ?? 0) * 1000,
+        }));
+      }
       setLoading(false);
-      return;
-    }
-    if (String(data['Supervisor PIN']) !== pin) {
-      setError('Incorrect PIN');
+      onLogin(j.supervisor);
+    } catch {
+      setError('Could not reach the server. Check your connection.');
       setLoading(false);
-      return;
     }
-    setLoading(false);
-    onLogin(data);
   }
 
   return (
