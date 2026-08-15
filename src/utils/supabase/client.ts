@@ -37,7 +37,7 @@ declare global {
 function authedFetch(input: RequestInfo | URL, init?: RequestInit): Promise<Response> {
   let token: string | null = null;
   try {
-    const raw = sessionStorage.getItem('acp.session');
+    const raw = localStorage.getItem('acp.session');
     if (raw) {
       const s = JSON.parse(raw);
       if (s && s.accessToken && (!s.expiresAt || s.expiresAt > Date.now())) token = s.accessToken;
@@ -57,7 +57,7 @@ function authedFetch(input: RequestInfo | URL, init?: RequestInit): Promise<Resp
     // Drop the stale session and retry as an anonymous caller so the app keeps
     // working; the next sign-in issues a valid token.
     if (res.status === 401) {
-      try { sessionStorage.removeItem('acp.session'); } catch { /* ignore */ }
+      try { localStorage.removeItem('acp.session'); } catch { /* ignore */ }
       const retry = new Headers(init?.headers || {});
       if (!retry.has('apikey')) retry.set('apikey', SUPABASE_ANON_KEY);
       retry.set('Authorization', `Bearer ${SUPABASE_ANON_KEY}`);
