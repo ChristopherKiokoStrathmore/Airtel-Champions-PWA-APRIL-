@@ -19,6 +19,7 @@ export interface ProgramFormConfig {
   gps_capture_enabled: boolean;
   content_lock_after_gate: boolean;
   linked_checkin_program_id?: string; // Checkout mode: link to a check-in program to auto-populate MSISDNs
+  allow_checkout_without_checkin?: boolean; // Checkout mode: allow submitting a checkout even when no matching check-in exists today
 }
 
 const DEFAULT_CONFIG: ProgramFormConfig = {
@@ -32,6 +33,7 @@ const DEFAULT_CONFIG: ProgramFormConfig = {
   gps_capture_enabled: true,
   content_lock_after_gate: true,
   linked_checkin_program_id: '',
+  allow_checkout_without_checkin: false,
 };
 
 const FEATURE_META: { key: keyof ProgramFormConfig; label: string; icon: any; description: string; color: string; dependsOn?: keyof ProgramFormConfig }[] = [
@@ -97,6 +99,13 @@ const FEATURE_META: { key: keyof ProgramFormConfig; label: string; icon: any; de
     description: 'After the time gate, prevent adding/removing sites and MSISDNs. Only GA actual inputs remain editable.',
     color: '#f97316', // orange
     dependsOn: 'time_gate_enabled',
+  },
+  {
+    key: 'allow_checkout_without_checkin',
+    label: 'Allow Check-Out Without Check-In',
+    icon: AlertCircle,
+    description: 'Check-out programs only. When ON, agents can submit a check-out even if there is no matching check-in for the van today; promoters are added manually. When OFF, a missing check-in blocks the check-out.',
+    color: '#ef4444', // red
   },
 ];
 

@@ -41,6 +41,7 @@ interface Program {
   van_checkout_enforcement_enabled?: boolean; // 🚐 Van checkout enforcement toggle
   session_checkin_enabled?: boolean; // 🆕 Session-based check-in mode
   linked_checkin_program_id?: string; // 🆕 Checkout mode: linked check-in program
+  allow_checkout_without_checkin?: boolean; // 🆕 Checkout mode: allow submitting even with no matching check-in today
   fields?: any[];
   who_can_submit?: string[]; // 🆕 Roles that can submit this form
   whitelist_enabled?: boolean;
@@ -201,6 +202,9 @@ export function ProgramSubmitModal({ program, userId, onClose, onSuccess }: Prog
   
   // 🔗 Linked checkout: van check-in verification state
   const isLinkedCheckout = !!program.linked_checkin_program_id;
+  // When set on the program (via form config), a missing check-in no longer blocks
+  // the checkout: the form still opens and promoters are added manually.
+  const allowWithoutCheckin = !!program.allow_checkout_without_checkin;
   const [linkedCheckInStatus, setLinkedCheckInStatus] = useState<{
     checking: boolean;
     vanCheckedIn: boolean | null;
@@ -873,17 +877,20 @@ export function ProgramSubmitModal({ program, userId, onClose, onSuccess }: Prog
           console.log('[LinkedCheckout] No MSISDNs found in check-in data');
         }
       } else {
-        // Van was NOT checked in — show block
-        console.log(`[LinkedCheckout] Van "${plateNormalized}" was NOT checked in today`);
+        // Van was NOT checked in.
+        console.log(`[LinkedCheckout] Van "${plateNormalized}" was NOT checked in today (allowWithoutCheckin=${allowWithoutCheckin})`);
         setLinkedCheckInStatus({
           checking: false,
           vanCheckedIn: false,
           numberPlate: plateNormalized,
-          message: data.message || `Van ${plateNormalized} was not checked in today.`
+          message: allowWithoutCheckin
+            ? `No check-in found for van ${plateNormalized} today. You can still check out; add promoters manually below.`
+            : (data.message || `Van ${plateNormalized} was not checked in today.`)
         });
         setLinkedCheckInData(null);
         setLinkedMSISDNs([]);
-        setShowCheckInRequired(true);
+        // Only hard-block when the program does not allow checkout without a check-in.
+        setShowCheckInRequired(!allowWithoutCheckin);
       }
     } catch (err) {
       console.error('[LinkedCheckout] Exception during van lookup:', err);
@@ -891,9 +898,11 @@ export function ProgramSubmitModal({ program, userId, onClose, onSuccess }: Prog
         checking: false,
         vanCheckedIn: false,
         numberPlate: plateNormalized,
-        message: 'Error checking van check-in status. Please try again.'
+        message: allowWithoutCheckin
+          ? `Could not verify check-in for van ${plateNormalized}. You can still check out; add promoters manually below.`
+          : 'Error checking van check-in status. Please try again.'
       });
-      setShowCheckInRequired(true);
+      setShowCheckInRequired(!allowWithoutCheckin);
     }
   };
 
@@ -1238,7 +1247,7 @@ export function ProgramSubmitModal({ program, userId, onClose, onSuccess }: Prog
   return (
     <div className={`fixed inset-0 ${isLinkedCheckout ? 'bg-black/30 backdrop-blur-[2px]' : 'bg-black/50'} flex items-center justify-center z-50 p-4 overflow-y-auto`}>
       {/* 🔗 Full-screen "Check-In Required" overlay for linked checkout */}
-      {showCheckInRequired && isLinkedCheckout && (
+      {showCheckInRequired && isLinkedCheckout && !allowWithoutCheckin && (
         <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-[60] p-4">
           <div className="bg-white rounded-3xl max-w-sm w-full overflow-hidden shadow-[0_24px_80px_rgba(0,0,0,0.15)]">
             <LinkedCheckoutBlock onClose={onClose} />
@@ -1505,8 +1514,9 @@ export function ProgramSubmitModal({ program, userId, onClose, onSuccess }: Prog
           </div>
         )}
 
-        {/* 🔗 Linked Checkout: MSISDN Section (shown when van is checked in) */}
-        {isLinkedCheckout && linkedCheckInStatus.vanCheckedIn && linkedMSISDNs.length >= 0 && (
+        {/* 🔗 Linked Checkout: MSISDN Section (shown when van is checked in, or when
+            the program allows checkout without a check-in and the lookup has run) */}
+        {isLinkedCheckout && (linkedCheckInStatus.vanCheckedIn || (allowWithoutCheckin && linkedCheckInStatus.vanCheckedIn === false)) && (
           <LinkedCheckoutSection
             linkedMSISDNs={linkedMSISDNs}
             setLinkedMSISDNs={setLinkedMSISDNs}
@@ -2578,7 +2588,7 @@ export function ProgramSubmitModal({ program, userId, onClose, onSuccess }: Prog
           </button>
           <button
             onClick={handleSubmit}
-            disabled={submitting || vanCheckStatus.checking || vanCheckStatus.allowed === false || (isLinkedCheckout && linkedCheckInStatus.vanCheckedIn === false) || linkedCheckInStatus.checking}
+            disabled={submitting || vanCheckStatus.checking || vanCheckStatus.allowed === false || (isLinkedCheckout && linkedCheckInStatus.vanCheckedIn === false && !allowWithoutCheckin) || linkedCheckInStatus.checking}
             className={isLinkedCheckout
               ? 'flex-[2] px-6 py-3.5 bg-gray-900 text-white rounded-xl font-semibold hover:bg-gray-800 disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center gap-2 transition-all active:scale-[0.98] shadow-lg shadow-gray-900/20'
               : 'flex-1 px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 disabled:opacity-50 flex items-center justify-center gap-2'

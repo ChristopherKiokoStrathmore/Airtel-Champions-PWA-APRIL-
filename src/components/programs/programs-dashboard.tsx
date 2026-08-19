@@ -241,6 +241,10 @@ export function ProgramsDashboard({ onBack }: { onBack?: () => void }) {
               if (allConfigs[prog.id]?.linked_checkin_program_id) {
                 prog.linked_checkin_program_id = allConfigs[prog.id].linked_checkin_program_id;
               }
+              // Merge the "allow checkout without check-in" override for checkout mode
+              if (allConfigs[prog.id]?.allow_checkout_without_checkin) {
+                prog.allow_checkout_without_checkin = true;
+              }
             });
             console.log('[Programs] ✅ Merged checkin flags + configs into programs');
           } catch (flagErr) {
@@ -329,6 +333,10 @@ export function ProgramsDashboard({ onBack }: { onBack?: () => void }) {
               // Merge linked_checkin_program_id for checkout mode
               if (allConfigs[prog.id]?.linked_checkin_program_id) {
                 prog.linked_checkin_program_id = allConfigs[prog.id].linked_checkin_program_id;
+              }
+              // Merge the "allow checkout without check-in" override for checkout mode
+              if (allConfigs[prog.id]?.allow_checkout_without_checkin) {
+                prog.allow_checkout_without_checkin = true;
               }
             });
             console.log('[Programs] ✅ Merged checkin flags + configs into SE programs');
