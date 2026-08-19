@@ -161,6 +161,9 @@ export function ProgramsListFoldersApp({
             prog.linked_checkin_program_id = allConfigs[prog.id].linked_checkin_program_id;
             console.log('[ProgramsList] 🔗 Linked checkout program:', prog.title, '→', prog.linked_checkin_program_id);
           }
+          if (allConfigs[prog.id]?.allow_checkout_without_checkin) {
+            prog.allow_checkout_without_checkin = true;
+          }
         });
         console.log('[ProgramsList] ✅ Merged linked checkin configs into programs');
       } catch (cfgErr) {
