@@ -72,8 +72,8 @@ export function ProgramExcelImporter({ onClose, onSuccess }: ProgramExcelImporte
           const data = e.target?.result;
           if (!data) throw new Error('Failed to read file');
 
-          // Dynamic import of xlsx library
-          const XLSX = await import('https://cdn.sheetjs.com/xlsx-0.20.1/package/xlsx.mjs');
+          // Dynamic import of xlsx library (SheetJS CE 0.20.3)
+          const XLSX = await import('xlsx');
 
           // Parse workbook
           const workbook = XLSX.read(data, { type: 'binary' });
