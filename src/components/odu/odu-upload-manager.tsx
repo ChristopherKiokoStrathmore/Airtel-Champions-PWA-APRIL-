@@ -183,10 +183,10 @@ export function ODUUploadManager({ currentUser }: { currentUser?: { name?: strin
             <div onClick={() => fileRef.current?.click()}
               className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center cursor-pointer hover:border-red-600 hover:bg-red-50 transition">
               <Upload className="w-12 h-12 mx-auto text-gray-400 mb-3" />
-              <p className="font-medium text-gray-700">Click to upload CSV / XLS / XLSX</p>
+              <p className="font-medium text-gray-700">Click to upload CSV / XLSX</p>
               <p className="text-sm text-gray-500">Columns (any order): MSISDN · Name · Account · Town · Estate · Lat · Lng · Units · IMEI</p>
             </div>
-            <input ref={fileRef} type="file" accept=".csv,.xls,.xlsx" onChange={handleFile} className="hidden" />
+            <input ref={fileRef} type="file" accept=".csv,.xlsx" onChange={handleFile} className="hidden" />
             <button onClick={loadHistory} className="mt-6 text-gray-600 hover:text-gray-900 flex items-center gap-2">
               View upload history <ChevronRight className="w-4 h-4" />
             </button>
