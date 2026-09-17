@@ -102,6 +102,34 @@ export async function readFirstSheetAsObjects(data: ArrayBuffer): Promise<Record
   return rows;
 }
 
+function neutralizeSpreadsheetFormula(value: string): string {
+  if (value.length > 0 && /^[=+\-@\t\r]/.test(value)) return `'${value}`;
+  return value;
+}
+
+function excelCellValue(value: unknown): ExcelJS.CellValue {
+  if (value == null) return '';
+  if (typeof value === 'number' || typeof value === 'boolean') return value;
+  if (value instanceof Date) return value;
+  if (typeof value === 'string') return neutralizeSpreadsheetFormula(value);
+  try {
+    return neutralizeSpreadsheetFormula(JSON.stringify(value));
+  } catch {
+    return neutralizeSpreadsheetFormula(String(value));
+  }
+}
+
+export function assertNotLegacyXls(fileName: string, csvOk = false): void {
+  const name = fileName.toLowerCase();
+  if (name.endsWith('.xls') && !name.endsWith('.xlsx')) {
+    throw new Error(
+      csvOk
+        ? 'Legacy .xls is not supported. Please save the file as .xlsx or CSV.'
+        : 'Legacy .xls is not supported. Please save the file as .xlsx.',
+    );
+  }
+}
+
 export async function readFirstSheetAsAoa(data: ArrayBuffer): Promise<string[][]> {
   const wb = new ExcelJS.Workbook();
   await wb.xlsx.load(data);
@@ -123,14 +151,17 @@ export async function readFirstSheetAsAoa(data: ArrayBuffer): Promise<string[][]
   return aoa;
 }
 
+export async function readSpreadsheetAsAoa(file: File): Promise<string[][]> {
+  assertNotLegacyXls(file.name);
+  return readFirstSheetAsAoa(await file.arrayBuffer());
+}
+
 export async function readTabularFileAsObjects(file: File): Promise<Record<string, any>[]> {
   const name = file.name.toLowerCase();
   if (name.endsWith('.csv')) {
     return csvRowsToObjects(parseCsvRows(await file.text()));
   }
-  if (name.endsWith('.xls') && !name.endsWith('.xlsx')) {
-    throw new Error('Legacy .xls is not supported. Please save the file as .xlsx or CSV.');
-  }
+  assertNotLegacyXls(file.name, true);
   return readFirstSheetAsObjects(await file.arrayBuffer());
 }
 
@@ -142,15 +173,26 @@ export async function downloadXlsx(
 ): Promise<void> {
   const wb = new ExcelJS.Workbook();
   const ws = wb.addWorksheet(sheetName);
-  ws.addRow(headers);
-  rows.forEach((r) => ws.addRow(r));
+  ws.addRow(headers.map((h) => excelCellValue(h)));
+  rows.forEach((r) => ws.addRow(r.map((cell) => excelCellValue(cell))));
   const buf = await wb.xlsx.writeBuffer();
   triggerDownload(filename, buf, 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 }
 
 export function downloadCsv(filename: string, headers: string[], rows: any[][]): void {
   const escape = (v: any) => {
-    const s = v == null ? '' : String(v);
+    let s: string;
+    if (v == null) s = '';
+    else if (typeof v === 'object') {
+      try {
+        s = JSON.stringify(v);
+      } catch {
+        s = String(v);
+      }
+    } else {
+      s = String(v);
+    }
+    s = neutralizeSpreadsheetFormula(s);
     if (/[",\n\r]/.test(s)) return `"${s.replace(/"/g, '""')}"`;
     return s;
   };

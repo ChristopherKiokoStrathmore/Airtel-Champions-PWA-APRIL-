@@ -48,8 +48,8 @@ export function ProgramExcelImporter({ onClose, onSuccess }: ProgramExcelImporte
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0];
     if (selectedFile) {
-      if (!selectedFile.name.endsWith('.xlsx') && !selectedFile.name.endsWith('.xls')) {
-        setError('Please upload an Excel file (.xlsx or .xls)');
+      if (!selectedFile.name.toLowerCase().endsWith('.xlsx')) {
+        setError('Please upload an Excel file (.xlsx)');
         return;
       }
       setFile(selectedFile);
@@ -65,8 +65,8 @@ export function ProgramExcelImporter({ onClose, onSuccess }: ProgramExcelImporte
     setError('');
 
     try {
-      const { readFirstSheetAsAoa } = await import('../../lib/spreadsheet');
-      const jsonData = await readFirstSheetAsAoa(await file.arrayBuffer());
+      const { readSpreadsheetAsAoa } = await import('../../lib/spreadsheet');
+      const jsonData = await readSpreadsheetAsAoa(file);
 
       if (jsonData.length < 3) {
         throw new Error('Excel file must have at least 3 rows (title, description, field definitions)');
@@ -271,7 +271,7 @@ export function ProgramExcelImporter({ onClose, onSuccess }: ProgramExcelImporte
             <input
               ref={fileInputRef}
               type="file"
-              accept=".xlsx,.xls"
+              accept=".xlsx"
               onChange={handleFileSelect}
               className="hidden"
             />
@@ -291,7 +291,7 @@ export function ProgramExcelImporter({ onClose, onSuccess }: ProgramExcelImporte
                 ) : (
                   <>
                     <span className="font-semibold text-gray-700">Click to upload Excel file</span>
-                    <span className="text-sm text-gray-500">.xlsx or .xls format</span>
+                    <span className="text-sm text-gray-500">.xlsx format</span>
                   </>
                 )}
               </div>
