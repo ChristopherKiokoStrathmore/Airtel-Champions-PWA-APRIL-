@@ -65,109 +65,84 @@ export function ProgramExcelImporter({ onClose, onSuccess }: ProgramExcelImporte
     setError('');
 
     try {
-      // Read file as base64
-      const reader = new FileReader();
-      reader.onload = async (e) => {
-        try {
-          const data = e.target?.result;
-          if (!data) throw new Error('Failed to read file');
+      const { readFirstSheetAsAoa } = await import('../../lib/spreadsheet');
+      const jsonData = await readFirstSheetAsAoa(await file.arrayBuffer());
 
-          // Dynamic import of xlsx library (SheetJS CE 0.20.3)
-          const XLSX = await import('xlsx');
+      if (jsonData.length < 3) {
+        throw new Error('Excel file must have at least 3 rows (title, description, field definitions)');
+      }
 
-          // Parse workbook
-          const workbook = XLSX.read(data, { type: 'binary' });
-          const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
-          const jsonData = XLSX.utils.sheet_to_json(firstSheet, { header: 1 }) as any[][];
+      // Expected format:
+      // Row 1: Program Title | [Title Value]
+      // Row 2: Description | [Description Value]
+      // Row 3: Points | [Points Value]
+      // Row 4: [blank]
+      // Row 5: Field Name | Field Type | Required | Options (comma-separated)
+      // Row 6+: Field definitions
 
-          if (jsonData.length < 3) {
-            throw new Error('Excel file must have at least 3 rows (title, description, field definitions)');
-          }
+      const title = jsonData[0][1] || 'Imported Program';
+      const description = jsonData[1][1] || '';
+      const points = parseInt(jsonData[2][1]) || 10;
 
-          // Expected format:
-          // Row 1: Program Title | [Title Value]
-          // Row 2: Description | [Description Value]
-          // Row 3: Points | [Points Value]
-          // Row 4: [blank]
-          // Row 5: Field Name | Field Type | Required | Options (comma-separated)
-          // Row 6+: Field definitions
-
-          const title = jsonData[0][1] || 'Imported Program';
-          const description = jsonData[1][1] || '';
-          const points = parseInt(jsonData[2][1]) || 10;
-
-          // Find where fields start (after "Field Name" header)
-          let fieldsStartIndex = -1;
-          for (let i = 0; i < jsonData.length; i++) {
-            if (jsonData[i][0] === 'Field Name' || jsonData[i][0] === 'field_name') {
-              fieldsStartIndex = i + 1;
-              break;
-            }
-          }
-
-          if (fieldsStartIndex === -1) {
-            throw new Error('Could not find "Field Name" header in Excel file');
-          }
-
-          // Parse fields
-          const fields: ParsedField[] = [];
-          for (let i = fieldsStartIndex; i < jsonData.length; i++) {
-            const row = jsonData[i];
-            if (!row[0]) continue; // Skip empty rows
-
-            const fieldName = row[0];
-            const fieldTypeRaw = (row[1] || 'text').toString().toLowerCase();
-            const fieldType = FIELD_TYPE_MAPPING[fieldTypeRaw] || 'text';
-            const isRequired = row[2]?.toString().toLowerCase() === 'yes' || row[2]?.toString().toLowerCase() === 'true';
-            const optionsRaw = row[3]?.toString();
-
-            const field: ParsedField = {
-              field_name: fieldName,
-              field_type: fieldType,
-              is_required: isRequired,
-              sample_value: row[4]?.toString(),
-            };
-
-            // Parse options for dropdown/multi_select
-            if (['dropdown', 'multi_select'].includes(fieldType) && optionsRaw) {
-              const options = optionsRaw.split(',').map(opt => opt.trim()).filter(Boolean);
-              if (options.length > 0) {
-                field.options = { options };
-              }
-            }
-
-            fields.push(field);
-          }
-
-          if (fields.length === 0) {
-            throw new Error('No fields found in Excel file');
-          }
-
-          setParsedData({
-            title,
-            description,
-            points,
-            fields,
-          });
-
-          console.log('[Excel Import] Parsed data:', { title, description, points, fields });
-        } catch (err: any) {
-          console.error('[Excel Import] Parse error:', err);
-          setError(err.message || 'Failed to parse Excel file');
-        } finally {
-          setParsing(false);
+      // Find where fields start (after "Field Name" header)
+      let fieldsStartIndex = -1;
+      for (let i = 0; i < jsonData.length; i++) {
+        if (jsonData[i][0] === 'Field Name' || jsonData[i][0] === 'field_name') {
+          fieldsStartIndex = i + 1;
+          break;
         }
-      };
+      }
 
-      reader.onerror = () => {
-        setError('Failed to read file');
-        setParsing(false);
-      };
+      if (fieldsStartIndex === -1) {
+        throw new Error('Could not find "Field Name" header in Excel file');
+      }
 
-      reader.readAsBinaryString(file);
+      // Parse fields
+      const fields: ParsedField[] = [];
+      for (let i = fieldsStartIndex; i < jsonData.length; i++) {
+        const row = jsonData[i];
+        if (!row[0]) continue; // Skip empty rows
+
+        const fieldName = row[0];
+        const fieldTypeRaw = (row[1] || 'text').toString().toLowerCase();
+        const fieldType = FIELD_TYPE_MAPPING[fieldTypeRaw] || 'text';
+        const isRequired = row[2]?.toString().toLowerCase() === 'yes' || row[2]?.toString().toLowerCase() === 'true';
+        const optionsRaw = row[3]?.toString();
+
+        const field: ParsedField = {
+          field_name: fieldName,
+          field_type: fieldType,
+          is_required: isRequired,
+          sample_value: row[4]?.toString(),
+        };
+
+        // Parse options for dropdown/multi_select
+        if (['dropdown', 'multi_select'].includes(fieldType) && optionsRaw) {
+          const options = optionsRaw.split(',').map(opt => opt.trim()).filter(Boolean);
+          if (options.length > 0) {
+            field.options = { options };
+          }
+        }
+
+        fields.push(field);
+      }
+
+      if (fields.length === 0) {
+        throw new Error('No fields found in Excel file');
+      }
+
+      setParsedData({
+        title,
+        description,
+        points,
+        fields,
+      });
+
+      console.log('[Excel Import] Parsed data:', { title, description, points, fields });
     } catch (err: any) {
-      console.error('[Excel Import] Error:', err);
+      console.error('[Excel Import] Parse error:', err);
       setError(err.message || 'Failed to parse Excel file');
+    } finally {
       setParsing(false);
     }
   };

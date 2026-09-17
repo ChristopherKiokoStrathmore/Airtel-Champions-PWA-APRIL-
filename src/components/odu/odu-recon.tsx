@@ -3,7 +3,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { Download, RefreshCw, Banknote, CheckCircle } from 'lucide-react';
 import { toast } from 'sonner';
-import * as XLSX from 'xlsx';
+import { downloadCsv } from '../../lib/spreadsheet';
 import { getPayableRequests, getPaymentBatches, generatePaymentBatch, markBatchPaid } from './odu-api';
 import type { OduRequest, OduPaymentBatch } from './odu-types';
 
@@ -123,19 +123,17 @@ export function ODURecon({ currentUser }: { currentUser?: { name?: string; phone
 }
 
 function exportCSV(month: string, rows: OduRequest[]) {
-  const data = rows.map(r => ({
-    Installer: r.installer_name || '',
-    InstallerID: r.installer_id ?? '',
-    Customer: r.customer?.customer_name || '',
-    MSISDN: r.customer?.msisdn || '',
-    Town: r.customer?.town || '',
-    DeliveredAt: r.delivered_at || '',
-    Amount_KSh: r.payable_amount || 0,
-  }));
-  const ws = XLSX.utils.json_to_sheet(data);
-  const wb = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb, ws, 'ODU Payments');
-  XLSX.writeFile(wb, `odu_payments_${month}.csv`, { bookType: 'csv' });
+  const headers = ['Installer', 'InstallerID', 'Customer', 'MSISDN', 'Town', 'DeliveredAt', 'Amount_KSh'];
+  const data = rows.map(r => [
+    r.installer_name || '',
+    r.installer_id ?? '',
+    r.customer?.customer_name || '',
+    r.customer?.msisdn || '',
+    r.customer?.town || '',
+    r.delivered_at || '',
+    r.payable_amount || 0,
+  ]);
+  downloadCsv(`odu_payments_${month}.csv`, headers, data);
 }
 
 function Card({ label, value, tone }: { label: string; value: string; tone?: 'good' }) {
