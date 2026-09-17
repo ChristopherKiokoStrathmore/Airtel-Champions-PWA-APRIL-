@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { supabase } from '../../utils/supabase/client';
 import { projectId } from '../../utils/supabase/info';
 import { MapPin, Calendar, User, CheckCircle, XCircle, Eye, Download, ChevronDown, Trash2 } from 'lucide-react';
-import * as XLSX from 'xlsx';
+import { downloadXlsx } from '../../lib/spreadsheet';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 
@@ -393,10 +393,12 @@ export function ProgramSubmissions({ programId, programTitle, onClose }: Program
       ...Object.values(sub.responses),
     ]);
 
-    const worksheet = XLSX.utils.json_to_sheet(rows, { header: headers });
-    const workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet, 'Submissions');
-    XLSX.writeFile(workbook, `${programTitle}_submissions_${new Date().toISOString().split('T')[0]}.xlsx`);
+    void downloadXlsx(
+      `${programTitle}_submissions_${new Date().toISOString().split('T')[0]}.xlsx`,
+      'Submissions',
+      headers,
+      rows,
+    );
   };
 
   const exportToPDF = () => {

@@ -4,7 +4,7 @@
 import React, { useState, useRef } from 'react';
 import { Upload, AlertCircle, CheckCircle, ChevronRight, RotateCcw } from 'lucide-react';
 import { toast } from 'sonner';
-import * as XLSX from 'xlsx';
+import { readTabularFileAsObjects } from '../../lib/spreadsheet';
 import {
   createOduBatch, goLiveOduBatch, rollbackOduBatch, getOduBatches, OduUploadRow,
 } from './odu-api';
@@ -90,10 +90,7 @@ export function ODUUploadManager({ currentUser }: { currentUser?: { name?: strin
     setLoading(true);
     setFilename(file.name);
     try {
-      const buf = await file.arrayBuffer();
-      const wb = XLSX.read(buf, { type: 'array' });
-      const sheet = wb.Sheets[wb.SheetNames[0]];
-      const json = XLSX.utils.sheet_to_json<Record<string, any>>(sheet, { defval: '' });
+      const json = await readTabularFileAsObjects(file);
       if (!json.length) { toast.error('The file has no data rows.'); return; }
       const rows = parseSheet(json);
       setParsed(rows);
