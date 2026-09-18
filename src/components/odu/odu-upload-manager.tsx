@@ -4,7 +4,7 @@
 import React, { useState, useRef } from 'react';
 import { Upload, AlertCircle, CheckCircle, ChevronRight, RotateCcw } from 'lucide-react';
 import { toast } from 'sonner';
-import * as XLSX from 'xlsx';
+import { readTabularFileAsObjects } from '../../lib/spreadsheet';
 import {
   createOduBatch, goLiveOduBatch, rollbackOduBatch, getOduBatches, OduUploadRow,
 } from './odu-api';
@@ -90,10 +90,7 @@ export function ODUUploadManager({ currentUser }: { currentUser?: { name?: strin
     setLoading(true);
     setFilename(file.name);
     try {
-      const buf = await file.arrayBuffer();
-      const wb = XLSX.read(buf, { type: 'array' });
-      const sheet = wb.Sheets[wb.SheetNames[0]];
-      const json = XLSX.utils.sheet_to_json<Record<string, any>>(sheet, { defval: '' });
+      const json = await readTabularFileAsObjects(file);
       if (!json.length) { toast.error('The file has no data rows.'); return; }
       const rows = parseSheet(json);
       setParsed(rows);
@@ -186,10 +183,10 @@ export function ODUUploadManager({ currentUser }: { currentUser?: { name?: strin
             <div onClick={() => fileRef.current?.click()}
               className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center cursor-pointer hover:border-red-600 hover:bg-red-50 transition">
               <Upload className="w-12 h-12 mx-auto text-gray-400 mb-3" />
-              <p className="font-medium text-gray-700">Click to upload CSV / XLS / XLSX</p>
+              <p className="font-medium text-gray-700">Click to upload CSV / XLSX</p>
               <p className="text-sm text-gray-500">Columns (any order): MSISDN · Name · Account · Town · Estate · Lat · Lng · Units · IMEI</p>
             </div>
-            <input ref={fileRef} type="file" accept=".csv,.xls,.xlsx" onChange={handleFile} className="hidden" />
+            <input ref={fileRef} type="file" accept=".csv,.xlsx" onChange={handleFile} className="hidden" />
             <button onClick={loadHistory} className="mt-6 text-gray-600 hover:text-gray-900 flex items-center gap-2">
               View upload history <ChevronRight className="w-4 h-4" />
             </button>

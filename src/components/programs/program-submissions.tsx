@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { supabase } from '../../utils/supabase/client';
 import { projectId } from '../../utils/supabase/info';
 import { MapPin, Calendar, User, CheckCircle, XCircle, Eye, Download, ChevronDown, Trash2 } from 'lucide-react';
-import * as XLSX from 'xlsx';
+import { downloadXlsx } from '../../lib/spreadsheet';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 
@@ -378,8 +378,9 @@ export function ProgramSubmissions({ programId, programTitle, onClose }: Program
     URL.revokeObjectURL(url);
   };
 
-  const exportToExcel = () => {
+  const exportToExcel = async () => {
     const headers = ['SE Name', 'Phone', 'Region', 'ZSM', 'ZBM', 'Submitted At', 'Points', 'GPS Lat', 'GPS Lng'];
+    const serialize = (v: any) => (v != null && typeof v === 'object' ? JSON.stringify(v) : v);
     const rows = submissions.map(sub => [
       sub.user?.full_name || 'Unknown',
       sub.user?.phone_number || '',
@@ -390,13 +391,20 @@ export function ProgramSubmissions({ programId, programTitle, onClose }: Program
       sub.points_awarded,
       sub.gps_location?.lat || '',
       sub.gps_location?.lng || '',
-      ...Object.values(sub.responses),
+      ...Object.values(sub.responses || {}).map(serialize),
     ]);
 
-    const worksheet = XLSX.utils.json_to_sheet(rows, { header: headers });
-    const workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet, 'Submissions');
-    XLSX.writeFile(workbook, `${programTitle}_submissions_${new Date().toISOString().split('T')[0]}.xlsx`);
+    try {
+      await downloadXlsx(
+        `${programTitle}_submissions_${new Date().toISOString().split('T')[0]}.xlsx`,
+        'Submissions',
+        headers,
+        rows,
+      );
+    } catch (err: any) {
+      console.error('[Excel export] Failed:', err);
+      alert(err?.message || 'Failed to export Excel');
+    }
   };
 
   const exportToPDF = () => {
