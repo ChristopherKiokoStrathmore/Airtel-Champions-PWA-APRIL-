@@ -48,6 +48,7 @@
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
     "embla-carousel-react": "^8.6.0",
+    "exceljs": "^4.4.0",
     "glob": "^13.0.6",
     "hono": "^4.13.8",
     "input-otp": "^1.4.2",
@@ -69,7 +70,6 @@
     "tailwindcss": "^4.2.2",
     "three": "^0.176.0",
     "vaul": "^1.1.2",
-    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz",
     "zod": "^3",
     "zustand": "^5.0.12"
   },
@@ -105,7 +105,7 @@
     "serialize-javascript": "7.1.1",
     "workbox-build": "7.4.1",
     "ws": "8.21.3",
-    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
+    "uuid": "11.1.1"
   },
   "scripts": {
     "dev": "vite",
