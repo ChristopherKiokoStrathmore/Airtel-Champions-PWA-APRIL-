@@ -6594,6 +6594,8 @@ html, body {
   padding: 0;
   transition: background-color .3s, color .3s;
   overflow: auto;
+  /* Disable Chrome/Android native pull-to-refresh so only the 3s hold can reload. */
+  overscroll-behavior-y: none;
 }
 
 :root {
@@ -6614,6 +6616,7 @@ html, body {
   min-height: 100vh;
   position: relative;
   overflow: auto;
+  overscroll-behavior-y: none;
 }
 
 input, textarea, select {

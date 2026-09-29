@@ -138,55 +138,256 @@ type UserRole = 'sales_executive' | 'zonal_sales_manager' | 'zonal_business_mana
 // When defined inside App's render, React sees a NEW component type on every
 // re-render, which tears down and recreates the entire child tree (all state,
 // effects, API calls restart). Moving it here keeps the reference stable.
+const PULL_HOLD_MS = 3000;
+// Finger travel (px) before the hold timer starts. A short drag never arms it.
+const PULL_START_PX = 64;
+// Dropping back under this distance cancels the hold, so the 3s must be continuous.
+const PULL_CANCEL_PX = 36;
+const RING_R = 7;
+const RING_C = 2 * Math.PI * RING_R;
+
+function isEditableTarget(target: EventTarget | null): boolean {
+  return target instanceof Element && !!target.closest('input, textarea, select, [contenteditable="true"]');
+}
+
+function isInsideOverlay(target: EventTarget | null, boundary: HTMLElement): boolean {
+  if (!(target instanceof Element)) return false;
+  const overlay = target.closest('[role="dialog"], [role="alertdialog"], [data-vaul-drawer], [data-vaul-overlay]');
+  return !!overlay && boundary.contains(overlay);
+}
+
+function collectVerticalScrollers(target: EventTarget | null, boundary: HTMLElement): HTMLElement[] {
+  const scrollers: HTMLElement[] = [];
+  let node = target instanceof Element ? target : null;
+  while (node && node !== boundary) {
+    if (node instanceof HTMLElement) {
+      const overflowY = window.getComputedStyle(node).overflowY;
+      const scrolls = overflowY === 'auto' || overflowY === 'scroll' || overflowY === 'overlay';
+      if (scrolls && node.scrollHeight > node.clientHeight + 1) {
+        scrollers.push(node);
+      }
+    }
+    node = node.parentElement;
+  }
+  return scrollers;
+}
+
+function scrollChainAtTop(scrollers: HTMLElement[], boundary: HTMLElement): boolean {
+  if (boundary.scrollTop > 1) return false;
+  for (const el of scrollers) {
+    if (el.scrollTop > 1) return false;
+  }
+  return true;
+}
+
 function MobileContainer({ children }: { children: React.ReactNode }) {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const touchStartYRef = useRef<number | null>(null);
-  const [pullDistance, setPullDistance] = useState(0);
-  const [isRefreshing, setIsRefreshing] = useState(false);
+  const indicatorRef = useRef<HTMLDivElement>(null);
+  const labelRef = useRef<HTMLSpanElement>(null);
+  const ringSvgRef = useRef<SVGSVGElement>(null);
+  const ringRef = useRef<SVGCircleElement>(null);
+  const refreshingRef = useRef(false);
 
-  // Theme-aware container â€” reads CSS custom properties set by ThemeProvider
+  // Theme-aware container — reads CSS custom properties set by ThemeProvider
   const bgPage = 'var(--theme-bg-page, #F3F4F6)';
   const bgCard = 'var(--theme-bg-card, #FFFFFF)';
   const shadow = 'var(--theme-shadow, rgba(0,0,0,0.08))';
 
-  const refreshPage = useCallback(() => {
-    if (isRefreshing) return;
-    setIsRefreshing(true);
-    window.location.reload();
-  }, [isRefreshing]);
-
-  const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
-    if (event.touches.length !== 1) return;
+  useEffect(() => {
     const scrollEl = scrollRef.current;
-    if (!scrollEl || scrollEl.scrollTop > 0 || isRefreshing) return;
-    touchStartYRef.current = event.touches[0].clientY;
-    setPullDistance(0);
-  };
+    if (!scrollEl) return;
 
-  const handleTouchMove = (event: React.TouchEvent<HTMLDivElement>) => {
-    if (touchStartYRef.current === null || isRefreshing) return;
-    const scrollEl = scrollRef.current;
-    if (!scrollEl || scrollEl.scrollTop > 0) return;
+    const gesture = {
+      startY: null as number | null,
+      tracking: false,
+      holdStartedAt: null as number | null,
+      armed: false,
+      raf: 0,
+      scrollers: [] as HTMLElement[],
+    };
 
-    const deltaY = event.touches[0].clientY - touchStartYRef.current;
-    if (deltaY <= 0) {
-      setPullDistance(0);
-      return;
-    }
+    const setRing = (progress: number) => {
+      const ring = ringRef.current;
+      if (!ring) return;
+      const clamped = Math.max(0, Math.min(1, progress));
+      ring.style.strokeDashoffset = String(RING_C * (1 - clamped));
+    };
 
-    event.preventDefault();
-    setPullDistance(Math.min(deltaY * 0.6, 120));
-  };
+    const setLabel = (text: string) => {
+      if (labelRef.current && labelRef.current.textContent !== text) {
+        labelRef.current.textContent = text;
+      }
+    };
 
-  const handleTouchEnd = () => {
-    if (isRefreshing) return;
-    if (pullDistance >= 88) {
-      refreshPage();
-      return;
-    }
-    touchStartYRef.current = null;
-    setPullDistance(0);
-  };
+    const setIndicator = (distance: number, visible: boolean) => {
+      const el = indicatorRef.current;
+      if (!el) return;
+      el.style.opacity = visible ? '1' : '0';
+      el.style.transform = `translateX(-50%) translateY(${Math.min(Math.max(distance, 0), 80)}px)`;
+    };
+
+    const setSpinning = (spinning: boolean) => {
+      ringSvgRef.current?.classList.toggle('animate-spin', spinning);
+    };
+
+    const stopRaf = () => {
+      if (gesture.raf) {
+        cancelAnimationFrame(gesture.raf);
+        gesture.raf = 0;
+      }
+    };
+
+    const disarm = () => {
+      gesture.holdStartedAt = null;
+      gesture.armed = false;
+      stopRaf();
+      setRing(0);
+      setSpinning(false);
+    };
+
+    let moveBound = false;
+    const unbindMove = () => {
+      if (!moveBound) return;
+      scrollEl.removeEventListener('touchmove', onMove);
+      moveBound = false;
+    };
+
+    const hide = () => {
+      disarm();
+      gesture.tracking = false;
+      gesture.startY = null;
+      gesture.scrollers = [];
+      unbindMove();
+      setIndicator(0, false);
+      setLabel('Pull to refresh');
+    };
+
+    const tick = () => {
+      if (!gesture.holdStartedAt || gesture.armed) return;
+      const progress = Math.min((performance.now() - gesture.holdStartedAt) / PULL_HOLD_MS, 1);
+      setRing(progress);
+      if (progress >= 1) {
+        gesture.armed = true;
+        gesture.raf = 0;
+        setRing(1);
+        setLabel('Release to refresh');
+        return;
+      }
+      gesture.raf = requestAnimationFrame(tick);
+    };
+
+    const onStart = (event: TouchEvent) => {
+      if (refreshingRef.current || event.touches.length !== 1) return;
+      if (isEditableTarget(event.target) || isInsideOverlay(event.target, scrollEl)) return;
+      const scrollers = collectVerticalScrollers(event.target, scrollEl);
+      if (!scrollChainAtTop(scrollers, scrollEl)) return;
+
+      gesture.startY = event.touches[0].clientY;
+      gesture.tracking = true;
+      gesture.armed = false;
+      gesture.holdStartedAt = null;
+      gesture.scrollers = scrollers;
+      stopRaf();
+      setRing(0);
+      setSpinning(false);
+      setLabel('Pull to refresh');
+      setIndicator(0, false);
+      if (!moveBound) {
+        scrollEl.addEventListener('touchmove', onMove, { passive: false });
+        moveBound = true;
+      }
+    };
+
+    const onMove = (event: TouchEvent) => {
+      if (!gesture.tracking || gesture.startY == null || refreshingRef.current) return;
+      if (event.touches.length !== 1 || !scrollChainAtTop(gesture.scrollers, scrollEl)) {
+        hide();
+        return;
+      }
+
+      const deltaY = event.touches[0].clientY - gesture.startY;
+
+      // Finger moving up is a normal scroll. Never treat it as a refresh.
+      if (deltaY <= -10) {
+        hide();
+        return;
+      }
+
+      // Tiny downward jitter should not steal scrolling from the browser.
+      // Once a hold is running, falling back through this zone cancels it.
+      if (deltaY < 16 && gesture.holdStartedAt == null && !gesture.armed) {
+        setIndicator(0, false);
+        setLabel('Pull to refresh');
+        setRing(0);
+        return;
+      }
+
+      // Committed pull at the top of every scroll container. Block native
+      // overscroll refresh; real scrolling already returned above.
+      if (event.cancelable) event.preventDefault();
+
+      const distance = Math.min(deltaY * 0.6, 120);
+      setIndicator(distance, true);
+
+      if (gesture.armed) {
+        if (deltaY < PULL_CANCEL_PX) {
+          hide();
+          return;
+        }
+        setLabel('Release to refresh');
+        setRing(1);
+        return;
+      }
+
+      if (deltaY < PULL_START_PX) {
+        if (gesture.holdStartedAt != null && deltaY < PULL_CANCEL_PX) {
+          disarm();
+          setLabel('Pull to refresh');
+        } else if (gesture.holdStartedAt != null) {
+          setLabel('Hold to refresh');
+        } else {
+          setLabel('Pull to refresh');
+          setRing(0);
+        }
+        return;
+      }
+
+      if (gesture.holdStartedAt == null) {
+        gesture.holdStartedAt = performance.now();
+        setLabel('Hold to refresh');
+        gesture.raf = requestAnimationFrame(tick);
+      }
+    };
+
+    const onEnd = () => {
+      if (refreshingRef.current) return;
+      if (gesture.armed && gesture.tracking) {
+        refreshingRef.current = true;
+        stopRaf();
+        gesture.tracking = false;
+        unbindMove();
+        setRing(1);
+        setSpinning(true);
+        setLabel('Refreshing...');
+        setIndicator(80, true);
+        window.location.reload();
+        return;
+      }
+      hide();
+    };
+
+    scrollEl.addEventListener('touchstart', onStart, { passive: true });
+    scrollEl.addEventListener('touchend', onEnd);
+    scrollEl.addEventListener('touchcancel', onEnd);
+
+    return () => {
+      stopRaf();
+      unbindMove();
+      scrollEl.removeEventListener('touchstart', onStart);
+      scrollEl.removeEventListener('touchend', onEnd);
+      scrollEl.removeEventListener('touchcancel', onEnd);
+    };
+  }, []);
 
   return (
     <div
@@ -201,26 +402,33 @@ function MobileContainer({ children }: { children: React.ReactNode }) {
           boxShadow: `0 25px 50px ${shadow}`,
           touchAction: 'pan-y',
           WebkitOverflowScrolling: 'touch',
+          overscrollBehaviorY: 'none',
         }}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-        onTouchCancel={handleTouchEnd}
       >
         <div
-          className="absolute left-1/2 top-2 z-30 -translate-x-1/2 pointer-events-none transition-all duration-150"
-          style={{
-            opacity: pullDistance > 0 || isRefreshing ? 1 : 0,
-            transform: `translateX(-50%) translateY(${Math.min(pullDistance, 80)}px)`,
-          }}
+          ref={indicatorRef}
+          className="absolute left-1/2 top-2 z-30 pointer-events-none"
+          style={{ opacity: 0, transform: 'translateX(-50%) translateY(0px)' }}
         >
           <div className="flex items-center gap-2 rounded-full bg-white/95 px-3 py-2 shadow-lg border border-gray-200">
-            <div
-              className={`h-4 w-4 rounded-full border-2 border-gray-300 border-t-transparent ${isRefreshing ? 'animate-spin' : ''}`}
-              style={isRefreshing ? { borderTopColor: 'transparent' } : {}}
-            />
-            <span className="text-xs font-semibold text-gray-700">
-              {isRefreshing ? 'Refreshing...' : 'Pull to refresh'}
+            <svg ref={ringSvgRef} width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+              <circle cx="9" cy="9" r={RING_R} fill="none" stroke="#E5E7EB" strokeWidth="2.5" />
+              <circle
+                ref={ringRef}
+                cx="9"
+                cy="9"
+                r={RING_R}
+                fill="none"
+                stroke="#E60000"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeDasharray={RING_C}
+                strokeDashoffset={RING_C}
+                transform="rotate(-90 9 9)"
+              />
+            </svg>
+            <span ref={labelRef} className="text-xs font-semibold text-gray-700" aria-live="polite">
+              Pull to refresh
             </span>
           </div>
         </div>
@@ -233,7 +441,6 @@ function MobileContainer({ children }: { children: React.ReactNode }) {
     </div>
   );
 }
-
 function App() {
 
   // Supervisor state (must be before any return)

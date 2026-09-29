@@ -8,6 +8,8 @@ html, body {
   margin: 0;
   padding: 0;
   -webkit-overflow-scrolling: touch;
+  /* Disable Chrome/Android native pull-to-refresh so only the 3s hold can reload. */
+  overscroll-behavior-y: none;
   background: var(--theme-bg-page, #f3f4f6);
   color: var(--theme-text-primary, #111827);
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -32,6 +34,7 @@ html, body {
   min-height: 100vh;
   overflow: auto;
   position: relative;
+  overscroll-behavior-y: none;
 }
 
 /* Prevent zoom on input focus (iOS Safari) */
