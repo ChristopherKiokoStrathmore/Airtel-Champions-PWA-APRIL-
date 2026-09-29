@@ -6594,7 +6594,7 @@ html, body {
   padding: 0;
   transition: background-color .3s, color .3s;
   overflow: auto;
-  /* Disable Chrome/Android native pull-to-refresh so only the 3s hold can reload. */
+  /* Disable Chrome/Android native pull-to-refresh so only the 1.5s hold can reload. */
   overscroll-behavior-y: none;
 }
 

@@ -138,10 +138,11 @@ type UserRole = 'sales_executive' | 'zonal_sales_manager' | 'zonal_business_mana
 // When defined inside App's render, React sees a NEW component type on every
 // re-render, which tears down and recreates the entire child tree (all state,
 // effects, API calls restart). Moving it here keeps the reference stable.
-const PULL_HOLD_MS = 3000;
+// 1.5 seconds of continuous pull before refresh can arm. The ring fills over this same duration.
+const PULL_HOLD_MS = 1500;
 // Finger travel (px) before the hold timer starts. A short drag never arms it.
 const PULL_START_PX = 64;
-// Dropping back under this distance cancels the hold, so the 3s must be continuous.
+// Dropping back under this distance cancels the hold, so the 1.5s must be continuous.
 const PULL_CANCEL_PX = 36;
 const RING_R = 7;
 const RING_C = 2 * Math.PI * RING_R;

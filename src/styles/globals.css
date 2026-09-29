@@ -8,7 +8,7 @@ html, body {
   margin: 0;
   padding: 0;
   -webkit-overflow-scrolling: touch;
-  /* Disable Chrome/Android native pull-to-refresh so only the 3s hold can reload. */
+  /* Disable Chrome/Android native pull-to-refresh so only the 1.5s hold can reload. */
   overscroll-behavior-y: none;
   background: var(--theme-bg-page, #f3f4f6);
   color: var(--theme-text-primary, #111827);
